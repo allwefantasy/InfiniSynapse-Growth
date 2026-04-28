@@ -1,0 +1,7 @@
+1. 社群运营，朋友圈转发，对接用户疑问DIO
+2. v4数据集深度分析报告gpt，丢给ai写矩阵文案，ai测试人设（共发布3篇）
+矩阵运营：发布图片要比较多，不能是一张图，tag：蹭其他模型热点；不能添加泛化tag（人工智能之类的），添加数据分析强相关tag，数据分析，ai工具，效率，大模型
+（3.的录制应该在mac电脑上面完成，需要阅读一下梦媛找的对标视频--已阅读）
+3. 撰写1个excel脚本
+https://my.feishu.cn/wiki/BMvYwDaxhixBickz4dVcWSpznFd?from=from_copylink
+4. 数据集第一批校验确定
