@@ -1,6 +1,6 @@
 ---
 name: wechat-mp-draft-skill
-description: 用本机 agent-browser CLI 把一篇 Markdown 文章（含本地图片）自动化地发布/更新到微信公众号**草稿箱**。覆盖：本地 md 先落盘到 william-docs 存档、标题/作者/正文粘贴、本地图片批量上传到 mmbiz CDN、图片占位符替换、ProseMirror 编辑器去重 H1、**覆盖更新已有草稿时复用 CDN URL 不重传**、保存草稿后的验证。全程只保存草稿绝不点"发表"。当用户说"帮我写一篇公众号"、"把这篇文章发到公众号草稿"、"粘贴到公众号里"、"上传到 mp.weixin.qq.com"、"保存到草稿箱"、"覆盖上一次的草稿"、"改一下公众号里那篇"时使用。
+description: 用本机 agent-browser CLI 把一篇 Markdown 文章（含本地图片）自动化地发布/更新到微信公众号**草稿箱**。覆盖：本地 md 先落盘到 william-docs 存档、标题/作者/正文粘贴、本地图片批量上传到 mmbiz CDN、图片占位符替换、ProseMirror 编辑器去重 H1、**覆盖更新已有草稿时复用 CDN URL 不重传**、**给标题/正文/列表/引用/表格统一注入行内样式（字号/颜色/行距/对齐）让公众号渲染有设计感**、**把 markdown 表格转为精美图卡再嵌入**、**对平台真实业务数据做脱敏处理（文字 `***` 转义 + 表格图重渲染 + 截图打码可选）**、保存草稿后的验证。全程只保存草稿绝不点"发表"。当用户说"帮我写一篇公众号"、"把这篇文章发到公众号草稿"、"粘贴到公众号里"、"上传到 mp.weixin.qq.com"、"保存到草稿箱"、"覆盖上一次的草稿"、"改一下公众号里那篇"、"调整公众号字号/字体/颜色/行距"、"把表格转成图片"、"对平台数据做脱敏"时使用。
 ---
 
 # 微信公众号草稿自动化 Skill
@@ -42,7 +42,10 @@ description: 用本机 agent-browser CLI 把一篇 Markdown 文章（含本地�
 - 本机 `agent-browser` 路径：`~/.auto-coder/.autocodertools/agent-browser`
 - daemon 必须带**持久 profile** 运行（`agent-browser daemon start`），确保微信公众号登录态跨会话保留
 - Python 3 + `markdown` 包（`pip3 install markdown`），用于把 md 转成公众号能识别的 HTML
-- 配套脚本：[`bin/md2html.py`](bin/md2html.py)
+- 配套脚本：
+  - [`bin/md2html.py`](bin/md2html.py) —— Markdown → HTML + base64（基础转换）
+  - [`bin/inject-styles.py`](bin/inject-styles.py) —— 给 HTML 注入行内样式（公众号编辑器只认 inline style, 详见 §11 "进阶: 文章样式注入"）
+- 可选: `Pillow`（`pip3 install Pillow`），用于裁剪表格渲染图 / 给截图打码
 - 姊妹 skill：[web-ui-review-skill](../web-ui-review-skill/SKILL.md)（基础动作和坑复用同一套）
 
 ---
@@ -224,6 +227,25 @@ python3 ~/projects/william-docs/skills/global/wechat-mp-draft-skill/bin/md2html.
 1. **删掉源文件第一个 H1**（`^# 标题`）—— 因为公众号顶部已经有单独的"标题"输入框了，正文 H1 会重复
 2. **把 `![alt](images/XX.png)` 转成醒目占位段落**：`<p data-image-placeholder="images/XX.png" style="...">【待上传图片：<alt>】</p>`
 3. **输出 base64 版本**：避免 shell 传长字符串时的转义问题
+
+### 4.5 (推荐) 注入行内样式 ⭐ 让公众号渲染有设计感
+
+公众号 ProseMirror 编辑器**只认 inline style**——CSS 类名 / `<style>` 块都会在 paste 时被丢弃。如果跳过这一步，正文会用编辑器默认的"灰头土脸"样式：所有文字都是同样的字号、所有标题都是黑色、行距很挤、对齐方式不可控。
+
+跑一下 `inject-styles.py` 给所有标签批量打上 `style="..."`：
+
+```bash
+python3 ~/.../wechat-mp-draft-skill/bin/inject-styles.py \
+    --in article.html \
+    --out-html article.html \
+    --out-b64 article.html.b64
+# 输出:
+#   Input HTML:  article.html (8803 chars)
+#   Styled HTML: article.html (16812 chars)   ← 大约翻倍, 因为每个标签都加了 style
+#   Base64:      article.html.b64 (31096 chars)
+```
+
+完整规则参考 §11，要改主题色 / 字号直接编辑脚本里的 `TAG_STYLES_DEFAULT` 字典。
 
 ### 5. 把 HTML 通过 paste event 注入 ProseMirror ⭐ 本 skill 最关键一步
 
@@ -612,12 +634,18 @@ cat "$ARTICLE_DIR/.wechat-mp-meta.json"
 
 **为什么能工作**：Range 全选 + Delete 是 ProseMirror 原生支持的编辑动作，和用户按 Cmd+A+Delete 等价，state 会被正确更新，不会被回滚。
 
-### 5. 转新 HTML + paste（跟流程 A Step 4+5 一样）
+### 5. 转新 HTML + 注入样式 + paste（跟流程 A Step 4+4.5+5 一样）
 
 ```bash
 cd "$ARTICLE_DIR"
 python3 ~/projects/william-docs/skills/global/wechat-mp-draft-skill/bin/md2html.py \
     --in article.md \
+    --out-html article.html \
+    --out-b64 article.html.b64
+
+# 注入行内样式 (跟流程 A Step 4.5 一样, 公众号编辑器只认 inline style)
+python3 ~/projects/william-docs/skills/global/wechat-mp-draft-skill/bin/inject-styles.py \
+    --in article.html \
     --out-html article.html \
     --out-b64 article.html.b64
 
@@ -738,6 +766,284 @@ CDN_JSON=$(cat "$ARTICLE_DIR/.wechat-mp-meta.json" | python3 -c 'import json,sys
 
 ---
 
+## 11. 进阶: 文章样式注入（字号 / 颜色 / 行距 / 对齐）⭐
+
+### 11.1 为什么必须做这步
+
+公众号 ProseMirror 编辑器**只认 inline style**：
+
+| 写法 | 结果 |
+|---|---|
+| `<style>.foo{color:red}</style>` + `<p class="foo">` | ❌ class 在 paste 时被丢弃, 颜色无效 |
+| `<link rel="stylesheet" href="...">` | ❌ 直接被忽略 |
+| `<p style="color:red">` | ✅ 唯一能稳定生效的写法 |
+
+所以 md2html.py 出来的 HTML **必须再过一遍 `inject-styles.py`**，给每个标签都打上 inline style，公众号才能呈现出设计感。否则正文会是灰头土脸的浏览器默认样式。
+
+### 11.2 默认样式预设（"InfiniSynapse 蓝" 主题）
+
+`bin/inject-styles.py` 自带这套默认样式（适合数据 / AI 类技术品牌的官方文章）：
+
+| 标签 | 字号 | 颜色 | 行距 | 对齐 | 其它 |
+|---|---|---|---|---|---|
+| `<h1>` | 20px | `#1e6fff` 蓝 | 1.75 | left | 加粗 |
+| `<h2>` | **18px** | **`#1e6fff` 蓝** | **1.75** | **left** | 加粗 |
+| `<h3>` | 16px | `#333` 深灰 | 1.75 | left | 加粗 |
+| `<p>`  | **15px** | 默认 | **1.75** | **left** | letter-spacing 0.5px |
+| `<li>` | 15px | 默认 | 1.75 | left | — |
+| `<blockquote>` | 15px | `#666` 灰 | 1.75 | left | 左侧 3px 蓝色竖线 |
+| `<table>` | 14px | — | 1.75 | — | 实际很少用, 推荐转图片 §12 |
+| `<th>` | 14px | `#1e6fff` | — | — | 浅蓝底 `#f5f8ff` |
+| `<td>` | 14px | — | 1.75 | — | — |
+
+**图片对齐**单独由 md2html.py 的占位符 + 流程 A/B 的替换逻辑处理（包裹 p 上 `text-align:center; margin:1em 0`），**不在 inject-styles 控制范围**。
+
+### 11.3 改成别的主题怎么办
+
+直接编辑 `bin/inject-styles.py` 顶部的 `TAG_STYLES_DEFAULT` 字典即可。例如换成绿色品牌：
+
+```python
+"h2": "font-size:18px;color:#22c55e;..."     # 把蓝色 #1e6fff 改成绿色 #22c55e
+```
+
+或者在脚本里加一个 `--preset blue|green|warm` 参数, 把多套预设并存(本 skill 默认只带蓝主题).
+
+### 11.4 关键技巧: 负向先行断言保护已有 style 的标签
+
+脚本用 `(?![^>]*style=)` 来跳过已经有 `style="..."` 的标签：
+
+```python
+re.sub(
+    r'<' + tag + r'(?![^>]*style=)([^>]*)>',  # ⭐ 跳过已有 style 的
+    f'<{tag} style="{style}"\\1>',
+    html
+)
+```
+
+**为什么必须这么做**：md2html.py 输出的图片占位符就是 `<p data-image-placeholder="..." style="...">`。如果不加保护, inject-styles 会把它的 `style="text-align:center;..."` 覆盖掉, 导致后续 paste 进编辑器后图片占位符变成左对齐 / 没了灰底。**这一条规则是把"样式注入"和"图片占位符"两条机制无缝串起来的关键**.
+
+### 11.5 完整流水线 (md → 公众号)
+
+```
+article.md
+   │
+   ▼  python3 md2html.py
+article.html        (含 <p data-image-placeholder=...> 占位符)
+   │
+   ▼  python3 inject-styles.py    ← 本节新增的步骤
+article.html        (≈翻倍, 每个标签都打了 inline style; 占位符的 style 被保护)
+   │
+   ▼  base64 编码 → eval 注入 window 变量
+window.__article_html
+   │
+   ▼  ClipboardEvent('paste')  → ProseMirror
+公众号编辑器        (蓝色 H2 / 15px 正文 / 1.75 行距 / 左对齐, 图片居中)
+```
+
+---
+
+## 12. 进阶: 平台数据脱敏 (避免泄漏真实业务指标) ⭐
+
+### 12.1 什么时候需要
+
+任何**对外发布**的文章, 只要正文 / 截图 / 表格里出现了**未公开**的真实业务数据 (如月活、付费转化率、订阅数、营收), 都应该脱敏后再发。这是合规底线, 也是品牌姿态。
+
+但脱敏对象有 3 类、3 种处理方式, 别混在一起搞:
+
+| 出处 | 处理方式 | 难度 |
+|---|---|---|
+| **Markdown 正文里的数字** (例: "4 月新增 242 人") | 直接改 md 把数字换成 `\*\*\*` (转义 markdown 的 emphasis 含义) | ⭐ 最简单 |
+| **Markdown 表格** (会被 §12.4 转图) | 重新渲染表格图, 渲染时把数字字段写成 `***` / `***%` | ⭐⭐ 中 |
+| **真实截图** (用户上传的网页 / 后台截图) | 选: ① 接受不脱敏(头条数字往往糊不细看)/ ② Pillow 画半透明黑条 / ③ 重做卡通示意图 | ⭐⭐⭐ 看情况 |
+
+### 12.2 文字脱敏: markdown 的 `*` 转义陷阱
+
+**直接写裸 `***`** 会被 markdown 解释器吞掉:
+
+```md
+4 月新增 *** 人 / 环比 ***%
+```
+
+会被渲染成（甚至可能更乱）:
+```html
+4 月新增  人 / 环比 %    <!-- 三个 * 被当 emphasis 吃掉, 留空白 -->
+```
+
+**正解**: 用反斜杠转义每个 `*`:
+
+```md
+4 月新增 \*\*\* 人 / 环比 \*\*%
+```
+
+转换后的 HTML 会是字面值:
+
+```html
+4 月新增 *** 人 / 环比 **%
+```
+
+如果是要批量脱敏, 用 Python 做查找替换比手动改稳:
+
+```python
+import re
+content = open('article.md').read()
+# 把 "4 月新增 242 人" → "4 月新增 \*\*\* 人"
+content = re.sub(r'(4 月新增 )\d+( 人)', r'\1\\*\\*\\*\2', content)
+# 把 "+49.4%" → "+\*\*%"
+content = re.sub(r'\+\d+(\.\d+)?%', '+\\*\\*%', content)
+open('article.md', 'w').write(content)
+```
+
+### 12.3 markdown 表格 → 脱敏图片
+
+如果文章里有 markdown 表格 (like `| 指标 | 数值 |`), 推荐**整表转成精美图卡**而不是逐个改数字, 原因:
+
+1. 公众号 markdown 表格在某些手机渲染出来很丑(换行乱、字体丑)
+2. 转成图卡后顺手可以加品牌色 / 图标 / 副标题, 视觉档次直接上一档
+3. **脱敏更方便** —— 渲染图卡的 HTML 里直接把数字字段写 `***`, 不需要担心后续被引用
+
+完整流程: 见 §12.4
+
+### 12.4 表格转图卡的标准流程
+
+```bash
+# 1) 把表格内容写成一个独立 HTML 文件 (含品牌色样式)
+cat > /tmp/table-render/table1.html <<'HTML'
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+body { margin:0; padding:32px; background:#fff; font-family:-apple-system,"PingFang SC",sans-serif; }
+.card { width:680px; border:1px solid #e6eaf2; border-radius:14px; overflow:hidden; box-shadow:0 4px 20px rgba(30,111,255,0.08); }
+.title { background:linear-gradient(135deg,#1e6fff,#4a8aff); color:#fff; padding:18px 24px; font-size:18px; font-weight:600; }
+table { width:100%; border-collapse:collapse; }
+td { padding:18px 24px; font-size:15px; color:#333; border-bottom:1px solid #f0f3f8; }
+td.value { color:#1e6fff; font-size:22px; font-weight:700; text-align:right; font-family:'SF Mono',Menlo,monospace; letter-spacing:2px; }
+.footnote { padding:14px 24px; background:#fafbff; font-size:12px; color:#999; }
+</style></head><body>
+<div class="card">
+<div class="title">2026 年 4 月用户增长基线</div>
+<table>
+<tr><td>累计平台用户</td><td class="value">******</td></tr>     <!-- ⭐ 脱敏: 写 ****** 而不是真实值 -->
+<tr><td>4 月新激活</td><td class="value">***</td></tr>
+<tr><td>激活完成率</td><td class="value">**%</td></tr>
+</table>
+<div class="footnote">数据已脱敏处理</div>      <!-- 加这行明确告诉读者数据是脱敏的 -->
+</div></body></html>
+HTML
+
+# 2) 起一个 HTTP 服务 (agent-browser 不直接支持 file:// 协议)
+cd /tmp/table-render && python3 -m http.server 8765 > /tmp/http.log 2>&1 &
+HTTP_PID=$!; sleep 1
+
+# 3) 用 agent-browser 打开 + 读 .card 的尺寸 + 截图
+$AGENT set viewport 800 700
+$AGENT open "http://127.0.0.1:8765/table1.html?v=$(date +%s)"      # ?v=ts 强制绕过缓存
+$AGENT wait 1000
+$AGENT eval "(() => { const r = document.querySelector('.card').getBoundingClientRect();
+  return JSON.stringify({w: Math.ceil(r.width)+64, h: Math.ceil(r.height)+64}); })()"
+# → {"w":746,"h":527} (含 32px padding ×2)
+$AGENT screenshot --full /tmp/table-render/table1-full.png
+
+# 4) 用 Pillow 裁剪掉空白
+python3 - <<'PY'
+from PIL import Image
+img = Image.open('/tmp/table-render/table1-full.png')
+img.crop((0, 0, 746, 527)).save('/tmp/table-render/table1.png', optimize=True)
+PY
+
+# 5) 关 http server, 把成品图复制到 images/, 在 md 里用 ![](images/XX.png) 引用
+kill $HTTP_PID
+cp /tmp/table-render/table1.png "$ARTICLE_DIR/images/10-table-pillars.png"
+```
+
+**所以一个完整的"脱敏表格"成品图长这样**: 蓝色渐变标题 + 浅蓝表头底色 + `***` / `**%` 替代真实值 + 底部 "数据已脱敏处理" 小标注。视觉档次远高于公众号默认 markdown 表格渲染。
+
+### 12.5 截图打码 (可选, 看情境)
+
+真实截图含敏感数字时, 三个选项:
+
+**A. 接受不脱敏** (推荐, 大多数情况下)
+
+读者一般不会去逐字辨识截图里的数字, 文字主体已脱敏就够了。**只要正文里没用文字 quote 截图里的数字, 就算合规**。
+
+**B. Pillow 画半透明黑条**
+
+在原图上盖几个 `rgba(0,0,0,180)` 黑条, 保留版式但抠掉数字:
+
+```python
+from PIL import Image, ImageDraw
+img = Image.open('images/00-wechat-trigger.png').convert('RGBA')
+overlay = Image.new('RGBA', img.size, (0,0,0,0))
+d = ImageDraw.Draw(overlay)
+# 矩形坐标根据具体截图量出来
+d.rectangle([200, 380, 350, 420], fill=(0,0,0,180))   # 盖住 "242 人" 那个区域
+d.rectangle([200, 410, 350, 450], fill=(0,0,0,180))   # 盖住 "+49.4%"
+out = Image.alpha_composite(img, overlay).convert('RGB')
+out.save('images/00-wechat-trigger.masked.png')
+```
+
+**C. 重做卡通示意图**
+
+完全不用真实截图, 用 Figma / 在线工具画一张示意图, 数据用占位符。视觉真实感会丢, 但脱敏最彻底。
+
+### 12.6 ⚠️ 流程 B 重传脱敏图的关键陷阱
+
+**问题**: 你重新生成了一张脱敏后的 `images/11-table-baseline.png` (新文件内容、同文件名), 想覆盖更新到草稿。**直接走流程 B 会失败** —— 因为 `meta.cdn_urls['images/11-table-baseline.png']` 指向的还是**旧带数字**的 CDN URL, paste 后会被复用, 看上去毫无变化。
+
+**正解**: 替换本地图后, **手动从 meta 移除该条 CDN URL**, 强制走"NO_URL → 重传"路径:
+
+```bash
+cp /tmp/table-render/table1.png "$ARTDIR/images/11-table-baseline.png"
+
+# ⭐ 关键: 从 meta 移除旧 URL
+python3 - <<EOF
+import json
+p = '$ARTDIR/.wechat-mp-meta.json'
+m = json.load(open(p))
+m['cdn_urls'].pop('images/11-table-baseline.png', None)   # 让流程 B 当成"新增图"重传
+json.dump(m, open(p, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
+EOF
+
+# 然后正常走流程 B (它会发现这个 key 在 missing 列表里, 触发 upload)
+```
+
+**判定流程 B 重传成功**:
+- paste 后 missing 列表只含被你移除的那个 key
+- upload 后 DOM 里多出 1 条 `mmbiz.qpic.cn` URL
+- 用差集 (新 URL ∉ meta.cdn_urls) 找出新图, 替换占位符
+- 完成后写回 meta.cdn_urls
+
+### 12.7 多张图同时被改的批量处理
+
+如果一次改了多张图(例如恢复 4 张被加水印的截图回干净版):
+
+```bash
+# 1) 从 git 恢复干净原图 (前提: 干净版在 git 历史里)
+git checkout -- images/00-wechat-trigger.png images/05-phase3-saving.png \
+                 images/07-memory-card.png images/09-memory-baseline.png
+
+# 2) 一次从 meta 移除 4 个 CDN URL
+python3 - <<EOF
+import json
+p = '$ARTDIR/.wechat-mp-meta.json'
+m = json.load(open(p))
+for k in ['images/00-wechat-trigger.png', 'images/05-phase3-saving.png',
+          'images/07-memory-card.png', 'images/09-memory-baseline.png']:
+    m['cdn_urls'].pop(k, None)
+json.dump(m, open(p, 'w', encoding='utf-8'), ensure_ascii=False, indent=2)
+EOF
+
+# 3) 走流程 B: paste → 替换缓存的(剩 6 张) → upload 4 张新图 → 用差集替换 → 保存
+# 上传顺序必须等于 placeholders 在 paste 后的 NO_URL 顺序 = md 文件中图片出现顺序
+$AGENT upload "input[type=file]" \
+    "$ARTDIR/images/00-wechat-trigger.png" \
+    "$ARTDIR/images/05-phase3-saving.png" \
+    "$ARTDIR/images/07-memory-card.png" \
+    "$ARTDIR/images/09-memory-baseline.png"
+$AGENT wait 8000
+# 然后用差集 (newOnes = allCdn ∖ knownSet) 一一替换 placeholders[i] (按顺序对应)
+```
+
+---
+
 ## 反模式（见到就阻止自己）
 
 1. ❌ **点了"发表"按钮** —— 不可撤销，会推送给所有粉丝。永远只点"保存为草稿"
@@ -756,6 +1062,12 @@ CDN_JSON=$(cat "$ARTICLE_DIR/.wechat-mp-meta.json" | python3 -c 'import json,sys
 14. ❌ **image alt 含单引号或反引号** —— 放在 `innerHTML` 里会破坏字符串
 15. ❌ **跨会话复用 @eN ref** —— 编辑器 DOM 频繁重渲染，ref 很快失效
 16. ❌ **让 AI 自己决定"发表还是草稿"** —— 除非用户**明确说**"替我发出去"，默认永远只发草稿
+17. ❌ **跳过 inject-styles 直接 paste md2html 的纯 HTML** —— 公众号编辑器丢弃所有 class / `<style>`，正文会变成"灰头土脸"的浏览器默认样式。md2html → inject-styles → paste 三步缺一不可，见 §11
+18. ❌ **修改 inject-styles.py 时把"图片占位符 p"的 style 也覆盖掉** —— 会让图片变成左对齐 / 没了灰底。负向先行断言 `(?![^>]*style=)` 必须保留, 见 §11.4
+19. ❌ **markdown 里裸写 `***` 想表示脱敏** —— 会被解释成 emphasis 吃掉。必须 `\*\*\*` 转义, 见 §12.2
+20. ❌ **替换脱敏后的本地图但忘了从 meta 移除旧 CDN URL** —— 流程 B 会复用 meta 里的旧 URL, 看上去毫无变化。必须 `m['cdn_urls'].pop(key, None)` 后再走 NO_URL 重传路径, 见 §12.6
+21. ❌ **agent-browser 直接 open 本地 `file://` 路径渲染表格** —— 会被当成 `https://file///...` 域名解析失败. **必须起一个临时 `python3 -m http.server` 才能 open**, 见 §12.4 步骤 2
+22. ❌ **重新渲染表格图后忘记给 URL 加 `?v=$(date +%s)` 强制刷新** —— 浏览器会缓存旧版, 截图截到的还是旧数字, 见 §12.4 步骤 3
 
 ---
 
@@ -787,15 +1099,16 @@ CDN_JSON=$(cat "$ARTICLE_DIR/.wechat-mp-meta.json" | python3 -c 'import json,sys
     1. 读 meta 拿 appmsgid               1. open home
     2. open appmsg_edit&appmsgid=<id>   2. click "文章" → tab 2
        (或从草稿箱点)                    3. fill 标题/作者
-    3. (可选) 从 DOM 抓 CDN URL          4. md2html → b64
-       重建 meta                         5. paste event 注入 ProseMirror
-    4. fill 新标题                       6. upload 本地图片到 mmbiz CDN
-    5. Range 全选 + press Delete         7. eval: 占位符↔CDN URL 替换
-       清空正文                             + 清理末尾 + 抓 CDN URL mapping
-    6. md2html → paste 新 HTML           8. (如有 H1 残留) Range+press Del
+    3. (可选) 从 DOM 抓 CDN URL          4. md2html
+       重建 meta                         4.5 inject-styles ⭐ §11
+    4. fill 新标题                       5. base64 → paste event 注入 PM
+    5. Range 全选 + press Delete         6. upload 本地图片到 mmbiz CDN
+       清空正文                          7. eval: 占位符↔CDN URL 替换
+    6. md2html → inject-styles ⭐ §11      + 清理末尾 + 抓 CDN URL mapping
+       → paste 新 HTML                  8. (如有 H1 残留) Range+press Del
     7. 用 meta.cdn_urls 替换占位符       9. click "保存为草稿" ⛔ 不是发表
        (不重 upload)                       抽 appmsgid
-    8. (新图才 upload)                  10. 写 meta (appmsgid + cdn_urls)
+    8. (新图 / 脱敏后图 才 upload §12) 10. 写 meta (appmsgid + cdn_urls)
     9. click "保存为草稿"               11. 验证
        URL 里 appmsgid 不变 = OK
    10. 更新 meta.last_saved
@@ -808,7 +1121,7 @@ CDN_JSON=$(cat "$ARTICLE_DIR/.wechat-mp-meta.json" | python3 -c 'import json,sys
 
 ---
 
-## 记住 8 个口诀就够了
+## 记住 10 个口诀就够了
 
 1. **先本地 md 后公众号**，article.md 是 single source of truth，meta 记草稿 ID
 2. **永远只点"保存为草稿"**，绝不点"发表"
@@ -818,7 +1131,13 @@ CDN_JSON=$(cat "$ARTICLE_DIR/.wechat-mp-meta.json" | python3 -c 'import json,sys
 6. **图片直接推 `input[type=file]`**，上传完自己搬占位符，**第一次发布完立刻把 CDN URL 存进 meta**
 7. **覆盖更新不重传图**，用 meta.cdn_urls 匹配占位符；只有新增的图才 upload
 8. **清空正文用 Range + Delete**，H1 去重也一样，`remove()` 会被 ProseMirror 回滚
+9. **md2html → inject-styles → paste 三步缺一**，公众号只认 inline style（见 §11）
+10. **脱敏 = 文字 `\*\*\*` 转义 + 表格图重渲染 + 替换本地图后从 meta 移除旧 URL**（见 §12）
 
 ---
 
-*本 skill 的每一条实践来自 2026-04-23 发两版公众号文章的真实工作流（3192 字新建 + 3312 字覆盖更新，两次复用同一套 6 张 mmbiz CDN 图）。后续遇到新坑请直接更新此文件。*
+*本 skill 的每一条实践来自:*
+- *2026-04-23 发两版公众号文章的真实工作流（3192 字新建 + 3312 字覆盖更新，两次复用同一套 6 张 mmbiz CDN 图）*
+- *2026-05-12 发布 InfiniSynapse 官方文章 (3657 字 + 10 张图 + 2 张表格图卡 + 全文脱敏), 在一次 7 轮迭代里把 §11 样式注入和 §12 数据脱敏两块工作流跑通并沉淀（含 inject-styles.py 脚本、负向先行断言保护占位符的关键技巧、表格 HTML→PNG 渲染流水线、脱敏后从 meta 移除旧 URL 触发 NO_URL 重传的流程）*
+
+*后续遇到新坑请直接更新此文件。*

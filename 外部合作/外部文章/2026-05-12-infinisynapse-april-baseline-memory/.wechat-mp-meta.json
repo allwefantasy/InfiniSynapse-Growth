@@ -3,18 +3,18 @@
   "title": "别让你的 AI 每次都\"失忆\"：用一张知识卡片，把分析变成可积累的资产",
   "author": "InfiniSynapse",
   "cdn_urls": {
-    "images/00-wechat-trigger.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXXF4sfc3WCRTATHtn4YhWuAHQqLw9mr7icldYujKtR2AiaibVub6r8Tia637VpmevAHl0LGjoicDLvmCA7BTwUbXl4EKrWMuLgibfgwI/0?wx_fmt=jpeg&from=appmsg",
     "images/02-question-and-plan.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUbLGgu7uBhlhtWYomUgfvyR5jszAp6lt29ZAeHmayhK76QicQWEibDticyrp2RKI2qhbM38XTXqPepKLzbd5Pm0hjGM1Gv6zLv7Y/0?wx_fmt=png&from=appmsg",
     "images/03-phase1-discovery.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXXTogw0aNicgA7OwQvY3QcCyeibJKoJJr7odcicf8h9uUaOcoE9rm7jGLc3vtiayqUWxUb5rYUicDcicxQGMR67QZVompgSwBdga4d7A/0?wx_fmt=png&from=appmsg",
     "images/06-sql-detail.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXXcicYiaseNZb9W15nbr5lr56py7PJfanwZAA1Kv9DYvB6p7SKgU3YhbQFcedP7AxkIdaBribibgKNNjYzqc4J3SIC190whh5sza3o/0?wx_fmt=png&from=appmsg",
     "images/04-phase2-analysis.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXVVeicrkfJ8drDicXFkng7LR9qgCMC1DfeA5vZ8F3gRQZ8micZTwHKA4tHBF3qo4uK1GK31OKfpfx86xlDeRxMTTo8Fjh0sickMjpY/0?wx_fmt=png&from=appmsg",
-    "images/05-phase3-saving.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXVv9JrBLw7fSy1AB6UeJyiaQgQQaavp4ps8JQMR1QIrtID45lfQZDoujicWXIEt2gK4ZTdt0k6TWq20lbzlxiarxVAiayB5pem3gSs/0?wx_fmt=png&from=appmsg",
-    "images/07-memory-card.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXW65INyLaB6Yz7H0Yvwa2lqvdbYoB2ZcKSY7rrVmZbK9sJyxXkIRTDyEDu5fuFP9iaPqd7KCZ9hlJxEs8xEVQJtnRHOt5O0hMfk/0?wx_fmt=png&from=appmsg",
-    "images/09-memory-baseline.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXXUFjkX39TA8tyian6JvunrIwrhu78RztXt1iaqSw0uClal18SKmnDbGdJHeVpcibQVU0LrzIdUveeW7EWPDIYqs6MYk5heHfTSSA/0?wx_fmt=png&from=appmsg",
     "images/10-table-pillars.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUOf3Xck9ujT1JiaVfQzQQBFmMTcQ3MtCicpoAtxGXaBDiaSChM1TCShibBicQ98hHVXRlMicRSQeWBS0xuZqIvAa0Gr3PcMOhwpkacw/0?wx_fmt=png&from=appmsg",
-    "images/11-table-baseline.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXmO1loXP3NpYbBqtkqYhNsKygdft8MB2IIFlvu53ZAndh0nBdLcmGDwuuCGzW0mIHBlyicia5Lc4OCKdFVSHCwSXWMNic1ia1TSaw/0?wx_fmt=png&from=appmsg"
+    "images/11-table-baseline.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXmO1loXP3NpYbBqtkqYhNsKygdft8MB2IIFlvu53ZAndh0nBdLcmGDwuuCGzW0mIHBlyicia5Lc4OCKdFVSHCwSXWMNic1ia1TSaw/0?wx_fmt=png&from=appmsg",
+    "images/00-wechat-trigger.png": "https://mmbiz.qpic.cn/mmbiz_jpg/7ibiaibCib1GWXX1qK2jRR3nAibc8wGrKKELGtFIBicuYIibFD0XCac63zAvKyiaibrYwDL0iaSenRvKc6CINxN2mCTkUSKVw2T71WUFCNicGlUSzvPIyw/0?wx_fmt=jpeg&from=appmsg",
+    "images/05-phase3-saving.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXU4wDX3GNII37iael1z3gpfJUibfJRmibzydBPRZia36jRJfCWIGJxibprCzIS12wOmDI4iafdh5KiaTubjlo0HXJX99XmUu1bE0gh2LI/0?wx_fmt=png&from=appmsg",
+    "images/07-memory-card.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXXI4D3A3KeV7UpmNw5aqd0qKInDIjydgQb4qZBafbY6x4jU44f85J8LAM6tlggdIh9WI1LmwQv8woXwHr1mj4SwFicm3E7rkLicA/0?wx_fmt=png&from=appmsg",
+    "images/09-memory-baseline.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXVzK7vYQWN9KQBGeZgib2tnO5xMrS4c0qsDribGHu8jWcjib8vj9xnq2TRQQs5PgeicVvapItcxIY1SEpUhR5AC1UjlvfriaGISZtibM/0?wx_fmt=png&from=appmsg"
   },
-  "last_saved": "2026-05-12 13:42",
+  "last_saved": "2026-05-12 15:11",
   "source_md": "article-official.md",
   "styled": {
     "theme": "NYT (New York Times)",
@@ -30,5 +30,5 @@
     "image_align": "center",
     "styled_html_source": "article-official-styled.html"
   },
-  "notes": "所有平台业务数据已脱敏 (文字 + 表格图)"
+  "notes": "4 张截图恢复无水印原版"
 }
