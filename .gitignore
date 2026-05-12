@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# 视频文件 - 任何视频类文件都不要放进 git
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.flv
+*.wmv
+*.m4v
+*.mpg
+*.mpeg
+*.3gp
+*.ts
+*.mts
+*.m2ts
+*.vob
+*.ogv
+*.rmvb
+*.rm
+*.f4v
+*.asf
+*.MP4
+*.MOV
