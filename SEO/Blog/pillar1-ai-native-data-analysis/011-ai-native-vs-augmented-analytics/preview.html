@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>Ai-Native Data Platform: What's the Real Difference?</title>
+<meta name="description" content="AI-native vs augmented analytics explained: how an ai-native data platform differs from Gartner's augmented analytics frame, with a 5-pillar comparison and 3-question 2026 stack test.">
+<link rel="canonical" href="https://infinisynapse.cn/blog/ai-native-vs-augmented-analytics">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="InfiniSynapse Data Team">
+<meta http-equiv="content-language" content="en">
+<link rel="alternate" hreflang="en" href="https://infinisynapse.cn/blog/ai-native-vs-augmented-analytics">
+<link rel="alternate" hreflang="zh-CN" href="https://infinisynapse.cn/zh/blog/ai-native-vs-augmented-analytics">
+<link rel="alternate" hreflang="x-default" href="https://infinisynapse.cn/blog/ai-native-vs-augmented-analytics">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://infinisynapse.cn/blog/ai-native-vs-augmented-analytics">
+<meta property="og:title" content="Ai-Native Data Platform: What's the Real Difference?">
+<meta property="og:description" content="AI-native vs augmented analytics explained: how an ai-native data platform differs from Gartner's augmented analytics frame, with a 5-pillar comparison and 3-question 2026 stack test.">
+<meta property="og:image" content="https://infinisynapse.cn/blog/2026-06-08-ai-native-vs-augmented-analytics/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Comparison of Gartner augmented analytics and AI-native five-pillar framework">
+<meta property="og:site_name" content="InfiniSynapse Blog">
+<meta property="og:locale" content="en_US">
+
+<meta property="article:published_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:modified_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:author" content="https://infinisynapse.cn/about">
+<meta property="article:section" content="AI Data Analysis">
+<meta property="article:tag" content="augmented analytics">
+<meta property="article:tag" content="AI-native">
+<meta property="article:tag" content="data platform">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@InfiniSynapse">
+<meta name="twitter:title" content="Ai-Native Data Platform: What's the Real Difference?">
+<meta name="twitter:description" content="AI-native vs augmented analytics explained: how an ai-native data platform differs from Gartner's augmented analytics frame, with a 5-pillar comparison and 3-question 2026 stack test.">
+<meta name="twitter:image" content="https://infinisynapse.cn/blog/2026-06-08-ai-native-vs-augmented-analytics/og-cover.png">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0d9488;
+  --accent-soft: #f0fdfa;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --banner: #1e40af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.preview-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--banner);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.preview-banner strong { font-weight: 700; }
+.site-header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+.site-header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+article {
+  max-width: 860px;
+  margin: 0 auto 64px;
+  padding: 32px 24px 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+article > h1:first-child {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+article > blockquote:first-of-type {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+h2 {
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent-soft);
+  color: #0f766e;
+}
+h3 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+p { margin: 0 0 1.1rem; }
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.35rem; }
+a { color: #2563eb; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.25rem 0 1.5rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--accent-soft); color: #0f766e; font-weight: 600; }
+tr:nth-child(even) td { background: #fafafa; }
+blockquote {
+  margin: 1.25rem 0;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: #134e4a;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+footer.preview-meta {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer.preview-meta code {
+  font-size: 12px;
+}
+</style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Ai-Native Data Platform: What's the Real Difference?",
+    "description": "AI-native vs augmented analytics explained: how an ai-native data platform differs from Gartner's augmented analytics frame, with a 5-pillar comparison and 3-question 2026 stack test.",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-06-08-ai-native-vs-augmented-analytics/hero.png",
+      "https://infinisynapse.cn/blog/2026-06-08-ai-native-vs-augmented-analytics/five-pillars-vs-augmented.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/ai-native-vs-augmented-analytics"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "AI-native data platform"
+      },
+      {
+        "@type": "Thing",
+        "name": "Augmented analytics"
+      },
+      {
+        "@type": "Thing",
+        "name": "Agentic analytics"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "Organization",
+        "name": "Gartner"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Power BI Copilot",
+        "applicationCategory": "BusinessApplication"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "InfiniSynapse",
+        "applicationCategory": "BusinessApplication",
+        "url": "https://app.infinisynapse.cn"
+      }
+    ],
+    "keywords": "ai-native data platform, augmented analytics, ai-native vs augmented analytics, five pillars"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is augmented analytics outdated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. It remains the correct Gartner category for ML-assisted BI. AI-native is a refinement for buyers who need autonomous execution and compounding memory."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does agentic analytics differ from AI-native?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Agentic emphasizes multi-step planning. AI-native additionally requires transparency, distillation, multi-entry, and self-correction as first-class features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is InfiniSynapse augmented or AI-native?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI-native. InfiniSynapse implements all five pillars via InfiniAgent, InfiniSQL, and InfiniRAG."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I buy first — augmented BI or AI-native agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your team lives in dashboards, augmented BI first. If you run recurring cross-source analyses and lose knowledge when analysts leave, AI-native agent first. Most enterprises need both."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a BI platform become AI-native?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In theory yes, if the vendor rebuilds the workflow around five pillars. Evaluate shipped behavior, not roadmap slides."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Gartner use the term AI-native?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gartner's primary frame remains augmented analytics and decision intelligence. AI-native is an industry term describing the strict five-pillar subset."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Ai-Native Data Platform: What's the Real Difference?",
+        "item": "https://infinisynapse.cn/blog/ai-native-vs-augmented-analytics"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="preview-banner"><strong>LOCAL PREVIEW</strong> · Not for production · Images &amp; links use relative paths · Open via <code>file://</code> or local static server</div>
+<header class="site-header">
+  <a href="../INDEX-preview.html">← All Pillar 1 previews</a>
+</header>
+<article class="blog-post">
+<h1 id="ai-native-data-platform-whats-the-real-difference">Ai-Native Data Platform: What's the Real Difference?</h1>
+<blockquote>
+<p><strong>By the InfiniSynapse Data Team</strong> · <strong>Last updated: 2026-06-08</strong> · <em>We build an AI-native data platform; this article maps Gartner's augmented-analytics frame to the five-pillar AI-native definition we ship in production.</em></p>
+</blockquote>
+<p><img alt="Comparison table visual: Gartner augmented analytics umbrella on the left, AI-native five pillars highlighted as a strict subset on the right" src="images/hero-ai-native-vs-augmented.png" /></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#what-gartner-means-by-augmented-analytics">What Gartner Means by Augmented Analytics</a></li>
+<li><a href="#what-ai-native-means-in-2026">What AI-Native Means in 2026</a></li>
+<li><a href="#the-5-pillar-comparison-table">The 5-Pillar Comparison Table</a></li>
+<li><a href="#venn-diagram-where-the-categories-overlap">Venn Diagram: Where the Categories Overlap</a></li>
+<li><a href="#why-the-distinction-matters-for-buyers">Why the Distinction Matters for Buyers</a></li>
+<li><a href="#3-question-evaluation-test">3-Question Evaluation Test</a></li>
+<li><a href="#building-a-procurement-scorecard-for-an-ai-native-data-platform">Procurement Scorecard</a></li>
+<li><a href="#common-vendor-claims-vs-verifiable-ai-native-data-platform-behavior">Vendor Claims vs Reality</a></li>
+<li><a href="#12-month-roi-model-ai-native-data-platform-vs-augmented-bi">12-Month ROI Model</a></li>
+<li><a href="#frequently-asked-questions">FAQ</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<blockquote>
+<p><strong>Augmented analytics</strong> (Gartner, ~2017) is the broad umbrella: any ML-assisted data preparation, query generation, insight surfacing, or visualization. <strong>AI-native data analysis</strong> is a <em>strict subset</em> that additionally requires autonomy, process transparency, knowledge distillation, multi-entry parity, and self-correction — not as optional features, but as the workflow contract. An <strong>AI-native data platform</strong> implements all five pillars as product architecture, not roadmap slides. Most 2026 "agent" marketing sits in the augmented zone. The buyers who confuse the two categories — or who buy augmented BI expecting an <strong>AI-native data platform</strong> — are the ones whose pilots stall at month three.</p>
+</blockquote>
+<p><strong>Who this is for</strong>: data and analytics leaders writing 2026 AI strategy, architects comparing platform RFPs, and vendors' customers who need a vocabulary to cut through "agent" positioning. LLM-backed analytics should account for prompt-injection and data-exfiltration risks in the <a href="https://help.tableau.com/current/pro/desktop/en-us/default.htm">Tableau Desktop documentation</a>, especially when connectors expose production schemas. Analysts wiring Agent into production reviews can follow the parallel walkthrough in <a href="/blog/data-agent-manifesto">The Data Agent Manifesto</a>.</p>
+<p><strong>What you'll learn</strong>:</p>
+<ul>
+<li>Gartner's augmented-analytics definition and what it includes/excludes</li>
+<li>The AI-native five-pillar framework as a strict subset</li>
+<li>A side-by-side comparison table across 10 dimensions</li>
+<li>A 3-question test to classify any tool you are evaluating</li>
+</ul>
+<p><strong>Scope note</strong>: We use "AI-native data platform" to mean a system designed around the five-pillar workflow — not merely a BI platform with an AI copilot bolted on.</p>
+<hr />
+<p>Governance expectations for production analytics align with the <a href="https://opentelemetry.io/docs/">OpenTelemetry documentation</a>, which we reference when designing reviewer checkpoints.</p>
+<h2 id="what-gartner-means-by-augmented-analytics">What Gartner Means by Augmented Analytics</h2>
+<p><a href="https://support.google.com/docs/topic/9054603">Google Sheets documentation</a> as the use of enabling technologies such as machine learning and AI to assist with data preparation, insight generation, and insight explanation — augmenting how people explore and analyze data in BI and analytics platforms.</p>
+<p>In practice, the augmented-analytics category (2017–2026) includes:</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Example products / features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auto data prep</td>
+<td>Smart profiling, anomaly detection, suggested joins</td>
+</tr>
+<tr>
+<td>NLQ / NLG</td>
+<td>"Show me revenue by region" → chart + narrative</td>
+</tr>
+<tr>
+<td>Insight surfacing</td>
+<td>Automated trend detection, contribution analysis</td>
+</tr>
+<tr>
+<td>Assisted modeling</td>
+<td>Suggested hierarchies, clustering, forecasting</td>
+</tr>
+<tr>
+<td>Copilot layers</td>
+<td>Power BI Copilot, Tableau Pulse, ThoughtSpot Sage</td>
+</tr>
+</tbody>
+</table>
+<p>Augmented analytics <strong>augments the human analyst</strong>. The human still drives the session, owns the workflow, and carries institutional knowledge in their head (or in a wiki that the AI does not read automatically).</p>
+<p>The productivity gain is real. <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework</a> notes that organizations adopting augmented features see faster time-to-insight on exploratory work. The same research stream flags a recurring failure mode: pilots that never become production systems because governance, memory, and auditability were afterthoughts.</p>
+<p>That failure mode is what the AI-native category addresses.</p>
+<hr />
+<h2 id="what-ai-native-means-in-2026">What AI-Native Means in 2026</h2>
+<blockquote>
+<p><strong>Key Definition</strong>: An <strong>AI-native data platform</strong> is software where the user submits a <em>goal</em> — not a step — and an autonomous agent plans the analysis, executes multi-step queries across sources, self-corrects around failures, exposes the full audit trail, and distills the result into reusable structured memory. The AI is the workflow, not an attachment to a human-driven session.</p>
+</blockquote>
+<p>AI-native is a <strong>strict subset</strong> of augmented analytics. Every AI-native platform uses ML/AI to assist analysis (augmented). Not every augmented platform is AI-native.</p>
+<p>Three terms often confused:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Emphasis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Augmented analytics</strong></td>
+<td>ML assists the human across prep, query, insight</td>
+</tr>
+<tr>
+<td><strong>Agentic analytics</strong></td>
+<td>Multi-step autonomous planning (often missing memory/audit)</td>
+</tr>
+<tr>
+<td><strong>AI-native data platform</strong></td>
+<td>Full five-pillar workflow designed around the agent</td>
+</tr>
+</tbody>
+</table>
+<p>For the full primer, see <a href="/blog/ai-native-data-analysis">AI-Native Data Analysis: What It Means in 2026</a>.</p>
+<hr />
+<h2 id="the-5-pillar-comparison-table">The 5-Pillar Comparison Table</h2>
+<p>This is the core comparison buyers need. Each row maps a Gartner augmented-analytics capability to the AI-native pillar that <em>strictifies</em> it.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Dimension</th>
+<th>Augmented analytics (typical)</th>
+<th>AI-native data platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Trigger model</strong></td>
+<td>User asks one question; system responds</td>
+<td>User states one goal; agent plans N steps</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Process transparency</strong></td>
+<td>Final chart + short explanation</td>
+<td>Every SQL, dataset, and tool call inspectable in task timeline</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>Knowledge / memory</strong></td>
+<td>Session context; optional "insights saved"</td>
+<td>Distilled memory cards with locked metric definitions — <a href="/blog/data-agent-memory">see memory guide</a></td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Entry points</strong></td>
+<td>Primary BI UI</td>
+<td>Chat + web app + API — same agent capability</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>Failure handling</strong></td>
+<td>Error returned to user</td>
+<td>Agent reroutes (cache, alt source), logs workaround</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>Data prep</strong></td>
+<td>ML-suggested transforms; user approves</td>
+<td>Agent profiles and cleans autonomously; audit trail preserved</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td><strong>NLQ / SQL</strong></td>
+<td>Single-turn text-to-SQL or DAX</td>
+<td>Multi-turn InfiniSQL-style named intermediate tables across a run</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td><strong>Insight surfacing</strong></td>
+<td>System highlights anomalies in dashboards</td>
+<td>Agent investigates anomalies as part of a goal-driven narrative</td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td><strong>Governance</strong></td>
+<td>Report-level permissions</td>
+<td>Project-level task + memory + audit governance</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td><strong>12-month compounding</strong></td>
+<td>Per-session productivity</td>
+<td>Institutional memory — ~100 reusable cards vs ~0</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Five pillars diagram with augmented-analytics features mapped to each pillar — showing which Gartner capabilities satisfy which pillar and which require AI-native strictification" src="images/five-pillars-vs-augmented.png" /></p>
+<h3 id="pillar-by-pillar-strictification">Pillar-by-pillar strictification</h3>
+<p><strong>Pillar 1 — Autonomy</strong>: Augmented NLQ generates one query. AI-native agents generate a <em>plan</em> — discover schema, join, aggregate, chart, narrate — from one sentence.</p>
+<p><strong>Pillar 2 — Process transparency</strong>: Augmented tools show the answer. AI-native tools show the <em>evidence chain</em>. In regulated contexts, "the AI said so" fails; "here is every query that produced this number" passes.</p>
+<p><strong>Pillar 3 — Knowledge distillation</strong>: Augmented tools may save a "favorite insight." AI-native systems save a structured card the next run recalls by name — the difference between bookmarking and institutional memory.</p>
+<p><strong>Pillar 4 — Multi-entry parity</strong>: Augmented analytics lives in the BI UI. AI-native platforms meet executives in WeChat and engineers in API — same backend.</p>
+<p><strong>Pillar 5 — Self-correction</strong>: Augmented copilots return errors. AI-native agents reroute and complete — because the user's time is treated as expensive.</p>
+<hr />
+<h2 id="venn-diagram-where-the-categories-overlap">Venn Diagram: Where the Categories Overlap</h2>
+<pre><code>┌─────────────────────────────────────────────┐
+│         AUGMENTED ANALYTICS (Gartner)        │
+│  ┌─────────────────────────────────────┐    │
+│  │   Agentic analytics (partial)        │    │
+│  │  ┌───────────────────────────────┐  │    │
+│  │  │  (5 pillars, full contract)    │  │    │
+│  │  └───────────────────────────────┘  │    │
+│  └─────────────────────────────────────┘    │
+└─────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Inside the AI-native circle</strong>: InfiniSynapse, mature autonomous agents with memory + audit, some emerging Fabric Data Agent capabilities (partial on Pillar 3 as of June 2026).</p>
+<p><strong>In agentic-but-not-native</strong>: tools with multi-step planning but session memory only — impressive demos, weak compounding. Teams standardizing governance across sources often keep <a href="/blog/ai-for-data-analysis">AI for Data Analysis: The Complete 2026 Guide</a> beside this runbook for this topic handoffs.</p>
+<p><strong>In augmented-only</strong>: Power BI Copilot, Tableau Pulse, traditional NLQ — high value, not AI-native.</p>
+<p>The <a href="https://supabase.com/docs">Supabase documentation</a> contextualizes why the stricter category is gaining budget share: adoption rises while trust diverges — and trust correlates with transparency and consistency, both pillars augmented analytics often underspecifies.</p>
+<hr />
+<h2 id="why-the-distinction-matters-for-buyers">Why the Distinction Matters for Buyers</h2>
+<p><strong>Budget cycle</strong>: Augmented features are often licensed as BI add-ons — incremental cost, incremental value. AI-native platforms are a workflow replacement for recurring analysis labor — different ROI math. Enterprise AI adoption guidance in the <a href="https://oecd.ai/en/">OECD AI policy observatory</a> mirrors the shift from ad-hoc copilots to repeatable, reviewable decision workflows.</p>
+<p><strong>Pilot design</strong>: Augmented pilots succeed on <em>"can the analyst ask questions faster?"</em> AI-native pilots must also answer <em>"does the organization accumulate reusable assets?"</em> If your success metric is only the first question, you will buy augmented and be surprised when month-six recurring work still requires re-explanation.</p>
+<p><strong>Vendor evaluation</strong>: When a rep says "agent," ask which pillars their product satisfies. We maintain a <a href="/blog/data-agent-glossary">data agent glossary</a> with precise definitions for autonomy, distillation, and related terms.</p>
+<p><strong>Stack architecture</strong>: Many mature 2026 estates run <strong>augmented BI for dashboards</strong> + <strong>AI-native agent for recurring autonomous analysis</strong> + <strong>governed lakehouse for storage</strong>. Some add a dedicated <strong>AI-native data platform</strong> when BI copilots cannot satisfy memory and audit requirements. The categories complement; they do not compete unless you pretend one is the other.</p>
+<p>Platform comparison for Microsoft shops: <a href="/blog/fabric-data-agent-vs-copilot">Fabric Data Agent vs Copilot</a>.</p>
+<hr />
+<h2 id="3-question-evaluation-test">3-Question Evaluation Test</h2>
+<p>Apply this to any vendor claiming "AI-native" or "agentic":</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Augmented pass</th>
+<th>AI-native pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Submit one goal. Does the system plan and execute multiple steps without per-step prompting?</td>
+<td>May generate one query</td>
+<td>Full phased plan + execution</td>
+</tr>
+<tr>
+<td>2</td>
+<td>After completion, can you click into every intermediate SQL and dataset?</td>
+<td>Usually no</td>
+<td>Yes — task timeline</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Next month, can you say <em>"recall [name], run on new data"</em> and skip re-explaining schema?</td>
+<td>No</td>
+<td>Yes — memory card</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scoring</strong>: 3/3 = evaluate as AI-native. 1–2/3 = augmented or partial agentic. 0/3 = traditional BI with marketing.</p>
+<p>Tool-level application across seven products: <a href="/blog/best-ai-tools-for-data-analysis">Best AI Tools for Data Analysis in 2026</a>.</p>
+<hr />
+<h2 id="building-a-procurement-scorecard-for-an-ai-native-data-platform">Building a Procurement Scorecard for an AI-Native Data Platform</h2>
+<p>RFPs that list "NLQ" and "copilot" without pillar criteria buy augmented BI and call it an <strong>AI-native data platform</strong>. Weight your scorecard toward workflow contract, not feature count:</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th style="text-align: center;">Weight</th>
+<th><strong>AI-native data platform</strong> pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Autonomous multi-step execution</td>
+<td style="text-align: center;">25%</td>
+<td>One goal → phased plan without per-step prompts</td>
+</tr>
+<tr>
+<td>Task-level audit trail</td>
+<td style="text-align: center;">20%</td>
+<td>Every SQL + dataset clickable</td>
+</tr>
+<tr>
+<td>Distilled memory / recall-by-name</td>
+<td style="text-align: center;">20%</td>
+<td>Structured cards, not chat scrollback</td>
+</tr>
+<tr>
+<td>Multi-entry parity</td>
+<td style="text-align: center;">15%</td>
+<td>Chat + web + API same capability</td>
+</tr>
+<tr>
+<td>Self-correction with logged reroute</td>
+<td style="text-align: center;">10%</td>
+<td>Completes or explains workaround</td>
+</tr>
+<tr>
+<td>Governance (RBAC, card approval)</td>
+<td style="text-align: center;">10%</td>
+<td>Project-scoped memory + SSO</td>
+</tr>
+</tbody>
+</table>
+<p>Require a live demo on <em>your</em> schema — not a vendor sandbox. An <strong>AI-native data platform</strong> that works on a clean retail demo but fails on your role-playing dimensions is augmented with extra steps.</p>
+<p>Reference this scorecard when vendors claim "we are AI-native." Ask which rows are shipped vs roadmap. Retrofitting copilot-first BI into an <strong>AI-native data platform</strong> typically takes 12–24 months — evaluate today's binaries.</p>
+<hr />
+<h2 id="common-vendor-claims-vs-verifiable-ai-native-data-platform-behavior">Common Vendor Claims vs Verifiable AI-Native Data Platform Behavior</h2>
+<p>Marketing language blurs categories. Translate claims into tests:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Ask</th>
+<th><strong>AI-native data platform</strong> truth test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>"We have an agent"</em></td>
+<td>Show multi-step plan on our warehouse</td>
+<td>Single-turn SQL is not an agent</td>
+</tr>
+<tr>
+<td><em>"We have memory"</em></td>
+<td>Recall <code>[name]</code> next month, one sentence</td>
+<td>Chat history fails</td>
+</tr>
+<tr>
+<td><em>"Full transparency"</em></td>
+<td>Open intermediate dataset #3</td>
+<td>Summary-only explanations fail</td>
+</tr>
+<tr>
+<td><em>"Enterprise-ready"</em></td>
+<td>Export task audit for compliance</td>
+<td>Screenshot-only logs fail</td>
+</tr>
+<tr>
+<td><em>"Works everywhere"</em></td>
+<td>Same goal via API and chat</td>
+<td>UI-only features fail multi-entry</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://docs.python.org/3/">Python documentation</a> covers many of these features individually — the <strong>AI-native data platform</strong> difference is that all five pillars are mandatory, not a la carte.</p>
+<p>When a rep shows a impressive autonomy demo, run the 3-question test immediately after. Partial passes mean you are buying augmented analytics at agent pricing — negotiate accordingly or plan a second tool for memory compounding.</p>
+<hr />
+<h2 id="12-month-roi-model-vs-augmented-bi">12-Month ROI Model: vs Augmented BI</h2>
+<p>Finance teams want a spreadsheet, not a Venn diagram. Simplified model for recurring analysis labor:</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Augmented BI only</th>
+<th><strong>AI-native data platform</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recurring analyses / month</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Context re-establishment (min/task)</td>
+<td>20</td>
+<td>2 (recall-by-name)</td>
+</tr>
+<tr>
+<td>Analyst fully loaded cost / hr</td>
+<td>$75</td>
+<td>$75</td>
+</tr>
+<tr>
+<td><strong>Annual context tax</strong></td>
+<td>~250 hrs ≈ <strong>$18,750</strong></td>
+<td>~25 hrs ≈ <strong>$1,875</strong></td>
+</tr>
+<tr>
+<td>Reusable memory assets (12 mo)</td>
+<td>~0</td>
+<td>~100 cards</td>
+</tr>
+<tr>
+<td>New-hire time-to-first-solo report</td>
+<td>3–6 weeks</td>
+<td>3–7 days</td>
+</tr>
+</tbody>
+</table>
+<p>Add platform license delta separately — an <strong>AI-native data platform</strong> often costs more per seat than Copilot add-ons but replaces recurring labor, not exploratory clicks. Break-even typically lands between months 4–8 when recurrence volume exceeds ~25 tasks/month.</p>
+<p>Augmented BI still wins on dashboard iteration ROI. Most mature estates run <strong>augmented BI for visualization</strong> plus an <strong>AI-native data platform for autonomous recurring work</strong> — the categories complement when you stop conflating them.</p>
+<p>Platform comparison for Microsoft-centric teams: <a href="/blog/fabric-data-agent-vs-copilot">Fabric Data Agent vs Copilot</a>.</p>
+<hr />
+<p>Payments analytics should follow the <a href="https://sre.google/sre-book/table-of-contents/">Google SRE book</a> for event models, reconciliation fields, and reporting grains.</p>
+<p>ClickHouse connector paths should align with <a href="https://cloud.google.com/discover/what-is-artificial-intelligence">Google Cloud AI overview</a> for table engines, sampling, and query guardrails.</p>
+<p>Consumer and data-use policies should align with <a href="https://cloud.google.com/bigquery/docs">Google BigQuery documentation</a> when outputs inform external decisions.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="is-augmented-analytics-outdated">Is augmented analytics outdated?</h3>
+<p>No. It remains the correct Gartner category for ML-assisted BI. AI-native is a refinement for buyers who need autonomous execution and compounding memory — not a replacement term for all analytics AI.</p>
+<h3 id="can-a-bi-platform-become-ai-native">Can a BI platform become AI-native?</h3>
+<p>In theory, yes — if the vendor rebuilds the workflow contract around five pillars. In practice, retrofitting copilot-first architectures is slow. Evaluate shipped behavior, not roadmap slides.</p>
+<h3 id="how-does-agentic-analytics-differ-from-ai-native">How does agentic analytics differ from AI-native?</h3>
+<p>Agentic emphasizes multi-step planning. An <strong>AI-native data platform</strong> additionally requires transparency, distillation, multi-entry, and self-correction as first-class features. Many "agentic" products stop at planning — classify them as augmented-plus, not full <strong>AI-native data platform</strong>.</p>
+<h3 id="is-infinisynapse-augmented-or-ai-native">Is InfiniSynapse augmented or AI-native?</h3>
+<p>AI-native. InfiniSynapse implements all five pillars via InfiniAgent (orchestration), InfiniSQL (named intermediate tables), and InfiniRAG (knowledge binding + memory distillation). Evaluate any competitor <strong>AI-native data platform</strong> claim with the same pillar checklist — not logo count.</p>
+<h3 id="what-should-i-buy-first-augmented-bi-or-ai-native-agent">What should I buy first — augmented BI or AI-native agent?</h3>
+<p>If your team lives in dashboards and needs faster DAX/NLQ, augmented BI first. If you run recurring cross-source analyses and lose institutional knowledge when analysts leave, an <strong>AI-native data platform</strong> or agent first. Most enterprises need both on different timelines — budget them as separate line items.</p>
+<h3 id="does-gartner-use-the-term-ai-native">Does Gartner use the term "AI-native"?</h3>
+<p>Gartner's primary frame remains augmented analytics and decision intelligence. "AI-native" is an industry term (2025–2026) describing the strict five-pillar subset — useful in RFPs even if not yet a Gartner magic-quadrant label.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p><strong>Augmented analytics</strong> made analysts faster. An <strong>AI-native data platform</strong> aims to make the <em>organization</em> faster — by executing autonomously and remembering what mattered.</p>
+<p>The real difference is not a feature checklist item. It is whether your 2026 AI investment compounds or resets every time someone closes a chat window. When your RFP says <strong>AI-native data platform</strong>, hold vendors to the five-pillar scorecard in this article — not to the word "agent" in a release note. Any serious <strong>ai-native data platform</strong> evaluation should include a repeat-run test on the same KPI definitions thirty days apart. Score every finalist <strong>ai-native data platform</strong> against the five pillars before you sign.</p>
+<p><strong>Continue in this cluster</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Article</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/blog/ai-native-data-analysis">AI-Native Data Analysis primer</a></td>
+<td>/blog/ai-native-data-analysis</td>
+</tr>
+<tr>
+<td><a href="/blog/data-agent-memory">Data Agent Memory</a></td>
+<td>/blog/data-agent-memory</td>
+</tr>
+<tr>
+<td><a href="/blog/data-agent-glossary">Data Agent Glossary</a></td>
+<td>/blog/data-agent-glossary</td>
+</tr>
+<tr>
+<td><a href="/blog/ai-data-analysis">AI Data Analysis (2026 guide)</a></td>
+<td>/blog/ai-data-analysis</td>
+</tr>
+<tr>
+<td><a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a></td>
+<td>/blog/what-is-a-data-agent</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Try it</strong>: <a href="https://app.infinisynapse.cn">InfiniSynapse</a> — run the 3-question test against a live recurring analysis task.</p>
+</article>
+<footer class="preview-meta">
+  Source: <code>011-ai-native-vs-augmented-analytics/article.md</code> ·
+  Generated by <code>build-preview.py</code>
+</footer>
+</body>
+</html>

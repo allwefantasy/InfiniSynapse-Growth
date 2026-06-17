@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>The Data Agent Manifesto: Why the First Ship Launches Here</title>
+<meta name="description" content="This data agent manifesto argues the AI era's first ship is an auditable Data Agent — defensible decisions, not just running code.">
+<link rel="canonical" href="https://infinisynapse.cn/blog/data-agent-manifesto">
+
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="InfiniSynapse Data Team">
+<meta http-equiv="content-language" content="en">
+<link rel="alternate" hreflang="en" href="https://infinisynapse.cn/blog/data-agent-manifesto">
+<link rel="alternate" hreflang="zh-CN" href="https://infinisynapse.cn/zh/blog/data-agent-manifesto">
+<link rel="alternate" hreflang="x-default" href="https://infinisynapse.cn/blog/data-agent-manifesto">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://infinisynapse.cn/blog/data-agent-manifesto">
+<meta property="og:title" content="The Data Agent Manifesto: Why the First Ship Launches Here">
+<meta property="og:description" content="This data agent manifesto argues the AI era's first ship is an auditable Data Agent — defensible decisions, not just running code.">
+<meta property="og:image" content="https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/002-data-agent-manifesto/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Data Agent Manifesto: first ship launches from enterprise data">
+<meta property="og:site_name" content="InfiniSynapse Blog">
+<meta property="og:locale" content="en_US">
+
+
+<meta property="article:published_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:modified_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:author" content="https://infinisynapse.cn/about">
+<meta property="article:section" content="Data Agent">
+<meta property="article:tag" content="data agent">
+<meta property="article:tag" content="code agent vs data agent">
+<meta property="article:tag" content="auditable AI">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@InfiniSynapse">
+<meta name="twitter:title" content="The Data Agent Manifesto: Why the First Ship Launches Here">
+<meta name="twitter:description" content="This data agent manifesto argues the AI era's first ship is an auditable Data Agent — defensible decisions, not just running code.">
+<meta name="twitter:image" content="https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/002-data-agent-manifesto/og-cover.png">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0d9488;
+  --accent-soft: #f0fdfa;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --banner: #1e40af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.preview-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--banner);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.preview-banner strong { font-weight: 700; }
+.site-header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+.site-header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+article {
+  max-width: 860px;
+  margin: 0 auto 64px;
+  padding: 32px 24px 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+article > h1:first-child {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+article > blockquote:first-of-type {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+h2 {
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent-soft);
+  color: #0f766e;
+}
+h3 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+p { margin: 0 0 1.1rem; }
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.35rem; }
+a { color: #2563eb; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.25rem 0 1.5rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--accent-soft); color: #0f766e; font-weight: 600; }
+tr:nth-child(even) td { background: #fafafa; }
+blockquote {
+  margin: 1.25rem 0;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: #134e4a;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+footer.preview-meta {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer.preview-meta code {
+  font-size: 12px;
+}
+</style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Data Agent Manifesto: Why the First Ship Launches Here",
+    "description": "This data agent manifesto argues the AI era's first ship is an auditable Data Agent — defensible decisions, not just running code.",
+    "image": [
+      "https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/002-data-agent-manifesto/hero-data-agent-manifesto.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/data-agent-manifesto"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Data Agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "Code Agent vs Data Agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "Auditable AI decisions"
+      }
+    ],
+    "keywords": "data agent manifesto, data agent, ai-native data analysis"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a analytics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A **data agent** is an autonomous system that takes a business question as its goal, locates and queries relevant enterprise data, resolves source-of-truth conflicts, executes verifiable analysis, leaves an inspectable audit trail, and flags conclusions it cannot defend. It optimizes for defensible answers, not running code."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is it different from a Code Agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Code Agent's objective function is *make the code run*. A **data agent**'s is *produce a trustworthy answer in a messy data environment*. Code Agents excel at engineering tasks; data agents excel at enterprise analytics where asset discovery, dynamic definitions, and missing oracles break the Code Agent paradigm."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the \"first ship\" metaphor matter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Code Agent proved AI can complete engineering tasks — shipyard technology. But civilization shifts when tools deploy at scale in decisions, not demos. Decisions require data. The first system that enters decisions with auditable evidence is a **data agent** — hence \"the first ship launches here.\""
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a team need before adopting one?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three things make a **data agent** rollout succeed: a small set of recurring, decision-grade questions; agreed metric definitions and source-of-truth rules; and a reviewer who reads the audit trail rather than rubber-stamping output. Without those, even a capable agent produces fast answers no one is accountable for.\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "The Data Agent Manifesto: Why the First Ship Launches Here",
+        "item": "https://infinisynapse.cn/blog/data-agent-manifesto"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="preview-banner"><strong>LOCAL PREVIEW</strong> · Not for production · Images &amp; links use relative paths · Open via <code>file://</code> or local static server</div>
+<header class="site-header">
+  <a href="../INDEX-preview.html">← All Pillar 1 previews</a>
+</header>
+<article class="blog-post">
+<h1 id="the-data-agent-manifesto-why-the-first-ship-launches-here">The Data Agent Manifesto: Why the First Ship Launches Here</h1>
+<blockquote>
+<p><strong>By the InfiniSynapse Data Team</strong> · <strong>Last updated: 2026-06-08</strong> · <em>We build InfiniSynapse, the Data Agent platform described in this manifesto. The architectural claims below are grounded in 18+ months of production deployments — not a vendor whitepaper.</em></p>
+</blockquote>
+<p><img alt="The Data Agent Manifesto: Code Agent is shipyard technology; Data Agent is the first ship that launches" src="images/hero-data-agent-manifesto.png" /></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#the-thesis">The Thesis</a></li>
+<li><a href="#what-code-agent-delivered--and-what-it-did-not">What Code Agent Delivered — and What It Did Not</a></li>
+<li><a href="#the-five-non-negotiables">The Five Non-Negotiables</a></li>
+<li><a href="#architecture-infinisql--infinirag--auditable-workflow">Architecture: InfiniSQL + InfiniRAG + Auditable Workflow</a></li>
+<li><a href="#evidence-from-production">Evidence From Production</a></li>
+<li><a href="#the-division-of-labor">The Division of Labor</a></li>
+<li><a href="#frequently-asked-questions">FAQ</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<blockquote>
+<p><strong>Code Agent is shipyard technology. Data Agent is the first ship that actually launches.</strong> Code Agents optimize for one objective: <em>make the code run</em>. Data Agents optimize for another: <em>produce a defensible answer inside a messy, dynamic enterprise data environment</em>. The entry ticket to AI-driven civilization is not whether machines can chat — it is whether machines can enter <strong>decisions</strong> with evidence humans can audit. This data agent manifesto states why that ship must be a Data Agent, what architectural primitives it requires, and how InfiniSynapse is building it.</p>
+</blockquote>
+<p>This data agent manifesto is written for founders, CTOs, heads of data, and platform engineers deciding where to invest the next wave of AI budget — and whether "Code Agent + database connector" is enough. LLM-backed analytics should account for prompt-injection and data-exfiltration risks in the <a href="https://en.wikipedia.org/wiki/Business_intelligence">Wikipedia business intelligence overview</a>, especially when connectors expose production schemas. If this topic is in scope for your team, reuse the same memory-and-trace checklist in <a href="/blog/ai-for-data-analysis">AI for Data Analysis: The Complete 2026 Guide</a>.</p>
+<p><strong>What you'll learn</strong>:</p>
+<ul>
+<li>The objective-function difference between Code Agents and Data Agents</li>
+<li>Why Databricks, Gartner, and enterprise buyers converged on Data Agents as a separate category in 2026</li>
+<li>Five non-negotiable capabilities every Data Agent must ship</li>
+<li>How InfiniSQL, InfiniRAG, and auditable workflow compose the stack</li>
+<li>Real production evidence from InfiniSynapse deployments</li>
+</ul>
+<p><strong>Scope note</strong>: This is a vision and architecture data agent manifesto, not a product tutorial. For definitional depth, see <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a>. For technical proof, see <a href="/blog/why-code-agents-cannot-solve-enterprise-data-analysis">Why Code Agents Cannot Solve Enterprise Data Analysis</a>.</p>
+<hr />
+<p>Governance expectations for production analytics align with the <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/final">NIST SP 800-53 security controls</a>, which we reference when designing reviewer checkpoints. The credential, preflight, and SQL-trace pattern above also applies to Agentic—see <a href="/blog/best-agentic-analytics">Best Agentic Analytics Tools for Data-Driven Insi…</a> for source-specific steps.</p>
+<h2 id="the-thesis">The Thesis</h2>
+<p>This data agent manifesto starts from one premise: humanity has crossed into a coordinate system where non-human intelligences are collaborators in software, processes, and decisions. In that coordinate system, several industrial-age defaults stop being true:</p>
+<ul>
+<li>"A great engineer writes great code."</li>
+<li>"A data team is a cost center that ships dashboards."</li>
+<li>"A decision is a gut call plus a slide deck."</li>
+</ul>
+<p>In the new coordinate system, <strong>what humans must guarantee is not "how to do it" but "did we do it right, and can we replay it?"</strong></p>
+<p>This data agent manifesto's guarantee requires a system that can autonomously navigate enterprise data, judge which sources to trust, execute verifiable queries, and leave evidence behind. That system is a <strong>Data Agent</strong> — an autonomous actor optimized for defensible answers, not running code.</p>
+<blockquote>
+<p><strong>Manifesto Definition</strong>: A <strong>Data Agent</strong> is an autonomous software system that takes a business question as its goal, locates relevant data across structured and unstructured assets, resolves source-of-truth conflicts, executes verifiable queries, surfaces an inspectable audit trail, and explicitly flags conclusions it cannot defend. A <strong>Code Agent</strong> ships running code. A <strong>Data Agent</strong> ships defensible answers.</p>
+</blockquote>
+<p>This data agent manifesto is not a product preference. It is a logical necessity once AI enters decisions — and every decision rests on data.</p>
+<p>For the founder's full narrative on civilization and the first ship, see <a href="/blog/data-agent-new-civilization">Data Agent Is the First Spaceship to a New Civilization</a>.</p>
+<hr />
+<h2 id="what-code-agent-delivered-and-what-it-did-not">What Code Agent Delivered — and What It Did Not</h2>
+<p><img alt="Code Agent vs Data Agent objective functions: when each wins in enterprise data work" src="images/code-vs-data-agent-objectives.png" /></p>
+<p>For two years, the industry chased LLMs almost exclusively through the Code Agent lens: Claude Code, Codex, Cursor, Devin. The achievement is real — <strong>for the first time, AI can complete an end-to-end engineering task.</strong></p>
+<p>But the hard question few asked: <em>what did Code Agent actually deliver to humanity?</em></p>
+<p>Our read:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Reality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Created direct wealth</td>
+<td>Not yet — GPUs, training, and iteration consumed more than they returned</td>
+</tr>
+<tr>
+<td>Changed engineering</td>
+<td>Yes — machines can now assemble systems instead of engineers typing every line</td>
+</tr>
+<tr>
+<td>Changed enterprise decisions</td>
+<td><strong>No</strong> — decisions still bottleneck on data discovery, definition alignment, and replay</td>
+</tr>
+</tbody>
+</table>
+<p>Code Agent is the shipyard. The core claim of this data agent manifesto is narrow: the ship has not launched.</p>
+<p>On May 8, 2026, Databricks published <a href="https://www.shopify.com/enterprise/blog/ecommerce-analytics">Shopify ecommerce analytics</a>, reporting that specialized knowledge search, parallel reasoning, and multi-LLM design moved Genie from <strong>32% to over 90%</strong> on their internal enterprise benchmark — while a leading coding agent stayed at 32%. Treat that as directional, not universal. The direction is unambiguous: <strong>enterprise data analysis is a separate system design problem from writing code.</strong></p>
+<hr />
+<h2 id="why-the-first-ship-is-a-data-agent">Why the First Ship Is a Data Agent</h2>
+<p>Three problems have gated reliable human decisions for decades. Enterprise AI adoption guidance in <a href="https://opentelemetry.io/docs/">OpenTelemetry documentation</a> mirrors the shift from ad-hoc copilots to repeatable, reviewable decision workflows.</p>
+<ol>
+<li><strong>Data can't be found</strong> — analysts spend ~80% of time hunting and cleaning.</li>
+<li><strong>Definitions don't match</strong> — two departments, two numbers, same metric name.</li>
+<li><strong>Decisions can't be replayed</strong> — no one reconstructs which data, definitions, and assumptions a call rested on.</li>
+</ol>
+<p>As this data agent manifesto argues, copilots around LLMs cannot solve any of these. They write memos. They explain concepts. They <strong>cannot enter the scene of enterprise data</strong> — thousands of tables, conflicting metric definitions, no unit test for "is this number correct?"</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Why Code Agent fails</th>
+<th>Why a Data Agent must exist</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Asset discovery at scale</strong></td>
+<td>Codebases have paths, types, tests; data estates do not</td>
+<td>Must search tables, dashboards, docs, Excel, APIs simultaneously</td>
+</tr>
+<tr>
+<td><strong>Dynamic source of truth</strong></td>
+<td>Git HEAD is authoritative; metrics are negotiated</td>
+<td>Must judge which definition wins for <em>this</em> question</td>
+</tr>
+<tr>
+<td><strong>Missing oracle</strong></td>
+<td>Tests pass or fail; no test for "revenue is correct"</td>
+<td>Must expose evidence chain and flag undefended conclusions</td>
+</tr>
+<tr>
+<td><strong>Workflow persistence</strong></td>
+<td>PR merges; chat sessions evaporate</td>
+<td>Must distill method into reusable organizational memory</td>
+</tr>
+</tbody>
+</table>
+<p>The technical proof of each challenge — and why Code Agent + DB connector is a comforting illusion — is in <a href="/blog/why-code-agents-cannot-solve-enterprise-data-analysis">Why Code Agents Cannot Solve Enterprise Data Analysis</a>.</p>
+<hr />
+<h2 id="the-five-non-negotiables">The Five Non-Negotiables</h2>
+<p>Every production data agent this data agent manifesto evaluates — including our own — decomposes into five pillars. Ship fewer than four and you have a copilot with marketing.</p>
+<h3 id="1-autonomy-one-goal-many-steps">1. Autonomy — One Goal, Many Steps</h3>
+<p>The user states a goal in one sentence. The agent plans discover → query → validate → visualize → summarize. Anti-pattern: asking "Should I now join table X?" after every step — that is copilot behavior with extra dialog.</p>
+<h3 id="2-process-transparency-every-artifact-inspectable">2. Process Transparency — Every Artifact Inspectable</h3>
+<p>Stakeholders must click into every SQL, intermediate dataset, and chart. Final-answer-only systems fail audit — and fail the next budget cycle when trust diverges (<a href="https://en.wikipedia.org/wiki/SQL">Wikipedia SQL overview</a>).</p>
+<h3 id="3-knowledge-distillation-memory-that-compounds">3. Knowledge Distillation — Memory That Compounds</h3>
+<p>At task completion, the agent compresses what mattered: summary, schema refs, locked metric definitions, time range. Next month's request recalls the card — the 20-minute alignment loop never repeats.</p>
+<h3 id="4-multi-entry-parity-same-agent-every-door">4. Multi-Entry Parity — Same Agent, Every Door</h3>
+<p>WeChat for light queries. Web app for deep tasks. API (<code>agent_infini</code>) for embedding in kanban systems, Code Agent workflows, or custom agents. The capability must not depend on which door you entered.</p>
+<h3 id="5-self-correction-reroute-dont-fail">5. Self-Correction — Reroute, Don't Fail</h3>
+<p>When a live source is down, a join returns empty, or a query times out, the agent reroutes (cache, alternative source, revised plan) instead of handing an error back and waiting.</p>
+<p>These five pillars define <a href="/blog/ai-native-data-analysis">AI-native data analysis</a> — the workflow paradigm the first ship implements.</p>
+<hr />
+<h2 id="architecture-infinisql-infinirag-auditable-workflow">Architecture: InfiniSQL + InfiniRAG + Auditable Workflow</h2>
+<p>InfiniSynapse composes three primitives:</p>
+<p><strong>InfiniSQL</strong> — Agentic federated query execution. Not "generate a bigger script." Tool calls: discover schema → pick dialect → run query → validate row count → retry with revised join. Supports MySQL, MongoDB, uploaded XLSX/CSV, and warehouse connectors — often in one task.</p>
+<p><strong>InfiniRAG</strong> — Business knowledge bound to data sources, not pasted into context. Metric definitions, data dictionaries, prior analysis notes, and org-specific rules live as infrastructure the agent retrieves per sub-question — the pattern Databricks calls "specialized knowledge search."</p>
+<p><strong>Auditable workflow</strong> — Every phase logged in a task timeline. Humans approve memory cards (DRAFT → approved) before they join the project knowledge base. This is how trust scales without an oracle that says "the number is correct."</p>
+<p>The stack runs at <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a> and via WeChat bot and API.</p>
+<hr />
+<h2 id="evidence-from-production">Evidence From Production</h2>
+<p>A data agent manifesto without evidence is a slogan. Two production cases anchor ours:</p>
+<p><strong>Case 1 — Lobster Moonlight (May 14, 2026)</strong>: 833 KB Excel, 7,444 rows × 22 fields, WeChat request at 14:13 while the analyst was in a meeting. One sentence to InfiniSynapse. Five autonomous phases by 14:19. Headline: 41.71% zero savings, 73.57% under 15%. Twelve charts. Full task timeline inspectable.</p>
+<p><strong>Case 2 — April Baseline Memory (May 12, 2026)</strong>: User-growth analysis distilled into a memory card with locked definitions. May rerun: one sentence, same definitions, no re-alignment. Proof of Pillar 3 — the compounding advantage Code Agents and copilots cannot deliver.</p>
+<hr />
+<h2 id="the-division-of-labor">The Division of Labor</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code Agent</th>
+<th>Analytics agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Build ETL pipeline</td>
+<td>✅ Primary</td>
+<td>○ Orchestrate via API</td>
+</tr>
+<tr>
+<td>Refactor analysis notebook</td>
+<td>✅ Primary</td>
+<td>○</td>
+</tr>
+<tr>
+<td>Answer "why did churn spike in April?"</td>
+<td>○ Fragile</td>
+<td>✅ Primary</td>
+</tr>
+<tr>
+<td>Weekly KPI with locked definitions</td>
+<td>○ Starts from scratch</td>
+<td>✅ Primary</td>
+</tr>
+<tr>
+<td>Multi-source join across MySQL + XLSX</td>
+<td>○ User wires each step</td>
+<td>✅ Primary</td>
+</tr>
+<tr>
+<td>Defend number in finance review</td>
+<td>○ No audit trail</td>
+<td>✅ Primary</td>
+</tr>
+</tbody>
+</table>
+<p>The right architecture uses both — Code Agents build systems; goal-driven analytics actors operate inside enterprise data estates. Confusing the two wastes budget and breaks trust.</p>
+<hr />
+<h2 id="what-buyers-should-ask-before-deploying">What Buyers Should Ask Before Deploying</h2>
+<p><strong>Question 1 — Repeat test</strong>: Submit the same recurring KPI twice, four weeks apart. If the second run re-explains schema from scratch, you are buying a copilot with agent branding, not a production <strong>data agent</strong>.</p>
+<p><strong>Question 2 — Unattended test</strong>: Submit one goal and leave for fifteen minutes. Return to a finished task with a phased timeline, or to a chat waiting for your next instruction. Only the former qualifies.</p>
+<p><strong>Question 3 — Oracle test</strong>: Ask finance to challenge one headline number. Can they trace it to SQL in under five minutes? Autonomous analytics systems without inspectable intermediates fail this test regardless of accuracy.</p>
+<p><strong>Question 4 — Memory test</strong>: Does completed work distill into an approved card with locked definitions? Organizational memory is the compounding advantage that separates enterprise decision agents from session-based chat.</p>
+<p>These four questions distill the data agent manifesto into procurement tests, filtering marketing noise faster than any feature matrix. They also explain why Databricks invested in specialized knowledge search and parallel reasoning for Genie — the category is defined by enterprise data constraints, not by how fluently a model writes Python.</p>
+<hr />
+<p>Consumer and data-use policies should align with <a href="https://redis.io/docs/latest/">Redis documentation</a> when outputs inform external decisions.</p>
+<p>Quality gates for agents should reference <a href="https://en.wikipedia.org/wiki/Data_warehouse">Wikipedia data warehouse overview</a> when defining completeness, accuracy, and timeliness checks.</p>
+<p>Snowflake deployments should reference <a href="https://learn.microsoft.com/en-us/azure/architecture/data-guide/">Microsoft data architecture guidance</a> when defining warehouses, roles, and semantic views for NL2SQL agents.</p>
+<p>BI modernization debates should reference the <a href="https://www.w3.org/TR/WCAG21/">W3C WCAG accessibility standard</a> when separating display layers from analysis execution.</p>
+<p>Analytics uptime improves when teams borrow <a href="https://docs.aws.amazon.com/redshift/">Amazon Redshift documentation</a> practices—error budgets, runbooks, and blameless postmortems for failed query chains.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="what-is-a-analytics">What is a analytics?</h3>
+<p>A <strong>data agent</strong> is an autonomous system that takes a business question as its goal, locates and queries relevant enterprise data, resolves source-of-truth conflicts, executes verifiable analysis, leaves an inspectable audit trail, and flags conclusions it cannot defend. It optimizes for defensible answers, not running code.</p>
+<h3 id="how-is-it-different-from-a-code-agent">How is it different from a Code Agent?</h3>
+<p>A Code Agent's objective function is <em>make the code run</em>. A <strong>data agent</strong>'s is <em>produce a trustworthy answer in a messy data environment</em>. Code Agents excel at engineering tasks; data agents excel at enterprise analytics where asset discovery, dynamic definitions, and missing oracles break the Code Agent paradigm.</p>
+<h3 id="why-does-the-first-ship-metaphor-matter">Why does the "first ship" metaphor matter?</h3>
+<p>Code Agent proved AI can complete engineering tasks — shipyard technology. But civilization shifts when tools deploy at scale in decisions, not demos. Decisions require data. The first system that enters decisions with auditable evidence is a <strong>data agent</strong> — hence "the first ship launches here."</p>
+<h3 id="what-does-a-team-need-before-adopting-one">What does a team need before adopting one?</h3>
+<p>Three things make a <strong>data agent</strong> rollout succeed: a small set of recurring, decision-grade questions; agreed metric definitions and source-of-truth rules; and a reviewer who reads the audit trail rather than rubber-stamping output. Without those, even a capable agent produces fast answers no one is accountable for.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>The data agent manifesto in one sentence: <strong>stop asking whether AI will write code for you; start asking whether AI can make a business decision you can audit.</strong></p>
+<p>Code Agent answered the first question. This data agent manifesto answers the second: a Data Agent must. That ship requires autonomy, transparency, memory, multi-entry, and self-correction — composed from agentic SQL, knowledge-bound RAG, and auditable workflow.</p>
+<p>InfiniSynapse is building that ship at <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a>.<br />
+The technical proof lives in <a href="/blog/why-code-agents-cannot-solve-enterprise-data-analysis">Why Code Agents Cannot Solve Enterprise Data Analysis</a>.</p>
+<p>This data agent manifesto ends where it began: launch the ship where decisions actually happen — in the data.</p>
+<hr />
+</article>
+<footer class="preview-meta">
+  Source: <code>002-data-agent-manifesto/article.md</code> ·
+  Generated by <code>build-preview.py</code>
+</footer>
+</body>
+</html>

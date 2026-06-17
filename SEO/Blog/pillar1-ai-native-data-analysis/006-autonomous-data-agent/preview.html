@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>What Is an Autonomous Data Agent?</title>
+<meta name="description" content="What is an autonomous data agent? Definition, 5 autonomy behaviors, self-correction patterns, and how it differs from copilots and code agents in 2026.">
+<link rel="canonical" href="https://infinisynapse.cn/blog/autonomous-data-agent">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="InfiniSynapse Data Team">
+<meta http-equiv="content-language" content="en">
+<link rel="alternate" hreflang="en" href="https://infinisynapse.cn/blog/autonomous-data-agent">
+<link rel="alternate" hreflang="zh-CN" href="https://infinisynapse.cn/zh/blog/autonomous-data-agent">
+<link rel="alternate" hreflang="x-default" href="https://infinisynapse.cn/blog/autonomous-data-agent">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://infinisynapse.cn/blog/autonomous-data-agent">
+<meta property="og:title" content="What Is an Autonomous Data Agent?">
+<meta property="og:description" content="What is an autonomous data agent? Definition, 5 autonomy behaviors, self-correction patterns, and how it differs from copilots and code agents in 2026.">
+<meta property="og:image" content="https://infinisynapse.cn/blog/2026-06-08-autonomous-data-agent/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Autonomous data agent lifecycle from goal to plan to execution to memory card">
+<meta property="og:site_name" content="InfiniSynapse Blog">
+<meta property="og:locale" content="en_US">
+
+<meta property="article:published_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:modified_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:author" content="https://infinisynapse.cn/about">
+<meta property="article:section" content="AI Data Analysis">
+<meta property="article:tag" content="autonomous data agent">
+<meta property="article:tag" content="data agent">
+<meta property="article:tag" content="self-correction">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@InfiniSynapse">
+<meta name="twitter:title" content="What Is an Autonomous Data Agent?">
+<meta name="twitter:description" content="What is an autonomous data agent? Definition, 5 autonomy behaviors, self-correction patterns, and how it differs from copilots and code agents in 2026.">
+<meta name="twitter:image" content="https://infinisynapse.cn/blog/2026-06-08-autonomous-data-agent/og-cover.png">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0d9488;
+  --accent-soft: #f0fdfa;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --banner: #1e40af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.preview-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--banner);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.preview-banner strong { font-weight: 700; }
+.site-header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+.site-header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+article {
+  max-width: 860px;
+  margin: 0 auto 64px;
+  padding: 32px 24px 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+article > h1:first-child {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+article > blockquote:first-of-type {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+h2 {
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent-soft);
+  color: #0f766e;
+}
+h3 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+p { margin: 0 0 1.1rem; }
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.35rem; }
+a { color: #2563eb; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.25rem 0 1.5rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--accent-soft); color: #0f766e; font-weight: 600; }
+tr:nth-child(even) td { background: #fafafa; }
+blockquote {
+  margin: 1.25rem 0;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: #134e4a;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+footer.preview-meta {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer.preview-meta code {
+  font-size: 12px;
+}
+</style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is an Autonomous Data Agent?",
+    "description": "What is an autonomous data agent? Definition, 5 autonomy behaviors, self-correction patterns, and how it differs from copilots and code agents in 2026.",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-06-08-autonomous-data-agent/hero.png",
+      "https://infinisynapse.cn/blog/2026-06-08-autonomous-data-agent/self-correction-tree.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/autonomous-data-agent"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Autonomous data agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "Self-correction"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "Thing",
+        "name": "InfiniSQL"
+      },
+      {
+        "@type": "Thing",
+        "name": "InfiniRAG"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "InfiniSynapse",
+        "url": "https://app.infinisynapse.cn"
+      }
+    ],
+    "keywords": "autonomous data agent, data agent, agentic analytics, self-correction, AI-native data analysis"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an analytics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An autonomous data agent is an AI system that accepts a single analytics goal, plans and executes multi-step analysis across data sources, self-corrects around failures, and delivers an inspectable result without the user driving each step."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is it different from a standard data agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every autonomous data agent is a data agent, but not every data agent is autonomous. Autonomy requires goal-to-plan translation, unattended multi-step execution, and self-correction — not just text-to-SQL in a chat window."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can it run without human oversight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It can run unattended for execution, but humans remain accountable for goals, assumptions, and conclusions. Autonomy removes babysitting each SQL step; it does not remove review before numbers go to executives or regulators."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is self-correction in a data agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Self-correction means the agent diagnoses failures and tries alternative paths — cached data, remapped schema, narrower filters — without returning the error to the user. The workaround is logged in the task timeline."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need InfiniSQL or a special query language?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily, but named intermediate tables improve auditability. InfiniSQL extends standard SQL with named intermediates and cross-source load/connect syntax — patterns any production autonomous agent needs under the hood."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I evaluate autonomy in a vendor demo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Submit one goal with a real schema, leave for 15 minutes, then check: Did it finish? Is there a phased timeline? Did it recover from failure without you? Can you trace every number to a query?\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "What Is an Autonomous Data Agent?",
+        "item": "https://infinisynapse.cn/blog/autonomous-data-agent"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="preview-banner"><strong>LOCAL PREVIEW</strong> · Not for production · Images &amp; links use relative paths · Open via <code>file://</code> or local static server</div>
+<header class="site-header">
+  <a href="../INDEX-preview.html">← All Pillar 1 previews</a>
+</header>
+<article class="blog-post">
+<h1 id="what-is-an-autonomous-data-agent">What Is an Autonomous Data Agent?</h1>
+<blockquote>
+<p><strong>By the InfiniSynapse Data Team</strong> · <strong>Last updated: 2026-06-08</strong> · <em>We build autonomous Data Agents at InfiniSynapse; this primer is grounded in 18+ months shipping goal-driven analytics on production customer data.</em></p>
+</blockquote>
+<p><img alt="Diagram of an autonomous data agent lifecycle: one goal in, phased plan, multi-source execution, self-correction loop on failure, audit trail out, memory card saved" src="images/hero-autonomous-data-agent-lifecycle.png" /></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#the-autonomy-pillar-in-the-5-pillar-framework">The Autonomy Pillar in Context</a></li>
+<li><a href="#5-behaviors-that-prove-a-data-agent-is-autonomous">5 Behaviors That Prove Autonomy</a></li>
+<li><a href="#self-correction-how-agents-reroute-around-failure">Self-Correction: How Agents Reroute Around Failure</a></li>
+<li><a href="#what-autonomy-looks-like-in-production">What Autonomy Looks Like in Production</a></li>
+<li><a href="#frequently-asked-questions">FAQ</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<blockquote>
+<p>An <strong>autonomous data agent</strong> is a software agent that accepts a single analytics goal — <em>"analyze last month's churn by acquisition channel"</em> — and independently plans the steps, queries data sources, iterates when something fails, and delivers a defensible result without the user driving each instruction. Autonomy is not "the model writes SQL." It is <strong>goal-driven execution</strong>: phased planning, tool use across sources, <strong>self-correction</strong> when queries fail, and (in production-grade systems) an audit trail the human can inspect afterward. Copilots wait; autonomous agents work.</p>
+</blockquote>
+<p><strong>Who this is for</strong>: data engineers, analytics leads, and product managers evaluating whether a vendor's "agent" is truly autonomous or a multi-turn chatbot with better marketing. LLM-backed analytics should account for prompt-injection and data-exfiltration risks in the <a href="https://www.databricks.com/blog/pushing-frontier-data-agents-genie">Databricks Genie architecture post</a>, especially when connectors expose production schemas. Enterprise AI adoption guidance in <a href="https://clickhouse.com/docs">ClickHouse documentation</a> mirrors the shift from ad-hoc copilots to repeatable, reviewable decision workflows. The credential, preflight, and SQL-trace pattern above also applies to this topic—see <a href="/blog/ai-for-data-analysis">AI for Data Analysis: The Complete 2026 Guide</a> for source-specific steps.</p>
+<p><strong>What you'll learn</strong>:</p>
+<ul>
+<li>A standalone, citable definition of autonomous data agent</li>
+<li>How autonomy fits as Pillar 1 of <a href="/blog/ai-native-data-analysis">AI-native data analysis</a></li>
+<li>Five observable behaviors that separate autonomous agents from copilots</li>
+<li>Three self-correction patterns we see in production deployments</li>
+<li>A side-by-side comparison with copilots and code agents</li>
+</ul>
+<p><strong>Scope note</strong>: This article focuses on the <strong>autonomy</strong> and <strong>self-correction</strong> pillars. For memory, transparency, and multi-entry parity, see the full <a href="/blog/ai-native-data-analysis">5-pillar primer</a>. For a tool comparison, see <a href="/blog/best-agentic-analytics">Best Agentic Analytics Tools for Data-Driven Insights (2026)</a>.</p>
+<hr />
+<p>We validate an <strong>autonomous data agent</strong> on production schemas before expanding scope; when it joins a multi-source stack, align connector scope and review gates with the principles in <a href="/blog/data-agent-manifesto">The Data Agent Manifesto</a>.</p>
+<p>Governance expectations for production analytics align with the <a href="https://en.wikipedia.org/wiki/Data_quality">Wikipedia data quality overview</a>, which we reference when designing reviewer checkpoints.</p>
+<h2 id="definition-what-is-an-autonomous-data-agent">Definition: What Is an Autonomous Data Agent?</h2>
+<blockquote>
+<p><strong>Key Definition</strong> <em>(standalone, citable):</em> An <strong>autonomous data agent</strong> is an AI system specialized for data work that receives a business goal in natural language, produces a reviewable execution plan, runs multi-step analysis across one or more data sources using tools (SQL, Python, retrieval), <strong>self-corrects</strong> when individual steps fail, and returns an inspectable result package. The user sets the goal and reviews the outcome; the agent owns the intermediate work.</p>
+</blockquote>
+<p>Three terms often confused with this one:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Relationship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data agent</strong></td>
+<td>The broader category; an autonomous data agent is a data agent that meets the autonomy bar below. See <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a>.</td>
+</tr>
+<tr>
+<td><strong>Agentic analytics</strong></td>
+<td>The product category emphasizing multi-step planning; autonomy is the core requirement. See <a href="/blog/best-agentic-analytics">Best Agentic Analytics (2026)</a>.</td>
+</tr>
+<tr>
+<td><strong>Code agent</strong></td>
+<td>A general-purpose agent that writes and runs code; may analyze data but lacks schema grounding, governance, and data-specific self-correction.</td>
+</tr>
+</tbody>
+</table>
+<p>When we say "autonomous," we mean the agent <strong>does not ask "what next?"</strong> after every step. It plans, executes, recovers, and reports. That bar defines every credible <strong>autonomous data agent</strong> — not merely a chatbot that chains three SQL calls.</p>
+<hr />
+<h2 id="the-autonomy-pillar-in-the-5-pillar-framework">The Autonomy Pillar in the 5-Pillar Framework</h2>
+<p><a href="/blog/ai-native-data-analysis">AI-native data analysis</a> decomposes into five pillars. <strong>Autonomy</strong> is Pillar 1 — the trigger that separates native agents from enabled copilots.</p>
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>One-line summary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Autonomy</strong></td>
+<td>One goal → agent plans many steps</td>
+</tr>
+<tr>
+<td>2. Process transparency</td>
+<td>Every SQL and dataset inspectable</td>
+</tr>
+<tr>
+<td>3. Knowledge distillation</td>
+<td>Tasks become reusable memory cards</td>
+</tr>
+<tr>
+<td>4. Multi-entry parity</td>
+<td>Same agent via chat, web app, API</td>
+</tr>
+<tr>
+<td>5. Self-correction</td>
+<td>Agent reroutes on failure, logs workaround</td>
+</tr>
+</tbody>
+</table>
+<p>Autonomy and self-correction are deeply linked. An agent that plans five phases but stops at the first SQL timeout is <em>planning-autonomous</em> but not <em>execution-autonomous</em>. Production <strong>autonomous data agent</strong> systems must do both — plan and recover without returning errors to the user for routine failures.</p>
+<p>The <a href="https://docs.snowflake.com/en/">Snowflake documentation</a> notes that trust in AI systems correlates with transparency and predictable behavior — not raw capability scores. An <strong>autonomous data agent</strong> earns trust when users can see <em>what the agent did while they were away</em>, not when the agent hides failures.</p>
+<hr />
+<h2 id="5-behaviors-that-prove-a-data-agent-is-autonomous">5 Behaviors That Prove a Data Agent Is Autonomous</h2>
+<h3 id="1-goal-to-plan-translation">1. Goal-to-Plan Translation</h3>
+<p><strong>What it looks like</strong>: User submits one sentence. Agent returns a phased plan (discover schema → join tables → compute metrics → visualize → summarize) <em>before</em> executing.</p>
+<p><strong>Anti-pattern</strong>: Agent immediately runs a query without showing intent. That is reactive copilot behavior.</p>
+<h3 id="2-multi-step-tool-chaining-without-user-prompts">2. Multi-Step Tool Chaining Without User Prompts</h3>
+<p><strong>What it looks like</strong>: Agent executes phase 1, inspects results, decides phase 2 needs a different join, executes phase 2 — all in one task.</p>
+<p><strong>Anti-pattern</strong>: "I've completed step 1. Should I proceed to step 2?" after every phase.</p>
+<h3 id="3-cross-source-federation">3. Cross-Source Federation</h3>
+<p><strong>What it looks like</strong>: One goal spans MySQL revenue tables, a MongoDB user collection, and an uploaded XLSX segment file. Agent picks the right source per sub-question.</p>
+<p>InfiniSynapse implements this via data-source objectification and <strong>InfiniSQL</strong> <code>load</code> / <code>connect</code> syntax — each query produces a <strong>named intermediate table</strong> the next step can reference.</p>
+<h3 id="4-unattended-completion">4. Unattended Completion</h3>
+<p><strong>What it looks like</strong>: User submits goal, leaves for a meeting, returns to a finished task with charts and narrative.</p>
+<p><strong>Anti-pattern</strong>: Task pauses waiting for user input mid-run unless the ambiguity is genuine (e.g., two tables named <code>users</code> with no disambiguation metadata).</p>
+<h3 id="5-inspectable-completion-package">5. Inspectable Completion Package</h3>
+<p><strong>What it looks like</strong>: Finished task includes timeline, queries, intermediate datasets, charts — not just a chat message.</p>
+<p>Autonomy without transparency is a black box. The <a href="/blog/ai-native-data-analysis">process transparency pillar</a> is what makes autonomy <em>deployable</em> in enterprises.</p>
+<blockquote>
+<p><strong>Hands-on observation (Q1–Q2 2026)</strong>: In hundreds of internal runs, the failure mode for "autonomous" pilots was never "bad SQL on the first try." It was "agent stopped at first error" or "agent completed but left no audit trail." Both break autonomy in practice even when the demo looked agentic.</p>
+</blockquote>
+<hr />
+<h2 id="self-correction-how-agents-reroute-around-failure">Self-Correction: How Agents Reroute Around Failure</h2>
+<p>Self-correction is Pillar 5, but it is the operational proof of autonomy. Three patterns we see in production:</p>
+<h3 id="pattern-a-query-reroute">Pattern A: Query Reroute</h3>
+<p><strong>Trigger</strong>: SQL engine timeout or syntax error on live warehouse.<br />
+<strong>Agent action</strong>: Retry with narrower date range, push filter to source, or switch to a materialized snapshot loaded earlier in the same task.<br />
+<strong>User experience</strong>: Task completes; timeline shows the reroute and which query variant succeeded.</p>
+<h3 id="pattern-b-schema-recovery">Pattern B: Schema Recovery</h3>
+<p><strong>Trigger</strong>: Column <code>customer_id</code> not found; catalog shows <code>cust_id</code>.<br />
+<strong>Agent action</strong>: Inspect schema metadata (or InfiniRAG-bound definitions), remap, rerun.<br />
+<strong>User experience</strong>: No "please fix the column name" message unless ambiguity is genuine.</p>
+<h3 id="pattern-c-source-fallback">Pattern C: Source Fallback</h3>
+<p><strong>Trigger</strong>: Live database connection unavailable mid-task.<br />
+<strong>Agent action</strong>: Use cached snapshot from an earlier <code>load</code> step in the same run.<br />
+<strong>User experience</strong>: Analysis completes; audit log notes fallback with timestamp.</p>
+<p><img alt="Self-correction decision tree: failure detected → diagnose → try alternative path → log workaround → continue or escalate only if unrecoverable" src="images/self-correction-decision-tree.png" /></p>
+<blockquote>
+<p><strong>Case reference (May 2026)</strong>: In a public customer task, the primary SQL engine became unavailable during phase 3 of a five-phase Excel analysis. The InfiniSynapse agent switched to a cached snapshot loaded in phase 1 and finished the report. The analyst was in a client meeting and did not intervene. Full timeline: <a href="/blog/2026-05-14-infinisynapse-lobster-moonlight">When the analyst isn't at the keyboard</a>.</p>
+</blockquote>
+<p><strong>Anti-pattern</strong>: Agent returns <code>Error: connection refused</code> and waits. That delegates self-correction to the user — copilot behavior, not an <strong>autonomous data agent</strong>.</p>
+<p><a href="https://www.anthropic.com/research">Anthropic research</a> consistently flags "pilot purgatory" when AI assistants require human babysitting on every failure. Self-correction is the difference between a demo and a deployment.</p>
+<hr />
+<h2 id="autonomous-agents-vs-copilots-vs-code-agents">Autonomous Agents vs Copilots vs Code Agents</h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Copilot</th>
+<th>Code agent</th>
+<th>Autonomous data agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Input</strong></td>
+<td>One instruction</td>
+<td>One coding task</td>
+<td>One analytics goal</td>
+</tr>
+<tr>
+<td><strong>Planning</strong></td>
+<td>User-driven</td>
+<td>User-driven or single-file scope</td>
+<td>Agent plans phases</td>
+</tr>
+<tr>
+<td><strong>Data grounding</strong></td>
+<td>Optional schema paste</td>
+<td>None by default</td>
+<td>Schema + InfiniRAG business definitions</td>
+</tr>
+<tr>
+<td><strong>Failure handling</strong></td>
+<td>Returns error</td>
+<td>Returns error</td>
+<td>Self-corrects + logs</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>Chat message</td>
+<td>Code + stdout</td>
+<td>Task package + memory card</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Assisted ad-hoc work</td>
+<td>Software engineering</td>
+<td>Recurring production analytics</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Copilot example</strong>: ChatGPT Advanced Data Analysis — excellent for "analyze this CSV," but the user drives each follow-up and the session forgets definitions.</p>
+<p><strong>Code agent example</strong>: A general coding agent that writes Python to query Postgres — powerful, but no project-level memory, no governed metric definitions, no data-source object model.</p>
+<p><strong>Autonomous data agent example</strong>: InfiniSynapse Data Agent at <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a> — one goal, InfiniSQL named intermediates, InfiniRAG-grounded metrics, Task View audit trail, memory card on completion.</p>
+<p>For the full architectural argument why code agents break on enterprise data, see <a href="/blog/why-code-agents-cannot-solve-enterprise-data-analysis">Why Code Agents Cannot Solve Enterprise Data Analysis</a>.</p>
+<hr />
+<h2 id="what-autonomy-looks-like-in-production">What Autonomy Looks Like in Production</h2>
+<p>A realistic autonomy checklist before you trust an agent with recurring production work:</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Pass criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unattended run</td>
+<td>Completes 5+ phase task without user messages</td>
+</tr>
+<tr>
+<td>Failure recovery</td>
+<td>At least one logged reroute in a real task</td>
+</tr>
+<tr>
+<td>Audit</td>
+<td>Stakeholder can trace any headline number to SQL in &lt; 5 min</td>
+</tr>
+<tr>
+<td>Repeat</td>
+<td>Same goal next month reuses locked definitions from memory</td>
+</tr>
+<tr>
+<td>Entry</td>
+<td>Same capability triggerable from web app and API</td>
+</tr>
+</tbody>
+</table>
+<p>Teams that pass all five move from "AI experiment" to "AI analyst on the team." Teams that pass only the first are running an expensive copilot.</p>
+<h3 id="maturity-rubric-for-an">Maturity rubric for an ****</h3>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Behavior</th>
+<th>Production ready?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L0</strong></td>
+<td>Text-to-SQL per prompt</td>
+<td>No — copilot</td>
+</tr>
+<tr>
+<td><strong>L1</strong></td>
+<td>Multi-step within session, user confirms each phase</td>
+<td>No — assisted</td>
+</tr>
+<tr>
+<td><strong>L2</strong></td>
+<td>Multi-step unattended, stops on first hard error</td>
+<td>Partial — demos only</td>
+</tr>
+<tr>
+<td><strong>L3</strong></td>
+<td>Unattended + self-correction + audit trail + memory</td>
+<td>Yes — <strong>autonomous data agent</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Most vendor demos showcase L1 or L2. Procurement should require L3 evidence — logged reroutes, inspectable timelines, memory cards — before labeling a deployment an <strong>autonomous data agent</strong> program.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>What autonomy changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data analyst</strong></td>
+<td>Queue of "quick cuts" runs itself; analyst reviews and refines</td>
+</tr>
+<tr>
+<td><strong>PM</strong></td>
+<td>Asks in plain English; gets report without ticket queue</td>
+</tr>
+<tr>
+<td><strong>Engineering lead</strong></td>
+<td>API-triggered checks in CI/CD or ops workflows</td>
+</tr>
+<tr>
+<td><strong>Executive</strong></td>
+<td>Weekly KPI package arrives with consistent definitions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Excel automation should reference <a href="https://www.cisa.gov/ai">CISA AI security guidance</a> for table semantics, pivots, and formula auditability.</p>
+<p>Enterprise AI adoption guidance in <a href="https://bird-bench.github.io/">BIRD NL2SQL benchmark</a> mirrors the shift from ad-hoc copilots to repeatable, reviewable decision workflows.</p>
+<p>Semantic alignment work should reference <a href="https://www.ftc.gov/">FTC consumer protection guidance</a> before agents encode business metrics.</p>
+<p>SQL grounding for agents still starts with classical semantics in the <a href="https://help.tableau.com/current/pro/desktop/en-us/default.htm">Tableau Desktop documentation</a>, especially joins, grains, and null handling.</p>
+<p>Predictive workflows should stay anchored to fundamentals in the <a href="https://oecd.ai/en/">OECD AI policy observatory</a> when interpreting model-driven outputs.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="what-is-an-analytics">What is an analytics?</h3>
+<p>An autonomous data agent is an AI system that accepts a single analytics goal, plans and executes multi-step analysis across data sources, self-corrects around failures, and delivers an inspectable result without the user driving each step.</p>
+<h3 id="how-is-it-different-from-a-standard-data-agent">How is it different from a standard data agent?</h3>
+<p>Every autonomous data agent is a data agent, but not every data agent is autonomous. Autonomy requires goal-to-plan translation, unattended multi-step execution, and self-correction — not just text-to-SQL in a chat window.</p>
+<h3 id="can-it-run-without-human-oversight">Can it run without human oversight?</h3>
+<p>It can run unattended for execution, but humans remain accountable for goals, assumptions, and conclusions. Autonomy removes babysitting each SQL step; it does not remove review before numbers go to executives or regulators.</p>
+<h3 id="what-is-self-correction-in-a-data-agent">What is self-correction in a data agent?</h3>
+<p>Self-correction means the agent diagnoses failures and tries alternative paths — cached data, remapped schema, narrower filters — without returning the error to the user. The workaround is logged in the task timeline.</p>
+<h3 id="do-i-need-infinisql-or-a-special-query-language">Do I need InfiniSQL or a special query language?</h3>
+<p>Not necessarily, but named intermediate tables improve auditability. InfiniSQL extends standard SQL with named intermediates and cross-source load/connect syntax — patterns any production autonomous agent needs under the hood.</p>
+<h3 id="how-do-i-evaluate-autonomy-in-a-vendor-demo">How do I evaluate autonomy in a vendor demo?</h3>
+<p>Submit one goal with a real schema, leave for 15 minutes, then check: Did it finish? Is there a phased timeline? Did it recover from failure without you? Can you trace every number to a query?</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>An <strong>autonomous data agent</strong> is defined by what it does when you are not watching: plan, execute, recover, document. SQL generation is table stakes; goal-driven execution with self-correction is the bar for any system you deploy as an <strong>autonomous data agent</strong> in production. Mature buyers treat every pilot as an <strong>autonomous data agent</strong> qualification test—not a copilot demo. Document your <strong>autonomous data agent</strong> acceptance criteria before the first warehouse connection.</p>
+<p>If your evaluation checklist stops at "does it write good queries," you will buy a copilot and wonder why the pilot never reached production. Start with autonomy behaviors, then demand transparency and memory from the same vendor.</p>
+<p>You can try the same workflow on the <a href="https://app.infinisynapse.cn">InfiniSynapse web app</a> with a free tier.</p>
+<hr />
+</article>
+<footer class="preview-meta">
+  Source: <code>006-autonomous-data-agent/article.md</code> ·
+  Generated by <code>build-preview.py</code>
+</footer>
+</body>
+</html>

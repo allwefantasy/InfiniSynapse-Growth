@@ -1,0 +1,120 @@
+{
+  "pillar": "pillar7-use-cases-role-industry",
+  "pillar_name": "Use Cases by Role / Industry",
+  "article_count": 14,
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 7",
+  "articles": [
+    {
+      "id": "081",
+      "folder": "081-ai-tools-for-data-analysts",
+      "slug": "ai-tools-for-data-analysts",
+      "keyword": "ai tools for data analysts",
+      "type": "listicle",
+      "url": "https://infinisynapse.cn/blog/ai-tools-for-data-analysts"
+    },
+    {
+      "id": "082",
+      "folder": "082-ai-data-analysis-product-managers",
+      "slug": "ai-data-analysis-product-managers",
+      "keyword": "data science for product managers",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-product-managers"
+    },
+    {
+      "id": "083",
+      "folder": "083-ai-data-analysis-finance-teams",
+      "slug": "ai-data-analysis-finance-teams",
+      "keyword": "best data integration platforms for finance teams 2025 2026",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-finance-teams"
+    },
+    {
+      "id": "084",
+      "folder": "084-ai-data-analysis-marketing",
+      "slug": "ai-data-analysis-marketing",
+      "keyword": "marketing data analysis",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-marketing"
+    },
+    {
+      "id": "085",
+      "folder": "085-ai-data-analysis-operations",
+      "slug": "ai-data-analysis-operations",
+      "keyword": "ai in data center operations",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-operations"
+    },
+    {
+      "id": "086",
+      "folder": "086-ai-for-data-engineers",
+      "slug": "ai-for-data-engineers",
+      "keyword": "ai for data engineers",
+      "type": "guide",
+      "url": "https://infinisynapse.cn/blog/ai-for-data-engineers"
+    },
+    {
+      "id": "087",
+      "folder": "087-ai-data-strategy-cto",
+      "slug": "ai-data-strategy-cto",
+      "keyword": "ai-powered semantic layers for enterprise data strategy",
+      "type": "guide",
+      "url": "https://infinisynapse.cn/blog/ai-data-strategy-cto"
+    },
+    {
+      "id": "088",
+      "folder": "088-ai-data-analysis-founders",
+      "slug": "ai-data-analysis-founders",
+      "keyword": "best ai tools for data analysis",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-founders"
+    },
+    {
+      "id": "089",
+      "folder": "089-ai-data-analysis-ecommerce",
+      "slug": "ai-data-analysis-ecommerce",
+      "keyword": "ecommerce data analysis",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-ecommerce"
+    },
+    {
+      "id": "090",
+      "folder": "090-ai-data-analysis-saas",
+      "slug": "ai-data-analysis-saas",
+      "keyword": "saas data platform",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-saas"
+    },
+    {
+      "id": "091",
+      "folder": "091-ai-data-analysis-financial-services",
+      "slug": "ai-data-analysis-financial-services",
+      "keyword": "financial services data analysis",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-financial-services"
+    },
+    {
+      "id": "092",
+      "folder": "092-ai-data-analysis-supply-chain",
+      "slug": "ai-data-analysis-supply-chain",
+      "keyword": "data science in supply chain",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-supply-chain"
+    },
+    {
+      "id": "093",
+      "folder": "093-ai-data-analysis-healthcare",
+      "slug": "ai-data-analysis-healthcare",
+      "keyword": "ai data analysis healthcare",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-healthcare"
+    },
+    {
+      "id": "094",
+      "folder": "094-ai-data-analysis-logistics",
+      "slug": "ai-data-analysis-logistics",
+      "keyword": "data analysis in logistics",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-logistics"
+    }
+  ]
+}

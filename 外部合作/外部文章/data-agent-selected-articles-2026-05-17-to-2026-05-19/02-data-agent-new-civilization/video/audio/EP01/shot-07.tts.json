@@ -1,0 +1,7 @@
+{
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "text": "而我们要建造的第一艘飞船，就是 Data Agent。"
+}

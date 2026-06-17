@@ -1,0 +1,162 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://infinisynapse.cn/blog/natural-language-to-sql#article",
+      "headline": "Natural Language to SQL in 2026: What's Real, What's Theatre, and the Architecture That Actually Works",
+      "description": "Natural language to SQL works on toy databases and breaks on real enterprise schemas. We tested 5 categories of NL2SQL tools in Q1 2026, mapped the 3 failure modes that block 95% of pilots, and explain the agentic-language architecture (named-intermediate tool calls, schema-grounded RAG, auditable execution chains) that finally clears the bar.",
+      "image": "https://infinisynapse.cn/blog/natural-language-to-sql/images/hero-nl2sql-five-generations.png",
+      "datePublished": "2026-05-19",
+      "dateModified": "2026-05-19",
+      "inLanguage": "en",
+      "wordCount": 3100,
+      "author": {
+        "@type": "Organization",
+        "name": "InfiniSynapse Data Team",
+        "url": "https://infinisynapse.cn/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "InfiniSynapse",
+        "url": "https://infinisynapse.cn",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://infinisynapse.cn/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://infinisynapse.cn/blog/natural-language-to-sql"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Natural Language to SQL", "sameAs": "https://en.wikipedia.org/wiki/Semantic_parsing" },
+        { "@type": "Thing", "name": "SQL", "sameAs": "https://en.wikipedia.org/wiki/SQL" },
+        { "@type": "Thing", "name": "Large Language Model", "sameAs": "https://en.wikipedia.org/wiki/Large_language_model" },
+        { "@type": "Thing", "name": "Agentic AI" },
+        { "@type": "Thing", "name": "Data Warehouse", "sameAs": "https://en.wikipedia.org/wiki/Data_warehouse" }
+      ],
+      "mentions": [
+        { "@type": "SoftwareApplication", "name": "InfiniSQL", "url": "https://infinisynapse.cn/docs/infinisql", "applicationCategory": "Data Analysis" },
+        { "@type": "SoftwareApplication", "name": "Databricks Genie", "url": "https://www.databricks.com/product/ai-bi/genie", "applicationCategory": "Data Analysis" },
+        { "@type": "SoftwareApplication", "name": "Snowflake Cortex Analyst", "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst", "applicationCategory": "Data Analysis" },
+        { "@type": "Dataset", "name": "Spider", "url": "https://yale-lily.github.io/spider", "description": "Large-scale human-labeled dataset for cross-domain text-to-SQL" },
+        { "@type": "Dataset", "name": "BIRD", "url": "https://bird-bench.github.io", "description": "Big bench for large-scale database-grounded text-to-SQL" }
+      ],
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://infinisynapse.cn/blog",
+        "name": "InfiniSynapse Blog"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Data engineers, analytics platform leads, CTOs, SQL practitioners"
+      },
+      "proficiencyLevel": "Expert"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://infinisynapse.cn/blog/natural-language-to-sql#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's the difference between NL2SQL and text-to-SQL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They're the same thing. 'Text-to-SQL' is the research-community name (used in benchmarks like Spider and BIRD); 'natural language to SQL' or 'NL2SQL' is more common in commercial 2026 product copy. Both refer to the task of turning a plain-English business question into one or more SQL queries against a specific database."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I just plug ChatGPT or Claude into my database and skip dedicated NL2SQL tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For one-off exploration on a small schema (under 20 tables) — yes, this works fine, and it's the cheapest path. For production analytics on enterprise warehouses (500+ tables, recurring questions, regulated reporting) — no. Plain ChatGPT/Claude with a database connector is a Generation 3 architecture (single-shot LLM), and it hits three architectural failure modes: schema-grounding collapse past ~200 tables, no recovery from execution errors, and no audit trail. The hosted LLM is fine; the missing layer is the agent loop that decomposes, executes, retrieves schema per step, and accumulates intermediates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does fine-tuning a model on my schema fix NL2SQL accuracy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Marginally, and not enough to matter. Fine-tuning helps the model recognize your domain vocabulary (e.g., that 'GMV' maps to a specific column), but it does not fix failure mode 1 (the schema is still too big for the context window), failure mode 2 (single-shot can't recover from execution errors regardless of model fit), or failure mode 3 (no audit trail). Most teams that try fine-tuning report a 5–15 point lift on a fixed test set and no measurable change in the questions they actually ask."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the highest-leverage architectural change for an existing single-shot NL2SQL setup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wrap the single SQL generation in an execution loop that re-prompts on error. Even without the rest of the agentic architecture, just letting the model see 'your query failed with: ERROR ... — try again' doubles success rate on most schemas. The full Generation 5 architecture (named intermediates, per-step schema retrieval, audit-trail materialization) is the right destination, but the execution loop is the cheapest first step that pays back immediately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why are tools like Databricks Genie and InfiniSynapse InfiniSQL fundamentally different from 'ChatGPT plus a database'?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both are Generation 5 architectures. They treat each SQL statement as a tool call whose output is named, materialized, and consumable by the next step. ChatGPT-plus-a-database is Generation 3 — it generates SQL as a text block, runs it once, and stops. The architectural gap matters more than the model gap. A G5 system using a 2024-era model usually outperforms a G3 system using a 2026 frontier model on real enterprise schemas, because the failure modes are architectural, not model-quality."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is NL2SQL ever going to be 100% accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and the goal post is misplaced. A human SQL analyst is not 100% accurate either — they make mistakes, they iterate, they catch errors when reviewing results. The right comparison for production NL2SQL is not 'perfect SQL on the first try' but 'a senior analyst's time-to-correct-result.' A G5 architecture with iteration, materialization, and audit trail can beat that benchmark on recurring questions, even though no individual SQL it generates is guaranteed correct. The goal is auditable convergence, not infallible single-shot generation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the role of schema metadata, dbt models, and a semantic layer in NL2SQL accuracy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They're a force multiplier for G4 and a near-requirement for G5. A well-maintained semantic layer (dbt + a metric definition store) collapses ambiguity ('revenue means the SUM of recognized_revenue_usd from fact_billing_v3, joined to dim_customer on customer_id') into a single ground-truth definition the NL2SQL tool can retrieve. Without it, the tool has to infer business definitions from column names and table-name conventions — which is where most production failures originate. Teams that invest in the semantic layer before deploying NL2SQL get 2–3x the accuracy of teams that try to deploy NL2SQL first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you measure NL2SQL accuracy in production after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three metrics, in this order: (1) execution rate — did the generated SQL run without error? (2) business-correctness rate — did the result match what an experienced analyst would have produced, measured by sampling 5% of queries weekly? (3) iteration rate — how many follow-up turns did the user need to converge on the answer they wanted? Production-grade NL2SQL targets are execution rate >95%, business-correctness rate >85%, average iteration count <2. Tools that publish only execution rate (G3 and most G4) are hiding the second metric."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://infinisynapse.cn/blog/natural-language-to-sql#terms",
+      "name": "Natural Language to SQL — Key Terms (2026)",
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Natural language to SQL (NL2SQL)",
+          "description": "The task of translating a plain-language business question into one or more SQL queries that, when executed against a specific database, return the data the question asks for. In 2026 production systems, NL2SQL has expanded from 'one English sentence → one SELECT' to a multi-step agent loop that decomposes the question, generates intermediate queries, validates results, repairs errors, and accumulates a session-level analytical workspace.",
+          "inDefinedTermSet": "https://infinisynapse.cn/blog/natural-language-to-sql#terms"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Agentic SQL system",
+          "description": "An NL2SQL architecture in which each SQL statement is issued as a discrete tool call whose result is named, materialized, and consumable by the next tool call — turning a session into a chain of intermediate tables rather than a single hopeful SQL block.",
+          "inDefinedTermSet": "https://infinisynapse.cn/blog/natural-language-to-sql#terms"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Generation 5 NL2SQL (G5)",
+          "description": "The agentic architecture in which a planner-executor loop runs SQL as tool calls, materializes each intermediate as a named table, re-grounds schema retrieval at every step, and ships the full execution chain as the auditable artifact rather than just the final number. Currently shipping in InfiniSynapse InfiniSQL, Databricks Genie (in-stack only), and parts of Snowflake Cortex Analyst.",
+          "inDefinedTermSet": "https://infinisynapse.cn/blog/natural-language-to-sql#terms"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://infinisynapse.cn/blog/natural-language-to-sql#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://infinisynapse.cn/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://infinisynapse.cn/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Natural Language to SQL in 2026", "item": "https://infinisynapse.cn/blog/natural-language-to-sql" }
+      ]
+    }
+  ]
+}

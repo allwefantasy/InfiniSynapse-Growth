@@ -1,0 +1,54 @@
+name: Feature Request
+description: Suggest an improvement or new capability
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the use case or pain point.
+      placeholder: "I'm trying to do X but currently there's no way to ..."
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: How should this work?
+      placeholder: "A new skill or command that ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - New skill
+        - Existing skill improvement
+        - New command
+        - Integration / connector
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Which phase does this relate to?
+      options:
+        - Research
+        - Build
+        - Optimize
+        - Monitor
+        - Cross-cutting / Protocol
+        - Not applicable
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you thought about.
+    validations:
+      required: false

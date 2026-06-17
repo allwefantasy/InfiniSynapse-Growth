@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>What Is an AI-Native Data Platform? (2026 Buyer's Guide)</title>
+<meta name="description" content="What is an AI-native data platform? 2026 buyer's guide: 5 pillars, architecture layers, evaluation checklist, and InfiniSynapse as reference implementation.">
+<link rel="canonical" href="https://infinisynapse.cn/blog/ai-native-data-platform">
+
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="InfiniSynapse Data Team">
+<meta http-equiv="content-language" content="en">
+<link rel="alternate" hreflang="en" href="https://infinisynapse.cn/blog/ai-native-data-platform">
+<link rel="alternate" hreflang="zh-CN" href="https://infinisynapse.cn/zh/blog/ai-native-data-platform">
+<link rel="alternate" hreflang="x-default" href="https://infinisynapse.cn/blog/ai-native-data-platform">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://infinisynapse.cn/blog/ai-native-data-platform">
+<meta property="og:title" content="What Is an AI-Native Data Platform? (2026 Buyer's Guide)">
+<meta property="og:description" content="What is an AI-native data platform? 2026 buyer's guide: 5 pillars, architecture layers, evaluation checklist, and InfiniSynapse as reference implementation.">
+<meta property="og:image" content="https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/004-ai-native-data-platform/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI-native data platform five-layer architecture diagram">
+<meta property="og:site_name" content="InfiniSynapse Blog">
+<meta property="og:locale" content="en_US">
+
+
+<meta property="article:published_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:modified_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:author" content="https://infinisynapse.cn/about">
+<meta property="article:section" content="AI Data Analysis">
+<meta property="article:tag" content="ai-native data platform">
+<meta property="article:tag" content="data agent platform">
+<meta property="article:tag" content="buyer's guide">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@InfiniSynapse">
+<meta name="twitter:title" content="What Is an AI-Native Data Platform? (2026 Buyer's Guide)">
+<meta name="twitter:description" content="What is an AI-native data platform? 2026 buyer's guide: 5 pillars, architecture layers, evaluation checklist, and InfiniSynapse as reference implementation.">
+<meta name="twitter:image" content="https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/004-ai-native-data-platform/og-cover.png">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0d9488;
+  --accent-soft: #f0fdfa;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --banner: #1e40af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.preview-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--banner);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.preview-banner strong { font-weight: 700; }
+.site-header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+.site-header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+article {
+  max-width: 860px;
+  margin: 0 auto 64px;
+  padding: 32px 24px 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+article > h1:first-child {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+article > blockquote:first-of-type {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+h2 {
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent-soft);
+  color: #0f766e;
+}
+h3 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+p { margin: 0 0 1.1rem; }
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.35rem; }
+a { color: #2563eb; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.25rem 0 1.5rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--accent-soft); color: #0f766e; font-weight: 600; }
+tr:nth-child(even) td { background: #fafafa; }
+blockquote {
+  margin: 1.25rem 0;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: #134e4a;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+footer.preview-meta {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer.preview-meta code {
+  font-size: 12px;
+}
+</style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is an AI-Native Data Platform? (2026 Buyer's Guide)",
+    "description": "What is an AI-native data platform? 2026 buyer's guide: 5 pillars, architecture layers, evaluation checklist, and InfiniSynapse as reference implementation.",
+    "image": [
+      "https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/004-ai-native-data-platform/hero-ai-native-data-platform.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/ai-native-data-platform"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "AI-native data platform"
+      },
+      {
+        "@type": "Thing",
+        "name": "AI-native data analysis"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data Agent platform"
+      }
+    ],
+    "keywords": "ai-native data platform, ai-native data analysis, data agent platform, agentic analytics, buyer's guide"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an analytics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An **ai-native data platform** is software designed from the ground up for autonomous Data Agents — connecting to enterprise sources, running goal-driven multi-step analysis with audit trails, distilling reusable memory, and exposing agents through multiple entry points. It is not a traditional BI tool with an AI chatbot added."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is it different from an AI-enabled BI tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI-enabled BI adds copilots to dashboard workflows — the user still drives each step and the primary artifact is a chart. An **ai-native data platform** treats the agent as the workflow: goal in, audited analysis + memory out."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I still need a data warehouse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Often yes. An **ai-native data platform** connects to your warehouse, databases, and files — it does not replace storage. It replaces the manual loop of discovery → query → chart → forget → repeat."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What connectors should I require in an RFP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Minimum: one relational DB, one file type (XLSX/CSV), and one knowledge source (docs or dictionary). Ideal: MySQL/Postgres + MongoDB + warehouse + file upload + RAG on business definitions. InfiniSynapse ships this set at launch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I evaluate AI-native claims in vendor demos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Run the same recurring question twice on any candidate **ai-native data platform**. First session: full analysis. Second session: ask to rerun with new data and same definitions. If the vendor re-explains schema from scratch, it is not AI-native."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is InfiniSynapse an analytics or just a Data Agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both. InfiniSynapse is an **ai-native data platform** hosting Data Agents (InfiniAgent + InfiniSQL + InfiniRAG + audit + memory). \"Data Agent\" names the actor; \"AI-native platform\" names the system it runs in. When this topic joins a multi-source stack, align connector scope and review gates using [AI Data Analyst: Role, Tools, and Workflow in 2026](/blog/ai-data-analyst).\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "What Is an AI-Native Data Platform?",
+        "item": "https://infinisynapse.cn/blog/ai-native-data-platform"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="preview-banner"><strong>LOCAL PREVIEW</strong> · Not for production · Images &amp; links use relative paths · Open via <code>file://</code> or local static server</div>
+<header class="site-header">
+  <a href="../INDEX-preview.html">← All Pillar 1 previews</a>
+</header>
+<article class="blog-post">
+<h1 id="what-is-an-ai-native-data-platform-2026-buyers-guide">What Is an AI-Native Data Platform? (2026 Buyer's Guide)</h1>
+<blockquote>
+<p><strong>By the InfiniSynapse Data Team</strong> · <strong>Last updated: 2026-06-08</strong> · <em>We build InfiniSynapse, an AI-native data platform. This buyer's guide reflects our architecture and evaluation criteria from 18+ months of production deployments.</em></p>
+</blockquote>
+<p><img alt="AI-native data platform architecture: five pillars, connector layer, Data Agent runtime, and memory store" src="images/hero-ai-native-data-platform.png" /></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#definition">Definition</a></li>
+<li><a href="#platform-architecture-five-layers">Platform Architecture: Five Layers</a></li>
+<li><a href="#the-five-pillars--platform-requirements">The Five Pillars — Platform Requirements</a></li>
+<li><a href="#ai-native-vs-ai-enabled-vs-traditional-bi">AI-Native vs AI-Enabled vs Traditional BI</a></li>
+<li><a href="#buying-criteria-12-question-checklist">Buying Criteria: 12-Question Checklist</a></li>
+<li><a href="#reference-implementation-infinisynapse">Reference Implementation: InfiniSynapse</a></li>
+<li><a href="#deployment-patterns">Deployment Patterns</a></li>
+<li><a href="#frequently-asked-questions">FAQ</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<blockquote>
+<p>An <strong>AI-native data platform</strong> is software architected from day one around autonomous Data Agents — not a BI dashboard with an AI copilot bolted on. It connects to enterprise data sources, runs goal-driven multi-step analysis with full audit trails, distills completed work into reusable memory, and exposes the same agent capability through chat, web, and API. The 2026 buyer's question is not <em>"does it have AI?"</em> but <em>"was the workflow designed for agents, or retrofitted?"</em></p>
+</blockquote>
+<p><strong>Who this is for</strong>: heads of data, analytics platform leads, CTOs, and procurement teams evaluating whether an <strong>ai-native data platform</strong> belongs in their 2026 analytics infrastructure budget. LLM-backed analytics should account for prompt-injection and data-exfiltration risks in the <a href="https://learn.microsoft.com/en-us/azure/architecture/">Azure architecture center</a>, especially when connectors expose production schemas. Enterprise AI adoption guidance in <a href="https://cloud.google.com/architecture/framework">Google Cloud architecture framework</a> mirrors the shift from ad-hoc copilots to repeatable, reviewable decision workflows.</p>
+<p><strong>What you'll learn</strong>:</p>
+<ul>
+<li>A precise <strong>ai-native data platform</strong> definition distinct from copilot add-ons</li>
+<li>Five architecture layers every AI-native platform must ship</li>
+<li>Five operational pillars as pass/fail buying tests</li>
+<li>A 12-question evaluation checklist</li>
+<li>InfiniSynapse as a reference implementation with real case metrics</li>
+</ul>
+<p><strong>Scope note</strong>: This guide evaluates <em>platforms</em>, not individual copilots. For tool-level comparison, see <a href="/blog/best-ai-tools-for-data-analysis">Best AI Tools for Data Analysis</a>. For the Data Agent definition, see <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a>.</p>
+<hr />
+<p>Governance expectations for production analytics align with the <a href="https://www.anthropic.com/research">Anthropic research</a>, which we reference when designing reviewer checkpoints.</p>
+<h2 id="definition">Definition</h2>
+<blockquote>
+<p><strong>Key Definition</strong>: An <strong>AI-native data platform</strong> is an integrated system where Data Agents are the primary workflow — connecting to structured and unstructured data sources, executing autonomous multi-step analysis, persisting audit trails and distilled memory, and delivering consistent capability across multiple entry points — as opposed to traditional BI platforms that optimize for dashboard display with optional AI assistance layered on top.</p>
+</blockquote>
+<p>Three terms to disambiguate:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it optimizes for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Traditional BI platform</strong></td>
+<td>Displaying pre-built dashboards</td>
+</tr>
+<tr>
+<td><strong>AI-enabled analytics</strong></td>
+<td>Copilot accelerates analyst steps inside existing BI</td>
+</tr>
+<tr>
+<td><strong>AI-native data platform</strong></td>
+<td>Agent executes analysis; human validates and decides</td>
+</tr>
+</tbody>
+</table>
+<p>The <a href="https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html">AWS Well-Architected Framework</a> documents rising adoption with diverging trust — platforms that expose agent reasoning earn ongoing budget; black-box copilots stall at pilot. <a href="https://en.wikipedia.org/wiki/Natural_language_processing">Wikipedia natural language processing overview</a> confirms: governance, transparency, and memory determine deployment, not query accuracy alone.</p>
+<p>For the workflow paradigm these platforms implement, see <a href="/blog/ai-native-data-analysis">AI-native data analysis</a>.</p>
+<p>Procurement teams evaluating an <strong>ai-native data platform</strong> should ask one structural question first: was the product designed so agents execute analysis, or so humans execute analysis with AI suggestions? That distinction — not connector count — separates native from enabled.</p>
+<hr />
+<h2 id="platform-architecture-five-layers">Platform Architecture: Five Layers</h2>
+<h3 id="layer-1-connector-asset-fabric">Layer 1 — Connector &amp; Asset Fabric</h3>
+<p>Bind databases (MySQL, Postgres, Snowflake, BigQuery), document stores (MongoDB), files (XLSX, CSV, Parquet), and knowledge sources (docs, dictionaries, prior analyses). The agent must discover assets — not rely on the user pasting schema every session. Regulated rollouts often anchor access reviews to <a href="https://en.wikipedia.org/wiki/Machine_learning">Wikipedia machine learning overview</a> when credentials, retention policies, and audit logs are in scope.</p>
+<p><strong>InfiniSynapse</strong>: Multi-source binding with RAG scoped per connector; agent picks source per sub-question.</p>
+<h3 id="layer-2-agent-runtime-data-agent">Layer 2 — Agent Runtime (Data Agent)</h3>
+<p>Orchestration loop: plan → execute tool calls → validate → self-correct → summarize. Not single-turn chat. InfiniSynapse implements this as <strong>InfiniAgent</strong> driving <strong>InfiniSQL</strong> tool calls.</p>
+<h3 id="layer-3-knowledge-layer">Layer 3 — Knowledge Layer</h3>
+<p>Business definitions, metric rules, org context — retrieved per query via RAG bound to data sources (<strong>InfiniRAG</strong>), not stuffed into context windows. This layer is what separates enterprise Data Agents from coding agents on a CSV.</p>
+<h3 id="layer-4-audit-governance">Layer 4 — Audit &amp; Governance</h3>
+<p>Task timeline with every SQL, dataset, and chart inspectable. Role-based access, approval flows for memory cards (DRAFT → human approved), exportable evidence for finance and compliance reviews.</p>
+<h3 id="layer-5-multi-entry-access">Layer 5 — Multi-Entry Access</h3>
+<p>Same agent capability via WeChat (light queries), web app (deep tasks at <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a>), and API (<code>agent_infini</code> for embedding in Code Agent workflows, kanban systems, or custom agents). Entry-point parity is a platform requirement — not a feature request.</p>
+<pre><code>[Connectors] → [Agent Runtime] ↔ [Knowledge/RAG]
+                      ↓
+              [Audit Timeline] → [Memory Store]
+                      ↓
+         [WeChat | Web App | API]
+</code></pre>
+<hr />
+<h2 id="the-five-pillars-platform-requirements">The Five Pillars — Platform Requirements</h2>
+<p><img alt="Five pillars as platform RFP pass/fail criteria: autonomy, transparency, distillation, multi-entry, self-correction" src="images/platform-five-layers.png" /></p>
+<p>Use these as RFP criteria. A platform failing more than one pillar is AI-enabled with marketing.</p>
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>Platform requirement</th>
+<th>Fail signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Autonomy</strong></td>
+<td>Goal in → phased plan out → execution without per-step prompting</td>
+<td>"Confirm each step?" dialogs</td>
+</tr>
+<tr>
+<td><strong>2. Process transparency</strong></td>
+<td>Clickable audit timeline for every task</td>
+<td>Final answer only</td>
+</tr>
+<tr>
+<td><strong>3. Knowledge distillation</strong></td>
+<td>Memory cards with locked definitions, human approval</td>
+<td>Session-only history</td>
+</tr>
+<tr>
+<td><strong>4. Multi-entry parity</strong></td>
+<td>Identical agent via chat, web, API</td>
+<td>Full agent in one UI only</td>
+</tr>
+<tr>
+<td><strong>5. Self-correction</strong></td>
+<td>Reroute on source failure, empty join, timeout</td>
+<td>Hard fail to user</td>
+</tr>
+</tbody>
+</table>
+<p>These pillars are defined in depth in <a href="/blog/ai-native-data-analysis">AI-native data analysis</a> and operationalized by <a href="/blog/what-is-a-data-agent">Data Agents</a> hosted on the <strong>ai-native data platform</strong>. Foundational warehouse concepts—grain, dimensions, and conformed metrics—remain essential; <a href="https://airflow.apache.org/docs/">Apache Airflow documentation</a> is a concise refresher for reviewers validating generated SQL.</p>
+<hr />
+<h2 id="ai-native-vs-ai-enabled-vs-traditional-bi">AI-Native vs AI-Enabled vs Traditional BI</h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Traditional BI</th>
+<th>AI-enabled</th>
+<th>AI-native platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary artifact</strong></td>
+<td>Dashboard</td>
+<td>Copilot suggestion</td>
+<td>Completed analysis + audit</td>
+</tr>
+<tr>
+<td><strong>User mode</strong></td>
+<td>Click filters</td>
+<td>Prompt per step</td>
+<td>Submit goal</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Saved dashboards</td>
+<td>Chat history</td>
+<td>Distilled memory cards</td>
+</tr>
+<tr>
+<td><strong>Failure handling</strong></td>
+<td>Broken chart</td>
+<td>Error to user</td>
+<td>Agent reroutes</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Known KPIs</td>
+<td>Analyst acceleration</td>
+<td>Recurring + multi-source analysis</td>
+</tr>
+<tr>
+<td><strong>2026 budget line</strong></td>
+<td>Maintenance</td>
+<td>Pilot copilot</td>
+<td>Agent infrastructure</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When traditional BI wins</strong>: Fixed executive dashboards, governed semantic layers, known metrics displayed daily.</p>
+<p><strong>When AI-native wins</strong>: Ad-hoc and recurring questions across mixed sources, analyst unavailable, audit required, method must compound month over month.</p>
+<p>An <strong>ai-native data platform</strong> is not a replacement for every BI seat. It is the layer that handles work between dashboard refreshes — discovery, ad-hoc cuts, recurring KPI packages — while governed dashboards remain the executive consumption surface.</p>
+<hr />
+<h2 id="migration-path-ai-enabled-ai-native">Migration Path: AI-Enabled → AI-Native</h2>
+<p>Most enterprises are not greenfield. They already run ThoughtSpot, Power BI, Hex, or Databricks with copilot features enabled. Moving to an <strong>ai-native data platform</strong> follows a predictable sequence:</p>
+<p><strong>Phase 1 — Shadow mode (2–4 weeks)</strong>: Run the same recurring question through your existing copilot and through a candidate <strong>ai-native data platform</strong>. Compare audit depth and rerun time — not just answer text.</p>
+<p><strong>Phase 2 — Recurring workloads (1–2 months)</strong>: Route weekly KPIs and monthly cohorts to the native platform. Keep BI for fixed dashboards. Bind RAG to existing semantic definitions where possible to avoid duplicate metric layers.</p>
+<p><strong>Phase 3 — Embedded access (ongoing)</strong>: Enable WeChat, API, or kanban triggers so PMs and engineers request analysis without ticket queues. Multi-entry parity is a platform requirement — not a nice-to-have once adoption scales.</p>
+<p><strong>Phase 4 — Governance hardening</strong>: Formalize memory-card approval flows, exportable audit trails for finance, and role-based connector access. An <strong>ai-native data platform</strong> earns budget when compliance teams can replay evidence — not when analysts say the numbers "look right."</p>
+<p>Teams that skip Phase 1 and buy on demo SQL often discover their copilot and native platform produce identical answers — but only the <strong>ai-native data platform</strong> remembers definitions next month.</p>
+<hr />
+<h2 id="buying-criteria-12-question-checklist">Buying Criteria: 12-Question Checklist</h2>
+<p>Score each <strong>Yes / Partial / No</strong>. Any <strong>No</strong> on questions 1–5 is a disqualifier for "AI-native."</p>
+<ol>
+<li>Does the user submit a <strong>goal</strong>, not steps?</li>
+<li>Does the system produce a <strong>reviewable plan</strong> before executing?</li>
+<li>Can stakeholders inspect <strong>every SQL and intermediate dataset</strong>?</li>
+<li>Does completed work <strong>distill into reusable memory</strong> with approval flow?</li>
+<li>Does the agent <strong>self-correct</strong> when a source fails?</li>
+<li>Are <strong>MySQL + files + docs</strong> queryable in one task?</li>
+<li>Is business knowledge <strong>retrieved per query</strong> (RAG), not pasted?</li>
+<li>Is the same agent available via <strong>API</strong> without feature gaps?</li>
+<li>Does the platform support <strong>human-in-the-loop approval</strong> for memory?</li>
+<li>Can tasks run <strong>while the user is away</strong> (async completion)?</li>
+<li>Is there a <strong>free tier or POC path</strong> under two weeks?</li>
+<li>Does the vendor publish <strong>first-party case evidence</strong> with inspectable metrics?</li>
+</ol>
+<p>InfiniSynapse scores Yes on 1–10 and 12; Yes on 11 via <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a> free registration.</p>
+<p>Treat questions 1–5 as veto criteria for any vendor claiming to sell an <strong>ai-native data platform</strong>. Partial scores on 6–8 often indicate a strong warehouse agent that still struggles with files or API parity — acceptable for some teams, disqualifying for mixed-source estates.</p>
+<hr />
+<h2 id="reference-implementation-infinisynapse">Reference Implementation: InfiniSynapse</h2>
+<p>InfiniSynapse is an <strong>ai-native data platform</strong> built as reference architecture for this guide — not the only option, but a concrete instance of every layer and pillar above.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>InfiniAgent</strong></td>
+<td>Orchestration and phased planning</td>
+</tr>
+<tr>
+<td><strong>InfiniSQL</strong></td>
+<td>Federated agentic query across connectors</td>
+</tr>
+<tr>
+<td><strong>InfiniRAG</strong></td>
+<td>Business knowledge bound to sources</td>
+</tr>
+<tr>
+<td><strong>Memory cards</strong></td>
+<td>Distillation with DRAFT → approved workflow</td>
+</tr>
+<tr>
+<td><strong>Task timeline</strong></td>
+<td>Full audit trail per analysis</td>
+</tr>
+<tr>
+<td><strong>Multi-entry</strong></td>
+<td>WeChat, web, <code>agent_infini</code> API</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Production case — Lobster Moonlight (May 14, 2026)</strong>: 833 KB Excel, 7,444 rows × 22 fields. WeChat request at 14:13. Five autonomous phases by 14:19. 41.71% zero savings headline. 12 charts. Analyst in meeting; ~90 seconds input.</p>
+<p><strong>Production case — April baseline (May 12, 2026)</strong>: User-growth analysis distilled to memory card. May rerun in one sentence — proof of platform-level compounding, not session-level convenience.</p>
+<p>For methods and tool landscape context, see <a href="/blog/ai-for-data-analysis">AI for Data Analysis: The Complete 2026 Guide</a>.</p>
+<hr />
+<h2 id="deployment-patterns">Deployment Patterns</h2>
+<p><strong>Pattern A — Analyst team primary</strong>: Web app for deep tasks; memory cards for recurring weekly/monthly analyses; API for scheduling.</p>
+<p><strong>Pattern B — Business self-service</strong>: WeChat bot for light questions; escalation to full agent task when complexity exceeds one SQL.</p>
+<p><strong>Pattern C — Embedded in engineering workflow</strong>: <code>agent_infini</code> API called from Code Agent or internal kanban when a ticket needs data evidence before code ships.</p>
+<p><strong>Pattern D — Hybrid with existing BI</strong>: An <strong>ai-native data platform</strong> handles discovery, ad-hoc, and recurring analyses; Tableau/Power BI remains display layer for fixed dashboards. Avoid duplicating semantic layers — bind RAG to existing definitions where possible.</p>
+<h3 id="total-cost-of-ownership-notes">Total cost of ownership notes</h3>
+<p>When finance asks what an <strong>ai-native data platform</strong> costs, include hidden savings: eliminated re-alignment meetings, faster audit response, and analyst throughput on recurring work. Line-item pricing (seats, compute, queries) matters — but ROI often appears in rerun rate and audit-incident resolution time, not in the first demo query.</p>
+<hr />
+<p>OLTP connector hygiene should follow <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework</a> for role design, schema grants, and explainable validation queries.</p>
+<p>Spreadsheet-heavy preparation often mirrors <a href="https://docs.python.org/3/">Python documentation</a> patterns for typing, joins, and reproducible transforms.</p>
+<p>Semantic alignment work should reference <a href="https://www.iso.org/standard/81230.html">ISO/IEC 42001 AI management</a> before agents encode business metrics.</p>
+<p>Secure AI rollouts should reference the <a href="https://learn.microsoft.com/en-us/azure/architecture/">Azure architecture center</a> when connectors expose production data.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="what-is-an-analytics">What is an analytics?</h3>
+<p>An <strong>ai-native data platform</strong> is software designed from the ground up for autonomous Data Agents — connecting to enterprise sources, running goal-driven multi-step analysis with audit trails, distilling reusable memory, and exposing agents through multiple entry points. It is not a traditional BI tool with an AI chatbot added.</p>
+<h3 id="how-is-it-different-from-an-ai-enabled-bi-tool">How is it different from an AI-enabled BI tool?</h3>
+<p>AI-enabled BI adds copilots to dashboard workflows — the user still drives each step and the primary artifact is a chart. An <strong>ai-native data platform</strong> treats the agent as the workflow: goal in, audited analysis + memory out.</p>
+<h3 id="do-i-still-need-a-data-warehouse">Do I still need a data warehouse?</h3>
+<p>Often yes. An <strong>ai-native data platform</strong> connects to your warehouse, databases, and files — it does not replace storage. It replaces the manual loop of discovery → query → chart → forget → repeat.</p>
+<h3 id="what-connectors-should-i-require-in-an-rfp">What connectors should I require in an RFP?</h3>
+<p>Minimum: one relational DB, one file type (XLSX/CSV), and one knowledge source (docs or dictionary). Ideal: MySQL/Postgres + MongoDB + warehouse + file upload + RAG on business definitions. InfiniSynapse ships this set at launch.</p>
+<h3 id="how-do-i-evaluate-ai-native-claims-in-vendor-demos">How do I evaluate AI-native claims in vendor demos?</h3>
+<p>Run the same recurring question twice on any candidate <strong>ai-native data platform</strong>. First session: full analysis. Second session: ask to rerun with new data and same definitions. If the vendor re-explains schema from scratch, it is not AI-native.</p>
+<h3 id="is-infinisynapse-an-analytics-or-just-a-data-agent">Is InfiniSynapse an analytics or just a Data Agent?</h3>
+<p>Both. InfiniSynapse is an <strong>ai-native data platform</strong> hosting Data Agents (InfiniAgent + InfiniSQL + InfiniRAG + audit + memory). "Data Agent" names the actor; "AI-native platform" names the system it runs in. When this topic joins a multi-source stack, align connector scope and review gates using <a href="/blog/ai-data-analyst">AI Data Analyst: Role, Tools, and Workflow in 2026</a>.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>The 2026 buyer's question for analytics infrastructure: <strong>was this platform built for agents, or did AI arrive as an add-on?</strong></p>
+<p>An <strong>ai-native data platform</strong> connects sources, runs autonomous agents, retrieves business knowledge, logs auditable evidence, distills memory, and delivers parity across entry points. Evaluate with the five pillars and twelve-question checklist — then validate with a recurring-question demo, not a one-shot SQL trick. The migration path from AI-enabled to native is phased; skipping shadow mode is the most common procurement mistake when buying an <strong>ai-native data platform</strong>. Teams standardizing governance across sources often keep <a href="/blog/ai-data-analysis">AI Data Analysis</a> beside this runbook for this topic handoffs.</p>
+<p>InfiniSynapse implements this architecture at <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a>.<br />
+Start with <a href="/blog/ai-native-data-analysis">AI-native data analysis</a> for the paradigm, <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a> for the actor, and <a href="/blog/ai-for-data-analysis">AI for Data Analysis</a> for the methods landscape.</p>
+<hr />
+</article>
+<footer class="preview-meta">
+  Source: <code>004-ai-native-data-platform/article.md</code> ·
+  Generated by <code>build-preview.py</code>
+</footer>
+</body>
+</html>

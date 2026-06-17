@@ -1,0 +1,154 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Clean Excel Data with AI in 2026",
+    "description": "Step-by-step patterns for cleaning a messy Excel file with AI in 2026. Covers upload-and-ask, conversational refinement, notebook-with-AI, agent task, and recurring-with-memory workflows.",
+    "image": "https://infinisynapse.cn/blog/2026-05-19-ai-excel-data-cleaning/hero-excel-to-insight.png",
+    "totalTime": "PT5M",
+    "supply": [
+      { "@type": "HowToSupply", "name": "A messy Excel or CSV file" },
+      { "@type": "HowToSupply", "name": "Access to an AI data analysis tool (chatbot, notebook, or AI-native agent)" }
+    ],
+    "tool": [
+      { "@type": "HowToTool", "name": "ChatGPT (Advanced Data Analysis)" },
+      { "@type": "HowToTool", "name": "Claude (with file upload)" },
+      { "@type": "HowToTool", "name": "Julius AI" },
+      { "@type": "HowToTool", "name": "Hex Magic" },
+      { "@type": "HowToTool", "name": "InfiniSynapse" }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Pattern 1: Upload-and-Ask",
+        "text": "Drag the file into a chatbot (ChatGPT, Claude, Gemini, Julius). Type 'clean this and tell me the top 5 findings.' Best for small files (<50 MB) and one-off requests. Always ask a second turn: 'what assumptions did you make?' to surface definitional choices.",
+        "url": "https://infinisynapse.cn/blog/ai-excel-data-cleaning#pattern-1--upload-and-ask-one-shot"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Pattern 2: Conversational Refinement",
+        "text": "Same as Pattern 1 but iterate: 'now split by region, now exclude refunds, now show month-over-month.' Best for evolving questions. Use long-context models (Claude 200K, recent ChatGPT) to avoid drift in long conversations.",
+        "url": "https://infinisynapse.cn/blog/ai-excel-data-cleaning#pattern-2--conversational-refinement"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Pattern 3: Notebook-with-AI",
+        "text": "Open Hex Magic, Deepnote AI, or Jupyter + Copilot. Upload the file. Let the AI generate each cell of cleanup code, edit cells before running. Best when the analysis needs to be auditable or reusable.",
+        "url": "https://infinisynapse.cn/blog/ai-excel-data-cleaning#pattern-3--notebook-with-ai"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Pattern 4: Agent Task",
+        "text": "Open an AI-native platform (InfiniSynapse, Julius deeper modes, Hex agent mode). Upload the file. Submit one sentence: 'clean this, run whatever matters, give me a visual report.' Walk away. The agent autonomously plans phases, runs queries, self-corrects, and delivers a complete report.",
+        "url": "https://infinisynapse.cn/blog/ai-excel-data-cleaning#pattern-4--agent-task-one-goal-full-report"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Pattern 5: Recurring with Memory",
+        "text": "After Pattern 4 succeeds once, future runs become 'recall last month's analysis and run it on the new file.' The agent restores schema, metric definitions, and time-range conventions automatically. Gate new memory cards through human approval to prevent definition drift.",
+        "url": "https://infinisynapse.cn/blog/ai-excel-data-cleaning#pattern-5--recurring-with-memory-pattern-4--time"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Clean Excel Data with AI in 2026: 5 Patterns + a 5-Minute Worked Example",
+    "description": "How to clean Excel data with AI in 2026: 5 patterns (upload-and-ask, conversational, notebook, agent task, recurring memory), a real 833 KB / 7,444-row example, common pitfalls, and a tools shortlist.",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-05-19-ai-excel-data-cleaning/hero-excel-to-insight.png",
+      "https://infinisynapse.cn/blog/2026-05-19-ai-excel-data-cleaning/five-patterns-diagram.png",
+      "https://infinisynapse.cn/blog/2026-05-19-ai-excel-data-cleaning/worked-example-task-timeline.png"
+    ],
+    "datePublished": "2026-05-19T10:00:00+08:00",
+    "dateModified": "2026-05-19T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": { "@type": "ImageObject", "url": "https://infinisynapse.cn/logo.png" }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/ai-excel-data-cleaning"
+    },
+    "about": [
+      { "@type": "Thing", "name": "AI Excel data cleaning" },
+      { "@type": "Thing", "name": "Automate Excel analysis" },
+      { "@type": "Thing", "name": "AI-native data analysis" }
+    ],
+    "keywords": "ai excel data cleaning, automate excel analysis, clean csv with ai, excel data cleaning with ai, excel ai, data cleaning workflow"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it safe to upload sensitive Excel files to AI tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Risk depends on the deployment tier. Enterprise tiers of ChatGPT, Claude, Gemini, and most AI-native platforms offer contractual no-training guarantees and data-residency options. Always check the vendor's data-handling terms before uploading regulated data (PHI, PII, financial records). For high-sensitivity files, prefer tools that offer on-premise or VPC deployment, and consider running on de-identified copies first."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How big a file can AI tools handle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most chatbots handle Excel files under ~50 MB comfortably. Above that, behaviors diverge — some tools sample the file silently, some refuse, some chunk it. Agent platforms with backend execution typically handle multi-hundred-MB files because the AI runs the queries against the full data rather than holding it in the model's context window. Always verify the actual processed row count."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI clean Excel files in languages other than English?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes for the major languages — Chinese, Japanese, Korean, Spanish, Portuguese, Arabic — and increasingly well for less common ones. Encoding detection is usually automatic. The one consistent weakness across tools is sorting categorical values in non-Latin scripts; spot-check ordering if it matters for the analysis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I clean my Excel file before uploading, or let the AI do it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Let the AI do it. Modern AI tools in 2026 outperform manual cleanup on speed and quality for typical datasets. Pre-cleaning can actually hurt — if you've already removed the missing values, the AI cannot tell you what proportion were missing, which is often itself a useful finding. Upload the file as-is and let the AI surface what's wrong."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between AI cleaning Excel and Excel's own AI features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Microsoft Copilot inside Excel offers per-cell suggestions and natural-language formulas — it's a Pattern 1-style assistant inside the spreadsheet. Standalone AI tools step outside the spreadsheet to plan, execute, and document the cleanup as a workflow. For one-off 'fix this column' tasks, in-Excel AI is faster. For 'clean this whole file and tell me what it says,' external tools handle the wider workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know the AI cleaned the file correctly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three checks: (1) ask explicitly how many rows it processed and how many it dropped; (2) ask what assumptions it made about ambiguous columns; (3) spot-check 5 random rows of the cleaned output against the original file. If the tool exposes its generated code or task timeline, skim those too."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://infinisynapse.cn/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://infinisynapse.cn/blog" },
+      { "@type": "ListItem", "position": 3, "name": "AI Excel Data Cleaning", "item": "https://infinisynapse.cn/blog/ai-excel-data-cleaning" }
+    ]
+  }
+]

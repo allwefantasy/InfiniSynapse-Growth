@@ -1,0 +1,107 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI Data Analyst Skills: Competency Map for 2026 Hiring and Upskilling",
+    "description": "AI Data Analyst Skills in 2026: practical workflow patterns, governance controls, and FAQ for data teams.",
+    "image": [
+      "https://infinisynapse.cn/blog/assets/pillar8/ai-data-analyst-skills/hero.png"
+    ],
+    "datePublished": "2026-06-09T10:00:00+08:00",
+    "dateModified": "2026-06-09T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/ai-data-analyst-skills"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "AI data analyst skills"
+      },
+      {
+        "@type": "Thing",
+        "name": "Competency map"
+      },
+      {
+        "@type": "Thing",
+        "name": "Analytics upskilling"
+      }
+    ],
+    "keywords": "ai data analyst skills, analyst competency map, ai analyst hiring"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are the most important analytics for entry-level hiring? Prioritize business framing, SQL fundamentals, and communication clarity over tool-specific branding claims.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": ""
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should managers assess these skills in performance reviews? Use domain-based scoring plus delivery outcomes such as rerun consistency, correction rate, and stakeholder decision impact.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": ""
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do strong analytics replace the need for statistical depth? No. AI assistance can accelerate execution, but statistical reasoning is still required to avoid false certainty.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": ""
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build these skills? With a structured 90-day plan, most analysts reach reliable intermediate competency in one to two quarters. The pace depends less on tool training than on reps with real, reviewed workflows — goal framing, validation, and stakeholder delivery compound faster than memorizing features.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI Data Analyst Skills: Competency Map for 2026 Hiring and Upskilling",
+        "item": "https://infinisynapse.cn/blog/ai-data-analyst-skills"
+      }
+    ]
+  }
+]

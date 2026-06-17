@@ -36,11 +36,11 @@ TAG_STYLES_DEFAULT = {
         "font-weight:bold;margin:1.4em 0 0.8em;"
     ),
     "h2": (
-        "font-size:18px;color:#1e6fff;line-height:1.75;text-align:left;"
+        "font-size:18px;color:#1e6fff;line-height:4;text-align:left;"
         "font-weight:bold;margin:1.2em 0 0.6em;"
     ),
     "h3": (
-        "font-size:16px;color:#333;line-height:1.75;text-align:left;"
+        "font-size:16px;color:#333;line-height:4;text-align:left;"
         "font-weight:bold;margin:1em 0 0.5em;"
     ),
     "p": (
@@ -50,7 +50,7 @@ TAG_STYLES_DEFAULT = {
         "font-size:15px;line-height:1.75;text-align:left;"
     ),
     "blockquote": (
-        "font-size:15px;line-height:1.75;color:#666;"
+        "font-size:14px;line-height:1.75;color:#666;"
         "border-left:3px solid #1e6fff;padding-left:12px;margin:1em 0;"
     ),
     "table": (

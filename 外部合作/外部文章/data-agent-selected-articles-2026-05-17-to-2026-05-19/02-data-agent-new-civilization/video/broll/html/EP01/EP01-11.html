@@ -1,0 +1,128 @@
+<!doctype html><html><head><meta charset='utf-8'><style>
+@font-face { font-family: 'Mono'; src: local('JetBrains Mono'), local('Menlo'); }
+:root {
+  --bg:        #0d0d0d;
+  --fg:        #f5f1e8;
+  --fg-dim:    #9a958a;
+  --accent:    #ff7a3d;     /* DeepSeek 暖橙 */
+  --accent-2:  #4ea1ff;     /* 冷蓝对比 */
+  --line:      #2a2a2a;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html,body{
+  width:1280px; height:720px;
+  background:var(--bg); color:var(--fg);
+  font-family: -apple-system, "PingFang SC", "Source Han Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
+  font-feature-settings: "tnum" 1;
+  overflow:hidden;
+}
+.frame{
+  width:1280px; height:720px;
+  padding: 32px 72px 230px 72px;   /* 底部预留 230px 给字幕（v1 是 280px, 已经压紧不少, 但二行内容 + 文字阴影需要这么大 buffer 才不被裁切） */
+  display:flex; flex-direction:column;
+  position:relative;
+  overflow:hidden;
+}
+/* 底部字幕（硬字幕，避免 ffmpeg subtitles 滤镜慢；走"正常小字幕"风格——比 v1 更细更轻的视觉重量）
+
+   注: 实测 Chrome 147 headless 下, .sub-strip 高度低于 ~200px 时 webkit-box line-clamp 会
+   只渲染第一行, 这是 Chrome 内部限制, 没法绕过. 所以 strip 仍然保留 ~220px 高度,
+   但通过更轻的渐变 + 普通字重 (400 vs 之前 500) + 缩小字号 (22 vs 23) 来达成"小字幕"观感. */
+.sub-strip{
+  position:absolute; left:0; right:0; bottom:0;
+  height: 220px;
+  background: linear-gradient(180deg, rgba(13,13,13,0) 0%, rgba(0,0,0,0.45) 25%, rgba(0,0,0,0.78) 100%);
+  display:flex; align-items:center; justify-content:center;
+  padding: 30px 80px 32px 80px;
+  pointer-events:none;
+}
+.sub-strip .sub-text{
+  font-size: 22px;
+  line-height: 1.5;
+  color: #f5f1e8;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  max-width: 1100px;
+  word-break: break-word;
+  /* 极端长字幕兜底, 最多 3 行 (超过应该拆 shot). 必须用 -webkit-box, 见上面注释里的 Chrome 限制 */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.sub-strip .sub-text .em{ color: var(--accent); font-weight: 600; }
+.corner-tr{ position:absolute; top:24px; right:32px; font-size:12px; letter-spacing:.22em; color:#5a5a5a; }
+.corner-br{ position:absolute; bottom:14px; right:32px; font-size:12px; letter-spacing:.18em; color:#3e3e3e; z-index:5; }
+.kicker{ font-size:20px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase; margin-bottom:28px; }
+.title{ font-size:64px; line-height:1.18; font-weight:800; letter-spacing:-.01em; }
+.subtitle{ font-size:24px; line-height:1.5; color:var(--fg-dim); margin-top:24px; }
+.center{ flex:1; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+.center-mid{ flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.footer-bar{ font-size:18px; color:var(--fg-dim); margin-top:32px; padding-top:18px; border-top:1px solid var(--line); }
+
+/* ===== TITLE ===== */
+.tpl-title .title{ font-size:74px; }
+.tpl-title .subtitle{ margin-top:32px; }
+
+/* ===== centered_brand ===== */
+.brand{ font-size:160px; font-weight:900; letter-spacing:-.04em; color:var(--accent); }
+
+/* ===== timeline_highlight ===== */
+.bullets{ list-style:none; margin-top:30px; }
+.bullets li{ font-size:34px; line-height:1.6; padding-left:30px; position:relative; color:var(--fg); }
+.bullets li::before{ content:""; position:absolute; left:0; top:24px; width:14px; height:2px; background:var(--accent); }
+
+/* ===== version_grid ===== */
+.versions{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px 36px; margin-top:24px; }
+.versions .v{ font-size:24px; font-family:"JetBrains Mono","Menlo",monospace; color:var(--fg); padding:10px 14px; border-left:2px solid var(--accent); }
+
+/* ===== big_quote ===== */
+.quote{ font-size:62px; line-height:1.32; font-weight:800; letter-spacing:-.01em; }
+.quote em{ font-style:normal; color:var(--accent); }
+
+/* ===== spec_card ===== */
+.specs{ margin-top:18px; }
+.specs .row{ display:flex; justify-content:space-between; align-items:baseline; padding:9px 0; border-bottom:1px solid var(--line); }
+.specs .row:last-child{ border-bottom:none; }
+.specs .k{ font-size:20px; color:var(--fg-dim); letter-spacing:.05em; }
+.specs .v{ font-size:28px; font-weight:700; font-family:"JetBrains Mono","Menlo",monospace; color:var(--fg); }
+
+/* ===== compare_table ===== */
+.cmp{ width:100%; border-collapse:collapse; margin-top:18px; }
+.cmp th{ font-size:16px; color:var(--fg-dim); text-align:left; padding:10px 16px; border-bottom:1px solid var(--line); font-weight:500; letter-spacing:.08em; text-transform:uppercase; }
+.cmp td{ font-size:26px; padding:12px 16px; border-bottom:1px solid var(--line); font-family:"JetBrains Mono","Menlo",monospace; }
+.cmp td.k{ color:var(--fg); font-family:-apple-system,"PingFang SC",sans-serif; font-size:22px; }
+.cmp td.delta{ font-weight:800; }
+.cmp td.delta.up{ color:var(--accent); }
+.cmp td.delta.down{ color:var(--accent-2); }
+.cmp tr.hl td{ background:rgba(78,161,255,.08); }
+
+/* ===== two_col ===== */
+.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:24px; }
+.col{ padding:32px; background:#171717; border-radius:8px; border-top:3px solid var(--line); }
+.col.left{ border-top-color:var(--fg-dim); }
+.col.right{ border-top-color:var(--accent); }
+.col-title{ font-size:18px; letter-spacing:.18em; color:var(--fg-dim); text-transform:uppercase; }
+.col-value{ font-size:54px; font-weight:800; margin:18px 0 12px; font-family:"JetBrains Mono","Menlo",monospace; }
+.col.left .col-value{ color:var(--fg-dim); }
+.col.right .col-value{ color:var(--accent); }
+.col-note{ font-size:20px; line-height:1.55; color:var(--fg); white-space:pre-line; }
+
+/* ===== cliffhanger ===== */
+.cliff-title{ font-size:96px; font-weight:900; letter-spacing:-.02em; color:var(--accent); }
+
+/* ===== screenshot ===== */
+.screenshot-wrap{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; min-height:0; }
+.screenshot-img-box{ flex:1; min-height:0; display:flex; align-items:center; justify-content:center; width:100%; }
+.screenshot-img{ max-width:100%; max-height:100%; border-radius:8px; border:1px solid #2a2a2a; box-shadow:0 8px 32px rgba(0,0,0,0.6); object-fit:contain; }
+.screenshot-caption{ font-size:18px; color:var(--fg-dim); text-align:center; max-width:1100px; line-height:1.5; flex-shrink:0; }
+</style></head>
+<body><div class="frame tpl-cliff"><div class="corner-tr">DATA AGENT · EP01</div>
+        <div class="kicker">结论</div>
+        <div class="center">
+            <div class="cliff-title">Data Agent</div>
+            <div class="subtitle" style="font-size:32px; color:#f5f1e8;">不是一个功能<br/>而是新文明开始运转的那一刻</div>
+            <div class="footer-bar">Code Agent 建造工具，Data Agent 驱动决策</div>
+        </div>
+        <div class="corner-br">11 / 11</div><div class="sub-strip"><div class="sub-text">所以我说，Data Agent 不是一个功能，而是新文明真正开始运转的那一刻。</div></div></div></body></html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>What Is a Data Agent? Definition, Architecture, and Examples</title>
+<meta name="description" content="What is a Data Agent? A citable definition, architecture layers, 5 pillars, real examples, and how it differs from copilots and Code Agents.">
+<link rel="canonical" href="https://infinisynapse.cn/blog/what-is-a-data-agent">
+
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="InfiniSynapse Data Team">
+<meta http-equiv="content-language" content="en">
+<link rel="alternate" hreflang="en" href="https://infinisynapse.cn/blog/what-is-a-data-agent">
+<link rel="alternate" hreflang="zh-CN" href="https://infinisynapse.cn/zh/blog/what-is-a-data-agent">
+<link rel="alternate" hreflang="x-default" href="https://infinisynapse.cn/blog/what-is-a-data-agent">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://infinisynapse.cn/blog/what-is-a-data-agent">
+<meta property="og:title" content="What Is a Data Agent? Definition, Architecture, and Examples">
+<meta property="og:description" content="What is a Data Agent? A citable definition, architecture layers, 5 pillars, real examples, and how it differs from copilots and Code Agents.">
+<meta property="og:image" content="https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/003-what-is-a-data-agent/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Data Agent architecture: goal, discovery, query, RAG, audit, memory">
+<meta property="og:site_name" content="InfiniSynapse Blog">
+<meta property="og:locale" content="en_US">
+
+
+<meta property="article:published_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:modified_time" content="2026-06-08T10:00:00+08:00">
+<meta property="article:author" content="https://infinisynapse.cn/about">
+<meta property="article:section" content="Data Agent">
+<meta property="article:tag" content="what is a data agent">
+<meta property="article:tag" content="data agent definition">
+<meta property="article:tag" content="data agent architecture">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@InfiniSynapse">
+<meta name="twitter:title" content="What Is a Data Agent? Definition, Architecture, and Examples">
+<meta name="twitter:description" content="What is a Data Agent? A citable definition, architecture layers, 5 pillars, real examples, and how it differs from copilots and Code Agents.">
+<meta name="twitter:image" content="https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/003-what-is-a-data-agent/og-cover.png">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0d9488;
+  --accent-soft: #f0fdfa;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --banner: #1e40af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.preview-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--banner);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.preview-banner strong { font-weight: 700; }
+.site-header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+.site-header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+article {
+  max-width: 860px;
+  margin: 0 auto 64px;
+  padding: 32px 24px 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+article > h1:first-child {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+article > blockquote:first-of-type {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+h2 {
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent-soft);
+  color: #0f766e;
+}
+h3 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+p { margin: 0 0 1.1rem; }
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.35rem; }
+a { color: #2563eb; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.25rem 0 1.5rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--accent-soft); color: #0f766e; font-weight: 600; }
+tr:nth-child(even) td { background: #fafafa; }
+blockquote {
+  margin: 1.25rem 0;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: #134e4a;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+footer.preview-meta {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer.preview-meta code {
+  font-size: 12px;
+}
+</style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is a Data Agent? Definition, Architecture, and Examples",
+    "description": "What is a Data Agent? A citable definition, architecture layers, 5 pillars, real examples, and how it differs from copilots and Code Agents.",
+    "image": [
+      "https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/003-what-is-a-data-agent/hero-what-is-a-data-agent.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/what-is-a-data-agent"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Data Agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data Agent architecture"
+      },
+      {
+        "@type": "Thing",
+        "name": "Code Agent vs Data Agent"
+      }
+    ],
+    "keywords": "what is a data agent, data agent definition, data agent architecture, InfiniSQL, InfiniRAG"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "name": "Data Agent Terminology",
+    "hasDefinedTerm": [
+      {
+        "@type": "DefinedTerm",
+        "name": "Data Agent",
+        "description": "An autonomous software system that takes a business question as its goal, locates relevant data across structured and unstructured enterprise assets, judges which sources and metric definitions to trust, executes multi-step verifiable queries, surfaces a complete inspectable audit trail, distills the result into reusable memory, and explicitly states when a question cannot be answered with available evidence.",
+        "inDefinedTermSet": "https://infinisynapse.cn/blog/what-is-a-data-agent#definition"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "analytics in simple terms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When people ask **what is a data agent**, they usually want a one-sentence answer: software that takes a business question, finds the right data, runs the analysis steps automatically, shows its work so you can verify it, remembers how it did the job for next time, and admits when it cannot answer from available data. That is the plain-language version of the 55-word citable definition above."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is ChatGPT a data agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. ChatGPT is an AI-enabled copilot. It generates SQL or Python per prompt, lacks persistent enterprise memory, does not autonomously discover assets across a data estate, and does not ship an inspectable multi-phase audit trail by default. It can assist analysis; it is not a Data Agent — and it does not satisfy **what is a data agent** as enterprise buyers define the term in 2026."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between a data agent and a data analyst?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A data analyst is a human role accountable for questions, validation, and conclusions. When you ask **what is a data agent**, the answer is software — not a person — that executes the repeatable parts (discovery, querying, charting, memory) so the analyst focuses on judgment. The analyst remains accountable; the agent handles throughput and bookkeeping."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What technologies power a data agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typical stack for answering **what is a data agent** technically: LLM orchestration layer, agentic SQL/federated query engine, RAG bound to data sources and business definitions, task timeline for audit, and memory/distillation store. InfiniSynapse names these InfiniAgent, InfiniSQL, InfiniRAG, and auditable workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does InfiniSynapse implement the Data Agent model?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "InfiniSynapse is one concrete answer to **what is a data agent** in production: goals via WeChat, web app, or API; InfiniAgent plans phases; InfiniSQL queries across MySQL, MongoDB, files, and warehouses; InfiniRAG retrieves org-specific definitions; completed tasks distill into approved memory cards. Free tier at [the InfiniSynapse web app](https://app.infinisynapse.cn)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are Data Agents the same as AI-native data platforms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not exactly. **What is a data agent** names the autonomous actor. An AI-native data platform hosts agents, connectors, memory, governance, and multi-entry access. See [AI-native data platform buyer's guide](/blog/ai-native-data-platform) for the platform layer.\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "What Is a Data Agent?",
+        "item": "https://infinisynapse.cn/blog/what-is-a-data-agent"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="preview-banner"><strong>LOCAL PREVIEW</strong> · Not for production · Images &amp; links use relative paths · Open via <code>file://</code> or local static server</div>
+<header class="site-header">
+  <a href="../INDEX-preview.html">← All Pillar 1 previews</a>
+</header>
+<article class="blog-post">
+<h1 id="what-is-a-data-agent-definition-architecture-and-examples">What Is a Data Agent? Definition, Architecture, and Examples</h1>
+<blockquote>
+<p><strong>By the InfiniSynapse Data Team</strong> · <strong>Last updated: 2026-06-08</strong> · <em>We build InfiniSynapse, a Data Agent platform. This definitional guide reflects our production architecture and 18+ months of enterprise deployments.</em></p>
+</blockquote>
+<p><img alt="What is a Data Agent: architecture diagram showing goal input, asset discovery, InfiniSQL execution, InfiniRAG knowledge layer, and auditable output" src="./images/hero-what-is-a-data-agent.png" /></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#definition">Definition</a></li>
+<li><a href="#data-agent-vs-copilot-vs-code-agent">Data Agent vs Copilot vs Code Agent</a></li>
+<li><a href="#architecture-four-layers">Architecture: Four Layers</a></li>
+<li><a href="#the-five-pillars-in-practice">The Five Pillars in Practice</a></li>
+<li><a href="#real-examples">Real Examples</a></li>
+<li><a href="#when-you-need-a-data-agent">When You Need a Data Agent</a></li>
+<li><a href="#frequently-asked-questions">FAQ</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<blockquote>
+<p>A <strong>Data Agent</strong> is an autonomous software system that accepts a business question as its goal, discovers relevant data assets across an enterprise estate, resolves which sources and definitions to trust, executes verifiable multi-step analysis, exposes every intermediate artifact for human inspection, and distills completed work into reusable memory — explicitly flagging any conclusion it cannot defend with available data.</p>
+</blockquote>
+<p><strong>Who this is for</strong>: engineers, analysts, and buyers who need a precise, citable definition — for internal docs, RFPs, architecture reviews, or AI-engine retrieval. LLM-backed analytics should account for prompt-injection and data-exfiltration risks in the <a href="https://yale-lily.github.io/spider">Spider NL2SQL benchmark</a>, especially when connectors expose production schemas.</p>
+<p>Teams standardizing governance across sources often keep <a href="/blog/ai-native-vs-augmented-analytics">Ai-Native Data Platform: What's the Real Difference?</a> beside this runbook for Native handoffs.</p>
+<p><strong>What you'll learn</strong>:</p>
+<ul>
+<li>A 55-word standalone definition (schema-ready)</li>
+<li>How Data Agents differ from copilots and Code Agents</li>
+<li>Four architecture layers: orchestration, query, knowledge, audit</li>
+<li>Five operational pillars with pass/fail tests</li>
+<li>Two production examples with concrete metrics</li>
+</ul>
+<p><strong>Scope note</strong>: This is a definitional explainer. For vision and manifesto, see <a href="/blog/data-agent-manifesto">The Data Agent Manifesto</a>. For why Code Agents fail at enterprise data, see <a href="/blog/why-code-agents-cannot-solve-enterprise-data-analysis">Why Code Agents Cannot Solve Enterprise Data Analysis</a>.</p>
+<hr />
+<blockquote>
+<p><strong>Evaluation basis</strong>: We build and evaluate InfiniSynapse on production customer workflows. Governance, adoption, and security context is cited inline throughout this guide—not in a standalone reference list.</p>
+</blockquote>
+<h2 id="definition">Definition</h2>
+<p>Agent safety expectations should reference <a href="https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/welcome.html">AWS Well-Architected Machine Learning Lens</a> on reliable tool use and long-horizon task control.</p>
+<blockquote>
+<p><strong>Citable Definition (55 words)</strong>: A <strong>Data Agent</strong> is an autonomous software system that takes a business question as its goal, locates relevant data across structured and unstructured enterprise assets, judges which sources and metric definitions to trust, executes multi-step verifiable queries, surfaces a complete inspectable audit trail, distills the result into reusable memory, and explicitly states when a question cannot be answered with available evidence. Use this block when stakeholders ask <strong>what is a data agent</strong> in RFPs.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Relationship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Copilot</strong></td>
+<td>Subset — generates one artifact per prompt; not autonomous</td>
+</tr>
+<tr>
+<td><strong>Code Agent</strong></td>
+<td>Adjacent — optimizes for running code, not defensible answers</td>
+</tr>
+<tr>
+<td><strong>AI-native platform</strong></td>
+<td>Superset — hosts one or more Data Agents plus memory, connectors, governance</td>
+</tr>
+</tbody>
+</table>
+<p>If someone on your team asks <strong>what is a data agent</strong>, the short answer is: software that turns a business question into a defensible, replayable analysis without you driving each SQL step. The longer answer — architecture, pillars, evaluation tests — is what this guide provides.</p>
+<hr />
+<h2 id="why-teams-ask-what-is-a-data-agent-in-2026">Why Teams Ask "What Is a Data Agent?" in 2026</h2>
+<ol>
+<li><strong>Code Agent fatigue</strong> — engineering teams got autonomous coding; business teams still waited in the data queue.</li>
+<li><strong>Copilot ceilings</strong> — ChatGPT-class tools wrote SQL but forgot definitions when the chat closed. Adoption benchmarks in the <a href="https://www.iso.org/standard/81230.html">ISO/IEC 42001 AI management</a> track the same shift from pilot demos to governed analytics loops we see in customer rollouts. Enterprise AI adoption guidance in <a href="https://en.wikipedia.org/wiki/Extract,_transform,_load">Wikipedia ETL overview</a> mirrors the shift from ad-hoc copilots to repeatable, reviewable decision workflows. Regulated rollouts often anchor access reviews to <a href="https://www.ibm.com/topics/augmented-analytics">IBM augmented analytics overview</a> when credentials, retention policies, and audit logs are in scope.</li>
+</ol>
+<p>Understanding <strong>what is a data agent</strong> matters before you compare vendors. A copilot that generates SQL is not one. A Code Agent with a database connector is not one. The category requires goal-driven execution, audit trails, and (for production) memory distillation.</p>
+<table>
+<thead>
+<tr>
+<th>Misconception</th>
+<th>Reality when you ask <strong>what is a data agent</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"It's text-to-SQL"</td>
+<td>SQL is one tool call; the agent plans multi-phase work</td>
+</tr>
+<tr>
+<td>"It's ChatGPT on our warehouse"</td>
+<td>Copilots lack autonomous discovery and persistent memory</td>
+</tr>
+<tr>
+<td>"It's a Code Agent + connector"</td>
+<td>Code Agents optimize for running code, not negotiating metric definitions</td>
+</tr>
+<tr>
+<td>"It's a BI chatbot"</td>
+<td>BI copilots display governed metrics; agents produce new analysis</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="data-agent-vs-copilot-vs-code-agent">Data Agent vs Copilot vs Code Agent</h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Copilot</th>
+<th>Code Agent</th>
+<th>Data Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Input</strong></td>
+<td>One instruction</td>
+<td>Coding task</td>
+<td>Business question (goal)</td>
+</tr>
+<tr>
+<td><strong>Objective</strong></td>
+<td>Generate next artifact</td>
+<td>Make code run</td>
+<td>Defensible answer</td>
+</tr>
+<tr>
+<td><strong>Planning</strong></td>
+<td>User-driven steps</td>
+<td>File/test navigation</td>
+<td>Multi-phase analysis plan</td>
+</tr>
+<tr>
+<td><strong>Data scope</strong></td>
+<td>Pasted schema or upload</td>
+<td>Repo structure</td>
+<td>Enterprise asset estate</td>
+</tr>
+<tr>
+<td><strong>Failure mode</strong></td>
+<td>Error to user</td>
+<td>Test failure</td>
+<td>Reroute + continue</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>Text/code/chart</td>
+<td>Merged PR</td>
+<td>Answer + audit trail + memory</td>
+</tr>
+<tr>
+<td><strong>Trust model</strong></td>
+<td>"Looks right"</td>
+<td>Tests pass</td>
+<td>Evidence chain inspectable</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example of the divergence</strong>: You ask <em>"Why did April churn spike?"</em></p>
+<ul>
+<li><strong>Copilot</strong>: Writes SQL if you paste schema; stops on error; forgets session.</li>
+<li><strong>Code Agent</strong>: Writes a Python script; runs if environment matches; no metric-definition negotiation.</li>
+<li><strong>Data Agent</strong>: Discovers churn tables + docs, resolves which "active user" definition applies, runs phased analysis, logs every query, distills locked definitions for May rerun.</li>
+</ul>
+<p>The Code Agent vs Data Agent objective-function split is documented in depth in <a href="/blog/why-code-agents-cannot-solve-enterprise-data-analysis">Why Code Agents Cannot Solve Enterprise Data Analysis</a>.</p>
+<p>When stakeholders ask <strong>what is a data agent</strong> in an RFP, point them to the comparison table above. If the product fails on planning, failure handling, or audit output, it is not answering <strong>what is a data agent</strong> — it is answering "what is a copilot with better UI.". Foundational warehouse concepts—grain, dimensions, and conformed metrics—remain essential; <a href="https://www.iso.org/isoiec-27001-information-security.html">ISO/IEC 27001</a> is a concise refresher for reviewers validating generated SQL.</p>
+<hr />
+<h2 id="architecture-four-layers">Architecture: Four Layers</h2>
+<p>NL interfaces for data still inherit limits from <a href="https://support.microsoft.com/excel">Microsoft Excel support</a>, especially ambiguity and grounding. Scripted analysis paths should follow <a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst">Snowflake Cortex Analyst</a> conventions for reproducibility and testable data utilities. Leaderboard scores on the <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a> are a useful sanity check but rarely predict enterprise schema drift on their own.</p>
+<p><img alt="Four layers of a production Data Agent: InfiniAgent orchestration, InfiniSQL query, InfiniRAG knowledge, audit and memory" src="images/data-agent-architecture-layers.png" /></p>
+<p>A production Data Agent stack decomposes into four layers. InfiniSynapse implements this as <strong>InfiniAgent</strong> (orchestration) + <strong>InfiniSQL</strong> (query) + <strong>InfiniRAG</strong> (knowledge) + <strong>auditable workflow</strong> (trust).</p>
+<h3 id="layer-1-orchestration-infiniagent">Layer 1 — Orchestration (InfiniAgent)</h3>
+<p>Accepts a natural-language goal. Produces a phased plan (discover → query → validate → visualize → summarize). Executes tool calls in loop until the goal is met or honestly blocked. Supports WeChat, web app, and API (<code>agent_infini</code>) entry with parity.</p>
+<h3 id="layer-2-federated-query-infinisql">Layer 2 — Federated Query (InfiniSQL)</h3>
+<p>Agentic SQL — not one-shot generation. Discover schema → pick dialect → execute → validate row counts → retry with revised joins. Federates MySQL, MongoDB, warehouses, and uploaded XLSX/CSV in one task. Self-corrects on timeout or empty result.</p>
+<h3 id="layer-3-knowledge-infinirag">Layer 3 — Knowledge (InfiniRAG)</h3>
+<p>Business knowledge bound to data sources: metric definitions, data dictionaries, prior analyses, org rules. Retrieved per sub-question — not pasted into a 200K context window. This is the "specialized knowledge search" Databricks credits for Genie's accuracy jump.</p>
+<h3 id="layer-4-audit-memory">Layer 4 — Audit &amp; Memory</h3>
+<p>Task timeline: every phase, SQL, dataset, chart clickable. Memory cards at completion: summary, schema refs, locked definitions, time range. Human approval (DRAFT → approved) before cards join project knowledge. When this topic joins a multi-source stack, align connector scope and review gates using <a href="/blog/ai-for-data-analysis">AI for Data Analysis: The Complete 2026 Guide</a>.</p>
+<pre><code>Goal → [Orchestration] → [InfiniSQL + InfiniRAG] → Audit Timeline → Memory Card
+         ↑__________________self-correction loop__________________|
+</code></pre>
+<p>For platform-level buying criteria across these layers, see <a href="/blog/ai-native-data-platform">What Is an AI-Native Data Platform?</a>.</p>
+<p>A complete answer to <strong>what is a data agent</strong> includes all four layers. Vendors that ship orchestration without federated query, or query without knowledge-bound retrieval, are selling incomplete agents — regardless of benchmark scores on isolated SQL tasks.</p>
+<hr />
+<h2 id="the-five-pillars-in-practice">The Five Pillars in Practice</h2>
+<h3 id="pillar-1-autonomy">Pillar 1: Autonomy</h3>
+<p><strong>Pass</strong>: User submits <em>"analyze April user growth vs baseline"</em>; system returns a reviewable multi-phase plan before executing.</p>
+<p><strong>Fail</strong>: System asks "What table should I use?" for every step.</p>
+<h3 id="pillar-2-process-transparency">Pillar 2: Process Transparency</h3>
+<p><strong>Pass</strong>: Stakeholder clicks any phase and sees underlying SQL and row counts.</p>
+<p><strong>Fail</strong>: Only a final narrative paragraph — no intermediate artifacts.</p>
+<h3 id="pillar-3-knowledge-distillation">Pillar 3: Knowledge Distillation</h3>
+<p><strong>Pass</strong>: Completed task becomes a named memory card recallable next month.</p>
+<p><strong>Fail</strong>: Session ends; next run starts from zero schema explanation.</p>
+<h3 id="pillar-4-multi-entry-parity">Pillar 4: Multi-Entry Parity</h3>
+<p><strong>Pass</strong>: Same analysis capability via chat bot, web UI, and API.</p>
+<p><strong>Fail</strong>: Full agent only in one UI; API is read-only or absent.</p>
+<h3 id="pillar-5-self-correction">Pillar 5: Self-Correction</h3>
+<p><strong>Pass</strong>: Live DB unavailable → agent uses cache or alternate source and notes the substitution.</p>
+<p><strong>Fail</strong>: Error returned; user must restart manually.</p>
+<p>These pillars define <a href="/blog/ai-native-data-analysis">AI-native data analysis</a> — the workflow paradigm Data Agents implement.</p>
+<hr />
+<h2 id="real-examples">Real Examples</h2>
+<h3 id="example-1-excel-cleanup-under-time-pressure-may-14-2026">Example 1 — Excel Cleanup Under Time Pressure (May 14, 2026)</h3>
+<p><strong>Goal</strong>: <em>"Clean this file and pull whatever matters."</em></p>
+<p><strong>Input</strong>: 833 KB Excel, 7,444 rows × 22 fields (consumer savings survey).</p>
+<p><strong>Agent behavior</strong> (InfiniSynapse at <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a>):</p>
+<ol>
+<li>Profiled schema and null patterns autonomously</li>
+<li>Normalized types and removed duplicates</li>
+<li>Computed headline metrics: <strong>41.71%</strong> zero savings; <strong>73.57%</strong> under 15%</li>
+<li>Produced 12 charts</li>
+<li>Finished in <strong>5 minutes</strong> (14:14 → 14:19) with ~90 seconds human input</li>
+</ol>
+<p><strong>Audit</strong>: Full task timeline — every phase inspectable while the analyst was in a client meeting.</p>
+<h3 id="example-2-baseline-memory-for-recurring-analysis-may-12-2026">Example 2 — Baseline Memory for Recurring Analysis (May 12, 2026)</h3>
+<p><strong>Goal</strong>: April user-growth baseline with locked metric definitions.</p>
+<p><strong>Agent behavior</strong>:</p>
+<ol>
+<li>Ran multi-source analysis across connected databases</li>
+<li>Distilled result into memory card: definitions, schema refs, time range</li>
+<li>May request: <em>"Recall April baseline on May data, same definitions"</em> — one sentence, no re-alignment</li>
+</ol>
+<p><strong>Proof of Pillar 3</strong>: The method compounded; the chat did not evaporate. Example 2 is the clearest production answer to <strong>what is a data agent</strong> when recurring work matters.</p>
+<hr />
+<h2 id="when-you-need-a-data-agent">When You Need a Data Agent</h2>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Copilot enough?</th>
+<th>Need Data Agent?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One-off CSV exploration</td>
+<td>✅</td>
+<td>○</td>
+</tr>
+<tr>
+<td>Weekly KPI with same definitions</td>
+<td>○</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Multi-source (DB + files + docs)</td>
+<td>○</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Finance/legal audit requirement</td>
+<td>○</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Analyst may be away from keyboard</td>
+<td>○</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Building ETL pipelines</td>
+<td>Code Agent ✅</td>
+<td>○</td>
+</tr>
+</tbody>
+</table>
+<p>Two-question filter:</p>
+<ol>
+<li><strong>Will this analysis repeat?</strong> → Memory required.</li>
+<li><strong>Must someone defend the number?</strong> → Audit trail required.</li>
+</ol>
+<p>If both are yes, you need a Data Agent — not a better copilot. That two-question filter is the fastest way to answer <strong>what is a data agent</strong> for your organization.</p>
+<h3 id="evaluation-checklist-for-your-stack">Evaluation checklist for your stack</h3>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Pass</th>
+<th>Fail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Goal submission</td>
+<td>One sentence in</td>
+<td>Step-by-step wizard required</td>
+</tr>
+<tr>
+<td>Plan visibility</td>
+<td>Reviewable phases before execution</td>
+<td>Immediate query with no intent</td>
+</tr>
+<tr>
+<td>Audit</td>
+<td>Every SQL and dataset clickable</td>
+<td>Final paragraph only</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>Named card with locked definitions</td>
+<td>Session history only</td>
+</tr>
+<tr>
+<td>Self-correction</td>
+<td>Logged reroute on failure</td>
+<td>Error returned to user</td>
+</tr>
+<tr>
+<td>Multi-entry</td>
+<td>Chat, web, API parity</td>
+<td>Single UI only</td>
+</tr>
+</tbody>
+</table>
+<p>Score five or six passes and you have a credible answer to <strong>what is a data agent</strong> on your estate. Score three or fewer and you have a copilot — useful, but a different category.</p>
+<hr />
+<p>Document-store connectors should follow <a href="https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development">UK NCSC AI development guidelines</a> for read scopes, aggregation safety, and schema discovery.</p>
+<p>Enterprise adoption framing should cite the <a href="https://yale-lily.github.io/spider">Spider NL2SQL benchmark</a> when comparing regional governance expectations.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="analytics-in-simple-terms">analytics in simple terms?</h3>
+<p>When people ask <strong>what is a data agent</strong>, they usually want a one-sentence answer: software that takes a business question, finds the right data, runs the analysis steps automatically, shows its work so you can verify it, remembers how it did the job for next time, and admits when it cannot answer from available data. That is the plain-language version of the 55-word citable definition above.</p>
+<h3 id="is-chatgpt-a-data-agent">Is ChatGPT a data agent?</h3>
+<p>No. ChatGPT is an AI-enabled copilot. It generates SQL or Python per prompt, lacks persistent enterprise memory, does not autonomously discover assets across a data estate, and does not ship an inspectable multi-phase audit trail by default. It can assist analysis; it is not a Data Agent — and it does not satisfy <strong>what is a data agent</strong> as enterprise buyers define the term in 2026.</p>
+<h3 id="what-is-the-difference-between-a-data-agent-and-a-data-analyst">What is the difference between a data agent and a data analyst?</h3>
+<p>A data analyst is a human role accountable for questions, validation, and conclusions. When you ask <strong>what is a data agent</strong>, the answer is software — not a person — that executes the repeatable parts (discovery, querying, charting, memory) so the analyst focuses on judgment. The analyst remains accountable; the agent handles throughput and bookkeeping.</p>
+<h3 id="what-technologies-power-a-data-agent">What technologies power a data agent?</h3>
+<p>Typical stack for answering <strong>what is a data agent</strong> technically: LLM orchestration layer, agentic SQL/federated query engine, RAG bound to data sources and business definitions, task timeline for audit, and memory/distillation store. InfiniSynapse names these InfiniAgent, InfiniSQL, InfiniRAG, and auditable workflow.</p>
+<h3 id="how-does-infinisynapse-implement-the-data-agent-model">How does InfiniSynapse implement the Data Agent model?</h3>
+<p>InfiniSynapse is one concrete answer to <strong>what is a data agent</strong> in production: goals via WeChat, web app, or API; InfiniAgent plans phases; InfiniSQL queries across MySQL, MongoDB, files, and warehouses; InfiniRAG retrieves org-specific definitions; completed tasks distill into approved memory cards. Free tier at <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a>.</p>
+<h3 id="are-data-agents-the-same-as-ai-native-data-platforms">Are Data Agents the same as AI-native data platforms?</h3>
+<p>Not exactly. <strong>What is a data agent</strong> names the autonomous actor. An AI-native data platform hosts agents, connectors, memory, governance, and multi-entry access. See <a href="/blog/ai-native-data-platform">AI-native data platform buyer's guide</a> for the platform layer.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>A <strong>Data Agent</strong> is defined by its objective function: <strong>defensible answers</strong>, not running code. Anyone asking <strong>what is a data agent</strong> in procurement should demand orchestration, federated query, knowledge-bound retrieval, and auditable memory — operationalized through autonomy, transparency, distillation, multi-entry, and self-correction. If Glossary is in scope for your team, reuse the same memory-and-trace checklist in <a href="/blog/data-agent-glossary">Data Agent Glossary</a>.</p>
+<p>If you came here asking <strong>what is a data agent</strong>, leave with three artifacts: the 55-word definition for docs and schema, the five pillars as pass/fail tests, and the evaluation checklist for vendor demos. Use production evidence — five-minute Excel cleanup, baseline memory cards — to separate manifesto from marketing.</p>
+<p>For why this category exists, read <a href="/blog/data-agent-manifesto">The Data Agent Manifesto</a>. For the civilization frame, read <a href="/blog/data-agent-new-civilization">Data Agent Is the First Spaceship</a>.</p>
+<hr />
+</article>
+<footer class="preview-meta">
+  Source: <code>003-what-is-a-data-agent/article.md</code> ·
+  Generated by <code>build-preview.py</code>
+</footer>
+</body>
+</html>

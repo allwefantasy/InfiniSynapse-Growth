@@ -1,0 +1,19 @@
+# 博客 cover-ai.png 的 prompt — 主题：Data Agent 是新文明的第一艘飞船
+# 用法：bash SEO/Blog/scripts/generate-cover-image-ai.sh 2026-05-19-data-agent-new-civilization --force
+#
+# 教训记录（v2 修订）：
+#   - v1 写了 "faint table-like rows"，imagen-4 把它画成了像中文/蝌蚪文的伪字符。
+#   - v2 改用纯几何描述（dots, nodes, lines），并加长防御性 negative。
+#   - 规则：英文 only；图里不能有任何文字（包括伪文字 / 类字符笔画）。
+
+A cinematic dark editorial cover image for a tech blog about Data Agents as the first spaceship of a new AI civilization.
+
+Subject: a single sleek minimalist spaceship silhouette launching upward through a vast field of glowing data points — the field is composed solely of pure geometric elements: small bright dots, thin connecting lines, faint hexagonal grid nodes, subtle radial gradients. Loose abstract interpretation of "structured data". No people. No clip art.
+
+Strict no-text rule: there must be ABSOLUTELY no text, no letters, no numbers, no glyphs, no symbols, no characters, no logos, no watermarks, no signatures, no UI labels, no captions, no faux-handwriting, no scribbles, no fake calligraphy, no rows of character-like marks, no row-of-typography artifacts, no Chinese characters, no Japanese characters, no Korean characters, no Arabic, no Cyrillic. The data field must read as abstract dots and lines only — never as a page of text or a spreadsheet of words.
+
+Composition: 16:9, the spaceship is small and located in the right third with a long luminous trail going straight upward; the left two thirds are quiet negative space (for headline overlay) filled only with the faint glowing dot-and-line field receding into deep space.
+
+Color palette: deep navy blue (#0a0e1a) for the night sky, teal-cyan accent (#00bfa6) for the spaceship trail and brightest data points, subtle warm amber (#f0c674) for distant stars and the halo behind the ship, pale neutral grey (#e8edf3) only for the faintest grid lines.
+
+Style: editorial, technical, minimalist, cinematic depth of field, soft volumetric glow, fine film grain, sharp vector-like silhouette, no painterly textures. Avoid stock-photo cliches, avoid sci-fi movie poster look, avoid lens flare overload, avoid any text or text-like noise of any kind.

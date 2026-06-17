@@ -31,6 +31,8 @@ description: 用本机 agent-browser CLI 把一篇 Markdown 文章（含本地�
 | "改一下公众号里那篇草稿的标题 / 正文" | **流程 B（覆盖更新）** |
 | "把上一版草稿整个换成这个新版本" | **流程 B** |
 | "覆盖上次保存的草稿" | **流程 B** |
+| **"保存现在这个版本" / "保存我刚才改的" / "保存当前编辑器里的内容"** | **流程 C（仅点保存，绝不重 paste）** ⭐ |
+| "我在编辑器里改了内容，帮我保存" | **流程 C** |
 | "直接替我发出去" | ❌ 先跟用户确认发草稿 or 发表；默认只发草稿 |
 | "群发" / "推送给粉丝" | ❌ 不在本 skill 覆盖范围 |
 
@@ -766,6 +768,142 @@ CDN_JSON=$(cat "$ARTICLE_DIR/.wechat-mp-meta.json" | python3 -c 'import json,sys
 
 ---
 
+# 流程 C：保存编辑器里的当前内容（**绝对不重 paste**）⭐⭐⭐
+
+**适用场景**：用户在公众号编辑器里**手动改了内容**（在标题栏 / 正文 / 图说里直接打字），然后让你"保存现在这个版本" / "保存我刚才改的" / "保存当前编辑器里的内容"。
+
+**绝对红线**：**不要清空正文，不要重新 paste 本地 md，不要做任何改动**。这次只做一个动作——**点"保存为草稿"按钮，让 WeChat 把编辑器现状固化到草稿**。
+
+## 为什么单独写一条流程
+
+血泪教训（2026-05-15）：用户在公众号编辑器里手动改稿后说"帮我保存一下"。Agent 误把这当成"流程 B 覆盖更新"——执行了 Cmd+A + Delete + paste 本地 md，**把用户的手动修改全部清空覆盖**。用户改的 86 字内容瞬间消失。
+
+后续用历史版本里的自动保存（每 30 秒一次）找回来——但用户体验是炸的。**正确做法是当用户说"保存"时，区分两种意图**：
+
+| 用户意图 | 关键词 | 走哪条 |
+|---|---|---|
+| 我改了**本地 md**，把它推到公众号 | "改了本地"、"重新发"、"覆盖"、"改稿" | **流程 B**（清空 + paste） |
+| 我改了**公众号编辑器**里的内容，落库 | "保存"、"现在这个版本"、"刚才改的"、"当前的" | **流程 C**（仅点保存） |
+
+如果模糊不清，**默认走流程 C**（只点保存），永远不要在没确认前清空编辑器。
+
+## 流程 C 标准步骤
+
+```bash
+# 1) 确认编辑器 tab 还在 (如果不在, 先 open 编辑 URL —— 但不要 reload 已经打开的编辑器 tab, reload 会丢失未保存的输入态)
+$AGENT tab list | head -10
+
+# 2) 切到编辑器 tab (假设是 [3])
+$AGENT tab 3
+$AGENT wait 1500
+
+# 3) 验证 — 编辑器内容长度大于 100 字, 不是空白
+$AGENT eval "(() => {
+  const pm = document.querySelectorAll('.ProseMirror')[1];
+  return JSON.stringify({
+    text_len: pm.innerText.length,
+    has_content: pm.innerText.length > 100,
+    img_count: pm.querySelectorAll('img').length,
+  });
+})()"
+# 期望: text_len > 100, has_content: true, img_count > 0
+# 如果 text_len < 100 → 编辑器是空的, 千万别保存! ask 用户确认
+
+# 4) 滚到顶部 (避免保存时滚动位置被记住影响后续操作)
+$AGENT eval "window.scrollTo(0,0); const mi = document.querySelector('.mock-iframe'); if (mi) mi.scrollTop = 0;"
+$AGENT wait 500
+
+# 5) 直接点 "保存为草稿" (⛔ 禁止点 "发表")
+$AGENT click --text "保存为草稿"
+$AGENT wait 6000
+
+# 6) 验证保存成功
+$AGENT get url
+# URL 中 appmsgid 应保持不变
+$AGENT screenshot ./c-saved.png
+# 截图应该有绿色 "已保存" 横幅 + 历史版本里多一条 "手动保存"
+
+# 7) 更新 meta (last_saved 时间戳)
+# 注意: 不要重写 cdn_urls, 因为没有上传新图
+```
+
+## 关键约束（违反 = 用户的内容被毁）
+
+1. ❌ **绝对禁止 Cmd+A + Delete** —— 这会清空编辑器
+2. ❌ **绝对禁止 paste event 注入 HTML** —— 这会覆盖编辑器
+3. ❌ **绝对禁止 reload 编辑器 tab** —— 浏览器 reload 会回到已保存的版本，丢失用户未保存的输入
+4. ❌ **绝对禁止重跑 md2html / inject-styles** —— 没必要，因为我们只点保存按钮
+5. ❌ **绝对禁止重新 upload 图片** —— 没必要
+6. ✅ **只允许 1 个写动作**：`click --text "保存为草稿"`
+7. ✅ **可以读**：snapshot / get url / screenshot / eval 读取 PM 内容
+
+## 流程 C 完成后的"对账"建议
+
+当流程 C 跑完，**本地 `article-official.md` 和公众号编辑器内容会出现偏离**——本地是旧版，编辑器是新版。这种偏离会破坏 single source of truth 原则，下次改稿（流程 B）会再次出事。
+
+**两个修复策略**：
+
+**策略 1（推荐）：从编辑器把内容拉回本地 md**
+
+如果用户改动比较小，让用户告诉你他改了什么文字，你直接 StrReplace 本地 md 来同步。
+
+**策略 2：在 meta 里加 `warning` 字段**
+
+```json
+{
+  "warning": "公众号编辑器内容已偏离本地 article-official.md (用户在编辑器里直接改的, 字数 4079)。下次改稿务必先把编辑器内容拉回本地 md, 再走流程 B 覆盖更新。"
+}
+```
+
+下次跑流程 B 之前，先 `cat .wechat-mp-meta.json | grep warning`——有 warning 就停下来 ask 用户先同步。
+
+## 出事后的恢复路径（万一你已经覆盖了）
+
+公众号编辑器有**自动保存（每 30 秒一次）**功能。即使流程 C 误执行成了流程 B，用户的版本通常还在历史版本里：
+
+1. 在编辑器面板的"历史版本"区域，点底部的小三角箭头 (`.history_expand_more`) 展开全部历史
+2. 找用户编辑期间的最后一条**自动保存**（不是你的"手动保存"——那是覆盖事故的）
+3. 点击该行 → URL 跳到 `get_history_appmsg` 路由 → 进入只读预览
+4. 顶部蓝色提示框有 "**恢复至此版本**" 按钮 → 点
+5. 编辑器加载该历史版本后再点 "**保存为草稿**" 固化
+
+```bash
+# 一: 展开历史版本
+$AGENT eval "(() => { const e = document.querySelector('.history_expand_more'); if (e) { e.click(); return 'expanded'; } return 'no-expand'; })()"
+$AGENT wait 1500
+
+# 二: 点击目标自动保存行 (修改 datetime 匹配)
+$AGENT eval "(() => {
+  const rows = [...document.querySelectorAll('tr, [class*=row], div')].filter(e => {
+    if (!e.offsetParent) return false;
+    return /^05-15 15:20.*自动保存$/.test((e.textContent||'').replace(/\\s+/g,' ').trim());
+  });
+  if (rows[0]) { rows[0].click(); return 'clicked'; }
+  return 'no-row';
+})()"
+$AGENT wait 3000
+
+# 三: 点 "恢复至此版本"
+$AGENT eval "(() => {
+  const btns = [...document.querySelectorAll('button, a, span, div')].filter(e =>
+    e.offsetParent && (e.textContent||'').replace(/\\s/g,'') === '恢复至此版本');
+  if (btns[0]) { btns[0].click(); return 'restored'; }
+  return 'no-btn';
+})()"
+$AGENT wait 5000
+
+# 四: 不动内容, 直接点保存为草稿
+$AGENT click --text "保存为草稿"
+$AGENT wait 6000
+```
+
+记住路径关键标识：
+- 历史版本面板可展开 selector：`.history_expand_more`
+- 历史预览页 URL 含：`action=get_history_appmsg`
+- 恢复按钮文案：`恢复至此版本`（注意没有空格，但用 `replace(/\s/g,'')` 保险）
+
+---
+
 ## 11. 进阶: 文章样式注入（字号 / 颜色 / 行距 / 对齐）⭐
 
 ### 11.1 为什么必须做这步
@@ -1047,6 +1185,7 @@ $AGENT wait 8000
 ## 反模式（见到就阻止自己）
 
 1. ❌ **点了"发表"按钮** —— 不可撤销，会推送给所有粉丝。永远只点"保存为草稿"
+1.5. ❌ **用户说"保存"就 Cmd+A + Delete + 重 paste 本地 md** —— 用户可能在编辑器里手动改了内容，重 paste 会清空他的修改！**"保存现在这个版本" / "保存我刚才改的" / 模糊的"保存一下"全部走流程 C（仅点保存按钮）**，绝不清空。如果不确定，永远走流程 C，不做破坏性操作。出事后的恢复见流程 C 末尾。
 2. ❌ **md 只放在 `/tmp/` 或工作目录里就开干** —— 改几版就找不回原稿。源 md 必须先进 `william-docs/产品/.../文章/<topic>/article.md`
 3. ❌ **没写 `.wechat-mp-meta.json` 就结束了** —— 下次想覆盖更新时拿不到 `appmsgid` 和 CDN URL，只能退化成重建新草稿（旧草稿变孤儿）
 4. ❌ **覆盖更新时重新 upload 所有图片** —— 浪费 CDN 配额、浪费时间、产生重复素材。正确做法是从 meta / DOM 提取现有 URL 再 paste

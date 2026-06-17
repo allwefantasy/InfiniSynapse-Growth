@@ -1,0 +1,115 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Databricks Assistant vs Genie vs Data Agent: A 2026 Buyer Guide",
+    "description": "Lakehouse buyer guide for databricks assistant vs genie: compare Assistant, Genie, and Data Agents on governance, memory, and rollout fit in 2026.",
+    "image": [
+      "https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/020-databricks-genie-vs-data-agent/images/hero-databricks-genie-vs-data-agent.png"
+    ],
+    "datePublished": "2026-06-12T10:00:00+08:00",
+    "dateModified": "2026-06-12T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/databricks-genie-vs-data-agent"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Databricks Assistant vs Genie"
+      },
+      {
+        "@type": "Thing",
+        "name": "Databricks Genie"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data Agent"
+      }
+    ],
+    "keywords": "databricks assistant vs genie, databricks genie, databricks assistant, data agent lakehouse"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference in Databricks Assistant vs Genie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Databricks Assistant helps you write and fix code in notebooks. Databricks Genie lets you ask natural-language questions over governed lakehouse tables. Assistant targets builders; Genie targets data consumers inside the workspace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Databricks Genie a Data Agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Partially. Genie moves toward agent-like NL analytics with catalog grounding, but most deployments remain workspace-bound with guided exploration. Full Data Agents add cross-system orchestration, distilled memory, and multi-entry parity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can we use Assistant and Genie together?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Common pattern: Assistant for pipeline engineering, Genie for analyst self-service on curated gold tables. Add a Data Agent when KPIs cross systems or require API/chat delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should we add InfiniSynapse if we already have Genie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When answers require sources outside Databricks, when executives need non-workspace access, or when monthly metrics must replay from memory without re-negotiating definitions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the AI data analyst role fit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Humans owning goal framing, metric governance, and sign-off; agents owning multi-step execution. The ai data analyst role pairs with Data Agents for accountable hybrid analytics."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Databricks Assistant vs Genie vs Data Agent",
+        "item": "https://infinisynapse.cn/blog/databricks-genie-vs-data-agent"
+      }
+    ]
+  }
+]

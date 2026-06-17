@@ -1,0 +1,115 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI Data Analyst: Role, Tools, and Workflow in 2026",
+    "description": "AI data analyst role in 2026: evolved responsibilities, essential tools, human+AI division of labor, and a weekly workflow template for data teams.",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-06-08-ai-data-analyst/hero.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/ai-data-analyst"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "AI data analyst"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "AI-native data analysis"
+      }
+    ],
+    "keywords": "ai data analyst, ai data analyst tools, data agent, ai-native data analysis"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does this role do day to day?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An **ai data analyst** frames analytical goals, maintains metric and schema context, delegates multi-step execution to AI agents, validates outputs via audit trails, and communicates insights to stakeholders. They own judgment and accountability; agents own execution throughput."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this a real job title in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Increasingly. Companies either rename \"data analyst\" roles to include AI tooling expectations or add **ai data analyst** as a distinct mid-level role between traditional analyst and analytics engineer. The title signals goal-orchestration skills, not chatbot operation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI replace a data analyst?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. AI replaces **tasks** (boilerplate SQL, repetitive cleaning, first-pass charts), not the analyst function. Stakeholders still need someone accountable for question quality, assumption validation, and narrative trust. The **ai data analyst** role is analysts who delegate execution — not eliminated headcount."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What tools should practitioners learn first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start with one AI-native Data Agent for production work, plus one copilot for ad-hoc exploration. Learn InfiniSQL-style named intermediates or your platform's equivalent. Invest in goal-writing and audit-trail review — those skills differentiate 2026 **ai data analyst** practitioners from 2020 SQL writers. Analysts wiring Native into production reviews can follow the parallel walkthrough in [What Is an AI-Native Data Platform? (2026 Buyer's…](/blog/ai-native-data-platform)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this role different from an analytics engineer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Analytics engineers build pipelines and infrastructure. The **ai data analyst** consumes those assets to answer business questions — faster, with agent execution. Overlap exists on SQL and dbt literacy; this role emphasizes stakeholder delivery and agent orchestration."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI Data Analyst: Role, Tools, and Workflow",
+        "item": "https://infinisynapse.cn/blog/ai-data-analyst"
+      }
+    ]
+  }
+]

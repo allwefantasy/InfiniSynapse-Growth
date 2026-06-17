@@ -1,0 +1,7 @@
+{
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "text": "人类已经进入了一个新文明。我说的是文明，不只是又一轮技术周期。"
+}

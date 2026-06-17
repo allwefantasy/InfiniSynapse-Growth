@@ -1,0 +1,8 @@
+---
+description: Default storage location for WeChat public account articles
+alwaysApply: true
+---
+
+# WeChat Article Storage
+
+- 所有公众号文章默认存放到 `日常运营/` 目录下。

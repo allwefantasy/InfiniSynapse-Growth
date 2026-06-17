@@ -1,0 +1,7 @@
+{
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "text": "Data Agent 一旦建好，会极大推进数据驱动和数据自动化决策。"
+}

@@ -1,0 +1,143 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": "https://infinisynapse.cn/blog/ai-native-data-analysis#termset",
+    "name": "AI-Native Data Analysis Glossary",
+    "hasDefinedTerm": [
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://infinisynapse.cn/blog/ai-native-data-analysis#ai-native",
+        "name": "AI-native data analysis",
+        "description": "A workflow paradigm in which the user submits a single goal, an autonomous agent plans and executes a multi-step analysis across one or more data sources, self-corrects around failures, surfaces the full audit trail for human inspection, and distills the completed task into reusable structured memory.",
+        "url": "https://infinisynapse.cn/blog/ai-native-data-analysis#definition-what-is-ai-native-data-analysis"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://infinisynapse.cn/blog/ai-native-data-analysis#ai-enabled",
+        "name": "AI-enabled data analysis tool",
+        "description": "A workflow in which AI assists each step of an analysis but the user drives every step, the session leaves no persistent state behind, and errors are returned to the user for handling.",
+        "url": "https://infinisynapse.cn/blog/ai-native-data-analysis#why-this-term-emerged-in-2026"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://infinisynapse.cn/blog/ai-native-data-analysis#agentic-analytics",
+        "name": "Agentic analytics",
+        "description": "Analytics tooling that uses autonomous multi-step agent behavior. Frequently used interchangeably with AI-native data analysis; the nuance is that agentic emphasizes the planning behavior while AI-native additionally implies the surrounding workflow was designed around the agent from day one.",
+        "url": "https://infinisynapse.cn/blog/ai-native-data-analysis#definition-what-is-ai-native-data-analysis"
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://infinisynapse.cn/blog/ai-native-data-analysis#autonomous-data-agent",
+        "name": "Autonomous data agent",
+        "description": "The execution component inside an AI-native data analysis system. The agent is the actor; AI-native is the surrounding architecture (memory, audit, multi-entry).",
+        "url": "https://infinisynapse.cn/blog/ai-native-data-analysis#definition-what-is-ai-native-data-analysis"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "AI-Native Data Analysis: What It Means in 2026 (vs AI-Enabled)",
+    "description": "AI-native data analysis defined for 2026: what it is, how it differs from AI-enabled tools, the 5 pillars (autonomy, transparency, memory, multi-entry, self-correction), and a 3-question evaluation test.",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-05-19-ai-native-data-analysis/hero-ai-native-vs-ai-enabled.png",
+      "https://infinisynapse.cn/blog/2026-05-19-ai-native-data-analysis/five-pillars-diagram.png",
+      "https://infinisynapse.cn/blog/2026-05-19-ai-native-data-analysis/comparison-matrix-table.png"
+    ],
+    "datePublished": "2026-05-19T10:00:00+08:00",
+    "dateModified": "2026-05-19T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/ai-native-data-analysis"
+    },
+    "about": [
+      { "@type": "DefinedTerm", "@id": "https://infinisynapse.cn/blog/ai-native-data-analysis#ai-native" },
+      { "@type": "DefinedTerm", "@id": "https://infinisynapse.cn/blog/ai-native-data-analysis#ai-enabled" },
+      { "@type": "DefinedTerm", "@id": "https://infinisynapse.cn/blog/ai-native-data-analysis#agentic-analytics" }
+    ],
+    "proficiencyLevel": "Intermediate",
+    "keywords": "ai-native data analysis, agentic analytics, autonomous data agent, ai-native vs ai-enabled, data agent, memory distillation",
+    "isPartOf": {
+      "@type": "Series",
+      "name": "InfiniSynapse AI-Native Data Analysis Series",
+      "url": "https://infinisynapse.cn/blog/topics/ai-native-data-analysis"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between AI-native and AI-enabled?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI-enabled tools wait for one instruction at a time, return errors when something fails, and forget the session when it closes. AI-native agents take a single goal, plan the steps, reroute around failures, expose the full audit trail, and distill the completed task into structured memory the next run can recall. Same query may come out of both — the difference is whether the workflow survives."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is AI-native data analysis the same as agentic analytics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "They overlap heavily and are often used interchangeably. The nuance: agentic emphasizes the multi-step planning behavior of the agent. AI-native additionally implies the surrounding workflow (memory, audit, multi-entry) was designed around the agent from day one, not retrofitted. Most AI-native systems are agentic; not every agentic feature lives inside an AI-native workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI-native systems replace data analysts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. AI-native agents remove repetitive work — cleaning, joining, charting, scheduled reports — but humans still pick the right question, validate assumptions, and defend conclusions. The change is that analysts spend more time on the judgment-heavy parts and less on the mechanical parts; the seat count usually stays similar but the work mix shifts upward."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do AI-native tools work with our existing data warehouse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The mature ones connect to standard warehouses (Snowflake, BigQuery, Redshift, Databricks) and to operational stores (MySQL, Postgres, MongoDB) and to file uploads (XLSX, CSV, Parquet) — usually all three at once. The agent inspects available sources at the start of a task and picks the right one per sub-question. Single-source tools are typically AI-enabled even if they market as native."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is memory different from chat history?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Chat history stores everything literally — every word of every conversation — and requires a human to re-read it to extract anything useful. Memory in an AI-native system stores only the reusable conclusions: locked metric definitions, schema references, time ranges, summary insights. The next task can reference these by name without the user re-typing the context."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What governance controls should I expect from an AI-native platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Look for: project-level memory (not just per-user), DRAFT-then-approve flow for new memory entries, row-level security if it's connected to a warehouse, audit logs at the tool-call level, and an SSO/SAML option for enterprise deployments. If the memory cards auto-save without an approval step, you'll eventually have a bad number live in the knowledge base and propagating into every future task."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://infinisynapse.cn/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://infinisynapse.cn/blog" },
+      { "@type": "ListItem", "position": 3, "name": "AI-Native Data Analysis", "item": "https://infinisynapse.cn/blog/ai-native-data-analysis" }
+    ]
+  }
+]

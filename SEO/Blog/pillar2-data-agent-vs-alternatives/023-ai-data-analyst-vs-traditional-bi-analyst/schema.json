@@ -1,0 +1,115 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Business Intelligence vs Data Science: AI Analyst vs Traditional BI Analyst",
+    "description": "Business intelligence vs data science explained — then AI analyst vs traditional BI analyst: roles, scorecard, org patterns, and when each path wins in 2026.",
+    "image": [
+      "https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/023-ai-data-analyst-vs-traditional-bi-analyst/images/hero-ai-data-analyst-vs-traditional-bi-analyst.png"
+    ],
+    "datePublished": "2026-06-12T10:00:00+08:00",
+    "dateModified": "2026-06-12T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/ai-data-analyst-vs-traditional-bi-analyst"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Business intelligence vs data science"
+      },
+      {
+        "@type": "Thing",
+        "name": "AI data analyst"
+      },
+      {
+        "@type": "Thing",
+        "name": "BI analyst role"
+      }
+    ],
+    "keywords": "business intelligence vs data science, AI data analyst, BI analyst, data science analyst, Data Agent"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the main difference in analytics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "**Business intelligence vs data science** boils down to repeatability versus discovery. BI answers governed \"what happened\" questions on a schedule; data science tests hypotheses and builds predictive models. BI output is a dashboard; data science output is an experiment or model — with different validation standards."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does an AI data analyst fit relative to BI and data science?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An AI data analyst sits between BI operations and data-science exploration for **diagnostic, multi-step, recurring** work. They do not replace model training pipelines or executive dashboard design — they accelerate cross-source analysis with agentic execution, memory, and audit trails described in [what is a Data Agent](/blog/what-is-a-data-agent)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should we hire a BI analyst or a data scientist first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hire BI when eighty percent of requests are governed KPIs and dashboard consumption. Hire data science when predictive or experimental work blocks revenue. Add an AI-analyst function when BI backlog grows from cross-source \"why\" questions that repeat monthly — after [governance](/blog/governance-for-ai-data-analysis) basics exist."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can one person cover all three roles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In startups, yes — with role conflict. In regulated or multi-domain enterprises, no. The **business intelligence vs data science** skill overlap is SQL and domain knowledge; the divergence is toolchain, validation standards, and stakeholder expectations. AI analyst adds connector governance and review sampling — a third workload."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does InfiniSynapse support AI data analysts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "InfiniSynapse gives AI analysts a [Data Agent](/blog/what-is-a-data-agent) stack: goal submission, phased plans, federated query, knowledge-bound definitions, and approved memory cards — under controls mapped in [AI Data Governance for Analytics Teams](/blog/governance-for-ai-data-analysis). Free tier at [the InfiniSynapse web app](https://app.infinisynapse.cn).\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Business Intelligence vs Data Science",
+        "item": "https://infinisynapse.cn/blog/ai-data-analyst-vs-traditional-bi-analyst"
+      }
+    ]
+  }
+]

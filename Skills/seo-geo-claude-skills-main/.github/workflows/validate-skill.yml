@@ -1,0 +1,88 @@
+name: Validate Agent Skill
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/SKILL.md"
+      - "**/references/**"
+      - "references/**"
+      - "commands/**"
+      - "scripts/**"
+      - ".github/workflows/**"
+      - ".github/scripts/**"
+      - ".claude-plugin/**"
+      - ".codebuddy-plugin/**"
+      - "docs/**"
+      - "hooks/**"
+      - "memory/**"
+      - "README.md"
+      - "CLAUDE.md"
+      - "AGENTS.md"
+      - "CONTRIBUTING.md"
+      - "CONNECTORS.md"
+      - "CITATION.cff"
+      - "VERSIONS.md"
+      - "marketplace.json"
+      - "gemini-extension.json"
+      - "qwen-extension.json"
+      - ".mcp.json"
+  pull_request:
+    branches: [main]
+    paths:
+      - "**/SKILL.md"
+      - "**/references/**"
+      - "references/**"
+      - "commands/**"
+      - "scripts/**"
+      - ".github/workflows/**"
+      - ".github/scripts/**"
+      - ".claude-plugin/**"
+      - ".codebuddy-plugin/**"
+      - "docs/**"
+      - "hooks/**"
+      - "memory/**"
+      - "README.md"
+      - "CLAUDE.md"
+      - "AGENTS.md"
+      - "CONTRIBUTING.md"
+      - "CONNECTORS.md"
+      - "CITATION.cff"
+      - "VERSIONS.md"
+      - "marketplace.json"
+      - "gemini-extension.json"
+      - "qwen-extension.json"
+      - ".mcp.json"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate release guardrails
+        run: |
+          set -euo pipefail
+          bash scripts/validate-slimming-guardrails.sh
+          find research build optimize monitor cross-cutting \
+            -mindepth 2 -maxdepth 2 -name SKILL.md \
+            -print | sort | while read -r file; do
+            skill="$(dirname "$file")"
+            bash scripts/validate-skill.sh "$skill"
+          done
+          bash scripts/validate-skill.sh --status
+
+      - name: Get changed SKILL.md files
+        id: changed
+        uses: tj-actions/changed-files@v45
+        with:
+          files: "**/SKILL.md"
+
+      - name: Validate changed skills
+        if: steps.changed.outputs.any_changed == 'true'
+        run: |
+          for file in ${{ steps.changed.outputs.all_changed_files }}; do
+            dir=$(dirname "$file")
+            echo "Validating: $dir"
+            bash scripts/validate-skill.sh "$dir"
+          done

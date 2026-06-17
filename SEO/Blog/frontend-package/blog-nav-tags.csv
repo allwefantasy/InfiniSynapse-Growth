@@ -1,0 +1,11 @@
+﻿filter_category,nav_label_en,nav_label_zh,card_tag_default,article_count_100,nav_sort_order,show_in_nav,notes
+all,All,全部,,100,0,true,
+comparisons,Comparisons & Alternatives,对比与替代,Comparisons,21,1,true,
+knowledge,Knowledge Base & Explainers,知识科普与概念,Guides,17,2,true,
+connectors,Data Connectors & Integrations,数据连接与集成,Connectors,15,3,true,
+use_cases,Use Cases & Industries,角色与行业场景,Use Cases,14,4,true,
+excel_csv,Excel & Spreadsheet AI,Excel 与表格 AI,Excel & CSV,12,5,true,
+nl2sql,NL2SQL & Text-to-SQL,自然语言转 SQL,NL2SQL,10,6,true,
+tools_reviews,Tools & Reviews,工具与评测,Tools & Reviews,8,7,true,
+deep_dive,Technical Deep Dives,技术深度,Deep Dive,3,8,true,
+tutorials,Tutorials & Best Practices,教程与最佳实践,Tutorials,0,9,false,隐藏：篇数过少，可合并到 Connectors

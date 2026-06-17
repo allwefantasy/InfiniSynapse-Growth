@@ -1,0 +1,147 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Connect Supabase to an AI Data Analyst — Plus 9 More Sources",
+    "description": "InfiniSynapse now connects natively to Supabase, plus MySQL, PostgreSQL, ClickHouse, MongoDB, Snowflake, SQL Server, Doris, Excel, files, and APIs — all in one analysis. Step-by-step setup + a working business-question example.",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-05-19-ai-analyst-real-data-supabase/hero-supabase-connect.png",
+      "https://infinisynapse.cn/blog/2026-05-19-ai-analyst-real-data-supabase/cover-xiaohongshu-4x3.png"
+    ],
+    "datePublished": "2026-05-19T10:00:00+08:00",
+    "dateModified": "2026-05-19T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": { "@type": "ImageObject", "url": "https://infinisynapse.cn/logo.png" }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/connect-supabase-to-ai-data-agent"
+    },
+    "about": [
+      { "@type": "Thing", "name": "Supabase integration" },
+      { "@type": "Thing", "name": "AI data analyst" },
+      { "@type": "Thing", "name": "Multi-source analysis" },
+      { "@type": "Thing", "name": "Data Agent" },
+      { "@type": "Thing", "name": "Postgres analytics" }
+    ],
+    "mentions": [
+      { "@type": "SoftwareApplication", "name": "Supabase", "applicationCategory": "DatabaseApplication", "url": "https://supabase.com" },
+      { "@type": "SoftwareApplication", "name": "PostgreSQL", "applicationCategory": "DatabaseApplication" },
+      { "@type": "SoftwareApplication", "name": "MySQL", "applicationCategory": "DatabaseApplication" },
+      { "@type": "SoftwareApplication", "name": "ClickHouse", "applicationCategory": "DatabaseApplication" },
+      { "@type": "SoftwareApplication", "name": "MongoDB", "applicationCategory": "DatabaseApplication" },
+      { "@type": "SoftwareApplication", "name": "Snowflake", "applicationCategory": "DatabaseApplication" },
+      { "@type": "SoftwareApplication", "name": "Microsoft SQL Server", "applicationCategory": "DatabaseApplication" },
+      { "@type": "SoftwareApplication", "name": "Apache Doris", "applicationCategory": "DatabaseApplication" },
+      { "@type": "SoftwareApplication", "name": "InfiniSynapse", "applicationCategory": "BusinessApplication", "url": "https://app.infinisynapse.cn" }
+    ],
+    "keywords": "connect supabase to ai data analyst, supabase ai analytics, query supabase with ai, ai analyst real data, supabase postgres connector, data agent supabase, InfiniSynapse Supabase"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Connect Supabase to InfiniSynapse in 3 minutes",
+    "description": "Add Supabase as a first-class data source in InfiniSynapse, ready for cross-source AI analysis.",
+    "totalTime": "PT3M",
+    "tool": [
+      { "@type": "HowToTool", "name": "Supabase Studio (Database → Connection pooling)" },
+      { "@type": "HowToTool", "name": "InfiniSynapse cloud workspace (app.infinisynapse.cn)" }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Grab the Supabase Postgres connection string",
+        "text": "In Supabase Studio → Project Settings → Database → Connection pooling, copy the Transaction-mode URI."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Create a read-only analytics role (optional but recommended)",
+        "text": "In Supabase SQL Editor, run a CREATE ROLE + GRANT SELECT script for an analytics_readonly role."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Add Supabase as a data source in InfiniSynapse",
+        "text": "In InfiniSynapse → Data Sources → Add → Supabase (Postgres-compatible). Paste the URI, name the source, Test → Save."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "(Optional) Bind business knowledge via Associated RAG",
+        "text": "Attach your data dictionary, metric specs, or business rules to the Supabase data source object so the agent consults them before writing SQL."
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does this work with Supabase Edge Functions or only Postgres tables?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Today's release covers Supabase Postgres (tables, views, materialized views, schemas). Edge Functions and Storage are on the roadmap but not in this release. If you need to integrate Edge Function outputs, write them to a Postgres table and connect the table."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my Supabase data leave my project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only the result rows of queries you (or the agent) explicitly run leave Supabase, and only to InfiniSynapse's runtime where you're executing the task. Schema introspection and a 100-row per-table sample are cached inside your InfiniSynapse workspace. For zero-egress requirements, deploy InfiniSynapse Private inside your VPC."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I connect Supabase plus my warehouse plus an Excel in the same task?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. That's the headline of this release. Add each as a data source object, then express joins in InfiniSQL. The engine handles federation and pushdown."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does InfiniSynapse honor Supabase Row-Level Security (RLS)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. InfiniSynapse honors whatever the connecting Postgres role can see. If your analytics_readonly role is subject to RLS policies, the agent's queries are too."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different from Supabase's own in-Studio AI assistant?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Supabase's in-Studio assistant is excellent for writing SQL during database work. InfiniSynapse is positioned one layer up: a Data Agent that does end-to-end analysis across Supabase and your other sources, returns a defensible report, and accumulates named intermediates into a question-shaped virtual warehouse."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the fastest way to try this right now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three minutes: free InfiniSynapse account at app.infinisynapse.cn → add Supabase URI → ask one real business question. The cloud workspace has a free tier that covers single-user evaluation."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://infinisynapse.cn/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://infinisynapse.cn/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Connect Supabase to an AI Data Analyst", "item": "https://infinisynapse.cn/blog/connect-supabase-to-ai-data-agent" }
+    ]
+  }
+]

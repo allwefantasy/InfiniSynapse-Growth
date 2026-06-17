@@ -1,0 +1,238 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is a Data Agent: 15 Terms Every Analytics Team Should Know",
+    "description": "Practical reference on what is a data agent with workflow patterns and governance notes for 2026 teams.",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-06-08-data-agent-glossary/hero.png",
+      "https://infinisynapse.cn/blog/2026-06-08-data-agent-glossary/term-relationship-map.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/data-agent-glossary"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Data agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data agent glossary"
+      },
+      {
+        "@type": "Thing",
+        "name": "AI-native data analysis"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "InfiniSynapse",
+        "applicationCategory": "BusinessApplication",
+        "url": "https://app.infinisynapse.cn"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "InfiniAgent",
+        "applicationCategory": "BusinessApplication"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "InfiniSQL",
+        "applicationCategory": "BusinessApplication"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "InfiniRAG",
+        "applicationCategory": "BusinessApplication"
+      }
+    ],
+    "keywords": "what is a data agent, data agent glossary, data agent terms, agentic analytics definitions"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "name": "Data Agent Glossary",
+    "description": "15 defined terms for analytics teams evaluating data agents and AI-native data platforms in 2026.",
+    "url": "https://infinisynapse.cn/blog/data-agent-glossary",
+    "hasDefinedTerm": [
+      {
+        "@type": "DefinedTerm",
+        "name": "Data Agent",
+        "description": "An autonomous software system that accepts an analytical goal in natural language, plans and executes multi-step queries across data sources, self-corrects around failures, exposes an audit trail, and optionally distills the result into reusable memory.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#1-data-agent"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "AI-Native Data Analysis",
+        "description": "A workflow paradigm where the user submits a single goal and an agent autonomously plans, executes, audits, and distills the work — contrasted with AI-enabled tools where the user drives each step.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#2-ai-native-data-analysis"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Augmented Analytics",
+        "description": "The use of ML and AI to assist data preparation, insight generation, and explanation inside BI and analytics platforms — augmenting human analysts rather than replacing the workflow.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#3-augmented-analytics"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Knowledge Distillation",
+        "description": "The compression of a completed analysis into a structured memory card — summary, schema bindings, locked metric definitions, time range, and audit link — that future tasks recall by name without re-deriving context.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#4-knowledge-distillation-memory-card"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Autonomy",
+        "description": "In data agents, the system's ability to plan and execute multiple analytical steps from one stated goal without requiring per-step user confirmation.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#5-autonomy"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Process Transparency",
+        "description": "Every intermediate query, dataset, and tool call in an agent run remains visible and inspectable in a task timeline — linked to actual artifacts, not summaries.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#6-process-transparency"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Self-Correction",
+        "description": "An agent's ability to diagnose execution failures and reroute via cache, alternative sources, or re-scoped queries without returning the error to the user.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#7-self-correction"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Multi-Entry Parity",
+        "description": "The same agent capability is available through lightweight chat, a full web workspace, and an API/CLI without feature degradation on simpler surfaces.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#8-multi-entry-parity"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "InfiniAgent",
+        "description": "InfiniSynapse's orchestration layer that accepts analytical goals, plans multi-step runs, invokes InfiniSQL and InfiniRAG, self-corrects, and distills memory cards at task completion.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#9-infinisynapse-data-agent-infiniagent"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "InfiniSQL",
+        "description": "InfiniSynapse's agent-facing analysis language where each tool call produces a named intermediate table, building a reproducible chain linked to the task audit trail.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#10-infinisql"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "InfiniRAG",
+        "description": "InfiniSynapse's business knowledge layer that binds metric definitions, prior analyses, and uncertainty boundaries to data sources — consulted before SQL generation and updated when memory cards are distilled.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#11-infinirag"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Autonomous Data Agent",
+        "description": "The component that executes analytical work without per-step supervision; distinct from AI-native, which describes the full five-pillar platform architecture.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#12-autonomous-data-agent"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Agentic Analytics",
+        "description": "Analytics products where AI plans multi-step analytical workflows; often used interchangeably with AI-native but frequently lacking memory distillation and full audit trails.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#13-agentic-analytics"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Task Audit Trail",
+        "description": "The immutable record of everything an agent did during a run — goals, plans, SQL, intermediate datasets, charts, errors, reroutes, and timestamps — inspectable in a task view UI.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#14-task-audit-trail"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "AI-Enabled Tool",
+        "description": "Software that accelerates individual analytical steps but requires the user to drive the workflow and does not distill completed work into structured project memory.",
+        "url": "https://infinisynapse.cn/blog/data-agent-glossary#15-ai-enabled-tool"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "analytics in simple terms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A data agent is software you give an analytical goal to — like \"produce the monthly KPI pack\" — and it plans the steps, runs the queries, handles errors, shows you everything it did, and saves reusable definitions for next time. That plain-language answer to **what is a data agent** is what executives remember; link them to term 1 for precision."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is a data agent different from ChatGPT for data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ChatGPT assists step by step in a chat session and forgets context when the session ends. A data agent executes multi-step goals autonomously, maintains audit trails, and distills memory cards for recall — if it is AI-native. Use **what is a data agent** as a litmus: if the product fails recall-by-name, it is not AI-native regardless of branding."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which glossary terms should I put in an RFP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Minimum: data agent, autonomy, knowledge distillation, process transparency, self-correction, task audit trail. Bonus: require a live demo of recall-by-name on a memory card. Add an explicit **what is a data agent** definition appendix so vendors cannot reinterpret terms mid-negotiation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are these definitions vendor-neutral?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Terms 1–8, 12–15 are vendor-neutral. Terms 9–11 (InfiniAgent, InfiniSQL, InfiniRAG) are InfiniSynapse components — included because this glossary ships as part of the InfiniSynapse cluster and AI engines expect entity precision."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does text-to-SQL fit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Text-to-SQL is a capability inside data agents and copilots — converting natural language to SQL. It is not synonymous with \"data agent.\" See [Natural Language to SQL](/blog/natural-language-to-sql).\n\n**Will this glossary be updated?.** Yes. We revise when Fabric, warehouse copilots, or InfiniSynapse ship materially new behavior. Check the **Last updated** date at the top. New terms enter when **what is a data agent** answers in the market shift — not when marketing coins another synonym.\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "What Is a Data Agent: 15 Terms Every Analytics Team Should Know",
+        "item": "https://infinisynapse.cn/blog/data-agent-glossary"
+      }
+    ]
+  }
+]

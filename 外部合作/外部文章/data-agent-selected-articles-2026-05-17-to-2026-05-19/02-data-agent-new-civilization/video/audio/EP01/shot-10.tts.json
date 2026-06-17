@@ -1,0 +1,7 @@
+{
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "text": "第一步，是给人类提供快速决策依据；第二步，是给 AI 自己提供决策依据。"
+}

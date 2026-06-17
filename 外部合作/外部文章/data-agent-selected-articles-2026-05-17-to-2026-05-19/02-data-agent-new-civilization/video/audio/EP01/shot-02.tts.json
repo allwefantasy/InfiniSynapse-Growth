@@ -1,0 +1,7 @@
+{
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "text": "现在很多人都怕落后，所以不断研究 LLM 怎么用、边界在哪里。"
+}

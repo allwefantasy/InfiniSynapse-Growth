@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>InfiniSynapse 品牌增长调研报告</title>
+ <meta name="description" content="InfiniSynapse 海外增长调研：竞品格局、搜索优化/生成式推荐/Reddit 渠道诊断、90 天策略。" />
+ <link rel="stylesheet" href="assets/report.css" />
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+ <header class="topbar">
+ <div class="topbar-inner">
+ <div class="topbar-brand">InfiniSynapse · 增长调研</div>
+ <nav class="topbar-nav">
+ <a href="#methodology">方法论</a>
+ <a href="#product">产品定位</a>
+ <a href="#competitors">竞品格局</a>
+ <a href="竞品多维对标.html">多维对标</a>
+ <a href="#traffic">流量诊断</a>
+ <a href="#seo">Google 搜索</a>
+ <a href="#geo">ChatGPT 推荐</a>
+ <a href="#reddit">Reddit 社区</a>
+ <a href="#glossary">术语速查</a>
+ <a href="#strategy">策略</a>
+ <a href="#plan">90天计划</a>
+ <a href="#conclusion">结论</a>
+ </nav>
+ </div>
+ </header>
+
+ <div class="page">
+ <div class="hero">
+ <h1>InfiniSynapse 品牌增长调研报告</h1>
+ <p class="hero-meta">2026-06-15 · 数据来源：SEMrush 网站流量估算（2026-05）· 内部「问 ChatGPT 会不会推荐我们」测试（2026-05-12）· 100 篇 搜索优化文章规划</p>
+ </div>
+
+ <!-- 方法论 -->
+ <section id="methodology">
+ <h2>我们的方法论</h2>
+ <p class="section-lead">对企业卖人工智能数据分析产品，不能只看官网有多少人点开。还要看：Google 能不能搜到我们、ChatGPT 会不会推荐我们、Reddit 上工程师有没有认真讨论过我们、这些内容能不能带来产品演示预约和客户候选清单里的位置。</p>
+
+ <div class="pipeline">
+ <div class="pipeline-step">
+ <div class="label">① 定品类</div>
+ <div class="text">人工智能数据智能体<br>不是简单「问一句出数据库查询」或开发框架</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="label">② 选标杆</div>
+ <div class="text">四个维度打分<br>搜索 / 人工智能推荐 /科普专栏三条路</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="label">③ 拆动作</div>
+ <div class="text">看流量数据 + 具体网页<br>每家竞品单独详情页</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="label">④ 诊断差距</div>
+ <div class="text">我们和标杆差多少<br>数字可查、可复核</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="label">⑤ 推策略</div>
+ <div class="text">只学已验证的打法<br>90 天内能验收</div>
+ </div>
+ </div>
+
+ <div class="verdict-box">
+ <strong>增长不是硬买流量，而是客户在「选工具」时，每次接触都能推进决策：</strong><br><br>
+ Google 搜「XX 替代品 / 对比」→ ChatGPT 问「最好的数据智能体」→ Reddit 看工程师真实讨论 → 打开我们的对比文 / 连接教程 / 预约产品演示 → 用<strong>多库联邦、私有化与可审计操作留痕</strong>讲清差异。
+ </div>
+ </section>
+
+ <!-- 产品 -->
+ <section id="product">
+ <h2>品牌与产品初判</h2>
+ <p class="section-lead">InfiniSynapse 做什么：可同时连多个数据库做分析、支持私有化部署、全程留操作记录。主要卖给需要「合规、可审计」的数据团队和分析师。</p>
+ <table>
+ <thead><tr><th>维度</th><th>InfiniSynapse</th><th>不是什么</th></tr></thead>
+ <tbody>
+ <tr><td>品类</td><td><strong>人工智能数据智能体</strong>（连数据库、自己规划分析步骤、留操作记录、能记住上下文）</td><td>只会「问一句转数据库查询」的小工具、聊天式商业智能仪表盘、给程序员用的智能体框架</td></tr>
+ <tr><td>差异化</td><td>多库一起查 · 能读文档/表格 · 私有化 · 操作留痕</td><td>ChatGPT 插件、只能查单个库</td></tr>
+ <tr><td>决策场景</td><td>企业选软件时的候选清单、试用验证（概念验证）、私有化合规要求</td><td>个人洗 Excel、做数学题（Julius 上有些无关流量）</td></tr>
+ <tr><td>已有资产</td><td>100 篇文章规划 · Supabase 连接教程 · #014 代码智能体对比数据智能体</td><td>Reddit 发言 · 客户量化案例 · 人工智能测试里被引用次数（目前都是 0）</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <!-- 竞品格局 -->
+ <section id="competitors">
+ <h2>赛道竞品格局与对标对象</h2>
+ <p class="section-lead">
+ 这里的前三名不是「和我们最像的三个产品」，而是三种<strong>已经用数据验证、90 天内能照着做</strong>的获客样板。
+ 客户候选清单里还会出现 Databricks Genie；人工智能引用榜上 LangChain、Omni 更高——详见各详情页与<a href="#selection-detail">选型依据</a>。
+ </p>
+ <div class="tip"><strong>📊 想按渠道看差距？</strong> 新增 <strong><a href="竞品多维对标.html">竞品多维对标（5 渠道一表看差距）→</a></strong>：整体大盘 · SEO（含 sitemap 话题覆盖差距）· SEM · 红人营销 · 社媒/社群 · 大盘总结（过去一年涨幅 × 动作 × 能否抄）。</div>
+
+ <h3 id="growth-timeline">三家标杆：早期打法 → 流量爆发 → 现在（可追溯摘要）</h3>
+ <p class="section-lead">下面不是「猜他们怎么火的」，而是把<strong>公开可查的时间线、具体页面、招聘描述、访谈</strong>串起来。每家完整拆解见独立详情页中的「增长时间线」章节。</p>
+ <table class="action-table">
+ <thead><tr><th>阶段</th><th>Julius（搜索标杆）</th><th>Hex（人工智能推荐标杆）</th><th>ThoughtSpot（科普专栏标杆）</th></tr></thead>
+ <tbody>
+ <tr>
+ <td><span class="phase-tag early">早期 0→1</span></td>
+ <td>2022 孵化器批次 · 多次 pivot · 2023-07-12 公开发布 · 先靠 ChatGPT 插件商店获客 · 插件关站后转向产品体验 + 创始人个人传播</td>
+ <td>2019 创立 · 第一版只做「把已有 Python 笔记本参数化并发布」· 2020 上线 · 先卖给 Brex/Notion 等数据团队 · 产品驱动增长试用</td>
+ <td>2012 年起做搜索驱动商业智能 · 企业销售为主 · 2010 年代后期开始堆「教育型内容」· 比较页拦截 Tableau/Power 商业智能 用户</td>
+ </tr>
+ <tr>
+ <td><span class="phase-tag burst">爆发期动作</span></td>
+ <td>① 大规模上 <code>/articles/</code> 对比文（对比 ChatGPT/Jupyter/商业智能）② 建 <code>/compare/</code> 短转化页 ③ 连接数据库教程 ④ 案例数字（1 天→1 小时）⑤ 意外吃到数学作业类大词</td>
+ <td>① 266 篇技术博客 + 模板库 ② Snowflake 等合作新闻 ③ Magic 人工智能 / 上下文智能体 产品发布 ④ 单篇教程爆款（降维）占搜索 3%+ ⑤ 论坛讨论被人工智能采信</td>
+ <td>① <code>/data-trends/</code> 科普专栏集群 ② <code>kpi examples</code> 单页吃 32% 搜索流量 ③ 数据库查询 tutorial 集群 ④ 对比页 + 行业页 ⑤ Spotter 人工智能叙事 + 搜索流量环比 +32%</td>
+ </tr>
+ <tr>
+ <td><span class="phase-tag now">2026-05 流量结构</span></td>
+ <td>71.4 万/月 · Google 30% · 品牌词 67% · 人工智能测试引用 0 次</td>
+ <td>47.1 万/月 · 直接访问 82% · Google 7% · 人工智能测试引用 6 次（第 1）</td>
+ <td>19.1 万/月 · Google 18% · 最大词占 32% · 人工智能测试引用 4 次</td>
+ </tr>
+ <tr>
+ <td><strong>详情页</strong></td>
+ <td><a href="competitors/julius-ai.html#timeline">Julius 时间线全文 →</a></td>
+ <td><a href="competitors/hex.html#timeline">Hex 时间线全文 →</a></td>
+ <td><a href="competitors/thoughtspot.html#timeline">ThoughtSpot 时间线全文 →</a></td>
+ </tr>
+ </tbody>
+ </table>
+ <p class="data-src">Julius 早期：<a href="https://www.todayin-ai.com/p/juliusai" target="_blank" rel="noopener">Today in AI 访谈</a> · <a href="https://www.ycombinator.com/companies/julius/jobs/1pKwFDg-growth-marketing-manager" target="_blank" rel="noopener">增长招聘说明</a> · Hex：<a href="https://www.unusual.vc/how-hex-found-product-market-fit/" target="_blank" rel="noopener">Unusual 产品市场契合访谈</a> · ThoughtSpot：<a href="https://concurate.com/company/thoughtspot-marketing-strategy/" target="_blank" rel="noopener">Concurate 内容策略拆解</a></p>
+
+ <div class="comp-grid">
+ <article class="comp-card">
+ <div class="comp-card-head julius">
+ <div class="comp-logo julius">Ju</div>
+ <h3>Julius <span class="role-badge seo">搜索标杆</span></h3>
+ <div class="domain">julius.ai · 自助试用型人工智能数据分析师</div>
+ </div>
+ <div class="comp-card-body">
+ <p>Julius 是我们在「人工智能数据分析师 / 替代品搜索」上的<strong>第一搜索对标</strong>。擅长写对比文章、连接数据库教程、工具榜单，并分成「长文（/articles/）」和「短转化页（/compare/）」两条线；约 30% 访问来自 Google 搜索。</p>
+ <p><strong>注意：</strong>我们内部测 ChatGPT 时，julius.ai 被引用 <strong>0 次</strong>——入选是因为「搜索打法」清晰，不是因为人工智能爱推荐它。</p>
+ <p style="font-size:13px;margin-top:8px;"><a href="competitors/julius-ai.html#timeline">→ 早期插件冷启动 · 2024 对比文爆发 · 可追溯时间线</a></p>
+ <div class="comp-card-metrics">
+ <div class="comp-metric"><div class="val">71.4万</div><div class="lbl">月访问</div></div>
+ <div class="comp-metric"><div class="val">30%</div><div class="lbl">来自 Google</div></div>
+ <div class="comp-metric"><div class="val">2.9万+</div><div class="lbl">搜索关键词数</div></div>
+ <div class="comp-metric"><div class="val">0</div><div class="lbl">人工智能测试引用</div></div>
+ </div>
+ </div>
+ <div class="comp-card-foot">
+ <a class="btn" href="competitors/julius-ai.html">查看 Julius 打法详情页 →</a>
+ </div>
+ </article>
+
+ <article class="comp-card">
+ <div class="comp-card-head hex">
+ <div class="comp-logo hex">Hx</div>
+ <h3>Hex <span class="role-badge geo">人工智能推荐标杆</span></h3>
+ <div class="domain">hex.tech · 数据团队用的人工智能分析平台</div>
+ </div>
+ <div class="comp-card-body">
+ <p>Hex 在我们测试「best数据智能体有哪些」时，<strong>被人工智能引用最多（6 次）</strong>。靠技术教程、模板库，以及在 r/dataengineering（数据工程论坛）里的讨论，形成「用户真实声音 →人工智能采信」；82% 直接访问是多年品牌积累，<em>现阶段不要硬学</em>。</p>
+ <p style="font-size:13px;margin-top:8px;"><a href="competitors/hex.html#timeline">→ 2019 笔记本发布 MVP · 2023 博客爆款 · Reddit 占位时间线</a></p>
+ <div class="comp-card-metrics">
+ <div class="comp-metric"><div class="val">47.1万</div><div class="lbl">月访问</div></div>
+ <div class="comp-metric"><div class="val">6</div><div class="lbl">人工智能引用第 1</div></div>
+ <div class="comp-metric"><div class="val">266</div><div class="lbl">博客篇数</div></div>
+ <div class="comp-metric"><div class="val">37.5%</div><div class="lbl">人工智能引用来自 Reddit</div></div>
+ </div>
+ </div>
+ <div class="comp-card-foot">
+ <a class="btn" href="competitors/hex.html">查看 Hex 打法详情页 →</a>
+ </div>
+ </article>
+
+ <article class="comp-card">
+ <div class="comp-card-head thoughtspot">
+ <div class="comp-logo thoughtspot">TS</div>
+ <h3>ThoughtSpot <span class="role-badge hub">科普专栏标杆</span></h3>
+ <div class="domain">thoughtspot.com · 大企业人工智能商业智能 + Spotter</div>
+ </div>
+ <div class="comp-card-body">
+ <p>ThoughtSpot 用「data-trends」科普专栏抢超大搜索词（例如 <code>关键绩效指标 examples</code> 一个词带来约 <strong>32%</strong> 搜索流量），文末轻轻提到自家人工智能产品 Spotter。ChatGPT 每月约 1 万次点击引荐到他们官网；人工智能测试引用 4 次。</p>
+ <p style="font-size:13px;margin-top:8px;"><a href="competitors/thoughtspot.html#timeline">→ 2012 企业销售 · data-trends 集群爆发 · +32% 环比时间线</a></p>
+ <div class="comp-card-metrics">
+ <div class="comp-metric"><div class="val">19.1万</div><div class="lbl">月访问</div></div>
+ <div class="comp-metric"><div class="val">32%</div><div class="lbl">最大词占流量</div></div>
+ <div class="comp-metric"><div class="val">1万</div><div class="lbl">ChatGPT 引荐/月</div></div>
+ <div class="comp-metric"><div class="val">4</div><div class="lbl">人工智能测试引用</div></div>
+ </div>
+ </div>
+ <div class="comp-card-foot">
+ <a class="btn" href="competitors/thoughtspot.html">查看 ThoughtSpot 打法详情页 →</a>
+ </div>
+ </article>
+ </div>
+
+ <h3 id="genie-detail">采购对比标杆：Databricks Genie（非 TOP3 · 单独拆解）</h3>
+ <p class="section-lead">Genie 综合分 <strong>3.6</strong>（低于 3.8），不进「学获客」主样本——但在<strong>客户候选清单</strong>和<strong>对比词拦截</strong>上优先级极高。完整时间线与渠道拆解见独立页。</p>
+ <div class="comp-grid" style="grid-template-columns:1fr;max-width:720px;">
+ <article class="comp-card">
+ <div class="comp-card-head genie">
+ <div class="comp-logo genie" style="background:#e65100;color:#fff;">Db</div>
+ <h3>Databricks Genie <span class="role-badge platform">采购对比标杆</span></h3>
+ <div class="domain">databricks.com · 湖仓内置对话分析 · 无独立域名</div>
+ </div>
+ <div class="comp-card-body">
+ <p><strong>一句话打法：</strong>在已有 Databricks 合同里「免费送」Genie → Data + AI Summit 发布定调 → 文档教客户配 Genie 空间 → 客户内部扩散（2026 年官方称 150 万+ 空间）。<em>几乎不靠</em> Julius 式对比文矩阵。</p>
+ <p><strong>对我们：</strong>写 <code>infinisynapse-vs-databricks-genie</code>（月搜 1600 · 难度 27）拦截采购；对比叙事打「多库联邦 / 私有化 / 不必全量进湖仓」。</p>
+ <div class="comp-card-metrics">
+ <div class="comp-metric"><div class="val">1600</div><div class="lbl">对比词月搜</div></div>
+ <div class="comp-metric"><div class="val">3.6</div><div class="lbl">四维综合分</div></div>
+ <div class="comp-metric"><div class="val">2</div><div class="lbl">人工智能引用</div></div>
+ <div class="comp-metric"><div class="val">150万+</div><div class="lbl">Genie 空间/2026</div></div>
+ </div>
+ </div>
+ <div class="comp-card-foot">
+ <a class="btn" href="competitors/databricks-genie.html">查看 Genie 增长打法详情页 →</a>
+ </div>
+ </article>
+ </div>
+
+ <h3 id="selection-detail">竞品怎么选出来的（四个维度打分）</h3>
+ <table>
+ <thead><tr><th>维度</th><th>在问什么</th><th>权重</th><th>数据从哪来</th></tr></thead>
+ <tbody>
+ <tr><td><strong>A. 会不会被拿来比</strong></td><td>客户候选清单里会不会直接和我们对比？</td><td>30%</td><td>100 篇对比文规划 · 工具榜单文章</td></tr>
+ <tr><td><strong>B.人工智能会不会提到</strong></td><td>问 ChatGPT 推荐数据智能体时，引用谁？</td><td>25%</td><td>内部 Reddit 与生成式推荐基线报告</td></tr>
+ <tr><td><strong>C. 打法能不能学</strong></td><td>有没有公开流量数据 + 能打开看的具体网页？</td><td>25%</td><td>SEMrush 2026-05</td></tr>
+ <tr><td><strong>D. 搜索词值不值得做</strong></td><td>我们 100 篇文章规划里有没有对应词？</td><td>20%</td><td>关键词表格文件</td></tr>
+ </tbody>
+ </table>
+ <p class="data-src">入选规则：至少一个维度满分 + 综合分 ≥ 3.8，且必须覆盖「搜索 / 人工智能推荐 / 科普专栏」三种不同打法。Genie（3.6 分）只做对比页，不当主样本。</p>
+
+ <div class="chart-grid single">
+ <div class="chart-panel">
+ <h3>候选池加权综合分</h3>
+ <p class="chart-caption">Julius 4.0 · Hex 4.1 · ThoughtSpot 3.9 · 虚线阈值 3.8</p>
+ <div class="chart-wrap short"><canvas id="chartCandidateScore"></canvas></div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 流量诊断 -->
+ <section id="traffic">
+ <h2>流量现状诊断</h2>
+ <p class="section-lead">现状：不是「完全没有入口」，而是<strong>客户在 Google、人工智能、论坛里很难反复遇到我们</strong>——对比文、科普专栏、Reddit 讨论、人工智能引用都还没成规模。</p>
+
+ <div class="gap-box">
+ <strong>最大差距：</strong>我们用 5 个固定测试问题测 ChatGPT「推荐数据智能体」时，Hex 被引用 6 次、ThoughtSpot 4 次，<strong>InfiniSynapse 0 次</strong>。这 56 条人工智能参考来源里，<strong>37.5%</strong>（21 条）来自 Reddit，而我们还没在 Reddit 认真发声。
+ </div>
+
+ <div class="signal-grid">
+ <div class="signal-card">
+ <div class="channel">Google 搜索</div>
+ <div class="us warn">刚起步</div>
+ <div class="ref">竞品参考 <strong>71.4万</strong>/月（Julius）</div>
+ <div class="note">Julius 约 30% 来自 Google；我们 100 篇规划有了，只发了 Supabase 教程等少数几篇</div>
+ </div>
+ <div class="signal-card">
+ <div class="channel">ChatGPT /人工智能推荐</div>
+ <div class="us warn">0</div>
+ <div class="ref">竞品参考 <strong>6</strong> 次被引用（Hex）</div>
+ <div class="note">指人工智能回答里列出的官网链接；ThoughtSpot 另有「ChatGPT 点进官网」约 1 万次/月（另一指标）</div>
+ </div>
+ <div class="signal-card">
+ <div class="channel">Reddit 论坛</div>
+ <div class="us warn">未布局</div>
+ <div class="ref">本类人工智能引用 <strong>37.5%</strong> 来自 Reddit</div>
+ <div class="note">r/dataengineering 讨论常被人工智能采信，Hex 叙事占主导</div>
+ </div>
+ <div class="signal-card">
+ <div class="channel">「货比三家」类文章</div>
+ <div class="us warn">很少</div>
+ <div class="ref">Julius 有专门 /compare/ 页</div>
+ <div class="note">#014 对比文已写；julius 替代品文待发布</div>
+ </div>
+ <div class="signal-card">
+ <div class="channel">「怎么连数据库」教程</div>
+ <div class="us">1 篇</div>
+ <div class="ref">Julius 有多篇连接教程</div>
+ <div class="note">Supabase ✅ · Postgres / Snowflake / BigQuery 待写</div>
+ </div>
+ <div class="signal-card">
+ <div class="channel">客户量化案例</div>
+ <div class="us warn">待建</div>
+ <div class="ref">Julius 案例：1 天→1 小时</div>
+ <div class="note">需 1 个垂直行业案例 + 录屏 + 可转发给销售的数字叙事（对标 AthenaHQ）</div>
+ </div>
+ </div>
+
+ <div class="chart-grid">
+ <div class="chart-panel">
+ <h3>和竞品比 · 每月访问（千次）</h3>
+ <p class="chart-caption">SEMrush 估算 · InfiniSynapse 暂无第三方公开数据</p>
+ <div class="chart-wrap short"><canvas id="chartVisits"></canvas></div>
+ </div>
+ <div class="chart-panel">
+ <h3>六维能力对比（0–100 分，越高越强）</h3>
+ <p class="chart-caption">红色：我们现状 · 蓝色：三竞品平均水平</p>
+ <div class="chart-wrap short"><canvas id="chartGapRadar"></canvas></div>
+ </div>
+ </div>
+
+ <h3>一张表看清差距</h3>
+ <table>
+ <thead><tr><th>品牌</th><th>月访问</th><th>来自 Google</th><th>人工智能测试引用次数</th><th>主要靠什么获客</th></tr></thead>
+ <tbody>
+ <tr><td><strong>InfiniSynapse</strong></td><td>—</td><td>—</td><td><strong>0</strong></td><td>100 篇规划 · 对比文/连接教程待发布</td></tr>
+ <tr><td><strong>Julius</strong></td><td>71.4万</td><td>30%</td><td>0</td><td>对比文 + 短转化页</td></tr>
+ <tr><td><strong>Hex</strong></td><td>47.1万</td><td>7%</td><td>6（第 1）</td><td>Reddit + 技术教程</td></tr>
+ <tr><td><strong>ThoughtSpot</strong></td><td>19.1万</td><td>18%</td><td>4</td><td>科普专栏 + 常见问题</td></tr>
+ </tbody>
+ </table>
+
+ <h3>SEO 权重横向对比（按竞品分析模板 · DR / 外链）</h3>
+ <p class="section-lead">域名权重看「外链护城河」厚度；<strong>反链/引荐域名比</strong>越低越自然（Hex 最健康，Julius 偏批量）。详见各竞品页「SEO 技术维度补充」节。</p>
+ <table>
+ <thead><tr><th>品牌</th><th>DR</th><th>反向链接</th><th>引荐域名</th><th>链接/域名比</th><th>权重性质</th></tr></thead>
+ <tbody>
+ <tr><td><strong>Databricks</strong>（Genie 母站）</td><td><strong>84</strong></td><td>288K</td><td>18.4K</td><td>~16</td><td>平台级 · 极高（无法单拆 Genie）</td></tr>
+ <tr><td><strong>ThoughtSpot</strong></td><td><strong>75</strong></td><td>176K</td><td>9.0K</td><td>~20</td><td>内容驱动护城河（自然外链）</td></tr>
+ <tr><td><strong>Julius</strong></td><td><strong>72</strong></td><td>216K</td><td>7.0K</td><td>~31</td><td>真品牌 · 外链偏批量</td></tr>
+ <tr><td><strong>Hex</strong></td><td><span style="color:var(--muted)">待补</span></td><td>54K</td><td>3.9K</td><td>~14</td><td>最自然（少而真）· Google 仅 7%</td></tr>
+ <tr><td><strong>InfiniSynapse</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td>新站 · 起步期</td></tr>
+ </tbody>
+ </table>
+ <p class="data-src">DR：ahrefstop / Concurate 2026 · 外链：SEMrush 2026-05 · Hex DR 待 Ahrefs 回填 · 启示：我们走 ThoughtSpot/Hex 式「内容自然外链」，不学 Julius 批量外链</p>
+ </section>
+
+ <!--搜索优化-->
+ <section id="seo">
+ <h2>Google 搜索分析</h2>
+ <p class="section-lead">问题不是「某一页没写好」，而是<strong>客户搜「替代品 / 对比 / 怎么连数据库」时，几乎找不到我们</strong>。Julius 拦「货比三家」；ThoughtSpot 用科普专栏吃长尾；Hex 主要靠论坛，只有 1 篇教程爆款。</p>
+
+ <h3>值得做的搜索词方向</h3>
+ <table>
+ <thead><tr><th>方向</th><th>学谁</th><th>例子 · 月搜索量 / 难度</th><th>我们怎么做</th></tr></thead>
+ <tbody>
+ <tr><td><strong>替代品 / 对比</strong></td><td>Julius</td><td><code>julius ai 替代品</code> · <code>databricks genie</code> 1600 人搜/月、难度 27</td><td><span class="tag-priority-high">最高优先级</span> 写 5 篇对比文</td></tr>
+ <tr><td><strong>什么是 数据智能体</strong></td><td>ThoughtSpot · Hex</td><td><code>what is a 数据智能体</code> 20/29 · <code>智能分析</code> 110/<strong>5</strong></td><td><span class="tag-priority-high">最高优先级</span> 科普 + 文末 常见问题，优先做难度 5 的词</td></tr>
+          <tr><td><strong>数据库连人工智能</strong></td><td>Julius</td><td>connect snowflake/postgres to ai</td><td><span class="tag-priority-high">最高优先级</span> 4 篇分步教程（Supabase 已发）</td></tr>
+ <tr><td><strong>代码智能体 对比 数据智能体</strong></td><td>LangChain（框架）</td><td>—</td><td>#014 已写，针对 Cursor/Devin 用户</td></tr>
+ <tr><td><strong>超大科普词</strong></td><td>ThoughtSpot</td><td><code>关键绩效指标 examples</code> 183 万 · <code>sql tutorial</code> 20 万</td><td><span class="tag-p1">次优先级</span> 只挑难度低的子集，不全抄</td></tr>
+ <tr><td><strong>数学作业词（虚流量）</strong></td><td>Julius</td><td><code>calculus solver</code> 7.4 万</td><td>❌ 和我们的产品无关，不做</td></tr>
+ </tbody>
+ </table>
+ <p>Julius / ThoughtSpot 关键词与页面清单见各自<a href="competitors/julius-ai.html">详情页</a> · <strong><a href="SEO-90天可执行操作手册.html">→ SEO 90 天可执行操作手册</a></strong>（逐篇 slug · 关键词 · 仓库路径 · 竞品对标 · 质检命令）</p>
+
+ <h3 id="seo-weekly">90 天执行清单 · 让人用 Google 搜到我们（按周）</h3>
+
+ <div class="plain-box">
+ <h3>读清单前 · 四个词</h3>
+ <dl>
+ <dt>搜索优化（你看到的「SEO」）</dt><dd>写对客户有用的文章，让 Google 搜「替代品、对比、怎么连数据库」时能排到我们。</dd>
+ <dt>内链</dt><dd>在一篇文章里，用可点击文字链到另一篇自家文章——帮 Google 理解「这些文章是一伙的」。</dd>
+ <dt>常见问题块</dt><dd>文章末尾「问：… 答：…」若干条；加上后台标记后，Google 和 ChatGPT 更容易摘取。</dd>
+ <dt>质量检查</dt><dd>发布前用仓库里的检查脚本扫一遍：字数够不够、链接对不对、标题是否含关键词（运营同事跑即可，不必懂代码细节）。</dd>
+ </dl>
+ </div>
+
+ <p class="plan-legend"><strong>90 天要交卷：</strong>大约 16 篇新文章（含 1 篇旧文改版）· 4 轮质量检查 · 文章之间互相链好。逐篇可执行版：<a href="SEO-90天可执行操作手册.html">SEO-90天可执行操作手册.html</a>（含按周跳转）。按周从上往下做就行。</p>
+
+ <table class="week-table action-table">
+ <thead><tr><th>周</th><th>本周要做的事（可勾选）</th><th>要发什么（读者看到的主题）</th><th>怎样算做完</th></tr></thead>
+ <tbody>
+ <tr><td><strong>第 1 周</strong></td><td>
+ ① 写并发布 <strong>2 篇</strong>「货比三家」文<br>
+ ② 每篇：功能对比表 + 文末 5 个常见问题<br>
+ ③ 开头写清我们是谁（40 字产品定义）<br>
+ ④ 两篇互链，再链到已有 Supabase 连接教程<br>
+ ⑤ 在 Google Search Console 提交新页面（让 Google 来收录）
+ </td><td>「InfiniSynapse 和 Julius 哪个好」<br>「Julius 有哪些替代品」</td><td>2 个链接能打开 · 每篇至少链 3 篇相关文</td></tr>
+
+ <tr><td><strong>第 2 周</strong></td><td>
+ ① 写「我们和 Databricks Genie 比」— 强调多库、私有化、不必把所有数据搬进 Databricks<br>
+ ② 写「怎么把 Postgres 连到 AI 分析师」分步教程（配截图，第一步读者能照着点）<br>
+ ③ 把已发的《代码智能体 vs 数据智能体》补全：开头 40 字介绍产品 + 5 条常见问题<br>
+ ④ 检查第 1–2 周共 5 页的标题、摘要是否含目标搜索词
+ </td><td>「InfiniSynapse vs Databricks Genie」<br>「Postgres 连接 AI 分析师教程」</td><td>Genie 对比页上线 · 旧文已更新</td></tr>
+
+ <tr><td><strong>第 3 周</strong></td><td>
+ ① 写「InfiniSynapse 和 ChatGPT 做数据分析哪个好」<br>
+ ② 写「ChatGPT 做数据分析有哪些替代品」（清单体，7 个左右）<br>
+ ③ 写「Snowflake 怎么连 AI 分析师」教程<br>
+ ④ 新文里各加 3 条链，指向前两周的对比文<br>
+ ⑤ 发布前跑一遍内容质量检查脚本
+ </td><td>ChatGPT 对比 + 替代品清单 + Snowflake 教程</td><td>新文章累计 <strong>7 篇</strong>在线</td></tr>
+
+ <tr><td><strong>第 4 周</strong></td><td>
+ ① 再发 3 篇：ThoughtSpot 替代品 · BigQuery 连接教程 · Google 表格连接教程<br>
+ ② 前 10 篇文章<strong>全部</strong>补文末常见问题，并加「问答结构化标记」<br>
+ ③ 用 Google 的富媒体结果测试工具抽 3 页，确认无报错<br>
+ ④ 更新网站地图（sitemap），让 Google 知道有哪些新页
+ </td><td>ThoughtSpot 替代品 · BigQuery · Google Sheets</td><td>✅ <strong>第一阶段完成</strong>：10 篇齐 · 常见问题格式统一</td></tr>
+
+ <tr><td><strong>第 5 周</strong></td><td>
+ ① 写 1 篇<strong>科普长文</strong>：什么是「智能体分析」（竞争小、优先做）<br>
+ ② 结构：开头定义 → 大清单/表格 → 8 条常见问题 → 轻提我们产品适用场景<br>
+ ③ 文内链到至少 3 篇第 1 阶段的对比文
+ </td><td>「智能体分析（agentic analytics）是什么」</td><td>科普系列第 1 篇上线</td></tr>
+
+ <tr><td><strong>第 6 周</strong></td><td>
+ ① 写「什么是数据智能体」（定义型，ChatGPT 爱引这类）<br>
+ ② 写「AI 数据分析师是干什么的 / 岗位说明」<br>
+ ③ 两篇各 8 条以上常见问题 · 开头 40 字说清 InfiniSynapse 是什么<br>
+ ④ 两篇互链，并链到第 5 周科普文
+ </td><td>数据智能体定义 · 岗位说明</td><td>科普 3 篇里完成 2 篇</td></tr>
+
+ <tr><td><strong>第 7 周</strong></td><td>
+ ① 写「怎么评测一个 AI 数据分析师好不好」<br>
+ ② 正文写清「怎么评测 AI 数据分析师」（能力维度 + 采购清单，不含未验证的自测分数）<br>
+ ③ 检查全站已发文章：互相链接是否断链<br>
+ ④ 记录当前 Google 收录情况、主要关键词排名（表格存档，方便以后对比）
+ </td><td>「如何评测 AI 数据分析师」</td><td>这篇可单独转发给销售/客户</td></tr>
+
+ <tr><td><strong>第 8 周</strong></td><td>
+ ① 写「Databricks Genie 替代品清单」+「InfiniSynapse 产品评测（2026）」<br>
+ ② 用脚本补全主题集群内链（Genie 相关 3 篇要互相能点到）<br>
+ ③ 全站再查一遍标题和搜索摘要
+ </td><td>Genie 替代品 · 品牌评测页</td><td>✅ <strong>第二阶段完成</strong>：15 篇以上 · 链接成网</td></tr>
+
+ <tr><td><strong>第 9 周</strong></td><td>
+ ① 发 1 篇<strong>客户案例</strong>（学 Julius：一个场景 + 量化结果，如「2 天缩到 20 分钟」）<br>
+ ② 录屏：真实客户场景或内部试点流程，挂在案例页<br>
+ ③ 以前对比文里的「案例」段落，改链到新案例页<br>
+ ④ 案例页加 3 条常见问题
+ </td><td>案例研究 + 1 条录屏/回放链接</td><td>案例能打开 · 录屏能播放</td></tr>
+
+ <tr><td><strong>第 10 周</strong></td><td>
+ ① 写「数据智能体常见问题汇总」一页（20 问以上，链到各专题文）<br>
+ ② 全站常见问题标记再验一遍<br>
+ ③ 只修检查脚本报的<strong>必须修</strong>项<br>
+ ④ 更新《最佳 AI 数据分析工具》榜单文，加入新对比文链接
+ </td><td>全站 FAQ 汇总页</td><td>汇总页上线 · 问答标记通过</td></tr>
+
+ <tr><td><strong>第 11 周</strong></td><td>
+ ① 再补 1 篇连接教程（MySQL 或 Databricks 二选一）<br>
+ ② 全站大检查：字数、链接、关键词、重复段落<br>
+ ③ 修完阻塞项；修不完的记进下季度清单<br>
+ ④ 对照 100 篇文章规划表，标下季度先发哪些
+ </td><td>MySQL 或 Databricks 连接教程</td><td>检查无必改项 · 下季度清单就绪</td></tr>
+
+ <tr><td><strong>第 12 周</strong></td><td>
+ ① 从网站统计里导出：多少人从 Google 来、多少人点了预约演示<br>
+ ② 更新关键词排名表（至少盯 20 个重点词）<br>
+ ③ 写 90 天复盘：发了啥、收录啥、下季度发啥<br>
+ ④ 修掉还存在的死链；本周不强制发新文
+ </td><td>复盘文档 + 排名表</td><td>✅ <strong>第三阶段完成</strong>：能说出 Demo 从哪来</td></tr>
+ </tbody>
+ </table>
+
+ <div class="phase-checkpoint"><strong>搜索线三关：</strong> 第 4 周末 10 篇 · 第 8 周末 15 篇且互链完整 · 第 12 周末检查通过并能统计 Demo</div>
+
+ <h4>每发一篇文章的标准四步（不懂 SEO 也够用）</h4>
+ <table class="week-table">
+ <thead><tr><th>步骤</th><th>人话说明</th><th>谁来做 / 工具在哪</th></tr></thead>
+ <tbody>
+ <tr><td>1. 写稿</td><td>标题含客户会搜的词 · 第一段直接回答问题 · 有对比表或分步教程</td><td>内容同事 · 写作规范见 <code>Skills/seo-blog-content-skill/SKILL.md</code></td></tr>
+ <tr><td>2. 发布前检查</td><td>字数、链接、常见问题、标题关键词是否合格</td><td>运行 <code>SEO/Blog/audit-*.py</code>（运营可照 README 点跑）</td></tr>
+ <tr><td>3. 上线</td><td>发到官网博客 · 更新 sitemap · 在 Search Console 点「请求编入索引」</td><td>内容运营 · 文章清单 <code>blog-cms-import-100.csv</code></td></tr>
+ <tr><td>4. 互链</td><td>至少链进 3 篇旧文、链出 2 篇新文、链到产品页或预约演示</td><td>内容运营 · 可用 <code>cluster-link-registry.py</code> 查缺</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <!--生成式推荐-->
+ <section id="geo">
+ <h2>ChatGPT 与人工智能推荐</h2>
+ <p class="section-lead">我们还在「破冰期」：不是被说坏话，而是<strong>人工智能回答里根本还没把我们放进候选名单</strong>。机会在于：多出现在 Reddit、官网写清 常见问题、登上第三方「最佳工具」榜单。</p>
+
+ <table>
+ <thead><tr><th>看什么</th><th>我们</th><th>Hex</th><th>ThoughtSpot</th><th>说明</th></tr></thead>
+ <tbody>
+ <tr><td>固定测试问题：人工智能引用官网几次</td><td><strong>0</strong></td><td><strong>6</strong></td><td>4</td><td>用户问人工智能推荐工具时，我们还没被列出来</td></tr>
+ <tr><td>ChatGPT 点到官网（SEMrush）</td><td>—</td><td>较少</td><td>约 1 万/月</td><td>和上面「引用次数」不是同一个数</td></tr>
+ <tr><td>人工智能参考来源里 Reddit 占比</td><td>未参与</td><td colspan="2">21/56 = <strong>37.5%</strong></td><td>论坛讨论非常重要</td></tr>
+ <tr><td>文末 常见问题 + 开头 40 字定义</td><td>部分文章有</td><td colspan="2">科普文标配</td><td>有 常见问题 的页面被人工智能引用概率更高（约 40% 对比 15%）</td></tr>
+ </tbody>
+ </table>
+
+ <div class="chart-grid">
+ <div class="chart-panel">
+ <h3>各品牌在人工智能测试里被引用几次</h3>
+ <p class="chart-caption">5 个固定测试问题 · 共 56 条参考来源</p>
+ <div class="chart-wrap short"><canvas id="chartAiCitations"></canvas></div>
+ </div>
+ <div class="chart-panel">
+ <h3>人工智能回答引用来源结构</h3>
+ <p class="chart-caption">Reddit 21 · 其他 35</p>
+ <div class="chart-wrap short"><canvas id="chartRedditShare"></canvas></div>
+ </div>
+ </div>
+
+ <h3>让人工智能能「引用到我们」要补什么</h3>
+ <table>
+ <thead><tr><th>信息出现在哪</th><th>现状</th><th>90 天做什么</th></tr></thead>
+ <tbody>
+ <tr><td><strong>官网</strong></td><td>有部分 博客</td><td>对比文 + 定义页 + 常见问题结构化标记 + 开头 40 字说清「我们是什么」</td></tr>
+ <tr><td><strong>Reddit</strong></td><td>0</td><td>10 条认真回复 + 2 篇技术帖（不硬广）</td></tr>
+ <tr><td><strong>第三方「Top N 工具」文</strong></td><td>自有榜单已有一篇</td><td>联系 Databox 等榜单 · 上 G2 评价</td></tr>
+ <tr><td><strong>可引用的数字</strong></td><td>尚无第三方可核实的量化案例</td><td>第 9 周案例页 + 录屏 · 对比文/Reddit 反复引用同一案例链</td></tr>
+ </tbody>
+ </table>
+
+ <h3 id="geo-weekly">90 天执行清单 · 让 ChatGPT 提到我们（按周）</h3>
+
+ <div class="plain-box">
+ <h3>读清单前 · 三个词</h3>
+ <dl>
+ <dt>5 个固定测试问题</dt><dd>内部定好的 5 句问法（如「最好的 data agent 有哪些」），每隔几周用 ChatGPT 问一遍，看回答里有没有我们。</dd>
+ <dt>可引用数字</dt><dd>ChatGPT 爱抄的具体数字和链接——优先用<strong>客户授权、可复核</strong>的量化案例（如「分析从 2 天缩到 20 分钟」），多处重复同一链接更有效。</dd>
+ <dt>联系信（pitch）</dt><dd>发给行业媒体、工具榜单网站的邮件：介绍产品能力与案例（若有），请他们写进「最佳工具」类文章，不是硬广。</dd>
+ </dl>
+ </div>
+
+ <p class="plan-legend"><strong>90 天要交卷：</strong>测 3 轮（开头、中间、结尾）· 全站常见问题标记 · 联系 20 家榜单/媒体 · 上 G2 评价 · 第 7 周起至少被提到 1 次。标「随搜索线」的与写文章同步做，不重复占时间。</p>
+
+ <table class="week-table action-table">
+ <thead><tr><th>周</th><th>本周要做的事</th><th>留下什么记录</th><th>怎样算做完</th></tr></thead>
+ <tbody>
+ <tr><td><strong>第 1 周</strong></td><td>用 5 个固定问题，分别在 ChatGPT 和 Perplexity 各问 1 遍 · 截图整段回答 · 记下它引用了哪些网站</td><td>10 张截图或导出文件</td><td>文件夹「起点基线」存好，以后对比用</td></tr>
+ <tr><td><strong>第 2 周</strong></td><td>① 随搜索线：新文章开头 40 字介绍产品<br>② 做一段「标准话术」模板：产品定义 + 差异化三点，给 Reddit 和文章复用</td><td>话术模板 1 份</td><td>模板能复制粘贴</td></tr>
+ <tr><td><strong>第 3 周</strong></td><td>① 新文章文末加「产品入口 + 预约演示」块<br>② 确认核心落地页没有被设置成「禁止搜索引擎抓取」</td><td>—</td><td>产品页能在浏览器打开</td></tr>
+ <tr><td><strong>第 4 周</strong></td><td>① 随搜索线：前 10 页常见问题 + 结构化标记<br>② 用 Google 工具抽 3 页检查「问答摘要」是否正常</td><td>检查截图</td><td>无报错</td></tr>
+ <tr><td><strong>第 5 周</strong></td><td>列清单：20 个可投稿的目标（工具榜单站、行业 newsletter、媒体）<br>写一封邮件模板（附产品简介 + 案例页链接（若有），语气像分享实践不是推销）</td><td>目标清单 + 邮件模板</td><td>20 个网址 + 模板就绪</td></tr>
+ <tr><td><strong>第 6 周</strong></td><td>发出第 1 批联系信 10 封<br>把产品定义写进「如何评测 AI 分析师」一文和 Reddit 主帖草稿<br>数一下官网产品/演示链接在站内出现了至少 5 次</td><td>发信记录</td><td>10 封已发、有记录</td></tr>
+ <tr><td><strong>第 7 周</strong></td><td><strong>中期再测一遍</strong> 5 个问题 · 和第 1 周对比 · 数 infinisynapse.com 出现几次<br>若还是 0：查定义页、FAQ 是否已被 Google 收录</td><td>中期对比报告</td><td>✅ 至少被提到 <strong>1 次</strong>（核心 KPI）</td></tr>
+ <tr><td><strong>第 8 周</strong></td><td>再发 10 封联系信 · 跟进第 1 批没回的<br>随搜索线：补全文章互链</td><td>累计 20 封</td><td>至少有 1 封得到回复或外链</td></tr>
+ <tr><td><strong>第 9 周</strong></td><td>随搜索线：案例页和录屏做好 · 把案例链写进联系信跟进版</td><td>更新版邮件</td><td>案例链接可转发</td></tr>
+ <tr><td><strong>第 10 周</strong></td><td>在 G2、Capterra 创建产品页<br>请 5 位以上真实用户写 verified 评价<br>随搜索线：FAQ 汇总页上线</td><td>G2 页面地址</td><td>≥5 条评价</td></tr>
+ <tr><td><strong>第 11 周</strong></td><td>跟进联系信 · 台账记录谁回复、谁写了我们<br>在网站统计里尽量区分「从 ChatGPT 等 AI 来的访问」（若工具支持）</td><td>外链/提及台账</td><td>累计 ≥3 处第三方提到我们</td></tr>
+ <tr><td><strong>第 12 周</strong></td><td><strong>最后再测一遍</strong> 5 个问题 · 对比第 1、7、12 周三次结果 · 写下季度还要问哪些问题</td><td>终测报告</td><td>✅ 第三阶段收尾</td></tr>
+ </tbody>
+ </table>
+
+ <div class="phase-checkpoint"><strong>ChatGPT 线三关：</strong> 第 7 周至少被提到 1 次 · 第 10 周 G2 至少 5 条评价 · 第 12 周三次测试对比完成</div>
+ </section>
+
+ <!-- Reddit -->
+ <section id="reddit">
+ <h2>Reddit 论坛（工程师真实讨论）</h2>
+ <p class="section-lead">对本品类，Reddit 不是可有可无——<strong>人工智能回答的参考来源里，37.5% 来自 Reddit</strong>。Hex 靠技术帖占位；我们应该去<strong>已经被人工智能引用过的帖子</strong>里认真回复，而不是自己建一个新论坛。</p>
+ <table>
+ <thead><tr><th>论坛</th><th>去哪些帖</th><th>人工智能测试里被引几次</th><th>回复什么角度</th></tr></thead>
+ <tbody>
+ <tr>
+ <td>r/dataengineering</td>
+ <td><a href="https://www.reddit.com/r/dataengineering/comments/1owjt0b/text_to_sql_agents/" target="_blank" rel="noopener">文本转数据库查询 agents</a></td>
+ <td>第 4 个问题测试中 4 次</td>
+ <td>多库联合分析对比只能查一个库</td>
+ </tr>
+ <tr>
+ <td>r/dataengineering</td>
+ <td><a href="https://www.reddit.com/r/dataengineering/comments/1s22vr9/" target="_blank" rel="noopener">生产环境敢让人工智能跑数据库查询吗？</a></td>
+ <td>2 次</td>
+ <td>私有化部署 + 操作留痕 + 多库联邦</td>
+ </tr>
+ <tr>
+ <td>r/BusinessIntelligence</td>
+ <td><a href="https://www.reddit.com/r/BusinessIntelligence/comments/1ta6rzb/" target="_blank" rel="noopener">智能商业分析 会取代传统商业智能吗？</a></td>
+ <td>2 次</td>
+            <td>有管控的智能体对比仪表盘上的人工智能</td>
+ </tr>
+ <tr>
+ <td>r/AI_Agents</td>
+            <td><a href="https://www.reddit.com/r/AI_Agents/comments/1sfu06i/" target="_blank" rel="noopener">数据智能体每周省 200 小时</a></td>
+ <td>被引用</td>
+ <td>可参考这种「架构 + 数字」主帖写法</td>
+ </tr>
+ </tbody>
+ </table>
+ <p class="data-src">详细规则见内部 <code>Reddit运营/Reddit-GEO-SOP.md</code> · Hex 详情页有更长说明 · <strong><a href="Reddit-90天可执行操作手册.html">→ Reddit 90 天可执行操作手册</a></strong>（逐条动作 + 权威原帖 + 参考稿链接 · 按周跳转）</p>
+
+ <h3 id="reddit-weekly">90 天执行清单 · Reddit 论坛（按周）</h3>
+
+ <div class="plain-box">
+ <h3>读清单前 · 三个词</h3>
+ <dl>
+ <dt>Reddit</dt><dd>国外工程师常逛的论坛；ChatGPT 回答「推荐什么工具」时，约 37% 参考来源来自这里。</dd>
+ <dt>长评</dt><dd>在别人帖子下写 ≥150 字的认真回复，像同事聊天，不要像广告。</dd>
+ <dt>永久链接</dt><dd>每条回复点「Share」复制的网址，存进表格——证明做过、方便复盘。</dd>
+ </dl>
+ </div>
+
+ <p class="plan-legend"><strong>90 天要交卷：</strong>10 条长评 + 2 篇自己发的主帖 + 每条链接都存档。逐周可执行版：<a href="Reddit-90天可执行操作手册.html">Reddit-90天可执行操作手册.html</a>。写法原则见 <code>Reddit运营/Reddit-GEO-SOP.md</code>：先帮到人，最多 1 个链接，别用明显 AI 腔。</p>
+
+ <table class="week-table action-table">
+ <thead><tr><th>周</th><th>本周要做的事</th><th>去哪个帖</th><th>回复什么角度</th><th>怎样算做完</th></tr></thead>
+ <tbody>
+ <tr><td><strong>第 1 周</strong></td><td>发 <strong>2 条长评</strong>（可先不带链接）</td><td>
+ <a href="https://www.reddit.com/r/dataengineering/comments/1owjt0b/text_to_sql_agents/" target="_blank" rel="noopener">数据工程版 · 口语问数据库的 AI</a><br>
+ 同一帖再回 1 条，或楼中楼补充
+ </td><td>多个数据库一起查 vs 只能查一个库 · 举 1 个踩坑例子</td><td>2 条永久链接存表</td></tr>
+
+ <tr><td><strong>第 2 周</strong></td><td>发 <strong>2 条长评</strong></td><td>
+ <a href="https://www.reddit.com/r/dataengineering/comments/1s22vr9/" target="_blank" rel="noopener">生产环境敢让 AI 跑查询吗</a><br>
+ 同分区当周热门帖 1 条
+ </td><td>操作要留痕 · 私有化部署 · 多库/跨源场景举例</td><td>2 条链接 · 没被删</td></tr>
+
+ <tr><td><strong>第 3 周</strong></td><td>发 <strong>2 条长评</strong></td><td>
+ <a href="https://www.reddit.com/r/BusinessIntelligence/comments/1ta6rzb/" target="_blank" rel="noopener">智能 BI 会取代传统 BI 吗</a><br>
+ <a href="https://www.reddit.com/r/LangChain/comments/1rhlb4g/preventing_sql_agents_from_hallucinating_columns/" target="_blank" rel="noopener">LangChain 版 · SQL 乱编字段</a>
+ </td><td>有规则管控的智能体 vs 仪表盘上随便问 AI · 指标定义比工具重要</td><td>2 条链接</td></tr>
+
+ <tr><td><strong>第 4 周</strong></td><td>发 <strong>2 条长评</strong> · 更新 Excel 台账</td><td>
+ <a href="https://www.reddit.com/r/analytics/comments/1r929p9/semantic_layer_for_ai_agents_requires_way_better/" target="_blank" rel="noopener">分析版 · 语义层与集成</a><br>
+ 数据工程版当周热帖 1 条
+ </td><td>跨数据源集成 · 版规允许时可链一篇对比文</td><td>✅ <strong>第一阶段</strong>：累计 10 条评论</td></tr>
+
+ <tr><td><strong>第 5 周</strong></td><td>① 写第 1 篇<strong>主帖草稿</strong>（还不发布）<br>② 同事按 SOP 审：去 AI 腔、像真人<br>③ 确认账号信誉够发帖（ karma / 注册时间）</td><td>—（仅草稿）</td><td>参考 <a href="https://www.reddit.com/r/AI_Agents/comments/1sfu06i/" target="_blank" rel="noopener">「数据智能体省 200 小时」帖</a> 的写法：架构 + 数字</td><td>草稿通过 · 标题别太长</td></tr>
+
+ <tr><td><strong>第 6 周</strong></td><td>① <strong>发主帖 #1</strong><br>② 在自己帖下再回 1 条，回答别人追问</td><td>AI 智能体版 或 数据工程版</td><td>标题像分享经验 · 正文 3 点架构 + 真实试点数字 + 最多 1 个链接</td><td>主帖链接存表 · 至少 3 个点赞或回复</td></tr>
+
+ <tr><td><strong>第 7 周</strong></td><td>① 在主帖 #1 下跟评 1 条<br>② 在新热帖再写 1 条长评</td><td>自己的帖 + 数据工程版热帖</td><td>别重复前 4 周老话 · 补「怎么评测工具」角度</td><td>2 条链接</td></tr>
+
+ <tr><td><strong>第 8 周</strong></td><td>① 浏览数据工程版新帖（每两周习惯）<br>② 发 1 条长评</td><td>当周最火 1 帖</td><td>生产踩坑 · 和 Hex 差异化：多库、私有化</td><td>1 条链接</td></tr>
+
+ <tr><td><strong>第 9 周</strong></td><td>① <strong>发主帖 #2</strong>（配合官网案例页）<br>② 录屏链接放回复里，不要放标题</td><td>数据工程版或 LangChain</td><td>评测方法 / 生产 guardrail · 案例录屏</td><td>第 2 篇主帖链接存表</td></tr>
+
+ <tr><td><strong>第 10 周</strong></td><td>发 1 条长评，可链新案例页</td><td>商业智能版 或 AI 智能体版 热帖</td><td>用案例里的数字说话</td><td>1 条链接</td></tr>
+
+ <tr><td><strong>第 11 周</strong></td><td>发 1 条长评 · 更新「高价值帖子」清单</td><td>基线报告里 ChatGPT 常引用的帖之一</td><td>回答具体技术追问 · 延续案例</td><td>1 条链接</td></tr>
+
+ <tr><td><strong>第 12 周</strong></td><td>① 发 1 条维护性回复<br>② 整理 90 天台账：链接、日期、角度、是否被删<br>③ 列出下季度还要跟的帖</td><td>任选高价值帖</td><td>礼貌收尾 · 结尾不像推销</td><td>✅ 台账完整</td></tr>
+ </tbody>
+ </table>
+
+ <div class="phase-checkpoint"><strong>Reddit 线三关：</strong> 第 4 周末 10 评 · 第 6 周主帖 #1 · 第 9 周主帖 #2 · 全部永久链接存档</div>
+
+ <h4>发之前自查 4 条</h4>
+ <table class="week-table">
+ <thead><tr><th>#</th><th>检查项</th></tr></thead>
+ <tbody>
+ <tr><td>1</td><td>先写 3 段自己的观点或经历，最后一段才考虑放链接</td></tr>
+ <tr><td>2</td><td>别用「We built…」「game-changer」等一眼 AI 的英文套话</td></tr>
+ <tr><td>3</td><td>数字用「大约」「~」这种口气，别写「精确到秒」</td></tr>
+ <tr><td>4</td><td>发完 24 小时内把永久链接贴进台账</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <!-- 策略 -->
+ <section id="strategy">
+ <h2>从竞品归纳：我们怎么做</h2>
+ <p class="section-lead">不追 Julius 的访问量总量，也不追 Hex 82% 的老客户直接访问。只学<strong>已经验证有效</strong>的四类内容。</p>
+ <div class="verdict-box">
+ <strong>InfiniSynapse 增长组合</strong><br><br>
+ <strong>学 Julius</strong>：写「我们和 XX 比怎么样」→ 拦住正在选工具的人 &nbsp;+
+ <strong>连接教程</strong>：教「怎么把数据库连到 AI」→ 拦住已有数据库的用户 &nbsp;+
+ <strong>学 Hex</strong>：Reddit 认真回复 → 让人工智能采信 &nbsp;+
+ <strong>学 ThoughtSpot</strong>：科普专栏 + 常见问题 → 从难度低的搜索词切入 &nbsp;+
+ <strong>客户案例</strong>：选 1 个垂直行业 · 量化前后对比 · 录屏（学 Julius「1 天→1 小时」分发方式）
+ </div>
+ <table>
+ <thead><tr><th>写什么</th><th>学谁</th><th>90 天数量</th><th>例子（网页路径名）</th></tr></thead>
+ <tbody>
+ <tr><td>对比与替代品文</td><td>Julius</td><td>5 篇</td><td><code>infinisynapse-vs-julius-ai</code> 等</td></tr>
+ <tr><td>数据库连接教程</td><td>Julius + Hex</td><td>4 篇</td><td>Snowflake · Postgres · BigQuery · Google Sheets</td></tr>
+ <tr><td>科普专栏</td><td>ThoughtSpot</td><td>3 篇</td><td>什么是数据智能体· 智能分析 等</td></tr>
+ <tr><td>Reddit</td><td>Hex</td><td>10 回复 + 2 主帖</td><td><a href="#reddit-weekly">按周明细 →</a></td></tr>
+ </tbody>
+ </table>
+ <p style="font-size:14px;margin-top:12px;"><a href="#plan-master">→ 查看 12 周主日历（搜索 + Reddit + 人工智能合并）</a></p>
+ </section>
+
+ <!-- 90天 -->
+ <section id="plan">
+ <h2>90 天总览 · 三条线各干什么</h2>
+ <p class="section-lead">不懂 SEO 也能用：<strong>写文章让人 Google 搜到</strong>、<strong>上 Reddit 认真回复</strong>、<strong>定期问 ChatGPT 有没有提到我们</strong>。下面先总览，每周细节点进三个板块。</p>
+
+ <div class="chart-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:28px;">
+ <div class="signal-card" style="text-align:center;">
+ <div class="channel">Google 搜索（写文章）</div>
+ <div class="us" style="font-size:28px;font-weight:700;color:var(--blue);">约 16 篇</div>
+ <div class="note">第 4 周→10 篇<br>第 8 周→15 篇+<br><a href="#seo-weekly">→ 每周写啥</a></div>
+ </div>
+ <div class="signal-card" style="text-align:center;">
+ <div class="channel">Reddit 论坛</div>
+ <div class="us" style="font-size:28px;font-weight:700;color:var(--orange);">10 评 + 2 帖</div>
+ <div class="note">第 4 周→10 条评论<br>第 6、9 周→各 1 主帖<br><a href="#reddit-weekly">→ 每周发啥</a></div>
+ </div>
+ <div class="signal-card" style="text-align:center;">
+ <div class="channel">ChatGPT 有没有提到我们</div>
+ <div class="us" style="font-size:28px;font-weight:700;color:var(--green);">测 3 轮</div>
+ <div class="note">第 7 周→至少 1 次<br>第 10 周→G2 评价<br><a href="#geo-weekly">→ 每周测啥</a></div>
+ </div>
+ </div>
+
+ <h3 id="plan-by-channel">三个第一阶段什么时候算完成？</h3>
+ <table class="week-table">
+ <thead><tr><th>阶段</th><th>对应周</th><th>Google 搜索线</th><th>Reddit 线</th><th>ChatGPT 线</th></tr></thead>
+ <tbody>
+ <tr><td><strong>第一阶段</strong></td><td>第 1–4 周</td><td>10 篇文章上线，文末都有常见问题</td><td>10 条长评，链接都存表</td><td>测完起点 + 常见问题标记</td></tr>
+ <tr><td><strong>第二阶段</strong></td><td>第 5–8 周</td><td>科普/评测再 5 篇，文章互链完整</td><td>发第 1 篇主帖 + 几条维护评论</td><td>中期再测，至少被提到 1 次；联系信发 20 封</td></tr>
+ <tr><td><strong>第三阶段</strong></td><td>第 9–12 周</td><td>案例 + 问题汇总 + 全站检查</td><td>发第 2 篇主帖 + 每周 1 评</td><td>G2 评价、最后再测、统计 Demo 从哪来</td></tr>
+ </tbody>
+ </table>
+
+ <h3 id="plan-master">每周速查表（三列对照）</h3>
+ <table class="week-table action-table">
+ <thead><tr><th>周</th><th>Google：写什么</th><th>Reddit：发什么</th><th>ChatGPT：测/联系什么</th><th>本周过关标志</th></tr></thead>
+ <tbody>
+ <tr><td><strong>1</strong></td><td>和 Julius 对比 · Julius 替代品 2 篇</td><td>2 条长评（口语问数据库帖）</td><td>5 个问题测起点，截图存档</td><td>2 文 + 基线</td></tr>
+ <tr><td><strong>2</strong></td><td>和 Genie 对比 · Postgres 教程 · 改旧文 1 篇</td><td>2 条长评（生产环境 SQL）</td><td>标准话术模板</td><td>Genie 页上线</td></tr>
+ <tr><td><strong>3</strong></td><td>和 ChatGPT 对比 · 替代品清单 · Snowflake 教程</td><td>2 条长评（BI + LangChain）</td><td>—</td><td>累计 7 篇新文</td></tr>
+ <tr><td><strong>4</strong></td><td>ThoughtSpot 替代品 · BigQuery · 表格教程</td><td>2 条长评（满 10 条）</td><td>10 页常见问题标记</td><td>✅ 第一阶段</td></tr>
+ <tr><td><strong>5</strong></td><td>科普：智能体分析是什么</td><td>主帖 #1 写草稿</td><td>列 20 个媒体/榜单目标</td><td>科普第 1 篇</td></tr>
+ <tr><td><strong>6</strong></td><td>什么是数据智能体 · 岗位说明 2 篇</td><td>发主帖 #1</td><td>联系信发 10 封</td><td>2 科普 + 主帖</td></tr>
+ <tr><td><strong>7</strong></td><td>如何评测 AI 数据分析师</td><td>2 条评论（维护）</td><td><strong>中期再测 5 问</strong></td><td>✅ 至少提到 1 次</td></tr>
+ <tr><td><strong>8</strong></td><td>Genie 替代品 · 产品评测 2 篇</td><td>1 条评论</td><td>再发 10 封 + 跟进</td><td>✅ 第二阶段</td></tr>
+ <tr><td><strong>9</strong></td><td>客户案例 + 录屏</td><td>发主帖 #2</td><td>—</td><td>案例能打开</td></tr>
+ <tr><td><strong>10</strong></td><td>常见问题汇总页</td><td>1 条评论</td><td>G2 上线 + 5 条评价</td><td>FAQ 汇总完成</td></tr>
+ <tr><td><strong>11</strong></td><td>MySQL 教程 + 全站检查</td><td>1 条评论</td><td>跟进联系信</td><td>检查通过</td></tr>
+ <tr><td><strong>12</strong></td><td>复盘 + 下季度计划</td><td>1 条评论 + 台账</td><td>最后再测 + 统计 Demo</td><td>✅ 第三阶段 · Demo ≥30/月</td></tr>
+ </tbody>
+ </table>
+
+ <div class="phase-checkpoint"><strong>第 4 周末：</strong>10 篇文章 · 10 条 Reddit 评论 · ChatGPT 起点测完</div>
+ <div class="phase-checkpoint"><strong>第 8 周末：</strong>15 篇以上文章 · Reddit 主帖 #1 已发 · ChatGPT 至少提到我们 1 次</div>
+ <div class="phase-checkpoint"><strong>第 12 周末：</strong>案例+FAQ 齐 · Reddit 主帖 #2 已发 · G2 有评价 · 能说出 Demo 从 Google 来了多少</div>
+
+ <h3>每周固定习惯（三条线共用）</h3>
+ <table class="week-table">
+ <thead><tr><th>什么时候</th><th>做什么（人话）</th><th>谁来做</th></tr></thead>
+ <tbody>
+ <tr><td>每周一</td><td>更新一张表：文章链接、Reddit 链接、完成了没</td><td>增长运营</td></tr>
+ <tr><td>每篇文章发布前</td><td>跑一遍质量检查脚本（字数、链接、常见问题）</td><td>内容同事</td></tr>
+ <tr><td>每篇文章发布后</td><td>挂官网 · 告诉 Google 来收录 · 和别的文章互相链接</td><td>内容运营</td></tr>
+ <tr><td>每 2 周</td><td>看看 Reddit 数据工程版有没有新热帖值得回</td><td>社区运营</td></tr>
+ <tr><td>第 7、12 周</td><td>必做：用 5 个固定问题再问 ChatGPT 一遍</td><td>增长运营</td></tr>
+ </tbody>
+ </table>
+
+ <div class="chart-grid single">
+ <div class="chart-panel">
+ <h3>90 天累计交付曲线</h3>
+ <div class="chart-wrap short"><canvas id="chartDeliverables"></canvas></div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 结论 -->
+ <section id="conclusion">
+ <div class="exec-box">
+ <h2>结论：建议先批这三件事（最高优先级）</h2>
+ <ul class="exec-list">
+ <li><strong>写搜索文章</strong>（学 Julius）— 90 天 10 篇对比与连接教程 · <a href="competitors/julius-ai.html" style="color:#fff">Julius 详情</a></li>
+ <li><strong>做 Reddit 发声</strong>（学 Hex）— 10 条回复 + 2 篇主帖 · <a href="competitors/hex.html" style="color:#fff">Hex 详情</a></li>
+ <li><strong>做科普 + 常见问题</strong>（学 ThoughtSpot）— 3 篇 · <a href="competitors/thoughtspot.html" style="color:#fff">ThoughtSpot 详情</a></li>
+ </ul>
+ </div>
+ <div class="kpi-row">
+ <div class="kpi-card"><div class="num warn">0</div><div class="lbl">人工智能测试引用次数<br><span style="font-size:10px;font-weight:400">（现状）</span></div></div>
+ <div class="kpi-card"><div class="num">≥1</div><div class="lbl">90 天内<br>至少被人工智能提到 1 次</div></div>
+ <div class="kpi-card"><div class="num">10</div><div class="lbl">最优先<br>文章篇数</div></div>
+ <div class="kpi-card"><div class="num">30+</div><div class="lbl">来自搜索的<br>产品演示/月（第 3 阶段）</div></div>
+ </div>
+ </section>
+
+ <section id="glossary">
+ <h2>术语速查（汇报时可对照）</h2>
+ <table>
+ <thead><tr><th>说法</th><th>什么意思</th><th>本报告里指什么</th></tr></thead>
+ <tbody>
+ <tr><td>搜索引擎优化</td><td>让人用 Google 搜到</td><td>对比文、连接教程、科普文</td></tr>
+ <tr><td>生成式推荐优化</td><td>让 ChatGPT 提到我们</td><td>常见问题、Reddit、可被引用的数字</td></tr>
+ <tr><td>SEMrush</td><td>第三方网站流量估算工具（品牌名）</td><td>看竞品大概多少访问、从哪来</td></tr>
+ <tr><td>直接访问</td><td>直接敲网址进来</td><td>老客户与品牌知名度，早期难复制</td></tr>
+ <tr><td>月搜索量与排名难度</td><td>选词时看的两个数</td><td>优先量够大且排名难度不超过 35</td></tr>
+ <tr><td>产品演示</td><td>演示或试用预约</td><td>增长最终要转化的动作</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <footer class="footer">
+ InfiniSynapse 增长调研 · 2026-06-15 · 完整 Markdown：<code>增长方案.md</code> ·
+ 竞品详情：<a href="competitors/julius-ai.html">Julius</a> ·
+ <a href="competitors/hex.html">Hex</a> ·
+ <a href="competitors/thoughtspot.html">ThoughtSpot</a> ·
+ <a href="competitors/databricks-genie.html">Genie</a> ·
+ <a href="#plan-master">90 天主日历</a>
+ </footer>
+ </div>
+
+ <script>
+ const C = { blue:'#1e6fff', green:'#0d9f6e', red:'#c62828', orange:'#fb8c00', purple:'#7b1fa2', gray:'#90a4ae' };
+ const opts = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ boxWidth:12 } } } };
+
+ new Chart(document.getElementById('chartCandidateScore'), {
+ type:'bar', data:{
+ labels:['Hex','Julius','ThoughtSpot','Genie','Omni','Wren','Vanna','LangChain'],
+ datasets:[{ data:[4.1,4.0,3.9,3.6,3.0,2.8,2.6,2.5],
+ backgroundColor: ctx => ctx.raw >= 3.8 ? C.green : ctx.raw >= 3.0 ? C.orange : C.gray, borderRadius:4 }]
+ },
+ options:{ ...opts, indexAxis:'y', scales:{ x:{ min:0, max:5 } }, plugins:{ ...opts.plugins, legend:{ display:false } } }
+ });
+
+ new Chart(document.getElementById('chartVisits'), {
+ type:'bar', data:{
+ labels:['Julius','Hex','ThoughtSpot'],
+ datasets:[{ label:'千次/月', data:[714,471,191], backgroundColor:[C.blue,C.green,C.purple], borderRadius:6 }]
+ },
+ options:{ ...opts, indexAxis:'y', plugins:{ ...opts.plugins, legend:{ display:false } } }
+ });
+
+ const aiL = ['Hex','LangChain','ThoughtSpot','Omni','dbt','Wren','InfiniSynapse'];
+ new Chart(document.getElementById('chartAiCitations'), {
+ type:'bar', data:{ labels:aiL, datasets:[{ data:[6,5,4,4,3,3,0],
+ backgroundColor: aiL.map(l=>l==='InfiniSynapse'?C.red:C.blue), borderRadius:4 }] },
+ options:{ ...opts, plugins:{ ...opts.plugins, legend:{ display:false } } }
+ });
+
+ new Chart(document.getElementById('chartRedditShare'), {
+ type:'doughnut', data:{ labels:['Reddit','其他'], datasets:[{ data:[37.5,62.5], backgroundColor:[C.orange,'#e0e0e0'], borderWidth:0 }] },
+ options: opts
+ });
+
+ new Chart(document.getElementById('chartGapRadar'), {
+ type:'radar', data:{
+        labels:['人工智能被提到','对比类搜索','连接教程','Reddit','科普专栏','客户案例'],
+ datasets:[
+ { label:'竞品平均', data:[75,85,70,80,75,60], borderColor:C.blue, backgroundColor:'rgba(30,111,255,.12)' },
+ { label:'我们', data:[0,25,20,0,15,10], borderColor:C.red, backgroundColor:'rgba(198,40,40,.1)' }
+ ]
+ },
+ options:{ ...opts, scales:{ r:{ min:0, max:100, ticks:{ stepSize:20 } } } }
+ });
+
+ new Chart(document.getElementById('chartDeliverables'), {
+ type:'line', data:{
+ labels:['W0','W4','W8','W12'],
+ datasets:[
+ { label:'对比与替代品文', data:[0,5,7,9], borderColor:C.blue, tension:.3 },
+ { label:'连接教程', data:[1,4,4,5], borderColor:C.green, tension:.3 },
+ { label:'科普专栏', data:[0,1,3,4], borderColor:C.purple, tension:.3 },
+ { label:'Reddit 动作', data:[0,10,12,14], borderColor:C.orange, tension:.3 }
+ ]
+ },
+ options:{ ...opts, scales:{ y:{ beginAtZero:true } } }
+ });
+ </script>
+</body>
+</html>

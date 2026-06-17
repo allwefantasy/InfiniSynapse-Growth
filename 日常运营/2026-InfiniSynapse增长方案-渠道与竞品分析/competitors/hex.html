@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Hex 增长打法详情 · InfiniSynapse 竞品调研</title>
+ <link rel="stylesheet" href="../assets/report.css" />
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+ <header class="topbar">
+ <div class="topbar-inner">
+ <div class="topbar-brand">InfiniSynapse · 竞品详情</div>
+ <nav class="topbar-nav">
+ <a href="../index.html">← 返回总报告</a>
+ <a href="julius-ai.html">Julius</a>
+ <a href="hex.html" class="active">Hex</a>
+ <a href="thoughtspot.html">ThoughtSpot</a>
+ <a href="databricks-genie.html">Genie</a>
+ </nav>
+ </div>
+ </header>
+
+ <div class="page">
+ <p class="breadcrumb"><a href="../index.html">增长调研报告</a> / Hex · <a href="#timeline">增长时间线</a></p>
+
+ <div class="plain-box">
+ <h3>读这一页前 · 三个词</h3>
+ <dl>
+ <dt>生成式推荐 /人工智能推荐</dt><dd>用户问 ChatGPT「best数据智能体」时，回答里会不会提到 Hex。</dd>
+ <dt>Reddit</dt><dd>国外工程师论坛；本品类人工智能回答约 37.5% 参考来源来自这里。</dd>
+ <dt>直接访问</dt><dd>用户记网址进来——Hex 占 82%，是多年品牌结果，我们现阶段不追。</dd>
+ </dl>
+ </div>
+
+ <div class="detail-hero hex">
+ <h1>Hex <span class="role-badge geo">人工智能推荐标杆</span></h1>
+ <p>官网：<a href="https://hex.tech" target="_blank" rel="noopener">hex.tech</a> ·
+ 数据团队人工智能分析平台 · 本方案学它<strong>Reddit 讨论 + 技术教程 + 被人工智能引用</strong></p>
+ <p style="font-size:14px;color:var(--muted);margin-top:8px;">
+ <strong>为什么选它：</strong>固定测试问题测 ChatGPT 时 hex.tech 被引用 <strong>最多（6 次）</strong>；r/dataengineering 讨论常被人工智能采信。
+ <strong>不要学：</strong>82% 直接访问——大客户和品牌多年积累，早期复制不了。
+ </p>
+ <div class="detail-stats">
+ <div class="detail-stat"><div class="val">47.1万</div><div class="lbl">月访问（估算）</div></div>
+ <div class="detail-stat"><div class="val" style="color:var(--green)">6</div><div class="lbl">人工智能测试引用第 1</div></div>
+ <div class="detail-stat"><div class="val">266</div><div class="lbl">博客篇数</div></div>
+ <div class="detail-stat"><div class="val">82%</div><div class="lbl">直接访问占比</div></div>
+ <div class="detail-stat"><div class="val">37.5%</div><div class="lbl">人工智能引用来自 Reddit</div></div>
+ </div>
+ </div>
+
+ <section id="timeline">
+ <h2>0. 增长时间线：早期打法 → 流量爆发 → 现在</h2>
+ <p class="section-lead">Hex 的路径与 Julius 相反：<strong>早期几乎不做搜索优化</strong>，靠「笔记本发布工作流」拿下第一批数据团队 → 产品驱动增长 + 大客户口碑 → 博客/template 长尾 → 人工智能产品发布 + 论坛讨论被引用。82% 直接访问是<strong>多年品牌结果</strong>，不是 Day 1 策略。</p>
+
+ <div class="timeline">
+ <div class="timeline-item">
+ <div class="when">2019 · 创立</div>
+ <h4>Palantir 背景 · 解决「笔记本无法协作发布」</h4>
+ <p>三位联合创始人（含 CEO Barry McCardel）来自 Palantir。痛点：数据科学家在 Jupyter/SQL 之间跳转，分析做完<strong>很难分享给业务方</strong>。愿景：做数据领域的「Figma / Notion」——SQL + Python + 可视化 + 协作在同一工作区。</p>
+ <p class="data-src">来源：<a href="https://www.unusual.vc/how-hex-found-product-market-fit/" target="_blank" rel="noopener">Unusual VC 播客</a> · <a href="https://cnosdb.medium.com/hex-tech-the-crisis-and-opportunity-of-a-programming-enabled-bi-platform-968188af41d5" target="_blank" rel="noopener">Medium 行业分析</a></p>
+ </div>
+
+ <div class="timeline-item">
+ <div class="when">2019–2020 · 最小可行产品</div>
+ <h4>第一版只做一件事：参数化发布已有笔记本</h4>
+ <p>早期版本<strong>几乎不做在线编辑</strong>，核心功能是：把已有 Python 笔记本拖进来 → 加输入参数 → 一键发布成可交互应用。Barry 在访谈中说：「光是这一点就已经对早期用户有足够价值。」首批客户包括需要把内部分析「产品化」的数据团队。</p>
+ <p class="data-src">来源：<a href="https://www.unusual.vc/how-hex-found-product-market-fit/" target="_blank" rel="noopener">Unusual PMF 访谈</a></p>
+ </div>
+
+ <div class="timeline-item">
+ <div class="when">2020 · 公开发布</div>
+ <h4>hex.tech 上线 · 定位「现代数据分析工作区」</h4>
+ <p>整合 SQL、Python、图表、App Builder；对接 Snowflake/BigQuery/Redshift 等仓库；团队定价约 24 美元/人/月起。目标 persona：<strong>分析工程师 / 数据科学家</strong>，而非纯业务用户。</p>
+ </div>
+
+ <div class="timeline-item">
+ <div class="when">2022 · 规模化前夜</div>
+ <h4>客户与收入 4× · 用户 10×</h4>
+ <p>对外称服务 <strong>500+</strong> 公司（Brex、Notion、Toast、Loom、Fivetran 等）；2022 年客户数与收入翻 4 倍、平台用户增 10 倍。同年完成 B 轮（Sequoia 等），累计融资超 1 亿美元。</p>
+ <p class="data-src">来源：<a href="https://cnosdb.medium.com/hex-tech-the-crisis-and-opportunity-of-a-programming-enabled-bi-platform-968188af41d5" target="_blank" rel="noopener">Medium · 2023-03</a></p>
+ </div>
+
+ <div class="timeline-item">
+ <div class="when">2022–2023 · 销售体系进化</div>
+ <h4>从纯手工试用 → 产品驱动销售</h4>
+ <p>Head of Enterprise Sales 回忆：早期用 Typeform 收试用申请、销售手动开账号——「 hectic and high effort」。随着自助注册与产品内信号成熟，引入 <strong>Pocus</strong> 等工具识别高意向用户，用 playbook 把产品驱动增长 线索转企业管道，对外称带来<strong>千万美元级管道</strong>。</p>
+ <p class="data-src">来源：<a href="https://www.pocus.com/blog/hex-case-study" target="_blank" rel="noopener">Pocus 案例</a></p>
+ </div>
+
+ <div class="timeline-item burst">
+ <div class="when">2023–2024 · 内容与搜索小爆发</div>
+ <h4>博客密度 + 模板库 + 单篇教程爆款</h4>
+ <table>
+ <thead><tr><th>动作</th><th>代表 URL</th><th>数据（SEMrush 2026-05）</th></tr></thead>
+ <tbody>
+ <tr><td>技术博客持续更新</td><td><a href="https://hex.tech/blog/" target="_blank" rel="noopener">hex.tech/blog</a></td><td>266 篇 · 79 作者</td></tr>
+ <tr><td>可复制改用的模板</td><td><a href="https://hex.tech/templates/" target="_blank" rel="noopener">hex.tech/templates</a></td><td>读者把官方示例复制到自己的账号里再改；教程文末导流试用</td></tr>
+ <tr><td>降维教程爆款</td><td><a href="https://hex.tech/blog/dimensionality-reduction-techniques/" target="_blank" rel="noopener">dimensionality-reduction-techniques</a></td><td>月搜 1.21 万 · 排名第 4 · 占自然搜索 <strong>3.22%</strong></td></tr>
+ <tr><td>Snowflake 合作</td><td>Magic 人工智能 + 仓库原生集成新闻稿</td><td>品牌搜索与直接访问提升</td></tr>
+ </tbody>
+ </table>
+ <p><strong>关键判断：</strong>Hex 的 Google 流量永远不是主盘（现在仅 7%），但<strong>一篇教程 + 模板</strong>证明了「工程师教程 → 试用」仍有效。</p>
+ </div>
+
+ <div class="timeline-item burst">
+ <div class="when">2024–2025 · 人工智能叙事与论坛占位</div>
+ <h4>产品发布 + 社区讨论 → 被 ChatGPT 引用</h4>
+ <ul>
+ <li><strong>Magic / Context Agent / Hex in Codex：</strong>把「数据智能体」绑进产品发布与文档，占品类词</li>
+ <li><strong>Reddit 不是官方 sub，而是品类帖：</strong>r/dataengineering 上「文本转数据库查询智能体」「生产环境敢跑吗」等帖被我们的固定测试问题引用 4–2 次</li>
+ <li><strong>内部基线：</strong>hex.tech 在 data agent 品类人工智能引用 <strong>6 次 #1</strong>；品类引用来源 37.5% 来自 Reddit</li>
+ </ul>
+ <p class="data-src">来源：<code>Reddit运营/Reddit-GEO-data-agent-基线报告.md</code></p>
+ </div>
+
+ <div class="timeline-item">
+ <div class="when">2026-05 · 现在</div>
+ <h4>流量结构：直接访问 82% 的含义</h4>
+ <ul>
+ <li>月访问 <strong>47.1 万</strong>（环比 +9.25%）；美国占 57%</li>
+ <li><strong>82% 直接访问</strong> = 用户记网址、从 Slack/文档点链接、老客户回访——来自 Ramp/Figma/Anthropic 等 logo 墙 + 多年口碑</li>
+ <li><strong>Google 仅 7%</strong>：搜索不是主引擎；学 Hex 应学<strong>论坛 + 教程 + 发布</strong>，不追直接访问占比</li>
+ </ul>
+ </div>
+ </div>
+
+ <h3>爆发期 vs 早期：动作对照表</h3>
+ <table>
+ <thead><tr><th>时期</th><th>核心动作</th><th>可验证证据</th><th>InfiniSynapse 可学吗</th></tr></thead>
+ <tbody>
+ <tr><td>早期 2019–2021</td><td>笔记本参数化发布 · 拿下 Brex/Notion</td><td>Unusual 访谈 · 500+ 客户说法</td><td>学「先解决一个发布/分享痛点」· 不抄企业客户名单</td></tr>
+ <tr><td>爆发 2023–24</td><td>266 篇博客 · 模板库 · 降维教程爆款</td><td>SEMrush 关键词 · URL 可开</td><td>做 1 篇工程师教程 + 录屏模板</td></tr>
+ <tr><td>爆发 2024–25</td><td>Magic/Agent 新闻发布 · Snowflake 合作</td><td>hex.tech 新闻稿/博客</td><td>产品发布 + 案例录屏作锚点</td></tr>
+ <tr><td>爆发 2024–25</td><td>Reddit 品类帖被 AI 采信</td><td>基线报告 6 次引用</td><td>10 评 + 2 主帖（最高优先级）</td></tr>
+ <tr><td>现在</td><td>82% 直接访问</td><td>SEMrush Traffic Journey</td><td>❌ 90 天内不追</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <section id="product">
+ <h2>1. 产品与竞争位置</h2>
+ <table>
+ <thead><tr><th>维度</th><th>Hex</th><th>对 InfiniSynapse 含义</th></tr></thead>
+ <tbody>
+ <tr><td>品类</td><td>笔记本环境 + 数据库查询 + Python + 人工智能智能体 · 团队协作</td><td>同为「数据团队人工智能平台」，但 Hex 偏笔记本工作流</td></tr>
+ <tr><td>商业化</td><td>Team 产品驱动增长 + 企业级 · 大客户 标识 墙</td><td>我们强调私有化/联邦，企业级 叙事可借鉴</td></tr>
+ <tr><td>人工智能叙事</td><td>上下文智能体 · Hex in Codex · Magic 人工智能</td><td>「数据智能体」品类词 Hex 占位最强</td></tr>
+ <tr><td>搜索优化特点</td><td>Google 仅 7% · 1 篇非品牌爆款教程</td><td>学 Reddit 与生成式推荐，不追直接访问</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <section id="traffic">
+ <h2>2. 流量全貌（SEMrush 2026-05）</h2>
+ <div class="two-col">
+ <div>
+ <table>
+ <tr><th>指标</th><th>数值</th></tr>
+ <tr><td>月访问量</td><td><strong>471,390</strong>（环比上月 +9.25%）</td></tr>
+ <tr><td>会话时长</td><td>08:27</td></tr>
+ <tr><td>全球排名</td><td>#87,491</td></tr>
+ <tr><td>外链</td><td>53.65K · 3.86K RD</td></tr>
+ <tr><td>博客</td><td><strong>266</strong> posts · <strong>79</strong> authors</td></tr>
+ <tr><td>美国流量</td><td><strong>56.88%</strong> · 268.15K</td></tr>
+ </table>
+ <p class="data-src"><a href="https://www.semrush.com/website/hex.tech/overview/" target="_blank" rel="noopener">SEMrush hex.tech</a></p>
+ </div>
+ <div>
+ <h4>流量来源（与 Julius 截然相反）</h4>
+ <div class="bar-mini">
+ <span class="b-direct" style="width:81.7%">直接访问 82%</span>
+ <span class="b-google" style="width:7.06%">Google 7%</span>
+ <span class="b-other" style="width:11.24%">其他 11%</span>
+ </div>
+ <div class="tip"><strong>解读：</strong>Hex 的搜索优化不是主获客引擎；<strong>Reddit + 品牌直接访问+ 教程长尾</strong> 才是早期可复制部分。</div>
+ <div class="chart-wrap short"><canvas id="chartHexTraffic"></canvas></div>
+ </div>
+ </div>
+ </section>
+
+ <section id="keywords">
+ <h2>3. 自然搜索关键词结构</h2>
+ <p class="section-lead">Top 词以品牌为主（hex data engineer 等）；唯一显著非品牌词为教程爆款 <code>dimensionality reduction techniques</code>。</p>
+ <table>
+ <thead><tr><th>关键词</th><th>排名</th><th>月搜索量</th><th>占流量%</th><th>页面</th></tr></thead>
+ <tbody>
+ <tr><td><code>hex data engineer</code></td><td>1</td><td>1,300</td><td>7.45%</td><td>品牌</td></tr>
+ <tr><td><code>hex company</code></td><td>1</td><td>880</td><td>5.04%</td><td>品牌</td></tr>
+ <tr><td><code>hex tech</code></td><td>1</td><td>880</td><td>5.04%</td><td>品牌</td></tr>
+ <tr><td><code>hex careers</code></td><td>1</td><td>720</td><td>4.12%</td><td>招聘</td></tr>
+ <tr><td><code>dimensionality reduction techniques</code></td><td>4</td><td>12,100</td><td><strong>3.22%</strong></td><td><a href="https://hex.tech/blog/dimensionality-reduction-techniques/" target="_blank" rel="noopener">博客 教程</a></td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <section id="geo">
+ <h2>4. ChatGPT 会不会推荐 Hex（核心优势）</h2>
+ <div class="verdict-box">
+ 我们用 5 个固定测试问题测「推荐数据智能体」： <strong>hex.tech 被引用 6 次，排第 1</strong>。
+ 56 条人工智能参考来源里，<strong>21 条来自 Reddit（37.5%）</strong>——论坛里的技术讨论非常重要。
+ </div>
+ <table>
+ <thead><tr><th>生成式推荐 指标</th><th>Hex</th><th>InfiniSynapse</th><th>行业参考</th></tr></thead>
+ <tbody>
+ <tr><td>测试问题 域名引用</td><td><strong>6</strong></td><td>0</td><td>ThoughtSpot 4 · LangChain 5</td></tr>
+ <tr><td>Reddit 占品类引用</td><td>主要受益者</td><td>无布局</td><td>ChatGPT 引用 Reddit #1（30,942 次，吉欧利）</td></tr>
+ <tr><td>Reddit 引用转化率</td><td>—</td><td>—</td><td>49.64%（行业 8.7×）</td></tr>
+ <tr><td>官网教程作人工智能信源</td><td>dimensionality reduction 等</td><td>部分 博客</td><td>常见问题 + 40 词块 + 结构化标记</td></tr>
+ </tbody>
+ </table>
+ <p class="data-src"><code>Reddit运营/Reddit-生成式推荐-data-agent-基线报告.md</code> · <code>Reddit-生成式推荐-标准操作流程.md</code></p>
+ </section>
+
+ <section id="reddit">
+ <h2>5. Reddit 与社区策略（最可复制）</h2>
+ <p>Hex 并未依赖独立品牌 sub，而是让<strong>品类讨论帖</strong>成为人工智能信源。以下帖子已在我们的测试问题测试中被引用：</p>
+ <table>
+ <thead><tr><th>论坛分区</th><th>帖子</th><th>被引</th><th>Hex 相关叙事</th><th>InfiniSynapse 切入角度</th></tr></thead>
+ <tbody>
+ <tr>
+ <td>r/dataengineering</td>
+ <td><a href="https://www.reddit.com/r/dataengineering/comments/1owjt0b/text_to_sql_agents/" target="_blank" rel="noopener">文本转数据库查询 agents</a></td>
+ <td>4×</td>
+ <td>text-to-数据库查询 智能体 工具比较</td>
+ <td>多源联邦 对比 单库 · 私有化部署</td>
+ </tr>
+ <tr>
+ <td>r/dataengineering</td>
+ <td><a href="https://www.reddit.com/r/dataengineering/comments/1s22vr9/" target="_blank" rel="noopener">人工智能智能体在生产环境运行数据库查询 ？</a></td>
+ <td>2×</td>
+ <td>生产环境 智能体 可靠性</td>
+ <td>私有化 · audit trail · governed agent</td>
+ </tr>
+ <tr>
+ <td>r/BusinessIntelligence</td>
+ <td><a href="https://www.reddit.com/r/BusinessIntelligence/comments/1ta6rzb/" target="_blank" rel="noopener">智能商业分析 replacing traditional?</a></td>
+ <td>2×</td>
+ <td>智能商业分析 趋势</td>
+ <td>数据智能体 对比 仪表盘人工智能</td>
+ </tr>
+ <tr>
+ <td>r/AI_Agents</td>
+ <td><a href="https://www.reddit.com/r/AI_Agents/comments/1sfu06i/" target="_blank" rel="noopener">Data 智能体 saves 200 hrs/week</a></td>
+ <td>P3</td>
+ <td>真实架构 + 量化收益</td>
+ <td>对标发主帖（2 篇）</td>
+ </tr>
+ </tbody>
+ </table>
+ <h3>Reddit 评论规范（标准操作流程 摘要）</h3>
+ <ul>
+ <li><strong>零硬广</strong> — 无链接堆砌、无 copy-paste 营销话术</li>
+ <li><strong>可验证细节</strong> — 架构、协议分数、具体限制（如单库 对比 联邦）</li>
+ <li><strong>可被人工智能整段引用</strong> — 完整段落、常见问题 式结构、数字证据</li>
+ <li><strong>长评论 &gt; 短回复</strong> — 400 字+ 技术拆解优先</li>
+ </ul>
+ </section>
+
+ <section id="content">
+ <h2>6. 内容资产：博客 + 模板库</h2>
+ <ul class="page-list">
+ <li>
+ <strong>Dimensionality Reduction 教程（搜索优化 爆款）</strong>
+ <div class="url"><a href="https://hex.tech/blog/dimensionality-reduction-techniques/" target="_blank" rel="noopener">hex.tech/blog/dimensionality-reduction-techniques</a></div>
+ <div class="role">月搜索量 12,100 · 排名 4 · 占自然搜索 3.22% · 文末 转化入口 试用 Hex</div>
+ </li>
+ <li>
+ <strong>模板库 · Linear Dimensionality Reduction</strong>
+ <div class="url"><a href="https://hex.tech/templates/feature-selection/linear-dimensionality-reduction/" target="_blank" rel="noopener">hex.tech/templates/...</a></div>
+ <div class="role">教程 + 可 复制 模板 → 产品试用入口（产品驱动增长）</div>
+ </li>
+ <li>
+ <strong>Hex Blog 首页</strong>
+ <div class="url"><a href="https://hex.tech/blog/" target="_blank" rel="noopener">hex.tech/blog</a></div>
+ <div class="role">266 篇 · 79 作者 · 数据科学教程密度高</div>
+ </li>
+ </ul>
+ <h3>教程文模板（Hex 式）</h3>
+ <table>
+ <thead><tr><th>区块</th><th>做法</th><th>InfiniSynapse 对位</th></tr></thead>
+ <tbody>
+ <tr><td>问题定义</td><td>工程师真实场景（降维、feature selection）</td><td>联邦查询、跨库 JOIN、audit</td></tr>
+ <tr><td>可运行示例</td><td>在线笔记本 / 一键复制模板到本人账号</td><td>案例录屏 + 可复现查询流程</td></tr>
+ <tr><td>产品 转化入口</td><td>文末「在 Hex 中试用」</td><td>「在 InfiniSynapse 中运行」产品演示</td></tr>
+ <tr><td>内链</td><td>链到 templates 子目录</td><td>链到 integration 分步教程 集群</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <section id="plg">
+ <h2>7. 产品驱动增长 与品牌（学判断，不抄路径）</h2>
+ <table>
+ <thead><tr><th>要素</th><th>Hex 现状</th><th>InfiniSynapse 启示</th></tr></thead>
+ <tbody>
+ <tr><td>直接访问 82%</td><td>Ramp, Figma, Anthropic 等 标识 · 多年 市场进入</td><td>早期不追直接访问，用搜索优化与 Reddit 建认知</td></tr>
+ <tr><td>产品发布</td><td>Hex in Codex · 上下文智能体 等新闻发布</td><td>案例页 + 录屏作发布锚点</td></tr>
+ <tr><td>模板 产品驱动增长</td><td>templates.hex.tech 降低试用门槛</td><td>连接教程第一篇可验证步骤</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <section id="copy">
+ <h2>8. 什么能抄 · 什么不能抄</h2>
+ <div class="copy-box">
+ <strong>✅ 能抄</strong>
+ <ul>
+ <li>r/dataengineering 高质量长评论（10 条）+ 架构主帖（2 篇）</li>
+ <li>技术教程 + 模板/录屏 产品驱动增长 入口</li>
+ <li>「数据智能体 / text-to-数据库查询 in prod」话题占位</li>
+ <li>常见问题 + 可引用统计进入人工智能答案</li>
+ <li>集成文（connect X to人工智能analyst）</li>
+ </ul>
+ </div>
+ <div class="nocopy-box">
+ <strong>❌ 不能抄</strong>
+ <ul>
+ <li>81.7%直接访问占比与 企业级 标识 墙</li>
+ <li>266 篇博客的人力规模（选 3–5 篇精品）</li>
+ <li>泛数据科学教程（除非与 连接教程强相关）</li>
+ </ul>
+ </div>
+ </section>
+
+ <section id="actions">
+ <h2>9. 我们照着做什么</h2>
+ <table>
+ <thead><tr><th>优先级</th><th>动作</th><th>数量</th><th>对标依据</th><th>验收</th></tr></thead>
+ <tbody>
+ <tr><td><span class="tag-priority-high">最高优先级</span></td><td>Reddit 长评论</td><td>10</td><td>文本转数据库查询 agents 帖 4× 被引</td><td>链接存档 · 无删帖</td></tr>
+ <tr><td><span class="tag-priority-high">最高优先级</span></td><td>Reddit 主帖</td><td>2</td><td>r/AI_Agents 200hrs 案例</td><td>≥300 字架构 · 真实试点数字</td></tr>
+ <tr><td><span class="tag-priority-high">最高优先级</span></td><td>集成 分步教程</td><td>4</td><td>Hex 模板 + Julius connector</td><td>内容管理系统 发布</td></tr>
+ <tr><td><span class="tag-p1">次优先级</span></td><td>生成式推荐 复测</td><td>5 测试问题/月</td><td>hex 6 次基准</td><td>≥1 次 infinisynapse 提及</td></tr>
+ <tr><td><span class="tag-p1">次优先级</span></td><td>技术教程 1 篇</td><td>1</td><td>dimensionality reduction 模式</td><td>谷歌搜索控制台 展示量</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <!-- 10. SEO 技术维度补充（按竞品分析模板框架） -->
+ <section id="seo-audit">
+ <h2>10. SEO 技术维度补充（按《竞品分析报告》模板框架）</h2>
+ <p class="section-lead">补齐三块硬指标：<strong>① 域名权重与外链结构</strong>、<strong>② 关键词品牌/行业比例 + 意图分布</strong>、<strong>③ 内容与文档资产收录</strong>。Hex 的特殊性：<strong>Google 仅占 7%</strong>，SEO 不是主盘，但外链结构最「自然健康」，可作正向样本。</p>
+
+ <h3>10.1 域名权重概览（DR / UR / 外链结构）</h3>
+ <table>
+ <thead><tr><th>指标</th><th>数值</th><th>水平判断</th><th>来源</th></tr></thead>
+ <tbody>
+ <tr><td>DR（域名评级）</td><td><span class="tag-p1">待补</span>（估 70 区间，需核）</td><td>—</td><td>Ahrefs Site Explorer</td></tr>
+ <tr><td>UR（首页 URL 评级）</td><td><span class="tag-p1">待补</span></td><td>—</td><td>Ahrefs Site Explorer</td></tr>
+ <tr><td>反向链接</td><td><strong>53.65K</strong>（环比 +7.98%）</td><td>中等</td><td><a href="https://www.semrush.com/website/hex.tech/overview/" target="_blank" rel="noopener">SEMrush 2026-05</a></td></tr>
+ <tr><td>引荐域名（RD）</td><td><strong>3.86K</strong>（环比 +6.78%）</td><td>中等</td><td>SEMrush 2026-05</td></tr>
+ <tr><td>反链 / 引荐域名比</td><td>≈ <strong>14</strong> 条/域名</td><td>✅ 健康自然 · 接近真实媒体背书形态（4 站中最低）</td><td>计算值</td></tr>
+ <tr><td>全球排名</td><td>#87,491</td><td>—</td><td>SEMrush 2026-05</td></tr>
+ </tbody>
+ </table>
+ <div class="tip"><strong>结论：</strong>Hex 的外链「质量优先」——RD 比 Julius 少，但 <strong>每域名仅 ~14 条链接</strong>，远比 Julius(~31) 自然。这与其 82% 直接访问 + 论坛口碑的品牌路径一致。对我们：<strong>外链要学 Hex 的「少而真」，不学 Julius 的「多而批量」</strong>。</div>
+
+ <h3>10.2 关键词品牌 vs 行业 + 意图分布</h3>
+ <table>
+ <thead><tr><th>维度</th><th>占比 / 数值</th><th>判断</th></tr></thead>
+ <tbody>
+ <tr><td>品牌词（<code>hex tech</code> / <code>hex data engineer</code> / <code>hex careers</code>）</td><td>Top 词几乎全品牌（合计 >20%）</td><td><strong>品牌 + 直接访问驱动</strong></td></tr>
+ <tr><td>行业痛点词</td><td>仅 <code>dimensionality reduction techniques</code> 显著（占 3.22%）</td><td>非品牌词覆盖薄 → <strong>这是 Hex 的 SEO 短板，也是我们的机会</strong></td></tr>
+ <tr><td>品牌 vs 行业精确比例</td><td><span class="tag-p1">待补</span></td><td>导出 Organic keywords 分类后统计</td></tr>
+ <tr><td>意图分布 I vs T</td><td><span class="tag-p1">待补</span></td><td>预判：博客教程多 → Informational 偏高，但量级小</td></tr>
+ </tbody>
+ </table>
+ <h4>行业痛点词排名分档（机会识别）</h4>
+ <table>
+ <thead><tr><th>分档</th><th>代表词 · 排名 · 月搜</th><th>对 InfiniSynapse 价值</th></tr></thead>
+ <tbody>
+ <tr><td>排名 1–5（对手强点）</td><td><code>dimensionality reduction techniques</code> #4 · 1.21万</td><td>教程爆款模式可学（教程→模板→试用）</td></tr>
+ <tr><td>排名 6–20（最佳切入点）</td><td><span class="tag-p1">待补</span>：Hex 非品牌词稀少，机会主要在「Hex 没覆盖」的连接/对比词</td><td>我们抢 Hex 的内容空白</td></tr>
+ </tbody>
+ </table>
+
+ <h3>10.3 内容与文档资产（收录深度 + 落地页）</h3>
+ <table>
+ <thead><tr><th>检查项</th><th>Hex 现状</th><th>数据 / 待补</th></tr></thead>
+ <tbody>
+ <tr><td><code>site:hex.tech</code> 总收录</td><td>博客 + 模板库 + 产品 + 文档</td><td><span class="tag-p1">待补</span></td></tr>
+ <tr><td><code>site:hex.tech/blog</code></td><td><strong>266</strong> 篇 · 79 作者（数据科学教程密度高）</td><td>266（SEMrush）</td></tr>
+ <tr><td><code>site:hex.tech/docs</code></td><td>产品文档存在</td><td><span class="tag-p1">待补</span> 收录量 + 参数级命中</td></tr>
+ <tr><td>URL 结构</td><td><code>/blog/{slug}</code> · <code>/templates/{cat}/{slug}</code> 高度结构化</td><td>✅ SEO 友好（等级 A）</td></tr>
+ <tr><td>use-case / solution 页</td><td>模板库（/templates/）承担「场景 + 可复制」</td><td><span class="tag-p1">待补</span> <code>site:hex.tech "use case"</code> / <code>"solution"</code></td></tr>
+ </tbody>
+ </table>
+ <div class="gap-box">
+ <strong>待补 Ahrefs / Google 清单（Hex）：</strong>
+ <ul>
+ <li>① DR + 首页 UR（Site Explorer → hex.tech）</li>
+ <li>② 导出 Organic keywords → 品牌 vs 行业精确比例（验证「非品牌词稀少」判断）</li>
+ <li>③ Keywords Explorer 标 I/C/T → 意图占比</li>
+ <li>④ Google 实搜 <code>site:hex.tech</code> / <code>site:hex.tech/docs</code> / <code>site:hex.tech "use case"</code> 收录量 + 参数级命中</li>
+ <li>⑤ 文档 robots.txt + canonical 核查（docs 是否放行抓取）</li>
+ </ul>
+ </div>
+ </section>
+
+ <footer class="footer">
+ <a href="julius-ai.html">← Julius 搜索打法</a> ·
+ <a href="../index.html">返回总报告</a> ·
+ <a href="thoughtspot.html">ThoughtSpot 科普专栏打法 →</a>
+ </footer>
+ </div>
+
+ <script>
+ new Chart(document.getElementById('chartHexTraffic'), {
+ type:'doughnut',
+ data:{
+ labels:['直接访问 82%','Google 7%','其他 11%'],
+ datasets:[{ data:[81.7,7.06,11.24], backgroundColor:['#1e6fff','#0d9f6e','#90a4ae'], borderWidth:0 }]
+ },
+ options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom' } } }
+ });
+ </script>
+</body>
+</html>

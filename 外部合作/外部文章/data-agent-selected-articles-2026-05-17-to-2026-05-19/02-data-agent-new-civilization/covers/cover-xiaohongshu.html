@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080, initial-scale=1">
+  <title>Xiaohongshu Cover - Data Agent</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      width: 1080px;
+      height: 1440px;
+      margin: 0;
+      overflow: hidden;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+    }
+    .cover {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 108px 92px 96px;
+      background:
+        linear-gradient(180deg, rgba(255, 114, 25, 0.18), transparent 30%),
+        linear-gradient(140deg, #111 0%, #060606 64%, #ff6819 190%);
+    }
+    .panel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border: 4px solid rgba(255, 110, 24, 0.72);
+      border-radius: 38px;
+      padding: 82px 64px 70px;
+    }
+    .eyebrow {
+      color: #ff7a22;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .title {
+      margin-top: 132px;
+      font-size: 110px;
+      font-weight: 900;
+      line-height: 1.07;
+      letter-spacing: 0;
+    }
+    .title span {
+      display: block;
+      white-space: nowrap;
+    }
+    .accent {
+      color: #ff7a22;
+    }
+    .quote {
+      margin-top: 88px;
+      max-width: 760px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.32;
+      letter-spacing: 0;
+    }
+    .bottom {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 28px;
+      font-weight: 800;
+    }
+    .pill {
+      padding: 14px 24px;
+      border-radius: 999px;
+      background: #ff6d1a;
+      color: #0b0b0b;
+    }
+  </style>
+</head>
+<body>
+  <main class="cover">
+    <section class="panel">
+      <div class="eyebrow">Data Agent</div>
+      <h1 class="title">
+        <span>AI新文明</span>
+        <span>第一艘</span>
+        <span class="accent">飞船</span>
+      </h1>
+      <p class="quote">数据不是附属品，而是 AI 做决策的燃料。</p>
+      <div class="bottom">
+        <span class="pill">数据代理</span>
+        <span>Code Agent 之后</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

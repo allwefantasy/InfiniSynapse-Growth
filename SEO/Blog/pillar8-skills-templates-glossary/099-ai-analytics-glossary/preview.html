@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>Data Analysis Glossary (2026): 40+ Terms Every Data Team Should Know</title>
+<meta name="description" content="Data Analysis Glossary in 2026: practical workflow patterns, governance controls, and FAQ for data teams.">
+<link rel="canonical" href="https://infinisynapse.cn/blog/ai-analytics-glossary">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="InfiniSynapse Data Team">
+<meta http-equiv="content-language" content="en">
+<link rel="alternate" hreflang="en" href="https://infinisynapse.cn/blog/ai-analytics-glossary">
+<link rel="alternate" hreflang="zh-CN" href="https://infinisynapse.cn/zh/blog/ai-analytics-glossary">
+<link rel="alternate" hreflang="x-default" href="https://infinisynapse.cn/blog/ai-analytics-glossary">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://infinisynapse.cn/blog/ai-analytics-glossary">
+<meta property="og:title" content="Data Analysis Glossary (2026): 40+ Terms Every Data Team Should Know">
+<meta property="og:description" content="Data Analysis Glossary in 2026: practical workflow patterns, governance controls, and FAQ for data teams.">
+<meta property="og:image" content="https://infinisynapse.cn/blog/assets/pillar8/ai-analytics-glossary/hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="InfiniSynapse Blog">
+<meta property="og:locale" content="en_US">
+
+<meta property="article:published_time" content="2026-06-09T10:00:00+08:00">
+<meta property="article:modified_time" content="2026-06-09T10:00:00+08:00">
+<meta property="article:author" content="https://infinisynapse.cn/about">
+<meta property="article:section" content="Glossary">
+<meta property="article:tag" content="data analysis glossary">
+<meta property="article:tag" content="ai analytics terms">
+<meta property="article:tag" content="data agent definitions">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@InfiniSynapse">
+<meta name="twitter:title" content="Data Analysis Glossary (2026): 40+ Terms Every Data Team Should Know">
+<meta name="twitter:description" content="Data Analysis Glossary in 2026: practical workflow patterns, governance controls, and FAQ for data teams.">
+<meta name="twitter:image" content="https://infinisynapse.cn/blog/assets/pillar8/ai-analytics-glossary/hero.png">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0d9488;
+  --accent-soft: #f0fdfa;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --banner: #1e40af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.preview-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--banner);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.preview-banner strong { font-weight: 700; }
+.site-header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+.site-header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+article {
+  max-width: 860px;
+  margin: 0 auto 64px;
+  padding: 32px 24px 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+article > h1:first-child {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+article > blockquote:first-of-type {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+h2 {
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent-soft);
+  color: #0f766e;
+}
+h3 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+p { margin: 0 0 1.1rem; }
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.35rem; }
+a { color: #2563eb; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.25rem 0 1.5rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--accent-soft); color: #0f766e; font-weight: 600; }
+tr:nth-child(even) td { background: #fafafa; }
+blockquote {
+  margin: 1.25rem 0;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: #134e4a;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+footer.preview-meta {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer.preview-meta code {
+  font-size: 12px;
+}
+</style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Data Analysis Glossary (2026): 40+ Terms Every Data Team Should Know",
+    "description": "Data Analysis Glossary in 2026: practical workflow patterns, governance controls, and FAQ for data teams.",
+    "image": [
+      "https://infinisynapse.cn/blog/assets/pillar8/ai-analytics-glossary/hero.png"
+    ],
+    "datePublished": "2026-06-09T10:00:00+08:00",
+    "dateModified": "2026-06-09T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/ai-analytics-glossary"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Data analysis glossary"
+      },
+      {
+        "@type": "Thing",
+        "name": "AI analytics terms"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data agent definitions"
+      }
+    ],
+    "keywords": "data analysis glossary, ai analytics terms, analytics vocabulary"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "name": "AI Analytics Glossary",
+    "description": "A practical data analysis glossary with 44 terms for AI-native analytics workflows.",
+    "url": "https://infinisynapse.cn/blog/ai-analytics-glossary"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why does a analytics matter if we already have style guides? Style guides shape writing quality, while a analytics aligns analytical logic, governance decisions, and operational controls. When this topic joins a multi-source stack, align connector scope and review gates using [How to Evaluate an AI Data Analyst Tool](/blog/how-to-evaluate-ai-data-analyst).",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": ""
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many terms should it include at launch? Start with 25-40 high-impact terms, then expand as your workflows and governance complexity grow.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": ""
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who should own a analytics? Usually an analytics lead with input from platform, governance, and business stakeholders to keep definitions practical.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": ""
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should it be reviewed? Revisit it quarterly and after any major schema, metric, or policy change, so definitions never drift from how the data is actually modeled and governed. Teams standardizing governance across sources often keep [AI Data Analysis Prompts](/blog/ai-data-analysis-prompts) beside this runbook for Prompt handoffs.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI Analytics Glossary: 40+ Terms Every Data Team Should Know (2026)",
+        "item": "https://infinisynapse.cn/blog/ai-analytics-glossary"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="preview-banner"><strong>LOCAL PREVIEW</strong> · Not for production · Images &amp; links use relative paths · Open via <code>file://</code> or local static server</div>
+<header class="site-header">
+  <a href="../INDEX-preview.html">← All Pillar 1 previews</a>
+</header>
+<article class="blog-post">
+<h1 id="data-analysis-glossary-2026-40-terms-every-data-team-should-know">Data Analysis Glossary (2026): 40+ Terms Every Data Team Should Know</h1>
+<blockquote>
+<p><strong>Byline:</strong> InfiniSynapse Data Team<br />
+<strong>Last updated:</strong> 2026-06-09<br />
+<em>We build InfiniSynapse, an AI-native analytics platform. This data analysis glossary is maintained from hands-on implementation work with analyst teams, platform owners, and procurement stakeholders.</em></p>
+</blockquote>
+<p>Last updated: 2026-06-09</p>
+<p><img alt="AI Analytics Glossary: 40+ Terms Every Data Team Should Know (2026) hero" src="images/hero-ai-analytics-glossary.png" /></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#key-definition">Key Definition</a></li>
+<li><a href="#how-to-use-this-glossary">How to Use This Glossary</a></li>
+<li><a href="#44-core-terms">44 Core Terms</a></li>
+<li><a href="#practical-adoption-checklist">Practical Adoption Checklist</a></li>
+<li><a href="#how-teams-apply-this-glossary-in-daily-work">How Teams Apply This Glossary in Daily Work</a></li>
+<li><a href="#governance-model-for-maintaining-a-shared-vocabulary">Governance Model for Maintaining a Shared Vocabulary</a></li>
+<li><a href="#measurement-is-the-glossary-working">Measurement: Is the Glossary Working?</a></li>
+<li><a href="#team-enablement-activities">Team Enablement Activities</a></li>
+<li><a href="#production-debugging-notes">Production Debugging Notes</a></li>
+<li><a href="#how-to-use-this-reference-in-production">How to Use This Reference in Production</a></li>
+<li><a href="#review-cadence-and-maintenance">Review Cadence and Maintenance</a></li>
+<li><a href="#operational-readiness-notes">Operational Readiness Notes</a></li>
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<p>Most analytics teams struggle with AI adoption because they use the same words differently. A shared <code>data analysis glossary</code> solves this by giving teams stable definitions for workflows, metrics, governance controls, and quality expectations. Foundational warehouse concepts—grain, dimensions, and conformed metrics—remain essential; <a href="https://supabase.com/docs">Supabase documentation</a> is a concise refresher for reviewers validating generated SQL.</p>
+<p>This <code>data analysis glossary</code> includes 44 practical terms used in AI-native analytics, grouped by domain so teams can align faster. It is designed for analysts, engineering partners, and decision makers who need consistent language before scaling new tooling. Teams that maintain this <strong>data analysis glossary</strong> quarterly report fewer metric-definition disputes in cross-functional reviews. Read this <code>data analysis glossary</code> with <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a> to tie terminology to execution.</p>
+<blockquote>
+<p><strong>Evaluation basis</strong>: We build and evaluate InfiniSynapse on production customer workflows. Governance, adoption, and security context is cited inline throughout this guide—not in a standalone reference list.</p>
+</blockquote>
+<h2 id="key-definition">Key Definition</h2>
+<p>Public-sector buyers should review <a href="https://cloud.google.com/bigquery/docs">Google BigQuery documentation</a> when procuring analytics agents.</p>
+<blockquote>
+<p><strong>Key Definition:</strong> A <code>data analysis glossary</code> is a curated set of shared terms that standardizes how teams define data workflows, quality checks, risk controls, and decision outputs.</p>
+</blockquote>
+<p>Production rollouts should align access and review controls with the <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/final">NIST SP 800-53 security controls</a>, especially when recurring queries touch live schemas.</p>
+<h2 id="how-to-use-this-glossary">How to Use This Glossary</h2>
+<p>Use this <strong>data analysis glossary</strong> as a living reference, not a one-time PDF. Each term should link to an owner, a review date, and the workflows where the definition actually applies.</p>
+<ol>
+<li>Add critical terms to onboarding for analysts and managers.</li>
+<li>Link each term to an owner and a review date.</li>
+<li>Review term definitions quarterly when workflows change.</li>
+<li>Use definitions as conflict-resolution baseline during reviews.</li>
+</ol>
+<p><strong>Category Map.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Term IDs</th>
+<th>Typical users</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workflow and architecture</td>
+<td>1-8</td>
+<td>Analytics leads, platform teams</td>
+</tr>
+<tr>
+<td>Data quality and measurement</td>
+<td>9-16</td>
+<td>Analysts, analytics engineers</td>
+</tr>
+<tr>
+<td>Reasoning and experimentation</td>
+<td>17-24</td>
+<td>Product analysts, data scientists</td>
+</tr>
+<tr>
+<td>Governance and risk</td>
+<td>25-32</td>
+<td>Governance, security, procurement</td>
+</tr>
+<tr>
+<td>Operations and reuse</td>
+<td>33-44</td>
+<td>Team leads, enablement owners</td>
+</tr>
+</tbody>
+</table>
+<h2 id="44-core-terms">44 Core Terms</h2>
+<p>Multi-source connector design should follow <a href="https://yale-lily.github.io/spider">Spider NL2SQL benchmark</a> so domain boundaries and metric contracts stay explicit as scope grows.</p>
+<p><strong>Workflow and Architecture Terms.</strong> 1. <strong>AI-native data analysis</strong><br />
+Definition: Analysis workflows where AI is embedded into framing, retrieval, validation, and communication loops. Why it matters: Defines a workflow model, not just a tool feature.</p>
+<ol>
+<li>
+<p><strong>Data agent</strong><br />
+Definition: A system that executes multi-step analytics tasks with memory, checks, and auditable intermediate states. Why it matters: Clarifies difference between chat interaction and workflow execution.</p>
+</li>
+<li>
+<p><strong>Agentic analytics</strong><br />
+Definition: Analytics operating style where autonomous or semi-autonomous agents handle repeatable analysis steps. Why it matters: Helps teams discuss automation scope realistically.</p>
+</li>
+<li>
+<p><strong>Task graph</strong><br />
+Definition: Ordered representation of workflow steps, dependencies, and validation checkpoints for a given analysis job. Why it matters: Improves traceability and failure diagnosis.</p>
+</li>
+<li>
+<p><strong>Workflow orchestration</strong><br />
+Definition: Coordinating tools, prompts, data sources, and checks into one repeatable execution path. Why it matters: Core requirement for scalable AI-assisted analytics.</p>
+</li>
+<li>
+<p><strong>Semantic layer</strong><br />
+Definition: Central definition layer for metrics and business entities across tools. Why it matters: Prevents conflicting KPI interpretations.</p>
+</li>
+<li>
+<p><strong>Metric contract</strong><br />
+Definition: Versioned specification of formula, grain, exclusions, and acceptable data sources for a metric. Why it matters: Reduces metric drift and trust erosion.</p>
+</li>
+<li>
+<p><strong>Analysis handoff package</strong><br />
+Definition: Structured transfer artifact with assumptions, code links, unresolved risks, and next actions. Why it matters: Supports continuity across people and shifts. <strong>Data Quality and Measurement Terms</strong></p>
+</li>
+<li>
+<p><strong>Data freshness window</strong><br />
+Definition: Maximum acceptable age of data used for analysis. Why it matters: Guards against stale insight errors.</p>
+</li>
+<li>
+<p><strong>Schema drift</strong><br />
+Definition: Unexpected structural change in source data that may break assumptions or pipelines. Why it matters: Common silent failure mode in automated workflows.</p>
+</li>
+<li>
+<p><strong>Null handling policy</strong><br />
+Definition: Rules for imputing, excluding, or flagging missing values by context. Why it matters: Missing-value choices can materially alter conclusions.</p>
+</li>
+<li>
+<p><strong>Join explosion</strong><br />
+Definition: Row multiplication caused by improper join keys or grain mismatch. Why it matters: Distorts aggregates and trend interpretation.</p>
+</li>
+<li>
+<p><strong>Reconciliation check</strong><br />
+Definition: Independent recomputation of the same metric through alternate logic or source paths. Why it matters: Strong confidence signal in quality reviews.</p>
+</li>
+<li>
+<p><strong>Benchmark dataset</strong><br />
+Definition: Trusted reference dataset used to compare or validate generated outputs. Why it matters: Enables objective quality scoring.</p>
+</li>
+<li>
+<p><strong>Tolerance band</strong><br />
+Definition: Allowed variance range between reruns or between systems before escalation. Why it matters: Converts "close enough" into policy.</p>
+</li>
+<li>
+<p><strong>Confidence statement</strong><br />
+Definition: Explicit declaration of certainty level, uncertainty drivers, and evidence quality. Why it matters: Improves decision risk awareness.</p>
+</li>
+</ol>
+<h3 id="reasoning-and-experimentation-terms">Reasoning and Experimentation Terms</h3>
+<ol>
+<li>
+<p><strong>Hypothesis matrix</strong><br />
+Definition: Structured list of hypotheses with supporting and contradicting evidence. Why it matters: Keeps diagnosis evidence-led rather than narrative-led.</p>
+</li>
+<li>
+<p><strong>Counterfactual baseline</strong><br />
+Definition: Estimated outcome for the same context if an intervention had not occurred. Why it matters: Essential for causal interpretation.</p>
+</li>
+<li>
+<p><strong>Variance decomposition</strong><br />
+Definition: Breaking total change into attributable components such as volume, mix, and price. Why it matters: Prioritizes actionable levers.</p>
+</li>
+<li>
+<p><strong>Sensitivity analysis</strong><br />
+Definition: Testing how output changes when key assumptions are varied. Why it matters: Reveals fragility in recommendations.</p>
+</li>
+<li>
+<p><strong>Leading indicator</strong><br />
+Definition: Metric that moves before a target business outcome changes. Why it matters: Supports proactive decisions.</p>
+</li>
+<li>
+<p><strong>Lagging indicator</strong><br />
+Definition: Metric that confirms an outcome after it has occurred. Why it matters: Useful for validation, not early warning.</p>
+</li>
+<li>
+<p><strong>Practical significance</strong><br />
+Definition: Real-world impact magnitude independent of statistical significance. Why it matters: Prevents overreacting to tiny but statistically significant effects.</p>
+</li>
+<li>
+<p><strong>Threats to validity</strong><br />
+Definition: Known factors that can weaken confidence in analytical conclusions. Why it matters: Forces disciplined caveat communication.</p>
+</li>
+</ol>
+<h3 id="governance-and-risk-terms">Governance and Risk Terms</h3>
+<ol>
+<li>
+<p><strong>Source allowlist</strong><br />
+Definition: Approved set of data sources that workflows are permitted to query. Why it matters: Limits unauthorized or low-trust data usage.</p>
+</li>
+<li>
+<p><strong>Role-based access control (RBAC)</strong><br />
+Definition: Permission model that restricts data and actions by user role. Why it matters: Baseline control for enterprise analytics.</p>
+</li>
+<li>
+<p><strong>Data perimeter</strong><br />
+Definition: Policy boundary defining where data can flow and be processed. Why it matters: Central to compliance and security architecture.</p>
+</li>
+<li>
+<p><strong>Audit trail</strong><br />
+Definition: Immutable record of prompts, transformations, outputs, and approvals. Why it matters: Required for investigation and compliance review.</p>
+</li>
+<li>
+<p><strong>Policy-as-code</strong><br />
+Definition: Governance rules encoded as executable checks in workflow systems. Why it matters: Increases consistency and reduces manual enforcement burden.</p>
+</li>
+<li>
+<p><strong>Escalation threshold</strong><br />
+Definition: Predefined limit that triggers manual review or workflow stop. Why it matters: Prevents low-confidence outputs from reaching decisions.</p>
+</li>
+<li>
+<p><strong>Data residency requirement</strong><br />
+Definition: Legal or contractual requirement for where data is stored and processed. Why it matters: A key procurement and architecture constraint.</p>
+</li>
+<li>
+<p><strong>Model risk tier</strong><br />
+Definition: Classification of workflow risk based on business impact and failure tolerance. Why it matters: Determines review rigor and control depth.</p>
+</li>
+</ol>
+<h3 id="operations-and-reuse-terms">Operations and Reuse Terms</h3>
+<ol>
+<li>
+<p><strong>Prompt template library</strong><br />
+Definition: Managed collection of reusable prompt patterns with ownership and versioning. Why it matters: Reduces repeated drafting work.</p>
+</li>
+<li>
+<p><strong>Template owner</strong><br />
+Definition: Person accountable for updates, review cycles, and quality metrics of a template. Why it matters: Avoids orphaned assets.</p>
+</li>
+<li>
+<p><strong>Versioned playbook</strong><br />
+Definition: Change-tracked workflow guidance linked to template versions and outcomes. Why it matters: Supports reproducibility and onboarding.</p>
+</li>
+<li>
+<p><strong>Rerun consistency</strong><br />
+Definition: Degree to which repeated executions produce equivalent outputs within policy tolerance. Why it matters: Core trust metric for AI-assisted systems.</p>
+</li>
+<li>
+<p><strong>Correction loop rate</strong><br />
+Definition: Percentage of outputs requiring major rework after review. Why it matters: Operational quality signal.</p>
+</li>
+<li>
+<p><strong>Reuse rate</strong><br />
+Definition: Share of analyses using approved reusable assets rather than ad-hoc workflows. Why it matters: Indicates process maturity.</p>
+</li>
+<li>
+<p><strong>Time to first draft</strong><br />
+Definition: Elapsed time from request intake to first reviewable output. Why it matters: Measures speed improvements from automation.</p>
+</li>
+<li>
+<p><strong>Postmortem learning loop</strong><br />
+Definition: Process for comparing expected vs observed outcomes and updating workflows. Why it matters: Drives compounding improvement.</p>
+</li>
+<li>
+<p><strong>Knowledge card</strong><br />
+Definition: Compact artifact storing domain assumptions, validated logic, and caveat patterns for reuse. Why it matters: Captures hard-won analyst context.</p>
+</li>
+<li>
+<p><strong>Decision log</strong><br />
+Definition: Record of recommendation, rationale, confidence, and business outcome. Why it matters: Enables accountability and retrospective analysis.</p>
+</li>
+<li>
+<p><strong>Operational readiness score</strong>  </p>
+</li>
+<li>
+<p><strong>Adoption debt</strong><br />
+Definition: Hidden cost created when teams deploy tools without process, ownership, or shared definitions. Why it matters: Explains why short-term speed often becomes long-term friction.</p>
+</li>
+</ol>
+<h2 id="practical-adoption-checklist">Practical Adoption Checklist</h2>
+<p>The <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework</a> adds dirty-schema realism that Spider-only leaderboards under-weight in production.</p>
+<p>|---|---|---|<br />
+| Publish glossary in internal docs and analytics repo | Analytics lead | Once + updates |<br />
+| Link term IDs in templates and scorecards | Enablement owner | Ongoing |<br />
+| Review top 20 high-risk terms for drift | Governance lead | Quarterly |<br />
+| Add glossary quiz to onboarding | Team manager | Each cohort |<br />
+| Track confusion incidents by term | Operations lead | Monthly |</p>
+<h2 id="how-teams-apply-this-glossary-in-daily-work">How Teams Apply This Glossary in Daily Work</h2>
+<h3 id="weekly-analytics-review">Weekly analytics review</h3>
+<p>In weekly review meetings, teams can open the <code>data analysis glossary</code> and quickly align on terms like "confidence statement," "tolerance band," and "reconciliation check." This reduces debate caused by hidden definition differences. The move from dashboard-first BI to augmented workflows—described in <a href="https://learn.microsoft.com/en-us/azure/architecture/data-guide/">Microsoft data architecture guidance</a>—frames how teams should evaluate tooling here. Adoption benchmarks in the <a href="https://bird-bench.github.io/">BIRD NL2SQL benchmark</a> track the same shift from pilot demos to governed analytics loops we see in customer rollouts. <a href="https://www.anthropic.com/research">Anthropic research</a> shows how warehouse-native semantic layers change NL2SQL grounding expectations for analyst-facing products. Operational maturity for analytics agents aligns with the <a href="https://www.iso.org/standard/81230.html">ISO/IEC 42001 AI management</a>, especially around monitoring, rollback, and ownership.</p>
+<p>The credential, preflight, and SQL-trace pattern above also applies to Agent—see <a href="/blog/data-agent-faq">What Is a Data Agent</a> for source-specific steps.</p>
+<h3 id="incident-triage">Incident triage</h3>
+<p>During incident triage, a <code>data analysis glossary</code> gives teams a shared language for escalation. Instead of saying "the result looks wrong," teams can specify whether they observed schema drift, a join explosion, or a confidence downgrade breach.</p>
+<h3 id="procurement-and-vendor-evaluation">Procurement and vendor evaluation</h3>
+<p>Procurement teams use the <code>data analysis glossary</code> to write precise capability requirements. This prevents ambiguous RFP language and improves scorecard consistency.</p>
+<h3 id="onboarding-new-analysts">Onboarding new analysts</h3>
+<h3 id="cross-functional-planning">Cross-functional planning</h3>
+<h2 id="governance-model-for-maintaining-a-shared-vocabulary">Governance Model for Maintaining a Shared Vocabulary</h2>
+<h3 id="ownership-structure">Ownership structure</h3>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Glossary owner</td>
+<td>Approves definition changes and resolves conflicts</td>
+</tr>
+<tr>
+<td>Domain contributors</td>
+<td>Propose updates for specific workflow categories</td>
+</tr>
+<tr>
+<td>Review board</td>
+<td>Validates governance and policy implications</td>
+</tr>
+<tr>
+<td>Enablement lead</td>
+<td>Integrates glossary updates into training assets</td>
+</tr>
+</tbody>
+</table>
+<h3 id="change-request-format">Change request format</h3>
+<ol>
+<li>Current definition and proposed revision. 2. Reason for change (policy shift, workflow evolution, recurring confusion). 3. Example of impact on templates or scorecards. 4. Approval owner and effective date. Regulated rollouts often anchor access reviews to <a href="https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/welcome.html">AWS Well-Architected Machine Learning Lens</a> when credentials, retention policies, and audit logs are in scope.</li>
+</ol>
+<h3 id="versioning-rules">Versioning rules</h3>
+<ul>
+<li>Minor version for clarifications. - Major version for meaning changes affecting workflow behavior. - Deprecated tags for terms being retired. Version discipline prevents silent semantic drift.</li>
+</ul>
+<h2 id="measurement-is-the-glossary-working-indicator-healthy-signal">Measurement: Is the Glossary Working? | Indicator | Healthy signal |</h2>
+<p>|---|---|<br />
+| Definition-related review disputes | Declining trend |<br />
+| Onboarding time to independent output | Shorter over time |<br />
+| Glossary references in templates | Increasing adoption |<br />
+| Procurement clarification loops | Fewer iterations |<br />
+| Governance incident root cause tied to term confusion | Near zero |</p>
+<h2 id="team-enablement-activities">Team Enablement Activities</h2>
+<ul>
+<li>Monthly 30-minute vocabulary calibration session. - Term-of-the-month deep dive tied to recent project outcomes. - Peer review checklist that references data analysis glossary IDs. - Quarterly cleanup of low-usage or duplicate definitions. These activities keep language quality connected to delivery quality.</li>
+</ul>
+<hr />
+<h2 id="operating-and-maintaining-the-glossary">Operating and Maintaining the Glossary</h2>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="why-does-a-analytics-matter-if-we-already-have-style-guides">Why does a analytics matter if we already have style guides?</h3>
+<p>Style guides shape writing quality, while a analytics aligns analytical logic, governance decisions, and operational controls. When this topic joins a multi-source stack, align connector scope and review gates using <a href="/blog/how-to-evaluate-ai-data-analyst">How to Evaluate an AI Data Analyst Tool</a>.</p>
+<h3 id="how-many-terms-should-it-include-at-launch">How many terms should it include at launch?</h3>
+<p>Start with 25-40 high-impact terms, then expand as your workflows and governance complexity grow.</p>
+<h3 id="who-should-own-a-analytics">Who should own a analytics?</h3>
+<p>Usually an analytics lead with input from platform, governance, and business stakeholders to keep definitions practical.</p>
+<h3 id="how-often-should-it-be-reviewed">How often should it be reviewed?</h3>
+<p>Revisit it quarterly and after any major schema, metric, or policy change, so definitions never drift from how the data is actually modeled and governed. Teams standardizing governance across sources often keep <a href="/blog/ai-data-analysis-prompts">AI Data Analysis Prompts</a> beside this runbook for Prompt handoffs.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>A maintained <code>data analysis glossary</code> is a practical trust layer for AI-native analytics. It reduces ambiguity, speeds onboarding, and improves cross-functional decisions because teams discuss evidence using the same definitions. Treat this <strong>data analysis glossary</strong> as operating infrastructure, not documentation hygiene, and review the shared <strong>data analysis glossary</strong> each quarter when schemas or KPI contracts change.</p>
+</article>
+<footer class="preview-meta">
+  Source: <code>099-ai-analytics-glossary/article.md</code> ·
+  Generated by <code>build-preview.py</code>
+</footer>
+</body>
+</html>

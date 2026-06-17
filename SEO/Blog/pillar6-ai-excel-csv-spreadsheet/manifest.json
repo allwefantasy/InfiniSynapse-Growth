@@ -1,0 +1,104 @@
+{
+  "pillar": "pillar6-ai-excel-csv-spreadsheet",
+  "pillar_name": "AI for Excel / CSV / Spreadsheet",
+  "article_count": 12,
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 6",
+  "articles": [
+    {
+      "id": "069",
+      "folder": "069-clean-excel-data-with-ai",
+      "slug": "clean-excel-data-with-ai",
+      "keyword": "ai to clean excel data",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/clean-excel-data-with-ai"
+    },
+    {
+      "id": "070",
+      "folder": "070-ai-alternative-to-pivot-table",
+      "slug": "ai-alternative-to-pivot-table",
+      "keyword": "pivot table data analysis",
+      "type": "guide",
+      "url": "https://infinisynapse.cn/blog/ai-alternative-to-pivot-table"
+    },
+    {
+      "id": "071",
+      "folder": "071-ai-vlookup-replacement",
+      "slug": "ai-vlookup-replacement",
+      "keyword": "vlookup for data analysis",
+      "type": "guide",
+      "url": "https://infinisynapse.cn/blog/ai-vlookup-replacement"
+    },
+    {
+      "id": "072",
+      "folder": "072-ai-excel-formula-generator",
+      "slug": "ai-excel-formula-generator",
+      "keyword": "data analysis excel template free download with formula",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/ai-excel-formula-generator"
+    },
+    {
+      "id": "073",
+      "folder": "073-analyze-csv-with-ai",
+      "slug": "analyze-csv-with-ai",
+      "keyword": "csv files for data analysis",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/analyze-csv-with-ai"
+    },
+    {
+      "id": "074",
+      "folder": "074-merge-multiple-csv-with-ai",
+      "slug": "merge-multiple-csv-with-ai",
+      "keyword": "csv files for data analysis",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/merge-multiple-csv-with-ai"
+    },
+    {
+      "id": "075",
+      "folder": "075-deduplicate-data-with-ai",
+      "slug": "deduplicate-data-with-ai",
+      "keyword": "ai-powered crm data cleaning deduplication platforms",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/deduplicate-data-with-ai"
+    },
+    {
+      "id": "076",
+      "folder": "076-ai-data-cleaning-techniques",
+      "slug": "ai-data-cleaning-techniques",
+      "keyword": "ai data cleaning techniques",
+      "type": "guide",
+      "url": "https://infinisynapse.cn/blog/ai-data-cleaning-techniques"
+    },
+    {
+      "id": "077",
+      "folder": "077-ai-excel-chart-generator",
+      "slug": "ai-excel-chart-generator",
+      "keyword": "ai data chart generator",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/ai-excel-chart-generator"
+    },
+    {
+      "id": "078",
+      "folder": "078-ai-financial-modeling-excel",
+      "slug": "ai-financial-modeling-excel",
+      "keyword": "microsoft excel data analysis and business modeling",
+      "type": "guide",
+      "url": "https://infinisynapse.cn/blog/ai-financial-modeling-excel"
+    },
+    {
+      "id": "079",
+      "folder": "079-excel-monthly-report-automation-ai",
+      "slug": "excel-monthly-report-automation-ai",
+      "keyword": "data analysis report template excel",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/excel-monthly-report-automation-ai"
+    },
+    {
+      "id": "080",
+      "folder": "080-ai-data-wrangling-tools",
+      "slug": "ai-data-wrangling-tools",
+      "keyword": "data wrangling platform",
+      "type": "listicle",
+      "url": "https://infinisynapse.cn/blog/ai-data-wrangling-tools"
+    }
+  ]
+}

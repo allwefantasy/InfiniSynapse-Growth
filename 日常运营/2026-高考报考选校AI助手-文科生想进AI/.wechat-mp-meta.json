@@ -1,0 +1,18 @@
+{
+  "appmsgid": "100002248",
+  "title": "「文科生想学 AI」如何择校？ AI 只用 4 分钟出了一份专业冲稳保报告",
+  "author": "InfiniSynapse",
+  "token": "542617956",
+  "last_saved": "2026-06-10 18:35",
+  "note": "新版编辑器标题栏也是 ProseMirror（.title-editor__input .ProseMirror = .ProseMirror[0]），正文是 .rich_media_content .ProseMirror = .ProseMirror[1]。paste 正文务必选正文 PM；图片用预嵌入 CDN 的 article-with-cdn.html 一次性 paste，避免占位符 DOM 替换污染标题。",
+  "cdn_urls": {
+    "images/01-信息填写.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUJR1hFdHnDRPennsDKVicLC5gKzoicxATm1mzFPMXxJNXLUpDqvneptJeaEyCYePLOCmq8jxp5T2EaWoDlSs5mbmtfM6ZBlVdkU/0?wx_fmt=png&from=appmsg",
+    "images/02-分析过程玩游戏.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXX0WEbZbPjxia7qGMFSBJia1Qhw6kARqMAqvxeSo3udEtAcRXsJxZeTtM5KRTEPAnrzEWZ679cMtBXgW2NsIjHf9CofKAUzFjY6c/0?wx_fmt=png&from=appmsg",
+    "images/03-出报告.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXzpk9OCsx0aeOqChWsIA7dJSicVw9d6gibRMhrBPxh1yKLGjMCEoqQ34OKJusYewpBic46I7PI7KnWHZ9zHfKCuc9K3qoKVSIHM4/0?wx_fmt=png&from=appmsg",
+    "images/04-看报告.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXU3osdpq0O0ID9jmfA4kN3dXbbRlgicSDAKMgqbZ8De4taQG8uLNxEnvDuKhmH4ibJpiaJhLtpGaOaficoz2SoZJu2rbsCGiaVZFnwg/0?wx_fmt=png&from=appmsg",
+    "images/05-冲稳保方案.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXV2vTK2e9z1iaEAXtocfXKJCFr9mB4Z6Zl3molpfgwOibOwvTqXRicbFEicjxZDkcTVK050jLcibfTkbpPmpuDnD6cGN2eBaJC30MVU/0?wx_fmt=png&from=appmsg",
+    "images/06-权威来源优先级.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWytzqpibdIibSYnQhk4JXgWAzIG876u12qAEial2Ntt5Q3dYpIgWVh2fBFgynBP4BdB0qLBfo0icn87vZLKDQD6SgEywVFRA8RvUY/0?wx_fmt=png&from=appmsg",
+    "images/07-执行清单.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXVBmVTHSOnbtTq3iah4SaaJ8gF2Smic9rVOscuN8nQZ1lVJAwYQwH17FicgaPnfKCHDJUcnSgFL171bXzDjx3GhhNUyQZ9Zdxeypk/0?wx_fmt=png&from=appmsg",
+    "images/08-产品界面.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXqickWTbt9VBZ6Ana2fhju1zRDOICClLxnQrAbEyYYBEyhDVbVmkFXvyFFG8NfL5yG1za0EPPfOZicH2iaLtIuVxgXYsW70icyt4E/0?wx_fmt=png&from=appmsg"
+  }
+}

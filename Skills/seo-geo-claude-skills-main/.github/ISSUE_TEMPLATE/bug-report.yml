@@ -1,0 +1,47 @@
+name: Bug Report
+description: Report a problem with a skill or command
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: input
+    id: skill
+    attributes:
+      label: Affected Skill or Command
+      description: Which skill or command has the issue?
+      placeholder: "e.g., keyword-research, /seo:audit-page"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly.
+      placeholder: "When I run X, I expect Y but get Z instead."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce this?
+      placeholder: |
+        1. Install via ...
+        2. Run command ...
+        3. See error ...
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Claude Code version, OS, and install method
+      placeholder: "Claude Code 1.0.33, macOS 15, installed via skills.sh"
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Error messages, screenshots, or other relevant details.
+    validations:
+      required: false

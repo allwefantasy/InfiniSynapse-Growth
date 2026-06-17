@@ -1,0 +1,87 @@
+{
+  "bilibili": {
+    "5月20日": {
+      "title": "根治AI说谎：每个结论都贴原文链接，假信息一眼识破｜InfiniSynapse",
+      "bv": "BV1Z2Lm6gEe3",
+      "url": "https://www.bilibili.com/video/BV1Z2Lm6gEe3/",
+      "video_file": "5月20日(1).mov",
+      "cover_file": "b站视频封面.jpg",
+      "cover_note": "846x476 横版 16:9，主标「根治AI说谎」+ 副标「所有结论可追溯原文验证真假」+ 配图为 InfiniSynapse 实际界面 + FDA 官网原文截图对照",
+      "category": "人工智能",
+      "creation_declaration": "内容无需标注",
+      "tags": [
+        "AI幻觉",
+        "InfiniSynapse",
+        "数据Agent",
+        "Agent",
+        "AI助手",
+        "原创",
+        "数据分析",
+        "智能体",
+        "RAG",
+        "效率工具"
+      ],
+      "description_has_infinisynapse_link": true,
+      "infinisynapse_link": "https://app.infinisynapse.cn/tasks",
+      "submitted_at": "2026-05-20 18:45",
+      "submit_status": "稿件投递成功（审核中）",
+      "notes": "本次投稿期间 daemon 浏览器被用户主动使用 Reddit 引发 tab drift 多次 + daemon 重启一次；最终在用户停手后一气呵成完成；按 SKILL 强制规则统一选『内容无需标注』（不同于此前 5月18日/5月13日 用过『含AI生成内容』）"
+    },
+    "5月18日": {
+      "title": "AI+Excel：再也不用吃数据分析的苦了｜InfiniSynapse 一句话生成专业报告",
+      "bv": "BV1g3Lu6DEVV",
+      "url": "https://www.bilibili.com/video/BV1g3Lu6DEVV/",
+      "video_file": "5月18日.mov",
+      "cover_file": "5月18日-b站封面.jpg",
+      "cover_note": "846x476 横版 16:9，主标 AI+Excel + 副标「再也不用吃数据分析的苦了」+ InfiniSynapse 落地页 + 数据看板示例",
+      "category": "人工智能",
+      "creation_declaration": "含AI生成内容",
+      "tags": [
+        "数据分析",
+        "InfiniSynapse",
+        "Excel",
+        "数据库",
+        "自动化办公",
+        "Agent",
+        "智能体",
+        "效率工具",
+        "AI教程",
+        "原创"
+      ],
+      "description_has_infinisynapse_link": true,
+      "infinisynapse_link": "https://app.infinisynapse.cn/tasks",
+      "submitted_at": "2026-05-19 10:55",
+      "submit_status": "稿件投递成功（审核中）"
+    },
+    "5月13日成品视频": {
+      "title": "解放打工人：手机发消息，AI 自动清洗脏数据 + 出可视化看板",
+      "bv": "BV1bU596gEBn",
+      "url": "https://www.bilibili.com/video/BV1bU596gEBn/",
+      "video_file": "5月13日成品视频.mov",
+      "cover_file": "5月13日b站封面.jpg",
+      "cover_file_history": ["5月13日成品视频-封面.jpg (1080x1920 竖图，已弃)", "5.13-b站封面.jpg (943x530，含 typo 'oenclaw'，已弃)"],
+      "cover_note": "943x530 横版，4:3/16:9 双比例同步无明显失真；标题「解放打工人 · 手机发消息自动做表格」+ 三段标签「可视化 / 微信+openclaw / 复杂计算」",
+      "category": "人工智能",
+      "creation_declaration": "含AI生成内容",
+      "tags": [
+        "数据分析",
+        "数据可视化",
+        "Excel",
+        "自动化办公",
+        "Agent",
+        "微信",
+        "原创",
+        "智能体",
+        "AI助手",
+        "效率工具"
+      ],
+      "tags_rejected": ["openclaw", "AI", "大模型"],
+      "submitted_at": "2026-05-14 16:01",
+      "draft_id_used": "3453113",
+      "submit_status": "稿件投递成功（审核中）",
+      "description_has_infinisynapse_link": true,
+      "infinisynapse_link": "https://app.infinisynapse.cn/tasks",
+      "edited_at": "2026-05-14 16:23（替换封面为 5月13日b站封面.jpg）"
+    }
+  }
+}

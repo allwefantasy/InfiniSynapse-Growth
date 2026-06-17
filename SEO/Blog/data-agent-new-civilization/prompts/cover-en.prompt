@@ -1,0 +1,28 @@
+# 英文版 article.en.md 的 cover-en.png 的 prompt
+# 用法：bash SEO/Blog/scripts/generate-cover-image-ai.sh \
+#         2026-05-19-data-agent-new-civilization \
+#         --prompt-file SEO/Blog/2026-05-19-data-agent-new-civilization/prompts/cover-en.prompt \
+#         --output-name cover-en.png --force
+#
+# 设计意图：英文版核心论点是 "Data Agent is the first spaceship" + "fact substrate
+# for AI's own decisions"。沿用飞船 + 数据矩阵的主隐喻，但视觉上额外引入"光的轨迹层"
+# 暗示 "audit trail / evidence chain"——飞船下方的 trail 不是单一光柱，而是分叉成多条
+# 细线连接到地面的数据点（隐喻：每个决策都来自可追溯的多源事实）。
+#
+# v1 → v2 修订：v1 写了 "specific bright data nodes" + "connecting lines"，imagen-4
+# 把这两个词合起来理解成"网格 + 标签"，画了一堆假字符。v2 改用 "loose round dots only"，
+# 显式禁止 horizontal lines / vertical bars / column-like marks / rectangular grid。
+#
+# 规则：英文 only；图里不能有任何文字（包括伪文字 / 类字符笔画）。
+
+A cinematic dark editorial cover image for a tech blog about Data Agents as the first spaceship of a new AI civilization, with the additional theme of "auditable evidence trail."
+
+Subject: a single sleek minimalist spaceship silhouette launching upward from a vast field of glowing data points. Below the ship, the propulsion trail does not simply rise as one bright column — instead, several thin luminous threads gracefully diverge from the ship's base downward and fan out across the data field, suggesting that the ship is being lifted by many traceable threads of light. Each thread terminates simply at a small luminous dot. The data field is composed solely of small bright dots scattered like distant stars on a dark plane — there are NO long horizontal lines, NO vertical bars, NO column-like marks, NO rectangular grid cells, only loose round dots. No people. No clip art.
+
+Strict no-text rule: there must be ABSOLUTELY no text, no letters, no numbers, no glyphs, no symbols, no characters, no logos, no watermarks, no signatures, no UI labels, no captions, no faux-handwriting, no scribbles, no fake calligraphy, no rows of character-like marks, no row-of-typography artifacts, no Chinese characters, no Japanese characters, no Korean characters, no Arabic, no Cyrillic. The data field must read as abstract dots and lines only — never as a page of text or a spreadsheet of words.
+
+Composition: 16:9, the spaceship is small and located in the right third with its long luminous trail and threads going downward to the data field; the left two thirds are quiet negative space (for headline overlay) filled only with the faint glowing dot-and-line field receding into deep space.
+
+Color palette: deep navy blue (#0a0e1a) for the night sky, teal-cyan accent (#00bfa6) for the brightest threads, spaceship trail and brightest data points, subtle warm amber (#f0c674) for distant stars and the halo behind the ship, pale neutral grey (#e8edf3) only for the faintest grid lines.
+
+Style: editorial, technical, minimalist, cinematic depth of field, soft volumetric glow, fine film grain, sharp vector-like silhouette, no painterly textures. Avoid stock-photo cliches, avoid sci-fi movie poster look, avoid lens flare overload, avoid any text or text-like noise of any kind.

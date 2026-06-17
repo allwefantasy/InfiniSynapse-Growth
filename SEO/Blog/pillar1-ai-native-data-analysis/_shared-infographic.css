@@ -1,0 +1,25 @@
+* { box-sizing: border-box; }
+body {
+  width: 1200px; height: 680px; margin: 0; padding: 40px 48px;
+  background: #0c1117; color: #e8edf3;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+h2 { margin: 0 0 20px; font-size: 28px; font-weight: 700; color: #e8edf3; }
+.sub { font-size: 14px; color: #6e7c8c; margin-bottom: 24px; letter-spacing: 0.04em; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { border: 1px solid #1d2630; padding: 12px 14px; text-align: left; vertical-align: top; }
+th { background: rgba(59,168,116,0.12); color: #b5edcb; font-weight: 600; }
+td { background: rgba(255,255,255,0.02); color: #c5cdd6; }
+.accent { color: #3ba874; font-weight: 600; }
+.muted { color: #6e7c8c; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; height: calc(100% - 60px); }
+.card { background: rgba(255,255,255,0.03); border: 1px solid #1d2630; border-radius: 8px; padding: 20px; }
+.card h3 { margin: 0 0 12px; font-size: 18px; color: #3ba874; }
+.flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.node { padding: 10px 16px; background: rgba(59,168,116,0.15); border: 1px solid rgba(59,168,116,0.45); border-radius: 6px; font-size: 14px; color: #b5edcb; }
+.arrow { color: #3ba874; font-size: 20px; }
+.pill { display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 12px; margin: 2px; }
+.pill-yes { background: rgba(59,168,116,0.25); color: #b5edcb; }
+.pill-partial { background: rgba(240,198,116,0.2); color: #f0c674; }
+.pill-no { background: rgba(255,255,255,0.06); color: #6e7c8c; }

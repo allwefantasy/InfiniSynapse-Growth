@@ -1,0 +1,1630 @@
+{
+  "generated_by": "SEO/Blog/build-frontend-handoff.py",
+  "article_count": 100,
+  "preview_count": 100,
+  "image_count": 310,
+  "pillars": 8,
+  "ui_module_counts": {
+    "tool-listicle": 8,
+    "how-to-steps": 21,
+    "alternatives-matrix": 7,
+    "versus-scorecard": 16,
+    "product-review": 1,
+    "long-form-guide": 26,
+    "definition-box": 2,
+    "glossary-terms": 2,
+    "copy-block": 1,
+    "use-case-persona": 13,
+    "prompt-resource": 2,
+    "faq-hub": 1
+  },
+  "filter_category_counts": {
+    "tools_reviews": 9,
+    "deep_dive": 3,
+    "comparisons": 23,
+    "knowledge": 45,
+    "tutorials": 20
+  },
+  "articles": [
+    {
+      "id": "001",
+      "folder": "001-ai-for-data-analysis",
+      "slug": "ai-for-data-analysis",
+      "title": "AI for Data Analysis: The Complete 2026 Guide",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/001-ai-for-data-analysis",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "002",
+      "folder": "002-data-agent-manifesto",
+      "slug": "data-agent-manifesto",
+      "title": "The Data Agent Manifesto: Why the First Ship Launches Here",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/002-data-agent-manifesto",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "003",
+      "folder": "003-what-is-a-data-agent",
+      "slug": "what-is-a-data-agent",
+      "title": "What Is a Data Agent? Definition, Architecture, and Examples",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/003-what-is-a-data-agent",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "004",
+      "folder": "004-ai-native-data-platform",
+      "slug": "ai-native-data-platform",
+      "title": "What Is an AI-Native Data Platform? (2026 Buyer's Guide)",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/004-ai-native-data-platform",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "005",
+      "folder": "005-best-agentic-analytics",
+      "slug": "best-agentic-analytics",
+      "title": "Best Agentic Analytics Tools for Data-Driven Insights (2026)",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/005-best-agentic-analytics",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "006",
+      "folder": "006-autonomous-data-agent",
+      "slug": "autonomous-data-agent",
+      "title": "What Is an Autonomous Data Agent?",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/006-autonomous-data-agent",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "007",
+      "folder": "007-ai-data-analyst",
+      "slug": "ai-data-analyst",
+      "title": "AI Data Analyst: Role, Tools, and Workflow in 2026",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/007-ai-data-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "008",
+      "folder": "008-ai-data-analyst-job-description",
+      "slug": "ai-data-analyst-job-description",
+      "title": "AI Data Analyst Job Description: 2026 Template + Skills Matrix",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/008-ai-data-analyst-job-description",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "009",
+      "folder": "009-data-agent-memory",
+      "slug": "data-agent-memory",
+      "title": "AI Agent Memory for Data: Why Distillation Beats Chat History",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/009-data-agent-memory",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "010",
+      "folder": "010-fabric-data-agent-vs-copilot",
+      "slug": "fabric-data-agent-vs-copilot",
+      "title": "Fabric Data Agent vs Copilot: Which Fits Your Microsoft Stack?",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/010-fabric-data-agent-vs-copilot",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "011",
+      "folder": "011-ai-native-vs-augmented-analytics",
+      "slug": "ai-native-vs-augmented-analytics",
+      "title": "AI-Native vs Augmented Analytics: What's the Real Difference?",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/011-ai-native-vs-augmented-analytics",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "012",
+      "folder": "012-ai-data-analysis",
+      "slug": "ai-data-analysis",
+      "title": "AI Data Analysis: Methods, Tools, and Best Practices (2026)",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/012-ai-data-analysis",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "013",
+      "folder": "013-data-agent-glossary",
+      "slug": "data-agent-glossary",
+      "title": "Data Agent Glossary: 15 Terms Every Analytics Team Should Know",
+      "pillar": "pillar1-ai-native-data-analysis",
+      "dest": "content/pillar1-ai-native-data-analysis/013-data-agent-glossary",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "014",
+      "folder": "014-code-agent-vs-data-agent",
+      "slug": "code-agent-vs-data-agent",
+      "title": "Code Interpreter Data Analysis: Code Agent vs Data Agent (2026)",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/014-code-agent-vs-data-agent",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "015",
+      "folder": "015-data-agent-architecture",
+      "slug": "data-agent-architecture",
+      "title": "Data Agent Architecture: Layers, Memory, and Production Design (2026)",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/015-data-agent-architecture",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "016",
+      "folder": "016-ai-data-analyst-vs-bi-tools",
+      "slug": "ai-data-analyst-vs-bi-tools",
+      "title": "AI Data Analyst vs BI Tools: Governance, SQL, and Self-Service (2026)",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/016-ai-data-analyst-vs-bi-tools",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "017",
+      "folder": "017-data-agent-vs-llm-chatbot",
+      "slug": "data-agent-vs-llm-chatbot",
+      "title": "Data Agent vs LLM Chatbot: When Conversational AI Is Not Enough (2026)",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/017-data-agent-vs-llm-chatbot",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "018",
+      "folder": "018-chatgpt-data-analysis-limitations",
+      "slug": "chatgpt-data-analysis-limitations",
+      "title": "ChatGPT for Data Analysis Limitations: What Breaks at Enterprise Scale (2026)",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/018-chatgpt-data-analysis-limitations",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "019",
+      "folder": "019-code-interpreter-vs-data-agent",
+      "slug": "code-interpreter-vs-data-agent",
+      "title": "Code Interpreter Data Analysis vs Data Agent (2026)",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/019-code-interpreter-vs-data-agent",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "020",
+      "folder": "020-databricks-genie-vs-data-agent",
+      "slug": "databricks-genie-vs-data-agent",
+      "title": "Databricks Assistant vs Genie vs Data Agent (2026)",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/020-databricks-genie-vs-data-agent",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "021",
+      "folder": "021-ai-data-analyst-vs-human-analyst",
+      "slug": "ai-data-analyst-vs-human-analyst",
+      "title": "AI Data Analyst vs Human Analyst: Roles, ROI, and Handoff in 2026",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/021-ai-data-analyst-vs-human-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "022",
+      "folder": "022-governance-for-ai-data-analysis",
+      "slug": "governance-for-ai-data-analysis",
+      "title": "AI Data Governance: Framework, Scorecard, and Checklist (2026)",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/022-governance-for-ai-data-analysis",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "023",
+      "folder": "023-ai-data-analyst-vs-traditional-bi-analyst",
+      "slug": "ai-data-analyst-vs-traditional-bi-analyst",
+      "title": "Business Intelligence vs Data Science: AI Analyst vs BI (2026)",
+      "pillar": "pillar2-data-agent-vs-alternatives",
+      "dest": "content/pillar2-data-agent-vs-alternatives/023-ai-data-analyst-vs-traditional-bi-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "024",
+      "folder": "024-best-ai-tools-for-data-analysis",
+      "slug": "best-ai-tools-for-data-analysis",
+      "title": "Best AI Tools for Data Analysis in 2026: Top Picks",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/024-best-ai-tools-for-data-analysis",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "025",
+      "folder": "025-ai-data-analysis-tools",
+      "slug": "ai-data-analysis-tools",
+      "title": "AI Data Analysis Tools: 10 Best Options for 2026",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/025-ai-data-analysis-tools",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "026",
+      "folder": "026-sql-data-analysis-tools",
+      "slug": "sql-data-analysis-tools",
+      "title": "SQL Data Analysis Tools: Best AI Options for 2026",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/026-sql-data-analysis-tools",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "027",
+      "folder": "027-ai-excel-data-analysis-tools",
+      "slug": "ai-excel-data-analysis-tools",
+      "title": "Best AI Tools for Excel Data Analysis in 2026",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/027-ai-excel-data-analysis-tools",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "028",
+      "folder": "028-ai-data-visualization-tools",
+      "slug": "ai-data-visualization-tools",
+      "title": "Best AI Data Visualization Tools in 2026",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/028-ai-data-visualization-tools",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "029",
+      "folder": "029-self-hosted-ai-data-analyst",
+      "slug": "self-hosted-ai-data-analyst",
+      "title": "Hosted vs Self-Hosted Data Agents: Deployment Guide (2026)",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/029-self-hosted-ai-data-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "030",
+      "folder": "030-chatgpt-data-analysis-alternatives",
+      "slug": "chatgpt-data-analysis-alternatives",
+      "title": "7 Alternatives to ChatGPT for Data Analysis (2026)",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/030-chatgpt-data-analysis-alternatives",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "031",
+      "folder": "031-julius-ai-alternatives",
+      "slug": "julius-ai-alternatives",
+      "title": "Best Julius AI Alternatives for Spreadsheet Analysis (2026)",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/031-julius-ai-alternatives",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "032",
+      "folder": "032-thoughtspot-alternatives",
+      "slug": "thoughtspot-alternatives",
+      "title": "ThoughtSpot Alternatives: Best AI Data Visualization Tools (2026)",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/032-thoughtspot-alternatives",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "033",
+      "folder": "033-databricks-genie-alternatives",
+      "slug": "databricks-genie-alternatives",
+      "title": "Databricks Assistant vs Genie: 6 Alternatives (2026)",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/033-databricks-genie-alternatives",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "034",
+      "folder": "034-tableau-pulse-alternatives",
+      "slug": "tableau-pulse-alternatives",
+      "title": "Tableau Pulse Alternatives in 2026: 7 Options for AI Analytics Teams",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/034-tableau-pulse-alternatives",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "035",
+      "folder": "035-perplexity-data-analysis-alternatives",
+      "slug": "perplexity-data-analysis-alternatives",
+      "title": "Perplexity Data Analysis Alternatives in 2026: Research AI vs Analytics Tools",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/035-perplexity-data-analysis-alternatives",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "036",
+      "folder": "036-code-interpreter-alternatives",
+      "slug": "code-interpreter-alternatives",
+      "title": "Enterprise Alternatives to ChatGPT Code Interpreter for Data Analysis",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/036-code-interpreter-alternatives",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "037",
+      "folder": "037-infinisynapse-vs-julius-ai",
+      "slug": "infinisynapse-vs-julius-ai",
+      "title": "InfiniSynapse vs Julius AI for Data Analysis (2026): Five Pillars",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/037-infinisynapse-vs-julius-ai",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "038",
+      "folder": "038-infinisynapse-vs-chatgpt",
+      "slug": "infinisynapse-vs-chatgpt",
+      "title": "InfiniSynapse vs ChatGPT for Data Analysis in 2026",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/038-infinisynapse-vs-chatgpt",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "039",
+      "folder": "039-infinisynapse-vs-databricks-genie",
+      "slug": "infinisynapse-vs-databricks-genie",
+      "title": "InfiniSynapse vs Databricks Genie: Lakehouse AI Comparison for 2026",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/039-infinisynapse-vs-databricks-genie",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "040",
+      "folder": "040-julius-ai-vs-chatgpt",
+      "slug": "julius-ai-vs-chatgpt",
+      "title": "Julius AI vs ChatGPT for Data and File Analysis: 2026 Practical Guide",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/040-julius-ai-vs-chatgpt",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "041",
+      "folder": "041-thoughtspot-vs-databricks-genie",
+      "slug": "thoughtspot-vs-databricks-genie",
+      "title": "ThoughtSpot vs Databricks Genie: Neutral AI Analytics Comparison (2026)",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/041-thoughtspot-vs-databricks-genie",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "042",
+      "folder": "042-infinisynapse-vs-tableau",
+      "slug": "infinisynapse-vs-tableau",
+      "title": "InfiniSynapse vs Tableau AI/Pulse: Which Is Better for Analysis Execution?",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/042-infinisynapse-vs-tableau",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "043",
+      "folder": "043-infinisynapse-review",
+      "slug": "infinisynapse-review",
+      "title": "InfiniSynapse Review (2026): Honest Scorecard, Pros, Cons, and Buyer Fit",
+      "pillar": "pillar3-ai-analyst-tools",
+      "dest": "content/pillar3-ai-analyst-tools/043-infinisynapse-review",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 4,
+      "has_preview": true
+    },
+    {
+      "id": "044",
+      "folder": "044-connect-supabase-to-ai-data-analyst",
+      "slug": "connect-supabase-to-ai-data-analyst",
+      "title": "SQL for Data Analysis: Supabase to an AI Data Analyst in 2026",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/044-connect-supabase-to-ai-data-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "045",
+      "folder": "045-connect-postgres-to-ai-data-analyst",
+      "slug": "connect-postgres-to-ai-data-analyst",
+      "title": "Connect Postgres to AI Data Analyst: Setup Guide (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/045-connect-postgres-to-ai-data-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "046",
+      "folder": "046-connect-mysql-to-ai-data-analyst",
+      "slug": "connect-mysql-to-ai-data-analyst",
+      "title": "Connect MySQL to AI Data Analyst: Setup Guide (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/046-connect-mysql-to-ai-data-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "047",
+      "folder": "047-connect-snowflake-to-ai-analyst",
+      "slug": "connect-snowflake-to-ai-analyst",
+      "title": "Connect Snowflake to AI Analyst: Setup Guide (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/047-connect-snowflake-to-ai-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "048",
+      "folder": "048-connect-bigquery-to-ai-data-analyst",
+      "slug": "connect-bigquery-to-ai-data-analyst",
+      "title": "Connect BigQuery to AI Data Analyst: Setup Guide (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/048-connect-bigquery-to-ai-data-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "049",
+      "folder": "049-connect-databricks-to-ai-analyst",
+      "slug": "connect-databricks-to-ai-analyst",
+      "title": "Databricks Data Analytics Platform: Connect to an AI Data Analyst (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/049-connect-databricks-to-ai-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "050",
+      "folder": "050-connect-mongodb-to-ai-data-analyst",
+      "slug": "connect-mongodb-to-ai-data-analyst",
+      "title": "AI Database Agent for Data Visualization: MongoDB Connector Guide (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/050-connect-mongodb-to-ai-data-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "051",
+      "folder": "051-ai-data-analysis-google-sheets",
+      "slug": "ai-data-analysis-google-sheets",
+      "title": "AI Data Analysis for Google Sheets: Connector Setup (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/051-ai-data-analysis-google-sheets",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "052",
+      "folder": "052-ai-data-analysis-csv-files",
+      "slug": "ai-data-analysis-csv-files",
+      "title": "AI Data Analysis for CSV Files: Connector Playbook (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/052-ai-data-analysis-csv-files",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "053",
+      "folder": "053-ai-data-analysis-airtable",
+      "slug": "ai-data-analysis-airtable",
+      "title": "Airtable Data Analysis: Practical Workflow Guide (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/053-ai-data-analysis-airtable",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "054",
+      "folder": "054-ai-analysis-notion-database",
+      "slug": "ai-analysis-notion-database",
+      "title": "AI Database Agent for Data Visualization: Notion Database Guide (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/054-ai-analysis-notion-database",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "055",
+      "folder": "055-connect-clickhouse-to-ai-analyst",
+      "slug": "connect-clickhouse-to-ai-analyst",
+      "title": "SQL for Data Analysis with ClickHouse: Connect to an AI Data Analyst (2026)",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/055-connect-clickhouse-to-ai-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "056",
+      "folder": "056-connect-redshift-to-ai-data-analyst",
+      "slug": "connect-redshift-to-ai-data-analyst",
+      "title": "Amazon Redshift (2026): Data Integration Platforms Supporting Snowflake Bigquery Redshift",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/056-connect-redshift-to-ai-data-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "057",
+      "folder": "057-analyze-stripe-data-with-ai",
+      "slug": "analyze-stripe-data-with-ai",
+      "title": "Analyze Stripe Data with AI in 2026: Financial Services Data Analysis Workflows",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/057-analyze-stripe-data-with-ai",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "058",
+      "folder": "058-analyze-shopify-data-with-ai",
+      "slug": "analyze-shopify-data-with-ai",
+      "title": "Analyze Shopify Data with AI in 2026: Ecommerce Data Analysis Workflows",
+      "pillar": "pillar4-data-source-connectors",
+      "dest": "content/pillar4-data-source-connectors/058-analyze-shopify-data-with-ai",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "059",
+      "folder": "059-natural-language-to-sql",
+      "slug": "natural-language-to-sql",
+      "title": "Integrate Natural Language Data Analysis with SQL and Python (2026): Production Playbook",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/059-natural-language-to-sql",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "060",
+      "folder": "060-text-to-sql-llm",
+      "slug": "text-to-sql-llm",
+      "title": "Text to SQL LLM: Reliable Design Patterns for Visualization (2026)",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/060-text-to-sql-llm",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "061",
+      "folder": "061-nl2sql-benchmark-spider-bird",
+      "slug": "nl2sql-benchmark-spider-bird",
+      "title": "NL2SQL Benchmark Spider BIRD: What Matters in Production (2026)",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/061-nl2sql-benchmark-spider-bird",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "062",
+      "folder": "062-ai-sql-generator",
+      "slug": "ai-sql-generator",
+      "title": "AI SQL Generator: Categories, Scorecard, and Buyer Guide (2026)",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/062-ai-sql-generator",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "063",
+      "folder": "063-llm-sql-generation-architecture",
+      "slug": "llm-sql-generation-architecture",
+      "title": "AI-Assisted Query Generation SQL Python Social Science Data Analysis (2026)",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/063-llm-sql-generation-architecture",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "064",
+      "folder": "064-sql-rag-vs-semantic-layer",
+      "slug": "sql-rag-vs-semantic-layer",
+      "title": "Ai-Powered Semantic Layers for Enterprise Data Strategy: Strategy Guide",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/064-sql-rag-vs-semantic-layer",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "065",
+      "folder": "065-text-to-sql-fine-tuning",
+      "slug": "text-to-sql-fine-tuning",
+      "title": "Generative AI Data Services for Fine Tuning: Practical Guide for High-Value Domains",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/065-text-to-sql-fine-tuning",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "066",
+      "folder": "066-sql-agent-vs-text-to-sql",
+      "slug": "sql-agent-vs-text-to-sql",
+      "title": "Text to SQL Agent for Data Visualization: Which Model Wins in Production?",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/066-sql-agent-vs-text-to-sql",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "067",
+      "folder": "067-nl2sql-production-failure-modes",
+      "slug": "nl2sql-production-failure-modes",
+      "title": "Databricks Genie Natural Language to SQL: Failure Modes and Mitigation Playbook",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/067-nl2sql-production-failure-modes",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "068",
+      "folder": "068-dialect-aware-sql-generation",
+      "slug": "dialect-aware-sql-generation",
+      "title": "AI-Assisted Query Generation SQL Python Social Science Data Analysis (2026)",
+      "pillar": "pillar5-nl2sql-text-to-sql",
+      "dest": "content/pillar5-nl2sql-text-to-sql/068-dialect-aware-sql-generation",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "069",
+      "folder": "069-clean-excel-data-with-ai",
+      "slug": "clean-excel-data-with-ai",
+      "title": "AI to Clean Excel Data (2026): Practical Playbook for Analysts",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/069-clean-excel-data-with-ai",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "070",
+      "folder": "070-ai-alternative-to-pivot-table",
+      "slug": "ai-alternative-to-pivot-table",
+      "title": "AI Alternative to Pivot Table: Faster Spreadsheet Analysis (2026)",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/070-ai-alternative-to-pivot-table",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "071",
+      "folder": "071-ai-vlookup-replacement",
+      "slug": "ai-vlookup-replacement",
+      "title": "AI VLOOKUP Replacement: Modern Join and Lookup Workflows (2026)",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/071-ai-vlookup-replacement",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "072",
+      "folder": "072-ai-excel-formula-generator",
+      "slug": "ai-excel-formula-generator",
+      "title": "AI Excel Formula Generator: Reliable Templates and Workflows (2026)",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/072-ai-excel-formula-generator",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "073",
+      "folder": "073-analyze-csv-with-ai",
+      "slug": "analyze-csv-with-ai",
+      "title": "Analyze CSV With AI: From Raw Export to Decision-Ready Insights (2026)",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/073-analyze-csv-with-ai",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "074",
+      "folder": "074-merge-multiple-csv-with-ai",
+      "slug": "merge-multiple-csv-with-ai",
+      "title": "CSV Files for Data Analysis: Repeatable Pipeline for Monthly Report",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/074-merge-multiple-csv-with-ai",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "075",
+      "folder": "075-deduplicate-data-with-ai",
+      "slug": "deduplicate-data-with-ai",
+      "title": "AI-Powered CRM Data Cleaning Deduplication Platforms (2026)",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/075-deduplicate-data-with-ai",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "076",
+      "folder": "076-ai-data-cleaning-techniques",
+      "slug": "ai-data-cleaning-techniques",
+      "title": "AI Data Cleaning Techniques: The Operating Manual for Spreadsheet Teams",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/076-ai-data-cleaning-techniques",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "077",
+      "folder": "077-ai-excel-chart-generator",
+      "slug": "ai-excel-chart-generator",
+      "title": "AI Data Chart Generator: Produce Decision-Ready Visuals Without Rework",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/077-ai-excel-chart-generator",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "078",
+      "folder": "078-ai-financial-modeling-excel",
+      "slug": "ai-financial-modeling-excel",
+      "title": "Microsoft Excel Data Analysis and Business Modeling (2026)",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/078-ai-financial-modeling-excel",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "079",
+      "folder": "079-excel-monthly-report-automation-ai",
+      "slug": "excel-monthly-report-automation-ai",
+      "title": "Data Analysis Report Template Excel: End-to-End Team Playbook",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/079-excel-monthly-report-automation-ai",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "080",
+      "folder": "080-ai-data-wrangling-tools",
+      "slug": "ai-data-wrangling-tools",
+      "title": "Data Wrangling Platform",
+      "pillar": "pillar6-ai-excel-csv-spreadsheet",
+      "dest": "content/pillar6-ai-excel-csv-spreadsheet/080-ai-data-wrangling-tools",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "081",
+      "folder": "081-ai-tools-for-data-analysts",
+      "slug": "ai-tools-for-data-analysts",
+      "title": "AI Tools for Data Analysts: Stack Guide and Evaluation Framework (2026)",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/081-ai-tools-for-data-analysts",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "082",
+      "folder": "082-ai-data-analysis-product-managers",
+      "slug": "ai-data-analysis-product-managers",
+      "title": "AI Data Analysis for Product Managers: Metrics Without SQL Overhead (2026)",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/082-ai-data-analysis-product-managers",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "083",
+      "folder": "083-ai-data-analysis-finance-teams",
+      "slug": "ai-data-analysis-finance-teams",
+      "title": "AI Data Analysis for Finance Teams: Close, FP&A, and Variance (2026)",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/083-ai-data-analysis-finance-teams",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "084",
+      "folder": "084-ai-data-analysis-marketing",
+      "slug": "ai-data-analysis-marketing",
+      "title": "AI Data Analysis for Marketing: Campaign and Funnel Analytics (2026)",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/084-ai-data-analysis-marketing",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "085",
+      "folder": "085-ai-data-analysis-operations",
+      "slug": "ai-data-analysis-operations",
+      "title": "AI in Data Center Operations: KPIs, Alerts, and Execution (2026",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/085-ai-data-analysis-operations",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "086",
+      "folder": "086-ai-for-data-engineers",
+      "slug": "ai-for-data-engineers",
+      "title": "AI for Data Engineers: Pipelines, Quality, and Agentic Analytics (2026)",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/086-ai-for-data-engineers",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "087",
+      "folder": "087-ai-data-strategy-cto",
+      "slug": "ai-data-strategy-cto",
+      "title": "AI-Powered Semantic Layers for Enterprise Data Strategy (2026)",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/087-ai-data-strategy-cto",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "088",
+      "folder": "088-ai-data-analysis-founders",
+      "slug": "ai-data-analysis-founders",
+      "title": "Best AI Tools for Data Analysis: Fast Insights Without a Full Data Team",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/088-ai-data-analysis-founders",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "089",
+      "folder": "089-ai-data-analysis-ecommerce",
+      "slug": "ai-data-analysis-ecommerce",
+      "title": "AI Data Analysis for Ecommerce: Revenue, Cohort, and Merchandising (2026)",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/089-ai-data-analysis-ecommerce",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "090",
+      "folder": "090-ai-data-analysis-saas",
+      "slug": "ai-data-analysis-saas",
+      "title": "AI Data Analysis for SaaS: Churn, Expansion, and PLG Metrics (2026)",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/090-ai-data-analysis-saas",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "091",
+      "folder": "091-ai-data-analysis-financial-services",
+      "slug": "ai-data-analysis-financial-services",
+      "title": "Financial Services Data Analysis: Compliance-Aware Analytics Guid",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/091-ai-data-analysis-financial-services",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "092",
+      "folder": "092-ai-data-analysis-supply-chain",
+      "slug": "ai-data-analysis-supply-chain",
+      "title": "Data Science in Supply Chain: Inventory, Lead Time, and Risk KPIs",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/092-ai-data-analysis-supply-chain",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "093",
+      "folder": "093-ai-data-analysis-healthcare",
+      "slug": "ai-data-analysis-healthcare",
+      "title": "AI Data Analysis Healthcare: Use Cases, Governance, and Workflow Fit",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/093-ai-data-analysis-healthcare",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "094",
+      "folder": "094-ai-data-analysis-logistics",
+      "slug": "ai-data-analysis-logistics",
+      "title": "AI Data Analysis in Logistics: Route, Cost, and SLA Decision Support",
+      "pillar": "pillar7-use-cases-role-industry",
+      "dest": "content/pillar7-use-cases-role-industry/094-ai-data-analysis-logistics",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "095",
+      "folder": "095-ai-data-analysis-prompts",
+      "slug": "ai-data-analysis-prompts",
+      "title": "AI Data Analysis Prompts: 30+ Templates for Analysts (2026)",
+      "pillar": "pillar8-skills-templates-glossary",
+      "dest": "content/pillar8-skills-templates-glossary/095-ai-data-analysis-prompts",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "096",
+      "folder": "096-data-analysis-prompt-template",
+      "slug": "data-analysis-prompt-template",
+      "title": "Data Analysis Template (2026): Reusable Frameworks for Teams",
+      "pillar": "pillar8-skills-templates-glossary",
+      "dest": "content/pillar8-skills-templates-glossary/096-data-analysis-prompt-template",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "097",
+      "folder": "097-ai-data-analyst-skills",
+      "slug": "ai-data-analyst-skills",
+      "title": "AI Data Analyst Skills: Competency Map for 2026 Hiring and Upskilling",
+      "pillar": "pillar8-skills-templates-glossary",
+      "dest": "content/pillar8-skills-templates-glossary/097-ai-data-analyst-skills",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "098",
+      "folder": "098-how-to-evaluate-ai-data-analyst",
+      "slug": "how-to-evaluate-ai-data-analyst",
+      "title": "How to Evaluate AI Data Analyst Tools: Buyer Scorecard (2026)",
+      "pillar": "pillar8-skills-templates-glossary",
+      "dest": "content/pillar8-skills-templates-glossary/098-how-to-evaluate-ai-data-analyst",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "099",
+      "folder": "099-ai-analytics-glossary",
+      "slug": "ai-analytics-glossary",
+      "title": "Data Analysis Glossary (2026): 40+ Terms Every Data Team Should Know",
+      "pillar": "pillar8-skills-templates-glossary",
+      "dest": "content/pillar8-skills-templates-glossary/099-ai-analytics-glossary",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    },
+    {
+      "id": "100",
+      "folder": "100-data-agent-faq",
+      "slug": "data-agent-faq",
+      "title": "What Is a Data Agent: 12+ Deep Answers on Architecture, Memory, and Buyer Fit",
+      "pillar": "pillar8-skills-templates-glossary",
+      "dest": "content/pillar8-skills-templates-glossary/100-data-agent-faq",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "preview.html"
+      ],
+      "images": 3,
+      "has_preview": true
+    }
+  ]
+}

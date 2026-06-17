@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body {
+      width: 1080px;
+      margin: 0;
+      padding: 56px 56px 48px;
+      font-family: 'Inter', -apple-system, "PingFang SC", sans-serif;
+      background: #f7f7f5;
+      color: #0f172a;
+    }
+    .mono { font-family: 'JetBrains Mono', Menlo, monospace; }
+    .strike-time {
+      position: relative;
+      display: inline-block;
+    }
+    .strike-time::after {
+      content: '';
+      position: absolute;
+      left: -4%;
+      right: -4%;
+      top: 52%;
+      height: 4px;
+      background: #94a3b8;
+      transform: rotate(-8deg);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="flex items-start justify-between mb-10">
+    <div>
+      <div class="text-[11px] mono uppercase tracking-[0.22em] text-slate-500 mb-2">InfiniSynapse · Data Source Memory</div>
+      <div class="text-[44px] font-extrabold leading-[1.1] tracking-tight text-slate-900">同一个问题，记忆前 vs 记忆后</div>
+      <div class="text-[15px] text-slate-500 mt-3">真实案例 · 任务 A 沉淀前 · 任务 B 沉淀后</div>
+    </div>
+    <div class="flex items-center gap-2 mt-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+      <span class="text-[12px] mono uppercase tracking-widest text-emerald-700">memory active</span>
+    </div>
+  </div>
+
+  <!-- Hero: time comparison strip -->
+  <div class="rounded-3xl bg-white border border-slate-200 shadow-sm p-10 mb-6 overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-72 h-72 -mr-20 -mt-20 rounded-full bg-emerald-50 opacity-60"></div>
+    <div class="relative">
+      <div class="text-[12px] mono uppercase tracking-[0.22em] text-slate-400 mb-4">time / 用时</div>
+      <div class="flex items-end gap-10 justify-center">
+        <div class="text-center">
+          <div class="text-[12px] mono uppercase tracking-widest text-slate-400 mb-2">memory · off</div>
+          <div class="text-[88px] mono font-bold leading-none text-slate-400 strike-time">08:23</div>
+          <div class="text-[14px] text-slate-500 mt-3">任务 A · 沉淀前</div>
+        </div>
+        <div class="text-[64px] font-light text-emerald-500 mb-5">→</div>
+        <div class="text-center">
+          <div class="text-[12px] mono uppercase tracking-widest text-emerald-600 mb-2">memory · on</div>
+          <div class="text-[88px] mono font-bold leading-none text-emerald-600">02:48</div>
+          <div class="text-[14px] text-slate-700 mt-3 font-medium">任务 B · 沉淀后</div>
+        </div>
+      </div>
+      <div class="mt-8 flex items-center justify-center gap-2">
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[12px] mono font-medium">−66% · 快了 3 倍</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom row: three more metrics -->
+  <div class="grid grid-cols-3 gap-6">
+    <!-- Corrections -->
+    <div class="rounded-2xl bg-white border border-slate-200 p-7">
+      <div class="text-[11px] mono uppercase tracking-[0.22em] text-slate-400 mb-4">corrections / 人工纠正</div>
+      <div class="flex items-baseline gap-3">
+        <div class="text-[44px] mono font-bold text-slate-400 strike-time">1</div>
+        <div class="text-slate-300 text-2xl">→</div>
+        <div class="text-[56px] mono font-bold text-emerald-600 leading-none">0</div>
+      </div>
+      <div class="text-[12px] text-slate-500 mt-4">不再需要手动纠正口径</div>
+    </div>
+
+    <!-- Outputs -->
+    <div class="rounded-2xl bg-white border border-slate-200 p-7">
+      <div class="text-[11px] mono uppercase tracking-[0.22em] text-slate-400 mb-4">outputs / 输出维度</div>
+      <div class="flex items-baseline gap-3">
+        <div class="text-[44px] mono font-bold text-slate-400 strike-time">1</div>
+        <div class="text-slate-300 text-2xl">→</div>
+        <div class="text-[56px] mono font-bold text-emerald-600 leading-none">4</div>
+      </div>
+      <div class="text-[12px] text-slate-500 mt-4">双口径 + 回款率 + 跨季归因</div>
+    </div>
+
+    <!-- Steps -->
+    <div class="rounded-2xl bg-white border border-slate-200 p-7">
+      <div class="text-[11px] mono uppercase tracking-[0.22em] text-slate-400 mb-4">steps / 工具步骤</div>
+      <div class="flex items-baseline gap-3">
+        <div class="text-[44px] mono font-bold text-slate-400">12</div>
+        <div class="text-slate-300 text-2xl">→</div>
+        <div class="text-[56px] mono font-bold text-slate-900 leading-none">15</div>
+      </div>
+      <div class="text-[12px] text-slate-500 mt-4">多出 3 步全是主动交叉校验</div>
+    </div>
+  </div>
+
+  <!-- Footer rules -->
+  <div class="mt-10 pt-6 border-t border-slate-200 flex items-center justify-between">
+    <div class="mono text-[12px] text-slate-500">
+      <span class="text-emerald-600">●</span> MEMORY · 2 rules persisted
+      <span class="ml-4 text-slate-400">// scope: data source · auto-loaded across all sessions</span>
+    </div>
+    <div class="mono text-[12px] text-slate-400">app.infinisynapse.com</div>
+  </div>
+</body>
+</html>

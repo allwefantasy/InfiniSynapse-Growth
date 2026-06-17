@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>执行方案 · 志愿一问达 · 6/16–6/25</title>
+  <meta name="description" content="InfiniSynapse 志愿一问达 · 小红书付费红人 + 微信社群 + 评论区截流 · 全文方案" />
+  <style>
+    :root {
+      --accent: #1e6fff; --accent-soft: #eef4ff; --text: #1a1a2e; --text-secondary: #5c6370;
+      --border: #e8ecf2; --bg: #f7f9fc; --card: #fff; --warn-bg: #fff8e6; --warn-border: #f0c040;
+      --success: #0d9f6e; --success-bg: #e8f5e9; --money: #6a1b9a; --money-bg: #f3e5f5;
+      --radius: 10px; --shadow: 0 1px 3px rgba(0,0,0,.06);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --mono: "SF Mono", "Fira Code", Consolas, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); font-size: 15px; line-height: 1.75; color: var(--text); background: var(--bg); }
+    a { color: var(--accent); }
+    .layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+    .sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--card); border-right: 1px solid var(--border); padding: 18px 12px; }
+    .sidebar-logo { font-size: 11px; font-weight: 700; color: var(--accent); }
+    .sidebar-title { font-size: 13px; font-weight: 600; line-height: 1.4; margin: 6px 0 12px; }
+    .nav-group { font-size: 10px; font-weight: 700; letter-spacing: .06em; color: var(--text-secondary); margin: 12px 0 4px; text-transform: uppercase; }
+    .sidebar nav a { display: block; font-size: 12px; color: var(--text-secondary); padding: 4px 8px; border-radius: 5px; text-decoration: none; }
+    .sidebar nav a:hover, .sidebar nav a.active { background: var(--accent-soft); color: var(--accent); }
+    .main { padding: 24px 32px 80px; max-width: 960px; }
+    .hero { background: linear-gradient(135deg, #1e6fff 0%, #5e35b1 55%, #0d47c7 100%); color: #fff; border-radius: var(--radius); padding: 28px 32px; margin-bottom: 20px; }
+    .hero h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .hero-meta { font-size: 14px; opacity: .93; line-height: 1.8; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 16px; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.28); }
+    .badge.money { background: rgba(255,213,79,.22); }
+    .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+    .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); }
+    .stat-card .label { font-size: 10px; color: var(--text-secondary); }
+    .stat-card .value { font-size: 20px; font-weight: 700; color: var(--accent); }
+    .stat-card.purple .value { color: var(--money); }
+    .stat-card.green .value { color: var(--success); }
+    section { margin-bottom: 40px; scroll-margin-top: 16px; }
+    h2 { font-size: 20px; font-weight: 700; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
+    h3 { font-size: 15px; font-weight: 600; margin: 18px 0 8px; color: var(--text); }
+    p { margin-bottom: 8px; }
+    ul, ol { margin: 0 0 12px 20px; }
+    li { margin-bottom: 4px; }
+    .callout { background: var(--warn-bg); border-left: 4px solid var(--warn-border); border-radius: 0 var(--radius) var(--radius) 0; padding: 12px 16px; margin: 12px 0; font-size: 14px; }
+    .callout.success { background: var(--success-bg); border-left-color: var(--success); }
+    .callout.info { background: var(--accent-soft); border-left-color: var(--accent); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0 16px; background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: var(--accent-soft); font-weight: 600; }
+    tr:nth-child(even) td { background: #fafbfd; }
+    .calendar td:first-child { font-weight: 600; white-space: nowrap; background: #f0f4fa; }
+    pre, .code-block { background: #1e2433; color: #e2e8f0; font-family: var(--mono); font-size: 12px; line-height: 1.6; padding: 14px 16px; border-radius: var(--radius); margin: 10px 0; white-space: pre-wrap; position: relative; }
+    pre.flow { background: #f0f4fa; color: var(--text); border: 1px solid var(--border); font-size: 13px; }
+    .copy-btn { position: absolute; top: 8px; right: 8px; font-size: 11px; padding: 3px 8px; background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.25); border-radius: 4px; cursor: pointer; font-family: var(--font); }
+    .checklist { list-style: none; margin: 0; padding: 0; }
+    .checklist label { display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px; margin-bottom: 2px; border-radius: 6px; cursor: pointer; font-size: 14px; }
+    .checklist label:hover { background: var(--accent-soft); }
+    .checklist label.done { opacity: .5; text-decoration: line-through; }
+    .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--money-bg); color: var(--money); }
+    code { font-family: var(--mono); font-size: 12px; background: #eef1f6; padding: 1px 5px; border-radius: 3px; }
+    footer { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-secondary); }
+    @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .stat-row { grid-template-columns: 1fr 1fr; } .main { padding: 16px; } }
+    @media print { .sidebar, .copy-btn { display: none; } .layout { display: block; } }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">InfiniSynapse · Data Agent</div>
+    <div class="sidebar-title">志愿一问达<br>6/16–6/25 全文方案</div>
+    <nav>
+      <div class="nav-group">概览</div>
+      <a href="#hero">摘要</a>
+      <a href="#s1">§1 总流程</a>
+      <a href="#s2">§2 小红书红人</a>
+      <a href="#s3">§3 稿费与合格</a>
+      <a href="#s4">§4 云账户</a>
+      <a href="#s5">§5 达人素材包</a>
+      <a href="#s6">§6 微信社群</a>
+      <a href="#s7">§7 加群资源</a>
+      <a href="#s16">§16 评论区置顶</a>
+      <a href="#s8">§8 预算与 KPI</a>
+      <a href="#s9">§9 作战节奏</a>
+      <a href="#s10">§10 启动清单</a>
+      <div class="nav-group">话术与内容</div>
+      <a href="#s11">§11 私信话术</a>
+      <a href="#s12">§12 官方内容规划</a>
+      <a href="#s13">§13 公众号 Checklist</a>
+      <div class="nav-group">附录</div>
+      <a href="#s14">§14 达人文案</a>
+      <a href="#s15">§15 追踪表</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="hero" id="hero">
+      <h1>执行方案 · 志愿一问达 · 6/16–6/25</h1>
+      <div class="hero-meta">
+        唯一执行文档 · 预算 ≤¥10,000 · 启动 <strong>6/16</strong> · 出分日 <strong>6/25</strong><br>
+        飞书原文：<a href="https://ccnej8avri03.feishu.cn/wiki/MWxOwrY82i6aJekVwCPcTBKJnrb" style="color:#fff">wiki</a> · 本地副本含 §16 增补<br>
+        产品：小程序「志愿一问达」· 团队 InfiniSynapse Data Agent<br>
+        三链路：① 小红书付费红人 ② 微信社群私域 ③ 爆款帖评论区置顶（素人 ¥30–100）
+      </div>
+      <div class="hero-badges">
+        <span class="badge money">仅付费 · 无 M0</span>
+        <span class="badge money">100/300/600 · 14日</span>
+        <span class="badge">200字+5标签</span>
+        <span class="badge">前2图产品页</span>
+        <span class="badge">保留6个月</span>
+      </div>
+    </header>
+
+    <div class="stat-row">
+      <div class="stat-card"><div class="label">付费发布</div><div class="value">25</div><div class="label">进取 45</div></div>
+      <div class="stat-card purple"><div class="label">稿费上限</div><div class="value">¥10k</div></div>
+      <div class="stat-card green"><div class="label">私域群</div><div class="value">2×200</div></div>
+      <div class="stat-card"><div class="label">日私信</div><div class="value">60</div></div>
+      <div class="stat-card green"><div class="label">置顶合作</div><div class="value">¥30–100</div></div>
+    </div>
+
+    <div class="callout success"><strong>已砍掉</strong>：M0 免费发帖/置换、薯条、大额单笔稿、抖音自营、8 渠道旧 SOP。<strong>原则</strong>：不提供达人正文脚本。</div>
+
+    <!-- §1 -->
+    <section id="s1">
+      <h2>§1 总流程</h2>
+      <pre class="flow">【链路 1 · 小红书 · 只做付费】
+官方号 + 矩阵号（5个）· 每号 10 条/日 · 共 60 条/日
+  → 首触达讲阶梯稿费 · 加 V 细聊
+  → 达人自己写帖（非报备）→ 按合格标准过审
+  → 合格发布 → 结 ¥100 → 14 日内点赞阶梯补款
+  → 粉丝私信「估分」→ 回 kol_ 链或小程序名
+
+【链路 2 · 微信社群】
+运营微信 A / B · 各每日加 ≥5 个地方高考/家长群
+  → 群源：人脉圈群多 H5 + 微信手动搜
+  → 群内分享小程序「志愿一问达」
+  → 6/25 前：2 个私域群各 ≥200 人
+
+【链路 3 · 爆款评论区置顶 · 素人付费】
+搜爆款帖 → 私信帖主问评论区置顶广告
+  → 素人普遍 ¥30–50 · 按点赞最高 ¥100
+  → 博主发评并置顶 → 验收后云账户结款
+  → 埋点 pin_xhs / pin_dy / pin_wb
+
+【官方内容 · 辅助】
+公众号 + 小红书官方号 · 上线宣发 / 倒计时 / 博主精选</pre>
+    </section>
+
+    <!-- §2 -->
+    <section id="s2">
+      <h2>§2 链路 1 · 小红书（百粉/千粉 · 仅付费）</h2>
+      <h3>2.1 找谁</h3>
+      <table>
+        <thead><tr><th>优先级</th><th>类型</th><th>粉丝</th></tr></thead>
+        <tbody>
+          <tr><td>★★★</td><td>刚高考完 / 准大一</td><td>200–2k</td></tr>
+          <tr><td>★★★</td><td>高三生姐姐 / 家长小号</td><td>100–1k</td></tr>
+          <tr><td>★★★</td><td>年轻班主任 / 报考老师</td><td>500–3k</td></tr>
+          <tr><td>★★☆</td><td>本省高考话题参与者</td><td>300–2k</td></tr>
+        </tbody>
+      </table>
+      <p><strong>≥3 条才私信</strong>：近 30 天有高考内容 · 最近 1 条点赞≥30 或评论≥8 · 粉丝 100–5000</p>
+      <p><strong>不找</strong>：万粉以上、MCN 只接报备、买粉号、只接免费置换</p>
+      <h3>2.2 每日私信额度</h3>
+      <table>
+        <thead><tr><th>账号</th><th>日上限</th></tr></thead>
+        <tbody>
+          <tr><td>官方号 + 矩阵1–5</td><td>各 <strong>10</strong></td></tr>
+          <tr><td><strong>合计</strong></td><td><strong>60/天</strong></td></tr>
+        </tbody>
+      </table>
+      <p><strong>日 SOP</strong>：每号 10 博主 → 首触达记 CSV → 18:00 核对 60/60 → 同号跟进不计额度 → 7 天内同一博主只一号线触达</p>
+      <p><strong>H5</strong>：<code>https://www.infinisynapse.cn/apps/gaokao-school-advisor?mode=guest&amp;utm_source=kol_{昵称}</code></p>
+    </section>
+
+    <!-- §3 -->
+    <section id="s3">
+      <h2>§3 稿费规则（无 M0）</h2>
+      <table>
+        <thead><tr><th>节点</th><th>条件</th><th>累计</th><th>结算</th></tr></thead>
+        <tbody>
+          <tr><td><strong>首发</strong></td><td>合格发布</td><td><strong>¥100</strong></td><td>云账户批次 1–3 工作日</td></tr>
+          <tr><td>阶梯1</td><td>14日内赞 &gt;100</td><td><strong>¥300</strong></td><td>补 ¥200</td></tr>
+          <tr><td>阶梯2</td><td>14日内赞 &gt;200</td><td><strong>¥600</strong></td><td>再补 ¥300</td></tr>
+        </tbody>
+      </table>
+      <div class="callout info">私信可写「发布即给 ¥100」；<strong>内部以合格标准过审后才结款</strong>。</div>
+      <h3>3.1 合格发布标准</h3>
+      <table>
+        <thead><tr><th>项</th><th>要求</th></tr></thead>
+        <tbody>
+          <tr><td><strong>文案</strong></td><td>第一人称 · 正文 <strong>≥200 字</strong>（不含标签行）</td></tr>
+          <tr><td><strong>标签</strong></td><td><strong>≥5 个</strong>高考话题标签</td></tr>
+          <tr><td><strong>配图</strong></td><td><strong>第 1、2 图</strong>露出「志愿一问达」或 H5 界面</td></tr>
+          <tr><td>合规</td><td>非报备 · 免责声明 · 打码 · 无违禁承诺</td></tr>
+          <tr><td>保留</td><td><strong>≥6 个月</strong>；删帖终止合作</td></tr>
+          <tr><td>统计</td><td>发布第 <strong>14 日 24:00</strong> 截图点赞</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- §4 -->
+    <section id="s4">
+      <h2>§4 云账户结算（运营内部 · 勿写进私信）</h2>
+      <ul>
+        <li>无法当日到账；审过后排批次，一般 1–3 工作日</li>
+        <li>意向达人 <strong>周三 0:00 前</strong>签完（本周即 <strong>6/17 0:00 前</strong>）</li>
+        <li>流程：加 V → 签约 → kol_ 素材包 → 发布 → 24h 审核 → 排款</li>
+      </ul>
+    </section>
+
+    <!-- §5 -->
+    <section id="s5">
+      <h2>§5 给达人什么（无正文脚本）</h2>
+      <pre class="flow">kol_{昵称}/
+├── 01-专属链接.txt
+├── 02-小程序名.txt      # 志愿一问达
+├── 03-产品页参考截图
+├── 04-评论口令.txt
+├── 05-稿费规则.txt
+└── 06-非报备发稿checklist.txt</pre>
+      <p><strong>评论口令</strong>：私信我发「估分」，或微信搜小程序「志愿一问达」</p>
+    </section>
+
+    <!-- §6 -->
+    <section id="s6">
+      <h2>§6 链路 2 · 微信社群</h2>
+      <table>
+        <thead><tr><th>项</th><th>要求</th></tr></thead>
+        <tbody>
+          <tr><td>人力</td><td>运营微信 A、B</td></tr>
+          <tr><td>日加群</td><td>各 ≥5（合计 ≥10/天）</td></tr>
+          <tr><td>私域目标</td><td><strong>6/25 前 2 群各 ≥200 人</strong></td></tr>
+          <tr><td>埋点</td><td>外群 wxgroup_{缩写} · 私域 wxgroup_private1/2</td></tr>
+        </tbody>
+      </table>
+      <h3>6.1 每日流程（单号 45–60 min）</h3>
+      <ol>
+        <li><strong>加群</strong>：人脉圈 H5 ≥3 + 手动搜 ≥2 · 附言「孩子今年高考…」</li>
+        <li><strong>养号</strong>：新群围观 10 分钟，跟 1–2 条讨论</li>
+        <li><strong>分享</strong>（19:00–21:00）：活跃 ≥1 天的外群 1 条/天 · 私域发完整版</li>
+        <li><strong>拉私域</strong>：有人问工具 → 邀进私域群</li>
+      </ol>
+      <h3>6.2 群内话术</h3>
+      <p><strong>外部群 · 短版</strong></p>
+      <pre class="code-block" id="wx-short">我家孩子出分前先拿估分跑了一版冲稳保 PDF，带给老师改了一下挺有用。
+微信搜小程序「志愿一问达」，免注册几分钟出报告。仅供参考，以招生章程为准。<button class="copy-btn" onclick="copyText('wx-short')">复制</button></pre>
+      <p><strong>私域群 · 完整版</strong></p>
+      <pre class="code-block" id="wx-full">【志愿一问达】
+出分前可以先按估分+位次跑一版冲稳保草案，正式出分后再用真实分数重跑。
+入口：微信搜「志愿一问达」
+大概 4 分钟出 PDF，适合打印带给班主任/报考老师逐条改。
+⚠️ 仅供参考，以省考试院和招生章程为准。<button class="copy-btn" onclick="copyText('wx-full')">复制</button></pre>
+      <h3>6.3 私域群设置</h3>
+      <table>
+        <thead><tr><th>项</th><th>建议</th></tr></thead>
+        <tbody>
+          <tr><td>群名</td><td>{省}2026高考估分交流① / ②</td></tr>
+          <tr><td>合规</td><td>不刷屏 · 禁广即停 · 不卖保录取</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- §7 -->
+    <section id="s7">
+      <h2>§7 加群资源 · 人脉圈群多</h2>
+      <table>
+        <thead><tr><th>项</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td>服务号</td><td><strong>人脉圈群多</strong>（日更约 500 群）</td></tr>
+          <tr><td>H5</td><td>「免费加群」· h5.sdhengre.com</td></tr>
+          <tr><td>入口</td><td>关注服务号 → 菜单/推文进<strong>最新</strong>H5（勿存带 sessionid 旧链）</td></tr>
+          <tr><td>路径示例</td><td><code>https://h5.sdhengre.com/c3009/pages/index/index2022?goid=220&amp;uniacid=3&amp;path=c3009</code></td></tr>
+        </tbody>
+      </table>
+      <p><strong>筛选</strong>：高考 · 2026高考 · 高三 · 家长群 · 志愿填报 · {省份}高考</p>
+      <p><strong>跳过</strong>：兼职、刷单、保录取、纯卖课 · CSV 记「人脉圈H5加群数 / 手动搜加群数」</p>
+    </section>
+
+    <!-- §16 -->
+    <section id="s16">
+      <h2>§16 链路 3 · 爆款评论区置顶（小红书 / 抖音 / 微博）</h2>
+      <div class="callout info"><strong>模式</strong>：联系爆款帖作者，问愿不愿意在评论区 <strong>置顶 1 条广告评论</strong>（不用发新帖）。素人普遍 <strong>¥30–50</strong>，按点赞量最高 <strong>¥100</strong>。</div>
+      <h3>16.1 vs 链路 1</h3>
+      <table>
+        <thead><tr><th></th><th>链路 1 整帖</th><th>链路 3 置顶评论</th></tr></thead>
+        <tbody>
+          <tr><td>动作</td><td>新发笔记</td><td>已有爆款帖下置顶评论</td></tr>
+          <tr><td>稿费</td><td>¥100 起 + 阶梯</td><td><strong>¥30–100</strong> 一口价</td></tr>
+        </tbody>
+      </table>
+      <h3>16.2 报价（按帖点赞）</h3>
+      <table>
+        <thead><tr><th>点赞</th><th>建议报价</th></tr></thead>
+        <tbody>
+          <tr><td>500–2,000</td><td><strong>¥30</strong></td></tr>
+          <tr><td>2,000–5,000</td><td><strong>¥50</strong></td></tr>
+          <tr><td>5,000–1 万</td><td><strong>¥80</strong></td></tr>
+          <tr><td>1 万+（素人封顶）</td><td><strong>¥100</strong></td></tr>
+        </tbody>
+      </table>
+      <h3>16.3 私信帖主 · 首触达</h3>
+      <pre class="code-block" id="pin-dm">{昵称}你好～看到你这条{主题}挺火的，我们做了免费小程序「志愿一问达」（估分冲稳保 PDF）。
+想在你这条评论区 <strong>置顶 1 条体验推荐评论</strong>（不用发新帖），稿费 ¥{30/50/80}（按你帖 {N} 赞），置顶至少 7 天。
+我们提供评论文案，你复制发评后置顶就行。有兴趣伽 vx：xxx<button class="copy-btn" onclick="copyText('pin-dm')">复制</button></pre>
+      <h3>16.4 置顶评论文案（给帖主）</h3>
+      <pre class="code-block" id="pin-cmt">去年出分前也焦虑，后来用估分先跑了一版冲稳保 PDF 带给班主任改，出分后改真实分重跑就行。微信搜小程序「志愿一问达」，免费几分钟出报告，仅供参考以招生章程为准。<button class="copy-btn" onclick="copyText('pin-cmt')">复制</button></pre>
+      <p>流程：谈价 → 发文案 → 博主发评置顶 → 截图验收 → 云账户结款 · 埋点 <code>pin_{昵称}</code></p>
+      <p>日目标：触达 10–15 帖主 · 成交置顶 2–4 单 · 记录表 <code>评论区截流-日记录.csv</code></p>
+    </section>
+
+    <!-- §8 -->
+    <section id="s8">
+      <h2>§8 预算与 KPI</h2>
+      <h3>预算（≤10,000 · 含整帖 + 置顶）</h3>
+      <table>
+        <thead><tr><th>用途</th><th>单价</th><th>保守</th><th>进取</th></tr></thead>
+        <tbody>
+          <tr><td>链路 1 整帖</td><td>¥100 起</td><td>25 条</td><td>45 条</td></tr>
+          <tr><td>链路 3 置顶</td><td>¥30–100</td><td>20 单</td><td>40 单</td></tr>
+        </tbody>
+      </table>
+      <h3>置顶报价参考</h3>
+      <table>
+        <thead><tr><th>帖点赞</th><th>报价</th></tr></thead>
+        <tbody>
+          <tr><td>500–2k</td><td>¥30</td></tr>
+          <tr><td>2k–5k</td><td>¥50</td></tr>
+          <tr><td>5k–1万</td><td>¥80</td></tr>
+          <tr><td>1万+</td><td>¥100 封顶</td></tr>
+        </tbody>
+      </table>
+      <h3>KPI</h3>
+      <table>
+        <thead><tr><th>指标</th><th>保守</th><th>进取</th></tr></thead>
+        <tbody>
+          <tr><td>日私信</td><td>60</td><td>60</td></tr>
+          <tr><td>付费发布</td><td>25</td><td>45</td></tr>
+          <tr><td>一次合格率</td><td>70%</td><td>85%</td></tr>
+          <tr><td>kol_* PDF</td><td>80</td><td>200</td></tr>
+          <tr><td>私域群（单群）</td><td>≥200</td><td>≥250</td></tr>
+          <tr><td>日加外群 A+B</td><td>10</td><td>14+</td></tr>
+          <tr><td>日触达帖主</td><td>10</td><td>15</td></tr>
+          <tr><td>置顶成交</td><td>20</td><td>40</td></tr>
+          <tr><td>pin_* PDF</td><td>30</td><td>80</td></tr>
+          <tr style="font-weight:700"><td>总稿费</td><td>≤6,000</td><td>≤10,000</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- §9 -->
+    <section id="s9">
+      <h2>§9 作战节奏（6/16 → 6/25）</h2>
+      <table class="calendar">
+        <thead><tr><th>日期</th><th>小红书</th><th>微信社群</th><th>评论区置顶</th><th>官方内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>6/16</strong></td><td>启动 · 60私信</td><td>建私域 · 加群</td><td>搜爆款 · 触达10 · 试成交1–2</td><td>上线宣发</td></tr>
+          <tr><td>6/17–24</td><td>60私信/天 · 审帖</td><td>加群 · 拉私域</td><td>触达10–15 · 置顶2–4/天</td><td>倒计时</td></tr>
+          <tr><td><strong>6/25</strong></td><td>结款</td><td>2群≥200</td><td>跟出分爆款谈置顶</td><td>出分重跑</td></tr>
+          <tr><td>滚动</td><td>发布日+14日核赞</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- §10 -->
+    <section id="s10">
+      <h2>§10 启动清单</h2>
+      <ul class="checklist" data-store="startup">
+        <li><label><input type="checkbox" data-id="x1" /> 6 个号登录 · 博主 CSV · 日配额 CSV</label></li>
+        <li><label><input type="checkbox" data-id="x2" /> 产品页截图 · §11 话术 · §14 checklist</label></li>
+        <li><label><input type="checkbox" data-id="w1" /> 微信 A/B · 私域群 1、2</label></li>
+        <li><label><input type="checkbox" data-id="w2" /> 关注人脉圈群多 · 微信社群 CSV</label></li>
+        <li><label><input type="checkbox" data-id="c1" /> 矩阵4–5 · 置顶 CSV · §16 报价表 + 私信话术</label></li>
+        <li><label><input type="checkbox" data-id="o1" /> 公众号菜单「志愿一问达」utm=wechat_menu</label></li>
+        <li><label><input type="checkbox" data-id="o2" /> 小红书官方简介 · 6/16 上线稿</label></li>
+      </ul>
+    </section>
+
+    <!-- §11 -->
+    <section id="s11">
+      <h2>§11 小红书私信话术</h2>
+      <p>小程序：<strong>志愿一问达</strong> · 首触达末尾 <code>xxx</code> → 本号微信号</p>
+
+      <h3>11.1 首触达</h3>
+      <pre class="code-block" id="dm-1">{昵称}你好～我们是一个Data Agent团队InfiniSynapse，最近上线了一款免费的专业高考填报志愿小程序「志愿一问达」，看到你的往期内容非常优质，想请你发 1 条付费体验分享帖（非报备，自己写）：
+
+💰 发布即给 ¥100 · 14日赞&gt;100 共300 · 14日赞&gt;200 共600
+帖子要求：文案200字+ · 5个高考标签 · 前2图露产品页 · 保留6个月以上
+
+如感兴趣可伽vx：xxx<button class="copy-btn" onclick="copyText('dm-1')">复制</button></pre>
+
+      <h3>11.2 意向确认</h3>
+      <pre class="code-block" id="dm-2">合作说明：
+1. 发 1 条小红书分享帖（估分/志愿，自己写，非报备）
+2. 我们提供：专属链接 + 小程序名 + 产品页参考图 + 评论口令
+3. 不提供现成正文
+4. 稿费：合格 ¥100 → 14日赞&gt;100 共300 → 14日赞&gt;200 共600
+5. 合格：≥200字 · ≥5标签 · 前2图产品页 · 保留≥6个月
+确认后我发 kol_ 链接和 checklist。计划哪天发？<button class="copy-btn" onclick="copyText('dm-2')">复制</button></pre>
+
+      <h3>11.3 素材包</h3>
+      <pre class="code-block" id="dm-3">【稿费】合格 ¥100 · 14日赞&gt;100 共300 · 14日赞&gt;200 共600
+【合格】200字+ · 5标签+ · 前2图产品页 · 保留6个月
+【入口】H5：{kol_ 链接} · 小程序：志愿一问达
+【评论口令】私信我发「估分」，或搜小程序「志愿一问达」
+发完把笔记链接给我，24h 内审核。<button class="copy-btn" onclick="copyText('dm-3')">复制</button></pre>
+
+      <h3>11.4 发布后</h3>
+      <p><strong>合格</strong></p>
+      <pre class="code-block" id="dm-ok">笔记收到啦，内容 OK～稿费已安排。
+14 天后看点赞补款（帖子须仍在）。请保留 6 个月。当天麻烦帮回几条「估分」私信～<button class="copy-btn" onclick="copyText('dm-ok')">复制</button></pre>
+      <p><strong>需修改</strong></p>
+      <pre class="code-block" id="dm-fix">辛苦啦～还差几点才能结 ¥100：
+· 正文不够 200 字
+· 高考标签不足 5 个
+· 第 1、2 图没有露出产品页面
+· {免责声明 / 打码 / 违禁表述}<button class="copy-btn" onclick="copyText('dm-fix')">复制</button></pre>
+      <p><strong>第 14 日补款</strong></p>
+      <pre class="code-block" id="dm-14">【{标题}】14 日点赞 {N}：
+· &gt;200 → 补 ¥300，累计 ¥600
+· &gt;100 → 补 ¥200，累计 ¥300
+· 未达标 / 已删帖 → 无补款<button class="copy-btn" onclick="copyText('dm-14')">复制</button></pre>
+
+      <h3>11.5 沉默跟进</h3>
+      <pre class="code-block" id="dm-follow">{昵称}打扰～估分体验帖付费合作 100/300/600 还有名额（200字+5标签+前2图产品页）。还有兴趣吗？<button class="copy-btn" onclick="copyText('dm-follow')">复制</button></pre>
+    </section>
+
+    <!-- §12 -->
+    <section id="s12">
+      <h2>§12 公众号 + 小红书官方号内容规划</h2>
+      <p>原则：轻量 · 信任+搜索 · 公众号 3–4 篇 · 小红书官方 6–8 条</p>
+      <h3>12.1 内容来源</h3>
+      <table>
+        <thead><tr><th>来源</th><th>用法</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A · 博主优质内容</strong></td><td>合格付费帖精选 / 周记（授权后）</td></tr>
+          <tr><td><strong>B · 小程序宣发</strong></td><td>志愿一问达上线 · 产品教程</td></tr>
+          <tr><td><strong>C · 出分倒计时</strong></td><td>D-N checklist · 模拟出分日</td></tr>
+        </tbody>
+      </table>
+      <h3>12.2 排期</h3>
+      <table class="calendar">
+        <thead><tr><th>日期</th><th>公众号</th><th>小红书官方</th></tr></thead>
+        <tbody>
+          <tr><td><strong>6/16</strong></td><td>志愿一问达上线（B）</td><td>上线宣发+截图（B）</td></tr>
+          <tr><td>6/17</td><td>—</td><td>倒计时 D-8（C）</td></tr>
+          <tr><td>6/18</td><td>出分前7天清单（C）§13</td><td>9图轮播 checklist（C）</td></tr>
+          <tr><td>6/19</td><td>—</td><td>博主精选①（A）</td></tr>
+          <tr><td>6/20</td><td>博主合作周记（A）</td><td>模拟出分日（C）</td></tr>
+          <tr><td>6/21</td><td>—</td><td>产品页教程（B）</td></tr>
+          <tr><td>6/22</td><td>数据透明/核验（B+C）</td><td>各省出分时间（C）</td></tr>
+          <tr><td>6/23</td><td>—</td><td>博主精选②（A）</td></tr>
+          <tr><td>6/24</td><td>出分前夜（C）</td><td>D-1 焦虑帖（C）</td></tr>
+          <tr><td><strong>6/25</strong></td><td>出分日重跑（C+B）</td><td>出分啦导小程序（C+B）</td></tr>
+        </tbody>
+      </table>
+      <p>埋点：<code>wechat_menu</code> · <code>wechat_post_{日期}</code> · <code>xhs_official_{日期}</code></p>
+    </section>
+
+    <!-- §13 -->
+    <section id="s13">
+      <h2>§13 公众号 Checklist 大纲（6/18 可用）</h2>
+      <p><strong>标题</strong>：出分前 10 天，别干等成绩｜高三家庭估分预演 Checklist · 1,800–2,200 字</p>
+      <h3>13.1 结构</h3>
+      <p><strong>开篇</strong>：6/25 前后出分 · 估分先排冲稳保草案</p>
+      <p><strong>为什么现在做</strong>：志愿焦虑早于分数 · 出分后48h信息战 · 老师出分后忙</p>
+      <h3>Checklist 7 条</h3>
+      <table>
+        <thead><tr><th>#</th><th>动作</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>估分区间</td><td>3天内，如 600–615</td></tr>
+          <tr><td>2</td><td>查清本省日程</td><td>出分日、本科批起止</td></tr>
+          <tr><td>3</td><td>跑冲稳保预演</td><td>志愿一问达</td></tr>
+          <tr><td>4</td><td>核对选科</td><td>专业组是否接受选科</td></tr>
+          <tr><td>5</td><td>定调剂底线</td><td>冲校被调剂能否接受</td></tr>
+          <tr><td>6</td><td>标待核验</td><td>对照省考试院/招生网</td></tr>
+          <tr><td>7</td><td>约老师+带清单</td><td>打印班主任核验清单</td></tr>
+        </tbody>
+      </table>
+      <p><strong>出分后72h预告</strong>：正式分+位次重跑 · 一分一段 · 章程 · 专业组代码</p>
+      <p><strong>CTA</strong>：菜单「志愿一问达」· <code>utm_source=wechat_checklist</code></p>
+      <h3>13.2 正文草稿（可直接粘贴）</h3>
+      <ol>
+        <li>估分区间 — 不必精确到个位</li>
+        <li>查清本省日程 — 只信省考试院官网</li>
+        <li>跑冲稳保 PDF — 志愿一问达</li>
+        <li>核对选科与专业组 — 填错组等于白考</li>
+        <li>定调剂底线</li>
+        <li>处理待核验</li>
+        <li>约老师 — 带 PDF + 核验清单，15 分钟过方向性错误</li>
+      </ol>
+      <h3>13.3 朋友圈</h3>
+      <ul>
+        <li><strong>6/16</strong>：出分还有10天 · checklist在菜单栏</li>
+        <li><strong>6/20</strong>：估分先跑PDF带给班主任</li>
+        <li><strong>6/24</strong>：明后天出分 · 用正式分重跑</li>
+      </ul>
+    </section>
+
+    <!-- §14 -->
+    <section id="s14">
+      <h2>§14 附录 · 达人发稿与稿费文案</h2>
+      <h3>14.1 非报备发稿 checklist</h3>
+      <pre class="code-block" id="chk">□ 未勾选商业合作 / 品牌合作
+□ 正文第一人称 · ≥200 字（不含标签行）
+□ ≥5 个高考话题标签
+□ 第 1、2 张图露出产品页面（志愿一问达 / H5 界面）
+□ 无外链 · 引导私信「估分」
+□ 报告截图已打码 · 文末免责声明
+□ 笔记保留 ≥6 个月；删帖则合作终止
+发完后把笔记链接发给对接运营。<button class="copy-btn" onclick="copyText('chk')">复制</button></pre>
+      <h3>14.2 稿费规则（发达人）</h3>
+      <pre class="code-block" id="fee">■ 小程序：志愿一问达 · 专属 H5 链接
+■ 稿费：合格发布 ¥100 · 14日内赞&gt;100 共300 · 14日内赞&gt;200 共600
+■ 合格：200字+ · 5标签+ · 前2图产品页 · 保留6个月
+■ 删帖终止合作，后续稿费不结
+■ 流程：发布 → 24h 审核 → 排款 → 第14日看赞补款<button class="copy-btn" onclick="copyText('fee')">复制</button></pre>
+      <h3>14.3 小程序名</h3>
+      <pre class="flow">志愿一问达
+（微信搜索上述小程序名；或使用运营提供的 H5 专属链接）</pre>
+    </section>
+
+    <!-- §15 -->
+    <section id="s15">
+      <h2>§15 附录 · 追踪表字段</h2>
+      <h3>小红书-博主私信记录.csv</h3>
+      <pre class="flow">私信日期, 发送账号, 博主昵称, 主页链接, 粉丝数, 博主类型, 引用笔记标题, 私信状态, 回复摘要, 签约日, 发布日, 笔记链接, 帖子在架, 删帖日期, 内容合格, 首发100已结, 14日点赞, 阶梯补款, 累计稿费, utm_source, PDF数, 备注</pre>
+      <p>状态：已私信 → 已回复 → 意向 → 已签约 → 已发布 → 已结100 → 已补款 → 删帖终止 / 拒绝</p>
+      <h3>微信社群-日记录.csv</h3>
+      <pre class="flow">日期, 运营号, 新加群数, 人脉圈H5加群数, 手动搜加群数, 群名列表摘要, 外群分享次数, 私域群编号, 私域群人数, 备注</pre>
+      <h3>评论区置顶-日记录.csv</h3>
+      <pre class="flow">日期, 触达账号, 平台, 博主昵称, 爆款帖链接, 帖点赞, 博主类型, 私信状态, 成交报价, 置顶评论文案, 置顶验收日, 已结款, utm_source, PDF数, 备注</pre>
+    </section>
+
+    <footer>
+      执行方案全文 HTML · 与 <code>双渠道策略-微信群与红人.md</code> 同步 · 飞书 <a href="https://ccnej8avri03.feishu.cn/wiki/MWxOwrY82i6aJekVwCPcTBKJnrb">wiki</a> · 配套 CSV：博主私信 · 微信社群 · 评论区截流
+    </footer>
+  </main>
+</div>
+<script>
+  const STORE = 'zhiyuan-plan-v1';
+  function load() { try { return JSON.parse(localStorage.getItem(STORE) || '{}'); } catch { return {}; } }
+  function save(d) { localStorage.setItem(STORE, JSON.stringify(d)); }
+  const state = load();
+  document.querySelectorAll('.checklist input').forEach(cb => {
+    const k = 'c:' + cb.dataset.id;
+    if (state[k]) { cb.checked = true; cb.closest('label').classList.add('done'); }
+    cb.addEventListener('change', () => {
+      state[k] = cb.checked;
+      save(state);
+      cb.closest('label').classList.toggle('done', cb.checked);
+    });
+  });
+  function copyText(id) {
+    const el = document.getElementById(id);
+    const text = el.innerText.replace(/复制/g, '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = el.querySelector('.copy-btn');
+      if (btn) { const o = btn.textContent; btn.textContent = '已复制'; setTimeout(() => btn.textContent = o, 1500); }
+    });
+  }
+</script>
+</body>
+</html>

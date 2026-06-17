@@ -1,0 +1,73 @@
+{
+  "pillar": "pillar8-skills-templates-glossary",
+  "generated": "2026-06-09",
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 8",
+  "articles": [
+    {
+      "id": "095",
+      "folder": "095-ai-data-analysis-prompts",
+      "theme": "ai data analysis prompts",
+      "slug": "ai-data-analysis-prompts",
+      "keyword": "ai prompts for data analysis",
+      "volume": 30,
+      "kd": 30,
+      "type": "resource",
+      "kicker": "Prompts"
+    },
+    {
+      "id": "096",
+      "folder": "096-data-analysis-prompt-template",
+      "theme": "data analysis prompt template",
+      "slug": "data-analysis-prompt-template",
+      "keyword": "data analysis template",
+      "volume": 30,
+      "kd": 20,
+      "type": "resource",
+      "kicker": "Templates"
+    },
+    {
+      "id": "097",
+      "folder": "097-ai-data-analyst-skills",
+      "theme": "ai data analyst skills",
+      "slug": "ai-data-analyst-skills",
+      "keyword": "ai data analyst skills",
+      "volume": 0,
+      "kd": 23,
+      "type": "guide",
+      "kicker": "Skills"
+    },
+    {
+      "id": "098",
+      "folder": "098-how-to-evaluate-ai-data-analyst",
+      "theme": "how to evaluate ai data analyst",
+      "slug": "how-to-evaluate-ai-data-analyst",
+      "keyword": "ai data analyst skills requirements",
+      "volume": 10,
+      "kd": null,
+      "type": "guide",
+      "kicker": "Evaluation"
+    },
+    {
+      "id": "099",
+      "folder": "099-ai-analytics-glossary",
+      "theme": "ai analytics glossary",
+      "slug": "ai-analytics-glossary",
+      "keyword": "data analysis glossary",
+      "volume": 40,
+      "kd": 13,
+      "type": "glossary",
+      "kicker": "Glossary"
+    },
+    {
+      "id": "100",
+      "folder": "100-data-agent-faq",
+      "theme": "data agent faq",
+      "slug": "data-agent-faq",
+      "keyword": "what is a data agent",
+      "volume": 20,
+      "kd": 29,
+      "type": "faq",
+      "kicker": "FAQ"
+    }
+  ]
+}

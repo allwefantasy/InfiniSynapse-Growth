@@ -1,0 +1,142 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "构建 Data Agent 的完整 Harness：InfiniSynapse 企业级实践",
+    "description": "MPD 峰会演讲整理：InfiniSynapse 如何用 InfiniAgent + 数据源对象化 + 跨源执行 + InfiniSQL + InfiniRAG + 可审计工作流 + 资产沉淀 + 企业私有化，构建一条真正能在企业落地的 Data Agent harness。含 1400+ 表 / 92 秒评分卡 / AUC 0.7712 的硬证据。",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-05-19-data-agent-harness-roadshow/cover-roadshow.png"
+    ],
+    "datePublished": "2026-05-19T10:00:00+08:00",
+    "dateModified": "2026-05-19T10:00:00+08:00",
+    "inLanguage": "zh-CN",
+    "author": {
+      "@type": "Person",
+      "name": "祝海林",
+      "jobTitle": "创始人",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "衡数无限科技有限公司（InfiniSynapse）"
+      },
+      "url": "https://infinisynapse.cn/about/zhuhailin"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": { "@type": "ImageObject", "url": "https://infinisynapse.cn/logo.png" }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/zh/blog/data-agent-harness-roadshow-recap"
+    },
+    "about": [
+      { "@type": "Thing", "name": "Data Agent Harness" },
+      { "@type": "Thing", "name": "企业级 Data Agent" },
+      { "@type": "Thing", "name": "Agentic Analytics" },
+      { "@type": "Thing", "name": "可审计 AI 工作流" },
+      { "@type": "Thing", "name": "可信答案系统" }
+    ],
+    "mentions": [
+      { "@type": "Thing", "name": "InfiniAgent" },
+      { "@type": "Thing", "name": "InfiniSQL" },
+      { "@type": "Thing", "name": "InfiniRAG" },
+      { "@type": "Thing", "name": "Runtime RAG" },
+      { "@type": "Thing", "name": "Task View" },
+      { "@type": "SoftwareApplication", "name": "InfiniSynapse", "applicationCategory": "BusinessApplication", "url": "https://app.infinisynapse.cn" },
+      { "@type": "SoftwareApplication", "name": "InfiniSynapse Private", "applicationCategory": "BusinessApplication" },
+      { "@type": "SoftwareApplication", "name": "Databricks Genie", "applicationCategory": "BusinessApplication" }
+    ],
+    "isBasedOn": {
+      "@type": "PresentationDigitalDocument",
+      "name": "构建 Data Agent 的完整 Harness — MPD 峰会演讲",
+      "url": "https://infinisynapse.cn/talks/data-agent-harness-roadshow",
+      "datePublished": "2026-05-29",
+      "author": { "@type": "Person", "name": "祝海林" }
+    },
+    "keywords": "Data Agent Harness 架构, 企业级 Data Agent, InfiniSynapse 架构, Agentic Analytics 落地, InfiniAgent, InfiniSQL, InfiniRAG, 可审计 AI 工作流"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "MPD AI 驱动创新峰会 · AI 重塑数据生产与分析",
+    "startDate": "2026-05-29T14:30:00+08:00",
+    "endDate": "2026-05-29T15:30:00+08:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "上海",
+      "address": { "@type": "PostalAddress", "addressLocality": "上海", "addressCountry": "CN" }
+    },
+    "performer": {
+      "@type": "Person",
+      "name": "祝海林",
+      "jobTitle": "创始人",
+      "affiliation": { "@type": "Organization", "name": "衡数无限科技有限公司（InfiniSynapse）" }
+    },
+    "about": "构建 Data Agent 的完整 Harness：InfiniSynapse 的企业级数据分析栈实践"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "这套八件套必须全部用吗？只用其中一两件可以吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "可以。InfiniAgent + InfiniSQL + Task View 是任何 Data Agent 场景都必备的必装件；InfiniRAG / Runtime RAG / 数据源对象化在需要业务知识介入时才打开；Agent Teams 并行 / Private 部署是企业大规模场景的扩展。中小团队可以从 cloud 工作空间 + 单一数据库连接开始。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "InfiniSQL 是新发明的语言吗？工程师要重新学习吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "不需要重学。InfiniSQL 95% 是标准 SQL，新增的只有几个 Agentic 关键字（最关键的是 as <name> 给查询命名 + load / connect 跨源加载语法）。会写 SQL 的人 30 分钟可以上手。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "1400+ 表 / 92 秒 / AUC 0.7712 是哪个客户的真实数据？能复现吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "是 InfiniSynapse 在某金融科技客户私有化部署上的端到端实测，跑的是该客户信用评分卡场景。AUC 0.7611 的 XGBoost 基线是该客户数据科学团队此前的最优模型。完整复现路径在演讲幻灯片附录中。我们不公开客户名，但愿意在 NDA 框架下做现场重现。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "海关 / 央国企的私有化部署对模型有什么要求？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "模型层完全可替换。InfiniSynapse Private 兼容主流国产大模型（通义、智谱、月之暗面、DeepSeek、文心、混元等）+ 客户自训的私有模型（含本地推理）。LLM 推理路径完全在客户域内，不会有任何 token 流出客户网络。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "这一套和 Databricks Genie 是什么关系？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Databricks Genie 是 Lakehouse 内的 Data Agent，强势场景是 Databricks 用户的 Lakehouse 内分析。InfiniSynapse 面向的是异构企业数据现场——不假设客户在 Lakehouse 内，支持 MySQL / PostgreSQL / Supabase / ClickHouse / MongoDB / Snowflake / SQL Server / Doris / Excel / 文件 / API 同 task 协同。两者解决的不是同一类问题。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "演讲幻灯片可以下载吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "可以。HTML 版（reveal.js 在线播放）见 /talks/data-agent-harness-roadshow；PDF 版见 /talks/data-agent-harness-roadshow.pdf。完整 PDF 含所有架构图、产品截图和现场数字证据。演讲现场录像计划于 2026-06-15 后释出。"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://infinisynapse.cn/zh/" },
+      { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://infinisynapse.cn/zh/blog" },
+      { "@type": "ListItem", "position": 3, "name": "构建 Data Agent 的完整 Harness", "item": "https://infinisynapse.cn/zh/blog/data-agent-harness-roadshow-recap" }
+    ]
+  }
+]

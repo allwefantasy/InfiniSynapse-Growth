@@ -1,0 +1,77 @@
+{
+  "_comment": "详情页 ui_module 字段 → 组件变体对照",
+  "modules": {
+    "long-form-guide": {
+      "count_hint": 26,
+      "label": "标准长文",
+      "reference_slug": "ai-for-data-analysis",
+      "example_source_path": "content/pillar1-ai-native-data-analysis/001-ai-for-data-analysis"
+    },
+    "how-to-steps": {
+      "count_hint": 21,
+      "label": "步骤教程",
+      "reference_slug": "connect-supabase-to-ai-data-analyst",
+      "example_source_path": "content/pillar4-data-source-connectors/044-connect-supabase-to-ai-data-analyst"
+    },
+    "versus-scorecard": {
+      "count_hint": 16,
+      "label": "对比打分表",
+      "reference_slug": "code-agent-vs-data-agent",
+      "example_source_path": "content/pillar2-data-agent-vs-alternatives/014-code-agent-vs-data-agent"
+    },
+    "use-case-persona": {
+      "count_hint": 13,
+      "label": "场景/角色",
+      "reference_slug": "ai-data-analysis-finance-teams",
+      "example_source_path": "content/pillar7-use-cases-role-industry/083-ai-data-analysis-finance-teams"
+    },
+    "tool-listicle": {
+      "count_hint": 8,
+      "label": "工具排行榜",
+      "reference_slug": "best-ai-tools-for-data-analysis",
+      "example_source_path": "content/pillar3-ai-analyst-tools/024-best-ai-tools-for-data-analysis"
+    },
+    "alternatives-matrix": {
+      "count_hint": 7,
+      "label": "替代方案矩阵",
+      "reference_slug": "chatgpt-data-analysis-alternatives",
+      "example_source_path": "content/pillar3-ai-analyst-tools/030-chatgpt-data-analysis-alternatives"
+    },
+    "definition-box": {
+      "count_hint": 2,
+      "label": "定义强调框",
+      "reference_slug": "what-is-a-data-agent",
+      "example_source_path": "content/pillar1-ai-native-data-analysis/003-what-is-a-data-agent"
+    },
+    "glossary-terms": {
+      "count_hint": 2,
+      "label": "术语表",
+      "reference_slug": "data-agent-glossary",
+      "example_source_path": "content/pillar1-ai-native-data-analysis/013-data-agent-glossary"
+    },
+    "prompt-resource": {
+      "count_hint": 2,
+      "label": "Prompt 资源",
+      "reference_slug": "ai-data-analysis-prompts",
+      "example_source_path": "content/pillar8-skills-templates-glossary/095-ai-data-analysis-prompts"
+    },
+    "copy-block": {
+      "count_hint": 1,
+      "label": "可复制模板",
+      "reference_slug": "ai-data-analyst-job-description",
+      "example_source_path": "content/pillar1-ai-native-data-analysis/008-ai-data-analyst-job-description"
+    },
+    "product-review": {
+      "count_hint": 1,
+      "label": "产品评测",
+      "reference_slug": "infinisynapse-review",
+      "example_source_path": "content/pillar3-ai-analyst-tools/043-infinisynapse-review"
+    },
+    "faq-hub": {
+      "count_hint": 1,
+      "label": "FAQ 主导",
+      "reference_slug": "ai-analytics-glossary",
+      "example_source_path": "content/pillar8-skills-templates-glossary/099-ai-analytics-glossary"
+    }
+  }
+}

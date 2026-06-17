@@ -1,0 +1,326 @@
+{
+  "t1_text2sql": {
+    "post": {
+      "sub": "r/dataengineering",
+      "title": "Text to SQL Agents?",
+      "score": 5,
+      "num_comments": 39,
+      "body": "Anyone here used or built a text to sql ai agent?\n\nA lot of talk at the moment in my shop about it. The issue is that we have a data swamp. Trying to wrangle docs, data contracts, lineage and all that stuff but wondering is anyone done this and have it working?\n\nMy thinking is that the LLM given the right context can generate the sql, but not from the raw logs or some of the downstream tables\n",
+      "url": "https://reddit.com/r/dataengineering/comments/1owjt0b/text_to_sql_agents/",
+      "flair": "Discussion",
+      "created_days_ago": 179
+    },
+    "top_comments": [
+      {
+        "s": 11,
+        "b": "Just feels like your data has to be perfect and docs very up to date for this to work. And LLM isn’t going to catch the nuance or business context embedded in the data. \n\nI can see it working for isolated data pulls with strict rules and little variability.",
+        "a": "Firm_Bit"
+      },
+      {
+        "s": 8,
+        "b": "I've built text to SQL a couple of times (once about 18 months ago using heavy prompt eng, once with some MCP and structured outputs) and found it very hit or miss. The best approach I've found is using a semantic layer with MCP - the added semantic structure and tools around metrics and dimensions make for a much more reliable query builder, though there's more data eng required to build out a decent semantic layer. I think LLM generated SL is the necessary evolution to make it really work well.",
+        "a": "pixlPirate"
+      },
+      {
+        "s": 4,
+        "b": "Yes I've built these before. Lightweight LLMs are great for this if you have the context (as you mentioned). \n\nThe first 90% being functionality and performance is  easy. The last 10% meeting security, latency and scaling is expensive. \n\nDM me if you want to chat.",
+        "a": "RobDoesData"
+      },
+      {
+        "s": 3,
+        "b": "Text-to-SQL only works reliably when you fence it into a tiny, curated semantic surface. Pick the 10–20 questions that matter, then ship “safe” views with stable names, PK/FK, comments, and a join graph; keep raw logs out of scope. Give the agent tools, not freedom: listtables, describetable, samplevalues, runquery with allowlisted schemas, auto LIMIT + time windows, and hard blocks on DDL/DML. Normalize dialects with SQLGlot; consider a mini DSL that you compile to a SQL AST. Wire dbt tests to the layer, add canary prompts with golden answers, and fail deploys on regressions. Track query fingerprints, rows scanned, and cost; cache heavy queries with TTL. Tag PII at ingest and enforce row/column policies before results leave the box. We used Cube for the semantic layer and dbt for metrics, with DreamFactory exposing pre-masked REST endpoints over legacy SQL Server/Mongo so the agent only hits curated routes with RBAC. Keep the surface small, tested, and observable or the hit/miss never goes away.",
+        "a": "Adventurous-Date9971"
+      },
+      {
+        "s": 3,
+        "b": "Yes, all major LLMs can generate SQL from natural-language instructions. The real challenge with SQL is that schemas live in silos, so your prompts must reflect knowledge of each specific schema.\n\nBeyond SQL, LLMs also work well with SPARQL, GraphQL, and other query languages. With SPARQL, the use of ontologies significantly reduces the schema-knowledge burden while increasing expressive power — especially compared to SQL.\n\nIn practice, combining SQL and SPARQL yields an optimal approach. I’m happy to share examples if anyone’s interested.",
+        "a": "kidehen"
+      },
+      {
+        "s": 2,
+        "b": "Yea that’s my take on it on as well. The SQL side is “easy” it’s the context that’s hard, hence why we looking adding that context.\n\nTrying to gauge how or what should document. It’s easy to build a POC but once you put it in front of an actual user, especially one who has questions and no context of what it should look for, it will fall apart very fast",
+        "a": "Oct8-Danger"
+      },
+      {
+        "s": 2,
+        "b": "I cannot emphasize how critical SL now is in AI world..if you have seen Applied AI summit...go and refer to the talk about architecture there.",
+        "a": "Low-Bee-11"
+      },
+      {
+        "s": 2,
+        "b": "Which talk specifically are you recommending?",
+        "a": "pixlPirate"
+      }
+    ]
+  },
+  "t2_run_sql": {
+    "post": {
+      "sub": "r/dataengineering",
+      "title": "Are people actually letting AI agents run SQL directly on production databases?",
+      "score": 62,
+      "num_comments": 71,
+      "body": "I've been playing around with AI agents that can query databases and something feels off.\n\nA lot of setups I'm seeing basically let the agent generate SQL and run it directly on the DB.\n\nIt sounds powerful at first, but the more I think about it, the more sketchy it feels.\n\nLLMs don’t actually understand your data, they’re just predicting queries. So they can easily:  \n\\-Generate inefficient queries  \n\\-Hit tables you didn’t intend  \n\\-Pull data they probably shouldn’t\n\nEven a slightly wrong join or missing filter could turn into a full table scan on a production DB.\n\nAnd worst part is you might not even notice until things slow down or something breaks.\n\nFeels like we’re giving these agents way too much freedom too early.\n\nI’m starting to think it makes more sense to put some kind of control layer in between, like predefined endpoints or parameterized queries, instead of letting them run raw SQL.\n\nCurious what others are doing here.\n\nAre you letting agents hit your DB directly or putting some guardrails in place?",
+      "url": "https://reddit.com/r/dataengineering/comments/1s22vr9/are_people_actually_letting_ai_agents_run_sql/",
+      "flair": "Discussion",
+      "created_days_ago": 49
+    },
+    "top_comments": [
+      {
+        "s": 73,
+        "b": "YOLO mode here. We are on data bricks and let non data people access the data. So we already have mechanisms to monitor and kill jobs that are going off the rails, and configure data warehouse’s with limited scalability so it’s impossible to spend too much money. I’m not sure the agent is worse than an engineering manager that hasn’t written SQL for 20 years. \n\nAlso, databricks has table history (we keep 3 days) and UNDROP for 7 days. Nobody other than platform admins can drop schemas. So not super worried about it deleting its work. ",
+        "a": "iamnotapundit"
+      },
+      {
+        "s": 33,
+        "b": "I usually have the agent write the query review it and then have the agent use a read-only role to run it. Mostly for exploratory purposes during development when I’m trying to get the lay of the land quickly similar to how people use it to become familiar with codebases. Of course only if my job allows me to have AI query the database, which mine does.\n\nAnything that runs in production with read-write access goes through code review and is not run by AI just plain orchestrated queries.",
+        "a": "MonochromeDinosaur"
+      },
+      {
+        "s": 29,
+        "b": "Lol no. We use it to modify code thru GitHub",
+        "a": "ntdoyfanboy"
+      },
+      {
+        "s": 16,
+        "b": "We have a semantic layer running on a pre-aggregated dataset. So full scans are not a problem, the only trade-off is that we are responsible for what it’s available to LLMs",
+        "a": "a-vibe-coder"
+      },
+      {
+        "s": 12,
+        "b": "Are people actually letting humans run SQL on their production databases?",
+        "a": "dataisok"
+      },
+      {
+        "s": 11,
+        "b": "Is your production database really so sketchy it’s gonna be taken down by a few inefficient selects? ",
+        "a": "Dangerous-Sale3243"
+      },
+      {
+        "s": 10,
+        "b": "Everybody on this thread ignoring data privacy/security concerns and only focusing on \"read only\" and performance 👀",
+        "a": "Black_Magic100"
+      },
+      {
+        "s": 9,
+        "b": "If a bad select can take down your database, then you can’t let any user (whether application, human, human supervised ai, unsupervised ai) run arbitrary sql against your database.\n\nThere’s no reason in this age to even be in that situation in the first place. If you are in this position, multiple things have gone wrong and the people in charge of the database are out of their depth.\n\nMost AI (and human) use cases dont need live data anyway, they can use a replica which is a few minutes out of date. \n\n",
+        "a": "Dangerous-Sale3243"
+      }
+    ]
+  },
+  "t3_agentic_bi": {
+    "post": {
+      "sub": "r/BusinessIntelligence",
+      "title": "Is \"Agentic BI\" actually replacing traditional dashboards in 2026, or is it just semantic layer hype?",
+      "score": 52,
+      "num_comments": 31,
+      "body": "I’ve been spending a lot of time recently deep-diving into AI-native Business Intelligence, specifically looking at how we can leverage LLMs like Gemini and Claude for more than just basic text-to-SQL queries.\n\nRight now, vendors are heavily pushing the \"Agentic BI\" narrative where autonomous agents don't just generate static reports, but actively monitor data observability pipelines, detect anomalies in real-time, and execute cross-functional workflows (especially with the rise of MCP server integrations). The promise is moving from passive dashboards to active operational hubs.\n\nBut looking past the enterprise marketing:\n\n* Are any of you actually trusting AI agents to execute operational decisions directly from your BI platforms?\n* Or are these systems currently just functioning as highly advanced semantic layers where a human still has to review a dashboard and hit \"approve\"?\n\nThis breakdown on [Agentic BI](https://www.netcomlearning.com/blog/ai-in-business-intelligence-bi?utm_source=chatgpt.com) gives a useful overview of where the technology is heading, but I’m trying to separate the demo-ware from reality.\n\nI'm trying to separate the demo-ware from reality. If you've managed to get true agentic workflows into production this year, are the governance and data quality headaches actually worth the productivity gains? Would love to hear what your stacks look like right now.",
+      "url": "https://reddit.com/r/BusinessIntelligence/comments/1ta6rzb/is_agentic_bi_actually_replacing_traditional/",
+      "flair": null,
+      "created_days_ago": 0
+    },
+    "top_comments": [
+      {
+        "s": 44,
+        "b": "seems to be that \"agentic BI\" agents right now is an LLM layer on top of a semantic layer to generate the reports and answers the end user needs.  When you combine that LLM UI with things like scheduled reports sending to email (based on product usage for example) the mere fact it's all done and set up through a conversational experience essentially IS an agentic bot from the end user's perspective.    \n  \nSame as anything though, you need your db set up with proper semantic modelling or whatever to get the right answers in the first place",
+        "a": "tactical_laziness"
+      },
+      {
+        "s": 42,
+        "b": "I think the industry is massively overusing the word “agentic” right now.\n\nMost companies are not letting BI agents autonomously run meaningful operational workflows. They’re building:  \nLLM interfaces on top of semantic layers,  \nbetter observability pipelines,  \nand approval-gated automation.\n\nWhich is still valuable btw.\n\nBut true closed-loop autonomous BI is terrifying once you’ve actually worked inside messy enterprise data environments. One bad metric definition or delayed pipeline and suddenly your “agent” is confidently executing garbage logic at machine speed.\n\nThe companies getting real value right now seem to be the ones treating agents as decision-support systems, not autonomous operators.",
+        "a": "MarieRoble"
+      },
+      {
+        "s": 26,
+        "b": "Yeah, they're currently doing this at a client of mine, and the AI team contacted me to ask me what a Stakeholder was looking for when they asked it for \"Depth and breadth of activity in 2025 compared to 2026\". Depth and breadth aren't defined in the semantic layer and the SQL queries the AI involves behind the scenes so it didn't know what to do. I basically told them as much and that they would need to ask the Stakeholders what the hell they mean. \n\nThat's the problem with all of this is that it's not a magic bullet. There's still a TON of work behind the scenes to be able to make it so that the AI can work, but promising \"You can ask it anything\" is ridiculous because people can and will ask it nebulous questions with no clear definition.",
+        "a": "Doctor__Proctor"
+      },
+      {
+        "s": 26,
+        "b": "The hype machine is strong.",
+        "a": "GreyHairedDWGuy"
+      },
+      {
+        "s": 12,
+        "b": "If anyone’s been in corporate business you know corporate data is not ready for any kind of agentic ai. Every system is so fragmented and the entire thing is held together by duck tape called excel. It may be possible one day but it’s far far away from becoming the norm.",
+        "a": "redaloevera"
+      },
+      {
+        "s": 7,
+        "b": "I think AI is going to take the 'What were my sales last quarter?' Style end user questions quite quickly. That sort of one off stuff was a bad fit for a dashboard anyway, there just wasn't a better format. Now there is.\n\nBut the bigger purpose of BI is to standardize data understanding and data informed decision making across the org. That still needs to be managed.\n\nLetting an agent evaluate the data and action on it is really an evolution of technology patterns we've already had. The difference now is the reasoning step. Otherwise it's just zapier.\n\nBI tools especially are just throwing shit at the wall and hoping something sticks. I would not trust any demo you see.\n\nSource: I am an independent BI vendor advisor and analyst.\n",
+        "a": "NYD3030"
+      },
+      {
+        "s": 6,
+        "b": "&gt;But true closed-loop autonomous BI is terrifying once you’ve actually worked inside messy enterprise data environments.\n\nExactly. If an org has pristine data and up-to-date semantic models and measure definitions, sure, an AI agent might could maybe be trusted to make decisions, detect anomalies, etc.\n\nBut for those of us not to that level of data or process maturity, absolutely not. No way in hell I'd trust an AI agent over years of data from an app with 37 free text fields because the stakeholders insisted it was the only way they'd use it.",
+        "a": "ThePrimeOptimus"
+      },
+      {
+        "s": 6,
+        "b": "It’s all marketing speak all the way down. I keep telling users … “The AI ate my homework” is not an excuse .",
+        "a": "cbelt3"
+      }
+    ]
+  },
+  "t4_200hrs": {
+    "post": {
+      "sub": "r/AI_Agents",
+      "title": "We built a data agent that saves our analyst team ~200 hrs/week. (Databricks, Omni, DBT, GitHub, Sheets)",
+      "score": 6,
+      "num_comments": 13,
+      "body": "**TL;DR:** Our Data team built an agent that fields ad-hoc questions from across a 700+ person company. Deployed in Slack. Answers in \\~3 minutes vs. what used to sit in an analyst queue for days. The thing that made it work? Context. We documented the nuances of all our institutional knowledge (data architecture, semantic layer, definitions, etc.) and built a governed eval loop so the agent gets smarter with every turn.\n\n*Posting from a a friend's account because reddit hates new accounts and thinks I'm a bot. 🤖 but I'll respond to comments,*\n\nI‘m on the data team at Airtable and we have been thinking about how agents can help our work for a while now. We finally stood one up over the past few weeks, and I’m actually surprised by how accurate it has been. After hammering it with test questions across every business domain, initial evaluations already have it at &gt;91% accuracy rate. The 9% misses are mainly due to missing business context, when we identify the gap we have the agent automatically update with our learning loop we built. (More on that below)\n\n***Exploring AI and Agents***  \nFor the past six months, the team iterated on **the** AI tool that would let the company get consistent and reliable answers from our existing data, without us needing to manually run an analysis ourselves. \n\nBefore the agent (B.A.),  analysts were overloaded with ad-hoc questions coming in via Slack. These questions were taking up at least half of our week to answer, and the majority of our time during end-of month/quarter reporting cycles. Questions like \"break down retention by cohort and plan type\" would sit for days.\n\nNow, the agent answers them in minutes. But, by no means did we one-shot this. Or even stand it up over a weekend. Like I said. The road to get there took six months\n\n**Everything we tried first**  \nAfter a ton of revs with other tools. We realized that no AI-powered anything would be reliable without ***context***. The architectural and institutional knowledge about our data: Which tables should be used for specific questions, what “churn” means across product, GTM, and finance, the JOIN mistakes to avoid with certain tables. \n\nWe had the benefit of years of meticulously modeled data infra aimed at building certified datasets the business could trust. But at this point (January), only \\~30% of our data models were documented 🤷. So, that’s where we focused our efforts. We were in the early stages of adopting Claude code, so we used it to help us document our entire codebase as a first major improvement.\n\nAfter this, our head of infra built out a natural language interface over our Databricks warehouse. The result? Highly inaccurate. (No context layer). Next, we tried Claude + Databricks MCP. Better, but still painful. We gave our Strategic Finance team access and they loved it, but their workflows were still manual and siloed. They were copying SQL tile by tile from Looker, pasting it into Claude Code, just to get back static outputs. \n\nWe'd adopted Cursor as an IDE  and seen some early success. But the gains were limited by several factors: \n\n* Many data scientists, analytic engineers, and analysts aren't deeply familiar with local development tooling\n* Our Cursor implementation was relatively basic, acting as an intelligent copilot that still needed a human hand on the wheel\n* We hadn't connected all of our resources into a single environment the AI could access. It could see our codebase, but it couldn't run SQL in Databricks, monitor GitHub, or check dbt logs.\n\nNow we’re in mid-Feb. OpenClaw proved that the appetite was there for an always-on AI agent connected to your stack, but there was NO way we were connecting it to company data (Try and explain that one to the security team). Luckily, Airtable decided to launch a new product that fit our needs, with integrations that could be safely connected to our data warehouse. Now it’s time to cook.\n\n**When the magic hit us**  \nHyperagent immediately let us connect to everything we needed. Databricks for the warehouse. Looker and Omni Analytics for dashboards and specific cuts. GitHub to access our code. Sheets for finance’s benchmarks, and of course Slack. Where everyone's already asking questions anyway. For the integrations it didn’t serve out-of-the box, it groked the APIs and set up scripts to access them via a skill, while storing credentials securely.\n\n**The other pieces that made it work:**\n\n1. **The business context file.** This is our foundation we’ve been working on since Jan. Acting as a map of our data architecture and semantic layer,  and containing everything a senior analyst knows. *Which of 3 revenue tables to use for which question. That one JOIN that silently multiplies your results 350x without the right filter. Every gotcha we've ever found.* \n2. **Domain-specific skills that load based on the question.** Hyperagent dynamically makes use of its skills based on what it’s being asked to do. Enterprise questions pull enterprise context. Finance gets its own calculations. Different skills load based on who’s asking the question. We rely on the AI to route it to the right place. It’s working.\n3. **A governed learning loop.** When someone corrects the agent in a thread, it proposes a context update, posts reasoning to a review channel in Slack, and waits for human approval before anything changes. Every conversation makes the whole system smarter.\n\n**If you take away anything, take this.**\n\n* **V1** ***confidently*** **returned wrong answers**. Confidently wrong is worse than no answer at all. You must provide context, and not only provide it, but VERIFY. Our ML lead hammers the agent with zingers every day. It’s learned more than a few things, but our pressure testing has increased our confidence in the agent.\n* **Always be learning.** Nothing stays the same for two weeks, let alone two months in a business. No matter if you’re a start up, scale up, or multi-national behemoth. New teams are forming every quarter. New SKUs are added. You need to make sure your agent can adapt and grow. Otherwise it’s useless.\n\nAlright, I’m out of steam on this. But I do believe that we’ve built something cool here that a lot of teams can replicate. If you have any questions, ask away. \n\nAlso, give Hyperagent a try and LMK what you think. Just tell the team you came from Reddit, and we’ll put you at the top of the list. \n\nAlso, Also: If this sort of work sounds interesting to you, we’re hiring a team of AI Analytics Engineers at Airtable. Read the JD and apply.",
+      "url": "https://reddit.com/r/AI_Agents/comments/1sfu06i/we_built_a_data_agent_that_saves_our_analyst_team/",
+      "flair": "Discussion",
+      "created_days_ago": 33
+    },
+    "top_comments": [
+      {
+        "s": 3,
+        "b": "The part that feels most important here is the governed learning loop, not just the warehouse access.\n\nFor data agents, I’d separate three things pretty aggressively: semantic context, execution permissions, and eval drift. A context file can tell the agent which metric/table to use, but the execution layer still needs hard limits around tables, columns, scan size, PII, and audit logs.\n\nCurious how you handle “this answer was technically valid SQL but business-wrong” cases. Do those become eval cases, context updates, or both?",
+        "a": "WeirdOrange7973"
+      },
+      {
+        "s": 2,
+        "b": "cool, saving 200 hrs/wk is huge. but that eval loop relies on fresh context from dbt/github right? if schemas shift w/o auto-sync, answers degrade fast. what's your update freq?",
+        "a": "ninadpathak"
+      },
+      {
+        "s": 2,
+        "b": "how is this different than what tools like glean can do?",
+        "a": "borisRoosevelt"
+      },
+      {
+        "s": 2,
+        "b": "my experience after shipping three of these in production: the 91% on your hand-built eval set is not the number that bites you. the real metric is accuracy on questions that show up organically 60+ days in, and it drifts down as new tables and definitions land without anyone updating the context file. the 9% bucket labeled 'missing business context' is where every one of these projects dies politically, whoever owns the semantic layer becomes the bottleneck and they usually have three other jobs. what worked for us was pinning a gold set of around 50 real slack questions, rerunning it weekly, and treating any drop below 88% as a P1. that was the only signal that survived schema drift.",
+        "a": "Deep_Ad1959"
+      },
+      {
+        "s": 1,
+        "b": "We average 2-5 PRs a day that could impact the context layer. Some of those are agent-initiated (agent proposes a change, gets Slack approval, opens a PR), others flow the other direction (someone merges a doc PR and the agent’s context updates). We intentionally keep a human in the loop in a couple spots since we’re still calibrating trust.  \n  \nFor evals, we run a full benchmarking loop against a suite of known test questions roughly weekly. Semi-automated, kicked off by a dev and partially observed. In between we’re actively mining for new edge cases across live threads. The plan is to move both of these into a persistent background agent that doesn’t need someone to kick it off. Basically a continuous quality monitoring layer.  \n  \nThat being said, we’ve found that schema shifts really aren’t that big of an issue for us with our current architecture, the area that requires continual upkeep is in codifying business context. Even with clean naming conventions and a well-maintained schema, you still need to codify things like “when we say X metric, we actually mean this specific calculation” or “this table is canonical for that use case, not this other one that looks similar.” This is particularly difficult for more nuanced questions, especially in Product analytics.  \n  \nThat layer of business practice and convention on top of the schema is where most of the real work goes, and it’s the hardest to keep fresh.  \n  \nWhat’s helped is that we’ve woven context updates into our team’s existing dev workflows. When a business definition changes or a new table becomes canonical, the context update happens as part of the same PR, not as a separate maintenance task someone has to remember. So no single system drifts out of alignment.  \n  \nAreas we’re actively building to tighten the loop:\n\n* Assistant agent skills that help data team members triage open threads faster\n* Monitoring agents that watch our agent channels and surface threads with issues, excessive back-and-forth, or patterns worth mining for new evals\n* Local agent skills to arbitrate between our AI code review and the  Data Agent on PRs, especially useful when you’re less familiar with a particular part of the codebase\n* Having the agent proactively check its own open PRs and respond to review comments\n\nTrying to close the loop where the agent not only answers questions but participates in its own improvement cycle.",
+        "a": "JeenyusJane"
+      },
+      {
+        "s": 1,
+        "b": "Honestly, with the timeline we really didn't explore Glean because we were digging into Claude. Just did a quick search, and it looks like it can handle a lot, especially the context part. I like that it has a debug mode that allows you to see what Glean searched prior to answering the question, which is a big feature I'd want from our agent.\n\nIf I had to guess, Glean would probably perform better on the standard questions if provided the right context and prompt given its specialty in search.\n\nWhat we're seeing is that the agent goes beyond that for our end users. Who want a full report and artifacts they can bring to meetings and prep with. They really like  Hyperagent can actually produce artifacts and then deliver it in slack. It can run Python on the data, build a full web report, put together a presentation. So it goes past \"here's what I found\" into \"here's the finished deliverable.\"\n\nHere's an example of a report that it builds for our finance team (dummy data of course)\n\nhttps://preview.redd.it/bgx7fse210ug1.png?width=1214&amp;format=png&amp;auto=webp&amp;s=1fc06d924dbb7c5b28ce0b8ed0c849e13a4da62d\n\nBest way I can put it is, we're finding that we're getting answers that are on the level of a Senior Analyst who finds it, does the work, and hands you something you can actually use.",
+        "a": "JeenyusJane"
+      },
+      {
+        "s": 1,
+        "b": "Thank you for your submission, for any questions regarding AI, please check out our wiki at https://www.reddit.com/r/ai_agents/wiki (this is currently in test and we are actively adding to the wiki)\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/AI_Agents) if you have any questions or concerns.*",
+        "a": "AutoModerator"
+      },
+      {
+        "s": 1,
+        "b": "Link to Job Postings is under the Data tab: [https://airtable.com/careers/roles](https://airtable.com/careers/roles)  \n",
+        "a": "JeenyusJane"
+      }
+    ]
+  },
+  "t5_halluc_cols": {
+    "post": {
+      "sub": "r/LangChain",
+      "title": "Preventing SQL agents from hallucinating columns and destructive queries",
+      "score": 9,
+      "num_comments": 16,
+      "body": "While trying to build a “chat with your database” LangChain agent, I realized the hard part wasn’t generating SQL — it was trusting it.\n\nThe model could write queries, but I kept hitting issues:  \n• hallucinated column names  \n• incorrect joins  \n• answers based on non-existent data  \n• and once it even produced a DELETE statement\n\nThe scary part wasn’t wrong answers — it was the idea of letting an LLM execute queries on a real DB.\n\nSo I ended up putting a guarded layer between the LLM and Postgres:\n\n* automatically reads the schema\n* constrains generation to real tables/columns\n* checks queries before execution\n* blocks destructive statements\n* executes read-only and answers only from returned rows\n\nAfter that the agent became much more predictable and I could finally run it against a real database without worrying about it nuking tables.\n\nI eventually cleaned up the setup into a small starter kit for those who want to experiment with AI-DB use cases, but I’m more curious about others’ experiences here.\n\nFor those who’ve built SQL agents — what part has been the most painful for you?\n\nSchema grounding? Query correctness? Or execution safety?\n\nIf you want, give me a natural-language database question and I’ll run it and show the SQL it generates.\n\nhttps://preview.redd.it/tr4ohnllgcmg1.png?width=1913&amp;format=png&amp;auto=webp&amp;s=aa5494cbe8e5acf697abfc5412dff959efb6bc5a\n\n",
+      "url": "https://reddit.com/r/LangChain/comments/1rhlb4g/preventing_sql_agents_from_hallucinating_columns/",
+      "flair": null,
+      "created_days_ago": 72
+    },
+    "top_comments": [
+      {
+        "s": 8,
+        "b": "Yep, SQL generation is the easy part, execution safety is the real boss fight.\n\nWhat you described (schema grounding + validation + read-only enforcement) is basically the minimum viable safety layer for DB agents. Have you tried adding an intermediate step that forces the model to output a query plan in plain English first, then generate SQL, then verify columns against the schema?\n\nAlso, Ive seen a couple good agent patterns around tool constraints and validators here https://www.agentixlabs.com/blog/ that map pretty closely to what youre building.",
+        "a": "Otherwise_Wave9374"
+      },
+      {
+        "s": 3,
+        "b": "Which model are you using?\nDo you really need agent for sql generation?\nI am currently working on Athena sql generation, \nI use gemini 2.5 flash lite to generate sql, pass schema and business rules in prompt ( plan to make this a rag retrieval). \n\nGenerated sql is sent to a python code to run on db.",
+        "a": "RepulsiveCry8412"
+      },
+      {
+        "s": 3,
+        "b": "Use vanna ai it does complete job for you",
+        "a": "rock_db_saanu"
+      },
+      {
+        "s": 2,
+        "b": "That’s actually exactly how I started !  — an LLM → SQL → execute pipeline. I too am using Gemini Models (2.5 flash). This is a very solid way to build LLM-SQL pipelines.\n\nIt works decent for generating SQL queries. But I feel the SQL generation is not the problem here , it is the reliability. \n\nI wonder if a single pass would suffice for the model to provide appropriate queries, especially when the size of the DB is huge.  A traditional LLM -&gt; SQL  pipeline assumes the query the model writes is correct , safe to run and result actually answers the user’s intent.\n\nThe “agent” part for me is adding a decision step between generation and execution. The model proposes an action (a query), but the system verifies it, can reject it, and force a regeneration before anything touches the database. So the LLM becomes an untrusted query writer rather than an executor. This is not a typical \"React Style Agent\" that Langchain offers. But the concept remains the same. Multiple workflows like Evaluator Optimizers (as in Corrective RAG) can be setup which would boost the reliability .\n\nWould love to hear your thoughts on this!",
+        "a": "K3shxx"
+      },
+      {
+        "s": 1,
+        "b": "Yes i also want to build an llm as a judge step but not sure if i should use flash as judge too, adding similar model will increase cost. Flash also needs decent amout of thought tokens to generate good sql, for me its 500. Size of db should be irrelevant, we can prompt model to write optimized sql.\nI am building a chat application where user can ask to refine queries if not satisfied and also add human in the loop step if user is not satisfied say after 10 turns or 10k tokens whichever is higher. I am newbie so not sure if any better technique are present. You can also try adding skills for your agent.",
+        "a": "RepulsiveCry8412"
+      },
+      {
+        "s": 1,
+        "b": "Hey if your using it solely for Athena you can check out AWS data processing MCP server it takes care most of the things.",
+        "a": "pls_fix_me51"
+      },
+      {
+        "s": 1,
+        "b": "Thanks , it looks good ona paper but I'm concerned about costs, amazon q , claude desktop and for specific cases need to use bedrock agent core, will check though.",
+        "a": "RepulsiveCry8412"
+      },
+      {
+        "s": 1,
+        "b": "+1",
+        "a": "_y0y0_"
+      }
+    ]
+  },
+  "t6_debug": {
+    "post": {
+      "sub": "r/AI_Agents",
+      "title": "How do you actually debug your AI agents?",
+      "score": 3,
+      "num_comments": 22,
+      "body": "I've been running AI agents in production for 6 months (Cursor, Claude Code, custom Mastra pipelines) and debugging them is still a nightmare.\n\n\n\nLast week alone:\n\n\\- An agent silently hallucinated a config value. Caught it 2 days later.\n\n\\- A regression after updating my prompt — no idea when it broke\n\n\\- $80 in API costs on a task I thought would cost $8\n\n\n\nI'm spending more time reading logs than actually building.\n\n\n\nHow are you handling this? Are you just manually reviewing outputs? Built something internally? Given up and just accepting the chaos?\n\n\n\nGenuinely curious if this is just me or if it's a shared pain.",
+      "url": "https://reddit.com/r/AI_Agents/comments/1t7hes1/how_do_you_actually_debug_your_ai_agents/",
+      "flair": "Discussion",
+      "created_days_ago": 3
+    },
+    "top_comments": [
+      {
+        "s": 4,
+        "b": "The real issue is that your agents have no way to fail fast. Traditional software throws errors immediately when something breaks. Your hallucinated config value sat there for 2 days because the agent kept running with bad data and produced outputs that looked fine.",
+        "a": "ninadpathak"
+      },
+      {
+        "s": 3,
+        "b": "I’ve found logs are not enough unless you log the agent’s decision points too. For anything that can spend money or change config, I’d add a cheap preflight check and a hard budget cap before trying fancier evals.",
+        "a": "Worth_Influence_7324"
+      },
+      {
+        "s": 2,
+        "b": "The prompt-regression one bit me hardest. Changed a system prompt, agent kept passing smoke tests, then a week later I noticed it had stopped citing tool outputs entirely on one branch of the flow. Now I keep about 12 frozen example inputs in a tests folder and re-run them on every prompt edit, diffing output against the previous version. Caught two regressions last month I'd have shipped otherwise. What's your prompt-update workflow look like, are you saving outputs anywhere when you tweak it?",
+        "a": "mrtrly"
+      },
+      {
+        "s": 2,
+        "b": "Silent hallucinations and untracked regressions are brutal. You need observability into what the agent actually decided at each step, not just the final output. I've seen teams burn weeks chasing bugs that were obvious in a replay of the agent's reasoning chain. The prompt update regression especially sucks because you can't just diff it like code - you need to actually run both versions side by side on the same inputs and see where the decisions diverged.",
+        "a": "Emerald-Bedrock44"
+      },
+      {
+        "s": 1,
+        "b": "very true and agreed with this",
+        "a": "jain-nivedit"
+      },
+      {
+        "s": 1,
+        "b": "The frozen inputs + diff approach is exactly the right instinct — you basically built a regression test suite for your agent. Curious, do you run this manually after every prompt change or did you wire it into some kind of pipeline? DM me, I'm building something around this exact problem and your setup would really help me shape it.",
+        "a": "Fabulous-Bite8265"
+      },
+      {
+        "s": 1,
+        "b": "The side-by-side on the same inputs is exactly the right mental model — you can't catch prompt regressions any other way. Are you doing that manually right now or do you have something set up for it ?",
+        "a": "Fabulous-Bite8265"
+      },
+      {
+        "s": 1,
+        "b": "Thank you for your submission, for any questions regarding AI, please check out our wiki at https://www.reddit.com/r/ai_agents/wiki (this is currently in test and we are actively adding to the wiki)\n\n*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/AI_Agents) if you have any questions or concerns.*",
+        "a": "AutoModerator"
+      }
+    ]
+  }
+}

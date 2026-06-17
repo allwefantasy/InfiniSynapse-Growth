@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Databricks Genie 增长打法详情 · InfiniSynapse 竞品调研</title>
+ <link rel="stylesheet" href="../assets/report.css" />
+</head>
+<body>
+ <header class="topbar">
+ <div class="topbar-inner">
+ <div class="topbar-brand">InfiniSynapse · 竞品详情</div>
+ <nav class="topbar-nav">
+ <a href="../index.html">← 返回总报告</a>
+ <a href="julius-ai.html">Julius</a>
+ <a href="hex.html">Hex</a>
+ <a href="thoughtspot.html">ThoughtSpot</a>
+ <a href="databricks-genie.html" class="active">Genie</a>
+ </nav>
+ </div>
+ </header>
+
+ <div class="page">
+ <p class="breadcrumb"><a href="../index.html">增长调研报告</a> / Databricks Genie · <a href="#timeline">增长时间线</a></p>
+
+ <div class="plain-box">
+ <h3>读这一页前 · 三个词</h3>
+ <dl>
+ <dt>湖仓平台</dt><dd>Databricks 本身是企业数据平台（存数据、跑数据库查询、管权限）；Genie 是上面长出来的「用口语问数据」功能，不是单独一家公司。</dd>
+ <dt>Genie 空间</dt><dd>数据团队先配好表、指标说明、示例问题，业务用户再在聊天界面里问——强调「有护栏的自然语言分析」，不是裸的自然语言转数据库查询。</dd>
+ <dt>捆绑销售</dt><dd>已有 Databricks 数据库查询 客户的 Genie <strong>不另收许可证费</strong>，只算仓库计算资源——增长靠现有客户基数，不靠从零做搜索优化。</dd>
+ </dl>
+ </div>
+
+ <div class="detail-hero genie">
+ <h1>Databricks Genie <span class="role-badge platform">采购对比标杆</span></h1>
+ <p>产品页：<a href="https://www.databricks.com/product/ai-bi/genie" target="_blank" rel="noopener">databricks.com/product/ai-bi/genie</a> ·
+ 湖仓上的对话式数据分析 · 本方案<strong>学它怎么进客户候选清单</strong>，<em>不学</em> Julius 式独立站搜索优化</p>
+ <p style="font-size:14px;color:var(--muted);margin-top:8px;">
+ <strong>为什么单独写一页：</strong>客户采购 shortlist 里经常和我们比（四维打分 A=4）；搜索词 <code>databricks genie</code> 月搜约 <strong>1600</strong>、难度 <strong>27</strong>，是我们 100 篇规划里的<strong>最高优先级对比页</strong>之一。综合分 3.6，未进 TOP3——因为获量主要靠母公司平台，<strong>独立可复制的网页打法不如 Julius/Hex/ThoughtSpot 清晰</strong>。
+ </p>
+ <div class="detail-stats">
+ <div class="detail-stat"><div class="val">1600</div><div class="lbl">核心对比词月搜索量</div></div>
+ <div class="detail-stat"><div class="val">27</div><div class="lbl">排名难度</div></div>
+ <div class="detail-stat"><div class="val">2</div><div class="lbl">人工智能测试引用（母公司）</div></div>
+ <div class="detail-stat"><div class="val">150万+</div><div class="lbl">2026 年 Genie 空间创建数</div></div>
+ <div class="detail-stat"><div class="val">0</div><div class="lbl">独立域名 / 对比文矩阵</div></div>
+ </div>
+ </div>
+
+ <section id="timeline">
+ <h2>0. 增长时间线：早期打法 → 流量爆发 → 现在</h2>
+ <p class="section-lead">Genie 的路径和 Julius 完全不同：<strong>不是创业公司从 0 做搜索优化</strong>，而是<strong>已有湖仓客户 → 大会发布 → 捆绑现有合同 → 文档与最佳实践教育 → 客户内部扩散</strong>。下面按可查来源串时间线。</p>
+
+ <div class="timeline">
+ <div class="timeline-item">
+ <div class="when">2013–2023 · 平台铺垫（Genie 之前）</div>
+ <h4>Unity Catalog + 数据库查询 仓库 + Mosaic 人工智能栈</h4>
+ <ul>
+ <li>Databricks 先卖「统一数据 + 治理 + 数据库查询」——企业客户把表、血缘、文档放在平台里</li>
+ <li>2023 前后强化 <strong>Data Intelligence Platform</strong> 叙事：模型能读平台里的元数据、血缘、历史查询</li>
+ <li><strong>关键判断：</strong>Genie 的「compound AI system（复合人工智能系统）」不是空降功能，而是<strong>吃已有数据资产</strong>——InfiniSynapse 若强调多库联邦，应对位「我们不必先把所有数据搬进 Databricks」</li>
+ </ul>
+ <p class="data-src">背景：<a href="https://www.databricks.com/blog/introducing-aibi-intelligent-analytics-real-world-data" target="_blank" rel="noopener">AI/BI 发布文</a>（compound AI 从 ETL、血缘、查询历史学习）</p>
+ </div>
+
+ <div class="timeline-item">
+ <div class="when">2024-06-12 · Data + AI Summit 发布</div>
+ <h4>AI/BI 套件：Dashboards（正式可用）+ Genie（公开预览）</h4>
+ <table>
+ <thead><tr><th>动作</th><th>内容</th><th>增长含义</th></tr></thead>
+ <tbody>
+ <tr><td>产品定义</td><td>Genie = 口语问数据 · Dashboards = 固定关键绩效指标看板</td><td>「仪表盘答不了的，交给 Genie」——扩大平台内使用面</td></tr>
+ <tr><td>定价</td><td>含在 Databricks 数据库查询 Pro / Serverless 客户合同内，<strong>无额外许可证</strong></td><td>对现有客户 = 零决策成本试用 → 内部扩散极快</td></tr>
+ <tr><td>发布渠道</td><td>主题演讲 + 新闻稿 + 博客 + YouTube 回放</td><td>大会单次触达数万数据从业者， earned media 放大</td></tr>
+ <tr><td>差异化叙事</td><td>不做「又一家易错的自然语言转数据库查询」，做<strong>可学习、可反馈</strong>的对话分析</td><td>和 ThoughtSpot Spotter、Hex 智能体同一话术战场</td></tr>
+ </tbody>
+ </table>
+ <p class="data-src">来源：<a href="https://www.databricks.com/company/newsroom/press-releases/introducing-databricks-aibi-intelligent-analytics-real-world-data" target="_blank" rel="noopener">官方新闻稿 2024-06-12</a> · <a href="https://www.databricks.com/blog/introducing-aibi-intelligent-analytics-real-world-data" target="_blank" rel="noopener">发布博客</a></p>
+ </div>
+
+ <div class="timeline-item">
+ <div class="when">2024 下半年 · 预览期冷启动</div>
+ <h4>文档 + 最佳实践 + 客户内测故事</h4>
+ <ul>
+ <li><strong>官方文档：</strong><a href="https://docs.databricks.com/aws/en/genie/set-up" target="_blank" rel="noopener">创建与管理 Genie 空间</a>——教数据分析师选表、写说明、放示例问题</li>
+ <li><strong>博客方法论：</strong><a href="https://www.databricks.com/blog/data-dialogue-best-practices-guide-building-high-performing-genie-spaces" target="_blank" rel="noopener">From Data to Dialogue</a>——「先选一个高价值场景，迭代 benchmark 问题，再放大」</li>
+ <li><strong>社区扩散：</strong>Medium 上 DBSQL SME 团队发 <a href="https://medium.com/dbsql-sme-engineering/best-practices-for-ai-bi-genie-spaces-on-databricks-6f101612c792" target="_blank" rel="noopener">Genie Spaces 最佳实践</a>；DEV Community 等第三方教程跟进</li>
+ <li><strong>产品概念：</strong>推出 <strong>Genie Space</strong>——每个空间 = 一个业务域的护栏 + 已验证指标 + 示例数据库查询</li>
+ </ul>
+ <p><strong>早期打法本质：</strong>不是投 Google 广告，而是让<strong>已有客户的的数据团队</strong>能在 1–2 天内配出一个可给业务用的空间。</p>
+ </div>
+
+ <div class="timeline-item burst">
+ <div class="when">2025 · Data + AI Summit · 正式可用</div>
+ <h4>Genie 正式可用 + Databricks One + Deep Research 预告</h4>
+ <table>
+ <thead><tr><th>动作</th><th>代表 URL / 事件</th><th>目的</th></tr></thead>
+ <tbody>
+ <tr><td>Genie GA</td><td><a href="https://www.databricks.com/blog/aibi-genie-now-generally-available" target="_blank" rel="noopener">Genie 正式可用公告</a></td><td>从「预览」变「可全量推广」；销售与客户成功可对外承诺</td></tr>
+ <tr><td>Databricks One</td><td><a href="https://www.databricks.com/events/dataaisummit-2025-announcements" target="_blank" rel="noopener">Summit 2025 产品发布</a></td><td>给<strong>非技术业务用户</strong>单独入口——解决「工作区太像工程师界面」的顾虑</td></tr>
+ <tr><td>客户证言</td><td>Summit 主题演讲中 AT&T、Condé Nast 等案例</td><td>「大公司已上线」→ 降低采购心理门槛</td></tr>
+ <tr><td>Deep Research</td><td>预告多步「为什么」类复杂问题 + 引用</td><td>占「数据智能体 / 智能分析」品类词，对抗独立 data agent 创业公司</td></tr>
+ <tr><td>技术权威文</td><td><a href="https://www.databricks.com/blog/pushing-frontier-data-agents-genie" target="_blank" rel="noopener">Pushing the Frontier for Data Agents</a>（2026-05）</td><td>用 benchmark 数字（32%→90% 准确率）喂给搜索引擎与人工智能摘要</td></tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="timeline-item burst">
+ <div class="when">2025–2026 · 客户内部爆发（非官网 SEO 爆发）</div>
+ <h4>Genie 空间数量 + 移动端 + 统一入口</h4>
+ <ul>
+ <li>官方称 2026 年客户累计创建 <strong>150 万+ Genie 空间</strong>——说明增长主引擎是<strong>存量客户自助扩散</strong>，不是 julius.ai 式对比文矩阵</li>
+ <li><a href="https://www.databricks.com/blog/next-generation-databricks-genie" target="_blank" rel="noopener">下一代 Genie</a>：合并 Databricks One · 接 Google Drive / SharePoint · iOS/Android 原生应用 · 统一聊天入口</li>
+ <li>叙事从「数据团队工具」升级为「<strong>每个员工问数据的主界面</strong>」</li>
+ </ul>
+ </div>
+
+ <div class="timeline-item">
+ <div class="when">2026-05 · 现在（对我们意味着什么）</div>
+ <h4>流量与可见性结构</h4>
+ <ul>
+ <li><strong>无独立域名：</strong>Genie 流量几乎全部记在 <code>databricks.com</code>，无法像 Julius 一样拆 SEMrush「Genie 占 30% Google」</li>
+ <li><strong>人工智能引用：</strong>内部基线里 <code>databricks.com</code> 被引用 <strong>2 次</strong>（平台级，非 Genie 专页）——低于 Hex(6)、ThoughtSpot(4)</li>
+ <li><strong>搜索拦截发生在第三方：</strong>用户搜 <code>databricks genie alternatives</code>、<code>infinisynapse vs databricks genie</code> 时，<strong>需要我们写对比页</strong>，Databricks 自己未必写「Genie vs 创业公司」</li>
+ <li><strong>采购场景：</strong>已上 Databricks 的企业 → 默认先试 Genie；未上湖仓或要跨云多库/私有化 → InfiniSynapse 窗口</li>
+ </ul>
+ </div>
+ </div>
+
+ <h3>爆发期动作清单（Genie 实测有效 · 我们能否复制）</h3>
+ <table>
+ <thead><tr><th>Genie 爆发期动作</th><th>证据</th><th>InfiniSynapse</th></tr></thead>
+ <tbody>
+ <tr><td>大会 keynote 一次发布</td><td>2024/2025 Data + AI Summit</td><td>❌ 资源不对等 · ✅ 可学「发布锚点 + 录屏 demo」节奏</td></tr>
+ <tr><td>捆绑现有客户合同</td><td>无额外 license</td><td>❌ 无存量湖仓合同 · ✅ 强调「不锁单一云 / 可私有化」</td></tr>
+ <tr><td>Genie Space 模板化</td><td>文档 + 最佳实践博客</td><td>✅ 连接器分步教程</td></tr>
+ <tr><td>业务用户单独入口</td><td>Databricks One → 合并进 Genie</td><td>✅ 产品演示 / 自助试用 低门槛入口</td></tr>
+ <tr><td>技术 benchmark 长文</td><td>data agents 32%→90% 文</td><td>待建：独立案例页 + 可复核数字</td></tr>
+ <tr><td>第三方对比 SEO</td><td>ThoughtSpot vs Genie 等由媒体/竞品写</td><td>✅ <strong>最高优先级</strong> 写 infinisynapse-vs-databricks-genie</td></tr>
+ <tr><td>Julius 式 /articles/ 矩阵</td><td>Genie 几乎不做</td><td>❌ 不期待 Genie 教 SEO · ✅ 我们学 Julius 写对比</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <section id="product">
+ <h2>1. 产品与竞争位置</h2>
+ <table>
+ <thead><tr><th>维度</th><th>Databricks Genie</th><th>对 InfiniSynapse 含义</th></tr></thead>
+ <tbody>
+ <tr><td>品类</td><td>湖仓内置对话分析 · Genie Space + Unity Catalog 治理</td><td>同属「企业数据智能体」，但 Genie <strong>绑定 Databricks 数据面</strong></td></tr>
+ <tr><td>谁买单</td><td>已买 Databricks 数据库查询 的企业 · 平台扩容</td><td>我们打「未上湖仓 / 多库 / 私有化 / 跨源联邦」</td></tr>
+ <tr><td>信任机制</td><td>已验证指标 · 示例数据库查询 · 空间级护栏 · 用户反馈 Good/Bad</td><td>可审计查询 + 记忆卡 + 操作留痕 可对位</td></tr>
+ <tr><td>弱项（公开叙事）</td><td>业务用户曾嫌工作区复杂；跨 Databricks 以外数据源需额外集成</td><td>对比文写「不必先把所有表搬进湖仓」</td></tr>
+ <tr><td>和 Julius/Hex 区别</td><td>平台功能，不是独立 SaaS 品牌</td><td>Genie 进 shortlist 因「企业已有 Databricks」，不是因 SEO 流量</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <section id="channels">
+ <h2>2. 获量渠道拆解（Genie 实际靠什么变大）</h2>
+ <p class="section-lead">Genie 没有 Julius 式「30% Google 流量」结构。下面是按<strong>贡献度排序</strong>的渠道判断（基于公开产品与市场动作，非 Databricks 内部数据）。</p>
+
+ <table class="action-table">
+ <thead><tr><th>渠道</th><th>Genie 怎么做</th><th>可验证来源</th><th>我们能否学</th></tr></thead>
+ <tbody>
+ <tr>
+ <td><strong>1. 存量客户捆绑</strong></td>
+ <td>数据库查询 客户开箱即用 · 无新 license · 销售/客户成功推「开启 Genie 空间」</td>
+ <td><a href="https://www.databricks.com/blog/aibi-genie-now-generally-available" target="_blank" rel="noopener">GA 博客</a></td>
+ <td>❌ 无同等基数 · ✅ 打未覆盖客户</td>
+ </tr>
+ <tr>
+ <td><strong>2. 行业大会发布</strong></td>
+ <td>Data + AI Summit keynote 发布 AI/BI · 全球直播 + 数百场分轨</td>
+ <td><a href="https://www.databricks.com/events/dataaisummit-2025-announcements" target="_blank" rel="noopener">2025 发布汇总</a></td>
+ <td>⚠️ 学叙事节奏，不学大会有预算</td>
+ </tr>
+ <tr>
+ <td><strong>3. 文档 + 最佳实践</strong></td>
+ <td>docs.databricks.com Genie 专题 · 「From Data to Dialogue」方法论 · SME Medium 专栏</td>
+ <td><a href="https://docs.databricks.com/aws/en/genie/" target="_blank" rel="noopener">官方文档</a></td>
+ <td>✅ 连接器教程 + 空间/setup 类比文</td>
+ </tr>
+ <tr>
+ <td><strong>4. 技术权威博客</strong></td>
+ <td>data agent benchmark · Multi-LLM · 并行推理——供人工智能摘要抓取</td>
+ <td><a href="https://www.databricks.com/blog/pushing-frontier-data-agents-genie" target="_blank" rel="noopener">2026-05 技术文</a></td>
+ <td>✅ 案例页 + 录屏（待建）</td>
+ </tr>
+ <tr>
+ <td><strong>5. 第三方对比 / 榜单 SEO</strong></td>
+ <td>Databricks 很少写「Genie vs 小厂」；流量在 <code>databricks genie alternatives</code> 等词上被<strong>媒体和我们这类对比页</strong>吃掉</td>
+ <td>100 页关键词规划 · KD 27</td>
+ <td>✅ <strong>最高优先级</strong> 4 篇 Genie 相关对比</td>
+ </tr>
+ <tr>
+ <td><strong>6. 搜索优化 大站自然流量</strong></td>
+ <td>databricks.com 整体域名权威极高，但 Genie 专用词主要靠品牌搜索 + 对比词，不是 Julius 式矩阵</td>
+ <td>SEMrush（母公司）</td>
+ <td>❌ 不复制 · ✅ 拦截对比意图</td>
+ </tr>
+ <tr>
+ <td><strong>7. Reddit / 论坛</strong></td>
+ <td>讨论分散在 r/dataengineering、r/BusinessIntelligence；人工智能引用计入 databricks.com(2)，低于 Hex</td>
+ <td>内部 GEO 基线</td>
+ <td>✅ 多库联邦 + 私有化叙事</td>
+ </tr>
+ </tbody>
+ </table>
+ </section>
+
+ <section id="geo">
+ <h2>3. 人工智能推荐可见性</h2>
+ <table>
+ <thead><tr><th>指标</th><th>Genie / Databricks</th><th>InfiniSynapse</th><th>解读</th></tr></thead>
+ <tbody>
+ <tr><td>固定测试问题 · 域名引用</td><td><strong>2</strong>（databricks.com）</td><td>0</td><td>平台品牌被提及，Genie 专页未单独 dominate</td></tr>
+ <tr><td>vs Hex / ThoughtSpot</td><td>2 · 4 · 6</td><td>—</td><td>Genie 在 AI 推荐里<strong>不是最强</strong>，但在企业采购 shortlist 里很强</td></tr>
+ <tr><td>被引内容类型</td><td>官方博客（data agents）、产品页、文档</td><td>—</td><td>技术长文 + 可核对 benchmark 有效</td></tr>
+ </tbody>
+ </table>
+ <p class="data-src">来源：<code>Reddit运营/Reddit-GEO-data-agent-基线报告.md</code> · 5 条 prompt · 2026-05-12</p>
+ </section>
+
+ <section id="playbook">
+ <h2>4. 增长打法归纳（一句话 + 三句话）</h2>
+ <div class="tip">
+ <strong>一句话：</strong>Genie 的增长 = <strong>在已有湖仓合同里「免费送」对话分析</strong> + <strong>大会发布定调</strong> + <strong>文档教客户配 Genie 空间</strong> + <strong>让客户内部自己扩散</strong>；几乎不靠独立站 SEO。
+ </div>
+ <h3>和 TOP3 标杆的差异</h3>
+ <table>
+ <thead><tr><th>对比</th><th>Julius</th><th>Hex</th><th>ThoughtSpot</th><th>Genie</th></tr></thead>
+ <tbody>
+ <tr><td>主获客引擎</td><td>Google 对比文</td><td>Reddit + 品牌</td><td>科普专栏超大词</td><td><strong>存量平台客户</strong></td></tr>
+ <tr><td>是否独立品牌站</td><td>是</td><td>是</td><td>是</td><td><strong>否</strong></td></tr>
+ <tr><td>90 天可复制性</td><td>高</td><td>中</td><td>中</td><td><strong>低（学叙事，不学渠道）</strong></td></tr>
+ <tr><td>对我们最相关</td><td>写对比页</td><td>写 Reddit</td><td>写 hub</td><td><strong>写 Genie 对比页拦截采购</strong></td></tr>
+ </tbody>
+ </table>
+
+ <h3>早期 vs 爆发期：我们该不该抄</h3>
+ <div class="two-col">
+ <div class="copy-box">
+ <strong>✅ 可以学</strong>
+ <ul>
+ <li>「Genie Space = 护栏 + 示例问题 + 已验证指标」→ 我们的连接器 + 记忆卡 + 操作留痕</li>
+ <li>「Dashboard 答 top 10%，Genie 答剩下的」→ 对比文里讲清楚产品边界</li>
+ <li>技术 benchmark 长文（32%→90%）→ 我们需要同样<strong>可复核、可链接</strong>的客户案例数字</li>
+ <li>业务用户低门槛入口（One / 移动 App）→ 强化产品演示与试用路径</li>
+ <li>主动写 <code>infinisynapse vs databricks genie</code>，别等客户搜不到我们</li>
+ </ul>
+ </div>
+ <div class="nocopy-box">
+ <strong>❌ 不能抄</strong>
+ <ul>
+ <li>靠 Databricks 全球销售队伍推 Genie</li>
+ <li>Data + AI Summit 级发布会预算</li>
+ <li>假设客户「已经在湖仓里」——这不是我们的默认受众</li>
+ <li>期待 Genie 会教我们怎么做 SEO——它主要靠平台，不靠对比矩阵</li>
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <section id="actions">
+ <h2>5. 我们照着做什么（90 天 · 已进关键词规划）</h2>
+ <table>
+ <thead><tr><th>优先级</th><th>页面 / 动作</th><th>主词</th><th>漏斗</th><th>对位 Genie 叙事</th></tr></thead>
+ <tbody>
+ <tr><td><span class="tag-priority-high">最高优先级</span></td><td><code>infinisynapse-vs-databricks-genie</code></td><td>infinisynapse vs databricks genie</td><td>决策期</td><td>多库联邦 · 私有化 · 不必全量进湖仓</td></tr>
+ <tr><td><span class="tag-priority-high">最高优先级</span></td><td><code>databricks-genie-alternatives</code></td><td>databricks genie alternatives</td><td>决策期</td><td>列场景：未上 Databricks / 跨源 / 合规隔离</td></tr>
+ <tr><td><span class="tag-p1">次优先级</span></td><td><code>thoughtspot-vs-databricks-genie</code></td><td>thoughtspot vs databricks genie</td><td>考虑期</td><td>已有 #041 草稿 · 互链到我们 vs Genie</td></tr>
+ <tr><td><span class="tag-p1">次优先级</span></td><td><code>databricks-genie-vs-data-agent</code></td><td>databricks genie vs data agent</td><td>考虑期</td><td>定义「独立数据智能体」vs「平台插件」</td></tr>
+ <tr><td><span class="tag-p1">次优先级</span></td><td><code>connect-databricks-ai-data-analyst</code></td><td>connect databricks to ai analyst</td><td>决策期</td><td>「已有 Databricks 表，也可用 InfiniSynapse 联邦查」</td></tr>
+ <tr><td><span class="tag-p1">次优先级</span></td><td>Reddit 回复模板</td><td>—</td><td>认知期</td><td>「我们已上 Databricks，还要不要独立 agent？」类帖</td></tr>
+ </tbody>
+ </table>
+ <p class="data-src"><code>SEO/100页关键词验证/keywords-100-master.csv</code> · 主题集群 2–3</p>
+ </section>
+
+ <section id="score">
+ <h2>6. 四维选型回顾（为何 3.6 分 · 不当 TOP3 主样本）</h2>
+ <table>
+ <thead><tr><th>维度</th><th>得分</th><th>说明</th></tr></thead>
+ <tbody>
+ <tr><td>A. 采购 shortlist</td><td><strong>4/5</strong></td><td>企业客户常问「Genie 够不够 / 要不要另买 agent」</td></tr>
+ <tr><td>B. 人工智能引用</td><td>2/5</td><td>databricks.com 仅 2 次，低于 Hex/ThoughtSpot</td></tr>
+ <tr><td>C. 打法可复制</td><td>3/5</td><td>缺独立流量数据 · 依赖母公司平台</td></tr>
+ <tr><td>D. 关键词拦截</td><td><strong>5/5</strong></td><td><code>databricks genie</code> 1600/月 · KD 27 · 多篇 P1 对比已规划</td></tr>
+ <tr><td><strong>加权</strong></td><td><strong>3.6</strong></td><td>低于 3.8 阈值 → <strong>采购对比标杆</strong>，非获量 playbook 主样本</td></tr>
+ </tbody>
+ </table>
+ </section>
+
+ <!-- 7. SEO 技术维度补充（按竞品分析模板框架） -->
+ <section id="seo-audit">
+ <h2>7. SEO 技术维度补充（按《竞品分析报告》模板框架）</h2>
+ <div class="tip"><strong>重要前提：</strong>Genie <strong>无独立域名</strong>，所有指标都记在母公司 <code>databricks.com</code>。下表 DR/外链/关键词均为<strong>平台级</strong>，<strong>无法单独拆出 Genie</strong>——这本身就是结论：用 DR 维度正面比 Genie 没有意义，竞争发生在<strong>第三方对比词</strong>上。</div>
+
+ <h3>7.1 域名权重概览（databricks.com 平台级）</h3>
+ <table>
+ <thead><tr><th>指标</th><th>数值（databricks.com）</th><th>水平判断</th><th>来源</th></tr></thead>
+ <tbody>
+ <tr><td>DR（域名评级）</td><td><strong>84</strong></td><td>极高 · 4 家最高 · 正面硬刚不可能</td><td><a href="https://concurate.com/company/databricks-marketing-strategy/" target="_blank" rel="noopener">Concurate 2026</a></td></tr>
+ <tr><td>UR（Genie 产品页）</td><td><span class="tag-p1">待补</span></td><td>需单独查 /product/ai-bi/genie 页 UR</td><td>Ahrefs Site Explorer</td></tr>
+ <tr><td>反向链接</td><td><strong>288K</strong></td><td>海量（全平台）</td><td>Concurate 2026</td></tr>
+ <tr><td>引荐域名（RD）</td><td><strong>18.4K</strong></td><td>极强（全平台）</td><td>Concurate 2026</td></tr>
+ <tr><td>反链 / 引荐域名比</td><td>≈ <strong>16</strong> 条/域名</td><td>健康 · 大量真实媒体/技术背书</td><td>计算值</td></tr>
+ <tr><td>月自然流量</td><td>660K+</td><td>平台级巨量</td><td>Concurate 2026</td></tr>
+ </tbody>
+ </table>
+ <div class="tip"><strong>结论：</strong>DR 84 是<strong>母公司平台资产</strong>，与 Genie 单品无关。我们的策略不是比域名权重，而是<strong>在 <code>databricks genie alternatives</code> / <code>vs</code> 等词上，用单篇高质量对比页拦截——这些词 Databricks 自己往往不写</strong>。</div>
+
+ <h3>7.2 关键词品牌 vs 行业（平台级 · 仅供背景）</h3>
+ <table>
+ <thead><tr><th>维度</th><th>数值（关键词数 · databricks.com）</th><th>判断</th></tr></thead>
+ <tbody>
+ <tr><td>行业 / 信息型关键词</td><td><strong>152,300</strong> 词</td><td>平台内容极广</td></tr>
+ <tr><td>品牌词</td><td><strong>58,200</strong> 词</td><td>品牌认知极强</td></tr>
+ <tr><td>高意图（决策期）词</td><td><strong>5,700</strong> 词</td><td>BOFU 覆盖强</td></tr>
+ <tr><td>Genie 专属词</td><td><code>databricks genie</code> 1600/月 · KD 27</td><td>✅ 我方最高优先级对比页目标</td></tr>
+ </tbody>
+ </table>
+ <p class="data-src">平台级分类来源：<a href="https://concurate.com/company/databricks-marketing-strategy/" target="_blank" rel="noopener">Concurate · Databricks SEO 拆解</a>（Informational 152.3K / Branded 58.2K / High-Intent 5.7K）</p>
+ <h4>Genie 相关词排名分档（我方拦截目标）</h4>
+ <table>
+ <thead><tr><th>分档</th><th>代表词 · 月搜 · KD</th><th>谁在排名 · 我方动作</th></tr></thead>
+ <tbody>
+ <tr><td>对手强点</td><td><code>databricks genie</code> · 1600 · 27</td><td>Databricks 官方产品页 · 我们写 vs 页旁敲</td></tr>
+ <tr><td>最佳切入点（6–20 / 第三方主导）</td><td><code>databricks genie alternatives</code> · <code>infinisynapse vs databricks genie</code> · <code>thoughtspot vs databricks genie</code></td><td><strong>Databricks 自己不写</strong> → ✅ 我方对比页直接吃</td></tr>
+ </tbody>
+ </table>
+
+ <h3>7.3 内容与文档资产（Genie 专题收录）</h3>
+ <table>
+ <thead><tr><th>检查项</th><th>Genie 现状</th><th>数据 / 待补</th></tr></thead>
+ <tbody>
+ <tr><td><code>site:docs.databricks.com genie</code></td><td>Genie 空间 setup / 最佳实践文档齐全</td><td><span class="tag-p1">待补</span> 收录量</td></tr>
+ <tr><td>文档质量等级</td><td>参数/步骤/示例结构化 · canonical 规范</td><td>预判等级 A（Stripe-level）· 参数级命中<span class="tag-p1">待补</span></td></tr>
+ <tr><td>URL 结构</td><td><code>/product/ai-bi/genie</code> · <code>docs.databricks.com/aws/en/genie/</code></td><td>✅ 结构化清晰</td></tr>
+ <tr><td>use-case / solution 页</td><td><code>databricks.com/solutions</code> 行业方案海量</td><td><span class="tag-p1">待补</span> <code>site:databricks.com/solutions</code></td></tr>
+ <tr><td>技术权威长文</td><td>data agents benchmark（32%→90%）喂 AI 摘要</td><td>✅ 已识别 · 我方需对位可复核案例数字</td></tr>
+ </tbody>
+ </table>
+ <div class="gap-box">
+ <strong>待补 Ahrefs / Google 清单（Genie / Databricks）：</strong>
+ <ul>
+ <li>① Genie 产品页 UR（<code>/product/ai-bi/genie</code>）— 判断单品页权重</li>
+ <li>② <code>site:docs.databricks.com genie</code> 收录量 + 参数级命中（文档 SEO 等级）</li>
+ <li>③ 逐词核 <code>databricks genie alternatives</code> 等对比词当前 SERP 谁在前 10（找空位）</li>
+ <li>④ <code>site:databricks.com/solutions</code> 行业方案页数量（学叙事结构，非规模）</li>
+ </ul>
+ </div>
+ </section>
+
+ <footer class="footer">
+ <a href="thoughtspot.html">← ThoughtSpot 科普专栏打法</a> ·
+ <a href="../index.html">返回总报告</a> ·
+ <a href="https://www.databricks.com/blog/data-dialogue-best-practices-guide-building-high-performing-genie-spaces" target="_blank" rel="noopener">Genie 最佳实践样本文</a>
+ </footer>
+ </div>
+</body>
+</html>

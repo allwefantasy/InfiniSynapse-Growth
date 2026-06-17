@@ -1,0 +1,7 @@
+{
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "text": "所以我说，Data Agent 不是一个功能，而是新文明真正开始运转的那一刻。"
+}

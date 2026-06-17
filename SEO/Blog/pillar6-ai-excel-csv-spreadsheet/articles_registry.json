@@ -1,0 +1,139 @@
+{
+  "pillar": "pillar6-ai-excel-csv-spreadsheet",
+  "generated": "2026-06-09",
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 6",
+  "articles": [
+    {
+      "id": "069",
+      "folder": "069-clean-excel-data-with-ai",
+      "theme": "clean excel data with ai",
+      "slug": "clean-excel-data-with-ai",
+      "keyword": "ai to clean excel data",
+      "volume": 30,
+      "kd": 23,
+      "type": "how-to",
+      "kicker": "Excel · Clean"
+    },
+    {
+      "id": "070",
+      "folder": "070-ai-alternative-to-pivot-table",
+      "theme": "ai alternative to pivot table",
+      "slug": "ai-alternative-to-pivot-table",
+      "keyword": "pivot table data analysis",
+      "volume": 20,
+      "kd": null,
+      "type": "guide",
+      "kicker": "Excel · Pivot"
+    },
+    {
+      "id": "071",
+      "folder": "071-ai-vlookup-replacement",
+      "theme": "ai vlookup replacement",
+      "slug": "ai-vlookup-replacement",
+      "keyword": "vlookup for data analysis",
+      "volume": 20,
+      "kd": null,
+      "type": "guide",
+      "kicker": "Excel · VLOOKUP"
+    },
+    {
+      "id": "072",
+      "folder": "072-ai-excel-formula-generator",
+      "theme": "ai excel formula generator",
+      "slug": "ai-excel-formula-generator",
+      "keyword": "data analysis excel template free download with formula",
+      "volume": 20,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "Excel · Formulas"
+    },
+    {
+      "id": "073",
+      "folder": "073-analyze-csv-with-ai",
+      "theme": "analyze csv with ai",
+      "slug": "analyze-csv-with-ai",
+      "keyword": "csv files for data analysis",
+      "volume": 20,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "CSV · AI"
+    },
+    {
+      "id": "074",
+      "folder": "074-merge-multiple-csv-with-ai",
+      "theme": "merge multiple csv files with ai",
+      "slug": "merge-multiple-csv-with-ai",
+      "keyword": "csv files for data analysis",
+      "volume": 20,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "CSV · Merge"
+    },
+    {
+      "id": "075",
+      "folder": "075-deduplicate-data-with-ai",
+      "theme": "deduplicate data with ai",
+      "slug": "deduplicate-data-with-ai",
+      "keyword": "ai-powered crm data cleaning deduplication platforms",
+      "volume": 30,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "Data Quality"
+    },
+    {
+      "id": "076",
+      "folder": "076-ai-data-cleaning-techniques",
+      "theme": "ai data cleaning techniques",
+      "slug": "ai-data-cleaning-techniques",
+      "keyword": "ai data cleaning techniques",
+      "volume": 0,
+      "kd": null,
+      "type": "guide",
+      "kicker": "Data Cleaning"
+    },
+    {
+      "id": "077",
+      "folder": "077-ai-excel-chart-generator",
+      "theme": "ai excel chart generator",
+      "slug": "ai-excel-chart-generator",
+      "keyword": "ai data chart generator",
+      "volume": 20,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "Excel · Charts"
+    },
+    {
+      "id": "078",
+      "folder": "078-ai-financial-modeling-excel",
+      "theme": "ai financial modeling in excel",
+      "slug": "ai-financial-modeling-excel",
+      "keyword": "microsoft excel data analysis and business modeling",
+      "volume": 30,
+      "kd": 26,
+      "type": "guide",
+      "kicker": "Excel · Finance"
+    },
+    {
+      "id": "079",
+      "folder": "079-excel-monthly-report-automation-ai",
+      "theme": "excel monthly report automation with ai",
+      "slug": "excel-monthly-report-automation-ai",
+      "keyword": "data analysis report template excel",
+      "volume": 20,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "Excel · Reports"
+    },
+    {
+      "id": "080",
+      "folder": "080-ai-data-wrangling-tools",
+      "theme": "ai data wrangling tools",
+      "slug": "ai-data-wrangling-tools",
+      "keyword": "data wrangling platform",
+      "volume": 30,
+      "kd": null,
+      "type": "listicle",
+      "kicker": "Wrangling"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "appmsgid": "100001952",
+  "title": "教一次口径，下次自己就记得：8:23 跑成 2:48 的真实案例",
+  "author": "InfiniSynapse",
+  "theme": "newspaper",
+  "token_used": "801063671",
+  "edit_url": "https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit&action=edit&reprint_confirm=0&type=77&appmsgid=100001952&token=<TOKEN>&lang=zh_CN",
+  "cdn_urls": {
+    "images/01-comparison-card.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXia8iccLeffTd5Ochxe0kbL6rIibCiamqQeibu4ylq7s3BODSbZryLAKOWQyXiajXhpyUPib3JX1U44mJOicA76escDKQkPEJYOmkKsJg/0?wx_fmt=png&from=appmsg",
+    "images/01b-comparison-table.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWMkAeX5Fa8fQibMSDDkRUUEmp4OQ6CmAvWshVILA17JcGFFuqWdMLsQVbNDBWvSTS8JPBW4BCB4mmAIOSJZuuCNsT8csraSgng/0?wx_fmt=png&from=appmsg",
+    "images/02-task-a-discovery.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUqLennhJ8PrMHusCNrU3kibicx9ibibVvqfojOHk0jpLyVElgPRbdvNggmnJF0fhpSE263ibNJynVZ8GFd3xvpw6OgnrfUPXyu8H48/0?wx_fmt=png&from=appmsg",
+    "images/03-task-a-correction.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXWRdxlhfyWJ0eVYsyGhic9amzk5C17icliaWIibsqv6dXKtVTSuKm0nWwtHc3nibd7DjH3rpzEk07zSVVSmoribqCoYVrRqUP3ofcedE/0?wx_fmt=png&from=appmsg",
+    "images/04-task-a-result.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWs3PsylibuHia2LjN0icN2o6e3lLhPCjP7ElHqeOCj6IaYvs3mFDvbyOot9zzgOpxwP5HCoQFP88rBu8vOPhD7ajJ6Np1CTbKmoc/0?wx_fmt=png&from=appmsg",
+    "images/05-memory-rules.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXX0RGjPyAOYQhcd9DOPw7cX8VqM3Ah4hR9Hp8jwcvT9jTgHoicjFeIHtOEJVzHB7aYnXLdPbIEpqGVW7tLsGYyERCghia9QnZTvI/0?wx_fmt=png&from=appmsg",
+    "images/06-task-b-parallel.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXVu1ItiaibM4iaklgnEoErwrOOlF7pal5mutJ4f0waKmpl77EuMsblHLNfeTjSHNnPxgDC5QotIabuGeichyfGAMu28ibSOslicmytqY/0?wx_fmt=png&from=appmsg",
+    "images/07-task-b-cross-validation.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWrGMRXnvNJmeo5bAv2z8ylWKdibULxnn3sf3dEVibDe3agHhAVBjILvtQuibl7cEQdmpMBkZm1MoCEuffl3uZQlcVE0Dy5Rz7WsY/0?wx_fmt=png&from=appmsg",
+    "images/08-task-b-result.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXX70asm14LQP7MgNAPeRWoCDeCxAweaoLXtBjCN4HuxC2WlScn8fqw7NbRkUgeFICicFsicjxjM7FrlnY0okxXup4zqv3P90zXKI/0?wx_fmt=png&from=appmsg"
+  },
+  "last_saved": "2026-05-29 18:31",
+  "flow_used": "B (update existing draft)",
+  "notes": "v2：把原 markdown 表格换成图卡（images/01b-comparison-table.png），其他 8 张图复用 v1 CDN URL。正文 2617 字 + 9 张图。封面图仍未设置，发表前手动加。"
+}

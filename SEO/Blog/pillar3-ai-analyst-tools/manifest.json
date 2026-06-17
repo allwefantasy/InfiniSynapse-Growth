@@ -1,0 +1,430 @@
+{
+  "pillar": "pillar3-ai-analyst-tools",
+  "generated": "2026-06-08",
+  "source_plan": "SEO/100页主题集群规划-v1-替换后主关键词版.md · Pillar 3 (024-043)",
+  "skill_chain": "seo-geo-claude-skills-main v9.9.5",
+  "locale": "en",
+  "canonical_base": "https://infinisynapse.cn/blog",
+  "articles": [
+    {
+      "id": "024",
+      "folder": "024-best-ai-tools-for-data-analysis",
+      "slug": "best-ai-tools-for-data-analysis",
+      "url": "https://infinisynapse.cn/blog/best-ai-tools-for-data-analysis",
+      "primary_keyword": "best ai tools for data analysis",
+      "volume": 170,
+      "kd": 62,
+      "content_type": "listicle",
+      "audit_score": 92,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "025",
+      "folder": "025-ai-data-analysis-tools",
+      "slug": "ai-data-analysis-tools",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-tools",
+      "primary_keyword": "ai data analysis tools",
+      "volume": 260,
+      "kd": 59,
+      "content_type": "listicle",
+      "audit_score": 91,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "026",
+      "folder": "026-sql-data-analysis-tools",
+      "slug": "sql-data-analysis-tools",
+      "url": "https://infinisynapse.cn/blog/sql-data-analysis-tools",
+      "primary_keyword": "sql data analysis tools",
+      "volume": 210,
+      "kd": 34,
+      "content_type": "listicle",
+      "audit_score": 93,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "027",
+      "folder": "027-ai-excel-data-analysis-tools",
+      "slug": "ai-excel-data-analysis-tools",
+      "url": "https://infinisynapse.cn/blog/ai-excel-data-analysis-tools",
+      "primary_keyword": "best ai tools for excel data analysis",
+      "volume": 20,
+      "kd": 56,
+      "content_type": "listicle",
+      "audit_score": 90,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "028",
+      "folder": "028-ai-data-visualization-tools",
+      "slug": "ai-data-visualization-tools",
+      "url": "https://infinisynapse.cn/blog/ai-data-visualization-tools",
+      "primary_keyword": "best ai data visualization tools",
+      "volume": 110,
+      "kd": 37,
+      "content_type": "listicle",
+      "audit_score": 92,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "029",
+      "folder": "029-self-hosted-ai-data-analyst",
+      "slug": "self-hosted-ai-data-analyst",
+      "url": "https://infinisynapse.cn/blog/self-hosted-ai-data-analyst",
+      "primary_keyword": "agentic data plane hosted vs self-hosted comparison",
+      "volume": 10,
+      "kd": null,
+      "content_type": "comparison",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "030",
+      "folder": "030-chatgpt-data-analysis-alternatives",
+      "slug": "chatgpt-data-analysis-alternatives",
+      "url": "https://infinisynapse.cn/blog/chatgpt-data-analysis-alternatives",
+      "primary_keyword": "alternatives to chatgpt for data analysis",
+      "volume": 30,
+      "kd": 26,
+      "content_type": "alternatives",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "031",
+      "folder": "031-julius-ai-alternatives",
+      "slug": "julius-ai-alternatives",
+      "url": "https://infinisynapse.cn/blog/julius-ai-alternatives",
+      "primary_keyword": "julius ai data analysis",
+      "volume": 140,
+      "kd": 53,
+      "content_type": "alternatives",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "032",
+      "folder": "032-thoughtspot-alternatives",
+      "slug": "thoughtspot-alternatives",
+      "url": "https://infinisynapse.cn/blog/thoughtspot-alternatives",
+      "primary_keyword": "best ai data visualization tools",
+      "volume": 110,
+      "kd": 37,
+      "content_type": "alternatives",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "033",
+      "folder": "033-databricks-genie-alternatives",
+      "slug": "databricks-genie-alternatives",
+      "url": "https://infinisynapse.cn/blog/databricks-genie-alternatives",
+      "primary_keyword": "databricks assistant vs genie",
+      "volume": 40,
+      "kd": null,
+      "content_type": "alternatives",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "034",
+      "folder": "034-tableau-pulse-alternatives",
+      "slug": "tableau-pulse-alternatives",
+      "url": "https://infinisynapse.cn/blog/tableau-pulse-alternatives",
+      "primary_keyword": "best ai data visualization tools",
+      "volume": 110,
+      "kd": 37,
+      "content_type": "alternatives",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "035",
+      "folder": "035-perplexity-data-analysis-alternatives",
+      "slug": "perplexity-data-analysis-alternatives",
+      "url": "https://infinisynapse.cn/blog/perplexity-data-analysis-alternatives",
+      "primary_keyword": "alternatives to chatgpt for data analysis",
+      "volume": 30,
+      "kd": 26,
+      "content_type": "alternatives",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "036",
+      "folder": "036-code-interpreter-alternatives",
+      "slug": "code-interpreter-alternatives",
+      "url": "https://infinisynapse.cn/blog/code-interpreter-alternatives",
+      "primary_keyword": "code interpreter data analysis",
+      "volume": 20,
+      "kd": null,
+      "content_type": "alternatives",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "037",
+      "folder": "037-infinisynapse-vs-julius-ai",
+      "slug": "infinisynapse-vs-julius-ai",
+      "url": "https://infinisynapse.cn/blog/infinisynapse-vs-julius-ai",
+      "primary_keyword": "julius ai data analysis",
+      "volume": 140,
+      "kd": 53,
+      "content_type": "versus",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "038",
+      "folder": "038-infinisynapse-vs-chatgpt",
+      "slug": "infinisynapse-vs-chatgpt",
+      "url": "https://infinisynapse.cn/blog/infinisynapse-vs-chatgpt",
+      "primary_keyword": "chatgpt for data analysis",
+      "volume": 140,
+      "kd": 45,
+      "content_type": "versus",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "039",
+      "folder": "039-infinisynapse-vs-databricks-genie",
+      "slug": "infinisynapse-vs-databricks-genie",
+      "url": "https://infinisynapse.cn/blog/infinisynapse-vs-databricks-genie",
+      "primary_keyword": "databricks genie",
+      "volume": 1600,
+      "kd": 27,
+      "content_type": "versus",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "040",
+      "folder": "040-julius-ai-vs-chatgpt",
+      "slug": "julius-ai-vs-chatgpt",
+      "url": "https://infinisynapse.cn/blog/julius-ai-vs-chatgpt",
+      "primary_keyword": "julius ai data analysis",
+      "volume": 140,
+      "kd": 53,
+      "content_type": "versus",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "041",
+      "folder": "041-thoughtspot-vs-databricks-genie",
+      "slug": "thoughtspot-vs-databricks-genie",
+      "url": "https://infinisynapse.cn/blog/thoughtspot-vs-databricks-genie",
+      "primary_keyword": "databricks genie",
+      "volume": 1600,
+      "kd": 27,
+      "content_type": "versus",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "042",
+      "folder": "042-infinisynapse-vs-tableau",
+      "slug": "infinisynapse-vs-tableau",
+      "url": "https://infinisynapse.cn/blog/infinisynapse-vs-tableau",
+      "primary_keyword": "tableau vs power bi for data analysis",
+      "volume": null,
+      "kd": null,
+      "content_type": "versus",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    },
+    {
+      "id": "043",
+      "folder": "043-infinisynapse-review",
+      "slug": "infinisynapse-review",
+      "url": "https://infinisynapse.cn/blog/infinisynapse-review",
+      "primary_keyword": "best ai tools for data analysis",
+      "volume": 170,
+      "kd": 62,
+      "content_type": "review",
+      "audit_score": null,
+      "verdict": "SHIP",
+      "files": [
+        "article.md",
+        "meta-tags.html",
+        "schema.json",
+        "audit.md",
+        "README.md",
+        "images/hero.png",
+        "images/og-cover.png"
+      ]
+    }
+  ]
+}

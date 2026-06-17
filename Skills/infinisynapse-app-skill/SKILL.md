@@ -24,6 +24,7 @@ description: 用 agent-browser CLI 在 InfiniSynapse SaaS 控制台（app.infini
 | "登录后看不到内容 / 让我手动登录" | → §1 登录态预检 |
 | "InfiniSynapse 这个页面有没有 bug" | 套 web-ui-review-skill 工作流 A，本 skill 给路由 + 选择器 |
 | "把控制台体验过程写成教程" | 套 web-ui-review-skill 工作流 C，本 skill 提供截图清单 |
+| "写公众号 / 知乎 / 外部中文文章" | → [`references/chinese-punctuation-rules.md`](./references/chinese-punctuation-rules.md) 中文标点规范（必读，防 ASCII/中文混排翻车） |
 | "展示 AI 跑了什么 SQL / 看每步明细 / 演示执行过程" | → §5.2 `.compact-tool-row` 执行明细面板（最大化截图）|
 | "把 InfiniSynapse 生成的 SVG / 数据文件下载下来" | → §5.3 "文件" tab + monkeypatch createObjectURL workaround |
 | "把 InfiniSynapse 接进 WinClaw" | ❌ 不走本 skill，走 `winclaw-infinisynapse-skill` |

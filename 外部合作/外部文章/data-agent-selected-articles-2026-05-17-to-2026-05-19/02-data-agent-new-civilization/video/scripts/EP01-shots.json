@@ -1,0 +1,152 @@
+{
+  "episode": "EP01",
+  "title": "Data Agent 是驶向新文明的第一艘飞船",
+  "brand_label": "DATA AGENT",
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "shots": [
+    {
+      "id": "01",
+      "text": "人类已经进入了一个新文明。我说的是文明，不只是又一轮技术周期。",
+      "broll": {
+        "type": "title",
+        "kicker": "DATA AGENT · 新文明第一艘飞船",
+        "title": "人类已经进入<br/>一个新文明",
+        "subtitle": "不是又一轮工具升级，而是决策方式的迁移"
+      }
+    },
+    {
+      "id": "02",
+      "text": "现在很多人都怕落后，所以不断研究 LLM 怎么用、边界在哪里。",
+      "broll": {
+        "type": "timeline_highlight",
+        "kicker": "今天的焦点",
+        "title": "所有人都在追 LLM",
+        "items": [
+          "怎么提问更好",
+          "怎么接入工作流",
+          "怎么不被时代甩下"
+        ],
+        "footer": "但很少有人追问：下一步是什么？"
+      }
+    },
+    {
+      "id": "03",
+      "text": "但真正重要的问题，是这件事的延续性：Code Agent 落地之后，下一步是什么？",
+      "broll": {
+        "type": "big_quote",
+        "quote": "Code Agent 之后，<br/>下一步是什么？",
+        "footer": "这是理解新文明工具链的关键问题"
+      }
+    },
+    {
+      "id": "04",
+      "text": "我的看法是，Code Agent 并没有直接创造财富，甚至消耗了更多财富。",
+      "broll": {
+        "type": "two_col",
+        "kicker": "一个反直觉判断",
+        "title": "Code Agent 的价值不在这里",
+        "left_title": "短期看",
+        "left_value": "更多消耗",
+        "left_note": "算力、试错、迁移成本都在上升",
+        "right_title": "长期看",
+        "right_value": "基础工具",
+        "right_note": "它在为新文明建造工具底座"
+      }
+    },
+    {
+      "id": "05",
+      "text": "它真正的意义，是构建新文明下新工具的基础。",
+      "broll": {
+        "type": "centered_brand",
+        "kicker": "真正的意义",
+        "brand": "基础工具",
+        "subtitle": "Code Agent 不是终点，而是建造能力"
+      }
+    },
+    {
+      "id": "06",
+      "text": "如果把它放进星际文明的比喻里，Code Agent 像飞船的构建技术。",
+      "broll": {
+        "type": "spec_card",
+        "kicker": "文明跃迁的比喻",
+        "title": "Code Agent = 飞船构建技术",
+        "subtitle": "它让人类第一次具备批量建造新工具的能力",
+        "specs": [
+          ["能力", "自动写代码"],
+          ["结果", "工具生产加速"],
+          ["意义", "新文明基础设施"]
+        ],
+        "footer": "有了构建技术，下一步才是造飞船"
+      }
+    },
+    {
+      "id": "07",
+      "text": "而我们要建造的第一艘飞船，就是 Data Agent。",
+      "broll": {
+        "type": "big_quote",
+        "quote": "第一艘飞船，<br/>就是 Data Agent。",
+        "footer": "从会写工具，到会基于数据做决策"
+      }
+    },
+    {
+      "id": "08",
+      "text": "Data Agent 一旦建好，会极大推进数据驱动和数据自动化决策。",
+      "broll": {
+        "type": "compare_table",
+        "kicker": "Data Agent 带来的迁移",
+        "title": "从人找数据，到数据驱动决策",
+        "headers": ["阶段", "过去", "未来", "变化"],
+        "rows": [
+          ["分析方式", "人工取数", "自动分析", "升级", "up"],
+          ["决策速度", "按天等待", "实时反馈", "加速", "up"],
+          ["决策依据", "经验判断", "数据证据", "强化", "up"],
+          ["AI 决策", "缺少上下文", "拥有依据", "进化", "up"]
+        ]
+      }
+    },
+    {
+      "id": "09",
+      "text": "因为 AI 也不能像人一样拍脑袋做决策。未来的 AI 决策，也必须源于数据。",
+      "broll": {
+        "type": "two_col",
+        "kicker": "AI 也需要证据",
+        "title": "决策不能靠拍脑袋",
+        "left_title": "错误路径",
+        "left_value": "凭感觉",
+        "left_note": "人类会这样犯错，AI 也会",
+        "right_title": "正确路径",
+        "right_value": "源于数据",
+        "right_note": "让每个判断都能追溯到证据"
+      }
+    },
+    {
+      "id": "10",
+      "text": "第一步，是给人类提供快速决策依据；第二步，是给 AI 自己提供决策依据。",
+      "broll": {
+        "type": "timeline_highlight",
+        "kicker": "Data Agent 的两步走",
+        "title": "先服务人，再服务 AI",
+        "items": [
+          "第一步：给人类快速决策依据",
+          "第二步：给 AI 自己决策依据",
+          "最终：形成数据驱动的智能系统"
+        ],
+        "footer": "这才是 Data Agent 的真正位置"
+      }
+    },
+    {
+      "id": "11",
+      "text": "所以我说，Data Agent 不是一个功能，而是新文明真正开始运转的那一刻。",
+      "broll": {
+        "type": "cliffhanger",
+        "kicker": "结论",
+        "title": "Data Agent",
+        "subtitle": "不是一个功能<br/>而是新文明开始运转的那一刻",
+        "footer": "Code Agent 建造工具，Data Agent 驱动决策"
+      }
+    }
+  ]
+}

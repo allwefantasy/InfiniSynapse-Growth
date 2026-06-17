@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>构建 Data Agent 的完整 Harness：InfiniSynapse 的企业级数据分析栈实践</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section id="cover" class="cover" data-background-color="#071111">
+        <div class="cover-grid">
+          <div>
+            <img class="brand" src="assets/logo-full.png" alt="InfiniSynapse">
+            <p class="kicker">MPD AI驱动创新峰会 · AI重塑数据生产与分析</p>
+            <h1>构建 Data Agent 的完整 Harness</h1>
+            <p class="subtitle">InfiniSynapse 的企业级数据分析栈实践</p>
+            <div class="meta-row">
+              <p>祝海林 · 衡数无限科技有限公司（InfiniSynapse）</p>
+              <p>上海 · 2026-05-29 14:30-15:30</p>
+            </div>
+          </div>
+          <div class="hero-shot">
+            <img src="assets/live-home.png" alt="InfiniSynapse SaaS home">
+          </div>
+        </div>
+      </section>
+
+      <section id="premise" class="big-thesis">
+        <p class="kicker">先把问题摆正</p>
+        <h2>企业数据分析不是“让 AI 写一段能跑的代码”</h2>
+        <div class="thesis-diagram">
+          <div class="goal-card code-goal">
+            <i class="fa-solid fa-code"></i>
+            <h3>Code Agent</h3>
+            <p>目标函数：代码能运行，测试能通过。</p>
+          </div>
+          <div class="goal-arrow">
+            <span>进入企业现场后分叉</span>
+          </div>
+          <div class="goal-card data-goal">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Data Agent</h3>
+            <p>目标函数：答案可信，口径正确，过程可复核。</p>
+          </div>
+        </div>
+        <p class="slide-claim">Data Agent 的难点不是 SQL 语法，而是“先找到该相信什么，再算出可信答案”。</p>
+      </section>
+
+      <section id="challenge-one">
+        <p class="kicker">挑战 01 · 搜索失效</p>
+        <h2>百万级数据资产，让“关键词搜索”变得不可靠</h2>
+        <div class="asset-map">
+          <div class="asset-node n1">tables</div>
+          <div class="asset-node n2">dashboards</div>
+          <div class="asset-node n3">notebooks</div>
+          <div class="asset-node n4">docs</div>
+          <div class="asset-node n5">Excel</div>
+          <div class="asset-node n6">API</div>
+          <div class="asset-node n7">metrics</div>
+          <div class="asset-node n8">history</div>
+          <div class="search-beam">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>收入下降?</span>
+          </div>
+        </div>
+        <div class="visual-caption">同一个“收入”，可能叫 ARR、确认收入、净收入、rev_recognition_fact。第一能力不是写 SQL，而是找到真正相关的数据资产。</div>
+      </section>
+
+      <section id="challenge-two">
+        <p class="kicker">挑战 02 · Source of Truth</p>
+        <h2>找到资产只是开始，难的是判断该信哪一个</h2>
+        <div class="truth-board">
+          <div class="truth-card stale"><span>旧文档</span><b>GMV = 下单金额</b></div>
+          <div class="truth-card dashboard"><span>看板 A</span><b>按下单时间</b></div>
+          <div class="truth-card source"><span>认证口径</span><b>确认收入 - 退款</b></div>
+          <div class="truth-card notebook"><span>Notebook</span><b>藏着转换逻辑</b></div>
+          <div class="truth-center">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <p>哪个是最新版？<br>哪个经过认证？<br>哪个只适合背景参考？</p>
+          </div>
+        </div>
+        <div class="visual-caption">企业数据分析里最危险的错误，是代码没报错、数字也算出来了，但用的是错口径。</div>
+      </section>
+
+      <section id="challenge-three">
+        <p class="kicker">挑战 03 · 没有确定性 Oracle</p>
+        <h2>Data Agent 没有像代码测试那样的“判题器”</h2>
+        <div class="oracle-compare">
+          <div class="oracle-lane">
+            <h3>Code Agent</h3>
+            <div class="test-stack">
+              <span>unit test</span>
+              <span>type check</span>
+              <span>build</span>
+              <span>e2e</span>
+            </div>
+            <p class="status-good">失败就修，通过即收敛</p>
+          </div>
+          <div class="oracle-lane danger">
+            <h3>Data Agent</h3>
+            <div class="question-cloud">
+              <span>财务季度?</span>
+              <span>净收入?</span>
+              <span>华东口径?</span>
+              <span>数据是否完整?</span>
+              <span>是否可回答?</span>
+            </div>
+            <p class="status-warn">没有单元测试告诉它答案是否正确</p>
+          </div>
+        </div>
+        <p class="slide-claim">可靠性必须来自系统设计：证据链、口径链、中间结果、不可回答边界。</p>
+      </section>
+
+      <section id="failure-mode">
+        <p class="kicker">为什么 Code Agent 范式会被击穿</p>
+        <h2>数据分析里的很多错误，不会抛异常</h2>
+        <div class="silent-error">
+          <div class="terminal-card">
+            <div class="terminal-top"><span></span><span></span><span></span></div>
+            <pre>query executed
+chart generated
+report written
+exit code 0</pre>
+          </div>
+          <div class="silent-arrow"></div>
+          <div class="wrong-report">
+            <i class="fa-solid fa-file-circle-exclamation"></i>
+            <h3>专业、完整、错误</h3>
+            <p>找错表 · 信错口径 · 算对但解释错</p>
+          </div>
+        </div>
+        <div class="visual-caption">语义错误不会像编译错误一样提醒你。它会安静地生成一个看起来很专业的错误报告。</div>
+      </section>
+
+      <section id="data-agent-requirements">
+        <p class="kicker">所以真正的 Data Agent 需要什么</p>
+        <h2>不是更长的 Prompt，而是一套可信答案生产线</h2>
+        <div class="pipeline-visual">
+          <div><i class="fa-solid fa-compass"></i><span>找资产</span></div>
+          <div><i class="fa-solid fa-certificate"></i><span>判口径</span></div>
+          <div><i class="fa-solid fa-database"></i><span>跑事实</span></div>
+          <div><i class="fa-solid fa-diagram-project"></i><span>留状态</span></div>
+          <div><i class="fa-solid fa-clipboard-check"></i><span>可复核</span></div>
+        </div>
+        <p class="slide-claim">这是 InfiniSynapse 要重建完整 Harness 的原因。</p>
+      </section>
+
+      <section id="solution-overview">
+        <p class="kicker">InfiniSynapse 的解法</p>
+        <h2>不是一个功能解决一个问题，而是一条闭环一起收敛</h2>
+        <div class="deep-map">
+          <div class="deep-row">
+            <span>01 搜索失效</span>
+            <b>数据源对象化</b>
+            <em>连接器、schema、元信息、知识绑定</em>
+          </div>
+          <div class="deep-row">
+            <span>02 口径混乱</span>
+            <b>InfiniRAG 语义绑定</b>
+            <em>指标定义、历史分析、业务规则、用户偏好</em>
+          </div>
+          <div class="deep-row">
+            <span>03 缺少验证</span>
+            <b>InfiniSQL + Task View</b>
+            <em>具名中间表、SQL 轨迹、结果表、图表、文件</em>
+          </div>
+          <div class="deep-core">InfiniAgent<br><small>Plan · Probe · Execute · Verify · Repair</small></div>
+        </div>
+      </section>
+
+      <section id="agent-loop">
+        <p class="kicker">解法 01 · InfiniAgent</p>
+        <h2>Agentic 范式：自主探查，而不是一次性回答</h2>
+        <div class="agentic-loop-layout">
+          <div class="autonomy-map">
+            <div class="loop-orbit"></div>
+            <div class="loop-core">
+              自主探查循环
+            </div>
+            <div class="orbit-step step-plan"><span>01</span><b>Plan</b><em>锁定只读边界</em></div>
+            <div class="orbit-step step-probe"><span>02</span><b>Probe</b><em>RAG + schema 探查</em></div>
+            <div class="orbit-step step-execute"><span>03</span><b>Execute</b><em>工具调用与中间结论</em></div>
+            <div class="orbit-step step-verify"><span>04</span><b>Verify</b><em>口径与生命周期验证</em></div>
+            <div class="orbit-step step-delegate"><span>05</span><b>Delegate</b><em>Agent Teams 并行</em></div>
+            <div class="orbit-arrow arrow-a"><i class="fa-solid fa-arrow-right"></i></div>
+            <div class="orbit-arrow arrow-b"><i class="fa-solid fa-arrow-down"></i></div>
+            <div class="orbit-arrow arrow-c"><i class="fa-solid fa-arrow-left"></i></div>
+            <div class="orbit-arrow arrow-d"><i class="fa-solid fa-rotate"></i></div>
+          </div>
+
+          <div class="proof-panel">
+            <div class="proof-header">
+              <b>真实执行长图</b>
+              <span>从上下文探查到 Agent Teams 编排</span>
+            </div>
+            <div class="proof-body">
+              <figure class="long-receipt">
+                <img src="assets/agentic-loop-long-slide.png" alt="InfiniSynapse autonomous exploration long screenshot">
+              </figure>
+              <div class="proof-zooms">
+                <figure class="proof-zoom">
+                  <img src="assets/agentic-proof-probe.png" alt="RAG and schema discovery evidence">
+                  <figcaption>Probe · 先理解表、字段、业务含义</figcaption>
+                </figure>
+                <figure class="proof-zoom">
+                  <img src="assets/agentic-proof-semantics.png" alt="Business semantics verification evidence">
+                  <figcaption>Verify · 把事件、状态、生命周期对齐</figcaption>
+                </figure>
+                <figure class="proof-zoom delegate-zoom">
+                  <img src="assets/agentic-proof-delegate.png" alt="Agent Teams execution evidence">
+                  <figcaption>Delegate · Agent Teams 并行执行</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="agentic-bottom-line">
+          <i class="fa-solid fa-circle-nodes"></i>
+          <span>关键不是“生成一段答案”，而是 Agent 能自己发现缺口、调用工具、验证口径，并在需要时拆给多个专门 Agent。</span>
+        </div>
+      </section>
+
+      <section id="datasource-object">
+        <p class="kicker">解法 02 · 数据源对象化</p>
+        <h2>数据源不是连接串，而是 Agent 的工作上下文</h2>
+        <div class="source-object-layout">
+          <div class="source-object-card">
+            <i class="fa-solid fa-database"></i>
+            <h3>Data Source</h3>
+            <div class="source-fields">
+              <span>schema</span><span>sample</span><span>权限</span><span>Associated RAG</span><span>执行策略</span>
+            </div>
+          </div>
+          <div class="framed-image tall"><img src="assets/data-source-management.png" alt="Data source management"></div>
+        </div>
+        <div class="visual-caption">把数据库、元信息、权限、知识库绑定成一个对象，Agent 才能知道“分析这个库时应该带上哪些语义”。</div>
+      </section>
+
+      <section id="cross-source-engine">
+        <p class="kicker">解法 03 · 跨源执行</p>
+        <h2>企业数据不在一个地方，执行引擎不能假装它在一个地方</h2>
+        <div class="cross-source-layout">
+          <div class="connector-grid">
+            <span>MySQL</span><span>PostgreSQL</span><span>Oracle</span><span>ClickHouse</span><span>Excel</span><span>MongoDB</span><span>Snowflake</span><span>API</span>
+          </div>
+          <div class="engine-card">
+            <i class="fa-solid fa-network-wired"></i>
+            <b>InfiniSQL Engine</b>
+            <span>联邦查询 · 聚合下推 · 只回传结果</span>
+          </div>
+          <div class="framed-image tall"><img src="assets/database-connectors-menu-1440.png" alt="Database connectors"></div>
+        </div>
+        <div class="visual-caption">不是把所有数据拉到 notebook 里 merge，而是在语言层表达关系，在执行层做跨源与下推。</div>
+      </section>
+
+      <section id="infinisql">
+        <p class="kicker">解法 04 · InfiniSQL</p>
+        <h2>多轮追问，会沉淀成一个面向问题的虚拟数仓</h2>
+        <div class="warehouse-build deep">
+          <div class="query-cards">
+            <div>select ... as<br><b>region_revenue</b></div>
+            <div>select ... as<br><b>abnormal_region</b></div>
+            <div>join ... as<br><b>campaign_bridge</b></div>
+            <div>train ... as<br><b>scorecard_model</b></div>
+          </div>
+          <div class="warehouse-icon">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>session tables</span>
+          </div>
+          <div class="framed-image compact"><img src="assets/agentic-fit.png" alt="InfiniSQL agentic fit"></div>
+        </div>
+        <div class="visual-caption">每次工具调用都产出具名表。Agent 后续不是回到原始明细重新猜，而是在已经被命名和抽象过的状态上继续分析。</div>
+      </section>
+
+      <section id="rag-binding">
+        <p class="kicker">解法 05 · InfiniRAG</p>
+        <h2>业务知识必须绑定到数据源，而不是事后塞进上下文</h2>
+        <div class="rag-binding-layout">
+          <div class="framed-image half"><img src="assets/data-sources-bound-rag.png" alt="Data source bound RAG"></div>
+          <div class="binding-visual mini">
+            <div class="db-block"><i class="fa-solid fa-database"></i><span>结构化事实</span><b>发生了什么</b></div>
+            <div class="binding-line"><span>绑定</span></div>
+            <div class="kb-block"><i class="fa-solid fa-book-open-reader"></i><span>业务语义</span><b>这意味着什么</b></div>
+          </div>
+        </div>
+        <div class="binding-examples">
+          <span>指标定义</span>
+          <span>库表含义</span>
+          <span>历史分析</span>
+          <span>用户偏好</span>
+          <span>不确定性边界</span>
+        </div>
+      </section>
+
+      <section id="rag-runtime">
+        <p class="kicker">解法 06 · Runtime RAG</p>
+        <h2>运行时先问知识库，再用 SQL 验证可计算事实</h2>
+        <div class="runtime-rag-layout">
+          <div class="runtime-steps">
+            <div><b>1</b><span>问绑定知识库</span></div>
+            <div><b>2</b><span>确认指标和禁区</span></div>
+            <div><b>3</b><span>生成 SQL 验证事实</span></div>
+            <div><b>4</b><span>报告中分离事实与解释</span></div>
+          </div>
+          <div class="screen-grid two compact-screen">
+            <figure><img src="assets/rag-research-step.png" alt="RAG research step"><figcaption>Phase: RAG Research</figcaption></figure>
+            <figure><img src="assets/rag-enhanced-final-report.png" alt="RAG enhanced final report"><figcaption>事实与业务解释分离</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="audit-workflow">
+        <p class="kicker">解法 07 · 可审计工作流</p>
+        <h2>没有确定性测试，就必须把证据链打开给人看</h2>
+        <div class="audit-deep-layout">
+          <div class="audit-rail">
+            <div>Sources</div><div>Tools</div><div>SQL</div><div>Table</div><div>Chart</div><div>Files</div>
+          </div>
+          <div class="screen-grid two compact-screen">
+            <figure><img src="assets/task-view-sql-data.png" alt="Task view SQL data"><figcaption>Task View：每步 SQL 与结果表</figcaption></figure>
+            <figure><img src="assets/completed-task-delivery.png" alt="Completed task delivery"><figcaption>完成态：结论、图表、后续动作</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="deliverable-asset">
+        <p class="kicker">解法 08 · 从回答到资产</p>
+        <h2>一次分析不应该聊完就消失，而要变成组织可复用资产</h2>
+        <div class="asset-lifecycle">
+          <div><i class="fa-solid fa-comments"></i><b>Task</b><span>目标与上下文</span></div>
+          <div><i class="fa-solid fa-table"></i><b>Tables</b><span>具名中间结果</span></div>
+          <div><i class="fa-solid fa-chart-column"></i><b>Charts</b><span>可复核图表</span></div>
+          <div><i class="fa-solid fa-file-arrow-down"></i><b>Files</b><span>报告/图/脚本</span></div>
+          <div><i class="fa-solid fa-brain"></i><b>Memory</b><span>下次可召回</span></div>
+        </div>
+        <div class="framed-image asset-shot"><img src="assets/files-panel.png" alt="Files panel"></div>
+      </section>
+
+      <section id="evidence">
+        <p class="kicker">硬证据</p>
+        <h2>架构不是概念，必须能穿过真实企业边界</h2>
+        <div class="evidence-cards">
+          <div class="evidence-card large"><span>1400+</span><p>张表接入即可提问</p></div>
+          <div class="evidence-card"><span>92 秒</span><p>端到端生成可解释评分卡</p></div>
+          <div class="evidence-card"><span>0.7712</span><p>AUC，高于 XGBoost 学术基线 0.7611</p></div>
+        </div>
+        <div class="evidence-strip"><img src="assets/effect-1400-tables.png" alt="1400 tables effect"></div>
+      </section>
+
+      <section id="enterprise-boundary">
+        <p class="kicker">企业交付边界</p>
+        <h2>海关、金融、央国企要的不是“能跑”，而是边界清楚</h2>
+        <div class="private-arch">
+          <div class="private-zone">
+            <b>客户域内</b>
+            <span>业务库</span><span>文件</span><span>审计日志</span><span>私有模型</span>
+          </div>
+          <div class="private-core">
+            <i class="fa-solid fa-shield-halved"></i>
+            <b>InfiniSynapse Private</b>
+            <span>权限 · 执行 · 证据链</span>
+          </div>
+          <div class="private-policy">
+            <div>数据不出域</div>
+            <div>计算可下推</div>
+            <div>模型可替换</div>
+            <div>结果可审计</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="closing" class="closing" data-background-color="#071111">
+        <p class="kicker">Takeaway</p>
+        <h2>Data Agent 的本质，是可信答案系统</h2>
+        <div class="closing-triad">
+          <div><span>01</span><b>找到该信什么</b></div>
+          <div><span>02</span><b>算出可复核事实</b></div>
+          <div><span>03</span><b>沉淀可复用资产</b></div>
+        </div>
+        <p class="final-line">InfiniSynapse 的目标：给企业一个真正能交付的 Data Agent。</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: true,
+      hash: true,
+      transition: "slide",
+      center: false,
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      plugins: [RevealHighlight]
+    });
+  </script>
+</body>
+</html>

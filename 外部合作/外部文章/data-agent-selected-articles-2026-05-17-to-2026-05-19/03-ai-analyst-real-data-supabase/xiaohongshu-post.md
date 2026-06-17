@@ -1,0 +1,18 @@
+## 标题备选
+1. AI 分析师连接真实数据
+2. 让 AI 直接查 Supabase
+3. 从业务问题到可信答案
+
+## 正文
+InfiniSynapse 现在已经支持连接 Supabase。
+
+并且不止 Supabase：MySQL、PostgreSQL、ClickHouse、MongoDB、Snowflake、SQL Server、Doris 等数据源，都可以放在同一个分析里协同工作。
+
+这才是真正的“AI 分析师”解锁方式：
+
+连接数据库 -> 提出业务问题 -> 查询实时数据 -> 返回 SQL、源表、过滤条件、指标、文档、决策依据，以及你需要的一切。
+
+不是只给一张图表，而是给一个可追溯、可验证、值得信任的答案。
+
+## 话题
+#AI工具 #AI分析师 #数据分析 #Supabase #数据库 #商业智能 #DataAgent #InfiniSynapse

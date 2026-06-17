@@ -1,0 +1,56 @@
+{
+  "pillar": "pillar8-skills-templates-glossary",
+  "pillar_name": "AI Data Analyst Skills / Templates / Glossary",
+  "article_count": 6,
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 8",
+  "articles": [
+    {
+      "id": "095",
+      "folder": "095-ai-data-analysis-prompts",
+      "slug": "ai-data-analysis-prompts",
+      "keyword": "ai prompts for data analysis",
+      "type": "resource",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-prompts"
+    },
+    {
+      "id": "096",
+      "folder": "096-data-analysis-prompt-template",
+      "slug": "data-analysis-prompt-template",
+      "keyword": "data analysis template",
+      "type": "resource",
+      "url": "https://infinisynapse.cn/blog/data-analysis-prompt-template"
+    },
+    {
+      "id": "097",
+      "folder": "097-ai-data-analyst-skills",
+      "slug": "ai-data-analyst-skills",
+      "keyword": "ai data analyst skills",
+      "type": "guide",
+      "url": "https://infinisynapse.cn/blog/ai-data-analyst-skills"
+    },
+    {
+      "id": "098",
+      "folder": "098-how-to-evaluate-ai-data-analyst",
+      "slug": "how-to-evaluate-ai-data-analyst",
+      "keyword": "ai data analyst skills requirements",
+      "type": "guide",
+      "url": "https://infinisynapse.cn/blog/how-to-evaluate-ai-data-analyst"
+    },
+    {
+      "id": "099",
+      "folder": "099-ai-analytics-glossary",
+      "slug": "ai-analytics-glossary",
+      "keyword": "data analysis glossary",
+      "type": "glossary",
+      "url": "https://infinisynapse.cn/blog/ai-analytics-glossary"
+    },
+    {
+      "id": "100",
+      "folder": "100-data-agent-faq",
+      "slug": "data-agent-faq",
+      "keyword": "what is a data agent",
+      "type": "faq",
+      "url": "https://infinisynapse.cn/blog/data-agent-faq"
+    }
+  ]
+}

@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InfiniSynapse 增长方案 · 渠道与竞品分析</title>
+  <meta name="description" content="InfiniSynapse 2026 增长方案：8 大渠道标杆、前三名 竞品 SEMrush 流量解剖、90 天执行路线图。" />
+  <style>
+    :root {
+      --accent: #1e6fff;
+      --accent-soft: #eef4ff;
+      --text: #1a1a2e;
+      --text-secondary: #5c6370;
+      --border: #e8ecf2;
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --warn-bg: #fff8e6;
+      --warn-border: #f0c040;
+      --success: #0d9f6e;
+      --p0: #e53935;
+      --p1: #fb8c00;
+      --p2: #78909c;
+      --radius: 10px;
+      --shadow: 0 1px 3px rgba(0,0,0,.06);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --mono: "SF Mono", "Fira Code", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--card);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+    }
+
+    .sidebar-logo {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .02em;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .nav-group {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-secondary);
+      margin: 16px 0 8px;
+    }
+
+    .nav-group:first-of-type { margin-top: 0; }
+
+    .sidebar nav a {
+      display: block;
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .sidebar nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .main { padding: 32px 40px 80px; max-width: 960px; }
+
+    .hero {
+      background: linear-gradient(135deg, #1e6fff 0%, #0d47c7 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .hero-meta {
+      font-size: 14px;
+      opacity: .9;
+      line-height: 1.8;
+    }
+
+    .hero-meta strong { opacity: 1; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 28px 0 32px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card .label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .stat-card .value {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-card .sub {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    .callout {
+      background: var(--warn-bg);
+      border-left: 4px solid var(--warn-border);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .callout strong { display: block; margin-bottom: 4px; }
+
+    section { margin-bottom: 48px; }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 28px 0 12px;
+      color: var(--text);
+    }
+
+    h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 20px 0 10px;
+      color: var(--text-secondary);
+    }
+
+    p { margin-bottom: 12px; }
+
+    ul, ol { margin: 0 0 16px 24px; }
+    li { margin-bottom: 6px; }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      vertical-align: middle;
+    }
+
+    .tag-priority-high { background: #ffebee; color: var(--p0); }
+    .tag-p1 { background: #fff3e0; color: var(--p1); }
+    .tag-p2 { background: #eceff1; color: var(--p2); }
+    .tag-ok { background: #e8f5e9; color: var(--success); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 16px 0 24px;
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--accent-soft);
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    tr:nth-child(even) td { background: #fafbfd; }
+
+    pre, .code-block {
+      background: #1e2433;
+      color: #e2e8f0;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.6;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin: 16px 0;
+      white-space: pre-wrap;
+    }
+
+    .formula {
+      background: var(--accent-soft);
+      border: 1px solid #c5d9ff;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 20px 0;
+    }
+
+    .chart-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 20px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .chart-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .chart-caption {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 100px 1fr 60px;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .bar-label { font-size: 13px; font-weight: 500; }
+
+    .bar-track {
+      height: 24px;
+      background: #eef1f6;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+      min-width: 2px;
+    }
+
+    .bar-value {
+      font-size: 13px;
+      font-weight: 600;
+      text-align: right;
+      color: var(--accent);
+    }
+
+    .traffic-stack { margin: 16px 0; }
+
+    .stack-row { margin-bottom: 20px; }
+
+    .stack-name {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .stack-bar {
+      display: flex;
+      height: 28px;
+      border-radius: 4px;
+      overflow: hidden;
+      font-size: 11px;
+      color: #fff;
+    }
+
+    .seg-direct { background: #1e6fff; }
+    .seg-google { background: #0d9f6e; }
+    .seg-other { background: #90a4ae; }
+
+    .stack-bar span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      padding: 0 6px;
+    }
+
+    .competitor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .comp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .comp-card h4 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+
+    .comp-card dl {
+      font-size: 13px;
+    }
+
+    .comp-card dt {
+      color: var(--text-secondary);
+      margin-top: 8px;
+    }
+
+    .comp-card dd {
+      font-weight: 600;
+      margin-left: 0;
+    }
+
+    .timeline {
+      border-left: 3px solid var(--accent);
+      padding-left: 24px;
+      margin: 20px 0;
+    }
+
+    .timeline-item {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 2px solid var(--card);
+    }
+
+    .timeline-item h4 { margin-top: 0; color: var(--accent); }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    code {
+      background: #eef1f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar {
+        position: relative;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .main { padding: 24px 20px 60px; }
+      .stat-row, .competitor-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 22px; }
+    }
+
+    @media print {
+      .sidebar { display: none; }
+      .layout { display: block; }
+      .main { max-width: 100%; padding: 0; }
+      .hero { background: #1e6fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-logo">InfiniSynapse</div>
+      <div class="sidebar-title">增长方案 · 渠道与竞品分析</div>
+      <nav>
+        <div class="nav-group">概览</div>
+        <a href="#summary">执行摘要</a>
+        <a href="#stats">核心数据</a>
+        <div class="nav-group">增长渠道</div>
+        <a href="#channels">渠道优先级</a>
+        <a href="#ch-seo">搜索优化 内容集群</a>
+        <a href="#ch-geo">生成式推荐 / AI 引用</a>
+        <a href="#ch-reddit">Reddit 运营</a>
+        <a href="#ch-connector">集成页</a>
+        <a href="#ch-other">其他渠道</a>
+        <div class="nav-group">竞品分析</div>
+        <a href="#competitors">前三名 选择</a>
+        <a href="#julius">Julius AI</a>
+        <a href="#hex">Hex</a>
+        <a href="#thoughtspot">ThoughtSpot</a>
+        <a href="#comp-compare">三竞品对比</a>
+        <div class="nav-group">执行</div>
+        <a href="#plans">复刻方案 A–E</a>
+        <a href="#roadmap">90 天路线图</a>
+        <a href="#sources">数据溯源</a>
+        <a href="#formula">增长公式</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <h1>InfiniSynapse 增长方案<br>渠道与竞品分析</h1>
+        <div class="hero-meta">
+          <strong>作者</strong>：增长运营 · <strong>日期</strong>：2026-06-15<br>
+          <strong>数据快照</strong>：SEMrush / Ahrefs 公开数据（2026 年 5–6 月）<br>
+          <strong>产品定位</strong>：AI-native 数据智能体 · 多源联邦分析 · 私有化部署<br>
+          <strong>依据</strong>：100 页 搜索优化 集群规划 · Reddit 生成式推荐 基线 · 竞品公开流量数据
+        </div>
+      </header>
+
+      <div class="stat-row" id="stats">
+        <div class="stat-card">
+          <div class="label">Julius AI 月访问</div>
+          <div class="value">71.4万</div>
+          <div class="sub">SEMrush · 2026-05 · 直接访问 47%</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Hex 月访问</div>
+          <div class="value">47.1万</div>
+          <div class="sub">SEMrush · 2026-05 · 直接访问 82%</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">ThoughtSpot 月访问</div>
+          <div class="value">19.1万</div>
+          <div class="sub">SEMrush · 2026-05 · 有机 +32% 环比上月</div>
+        </div>
+      </div>
+
+      <section id="summary">
+        <h2>0. 执行摘要</h2>
+        <p>InfiniSynapse 的增长不应复制 Julius 的泛数学 SEO，也不应复制 Hex 的 82% 直接访问 占比。最优组合是：</p>
+        <ol>
+          <li><strong>Julius 的比较页机器</strong> — 拦截 <code>alternatives / vs</code> 采购意图</li>
+          <li><strong>ThoughtSpot 的超大词 科普专栏</strong> — 从 <code>agentic analytics</code>（KD 5）等低竞争词切入</li>
+          <li><strong>Hex 的 Reddit 生成式推荐 + 技术可信度</strong> — 在 r/dataengineering 建立「多源联邦 + 私有化 智能体」叙事</li>
+          <li><strong>客户量化案例</strong> — 作为全渠道可引用叙事（搜索优化 + 生成式推荐 + Sales 共用）</li>
+        </ol>
+        <div class="callout">
+          <strong>当前差距</strong>
+          Reddit 生成式推荐 基线显示 InfiniSynapse 在 ChatGPT 数据智能体 推荐中可见性 = 0；Hex（6 次引用）、ThoughtSpot（4 次）已占位。
+        </div>
+      </section>
+
+      <section id="channels">
+        <h2>1. 增长渠道全景</h2>
+        <h3>1.1 渠道优先级</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>优先级</th>
+              <th>渠道</th>
+              <th>对 InfiniSynapse 投资回报率</th>
+              <th>复刻难度</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-priority-high">最高优先级</span></td>
+              <td>搜索优化 比较页 + 集成页集群</td>
+              <td>高（直接拦截采购意图）</td>
+              <td>低（100 页规划已备）</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-priority-high">最高优先级</span></td>
+              <td>Reddit 生成式推荐</td>
+              <td>极高（数据智能体 品类 Reddit 引用率 37.5%）</td>
+              <td>中</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-priority-high">最高优先级</span></td>
+              <td>生成式推荐 / AI 引用优化</td>
+              <td>高（人工智能引荐转化约为 Google 有机 3–5×）</td>
+              <td>中</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-p1">次优先级</span></td>
+              <td>第三方 Roundup 占位</td>
+              <td>中高</td>
+              <td>中</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-p1">次优先级</span></td>
+              <td>案例研究 + 录屏 Demo</td>
+              <td>中</td>
+              <td>低</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-p2">低优先级</span></td>
+              <td>开源 / 开发者关系（Vanna 路线）</td>
+              <td>中（偏开发者）</td>
+              <td>高</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-p2">低优先级</span></td>
+              <td>Product Hunt / HN 单次爆发</td>
+              <td>低–中</td>
+              <td>低</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="chart-block">
+          <div class="chart-title">竞品月访问量对比（SEMrush · May 2026 · 单位：K）</div>
+          <div class="bar-row">
+            <div class="bar-label">Julius AI</div>
+            <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+            <div class="bar-value">71.4万</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">Hex</div>
+            <div class="bar-track"><div class="bar-fill" style="width:66%"></div></div>
+            <div class="bar-value">47.1万</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label">ThoughtSpot</div>
+            <div class="bar-track"><div class="bar-fill" style="width:27%"></div></div>
+            <div class="bar-value">19.1万</div>
+          </div>
+          <div class="chart-caption">Source: semrush.com/website/ · all devices · May 2026</div>
+        </div>
+      </section>
+
+      <section id="ch-seo">
+        <h3>1.2 渠道 1：搜索优化 内容集群</h3>
+        <h4>标杆：Julius AI</h4>
+        <table>
+          <thead>
+            <tr><th>指标</th><th>数据</th><th>可追溯来源</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>月访问量</td>
+              <td><strong>714.28K</strong>（2026-05）</td>
+              <td><a href="https://www.semrush.com/website/julius.ai/overview/" target="_blank" rel="noopener">SEMrush julius.ai</a></td>
+            </tr>
+            <tr>
+              <td>流量结构</td>
+              <td>直接访问 <strong>47.39%</strong> + Google <strong>30.36%</strong></td>
+              <td>同上</td>
+            </tr>
+            <tr>
+              <td>有机关键词</td>
+              <td>29,572（top 20 SERP）</td>
+              <td><a href="https://hypestat.com/info/julius.ai" target="_blank" rel="noopener">HypeStat</a></td>
+            </tr>
+            <tr>
+              <td>外链</td>
+              <td>216.31K links / 6.96K referring domains</td>
+              <td>SEMrush</td>
+            </tr>
+            <tr>
+              <td>会话时长</td>
+              <td><strong>10:02</strong></td>
+              <td>SEMrush</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>做对了什么：</strong></p>
+        <ul>
+          <li>用「X 对比 ChatGPT / Power 商业智能 / Tableau / Jupyter」拦截高商业意图搜索</li>
+          <li>每篇内嵌可点击产品链接 + 真实场景 + FAQ，便于 AI 抽取</li>
+          <li><code>/articles/</code> 搜索优化 文 + <code>/compare/</code> 转化页双轨</li>
+        </ul>
+        <table>
+          <thead>
+            <tr><th>页面</th><th>URL</th><th>InfiniSynapse 对位</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Julius 对比 ChatGPT</td>
+              <td><a href="https://julius.ai/articles/julius-ai-vs-chatgpt" target="_blank" rel="noopener">julius.ai/articles/julius-ai-vs-chatgpt</a></td>
+              <td><code>#040 julius-ai-vs-chatgpt</code></td>
+            </tr>
+            <tr>
+              <td>Power 商业智能 对比 Tableau 对比 Julius</td>
+              <td><a href="https://julius.ai/articles/power-bi-vs-tableau" target="_blank" rel="noopener">julius.ai/articles/power-bi-vs-tableau</a></td>
+              <td>扩展为含 InfiniSynapse 对比</td>
+            </tr>
+            <tr>
+              <td>Top 19 AI Data Tools</td>
+              <td><a href="https://julius.ai/articles/top-10-ai-data-tools" target="_blank" rel="noopener">julius.ai/articles/top-10-ai-data-tools</a></td>
+              <td><code>best-ai-tools-for-data-analysis</code></td>
+            </tr>
+            <tr>
+              <td>8 Best 商业智能工具 2026</td>
+              <td><a href="https://julius.ai/articles/best-bi-tool" target="_blank" rel="noopener">julius.ai/articles/best-bi-tool</a></td>
+              <td>Pillar 3 工具榜单</td>
+            </tr>
+            <tr>
+              <td>Compare 落地页</td>
+              <td><a href="https://julius.ai/compare/julius-vs-chatgpt" target="_blank" rel="noopener">julius.ai/compare/julius-vs-chatgpt</a></td>
+              <td>建议建 <code>/compare/</code> 子目录</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>标杆：ThoughtSpot（教育 搜索优化 / 超大词 科普专栏）</h4>
+        <table>
+          <thead>
+            <tr><th>指标</th><th>数据</th><th>可追溯来源</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>月访问量</td>
+              <td><strong>190.88K</strong>（2026-05）</td>
+              <td><a href="https://www.semrush.com/website/thoughtspot.com/overview/" target="_blank" rel="noopener">SEMrush thoughtspot.com</a></td>
+            </tr>
+            <tr>
+              <td>Top 有机词</td>
+              <td><code>kpi examples</code> 月搜索量 <strong>1,830,000</strong> Pos 8，占流量 <strong>32.26%</strong></td>
+              <td>同上</td>
+            </tr>
+            <tr>
+              <td>第二梯队</td>
+              <td><code>sql tutorial</code> 月搜索量 20.1万 Pos 4（12.12%）</td>
+              <td>同上</td>
+            </tr>
+            <tr>
+              <td>第三梯队</td>
+              <td><code>data analysis tools</code> 月搜索量 1.83M Pos 12（5.09%）</td>
+              <td>同上</td>
+            </tr>
+            <tr>
+              <td>人工智能引荐</td>
+              <td>ChatGPT <strong>1万</strong>/月 visits</td>
+              <td>SEMrush 人工智能流量</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr><th>页面</th><th>URL</th><th>主词 月搜索量</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>关键绩效指标 Examples</td>
+              <td><a href="https://www.thoughtspot.com/data-trends/kpi/examples" target="_blank" rel="noopener">thoughtspot.com/data-trends/kpi/examples</a></td>
+              <td>1,830,000</td>
+            </tr>
+            <tr>
+              <td>What is a KPI</td>
+              <td><a href="https://www.thoughtspot.com/data-trends/kpi/what-is-a-kpi" target="_blank" rel="noopener">thoughtspot.com/data-trends/kpi/what-is-a-kpi</a></td>
+              <td>90,500+</td>
+            </tr>
+            <tr>
+              <td>Best AI Tools for Business</td>
+              <td><a href="https://www.thoughtspot.com/data-trends/ai/best-ai-tools-for-business" target="_blank" rel="noopener">thoughtspot.com/data-trends/ai/best-ai-tools-for-business</a></td>
+              <td>商业意图</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="ch-geo">
+        <h3>1.3 渠道 2：GEO（生成式推荐优化）</h3>
+        <table>
+          <thead>
+            <tr><th>产品</th><th>人工智能可见性信号</th><th>数据</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hex</strong></td>
+              <td>ChatGPT 数据智能体 测试问题 引用 <strong>6 次</strong>（品类最高）</td>
+              <td>Reddit 生成式推荐 基线报告</td>
+            </tr>
+            <tr>
+              <td><strong>ThoughtSpot</strong></td>
+              <td>ChatGPT 引荐 <strong>1万 visits/月</strong></td>
+              <td><a href="https://www.semrush.com/website/thoughtspot.com/overview/" target="_blank" rel="noopener">SEMrush</a></td>
+            </tr>
+            <tr>
+              <td><strong>Julius</strong></td>
+              <td>Claude <strong>1万</strong> + ChatGPT <strong>3千</strong> visits/月</td>
+              <td><a href="https://www.semrush.com/website/julius.ai/overview/" target="_blank" rel="noopener">SEMrush</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Hex 内容结构：</strong></p>
+        <ul>
+          <li>博客：<a href="https://hex.tech/blog/" target="_blank" rel="noopener">hex.tech/blog</a> — <strong>266</strong> 篇，<strong>79</strong> 位作者</li>
+          <li>搜索优化 长尾爆款：<code>dimensionality reduction techniques</code> 月搜索量 <strong>12,100</strong> Pos <strong>4</strong>，占有机 <strong>3.22%</strong>
+            <ul>
+              <li><a href="https://hex.tech/blog/dimensionality-reduction-techniques/" target="_blank" rel="noopener">hex.tech/blog/dimensionality-reduction-techniques</a></li>
+              <li><a href="https://hex.tech/templates/feature-selection/linear-dimensionality-reduction/" target="_blank" rel="noopener">hex.tech/templates/.../linear-dimensionality-reduction</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p><strong>生成式推荐 复刻要点：</strong></p>
+        <ul>
+          <li>文首 <strong>40–60 词独立定义块</strong> + 常见问题结构化标记 → 人工智能摘要 引用率约 40% 对比 15%（<a href="https://citate.ai/geo-guide/" target="_blank" rel="noopener">Citate.ai 生成式推荐 Guide</a>）</li>
+          <li>含 <strong>统计数据 + 权威外链</strong> → 人工智能可见性 +30–40%（Aggarwal et al., 2024年知识发现与数据挖掘会议）</li>
+        </ul>
+        <table>
+          <thead>
+            <tr><th>指标</th><th>数值</th><th>来源</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ChatGPT 引用 Reddit 排名</td><td><strong>#1</strong>（30,942 次）</td><td>Reddit-GEO-SOP</td></tr>
+            <tr><td>Reddit 引用转化率</td><td><strong>49.64%</strong>（行业均值 8.7×）</td><td>同上</td></tr>
+            <tr><td>SaaS Tools 品类 Reddit 引用率</td><td><strong>5.92%</strong>，转化率 <strong>86.98%</strong></td><td>同上</td></tr>
+            <tr><td>数据智能体 品类实测</td><td><strong>21/56 = 37.5%</strong> 引用来自 Reddit</td><td>基线报告</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="ch-reddit">
+        <h3>1.4 渠道 3：Reddit 社区运营</h3>
+        <p><strong>已被 AI 高频引用的帖子（最高优先级评论埋点目标）：</strong></p>
+        <table>
+          <thead>
+            <tr><th>Sub</th><th>帖子</th><th>被引情况</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>r/dataengineering</td>
+              <td><a href="https://www.reddit.com/r/dataengineering/comments/1owjt0b/text_to_sql_智能体s/" target="_blank" rel="noopener">文本转数据库查询 智能体s</a></td>
+              <td>P4 中 4 次</td>
+            </tr>
+            <tr>
+              <td>r/dataengineering</td>
+              <td><a href="https://www.reddit.com/r/dataengineering/comments/1s22vr9/are_people_actually_letting_ai_智能体s_run_sql/" target="_blank" rel="noopener">Are people actually letting AI 智能体s run SQL?</a></td>
+              <td>P5 中 2 次</td>
+            </tr>
+            <tr>
+              <td>r/BusinessIntelligence</td>
+              <td><a href="https://www.reddit.com/r/BusinessIntelligence/comments/1ta6rzb/is_智能体ic_bi_actually_replacing_traditional/" target="_blank" rel="noopener">Is 智能体ic BI actually replacing traditional?</a></td>
+              <td>低优先级 中 2 次</td>
+            </tr>
+            <tr>
+              <td>r/AI_智能体s</td>
+              <td><a href="https://www.reddit.com/r/AI_智能体s/comments/1sfu06i/we_built_a_data_智能体_that_saves_our_analyst_team/" target="_blank" rel="noopener">We built a 数据智能体 that saves ~200 hrs/week</a></td>
+              <td>P3 被引</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>规则：</strong>零硬广 · 可验证技术细节 · 可被 AI 整段引用</p>
+      </section>
+
+      <section id="ch-connector">
+        <h3>1.5 渠道 4：集成页 / How-to 长尾</h3>
+        <table>
+          <thead>
+            <tr><th>优先级</th><th>Slug</th><th>主关键词</th><th>状态</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>—</td><td>connect-supabase-ai-data-analyst</td><td>connect supabase to ai</td><td><span class="tag tag-ok">已发</span></td></tr>
+            <tr><td><span class="tag tag-priority-high">最高优先级</span></td><td>connect-postgres-ai-data-analyst</td><td>connect postgres to ai</td><td>待发</td></tr>
+            <tr><td><span class="tag tag-priority-high">最高优先级</span></td><td>connect-snowflake-ai-data-analyst</td><td>connect snowflake to ai analyst</td><td>待发</td></tr>
+            <tr><td><span class="tag tag-priority-high">最高优先级</span></td><td>connect-bigquery-ai-data-analyst</td><td>connect bigquery to ai</td><td>待发</td></tr>
+            <tr><td><span class="tag tag-priority-high">最高优先级</span></td><td>ai-data-analysis-google-sheets</td><td>google sheets ai analysis</td><td>待发</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="ch-other">
+        <h3>1.6–1.9 其他渠道摘要</h3>
+        <h4>第三方 Roundup</h4>
+        <table>
+          <thead><tr><th>页面</th><th>URL</th><th>意义</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Databox 2026 榜单</td>
+              <td><a href="https://databox.com/best-ai-tools-for-data-analysis" target="_blank" rel="noopener">databox.com/best-ai-tools-for-data-analysis</a></td>
+              <td>Julius、ThoughtSpot 已占位</td>
+            </tr>
+            <tr>
+              <td>GetDot Vanna Alternatives</td>
+              <td><a href="https://www.getdot.ai/blog/vanna-ai-alternatives" target="_blank" rel="noopener">getdot.ai/blog/vanna-ai-alternatives</a></td>
+              <td>alternatives 模板</td>
+            </tr>
+            <tr>
+              <td>自有榜单</td>
+              <td><a href="https://infinisynapse.com/use-cases/best-ai-tools-for-data-analysis" target="_blank" rel="noopener">infinisynapse.com/use-cases/best-ai-tools-for-data-analysis</a></td>
+              <td>已占位，可反向被 AI 引用</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4>案例研究 · 标杆 Julius × AthenaHQ</h4>
+        <p>页面：<a href="https://julius.ai/articles/case-study-athenahq" target="_blank" rel="noopener">julius.ai/articles/case-study-athenahq</a> · 核心数据：<strong>1 天 → 1 小时</strong></p>
+        <p>InfiniSynapse 对位：用 <strong>垂直行业 case + 录屏 + 可复核数字</strong>（对标 AthenaHQ 1天→1小时叙事）。</p>
+        <h4>开发者社区 · Vanna AI</h4>
+        <table>
+          <thead><tr><th>指标</th><th>数据</th><th>来源</th></tr></thead>
+          <tbody>
+            <tr><td>GitHub Stars</td><td><strong>23,599+</strong>（30 天 +222）</td><td><a href="https://www.sourcepulse.org/projects/1595837" target="_blank" rel="noopener">SourcePulse</a></td></tr>
+            <tr><td>流量结构</td><td>直接访问 <strong>54%</strong> + 引荐流量 <strong>19%</strong></td><td><a href="https://app.aibase.com/details/10222" target="_blank" rel="noopener">AIBase</a></td></tr>
+          </tbody>
+        </table>
+        <h4>产品驱动增长 + 直接访问 · Hex 模式</h4>
+        <table>
+          <thead><tr><th>指标</th><th>数据</th><th>来源</th></tr></thead>
+          <tbody>
+            <tr><td>月访问</td><td><strong>47.1万</strong>（+9.25% 环比上月）</td><td><a href="https://www.semrush.com/website/hex.tech/overview/" target="_blank" rel="noopener">SEMrush</a></td></tr>
+            <tr><td>直接访问 / Google</td><td><strong>81.7%</strong> / <strong>7.06%</strong></td><td>同上</td></tr>
+            <tr><td>博客</td><td><strong>266</strong> 篇</td><td><a href="https://hex.tech/blog/" target="_blank" rel="noopener">hex.tech/blog</a></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="competitors">
+        <h2>2. 竞品 前三名 流量解剖</h2>
+        <h3>2.1 竞品选择</h3>
+        <table>
+          <thead><tr><th>竞品</th><th>关系</th><th>选为 前三名 理由</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Julius AI</strong></td><td>最直接替代品</td><td>品类流量最高（71.4万/mo），比较页最成熟</td></tr>
+            <tr><td><strong>Hex</strong></td><td>人工智能分析 平台</td><td>生成式推荐 引用 #1，Reddit 讨论密度最高</td></tr>
+            <tr><td><strong>ThoughtSpot</strong></td><td>企业级人工智能商业智能</td><td>教育 搜索优化 + 超大词 科普专栏 可复制</td></tr>
+          </tbody>
+        </table>
+        <p><em>数据说明：SEMrush 为全站访问估算；Ahrefs 有机流量通常低估真实值约 40–50%（<a href="https://ahrefs.com/blog/traffic-estimations-accuracy/" target="_blank" rel="noopener">Ahrefs 对比研究</a>）。</em></p>
+
+        <div class="chart-block">
+          <div class="chart-title">流量结构：直接访问 对比 Google（SEMrush · May 2026）</div>
+          <div class="traffic-stack">
+            <div class="stack-row">
+              <div class="stack-name">Julius AI</div>
+              <div class="stack-bar">
+                <span class="seg-direct" style="width:47.39%">直接访问 47%</span>
+                <span class="seg-google" style="width:30.36%">Google 30%</span>
+                <span class="seg-other" style="width:22.25%">Other</span>
+              </div>
+            </div>
+            <div class="stack-row">
+              <div class="stack-name">Hex</div>
+              <div class="stack-bar">
+                <span class="seg-direct" style="width:81.7%">直接访问 82%</span>
+                <span class="seg-google" style="width:7.06%">G 7%</span>
+                <span class="seg-other" style="width:11.24%">Other</span>
+              </div>
+            </div>
+            <div class="stack-row">
+              <div class="stack-name">ThoughtSpot</div>
+              <div class="stack-bar">
+                <span class="seg-direct" style="width:51.42%">直接访问 51%</span>
+                <span class="seg-google" style="width:18.45%">Google 18%</span>
+                <span class="seg-other" style="width:30.13%">Other</span>
+              </div>
+            </div>
+          </div>
+          <div class="chart-caption">Source: SEMrush Traffic Journey · May 2026</div>
+        </div>
+      </section>
+
+      <section id="julius">
+        <h3>2.2 Julius AI</h3>
+        <p>SEMrush（2026-05）→ <a href="https://www.semrush.com/website/julius.ai/overview/" target="_blank" rel="noopener">semrush.com/website/julius.ai/overview</a></p>
+        <pre class="code-block">总访问：       714.28K /月
+会话时长：     10:02
+全球排名：     #62,405
+
+流量来源：
+  直接访问          47.39%
+  Google          30.36%
+
+地区 Top3：
+  India           22.33% (159.51K)
+  US              18.77% (134.09K)
+  UK               3.35%
+
+有机趋势：      环比上月 -26.98%（品牌词仍稳）
+人工智能引荐：       Claude 1万 + ChatGPT 3千 visits/mo
+外链：          216.31K / 6.96K RD</pre>
+        <table>
+          <thead><tr><th>关键词</th><th>排名</th><th>月搜索量</th><th>占流量%</th></tr></thead>
+          <tbody>
+            <tr><td>julius ai</td><td>1</td><td>22,200</td><td><strong>67.11%</strong></td></tr>
+            <tr><td>calculus solver</td><td>6</td><td>74,000</td><td>13.98%</td></tr>
+            <tr><td>geometry solver app</td><td>6</td><td>8,100</td><td>1.22%</td></tr>
+            <tr><td>geometry solver</td><td>1</td><td>390</td><td>0.69%</td></tr>
+            <tr><td>julia ai</td><td>1</td><td>210</td><td>0.63%</td></tr>
+          </tbody>
+        </table>
+        <p><strong>最值得抄的 5 篇文章：</strong></p>
+        <ol>
+          <li><a href="https://julius.ai/articles/julius-ai-vs-chatgpt" target="_blank" rel="noopener">julius.ai/articles/julius-ai-vs-chatgpt</a></li>
+          <li><a href="https://julius.ai/articles/julius-ai-vs-jupyter" target="_blank" rel="noopener">julius.ai/articles/julius-ai-vs-jupyter</a></li>
+          <li><a href="https://julius.ai/articles/power-bi-vs-tableau" target="_blank" rel="noopener">julius.ai/articles/power-bi-vs-tableau</a></li>
+          <li><a href="https://julius.ai/articles/top-10-ai-data-tools" target="_blank" rel="noopener">julius.ai/articles/top-10-ai-data-tools</a></li>
+          <li><a href="https://julius.ai/articles/case-study-athenahq" target="_blank" rel="noopener">julius.ai/articles/case-study-athenahq</a></li>
+        </ol>
+      </section>
+
+      <section id="hex">
+        <h3>2.3 Hex</h3>
+        <p>SEMrush（2026-05）→ <a href="https://www.semrush.com/website/hex.tech/overview/" target="_blank" rel="noopener">semrush.com/website/hex.tech/overview</a></p>
+        <pre class="code-block">总访问：       47.1万 /月 (+9.25% 环比上月)
+会话时长：     08:27
+全球排名：     #87,491
+
+流量来源：
+  直接访问          81.7%
+  Google           7.06%
+
+地区 Top1：      US 56.88% (268.15K)
+外链：          53.65K / 3.86K RD
+博客：          266 posts / 79 authors</pre>
+        <table>
+          <thead><tr><th>关键词</th><th>排名</th><th>月搜索量</th><th>占流量%</th></tr></thead>
+          <tbody>
+            <tr><td>hex data engineer</td><td>1</td><td>1,300</td><td>7.45%</td></tr>
+            <tr><td>hex company</td><td>1</td><td>880</td><td>5.04%</td></tr>
+            <tr><td>hex tech</td><td>1</td><td>880</td><td>5.04%</td></tr>
+            <tr><td>hex careers</td><td>1</td><td>720</td><td>4.12%</td></tr>
+            <tr><td>dimensionality reduction techniques</td><td>4</td><td>12,100</td><td><strong>3.22%</strong></td></tr>
+          </tbody>
+        </table>
+        <p>GEO：ChatGPT 回答 "best 数据智能体" 时 hex.tech 被引 <strong>6 次</strong>。</p>
+        <p>非品牌高价值页：<a href="https://hex.tech/blog/dimensionality-reduction-techniques/" target="_blank" rel="noopener">hex.tech/blog/dimensionality-reduction-techniques</a></p>
+      </section>
+
+      <section id="thoughtspot">
+        <h3>2.4 ThoughtSpot</h3>
+        <p>SEMrush（2026-05）→ <a href="https://www.semrush.com/website/thoughtspot.com/overview/" target="_blank" rel="noopener">semrush.com/website/thoughtspot.com/overview</a></p>
+        <pre class="code-block">总访问：       190.88K /月
+有机趋势：     环比上月 +32.55%
+会话时长：     07:00
+
+流量来源：
+  直接访问          51.42%
+  Google          18.45%
+
+人工智能引荐：       ChatGPT 1万 visits/mo
+外链：          176.13千 / 9.02K RD</pre>
+        <table>
+          <thead><tr><th>关键词</th><th>排名</th><th>月搜索量</th><th>占流量%</th><th>页面</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>kpi examples</td><td>8</td><td>1,830,000</td><td><strong>32.26%</strong></td>
+              <td><a href="https://www.thoughtspot.com/data-trends/kpi/examples" target="_blank" rel="noopener">/data-trends/kpi/examples</a></td>
+            </tr>
+            <tr><td>sql tutorial</td><td>4</td><td>201,000</td><td>12.12%</td><td>data-trends</td></tr>
+            <tr><td>data analysis tools</td><td>12</td><td>1,830,000</td><td>5.09%</td><td>Hub</td></tr>
+            <tr><td>kpi meaning</td><td>6</td><td>90,500</td><td>2.01%</td><td>关键绩效指标 集群</td></tr>
+            <tr><td>churn rate analysis</td><td>3</td><td>33,100</td><td>1.99%</td><td>场景文</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="comp-compare">
+        <h3>2.5 三竞品对比</h3>
+        <div class="competitor-grid">
+          <div class="comp-card">
+            <h4>Julius AI</h4>
+            <dl>
+              <dt>月访问</dt><dd>71.4万</dd>
+              <dt>直接访问 / Google</dt><dd>47% / 30%</dd>
+              <dt>搜索优化 策略</dt><dd>比较页 + 泛词</dd>
+              <dt>人工智能引荐</dt><dd>Claude 1万</dd>
+              <dt>生成式推荐 Reddit</dt><dd>中</dd>
+              <dt>商业化</dt><dd>产品驱动增长 + 免费增值</dd>
+            </dl>
+          </div>
+          <div class="comp-card">
+            <h4>Hex</h4>
+            <dl>
+              <dt>月访问</dt><dd>47.1万</dd>
+              <dt>直接访问 / Google</dt><dd>82% / 7%</dd>
+              <dt>搜索优化 策略</dt><dd>教程长尾</dd>
+              <dt>人工智能引荐</dt><dd>较弱</dd>
+              <dt>生成式推荐 Reddit</dt><dd>最强 (#1)</dd>
+              <dt>商业化</dt><dd>Team 产品驱动增长</dd>
+            </dl>
+          </div>
+          <div class="comp-card">
+            <h4>ThoughtSpot</h4>
+            <dl>
+              <dt>月访问</dt><dd>19.1万</dd>
+              <dt>直接访问 / Google</dt><dd>51% / 18%</dd>
+              <dt>搜索优化 策略</dt><dd>超大词 科普专栏</dd>
+              <dt>人工智能引荐</dt><dd>ChatGPT 1万</dd>
+              <dt>生成式推荐 Reddit</dt><dd>中</dd>
+              <dt>商业化</dt><dd>Enterprise</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="plans">
+        <h2>3. 最容易复刻的执行方案</h2>
+        <h3>方案 A：比较页 + Alternatives 集群（4–6 周）</h3>
+        <table>
+          <thead><tr><th>周</th><th>动作</th><th>对标页面</th><th>目标词</th></tr></thead>
+          <tbody>
+            <tr><td>第1周</td><td><code>infinisynapse-vs-julius-ai</code></td><td>julius.ai/compare/julius-vs-chatgpt</td><td>julius ai data analysis (月搜索量 140, 排名难度 53)</td></tr>
+            <tr><td>第1周</td><td><code>julius-ai-alternatives</code></td><td>getdot.ai/blog/vanna-ai-alternatives</td><td>julius ai alternatives</td></tr>
+            <tr><td>第2周</td><td><code>infinisynapse-vs-databricks-genie</code></td><td>—</td><td>databricks genie (月搜索量 1600, 排名难度 27)</td></tr>
+            <tr><td>第2周</td><td><code>code-agent-vs-data-agent</code></td><td>—</td><td>#014 已写</td></tr>
+            <tr><td>W3–4</td><td>5 篇 alternatives</td><td>Julius articles</td><td>thoughtspot / tableau / hex</td></tr>
+            <tr><td>第4周</td><td>常见问题结构化标记 + 40 词定义块</td><td>Citate.ai 研究</td><td>全站 GEO</td></tr>
+          </tbody>
+        </table>
+        <p><strong>单篇结构模板：</strong></p>
+        <ol>
+          <li>H1：<code>{A} vs {B}: Which Is Better for {Use Case}? (2026)</code></li>
+          <li>首段 50 词直接回答</li>
+          <li>对比表（8–12 行能力）</li>
+          <li>「Who should pick X」分 persona</li>
+          <li>客户案例或试点数字（须可复核）</li>
+          <li>常见问题 5–8 条 + Schema</li>
+        </ol>
+
+        <h3>方案 B：集成页长尾（2–4 周）</h3>
+        <p>见 §1.5 集成页清单。每页 操作指南结构化标记 + 截图 + 可验证第一步。</p>
+
+        <h3>方案 C：Reddit 生成式推荐 评论埋点（持续）</h3>
+        <table>
+          <thead><tr><th>优先级</th><th>动作</th><th>目标帖</th><th>内容角度</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-priority-high">最高优先级</span></td><td>长评论</td>
+              <td><a href="https://www.reddit.com/r/dataengineering/comments/1owjt0b/text_to_sql_智能体s/" target="_blank" rel="noopener">文本转数据库查询 智能体s</a></td>
+              <td>多源联邦 对比 单库 自然语言转数据库查询</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-priority-high">最高优先级</span></td><td>长评论</td>
+              <td><a href="https://www.reddit.com/r/dataengineering/comments/1s22vr9/" target="_blank" rel="noopener">AI 智能体s run SQL ？</a></td>
+              <td>私有化 + audit trail</td>
+            </tr>
+            <tr><td><span class="tag tag-p1">次优先级</span></td><td>主帖</td><td>r/AI_智能体s</td><td>真实架构帖</td></tr>
+            <tr><td><span class="tag tag-p1">次优先级</span></td><td>评论</td><td>r/BusinessIntelligence</td><td>governed 智能体 对比 dashboard AI</td></tr>
+          </tbody>
+        </table>
+
+        <h3>方案 D：ThoughtSpot 式超大词 科普专栏（8–12 周）</h3>
+        <table>
+          <thead><tr><th>主题</th><th>主词</th><th>月搜索量</th><th>排名难度</th></tr></thead>
+          <tbody>
+            <tr><td>AI 数据分析入门</td><td>ai for data analysis</td><td>3600</td><td>58</td></tr>
+            <tr><td>智能体ic analytics</td><td>best 智能体ic analytics…</td><td>110</td><td><strong>5</strong></td></tr>
+            <tr><td>What is 数据智能体</td><td>what is a 数据智能体</td><td>20</td><td>29</td></tr>
+            <tr><td>AI data analyst JD</td><td>ai data analyst job description</td><td>20</td><td>22</td></tr>
+          </tbody>
+        </table>
+
+        <h3>方案 E：第三方 Roundup 占位（6–8 周）</h3>
+        <ul>
+          <li>Pitch 案例页 / 产品能力给 20 个 SEO/AI 媒体 → 目标 5 篇外链</li>
+          <li>G2/Capterra listing + 10 条 verified review</li>
+          <li>发布案例研究页 + 录屏（可被 AI 引用的具体场景数字）</li>
+        </ul>
+      </section>
+
+      <section id="roadmap">
+        <h2>4. 90 天路线图</h2>
+        <table>
+          <thead><tr><th>阶段</th><th>时间</th><th>主 KPI</th><th>辅助 KPI</th></tr></thead>
+          <tbody>
+            <tr><td>第一阶段</td><td>0–30 天</td><td>10 页比较/集成页上线</td><td>Reddit 10 条高质量评论</td></tr>
+            <tr><td>第二阶段</td><td>30–60 天</td><td>有机关键词 Top100 ≥ 200</td><td>ChatGPT/Perplexity 品牌提及 ≥ 5 次/月</td></tr>
+            <tr><td>第三阶段</td><td>60–90 天</td><td>产品演示 请求来自有机 ≥ 30/mo</td><td>人工智能引荐流量（GA4）可测量</td></tr>
+          </tbody>
+        </table>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>第1周–3</h4>
+            <p><strong>SEO：</strong>5 比较/alternatives 页 · <strong>GEO：</strong>10 评论埋点</p>
+          </div>
+          <div class="timeline-item">
+            <h4>第2周–4</h4>
+            <p><strong>SEO：</strong>4 connector 页</p>
+          </div>
+          <div class="timeline-item">
+            <h4>第4周</h4>
+            <p><strong>SEO：</strong>常见问题 Schema rollout</p>
+          </div>
+          <div class="timeline-item">
+            <h4>第5周–7</h4>
+            <p><strong>SEO：</strong>ThoughtSpot 科普专栏 ×3 · <strong>GEO：</strong>2 主帖 r/dataengineering · <strong>分发推广：</strong>榜单汇总 outreach ×20</p>
+          </div>
+          <div class="timeline-item">
+            <h4>W8–12</h4>
+            <p><strong>SEO：</strong>案例研究 + demo 视频 · <strong>GEO：</strong>持续评论 · <strong>分发推广：</strong>G2/Capterra reviews</p>
+          </div>
+        </div>
+
+        <table>
+          <thead><tr><th>周</th><th>SEO</th><th>生成式推荐 / Reddit</th><th>分发推广</th></tr></thead>
+          <tbody>
+            <tr><td>第1周–3</td><td>5 比较/alternatives 页</td><td>10 评论埋点</td><td>—</td></tr>
+            <tr><td>第2周–4</td><td>4 connector 页</td><td>—</td><td>—</td></tr>
+            <tr><td>第4周</td><td>常见问题 Schema rollout</td><td>—</td><td>—</td></tr>
+            <tr><td>第5周–7</td><td>ThoughtSpot 科普专栏 ×3</td><td>2 主帖 r/dataengineering</td><td>榜单汇总 outreach ×20</td></tr>
+            <tr><td>W8–12</td><td>案例研究 + demo 视频</td><td>持续评论</td><td>G2/Capterra reviews</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="sources">
+        <h2>5. 数据溯源索引</h2>
+        <table>
+          <thead><tr><th>数据点</th><th>工具</th><th>链接</th></tr></thead>
+          <tbody>
+            <tr><td>Julius 71.4万 visits</td><td>SEMrush</td><td><a href="https://www.semrush.com/website/julius.ai/overview/" target="_blank" rel="noopener">semrush.com/website/julius.ai/overview</a></td></tr>
+            <tr><td>Hex 47.1万 visits</td><td>SEMrush</td><td><a href="https://www.semrush.com/website/hex.tech/overview/" target="_blank" rel="noopener">semrush.com/website/hex.tech/overview</a></td></tr>
+            <tr><td>ThoughtSpot 19.1万 visits</td><td>SEMrush</td><td><a href="https://www.semrush.com/website/thoughtspot.com/overview/" target="_blank" rel="noopener">semrush.com/website/thoughtspot.com/overview</a></td></tr>
+            <tr><td>Ahrefs 免费流量估算</td><td>Ahrefs</td><td><a href="https://ahrefs.com/traffic-checker/" target="_blank" rel="noopener">ahrefs.com/traffic-checker</a></td></tr>
+            <tr><td>Reddit 生成式推荐 行业数据</td><td>吉欧利 / 内部 SOP</td><td>Reddit运营/Reddit-GEO-SOP.md</td></tr>
+            <tr><td>数据智能体 竞品 AI 引用</td><td>内部基线</td><td>Reddit运营/Reddit-GEO-data-智能体-基线报告.md</td></tr>
+            <tr><td>100 页 搜索优化 规划</td><td>内部</td><td>SEO/100页主题集群规划-v1-替换后主关键词版.md</td></tr>
+            <tr><td>关键词 表格文件</td><td>内部</td><td>SEO/100页关键词验证/keywords-100-master.csv</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="formula">
+        <h2>6. 附录：InfiniSynapse 差异化增长公式</h2>
+        <div class="formula">Julius 比较页机器
+  + ThoughtSpot 超大词 科普专栏（从 排名难度 5 词切入）
+  + Hex Reddit 生成式推荐（多源联邦 + 私有化 叙事）
+  + 客户量化案例（可复核、可链接）
+  = InfiniSynapse 2026 增长飞轮</div>
+        <p><strong>不做：</strong>复制 Julius 泛数学 搜索优化 · 复制 Hex 82% 直接访问（需 enterprise 销售 + 品牌积累）</p>
+        <p><strong>必做：</strong>最高优先级 比较页 · 最高优先级 集成页 · 最高优先级 Reddit 埋点 · 常见问题 Schema 生成式推荐 化</p>
+      </section>
+
+      <footer class="footer">
+        InfiniSynapse 增长运营 · 2026-06-15 · 配套 Markdown：<code>增长方案.md</code>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

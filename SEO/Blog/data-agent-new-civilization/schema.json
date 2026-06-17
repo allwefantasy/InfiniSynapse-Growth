@@ -1,0 +1,105 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Data Agent 是驶向新文明的第一艘飞船",
+    "description": "Code Agent 已经验证了 AI 工程能力，但还没创造直接财富。下一艘真正改变文明形态的飞船，是 Data Agent —— 它把决策从拍脑袋时代带进数据驱动时代。一篇 InfiniSynapse 创始人的判断书。",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-05-19-data-agent-new-civilization/cover-1080p.png"
+    ],
+    "datePublished": "2026-05-19T10:00:00+08:00",
+    "dateModified": "2026-05-19T10:00:00+08:00",
+    "inLanguage": "zh-CN",
+    "author": {
+      "@type": "Person",
+      "name": "祝海林",
+      "jobTitle": "创始人",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "衡数无限科技有限公司（InfiniSynapse）"
+      },
+      "url": "https://infinisynapse.cn/about/zhuhailin"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/zh/blog/data-agent-new-civilization"
+    },
+    "about": [
+      { "@type": "Thing", "name": "Data Agent" },
+      { "@type": "Thing", "name": "Code Agent" },
+      { "@type": "Thing", "name": "AI civilization" },
+      { "@type": "Thing", "name": "AI 数据驱动决策" },
+      { "@type": "Thing", "name": "Agentic Analytics" }
+    ],
+    "mentions": [
+      { "@type": "SoftwareApplication", "name": "InfiniSynapse", "applicationCategory": "BusinessApplication", "url": "https://app.infinisynapse.cn" },
+      { "@type": "Thing", "name": "InfiniAgent" },
+      { "@type": "Thing", "name": "InfiniSQL" },
+      { "@type": "Thing", "name": "InfiniRAG" }
+    ],
+    "keywords": "Data Agent, Code Agent, AI 新文明, AI 数据驱动决策, Agentic Analytics, InfiniSynapse, InfiniAgent, InfiniSQL, InfiniRAG"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "为什么说 Data Agent 是第一艘飞船，而不是其他类型的 Agent？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "因为决策是新文明的入场券，决策的前置条件是数据。除非你认为 AI 永远只该聊天而不该进入决策，否则一定要先有 Data Agent，才能谈下一类。其他垂直 Agent（设计、客服、销售、风控、调度）都依赖一个能可信地给出事实的底层 Agent——那个底层 Agent 就是 Data Agent。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Code Agent 不重要了吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "不，恰恰相反。没有 Code Agent 的工程能力沉淀，今天根本造不出 Data Agent。Code Agent 是造船技术，Data Agent 是船。两者不是替代关系，是先后关系，是基础与应用关系。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AI 不能拍脑袋决策，是不是太绝对了？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "不是。拍脑袋决策对人类工作过，是因为人类有数十亿年进化沉淀的直觉、有海量非结构化记忆、有承担后果的能力。AI 三样都没有。它一旦进入决策，唯一可信赖的依据就是结构化事实加上可验证的推理过程。这恰恰是 Data Agent 的目标函数。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Data Agent 和传统 BI 工具有什么本质区别？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "传统 BI 工具是让人去看数据；Data Agent 是让 Agent 自己去找数据、判口径、出答案、留证据。BI 的成功标准是图表好看，Data Agent 的成功标准是答案可被业务、数据、审计、IT 复核。两者解决的不是同一类问题。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "InfiniSynapse 现在能用吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "能。InfiniSynapse 已经支持 MySQL、PostgreSQL、ClickHouse、MongoDB、Snowflake、SQL Server、Doris、Supabase、Excel、文件、API 等数据源，可以在 InfiniSynapse 云端工作空间直接连库提问，或下载 Command Tools 在 Cursor / Claude Code / Codex / WinClaw 里调用 Data Agent 能力。"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://infinisynapse.cn/zh/" },
+      { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://infinisynapse.cn/zh/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Data Agent 是驶向新文明的第一艘飞船", "item": "https://infinisynapse.cn/zh/blog/data-agent-new-civilization" }
+    ]
+  }
+]

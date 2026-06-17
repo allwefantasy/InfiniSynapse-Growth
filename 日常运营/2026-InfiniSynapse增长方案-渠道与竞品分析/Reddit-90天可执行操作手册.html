@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reddit 90 天可执行操作手册</title>
+  <link rel="stylesheet" href="assets/report.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand">InfiniSynapse · 90 天执行手册</div>
+    <nav class="topbar-nav">
+      <a href="index.html">← 返回总报告</a>
+      <a href="index.html#reddit-weekly">周历摘要</a>
+      <a href="SEO-90天可执行操作手册.html">SEO 手册</a>
+      <a href="Reddit-90天可执行操作手册.html">Reddit 手册</a>
+    </nav>
+  </div>
+</header>
+<div class="page playbook-page">
+  <p class="breadcrumb"><a href="index.html">增长调研报告</a> / Reddit · 社区运营</p>
+  
+<div class="week-jump-wrap">
+  <div class="week-jump-label">按周跳转</div>
+  <nav class="week-jump"><a href="#week-1">第 1 周</a><a href="#week-2">第 2 周</a><a href="#week-3">第 3 周</a><a href="#week-4">第 4 周</a><a href="#week-5">第 5 周</a><a href="#week-6">第 6 周</a><a href="#week-7">第 7 周</a><a href="#week-8">第 8 周</a><a href="#week-9">第 9 周</a><a href="#week-10">第 10–12 周</a></nav>
+  <nav class="week-jump week-jump-appendix"><a href="#appendix-A">附录 A</a><a href="#appendix-B">附录 B</a><a href="#appendix-C">附录 C</a><a href="#appendix-D">附录 D</a><a href="#appendix-E">附录 E</a></nav>
+</div>
+  <article class="playbook-content">
+<h1>InfiniSynapse · Reddit 90 天可执行操作手册</h1>
+<blockquote>
+<p><strong>主文档（Reddit运营）</strong>：<a href="../../Reddit运营/Reddit-InfiniSynapse-90天可执行操作手册.md"><code>Reddit运营/Reddit-InfiniSynapse-90天可执行操作手册.md</code></a><br />
+<strong>对应增长方案</strong>：<a href="./index.html#reddit-weekly"><code>index.html#reddit-weekly</code></a> · <a href="./增长方案.md"><code>增长方案.md</code> §4.4</a><br />
+<strong>编制日期</strong>：2026-06-15<br />
+<strong>目标</strong>：90 天内完成 <strong>10 条长评 + 2 篇主帖</strong>，且每条动作都有<strong>可查来源</strong>（基线报告、SOP、高被引原帖、写法参考稿）。</p>
+</blockquote>
+<hr />
+<h2 id="0-为什么要做-reddit-权威依据">0. 为什么要做 Reddit（权威依据）</h2>
+<table>
+<thead>
+<tr>
+<th>结论</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChatGPT 引用域名中 <strong>Reddit 排名第 1</strong>（30,942 次），引用转化率 <strong>49.64%</strong></td>
+<td><a href="https://mp.weixin.qq.com/s/zV_KLvCCA8rwOP-Y-d-fDw">GEOly《2026 Reddit GEO 洞察报告》</a> · 见 <a href="../../Reddit运营/Reddit-GEO-SOP.md"><code>Reddit-GEO-SOP.md</code> §0–§1</a></td>
+</tr>
+<tr>
+<td>本品类「data agent」监测中，<strong>37.5%</strong>（21/56）的 AI 引用来自 Reddit</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md"><code>Reddit-GEO-data-agent-基线报告.md</code> §二</a></td>
+</tr>
+<tr>
+<td>Hex 在同类测试中 <strong>被引用 6 次</strong>，我们 <strong>0 次</strong> — Reddit 是缩小差距的最短路径之一</td>
+<td>同上 · §四；增长方案 <a href="./index.html#geo"><code>index.html#geo</code></a></td>
+</tr>
+<tr>
+<td>含 Reddit 引用的回答 <strong>99.97% 触发联网搜索</strong> — 帖子标题清晰、有人互动，才容易被 AI 读到</td>
+<td><a href="../../Reddit运营/Reddit-GEO-SOP.md"><code>Reddit-GEO-SOP.md</code> §6.1</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>本手册策略（与基线报告 §六一致）</strong><br />
+- 已在 ChatGPT 里被引用的帖 → <strong>优先去评论</strong>（评论本身也可能被引用）<br />
+- 规则宽松的 sub → <strong>发主帖</strong>（r/AI_Agents、r/LangChain）<br />
+- r/dataengineering / r/BusinessIntelligence → <strong>几乎只做评论</strong>，禁止 vendor 口吻（见 <a href="../../Reddit运营/Reddit-GEO-data-agent-阵地清单.md"><code>阵地清单</code> §一</a>）</p>
+<hr />
+<h2 id="1-发布前总规则-每次必查">1. 发布前总规则（每次必查）</h2>
+<h3 id="1-1-写法依据-sop-原文">1.1 写法依据（SOP 原文）</h3>
+<table>
+<thead>
+<tr>
+<th>要做</th>
+<th>不要做</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一人称：「我试过」「我们踩坑」</td>
+<td>品牌官网腔、促销语</td>
+<td><a href="../../Reddit运营/Reddit-GEO-SOP.md">SOP §5.3 DO</a></td>
+</tr>
+<tr>
+<td>标题像真实经历：「tested 4 … over 90 days」</td>
+<td>「XX 品牌发布」「game-changer」</td>
+<td><a href="../../Reddit运营/Reddit-GEO-SOP.md">SOP §5.2 标题公式</a></td>
+</tr>
+<tr>
+<td>先 3 段经验，最后才可选 1 个链接</td>
+<td>正文首段放链接</td>
+<td><a href="../../Reddit运营/Reddit-GEO-SOP.md">SOP §5.4 DON'T</a> · <a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 §二</a></td>
+</tr>
+<tr>
+<td>数字用「大约」「~」这种口气</td>
+<td>「exactly 91%」或未验证的自测分数</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 去 AI 化表</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2-分区规则速查">1.2 分区规则速查</h3>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>自荐</th>
+<th>对我们</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>r/AI_Agents</strong></td>
+<td>1:10；<strong>链接放评论，不放正文</strong></td>
+<td>✅ 主帖主战场</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-阵地清单.md">阵地清单 §二 r/AI_Agents</a></td>
+</tr>
+<tr>
+<td><strong>r/LangChain</strong></td>
+<td>较宽松，禁 spam</td>
+<td>✅ 主帖 / 技术帖</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-阵地清单.md">阵地清单 §二 r/LangChain</a></td>
+</tr>
+<tr>
+<td><strong>r/dataengineering</strong></td>
+<td><strong>禁 vendor</strong>；自荐约 1 次/月</td>
+<td>⚠️ <strong>只评论</strong>为主</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-阵地清单.md">阵地清单 §一 T3</a></td>
+</tr>
+<tr>
+<td><strong>r/BusinessIntelligence</strong></td>
+<td><strong>完全禁 vendor</strong></td>
+<td>⚠️ <strong>只评论</strong></td>
+<td>同上</td>
+</tr>
+<tr>
+<td><strong>r/analytics</strong></td>
+<td>禁 blog spam</td>
+<td>⚠️ <strong>只评论</strong></td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3-可引用的-自家叙事-统一口径">1.3 可引用的「自家叙事」（统一口径）</h3>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>权威出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>多库联邦 · 私有化 · 操作留痕</strong></td>
+<td>增长方案 <a href="./index.html#product"><code>index.html#product</code></a></td>
+</tr>
+<tr>
+<td>对外话术模板</td>
+<td>见本文 <strong>附录 B</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-4-发完-24-小时内必做">1.4 发完 24 小时内必做</h3>
+<ol>
+<li>复制 <strong>永久链接</strong>（Share → 链接）  </li>
+<li>填入 <strong>附录 C 台账</strong>  </li>
+<li>截图留存（防删帖无据）</li>
+</ol>
+<hr />
+<h2 id="2-90-天按周执行-每条含-原帖-依据-角度-参考稿">2. 90 天按周执行（每条含：原帖 · 依据 · 角度 · 参考稿）</h2>
+<hr />
+<h3 id="week-1">第 1 周 · 2 条长评</h3>
+<h4 id="动作-1-1-r-dataengineering-text-to-sql-agents">动作 1-1 · r/dataengineering · Text to SQL agents</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>去哪个帖</strong></td>
+<td><a href="https://www.reddit.com/r/dataengineering/comments/1owjt0b/text_to_sql_agents/">Text to SQL agents</a></td>
+</tr>
+<tr>
+<td><strong>为什么是这个帖</strong></td>
+<td>监测问题 P4 下 <strong>被 ChatGPT 引用 4 次</strong>（品类最高 ROI）</td>
+</tr>
+<tr>
+<td><strong>分区规则</strong></td>
+<td>禁 vendor；只分享工程经验</td>
+</tr>
+<tr>
+<td><strong>回复角度</strong></td>
+<td>① 别一上来接「整个仓库」，先圈 15–20 个真实高频问题 ② 多库/跨源时 semantic layer 比模型更重要 ③ 工具层硬限制（只读、超时、LIMIT）</td>
+</tr>
+<tr>
+<td><strong>写法参考（勿照抄，改数字与细节）</strong></td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 · 评论 1</a>（账号 A · data engineer 人设）</td>
+</tr>
+<tr>
+<td><strong>链接策略</strong></td>
+<td>本条 <strong>建议不放链接</strong>；若有人追问产品细节，再回复 <a href="https://app.infinisynapse.cn">产品页</a> <strong>仅在被问及时</strong></td>
+</tr>
+<tr>
+<td><strong>验收</strong></td>
+<td>永久链接存表 · 未被删 · ≥150 字</td>
+</tr>
+</tbody>
+</table>
+<h4 id="动作-1-2-同帖楼中楼或第二段经验">动作 1-2 · 同帖楼中楼或第二段经验</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>去哪个帖</strong></td>
+<td>同上帖，或 <a href="https://www.reddit.com/r/dataengineering/comments/1s9gd8f/ai_kill_bi/">AI Kill BI</a>（P2 被引，基线 §三）</td>
+</tr>
+<tr>
+<td><strong>角度</strong></td>
+<td>「单库 NL2SQL 在 PO 问跨 region、跨系统指标时对不上」— 对应 InfiniSynapse <strong>多库联邦</strong>叙事（增长方案 <a href="../competitors/hex.html"><code>hex.html</code> 差异化</a>）</td>
+</tr>
+<tr>
+<td><strong>竞品语境（勿点名踩）</strong></td>
+<td>Hex 占 AI 引用 #1，叙事偏 notebook/SQL；我们强调 <strong>跨源 + 私有化</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="week-2">第 2 周 · 2 条长评</h3>
+<h4 id="动作-2-1-r-dataengineering-生产环境敢让-ai-跑-sql-吗">动作 2-1 · r/dataengineering · 生产环境敢让 AI 跑 SQL 吗</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>去哪个帖</strong></td>
+<td><a href="https://www.reddit.com/r/dataengineering/comments/1s22vr9/are_people_actually_letting_ai_agents_run_sql/">Are people actually letting AI agents run SQL in production?</a></td>
+</tr>
+<tr>
+<td><strong>为什么是这个帖</strong></td>
+<td>P5 监测下 <strong>被引用 2 次</strong></td>
+</tr>
+<tr>
+<td><strong>回复角度</strong></td>
+<td>只读副本 · SQL 解析拦截 · 单次预算上限 · 每周回放查询找「业务错但 SQL 对」</td>
+</tr>
+<tr>
+<td><strong>写法参考</strong></td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 · 评论 2</a></td>
+</tr>
+<tr>
+<td><strong>可提角度</strong></td>
+<td>生产里更怕的是指标定义漂移 · 多库场景 semantic layer 比模型选择更重要 · <strong>勿引用未验证的自测分数</strong></td>
+</tr>
+<tr>
+<td><strong>验收</strong></td>
+<td>2 条链接（含本周第二条）· 无删帖</td>
+</tr>
+</tbody>
+</table>
+<h4 id="动作-2-2-r-dataengineering-当周热帖-备选">动作 2-2 · r/dataengineering 当周热帖（备选）</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>怎么找帖</strong></td>
+<td>打开 <a href="https://www.reddit.com/r/dataengineering/">r/dataengineering</a> · 排序 Top · 本周 · 选与 SQL/agent/BI 相关</td>
+</tr>
+<tr>
+<td><strong>依据</strong></td>
+<td>SOP 要求标题含清晰关键词、常青讨论</td>
+</tr>
+<tr>
+<td><strong>角度</strong></td>
+<td>审计留痕、私有化部署（对齐增长方案 Reddit 表）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="week-3">第 3 周 · 2 条长评</h3>
+<h4 id="动作-3-1-r-businessintelligence-agentic-bi-会取代传统-bi-吗">动作 3-1 · r/BusinessIntelligence · Agentic BI 会取代传统 BI 吗</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>去哪个帖</strong></td>
+<td><a href="https://www.reddit.com/r/BusinessIntelligence/comments/1ta6rzb/is_agentic_bi_actually_replacing_traditional/">Is Agentic BI actually replacing traditional?</a></td>
+</tr>
+<tr>
+<td><strong>为什么是这个帖</strong></td>
+<td>P2 下 <strong>被引用 2 次</strong></td>
+</tr>
+<tr>
+<td><strong>分区规则</strong></td>
+<td><strong>完全禁 vendor</strong></td>
+</tr>
+<tr>
+<td><strong>回复角度</strong></td>
+<td>不取代 dashboard，取代「没人愿意单独做 dashboard 的 ad-hoc 问题」；指标定义 fuzzy 时 agent 会翻车</td>
+</tr>
+<tr>
+<td><strong>写法参考</strong></td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 · 评论 3</a>（账号 B · BI 负责人人设）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="动作-3-2-r-langchain-sql-幻觉列名">动作 3-2 · r/LangChain · SQL 幻觉列名</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>去哪个帖</strong></td>
+<td><a href="https://www.reddit.com/r/LangChain/comments/1rhlb4g/preventing_sql_agents_from_hallucinating_columns/">Preventing SQL agents from hallucinating columns</a></td>
+</tr>
+<tr>
+<td><strong>为什么是这个帖</strong></td>
+<td>P5 被引；与 P4 <a href="https://www.reddit.com/r/LangChain/comments/1l8zy42">LangChain 帖</a> 同属 SQL 工作流讨论</td>
+</tr>
+<tr>
+<td><strong>回复角度</strong></td>
+<td>schema 实时 introspection → 先英文计划再 SQL → SQLGlot 校验 → 小模型 judge</td>
+</tr>
+<tr>
+<td><strong>写法参考</strong></td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 · 评论 5</a></td>
+</tr>
+<tr>
+<td><strong>后续主帖伏笔</strong></td>
+<td>第 6–9 周可在 r/LangChain 发「guardrail stack」长帖</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="week-4">第 4 周 · 2 条长评（第一阶段收官：累计 10 评）</h3>
+<h4 id="动作-4-1-r-analytics-语义层与集成">动作 4-1 · r/analytics · 语义层与集成</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>去哪个帖</strong></td>
+<td><a href="https://www.reddit.com/r/analytics/comments/1r929p9/semantic_layer_for_ai_agents_requires_way_better/">Semantic layer for AI agents requires way better data integration</a></td>
+</tr>
+<tr>
+<td><strong>为什么是这个帖</strong></td>
+<td>P3 被引</td>
+</tr>
+<tr>
+<td><strong>角度</strong></td>
+<td>跨源集成、联邦查询；版规允许时可链一篇官网 <strong>对比文</strong>（非首页推销）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="动作-4-2-高-roi-补位-二选一">动作 4-2 · 高 ROI 补位（二选一）</h4>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>帖子</th>
+<th>被引依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><a href="https://www.reddit.com/r/AI_Agents/comments/1sfu06i/we_built_a_data_agent_that_saves_our_analyst_team/">r/AI_Agents · We built a data agent ~200 hrs/week</a></td>
+<td>P3 · <a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">基线 §三</a> · <a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">§六 P0-4</a></td>
+</tr>
+<tr>
+<td>B</td>
+<td><a href="https://www.reddit.com/r/AI_Agents/comments/1rcy3na/your_agent_passed_testing_your_agent_wont/">r/AI_Agents · Your agent passed testing — your agent won't</a></td>
+<td>P5 · <a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">基线 §三</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>写法参考（选项 A）</strong>：<a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 · 评论 4</a></p>
+<p><strong>✅ 第 4 周末验收</strong>：台账累计 <strong>10 条</strong>评论永久链接</p>
+<hr />
+<h3 id="week-5">第 5 周 · 主帖 #1 草稿（不发布）</h3>
+<h4 id="动作-5-1-起草-内部审阅">动作 5-1 · 起草 + 内部审阅</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>目标阵地</strong></td>
+<td><strong>r/AI_Agents</strong>（主战场）</td>
+</tr>
+<tr>
+<td><strong>对标原帖（结构参考）</strong></td>
+<td><a href="https://www.reddit.com/r/AI_Agents/comments/1sfu06i/we_built_a_data_agent_that_saves_our_analyst_team/">We built a data agent that saves ~200 hrs/week</a></td>
+</tr>
+<tr>
+<td><strong>标题公式依据</strong></td>
+<td>「tested N approaches over 90 days」</td>
+</tr>
+<tr>
+<td><strong>正文参考稿</strong></td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 · 帖 #1 全文</a></td>
+</tr>
+<tr>
+<td><strong>必改项</strong></td>
+<td>① 所有百分比/金额换 <strong>真实</strong> 内部试点或客户授权数据 ② 文末披露身份 ③ <strong>正文不放链接</strong>（规则要求链在评论）</td>
+</tr>
+<tr>
+<td><strong>审阅清单</strong></td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 §二 去 AI 化表</a> · <a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 文末 checklist</a></td>
+</tr>
+<tr>
+<td><strong>验收</strong></td>
+<td>草稿通过 · 标题 ≤100 字 · 准备 1 条「评论区自荐回复」</td>
+</tr>
+</tbody>
+</table>
+<p><strong>建议标题（可微调）</strong><br />
+<code>tested 4 different data agent setups over ~90 days on the same warehouse — what actually held up</code></p>
+<hr />
+<h3 id="week-6">第 6 周 · 发布主帖 #1</h3>
+<h4 id="动作-6-1-发帖-置顶评论">动作 6-1 · 发帖 + 置顶评论</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>阵地</strong></td>
+<td><a href="https://www.reddit.com/r/AI_Agents/">r/AI_Agents</a></td>
+</tr>
+<tr>
+<td><strong>规则</strong></td>
+<td>链接 <strong>仅放评论</strong> · 自荐 ≤10%</td>
+</tr>
+<tr>
+<td><strong>正文</strong></td>
+<td>使用第 5 周定稿（基于 <a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 帖 #1</a>）</td>
+</tr>
+<tr>
+<td><strong>发布后第 1 条评论（自荐）模板</strong></td>
+<td>见 <strong>附录 A-1</strong></td>
+</tr>
+<tr>
+<td><strong>动作 6-2</strong></td>
+<td>在自己帖下回答 1 个技术追问（不 spam）</td>
+</tr>
+<tr>
+<td><strong>验收</strong></td>
+<td>主帖永久链接 · ≥3 upvote 或回复</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="week-7">第 7 周 · 2 条维护评论</h3>
+<h4 id="动作-7-1-主帖-1-跟评">动作 7-1 · 主帖 #1 跟评</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>去哪</strong></td>
+<td>第 6 周主帖 thread</td>
+</tr>
+<tr>
+<td><strong>角度</strong></td>
+<td>补「怎么评测 agent」→ 讲治理、留痕、多源能力，链 <code>how-to-evaluate-ai-data-analyst</code> 博文（若已上线）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="动作-7-2-新热帖长评">动作 7-2 · 新热帖长评</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>优先帖</strong></td>
+<td><a href="https://www.reddit.com/r/AI_Agents/comments/1t7hes1/how_do_you_actually_debug_your_ai_agents/">How do you actually debug your AI agents?</a>（P5 被引）</td>
+</tr>
+<tr>
+<td><strong>写法参考</strong></td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 · 评论 6</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>同步（增长方案 ChatGPT 线）</strong>：用 <a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">基线 §七 5 条 prompt</a> 做中期复测</p>
+<hr />
+<h3 id="week-8">第 8 周 · 1 条长评</h3>
+<h4 id="动作-8-1-r-dataengineering-当周-top-帖">动作 8-1 · r/dataengineering 当周 Top 帖</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>怎么找</strong></td>
+<td><a href="https://www.reddit.com/r/dataengineering/">r/dataengineering</a> · Top · This Week</td>
+</tr>
+<tr>
+<td><strong>角度</strong></td>
+<td>生产踩坑 · <strong>多库联邦 / 私有化</strong>（与 Hex 叙事差异常）</td>
+</tr>
+<tr>
+<td><strong>监测</strong></td>
+<td>每 2 周扫一次新帖</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="week-9">第 9 周 · 主帖 #2（评测 / 案例向）</h3>
+<blockquote>
+<p>⚠️ <strong>r/dataengineering 禁 vendor</strong>（<a href="../../Reddit运营/Reddit-GEO-data-agent-阵地清单.md">阵地清单</a>）。增长方案原意「数据工程版 + 录屏」建议拆成：<br />
+<strong>方案 A（推荐）</strong>：r/LangChain 发评测方法帖 · <strong>方案 B</strong>：r/dataengineering 仅在高赞帖下长评 + 录屏链放楼中楼（被问及时）。</p>
+</blockquote>
+<h4 id="动作-9-1a-主帖-2-r-langchain-推荐">动作 9-1A · 主帖 #2 · r/LangChain（推荐）</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>阵地</strong></td>
+<td><a href="https://www.reddit.com/r/LangChain/">r/LangChain</a></td>
+</tr>
+<tr>
+<td><strong>对标原帖</strong></td>
+<td><a href="https://www.reddit.com/r/LangChain/comments/1rhlb4g/preventing_sql_agents_from_hallucinating_columns/">Preventing SQL agents from hallucinating columns</a>（P5 被引）</td>
+</tr>
+<tr>
+<td><strong>标题参考</strong></td>
+<td><code>how we evaluate data agents in production (guardrails + replay + federated queries)</code></td>
+</tr>
+<tr>
+<td><strong>正文结构参考</strong></td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md">内容包 v2 · 帖 #2</a>（guardrail + eval 叙事）</td>
+</tr>
+<tr>
+<td><strong>录屏</strong></td>
+<td>配合增长方案第 9 周 SEO 案例页；<strong>链接放评论</strong></td>
+</tr>
+<tr>
+<td><strong>验收</strong></td>
+<td>第 2 篇主帖永久链接</td>
+</tr>
+</tbody>
+</table>
+<h4 id="动作-9-1b-若坚持-r-dataengineering-仅评论模式">动作 9-1B · 若坚持 r/dataengineering · 仅评论模式</h4>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>去哪个帖</strong></td>
+<td>再次 <a href="https://www.reddit.com/r/dataengineering/comments/1owjt0b/text_to_sql_agents/">Text to SQL agents</a> 或 <a href="https://www.reddit.com/r/dataengineering/comments/1s22vr9/">prod SQL 帖</a></td>
+</tr>
+<tr>
+<td><strong>角度</strong></td>
+<td>分享生产 guardrail 栈 + 案例录屏链放楼中楼 — <strong>不要单开 vendor 主帖</strong></td>
+</tr>
+<tr>
+<td><strong>依据</strong></td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">基线 §二「规则最严的 sub 只能评论」</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="week-10">第 10–12 周 · 每周 1 条维护评 + 台账</h3>
+<table>
+<thead>
+<tr>
+<th>周</th>
+<th>建议动作</th>
+<th>权威参考帖（任选其一深入回复）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>10</strong></td>
+<td>1 长评 · 可链 SEO 案例页</td>
+<td><a href="https://www.reddit.com/r/BusinessIntelligence/comments/1ta6rzb/">r/BI · Agentic BI</a> 或 <a href="https://www.reddit.com/r/AI_Agents/comments/1sfu06i/">r/AI_Agents · 200hrs</a></td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td>1 长评 · 更新高价值帖清单</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">基线 §三 全清单 21 帖</a></td>
+</tr>
+<tr>
+<td><strong>12</strong></td>
+<td>1 长评 + <strong>90 天台账归档</strong> + Q2 待跟帖列表</td>
+<td>用 <a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">§七 prompt</a> 终测</td>
+</tr>
+</tbody>
+</table>
+<p><strong>✅ 第 12 周末验收</strong>：10 评 + 2 主帖 · 台账完整 · 5 prompt 终测报告存档</p>
+<hr />
+<h2 id="3-扩展阵地-有余力再做">3. 扩展阵地（有余力再做）</h2>
+<p>基线发现、尚未纳入 90 天 mandatory 的高引用 sub：</p>
+<table>
+<thead>
+<tr>
+<th>分区</th>
+<th>原帖</th>
+<th>被引</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r/n8n</td>
+<td><a href="https://www.reddit.com/r/n8n/comments/1r9trni/what_are_the_best_ai_agent_builders_in_2026/">best AI agent builders 2026</a></td>
+<td>P1</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">基线 §三</a> · <a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">§五</a></td>
+</tr>
+<tr>
+<td>r/AgentsOfAI</td>
+<td><a href="https://www.reddit.com/r/AgentsOfAI/comments/1sya972/top_agentic_frameworks_let_me_know_if_i_missed_any/">Top agentic frameworks</a></td>
+<td>P1</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>r/SaaS</td>
+<td><a href="https://www.reddit.com/r/SaaS/comments/1t161qg/we_caught_1_in_50_ai_responses_hallucinating_in/">1 in 50 hallucinating</a></td>
+<td>P5</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">基线 §三</a></td>
+</tr>
+<tr>
+<td>r/aiagents</td>
+<td><a href="https://www.reddit.com/r/aiagents/comments/1sfpq05/when_your_ai_agent_reports_tests_passed_and_they/">tests passed but they're not</a></td>
+<td>P5</td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附录-a-可复制片段">附录 A · 可复制片段</h2>
+<h3 id="a-1-主帖-1-发布后-r-ai_agents-评论区自荐-链放评论-符合规则">A-1 主帖 #1 发布后 · r/AI_Agents 评论区自荐（链放评论，符合规则）</h3>
+<pre><code class="language-text">few people asked — i work on InfiniSynapse (data agent for multi-source / governed analytics). the numbers in the post are from internal pilot runs, not marketing slides.
+
+happy to go deeper on eval setup, federated query guardrails, or a case replay if useful: https://app.infinisynapse.cn
+</code></pre>
+<p><strong>规则依据</strong>：<a href="https://www.reddit.com/r/AI_Agents/">r/AI_Agents 链接放评论区</a> · <a href="../../Reddit运营/Reddit-GEO-data-agent-阵地清单.md">阵地清单 §二</a></p>
+<h3 id="a-2-被追问-准确率怎么测-时-短回复">A-2 被追问「准确率怎么测」时 · 短回复</h3>
+<pre><code class="language-text">we evaluate on a frozen set of real analyst tickets from our pilot — schema drift hurts more than model choice. happy to share our guardrail checklist (read-only role, plan-before-SQL, replay logs) if you're building something similar.
+</code></pre>
+<hr />
+<h2 id="附录-b-标准话术-产品定义">附录 B · 标准话术（产品定义）</h2>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一句话</td>
+<td>Governed data-agent platform for multi-source analytics with audit trails</td>
+</tr>
+<tr>
+<td>差异化三点</td>
+<td>多库联邦 · 私有化部署 · 操作留痕</td>
+</tr>
+<tr>
+<td>产品入口</td>
+<td>https://app.infinisynapse.cn</td>
+</tr>
+<tr>
+<td>增长方案说明</td>
+<td><a href="./index.html#product"><code>index.html#product</code></a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附录-c-执行台账-复制到-excel-飞书">附录 C · 执行台账（复制到 Excel / 飞书）</h2>
+<table>
+<thead>
+<tr>
+<th>周</th>
+<th>类型</th>
+<th>分区</th>
+<th>原帖 URL</th>
+<th>我们的永久链接</th>
+<th>角度摘要</th>
+<th>删帖?</th>
+<th>ChatGPT 复测是否出现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>评论</td>
+<td>r/dataengineering</td>
+<td>https://www.reddit.com/r/dataengineering/comments/1owjt0b/</td>
+<td></td>
+<td>多库/semantic layer</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>评论</td>
+<td>r/dataengineering</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>主帖</td>
+<td>r/AI_Agents</td>
+<td>—</td>
+<td></td>
+<td>90天四方案对比</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>主帖</td>
+<td>r/LangChain</td>
+<td>—</td>
+<td></td>
+<td>guardrail + eval</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="附录-d-监测-prompt-与基线一致-第-7-12-周必跑">附录 D · 监测 Prompt（与基线一致，第 7 / 12 周必跑）</h2>
+<p>来源：<a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md">基线报告 §七</a></p>
+<pre><code>P1: What's the best AI data agent for analytics teams in 2026? Please search the web and cite specific Reddit threads if relevant.
+
+P2: Best data agent vs traditional BI tools — what do Reddit data engineers actually say? Please search the web.
+
+P3: I'm a data engineer evaluating AI agents for our pipeline. What does Reddit recommend? Please search the web and cite Reddit threads.
+
+P4: Compare popular AI data agents for SQL-heavy workflows according to Reddit discussions. Please search the web.
+
+P5: What are the real production issues with AI data agents? Cite specific Reddit threads. Please search the web.
+</code></pre>
+<p>记录：<code>infinisynapse.com</code> 出现次数 · 引用的 Reddit 链接是否含我们的 permalink</p>
+<hr />
+<h2 id="附录-e-文档索引-全部权威原文">附录 E · 文档索引（全部权威原文）</h2>
+<table>
+<thead>
+<tr>
+<th>文档</th>
+<th>路径</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reddit GEO SOP</td>
+<td><a href="../../Reddit运营/Reddit-GEO-SOP.md"><code>Reddit运营/Reddit-GEO-SOP.md</code></a></td>
+<td>写法、标题公式、三铁律</td>
+</tr>
+<tr>
+<td>GEOly 原始报告</td>
+<td><a href="https://mp.weixin.qq.com/s/zV_KLvCCA8rwOP-Y-d-fDw">微信公众号</a></td>
+<td>行业 Reddit 引用数据</td>
+</tr>
+<tr>
+<td>Data Agent 基线</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-基线报告.md"><code>Reddit-GEO-data-agent-基线报告.md</code></a></td>
+<td><strong>21 条被引原帖</strong> · 5 prompt</td>
+</tr>
+<tr>
+<td>阵地清单</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-阵地清单.md"><code>Reddit-GEO-data-agent-阵地清单.md</code></a></td>
+<td>各 sub 规则</td>
+</tr>
+<tr>
+<td>内容包 v2</td>
+<td><a href="../../Reddit运营/Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md"><code>Reddit-GEO-data-agent-内容包v2-去AI化+双账号日历.md</code></a></td>
+<td><strong>6 评论 + 3 主帖参考稿</strong></td>
+</tr>
+<tr>
+<td>增长方案 Reddit 周历</td>
+<td><a href="./index.html#reddit-weekly"><code>index.html#reddit-weekly</code></a></td>
+<td>90 天节奏</td>
+</tr>
+<tr>
+<td>Hex 竞品 GEO</td>
+<td><a href="../competitors/hex.html"><code>competitors/hex.html</code></a></td>
+<td>差异化叙事</td>
+</tr>
+<tr>
+<td>产品入口</td>
+<td><a href="https://app.infinisynapse.cn">InfiniSynapse web app</a></td>
+<td>Reddit 自荐链（放评论）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>本手册随基线复测更新；若 ChatGPT 引用榜变化，优先调整 §2 中「去哪个帖」列，写法原则不变。</em></p>
+  </article>
+  <footer class="footer">
+    Reddit 90 天可执行操作手册 · 源文件 Markdown 同步更新后请运行 <code>python3 build-playbook-html.py</code>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>Data Agent Architecture: Layers, Memory, and Production Design (2026)</title>
+<meta name="description" content="Data agent architecture for production: four layers, model routing, memory design, security controls, a scorecard, and a 30-day validation playbook.">
+<link rel="canonical" href="https://infinisynapse.cn/blog/data-agent-architecture">
+
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="InfiniSynapse Data Team">
+<meta http-equiv="content-language" content="en">
+<link rel="alternate" hreflang="en" href="https://infinisynapse.cn/blog/data-agent-architecture">
+<link rel="alternate" hreflang="zh-CN" href="https://infinisynapse.cn/zh/blog/data-agent-architecture">
+<link rel="alternate" hreflang="x-default" href="https://infinisynapse.cn/blog/data-agent-architecture">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://infinisynapse.cn/blog/data-agent-architecture">
+<meta property="og:title" content="Data Agent Architecture: Layers, Memory, and Production Design (2026)">
+<meta property="og:description" content="Data agent architecture for production: four layers, model routing, memory design, security controls, a scorecard, and a 30-day validation playbook.">
+<meta property="og:image" content="https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/015-data-agent-architecture/images/hero-data-agent-architecture.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Data agent LLM architecture layers: orchestration, query, RAG, audit, and memory">
+<meta property="og:site_name" content="InfiniSynapse Blog">
+<meta property="og:locale" content="en_US">
+
+
+<meta property="article:published_time" content="2026-06-12T10:00:00+08:00">
+<meta property="article:modified_time" content="2026-06-12T10:00:00+08:00">
+<meta property="article:author" content="https://infinisynapse.cn/about">
+<meta property="article:section" content="Data Agent">
+<meta property="article:tag" content="data agent llm">
+<meta property="article:tag" content="data agent architecture">
+<meta property="article:tag" content="llm orchestration analytics">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@InfiniSynapse">
+<meta name="twitter:title" content="Data Agent Architecture: Layers, Memory, and Production Design (2026)">
+<meta name="twitter:description" content="Data agent architecture for production: four layers, model routing, memory design, security controls, a scorecard, and a 30-day validation playbook.">
+<meta name="twitter:image" content="https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/015-data-agent-architecture/images/hero-data-agent-architecture.png">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0d9488;
+  --accent-soft: #f0fdfa;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --banner: #1e40af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.preview-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--banner);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.preview-banner strong { font-weight: 700; }
+.site-header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+.site-header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+article {
+  max-width: 860px;
+  margin: 0 auto 64px;
+  padding: 32px 24px 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+article > h1:first-child {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+article > blockquote:first-of-type {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+h2 {
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent-soft);
+  color: #0f766e;
+}
+h3 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+p { margin: 0 0 1.1rem; }
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.35rem; }
+a { color: #2563eb; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.25rem 0 1.5rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--accent-soft); color: #0f766e; font-weight: 600; }
+tr:nth-child(even) td { background: #fafafa; }
+blockquote {
+  margin: 1.25rem 0;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: #134e4a;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+footer.preview-meta {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer.preview-meta code {
+  font-size: 12px;
+}
+</style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Data Agent Architecture: Layers, Memory, and Production Design (2026)",
+    "description": "Data agent architecture for production: four layers, model routing, memory design, security controls, a scorecard, and a 30-day validation playbook.",
+    "image": [
+      "https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/015-data-agent-architecture/images/hero-data-agent-architecture.png"
+    ],
+    "datePublished": "2026-06-12T10:00:00+08:00",
+    "dateModified": "2026-06-12T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/data-agent-architecture"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Data agent LLM architecture"
+      },
+      {
+        "@type": "Thing",
+        "name": "LLM orchestration"
+      },
+      {
+        "@type": "Thing",
+        "name": "Agentic SQL"
+      }
+    ],
+    "keywords": "data agent architecture, data agent llm, llm orchestration analytics, agentic sql architecture"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a analytics architecture in simple terms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A **data agent llm** architecture is how you wire a large language model into a system that answers business questions with evidence: the LLM plans work and writes summaries; specialized layers execute SQL, retrieve your definitions, record every step, and save approved results for next month. The model is the brain; the layers are the hands and the audit notebook."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different from RAG chatbots on our warehouse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RAG chatbots retrieve text and generate answers in one bubble. A **data agent llm** stack adds goal-driven orchestration, agentic SQL with validation loops, source-bound retrieval, and memory distillation with human approval. Chatbots optimize conversation; data agents optimize defensible analysis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do we need multiple models in the stack?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Usually yes. Routing planning and distillation to high-capability models while using economical tiers for formatting and guardrails reduces cost **35–50%** without sacrificing audit quality. Single-model-everywhere designs are simpler but expensive and harder to tune per task."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does memory live in the architecture?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Memory is Layer 4 — not the LLM context window. Approved memory cards sit in a governed store linked to projects and connectors. See [Data Agent Memory](/blog/data-agent-memory) for the distillation lifecycle and approval gates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does InfiniSynapse implement this architecture?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "InfiniSynapse ships all four layers: InfiniAgent orchestration, InfiniSQL federated query, InfiniRAG bound retrieval, and auditable timelines with memory cards. Connect sources, submit a recurring KPI, and score the stack with the architecture card on [the InfiniSynapse web app](https://app.infinisynapse.cn).\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Data Agent Architecture: Layers, Memory, and Production Design (2026)",
+        "item": "https://infinisynapse.cn/blog/data-agent-architecture"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="preview-banner"><strong>LOCAL PREVIEW</strong> · Not for production · Images &amp; links use relative paths · Open via <code>file://</code> or local static server</div>
+<header class="site-header">
+  <a href="../INDEX-preview.html">← All Pillar 1 previews</a>
+</header>
+<article class="blog-post">
+<h1 id="data-agent-architecture-layers-memory-and-production-design-2026">Data Agent Architecture: Layers, Memory, and Production Design (2026)</h1>
+<blockquote>
+<p><strong>By the InfiniSynapse Data Team</strong> · <strong>Last updated: 2026-06-12</strong> · <em>We build InfiniSynapse, a Data Agent platform. This architecture guide reflects how we compose LLM layers for governed enterprise analytics in production.</em></p>
+</blockquote>
+<p><img alt="Data agent LLM architecture: orchestration, federated query, knowledge retrieval, audit timeline, and memory distillation layers" src="images/hero-data-agent-architecture.png" /></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#reference-architecture-overview">Reference Architecture Overview</a></li>
+<li><a href="#layer-1--llm-orchestration">Layer 1 — LLM Orchestration</a></li>
+<li><a href="#layer-2--federated-query-engine">Layer 2 — Federated Query Engine</a></li>
+<li><a href="#layer-3--knowledge-and-rag">Layer 3 — Knowledge and RAG</a></li>
+<li><a href="#layer-4--audit-and-memory">Layer 4 — Audit and Memory</a></li>
+<li><a href="#model-selection-and-routing-framework">Model Selection and Routing Framework</a></li>
+<li><a href="#security-and-governance-controls">Security and Governance Controls</a></li>
+<li><a href="#production-deployment-topologies">Production Deployment Topologies</a></li>
+<li><a href="#architecture-scorecard">Architecture Scorecard</a></li>
+<li><a href="#30-day-architecture-validation-playbook">30-Day Architecture Validation Playbook</a></li>
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<blockquote>
+<p>A production <strong>data agent architecture</strong> stack is not a single model call — it is four cooperating layers: <strong>orchestration</strong> (goal → phased plan → tool loop), <strong>federated query</strong> (agentic SQL across sources), <strong>knowledge retrieval</strong> (RAG bound to definitions and prior analyses), and <strong>audit + memory</strong> (inspectable timelines and approved distillation). The LLM is the planner and synthesizer; trust comes from verifiable execution beneath it.</p>
+</blockquote>
+<p><strong>What you will learn</strong>:</p>
+<ul>
+<li>A four-layer reference architecture with interface contracts</li>
+<li>A model routing framework by task type and risk tier</li>
+<li>An architecture scorecard with percentage readiness bands</li>
+<li>A 30-day validation playbook for production proof</li>
+</ul>
+<p><strong>Scope note</strong>: For the category definition and five operational pillars, read <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a>. For how memory distillation works in practice, see <a href="/blog/data-agent-memory">Data Agent Memory</a>.</p>
+<hr />
+<blockquote>
+<p><strong>Evaluation basis</strong>: We build and evaluate InfiniSynapse on production customer workflows. Governance, adoption, and security context is cited inline throughout this guide—not in a standalone reference list.</p>
+</blockquote>
+<h2 id="why-data-agent-architecture-matters">Why Data Agent Architecture Matters</h2>
+<p>Search and log analytics paths should align with <a href="https://www.elastic.co/guide/">Elastic documentation</a> when agents query semi-structured operational data.</p>
+<p>The move from dashboard-first BI to augmented workflows—described in <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework</a>—frames how teams should evaluate tooling here.</p>
+<p>Teams that treat <strong>data agent architecture</strong> design as "connect GPT to the warehouse" hit the same wall within six weeks: pretty SQL, no lineage, definitions that drift, and security reviewers who cannot reconstruct how a board number was produced. The LLM is necessary — but insufficient — for enterprise analytics.</p>
+<p>LLM-backed analytics should account for prompt-injection and data-exfiltration risks in the <a href="https://en.wikipedia.org/wiki/Data_quality">Wikipedia data quality overview</a>, especially when connectors expose production schemas. Production rollouts should align access and review controls with the <a href="https://pandas.pydata.org/docs/">pandas documentation</a>, especially when recurring queries touch live schemas. Adoption benchmarks in the <a href="https://bird-bench.github.io/">BIRD NL2SQL benchmark</a> track the same shift from pilot demos to governed analytics loops we see in customer rollouts.</p>
+<table>
+<thead>
+<tr>
+<th>Failure mode without layered architecture</th>
+<th>What breaks first</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One-shot text-to-SQL</td>
+<td>Wrong joins on messy schemas</td>
+</tr>
+<tr>
+<td>200K context stuffing</td>
+<td>Stale definitions mixed with live schema</td>
+</tr>
+<tr>
+<td>Chat-only memory</td>
+<td>May's KPI re-explains April's logic</td>
+</tr>
+<tr>
+<td>No audit timeline</td>
+<td>Finance cannot approve lineage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reference-architecture-overview">Reference Architecture Overview</h2>
+<p>A <strong>data agent architecture</strong> platform decomposes into four layers. Each layer has a narrow contract so you can swap models, warehouses, or retrieval stores without rewriting the whole system.</p>
+<pre><code>Goal → [Orchestration LLM] → [Query Engine + RAG] → Audit Timeline → Memory Card
+         ↑____________________self-correction loop____________________|
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Primary responsibility</th>
+<th>LLM role</th>
+<th>Non-LLM components</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Orchestration</strong></td>
+<td>Plan phases, call tools, synthesize</td>
+<td>Planner, router, summarizer</td>
+<td>Task state machine, tool registry</td>
+</tr>
+<tr>
+<td><strong>2. Federated query</strong></td>
+<td>Execute verifiable SQL</td>
+<td>Dialect repair, join inference</td>
+<td>Connectors, validators, cost guards</td>
+</tr>
+<tr>
+<td><strong>3. Knowledge</strong></td>
+<td>Retrieve definitions and prior work</td>
+<td>Query reformulation</td>
+<td>Vector + metadata index bound to sources</td>
+</tr>
+<tr>
+<td><strong>4. Audit &amp; memory</strong></td>
+<td>Trust and compounding</td>
+<td>Distillation summarizer</td>
+<td>Immutable timeline, approval workflow</td>
+</tr>
+</tbody>
+</table>
+<p>Multi-source connector design should follow <a href="https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/welcome.html">AWS Well-Architected Machine Learning Lens</a> so domain boundaries and metric contracts stay explicit as scope grows. For SQL-generation specifics inside Layer 2, see <a href="/blog/llm-sql-generation-architecture">LLM SQL Generation Architecture</a>.</p>
+<p>InfiniSynapse maps these layers to <strong>InfiniAgent</strong>, <strong>InfiniSQL</strong>, <strong>InfiniRAG</strong>, and <strong>auditable workflow</strong> — names you will see in examples below.</p>
+<hr />
+<h2 id="layer-1-llm-orchestration">Layer 1 — LLM Orchestration</h2>
+<p>The orchestration layer accepts a natural-language goal (not micro-prompts), emits a reviewable multi-phase plan, loops through tool calls until the goal is met or honestly blocked, and enforces guardrails — max cost, forbidden tables, PII redaction rules.</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>When to use</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Plan-then-execute</strong></td>
+<td>Regulated metrics, board reporting</td>
+<td>Slower first run; higher trust</td>
+</tr>
+<tr>
+<td><strong>ReAct-style tool loop</strong></td>
+<td>Exploratory analysis with oversight</td>
+<td>Needs strong audit capture</td>
+</tr>
+<tr>
+<td><strong>Hierarchical delegation</strong></td>
+<td>Multi-domain questions (finance + product)</td>
+<td>Requires clear sub-agent boundaries</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plan-then-execute in practice</strong> — an analyst submits: <em>"Explain April churn spike vs Q1 baseline with segment cuts."</em> InfiniAgent returns phases — discover churn tables, resolve active-user definition, query baseline, compute variance, chart, summarize — and waits for implicit or explicit approval before running expensive warehouse steps. Operational maturity for analytics agents aligns with the <a href="https://opentelemetry.io/docs/">OpenTelemetry documentation</a>, especially around monitoring, rollback, and ownership.</p>
+<p>Production <strong>data agent architecture</strong> orchestration must expose the same capabilities via web app, chat integrations, and API. Teams that ship full agents only in chat recreate the "one analyst's session" problem within a fancier UI.</p>
+<hr />
+<h2 id="layer-2-federated-query-engine">Layer 2 — Federated Query Engine</h2>
+<p><a href="https://kubernetes.io/docs/">Kubernetes documentation</a> shows how warehouse-native semantic layers change NL2SQL grounding expectations for analyst-facing products.</p>
+<p>The query layer is deliberately <em>not</em> one-shot SQL generation. Agentic SQL — discover schema, pick dialect, execute, validate row counts, retry with revised joins — is what separates <strong>data agent architecture</strong> platforms from copilots.</p>
+<p>The query execution loop runs <strong>discover → draft → validate → execute → revise</strong>: list candidate tables from live metadata, propose SQL with explicit grain, sanity-check row counts and join cardinality, execute against governed connectors with timeout caps, and on failure log the attempt and retry with an alternate join path.</p>
+<table>
+<thead>
+<tr>
+<th>Source type</th>
+<th>Typical pitfall</th>
+<th>Agent behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warehouse (Snowflake/BigQuery)</td>
+<td>Warehouse-specific functions</td>
+<td>Dialect-aware repair</td>
+</tr>
+<tr>
+<td>Operational MySQL</td>
+<td>Missing FK metadata</td>
+<td>Infer joins from naming + samples</td>
+</tr>
+<tr>
+<td>Document store</td>
+<td>Nested fields</td>
+<td>Flatten with schema sampling</td>
+</tr>
+<tr>
+<td>Uploaded XLSX</td>
+<td>Type coercion errors</td>
+<td>Profile before aggregate</td>
+</tr>
+</tbody>
+</table>
+<p>Regulated rollouts often anchor access reviews to <a href="https://kafka.apache.org/documentation/">Apache Kafka documentation</a> when credentials, retention policies, and audit logs are in scope.</p>
+<p>Deep dive on generation and validation patterns: <a href="/blog/llm-sql-generation-architecture">LLM SQL Generation Architecture</a>.</p>
+<hr />
+<h2 id="layer-3-knowledge-and-rag">Layer 3 — Knowledge and RAG</h2>
+<p>RAG in a <strong>data agent architecture</strong> stack is not generic web search. Retrieval must be <strong>bound to data sources and business definitions</strong> — metric dictionaries, prior approved analyses, org rules, and glossary entries tied to schemas the agent can query.</p>
+<table>
+<thead>
+<tr>
+<th>Asset class</th>
+<th>Retrieval trigger</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metric definitions</td>
+<td>Any KPI question</td>
+<td>Stops silent definition drift</td>
+</tr>
+<tr>
+<td>Data dictionary</td>
+<td>Schema discovery phase</td>
+<td>Surfaces business meaning of columns</td>
+</tr>
+<tr>
+<td>Prior memory cards</td>
+<td>Recurring questions</td>
+<td>Compounds analyst work</td>
+</tr>
+<tr>
+<td>Policy docs</td>
+<td>PII/regulated fields</td>
+<td>Blocks forbidden columns early</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Retrieval anti-patterns</strong> — global paste into the context window, unscoped vectors that pull finance definitions for product questions, and stale-only indexes where the wiki updated but retrieval did not.</p>
+<p><strong>InfiniRAG binding model</strong> — InfiniRAG scopes retrieval per connector and per project. When the agent analyzes churn, it pulls churn definitions from the CRM connector's knowledge bundle — not from an unrelated marketing glossary.</p>
+<p>For memory lifecycle after retrieval and execution, see <a href="/blog/data-agent-memory">Data Agent Memory</a>. Chatbot-only stacks that skip bound retrieval are contrasted in <a href="/blog/data-agent-vs-llm-chatbot">Data Agent vs LLM Chatbot</a>.</p>
+<hr />
+<h2 id="layer-4-audit-and-memory">Layer 4 — Audit and Memory</h2>
+<p>Trust in <strong>data agent architecture</strong> systems is won or lost in this layer. Stakeholders must click any phase and see SQL, datasets, and charts — not a polished paragraph with no evidence.</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Minimum standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase list</td>
+<td>Ordered, timestamped, named by intent</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>Full text, dialect noted, execution duration</td>
+</tr>
+<tr>
+<td>Result sets</td>
+<td>Row count, sample rows, export path</td>
+</tr>
+<tr>
+<td>Charts</td>
+<td>Linked to underlying query</td>
+</tr>
+<tr>
+<td>Substitutions</td>
+<td>Logged when agent uses cache or alternate source</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Memory distillation workflow</strong> — task completes and the system drafts a memory card (summary, schema refs, locked definitions, time range); a human reviewer approves (DRAFT → approved); the approved card joins project knowledge for one-sentence recall next cycle.</p>
+<p>In a May 2026 deployment, an April baseline memory card let a peer analyst rerun May churn with <strong>zero</strong> re-alignment prompts — the clearest proof that <strong>data agent architecture</strong> memory is operational, not cosmetic.</p>
+<hr />
+<h2 id="model-selection-and-routing-framework">Model Selection and Routing Framework</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Data_warehouse">Wikipedia data warehouse overview</a> adds dirty-schema realism that Spider-only leaderboards under-weight in production.</p>
+<p>Not every step in a <strong>data agent architecture</strong> pipeline needs the same model. Routing by task type cuts cost <strong>35–50%</strong> in our production telemetry without sacrificing audit quality.</p>
+<table>
+<thead>
+<tr>
+<th>Task type</th>
+<th>Model tier</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plan generation</td>
+<td>High-capability reasoning</td>
+<td>Multi-step dependency ordering</td>
+</tr>
+<tr>
+<td>SQL draft/repair</td>
+<td>Code-strong mid tier</td>
+<td>Dialect syntax and join logic</td>
+</tr>
+<tr>
+<td>Result summarization</td>
+<td>Fast mid tier</td>
+<td>Narrative from structured output</td>
+</tr>
+<tr>
+<td>Memory distillation</td>
+<td>High-capability reasoning</td>
+<td>Compress without losing definitions</td>
+</tr>
+<tr>
+<td>Guardrail classification</td>
+<td>Small classifier</td>
+<td>PII/policy checks at millisecond latency</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Routing decision tree</strong> — if the step touches production SQL, log full prompt and output regardless of model tier; if the step is compliance-sensitive, require plan-then-execute approval; if the step is repetitive formatting, route to an economical tier with cached schema snippets. Keep SQL generation low-temperature with fixed seeds where supported; reserve higher creativity for executive summaries — never for join selection on regulated metrics.</p>
+<hr />
+<h2 id="security-and-governance-controls">Security and Governance Controls</h2>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Implementation pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prompt injection defense</strong></td>
+<td>Separate system context from user goals; sanitize retrieved docs</td>
+</tr>
+<tr>
+<td><strong>Least-privilege connectors</strong></td>
+<td>Read-only roles scoped per project</td>
+</tr>
+<tr>
+<td><strong>Output filtering</strong></td>
+<td>Block raw PII fields in summaries</td>
+</tr>
+<tr>
+<td><strong>Immutable audit</strong></td>
+<td>Append-only timeline; tamper-evident storage</td>
+</tr>
+<tr>
+<td><strong>Human approval gates</strong></td>
+<td>Required before memory promotion</td>
+</tr>
+</tbody>
+</table>
+<p>Teams evaluating chat-first tools should read <a href="/blog/chatgpt-data-analysis-limitations">ChatGPT Data Analysis Limitations</a> for gaps this architecture layer stack is designed to close.</p>
+<hr />
+<h2 id="production-deployment-topologies">Production Deployment Topologies</h2>
+<table>
+<thead>
+<tr>
+<th>Topology</th>
+<th>Best for</th>
+<th>Trade-off</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A — Single-tenant SaaS</strong></td>
+<td>Mid-market teams; fastest pilot</td>
+<td>Vendor trust model; try on <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a></td>
+</tr>
+<tr>
+<td><strong>B — VPC-hosted</strong></td>
+<td>Data cannot leave private network</td>
+<td>Higher ops burden; LLM API via logging proxy</td>
+</tr>
+<tr>
+<td><strong>C — Hybrid lakehouse-native</strong></td>
+<td>Databricks-first estates</td>
+<td>Integration complexity; compare <a href="/blog/databricks-genie-vs-data-agent">Databricks Genie vs Data Agent</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="architecture-scorecard">Architecture Scorecard</h2>
+<table>
+<thead>
+<tr>
+<th>Row</th>
+<th style="text-align: right;">Weight</th>
+<th>1 = fail</th>
+<th>5 = pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Goal-driven orchestration</td>
+<td style="text-align: right;">20%</td>
+<td>Micro-prompt wizard</td>
+<td>One-sentence goals</td>
+</tr>
+<tr>
+<td>Agentic SQL loop</td>
+<td style="text-align: right;">20%</td>
+<td>One-shot generate</td>
+<td>Discover-validate-retry</td>
+</tr>
+<tr>
+<td>Bound RAG</td>
+<td style="text-align: right;">15%</td>
+<td>Generic search</td>
+<td>Source-scoped retrieval</td>
+</tr>
+<tr>
+<td>Audit timeline</td>
+<td style="text-align: right;">20%</td>
+<td>Final paragraph only</td>
+<td>Clickable SQL per phase</td>
+</tr>
+<tr>
+<td>Memory distillation</td>
+<td style="text-align: right;">15%</td>
+<td>Chat history</td>
+<td>Approved memory cards</td>
+</tr>
+<tr>
+<td>Multi-entry parity</td>
+<td style="text-align: right;">10%</td>
+<td>Single UI</td>
+<td>Web + chat + API</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Readiness bands</strong>:</p>
+<ul>
+<li><strong>85–100%</strong> — Regulated recurring production</li>
+<li><strong>70–84%</strong> — Team production with manual oversight</li>
+<li><strong>50–69%</strong> — Advanced pilot</li>
+<li><strong>Below 50%</strong> — Copilot with agent marketing</li>
+</ul>
+<p>A platform scoring <strong>92%</strong> on this card in our April 2026 review ran April close churn in <strong>5 minutes</strong> with <strong>12</strong> inspectable phases and an approved memory card — versus <strong>48%</strong> for a chat-only <strong>data agent architecture</strong> wrapper on the same question.</p>
+<hr />
+<h2 id="30-day-architecture-validation-playbook">30-Day Architecture Validation Playbook</h2>
+<h3 id="weeks-12-baseline-and-layer-stress-tests">Weeks 1–2 — Baseline and layer stress tests</h3>
+<ul>
+<li>Pick one recurring KPI question with known definition disputes.</li>
+<li>Document current cycle time, manual SQL edits, and audit artifacts.</li>
+<li>Enable full timeline logging on orchestration and query layers.</li>
+<li><strong>Orchestration</strong>: submit goal without step-by-step coaching; verify plan visibility.</li>
+<li><strong>Query</strong>: inject a broken join; measure auto-retry and logged revision.</li>
+<li><strong>RAG</strong>: rename a definition in the index; confirm retrieval picks up change within SLA.</li>
+<li><strong>Memory</strong>: complete task; approve card; rerun with one-sentence recall.</li>
+</ul>
+<h3 id="weeks-34-security-review-and-scorecard-decision">Weeks 3–4 — Security review and scorecard decision</h3>
+<ul>
+<li>Run prompt-injection test cases against retrieved docs.</li>
+<li>Verify connector roles cannot write or export beyond scope.</li>
+<li>Finance reviewer signs off on lineage completeness — target ≥ <strong>90%</strong> phase coverage.</li>
+<li>Apply architecture scorecard; compare percentage to readiness bands.</li>
+<li>Measure second-run cycle time — target ≥ <strong>40%</strong> reduction vs week 1.</li>
+<li>Document which layers are vendor-managed vs self-hosted for ops RACI.</li>
+</ul>
+<hr />
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="what-is-a-analytics-architecture-in-simple-terms">What is a analytics architecture in simple terms?</h3>
+<p>A <strong>data agent architecture</strong> architecture is how you wire a large language model into a system that answers business questions with evidence: the LLM plans work and writes summaries; specialized layers execute SQL, retrieve your definitions, record every step, and save approved results for next month. The model is the brain; the layers are the hands and the audit notebook.</p>
+<h3 id="how-is-this-different-from-rag-chatbots-on-our-warehouse">How is this different from RAG chatbots on our warehouse?</h3>
+<p>RAG chatbots retrieve text and generate answers in one bubble. A <strong>data agent architecture</strong> stack adds goal-driven orchestration, agentic SQL with validation loops, source-bound retrieval, and memory distillation with human approval. Chatbots optimize conversation; data agents optimize defensible analysis.</p>
+<h3 id="do-we-need-multiple-models-in-the-stack">Do we need multiple models in the stack?</h3>
+<p>Usually yes. Routing planning and distillation to high-capability models while using economical tiers for formatting and guardrails reduces cost <strong>35–50%</strong> without sacrificing audit quality. Single-model-everywhere designs are simpler but expensive and harder to tune per task.</p>
+<h3 id="where-does-memory-live-in-the-architecture">Where does memory live in the architecture?</h3>
+<p>Memory is Layer 4 — not the LLM context window. Approved memory cards sit in a governed store linked to projects and connectors. See <a href="/blog/data-agent-memory">Data Agent Memory</a> for the distillation lifecycle and approval gates.</p>
+<h3 id="how-does-infinisynapse-implement-this-architecture">How does InfiniSynapse implement this architecture?</h3>
+<p>InfiniSynapse ships all four layers: InfiniAgent orchestration, InfiniSQL federated query, InfiniRAG bound retrieval, and auditable timelines with memory cards. Connect sources, submit a recurring KPI, and score the stack with the architecture card on <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a>.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p><strong>Data agent architecture</strong> success is an architecture outcome — not a model benchmark. Orchestration, agentic query, bound retrieval, and audit-memory layers each address a distinct failure mode that single-shot copilots cannot survive at enterprise scale.</p>
+<p>Use the four-layer reference model to diagram your stack, the routing framework to control cost, and the scorecard to make procurement discussions concrete. Run the 30-day playbook on one recurring KPI before you commit to a topology.</p>
+<p>For the category definition and five pillars, read <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a>.<br />
+For SQL generation depth inside Layer 2, read <a href="/blog/llm-sql-generation-architecture">LLM SQL Generation Architecture</a>.<br />
+For agent-type comparisons that inform layer priorities, read <a href="/blog/code-agent-vs-data-agent">Code Agent vs Data Agent</a>.</p>
+<hr />
+</article>
+<footer class="preview-meta">
+  Source: <code>015-data-agent-architecture/article.md</code> ·
+  Generated by <code>build-preview.py</code>
+</footer>
+</body>
+</html>

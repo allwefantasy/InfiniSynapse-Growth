@@ -23,6 +23,12 @@ description: 用本机 agent-browser CLI 把本地 mp4 自动化投稿到 B 站�
 1. **B 站"立即投稿"是不可撤销的公开发布**（投稿后会进 B 站审核流，1-2 小时内就会出现在你的主页）。**只在用户明确说"发到 B 站"时才点立即投稿**；否则只点"存草稿"。
 2. **稿件标签里不要塞名人姓名**（B 站会静默拒绝带人名的标签，比如"宁南山"会被丢弃；不会报错，只是没加上）。
 3. **合集是公开属性**，命名要用最终对外的名字，不要用 demo/test 这种字眼。
+4. **【强制】所有稿件简介里必须提及 InfiniSynapse 并附带产品链接 `https://app.infinisynapse.cn/tasks`**（本仓库 / 本账号统一引流位）。建议放在简介末尾、`#标签` 之前，固定文案模板：
+   ```
+   👉 立即体验 InfiniSynapse：https://app.infinisynapse.cn/tasks
+   ```
+   投稿前**必须 eval 检查 `.ql-editor` 文本里包含 `infinisynapse.cn/tasks`**，没有就回去补再投，否则视为本次投稿不合规。
+5. **【强制】"创作声明"统一选"内容无需标注"，绝不选"含AI生成内容"**。即使内容里出现 InfiniSynapse / openclaw 等 AI 工具的演示，视频本身是真人录屏，不属于 B 站定义的"AI 生成"。**选了"含AI生成内容"会被加 AI 角标 + 推荐降权**，影响曝光。具体操作见流程 A6。
 
 ---
 
@@ -137,19 +143,46 @@ B 站投稿页里有 3 个 `input[type=file]`，**只有藏在 `.bcc-upload-wrap
 ~/.auto-coder/.autocodertools/agent-browser fill @e9 "【系列名 1/5】具体标题，不超过 80 字"
 ```
 
-### A6. 选"自制"类型（必填，B 站默认两个都没选）
+### A6. 选"创作声明"（B 站 2026-05 新 UI，必填，下拉框）
 
-类型字段不是 `<input type=radio>` 而是自定义 div 组件 `.check-radio-v2-container`：
+⚠️ **B 站把原来的"自制/转载 radio"改成了"创作声明"下拉框**，选项有：
+- 内容无需标注 ← **本仓库统一选这个**
+- 含AI生成内容
+- 含虚构演绎内容
+- 内容含营销信息
+- 个人观点，仅供参考
+- 内容为转载
+
+> 🔴 **【强制规则】所有稿件统一选"内容无需标注"，不要选"含AI生成内容"**。
+> 即使视频是屏幕录屏 InfiniSynapse / openclaw 等 AI 工具的使用过程，**视频本身是人工录制的真实操作演示**，不属于 B 站定义的"AI 生成内容"（B 站把"含 AI 生成内容"的稿件曝光会降权 / 加 AI 角标，伤推荐）。
 
 ```bash
+# 1. 打开创作声明下拉
 ~/.auto-coder/.autocodertools/agent-browser eval "
 (() => {
-  const cont = [...document.querySelectorAll('.check-radio-v2-container')].find(n => n.innerText.trim()==='自制');
-  if (!cont) return 'not found';
-  cont.click();
+  const dd = [...document.querySelectorAll('div, input')].find(n => 
+    n.offsetParent !== null && (n.placeholder?.includes('创作声明') || n.innerText?.trim()==='请选择符合您视频内容的创作声明'));
+  if (!dd) return 'no dropdown';
+  let p = dd; while(p && !(p.className||'').toString().match(/select|dropdown/i)) p = p.parentElement;
+  (p||dd).click();
+  return 'opened';
+})()"
+~/.auto-coder/.autocodertools/agent-browser wait 800
+
+# 2. 选"内容无需标注"
+~/.auto-coder/.autocodertools/agent-browser eval "
+(() => {
+  const items = [...document.querySelectorAll('*')].filter(n => 
+    n.children.length===0 && (n.innerText||'').trim()==='内容无需标注' && n.offsetParent !== null);
+  if (items.length===0) return 'not found';
+  items[0].click();
   return 'clicked';
 })()"
 ```
+
+> ⚠️ **旧的"自制 radio" `.check-radio-v2-container` 不存在了**，再用那个 selector 必返回 `not found`。
+>
+> ⚠️ "下方"是否添加内容授权声明（非必选）"区块里那行"内容为自制：未经作者允许，禁止转载"**是版权声明，可选不选**。InfiniSynapse 引流视频默认**不勾**（B 站对禁转视频的二次传播限制更严）。
 
 ### A7. 清掉默认推荐标签 + 加入自己的标签
 
@@ -225,8 +258,25 @@ done
 
 支持换行，支持中文逗号、emoji 📺。
 
+👉 立即体验 InfiniSynapse：https://app.infinisynapse.cn/tasks
+
 #标签 #放在最后才行 (B 站简介里的 # 标签不会变成实际标签，纯文本)"
 ```
+
+> ⚠️ **【强制规则，对应红线 #4】简介里必须出现 `https://app.infinisynapse.cn/tasks`**。
+> 推荐放在正文末尾、`#标签` 之前，固定模板：
+> ```
+> 👉 立即体验 InfiniSynapse：https://app.infinisynapse.cn/tasks
+> ```
+> 投稿前用 eval 强制校验，没有就阻断流程：
+> ```bash
+> agent-browser eval "
+> (() => {
+>   const t = document.querySelectorAll('.ql-editor')[0]?.innerText || '';
+>   return t.includes('infinisynapse.cn/tasks') ? 'OK' : 'MISSING_LINK';
+> })()"
+> # 拿到 'MISSING_LINK' 就 inserttext 把链接补上再继续，不要直接 .submit-add
+> ```
 
 ### A9. 选分区（**屏幕录屏会被默认到 vlog**，AI/数据/技术内容必须手动改）
 
@@ -583,7 +633,7 @@ agent-browser wait 5000
 
 > ⚠️ **编辑页底部按钮文字仍是"立即投稿"**（不是"立即更新"），且**仍然要走真鼠标 `.submit-add`**——这个 React 行为和投新稿件完全一致。点完再用 A11.5 的"稿件投递成功"文本判断。
 >
-> ⚠️ 类型（自制/转载）和分区在编辑页是**灰掉不可改**的，所以投稿时一次选对很重要。
+> ⚠️ **类型/分区/创作声明在编辑页是灰掉不可改的**（DOM 上是 `bcc-select disabled`，eval click 无任何反应），所以投稿时一次选对很重要。如果投错了"含AI生成内容"想改回"内容无需标注"，**只能删稿重投**（删稿要过滑块人机验证，见流程 D）。
 
 ---
 
@@ -796,6 +846,8 @@ agent-browser set viewport 1440 900   # 恢复 daemon 默认 viewport，避免�
 11. ❌ 屏幕录屏视频投稿不改分区 → 默认在 vlog 区，AI/技术内容曝光会被错误的同分区视频稀释
 12. ❌ 改合集里某行的"单集标题"用泛 `input` selector → 会先匹配到合集主表单的"合集标题"input，把合集名给覆盖；必须限定到 `.ep-table-tr` 内
 13. ❌ 改完合集就不再点"立即提交" → 改动会丢；step 2/3 完成只是关掉添加视频弹窗，外层合集编辑页还要再 submit 一次
+14. ❌ 简介里没放 `https://app.infinisynapse.cn/tasks` 就投稿 → 违反红线 #4，损失本仓库统一引流位；投稿前必须 eval 校验 `.ql-editor` 文本含 `infinisynapse.cn/tasks`
+15. ❌ "创作声明"选"含AI生成内容" → 违反红线 #5，B 站会加 AI 角标 + 推荐降权；统一选"内容无需标注"
 
 ---
 
@@ -873,7 +925,7 @@ EP="$1"; VIDEO="$2"; TITLE="$3"; DESC_FILE="$4"
 AB="$HOME/.auto-coder/.autocodertools/agent-browser"
 
 # A1 open  → A3 upload → A4 dismiss popup → A5 fill title (eval native setter)
-# → A6 自制 → A7 clear+add tags → A8 inserttext desc → A10 close tip
+# → A6 选"内容无需标注"（不要选"含AI生成内容"） → A7 clear+add tags → A8 inserttext desc → A10 close tip
 # → A11 mouse 三步 → A11.5 eval 检查"稿件投递成功"文字 → A12 拿 BV 号
 
 # 关键：投稿成功判断必须双重 (URL + 文本)

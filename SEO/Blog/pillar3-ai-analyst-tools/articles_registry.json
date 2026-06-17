@@ -1,0 +1,27 @@
+{
+  "pillar": "pillar3-ai-analyst-tools",
+  "generated": "2026-06-08",
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 3 (024-043)",
+  "articles": [
+    {"id": "024", "folder": "024-best-ai-tools-for-data-analysis", "theme": "best ai tools for data analysis", "slug": "best-ai-tools-for-data-analysis", "keyword": "best ai tools for data analysis", "volume": 170, "kd": 62, "type": "listicle", "kicker": "Tools · 2026"},
+    {"id": "025", "folder": "025-ai-data-analysis-tools", "theme": "best ai data analyst tools 2026", "slug": "ai-data-analysis-tools", "keyword": "ai data analysis tools", "volume": 260, "kd": 59, "type": "listicle", "kicker": "Tools · 2026"},
+    {"id": "026", "folder": "026-sql-data-analysis-tools", "theme": "best ai tools for sql data analysis", "slug": "sql-data-analysis-tools", "keyword": "sql data analysis tools", "volume": 210, "kd": 34, "type": "listicle", "kicker": "SQL Tools"},
+    {"id": "027", "folder": "027-ai-excel-data-analysis-tools", "theme": "best ai tools for excel data analysis", "slug": "ai-excel-data-analysis-tools", "keyword": "best ai tools for excel data analysis", "volume": 20, "kd": 56, "type": "listicle", "kicker": "Excel · AI"},
+    {"id": "028", "folder": "028-ai-data-visualization-tools", "theme": "best ai data visualization tools", "slug": "ai-data-visualization-tools", "keyword": "best ai data visualization tools", "volume": 110, "kd": 37, "type": "listicle", "kicker": "Viz Tools"},
+    {"id": "029", "folder": "029-self-hosted-ai-data-analyst", "theme": "self-hosted ai data analyst", "slug": "self-hosted-ai-data-analyst", "keyword": "agentic data plane hosted vs self-hosted comparison", "volume": 10, "kd": null, "type": "comparison", "kicker": "Deployment"},
+    {"id": "030", "folder": "030-chatgpt-data-analysis-alternatives", "theme": "chatgpt for data analysis alternatives", "slug": "chatgpt-data-analysis-alternatives", "keyword": "alternatives to chatgpt for data analysis", "volume": 30, "kd": 26, "type": "alternatives", "kicker": "Alternatives"},
+    {"id": "031", "folder": "031-julius-ai-alternatives", "theme": "julius ai alternatives", "slug": "julius-ai-alternatives", "keyword": "julius ai data analysis", "volume": 140, "kd": 53, "type": "alternatives", "kicker": "Alternatives"},
+    {"id": "032", "folder": "032-thoughtspot-alternatives", "theme": "thoughtspot alternatives", "slug": "thoughtspot-alternatives", "keyword": "best ai data visualization tools", "volume": 110, "kd": 37, "type": "alternatives", "kicker": "Alternatives"},
+    {"id": "033", "folder": "033-databricks-genie-alternatives", "theme": "databricks genie alternatives", "slug": "databricks-genie-alternatives", "keyword": "databricks assistant vs genie", "volume": 40, "kd": null, "type": "alternatives", "kicker": "Alternatives"},
+    {"id": "034", "folder": "034-tableau-pulse-alternatives", "theme": "tableau pulse alternatives", "slug": "tableau-pulse-alternatives", "keyword": "best ai data visualization tools", "volume": 110, "kd": 37, "type": "alternatives", "kicker": "Alternatives"},
+    {"id": "035", "folder": "035-perplexity-data-analysis-alternatives", "theme": "perplexity for data analysis alternatives", "slug": "perplexity-data-analysis-alternatives", "keyword": "alternatives to chatgpt for data analysis", "volume": 30, "kd": 26, "type": "alternatives", "kicker": "Alternatives"},
+    {"id": "036", "folder": "036-code-interpreter-alternatives", "theme": "code interpreter alternatives enterprise", "slug": "code-interpreter-alternatives", "keyword": "code interpreter data analysis", "volume": 20, "kd": null, "type": "alternatives", "kicker": "Enterprise"},
+    {"id": "037", "folder": "037-infinisynapse-vs-julius-ai", "theme": "infinisynapse vs julius ai", "slug": "infinisynapse-vs-julius-ai", "keyword": "julius ai data analysis", "volume": 140, "kd": 53, "type": "versus", "kicker": "Comparison"},
+    {"id": "038", "folder": "038-infinisynapse-vs-chatgpt", "theme": "infinisynapse vs chatgpt data analysis", "slug": "infinisynapse-vs-chatgpt", "keyword": "chatgpt for data analysis", "volume": 140, "kd": 45, "type": "versus", "kicker": "Comparison"},
+    {"id": "039", "folder": "039-infinisynapse-vs-databricks-genie", "theme": "infinisynapse vs databricks genie", "slug": "infinisynapse-vs-databricks-genie", "keyword": "databricks genie", "volume": 1600, "kd": 27, "type": "versus", "kicker": "Comparison"},
+    {"id": "040", "folder": "040-julius-ai-vs-chatgpt", "theme": "julius ai vs chatgpt", "slug": "julius-ai-vs-chatgpt", "keyword": "julius ai data analysis", "volume": 140, "kd": 53, "type": "versus", "kicker": "Comparison"},
+    {"id": "041", "folder": "041-thoughtspot-vs-databricks-genie", "theme": "thoughtspot vs databricks genie", "slug": "thoughtspot-vs-databricks-genie", "keyword": "databricks genie", "volume": 1600, "kd": 27, "type": "versus", "kicker": "Comparison"},
+    {"id": "042", "folder": "042-infinisynapse-vs-tableau", "theme": "infinisynapse vs tableau ai", "slug": "infinisynapse-vs-tableau", "keyword": "tableau vs power bi for data analysis", "volume": null, "kd": null, "type": "versus", "kicker": "Comparison"},
+    {"id": "043", "folder": "043-infinisynapse-review", "theme": "infinisynapse review", "slug": "infinisynapse-review", "keyword": "best ai tools for data analysis", "volume": 170, "kd": 62, "type": "review", "kicker": "Review · 2026"}
+  ]
+}

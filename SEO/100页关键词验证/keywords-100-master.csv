@@ -1,0 +1,101 @@
+no,keyword,pillar,slug,planned_priority,content_type,buyer_stage,is_published,published_url,notes
+1,ai-native data analysis,P1,/blog/ai-native-data-analysis,SHIPPED,what-is/pillar,TOFU,TRUE,/blog/ai-native-data-analysis,P1 hub - already shipped
+2,data agent manifesto,P1,/blog/data-agent-manifesto,P0,thought-leadership,TOFU,FALSE,,EN counterpart of published ZH 'Data Agent 新文明'
+3,what is a data agent,P1,/blog/what-is-a-data-agent,P0,what-is,TOFU,FALSE,,High-volume definition query
+4,ai-native data platform,P1,/blog/ai-native-data-platform,P0,what-is/pillar,TOFU,FALSE,,Architecture / platform angle
+5,agentic analytics,P1,/blog/best-agentic-analytics,P0,what-is,TOFU,FALSE,,Category co-term
+6,autonomous data agent,P1,/blog/autonomous-data-agent,P1,what-is,TOFU,FALSE,,Brand-friendly synonym
+7,ai data analyst,P1,/blog/ai-data-analyst,P0,what-is/pillar,TOFU,FALSE,,Top-funnel role hub
+8,ai data analyst job description,P1,/blog/ai-data-analyst-job-description,P1,career/what-is,TOFU,FALSE,,Career angle - high volume
+9,ai agent memory for data,P1,/blog/data-agent-memory-explained,P1,what-is,TOFU,FALSE,,Product diff (memory feature)
+10,data agent vs ai copilot,P1,/blog/fabric-data-agent-vs-copilot,P0,comparison,MOFU,FALSE,,Cross-pillar bridge
+11,ai-native vs augmented analytics,P1,/blog/ai-native-vs-augmented-analytics,P1,what-is,TOFU,FALSE,,Gartner term mapping
+12,explainable ai data analysis,P1,/blog/explainable-ai-data-analysis,P1,what-is,MOFU,FALSE,,Trust angle
+13,data agent glossary,P1,/blog/data-agent-glossary-2026,P2,glossary,TOFU,FALSE,,Cluster closer
+14,code agent vs data agent,P2,/blog/why-code-agents-cannot-solve-enterprise-data-analysis,SHIPPED,thought-leadership,MOFU,TRUE,/blog/why-code-agents-cannot-solve-enterprise-data-analysis,P2 hub - already shipped
+15,data agent architecture,P2,/blog/data-agent-architecture,P0,architecture deep-dive,MOFU,FALSE,,EN counterpart of published ZH 'Data Agent Harness 架构'
+16,ai data analyst vs bi tools,P2,/blog/ai-data-analyst-vs-bi-tools,P0,comparison,MOFU,FALSE,,Anchor against Tableau/PowerBI/Looker
+17,data agent vs llm chatbot,P2,/blog/data-agent-vs-llm-chatbot,P0,comparison,MOFU,FALSE,,
+18,chatgpt for data analysis limitations,P2,/blog/chatgpt-data-analysis-limitations,P0,thought-leadership,MOFU,FALSE,,
+19,code interpreter vs data agent,P2,/blog/code-interpreter-vs-data-agent,P1,comparison,MOFU,FALSE,,
+20,databricks genie vs data agent,P2,/blog/databricks-genie-vs-data-agent,P1,comparison,MOFU,FALSE,,GEO window 6-12 months
+21,ai data analyst vs human analyst,P2,/blog/ai-data-analyst-vs-human-analyst,P0,thought-leadership,TOFU,FALSE,,Role anxiety query - very high volume
+22,governance for ai data analysis,P2,/blog/governance-for-ai-data-analysis,P1,thought-leadership,MOFU,FALSE,,Enterprise / CTO angle
+23,ai data analyst vs traditional bi analyst,P2,/blog/ai-data-analyst-vs-traditional-bi-analyst,P2,comparison,MOFU,FALSE,,
+24,best ai tools for data analysis,P3,/blog/best-ai-tools-for-data-analysis,SHIPPED,listicle/comparison,MOFU,TRUE,/blog/best-ai-tools-for-data-analysis,P3 hub - already shipped
+25,best ai data analyst tools 2026,P3,/blog/ai-data-analysis-tools,P0,listicle,MOFU,FALSE,,
+26,best ai tools for sql data analysis,P3,/blog/sql-data-analysis-tools,P0,listicle,MOFU,FALSE,,
+27,best ai tools for excel data analysis,P3,/blog/ai-excel-data-analysis-tools,P0,listicle,MOFU,FALSE,,
+28,best ai data visualization tools,P3,/blog/best-ai-data-visualization-tools,P1,listicle,MOFU,FALSE,,
+29,self-hosted ai data analyst,P3,/blog/best-self-hosted-ai-data-analyst,P1,listicle,BOFU,FALSE,,Compliance / on-prem buyers
+30,chatgpt for data analysis alternatives,P3,/blog/chatgpt-data-analysis-alternatives,P0,alternatives,MOFU,FALSE,,
+31,julius ai alternatives,P3,/blog/julius-ai-alternatives,P0,alternatives,BOFU,FALSE,,Direct competitor
+32,thoughtspot alternatives,P3,/blog/thoughtspot-alternatives,P1,alternatives,BOFU,FALSE,,
+33,databricks genie alternatives,P3,/blog/databricks-genie-alternatives,P1,alternatives,BOFU,FALSE,,
+34,tableau pulse alternatives,P3,/blog/tableau-pulse-alternatives,P1,alternatives,BOFU,FALSE,,
+35,perplexity for data analysis alternatives,P3,/blog/perplexity-data-analysis-alternatives,P2,alternatives,MOFU,FALSE,,
+36,code interpreter alternatives enterprise,P3,/blog/codeinterpreter-alternatives-enterprise,P2,alternatives,BOFU,FALSE,,
+37,infinisynapse vs julius ai,P3,/blog/infinisynapse-vs-julius-ai,P0,comparison,BOFU,FALSE,,Brand vs brand
+38,infinisynapse vs chatgpt data analysis,P3,/blog/infinisynapse-vs-chatgpt,P0,comparison,BOFU,FALSE,,
+39,infinisynapse vs databricks genie,P3,/blog/infinisynapse-vs-databricks-genie,P1,comparison,BOFU,FALSE,,
+40,julius ai vs chatgpt,P3,/blog/julius-ai-vs-chatgpt,P1,comparison,MOFU,FALSE,,Third-party comparison traffic
+41,thoughtspot vs databricks genie,P3,/blog/thoughtspot-vs-databricks-genie,P2,comparison,MOFU,FALSE,,
+42,infinisynapse vs tableau ai,P3,/blog/infinisynapse-vs-tableau-ai,P2,comparison,BOFU,FALSE,,
+43,infinisynapse review,P3,/blog/infinisynapse-review,P0,product review,BOFU,FALSE,,Brand keyword interception
+44,connect supabase to ai data analyst,P4,/blog/connect-supabase-ai-data-analyst,SHIPPED,how-to,BOFU,TRUE,/blog/connect-supabase-ai-data-analyst,P4 hub - already shipped
+45,connect postgres to ai data analyst,P4,/blog/connect-postgres-to-ai-data-analyst,P0,how-to,BOFU,FALSE,,
+46,connect mysql to ai data analyst,P4,/blog/connect-mysql-to-ai-data-analyst,P0,how-to,BOFU,FALSE,,
+47,connect snowflake to ai analyst,P4,/blog/connect-snowflake-to-ai-analyst,P0,how-to,BOFU,FALSE,,High CPC
+48,connect bigquery to ai data analyst,P4,/blog/connect-bigquery-to-ai-data-analyst,P0,how-to,BOFU,FALSE,,High CPC
+49,connect databricks to ai analyst,P4,/blog/connect-databricks-ai-data-analyst,P1,how-to,BOFU,FALSE,,
+50,connect mongodb to ai data analyst,P4,/blog/connect-mongodb-ai-data-analyst,P1,how-to,BOFU,FALSE,,
+51,ai data analysis for google sheets,P4,/blog/ai-data-analysis-google-sheets,P0,how-to,BOFU,FALSE,,
+52,ai data analysis for csv files,P4,/blog/ai-data-analysis-csv-files,P0,how-to,BOFU,FALSE,,Lowest entry barrier
+53,ai data analysis for airtable,P4,/blog/connect-airtable-ai-data-analyst,P1,how-to,BOFU,FALSE,,
+54,ai analysis for notion database,P4,/blog/connect-notion-database-ai-analyst,P2,how-to,BOFU,FALSE,,
+55,connect clickhouse to ai analyst,P4,/blog/connect-clickhouse-ai-data-analyst,P1,how-to,BOFU,FALSE,,
+56,connect redshift to ai data analyst,P4,/blog/connect-redshift-ai-data-analyst,P1,how-to,BOFU,FALSE,,
+57,analyze stripe data with ai,P4,/blog/connect-stripe-data-ai-analyst,P1,how-to,BOFU,FALSE,,
+58,analyze shopify data with ai,P4,/blog/connect-shopify-ai-data-analyst,P1,how-to,BOFU,FALSE,,
+59,natural language to sql,P5,/blog/natural-language-to-sql,SHIPPED,tech deep-dive,MOFU,TRUE,/blog/natural-language-to-sql,P5 hub - already shipped
+60,text to sql llm,P5,/blog/text-to-sql-llm,P0,tech deep-dive,MOFU,FALSE,,
+61,nl2sql benchmark spider bird,P5,/blog/nl2sql-benchmark-spider-bird,P0,tech deep-dive,MOFU,FALSE,,High GEO citation value
+62,ai sql generator,P5,/blog/ai-sql-generator,P0,comparison,MOFU,FALSE,,
+63,llm sql generation architecture,P5,/blog/llm-sql-generation-architecture,P1,tech deep-dive,MOFU,FALSE,,
+64,sql rag vs semantic layer,P5,/blog/sql-rag-vs-semantic-layer,P1,tech deep-dive,MOFU,FALSE,,
+65,text to sql fine tuning,P5,/blog/text-to-sql-fine-tuning-2026,P1,how-to,MOFU,FALSE,,
+66,sql agent vs text to sql,P5,/blog/sql-agent-vs-text-to-sql,P1,comparison,MOFU,FALSE,,
+67,nl2sql in production failure modes,P5,/blog/nl2sql-production-failures,P2,thought-leadership,MOFU,FALSE,,Counter-consensus GEO hook
+68,dialect aware sql generation,P5,/blog/dialect-aware-sql-generation,P2,tech deep-dive,MOFU,FALSE,,InfiniSQL diff
+69,clean excel data with ai,P6,/blog/ai-excel-data-cleaning,SHIPPED,how-to,MOFU,TRUE,/blog/ai-excel-data-cleaning,P6 hub - already shipped
+70,ai alternative to pivot table,P6,/blog/ai-alternative-to-pivot-table,P0,how-to,MOFU,FALSE,,
+71,ai vlookup replacement,P6,/blog/ai-vlookup-replacement,P0,how-to,MOFU,FALSE,,
+72,ai excel formula generator,P6,/blog/ai-excel-formula-generator,P0,how-to,MOFU,FALSE,,
+73,analyze csv with ai,P6,/blog/analyze-csv-with-ai,P0,how-to,MOFU,FALSE,,
+74,merge multiple csv files with ai,P6,/blog/merge-multiple-csv-with-ai,P1,how-to,MOFU,FALSE,,
+75,deduplicate data with ai,P6,/blog/deduplicate-data-with-ai,P1,how-to,MOFU,FALSE,,
+76,ai data cleaning techniques,P6,/blog/ai-data-cleaning-techniques,P1,pillar/how-to,MOFU,FALSE,,
+77,ai excel chart generator,P6,/blog/ai-excel-chart-generator,P1,how-to,MOFU,FALSE,,
+78,ai financial modeling in excel,P6,/blog/ai-financial-modeling-excel,P1,how-to,BOFU,FALSE,,High CPC
+79,excel monthly report automation with ai,P6,/blog/excel-monthly-report-automation,P2,how-to,BOFU,FALSE,,
+80,ai data wrangling tools,P6,/blog/ai-data-wrangling-tools,P1,techniques,MOFU,FALSE,,
+81,ai tools for data analysts,P7,/blog/ai-tools-for-data-analysts,P0,use-case,MOFU,FALSE,,
+82,ai data analysis for product managers,P7,/blog/ai-data-analysis-product-managers,P0,use-case,MOFU,FALSE,,
+83,ai data analysis for finance teams,P7,/blog/ai-data-analysis-finance-teams,P0,use-case,MOFU,FALSE,,
+84,ai data analysis for marketing,P7,/blog/ai-data-analysis-marketing,P0,use-case,MOFU,FALSE,,
+85,ai data analysis for operations,P7,/blog/ai-for-ops-teams-analytics,P1,use-case,MOFU,FALSE,,
+86,ai for data engineers,P7,/blog/ai-for-data-engineers,P1,use-case,MOFU,FALSE,,
+87,ai data strategy for cto,P7,/blog/ai-for-cto-data-strategy,P1,thought-leadership,BOFU,FALSE,,
+88,ai data analysis for founders,P7,/blog/ai-for-founders-data-decision,P2,use-case,MOFU,FALSE,,
+89,ai data analysis for ecommerce,P7,/blog/ai-data-analysis-ecommerce,P0,use-case,MOFU,FALSE,,
+90,ai data analysis for saas,P7,/blog/ai-data-analysis-saas,P0,use-case,MOFU,FALSE,,
+91,ai data analysis for financial services,P7,/blog/ai-data-analysis-financial-services,P1,use-case,BOFU,FALSE,,
+92,ai data analysis for supply chain,P7,/blog/ai-data-analysis-supply-chain,P1,use-case,BOFU,FALSE,,
+93,ai data analysis healthcare,P7,/blog/ai-data-analysis-healthcare,P2,use-case,BOFU,FALSE,,
+94,ai data analysis logistics,P7,/blog/ai-data-analysis-logistics,P2,use-case,BOFU,FALSE,,
+95,ai data analysis prompts,P8,/blog/ai-data-analysis-prompts,P0,template,TOFU,FALSE,,High CTR
+96,data analysis prompt template,P8,/blog/data-analysis-prompt-templates,P1,template,TOFU,FALSE,,
+97,ai data analyst skills,P8,/blog/ai-data-analyst-skills-2026,P1,thought-leadership,TOFU,FALSE,,
+98,how to evaluate ai data analyst,P8,/blog/how-to-evaluate-ai-data-analyst,P0,how-to,MOFU,FALSE,,
+99,ai analytics glossary,P8,/blog/ai-analytics-glossary,P2,glossary,TOFU,FALSE,,
+100,data agent faq,P8,/blog/data-agent-faq,P2,faq pillar,TOFU,FALSE,,

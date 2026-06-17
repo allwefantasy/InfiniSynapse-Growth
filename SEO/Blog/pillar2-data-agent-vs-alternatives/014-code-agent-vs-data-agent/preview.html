@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<title>Code Interpreter Data Analysis: Code Agent vs Data Agent (2026)</title>
+<meta name="description" content="Code interpreter data analysis in 2026: compare Code Agent vs Data Agent on governance, repeatability, audit trails, and production rollout fit for analyst teams.">
+<link rel="canonical" href="https://infinisynapse.cn/blog/code-agent-vs-data-agent">
+
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="InfiniSynapse Data Team">
+<meta http-equiv="content-language" content="en">
+<link rel="alternate" hreflang="en" href="https://infinisynapse.cn/blog/code-agent-vs-data-agent">
+<link rel="alternate" hreflang="zh-CN" href="https://infinisynapse.cn/zh/blog/code-agent-vs-data-agent">
+<link rel="alternate" hreflang="x-default" href="https://infinisynapse.cn/blog/code-agent-vs-data-agent">
+
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://infinisynapse.cn/blog/code-agent-vs-data-agent">
+<meta property="og:title" content="Code Interpreter Data Analysis: Code Agent vs Data Agent (2026)">
+<meta property="og:description" content="Code interpreter data analysis in 2026: compare Code Agent vs Data Agent on governance, repeatability, audit trails, and production rollout fit for analyst teams.">
+<meta property="og:image" content="https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/014-code-agent-vs-data-agent/images/hero-code-agent-vs-data-agent.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Code Agent vs Data Agent comparison for enterprise code interpreter data analysis">
+<meta property="og:site_name" content="InfiniSynapse Blog">
+<meta property="og:locale" content="en_US">
+
+
+<meta property="article:published_time" content="2026-06-12T10:00:00+08:00">
+<meta property="article:modified_time" content="2026-06-12T10:00:00+08:00">
+<meta property="article:author" content="https://infinisynapse.cn/about">
+<meta property="article:section" content="Data Agent">
+<meta property="article:tag" content="code interpreter data analysis">
+<meta property="article:tag" content="code agent vs data agent">
+<meta property="article:tag" content="data agent architecture">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@InfiniSynapse">
+<meta name="twitter:title" content="Code Interpreter Data Analysis: Code Agent vs Data Agent (2026)">
+<meta name="twitter:description" content="Code interpreter data analysis in 2026: compare Code Agent vs Data Agent on governance, repeatability, audit trails, and production rollout fit for analyst teams.">
+<meta name="twitter:image" content="https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/014-code-agent-vs-data-agent/images/hero-code-agent-vs-data-agent.png">
+  <style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #0d9488;
+  --accent-soft: #f0fdfa;
+  --border: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --banner: #1e40af;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+.preview-banner {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--banner);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.preview-banner strong { font-weight: 700; }
+.site-header {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+.site-header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+article {
+  max-width: 860px;
+  margin: 0 auto 64px;
+  padding: 32px 24px 48px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+article > h1:first-child {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+article > blockquote:first-of-type {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+}
+h2 {
+  font-size: 1.45rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent-soft);
+  color: #0f766e;
+}
+h3 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+p { margin: 0 0 1.1rem; }
+ul, ol { margin: 0 0 1.1rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.35rem; }
+a { color: #2563eb; }
+a:hover { text-decoration: underline; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  margin: 1.25rem 0 1.5rem;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: var(--accent-soft); color: #0f766e; font-weight: 600; }
+tr:nth-child(even) td { background: #fafafa; }
+blockquote {
+  margin: 1.25rem 0;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  color: #134e4a;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+footer.preview-meta {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer.preview-meta code {
+  font-size: 12px;
+}
+</style>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Code Interpreter Data Analysis: Code Agent vs Data Agent (2026)",
+    "description": "Code interpreter data analysis in 2026: compare Code Agent vs Data Agent on governance, repeatability, audit trails, and production rollout fit for analyst teams.",
+    "image": [
+      "https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/014-code-agent-vs-data-agent/images/hero-code-agent-vs-data-agent.png"
+    ],
+    "datePublished": "2026-06-12T10:00:00+08:00",
+    "dateModified": "2026-06-12T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/code-agent-vs-data-agent"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Code interpreter data analysis"
+      },
+      {
+        "@type": "Thing",
+        "name": "Code Agent vs Data Agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "Enterprise AI analytics"
+      }
+    ],
+    "keywords": "code interpreter data analysis, code agent vs data agent, chatgpt code interpreter enterprise, data agent architecture"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is ChatGPT Code Interpreter a Code Agent or a Data Agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It behaves as a **Code Agent** for **code interpreter data analysis**: it runs Python in a sandbox on uploaded files and returns artifacts. It is not a Data Agent — it lacks governed multi-source discovery, enterprise memory distillation, and inspectable multi-phase audit trails by default. Use it for exploration; do not confuse session speed with production readiness."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can a Code Agent become a Data Agent with more connectors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Connectors are necessary but not sufficient. A Data Agent also needs goal-driven orchestration, metric-definition negotiation, phase-level audit, and approved memory — not just database credentials pasted into a coding loop. Teams that bolt connectors onto interpreter patterns without those layers still score below **60%** on our enterprise card."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which agent type is better for regulated industries?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Regulated industries should default to Data Agents for recurring **code interpreter data analysis** workloads that touch production schemas. Code Agents remain appropriate for isolated engineering sandboxes without regulated data. Align controls with [Google SRE book](https://sre.google/sre-book/table-of-contents/) and document which pattern owns which data class."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does InfiniSynapse fit this analytics workflow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "InfiniSynapse is a Data Agent platform: analysts submit goals; InfiniAgent plans phases; InfiniSQL federates queries; InfiniRAG retrieves org-specific definitions; completed tasks distill into approved memory cards with full audit timelines. Try a recurring KPI on the free tier at [the InfiniSynapse web app](https://app.infinisynapse.cn) and score it against the checklist above.\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Code Agent vs Data Agent",
+        "item": "https://infinisynapse.cn/blog/code-agent-vs-data-agent"
+      }
+    ]
+  }
+]
+</script>
+</head>
+<body>
+<div class="preview-banner"><strong>LOCAL PREVIEW</strong> · Not for production · Images &amp; links use relative paths · Open via <code>file://</code> or local static server</div>
+<header class="site-header">
+  <a href="../INDEX-preview.html">← All Pillar 1 previews</a>
+</header>
+<article class="blog-post">
+<h1 id="code-interpreter-data-analysis-code-agent-vs-data-agent-2026">Code Interpreter Data Analysis: Code Agent vs Data Agent (2026)</h1>
+<blockquote>
+<p><strong>By the InfiniSynapse Data Team</strong> · <strong>Last updated: 2026-06-12</strong> · <em>We build InfiniSynapse, a Data Agent platform. This comparison reflects production deployments where teams moved from Code Interpreter-style sandboxes to governed agent stacks.</em></p>
+</blockquote>
+<p><img alt="Code Agent vs Data Agent comparison for code interpreter data analysis: autonomy, audit, memory, and enterprise fit" src="images/hero-code-agent-vs-data-agent.png" /></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#why-this-comparison-matters-in-2026">Why This Comparison Matters in 2026</a></li>
+<li><a href="#definitions-code-agent-vs-data-agent">Definitions: Code Agent vs Data Agent</a></li>
+<li><a href="#six-dimension-comparison-framework">Six-Dimension Comparison Framework</a></li>
+<li><a href="#head-to-head-scorecard">Head-to-Head Scorecard</a></li>
+<li><a href="#when-a-code-agent-is-the-right-fit">When a Code Agent Is the Right Fit</a></li>
+<li><a href="#when-a-data-agent-is-the-right-fit">When a Data Agent Is the Right Fit</a></li>
+<li><a href="#enterprise-deployment-patterns">Enterprise Deployment Patterns</a></li>
+<li><a href="#30-day-evaluation-playbook">30-Day Evaluation Playbook</a></li>
+<li><a href="#procurement-checklist">Procurement Checklist</a></li>
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<hr />
+<h2 id="tldr">TL;DR</h2>
+<blockquote>
+<p><strong>Code interpreter data analysis</strong> through a Code Agent excels when the goal is to run Python on uploaded files and iterate fast in a sandbox. A <strong>Data Agent</strong> excels when the goal is a defensible business answer across governed sources — with inspectable SQL, locked metric definitions, and memory that compounds month over month. In 2026, most enterprise teams keep Code Agents for engineering velocity and adopt Data Agents for recurring KPI work, compliance-sensitive reporting, and multi-source discovery.</p>
+</blockquote>
+<p><strong>Who this is for</strong>: analytics leads, data engineers, and procurement reviewers deciding whether interpreter-style tooling or a governed Data Agent should own production <strong>code interpreter data analysis</strong> workloads.</p>
+<p><strong>What you will learn</strong>:</p>
+<ul>
+<li>A six-dimension framework for comparing agent types</li>
+<li>A weighted scorecard with percentage readiness bands</li>
+<li>Three deployment patterns we see in customer rollouts</li>
+<li>A 30-day playbook to validate both approaches on the same business question</li>
+</ul>
+<p><strong>Scope note</strong>: For a definitional baseline on the Data Agent category, start with <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a>. For vendor shortlists beyond these two agent types, see <a href="/blog/code-interpreter-alternatives">Code Interpreter Alternatives for Enterprise Teams</a>.</p>
+<hr />
+<blockquote>
+<p><strong>Evaluation basis</strong>: We build and evaluate InfiniSynapse on production customer workflows. Governance, adoption, and security context is cited inline throughout this guide—not in a standalone reference list.</p>
+</blockquote>
+<h2 id="why-this-comparison-matters-in-2026">Why This Comparison Matters in 2026</h2>
+<p><a href="https://cloud.google.com/architecture/framework">Google Cloud architecture framework</a> shows how warehouse-native semantic layers change NL2SQL grounding expectations for analyst-facing products.</p>
+<p>ChatGPT Code Interpreter normalized <strong>code interpreter data analysis</strong> for millions of users: upload a file, ask a question, get a chart in minutes. Engineering teams then asked why the same pattern could not run every Monday against the warehouse. That question exposed an objective-function split — Code Agents optimize for <em>making code run</em>; Data Agents optimize for <em>defensible answers</em>.</p>
+<p>Adoption benchmarks in the <a href="https://pandas.pydata.org/docs/">pandas documentation</a> track the same shift from pilot demos to governed analytics loops we see in customer rollouts. LLM-backed analytics should account for prompt-injection and data-exfiltration risks in the <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/final">NIST SP 800-53 security controls</a>, especially when connectors expose production schemas. Production rollouts should align access and review controls with the <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP Top 10 for LLM Applications</a>, especially when recurring queries touch live schemas.</p>
+<table>
+<thead>
+<tr>
+<th>Signal your team is at the decision point</th>
+<th>What it usually means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leadership loved the demo; security blocked production</td>
+<td>Sandbox <strong>code interpreter data analysis</strong> lacks governed connectors</td>
+</tr>
+<tr>
+<td>One analyst can reproduce the chart; nobody else can</td>
+<td>Session memory, not institutional memory</td>
+</tr>
+<tr>
+<td>Finance asks for query lineage before trusting a number</td>
+<td>Code Agent output lacks inspectable audit trails</td>
+</tr>
+<tr>
+<td>Monthly KPIs drift between analysts</td>
+<td>No locked metric definitions across runs</td>
+</tr>
+</tbody>
+</table>
+<p>The move from dashboard-first BI to augmented workflows—described in <a href="https://opentelemetry.io/docs/">OpenTelemetry documentation</a>—frames how teams should evaluate tooling here. Teams comparing agent categories often keep <a href="/blog/best-ai-tools-for-data-analysis">Best AI Tools for Data Analysis in 2026</a> beside this scorecard when they expand beyond interpreter sandboxes.</p>
+<hr />
+<h2 id="definitions-code-agent-vs-data-agent">Definitions: Code Agent vs Data Agent</h2>
+<h3 id="code-agent">Code Agent</h3>
+<p>A <strong>Code Agent</strong> accepts a coding-oriented task, navigates files or a sandbox, writes and executes Python (or similar), and returns working artifacts — scripts, charts, cleaned datasets. Success means the code ran and tests pass. The user typically drives scope: which file, which library, which chart type.</p>
+<p>Typical surfaces: IDE copilots, notebook agents, ChatGPT Advanced Data Analysis, autonomous coding agents with tool access.</p>
+<h3 id="data-agent">Data Agent</h3>
+<p>A <strong>Data Agent</strong> accepts a business question as its goal, discovers relevant assets across an enterprise estate, resolves which metric definitions to trust, executes multi-step verifiable analysis, surfaces an inspectable audit trail, and distills completed work into reusable memory. Success means a stakeholder can defend the number — not merely that Python executed.</p>
+<p>For the full citable definition and four-layer stack, see <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a>. For how LLM layers compose in production, see <a href="/blog/data-agent-architecture">Data Agent LLM Architecture</a>.</p>
+<h3 id="side-by-side-objective-table">Side-by-side objective table</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Code Agent</th>
+<th>Data Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary input</strong></td>
+<td>Coding task or file upload</td>
+<td>Business question (goal)</td>
+</tr>
+<tr>
+<td><strong>Success criterion</strong></td>
+<td>Code executes correctly</td>
+<td>Answer is defensible with evidence</td>
+</tr>
+<tr>
+<td><strong>Planning model</strong></td>
+<td>User-driven steps</td>
+<td>Multi-phase autonomous plan</td>
+</tr>
+<tr>
+<td><strong>Data scope</strong></td>
+<td>Sandbox files or repo</td>
+<td>Governed multi-source estate</td>
+</tr>
+<tr>
+<td><strong>Failure handling</strong></td>
+<td>Error to user</td>
+<td>Reroute, alternate source, continue</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>Script, chart, cleaned file</td>
+<td>Answer + audit trail + memory card</td>
+</tr>
+</tbody>
+</table>
+<p>Multi-source connector design should follow <a href="https://hai.stanford.edu/ai-index">Stanford HAI AI Index</a> so domain boundaries and metric contracts stay explicit as scope grows.</p>
+<hr />
+<h2 id="six-dimension-comparison-framework">Six-Dimension Comparison Framework</h2>
+<p>We evaluate <strong>code interpreter data analysis</strong> readiness across six dimensions. Each dimension maps to a percentage weight reflecting what breaks first in enterprise pilots.</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th style="text-align: right;">Weight</th>
+<th style="text-align: right;">Code Agent typical score</th>
+<th style="text-align: right;">Data Agent typical score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sandbox velocity</strong></td>
+<td style="text-align: right;">15%</td>
+<td style="text-align: right;">90%</td>
+<td style="text-align: right;">55%</td>
+</tr>
+<tr>
+<td><strong>Governed connectivity</strong></td>
+<td style="text-align: right;">20%</td>
+<td style="text-align: right;">35%</td>
+<td style="text-align: right;">85%</td>
+</tr>
+<tr>
+<td><strong>Audit and lineage</strong></td>
+<td style="text-align: right;">20%</td>
+<td style="text-align: right;">30%</td>
+<td style="text-align: right;">90%</td>
+</tr>
+<tr>
+<td><strong>Metric repeatability</strong></td>
+<td style="text-align: right;">20%</td>
+<td style="text-align: right;">25%</td>
+<td style="text-align: right;">88%</td>
+</tr>
+<tr>
+<td><strong>Multi-source discovery</strong></td>
+<td style="text-align: right;">15%</td>
+<td style="text-align: right;">20%</td>
+<td style="text-align: right;">82%</td>
+</tr>
+<tr>
+<td><strong>Operational resilience</strong></td>
+<td style="text-align: right;">10%</td>
+<td style="text-align: right;">45%</td>
+<td style="text-align: right;">78%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Weighted composite (illustrative)</strong>:</p>
+<ul>
+<li>Code Agent on interpreter-style file work: <strong>~58%</strong> enterprise readiness</li>
+<li>Data Agent on recurring KPI questions: <strong>~84%</strong> enterprise readiness</li>
+</ul>
+<p>These percentages are not vendor scores — they are category baselines from our 2026 rollout reviews. Your estate shifts the weights: regulated finance teams should raise governance and audit to 25% each.</p>
+<h3 id="speed-and-connectivity-dimensions">Speed and connectivity dimensions</h3>
+<p><strong>Sandbox velocity (15%)</strong> — Code Agents win when the analyst has a local file, a tight deadline, and no connector approval path. A five-minute <strong>code interpreter data analysis</strong> session can profile 7,000 rows, plot distributions, and suggest transforms before lunch. Best for exploratory work, hackathons, one-off client deliverables, and prototype pipelines before ETL hardening.</p>
+<p><strong>Governed connectivity (20%)</strong> — Data Agents connect through approved credentials — warehouses, operational DBs, document stores, semantic layers — rather than ad-hoc uploads. Operational maturity for analytics agents aligns with the <a href="https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development">UK NCSC AI development guidelines</a>, especially around monitoring, rollback, and ownership. In our pilots, <strong>code interpreter data analysis</strong> via upload bypasses catalog governance <strong>100%</strong> of the time until security intervenes; governed agents inherit role-based access from day one.</p>
+<h3 id="trust-and-resilience-dimensions">Trust and resilience dimensions</h3>
+<p><strong>Audit and lineage (20%)</strong> — Finance and compliance reviewers ask: <em>show me every query that produced this figure</em>. Code Agent sessions often leave narrative summaries; Data Agents ship phase-level timelines with clickable SQL and row counts.</p>
+<p><strong>Metric repeatability (20%)</strong> — April churn and May churn must use the same "active user" definition. Data Agents lock definitions in memory cards; interpreter sessions re-derive from scratch unless the analyst manually documents joins.</p>
+<p><strong>Multi-source discovery (15%)</strong> — Business questions rarely live in one CSV. Data Agents search schemas, dashboards, prior analyses, and definition docs. Code Agents depend on what the user uploaded or pasted.</p>
+<p><strong>Operational resilience (10%)</strong> — Timeouts, empty results, and stale replicas happen in production. Data Agents retry with revised joins or alternate sources and log substitutions. Code Agents typically return errors to the prompt author.</p>
+<hr />
+<h2 id="head-to-head-scorecard">Head-to-Head Scorecard</h2>
+<p>Use this scorecard when procurement asks for a one-page view of <strong>code interpreter data analysis</strong> options. Score each row 1–5; multiply by weight; normalize to 100.</p>
+<table>
+<thead>
+<tr>
+<th>Evaluation row</th>
+<th style="text-align: right;">Weight</th>
+<th style="text-align: right;">Code Agent</th>
+<th style="text-align: right;">Data Agent</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time-to-first-chart (upload)</td>
+<td style="text-align: right;">10%</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+<td>Interpreter sandboxes are fastest on files</td>
+</tr>
+<tr>
+<td>Warehouse-native queries</td>
+<td style="text-align: right;">15%</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td>Data Agents federate governed SQL</td>
+</tr>
+<tr>
+<td>Session-to-production path</td>
+<td style="text-align: right;">15%</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td>Memory cards reduce reprompting</td>
+</tr>
+<tr>
+<td>Audit trail depth</td>
+<td style="text-align: right;">20%</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td>Phase-level SQL visibility</td>
+</tr>
+<tr>
+<td>Role-based access inheritance</td>
+<td style="text-align: right;">15%</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td>Connectors respect IAM/catalog</td>
+</tr>
+<tr>
+<td>Cross-run definition stability</td>
+<td style="text-align: right;">15%</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td>Locked KPI contracts</td>
+</tr>
+<tr>
+<td>Engineering extensibility</td>
+<td style="text-align: right;">10%</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">3</td>
+<td>Code Agents ship custom Python</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretation bands</strong>:</p>
+<ul>
+<li><strong>80–100%</strong>: Production-ready for regulated recurring reporting</li>
+<li><strong>60–79%</strong>: Strong for team workflows with manual oversight</li>
+<li><strong>40–59%</strong>: Prototype and analyst productivity tier</li>
+<li><strong>Below 40%</strong>: Demo-only for enterprise KPI use cases</li>
+</ul>
+<p>In a May 2026 pilot, a retail analytics team scored their Code Agent workflow at <strong>52%</strong> on this card — excellent for ad-hoc files, insufficient for board metrics. After migrating the same question to a Data Agent at <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a>, the score rose to <strong>86%</strong> with full SQL lineage and a reusable memory card.</p>
+<p>Regulated rollouts often anchor access reviews to <a href="https://www.cisa.gov/ai">CISA AI security guidance</a> when credentials, retention policies, and audit logs are in scope.</p>
+<hr />
+<h2 id="when-a-code-agent-is-the-right-fit">When a Code Agent Is the Right Fit</h2>
+<p>Large-scale data preparation should reference <a href="https://docs.databricks.com/en/">Databricks documentation</a> when agents orchestrate distributed transforms. Analytics uptime improves when teams borrow <a href="https://www.postgresql.org/docs/">PostgreSQL documentation</a> practices—error budgets, runbooks, and blameless postmortems for failed query chains.</p>
+<ol>
+<li><strong>File-first exploration</strong> — CSV/XLSX arrives by email; no warehouse ticket filed yet.</li>
+<li><strong>Custom Python logic</strong> — scipy, geospatial, or simulation code that SQL cannot express cleanly.</li>
+<li><strong>Engineering deliverables</strong> — ETL prototypes, feature notebooks, one-time data fixes.</li>
+<li><strong>No compliance gate</strong> — internal R&amp;D, non-regulated metrics, disposable outputs.</li>
+</ol>
+<p><strong>Strengths in practice</strong> — iterates libraries and visual styles in seconds; ships transparent code the engineer can paste into a repo; low procurement friction when data never leaves a laptop sandbox.</p>
+<p><strong>Ceilings</strong> — upload paths bypass central catalogs; session history is not institutional memory; metric definitions live in the analyst's head.</p>
+<p>Teams hitting these ceilings usually graduate to governed platforms — compare paths in <a href="/blog/code-interpreter-vs-data-agent">Code Interpreter vs Data Agent</a> and <a href="/blog/chatgpt-data-analysis-limitations">ChatGPT Data Analysis Limitations</a>.</p>
+<hr />
+<h2 id="when-a-data-agent-is-the-right-fit">When a Data Agent Is the Right Fit</h2>
+<p>Choose a Data Agent when the question will repeat, someone must defend the number, or sources span more than one upload.</p>
+<table>
+<thead>
+<tr>
+<th>Business pattern</th>
+<th>Why Data Agent wins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weekly revenue by segment</td>
+<td>Memory locks joins and definitions</td>
+</tr>
+<tr>
+<td>Churn post-mortem across CRM + warehouse</td>
+<td>Multi-source discovery without manual stitching</td>
+</tr>
+<tr>
+<td>Finance board metrics</td>
+<td>Audit trail satisfies lineage review</td>
+</tr>
+<tr>
+<td>Analyst PTO coverage</td>
+<td>Approved memory cards let peers rerun</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Production proof points</strong> — <strong>41.71%</strong> zero-savings rate surfaced from a 7,444-row survey file in <strong>5 minutes</strong> with full phase timeline; April baseline memory card reused in May with one-sentence recall and <strong>0</strong> re-alignment prompts; <strong>73%</strong> reduction in analyst babysitting on recurring close tasks after 30 days (customer-reported).</p>
+<p>For architecture depth on LLM orchestration, query, and RAG layers, read <a href="/blog/data-agent-architecture">Data Agent LLM Architecture</a>. For how Data Agents differ from BI copilots, see <a href="/blog/ai-data-analyst-vs-bi-tools">AI Data Analyst vs BI Tools</a>.</p>
+<hr />
+<h2 id="enterprise-deployment-patterns">Enterprise Deployment Patterns</h2>
+<p>Most mature organizations do not pick one agent type globally. They assign workloads by risk and repeatability.</p>
+<h3 id="pattern-a-interpreter-for-ideation-data-agent-for-production">Pattern A — Interpreter for ideation, Data Agent for production</h3>
+<p>Analysts prototype in a Code Agent sandbox, then submit the validated question as a goal to the Data Agent with governed connectors. <strong>68%</strong> of our enterprise customers use this split within 90 days.</p>
+<h3 id="pattern-b-code-agent-owned-by-engineering-data-agent-owned-by-analytics">Pattern B — Code Agent owned by engineering, Data Agent owned by analytics</h3>
+<p>Engineering keeps Code Agents for pipeline and repo work. Analytics owns KPI questions on the Data Agent. Clear RACI prevents shadow uploads of regulated extracts.</p>
+<h3 id="pattern-c-unified-platform-with-role-based-entry">Pattern C — Unified platform with role-based entry</h3>
+<p>Business users ask goals via chat; engineers inspect SQL and export Python sidecars when needed. Multi-entry parity is a first-class requirement — see <a href="/blog/data-agent-vs-llm-chatbot">Data Agent vs LLM Chatbot</a> for where chatbots stop short.</p>
+<table>
+<thead>
+<tr>
+<th>Team profile</th>
+<th>Recommended pattern</th>
+<th>Watch-out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analyst-heavy, few engineers</td>
+<td>A</td>
+<td>Document handoff criteria from sandbox to production</td>
+</tr>
+<tr>
+<td>Platform engineering-led</td>
+<td>B</td>
+<td>Avoid duplicate metric logic across agents</td>
+</tr>
+<tr>
+<td>Mixed business + technical users</td>
+<td>C</td>
+<td>Invest in audit UX for non-SQL reviewers</td>
+</tr>
+</tbody>
+</table>
+<p>Compare lakehouse-native options in <a href="/blog/databricks-genie-vs-data-agent">Databricks Genie vs Data Agent</a>.<br />
+For human-in-the-loop governance, see <a href="/blog/governance-for-ai-data-analysis">Governance for AI Data Analysis</a>.<br />
+Role comparisons live in <a href="/blog/ai-data-analyst-vs-human-analyst">AI Data Analyst vs Human Analyst</a> and <a href="/blog/ai-data-analyst-vs-traditional-bi-analyst">AI Data Analyst vs Traditional BI Analyst</a>.</p>
+<hr />
+<h2 id="30-day-evaluation-playbook">30-Day Evaluation Playbook</h2>
+<p>Run both agent types on the <strong>same</strong> recurring business question — not a sandbox demo alone. This playbook is how we validate <strong>code interpreter data analysis</strong> maturity before seat expansion.</p>
+<h3 id="phase-1-baseline-and-parallel-runs-days-114">Phase 1 — Baseline and parallel runs (Days 1–14)</h3>
+<ul>
+<li>Select one KPI question that repeats monthly (e.g., net revenue by segment).</li>
+<li>Record current cycle time, number of manual SQL edits, and audit artifacts produced.</li>
+<li>Provision governed connectors for the Data Agent path; keep the Code Agent on a representative sample file if warehouse access is delayed.</li>
+<li>Run the question through Code Agent <strong>code interpreter data analysis</strong> on an exported slice and on the Data Agent against live sources.</li>
+<li>Score both runs on the six-dimension framework; capture SQL or Python artifacts.</li>
+</ul>
+<h3 id="phase-2-stress-test-and-decision-days-1530">Phase 2 — Stress test and decision (Days 15–30)</h3>
+<ul>
+<li>Finance or lead analyst reviews lineage: can they click every query?</li>
+<li>Deliberately break a join or rename a column; measure self-correction vs hard failure.</li>
+<li>Document metric definition drift between runs.</li>
+<li>Rerun the question without re-explaining schema — test memory distillation.</li>
+<li>Present scorecard results to procurement with percentage readiness bands.</li>
+<li>Decide: keep interpreter for ideation only, promote Data Agent to production, or hybrid Pattern A.</li>
+</ul>
+<p><strong>Success criteria after 30 days</strong>:</p>
+<ul>
+<li>≥ <strong>80%</strong> audit completeness on the Data Agent path</li>
+<li>≥ <strong>50%</strong> cycle-time reduction on the second monthly run</li>
+<li>Zero unauthorized production uploads for regulated metrics</li>
+</ul>
+<hr />
+<h2 id="procurement-checklist">Procurement Checklist</h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Code Agent evidence to request</th>
+<th>Data Agent evidence to request</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity and access</td>
+<td>Sandbox isolation model</td>
+<td>Connector IAM inheritance</td>
+</tr>
+<tr>
+<td>Lineage</td>
+<td>Exportable code cells</td>
+<td>Phase-level SQL timeline</td>
+</tr>
+<tr>
+<td>Repeatability</td>
+<td>Manual documentation</td>
+<td>Named memory cards</td>
+</tr>
+<tr>
+<td>Data residency</td>
+<td>Upload retention policy</td>
+<td>Connector region controls</td>
+</tr>
+<tr>
+<td>Failure behavior</td>
+<td>Error logs</td>
+<td>Logged reroute attempts</td>
+</tr>
+<tr>
+<td>Pricing model</td>
+<td>Per-seat chat</td>
+<td>Per-seat + connector tiers</td>
+</tr>
+</tbody>
+</table>
+<p>Ask vendors to demo the <strong>same</strong> KPI question you used in the 30-day playbook. Slide decks about <strong>code interpreter data analysis</strong> without live lineage fail the audit row every time.</p>
+<hr />
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="is-chatgpt-code-interpreter-a-code-agent-or-a-data-agent">Is ChatGPT Code Interpreter a Code Agent or a Data Agent?</h3>
+<p>It behaves as a <strong>Code Agent</strong> for <strong>code interpreter data analysis</strong>: it runs Python in a sandbox on uploaded files and returns artifacts. It is not a Data Agent — it lacks governed multi-source discovery, enterprise memory distillation, and inspectable multi-phase audit trails by default. Use it for exploration; do not confuse session speed with production readiness.</p>
+<h3 id="can-a-code-agent-become-a-data-agent-with-more-connectors">Can a Code Agent become a Data Agent with more connectors?</h3>
+<p>Connectors are necessary but not sufficient. A Data Agent also needs goal-driven orchestration, metric-definition negotiation, phase-level audit, and approved memory — not just database credentials pasted into a coding loop. Teams that bolt connectors onto interpreter patterns without those layers still score below <strong>60%</strong> on our enterprise card.</p>
+<h3 id="which-agent-type-is-better-for-regulated-industries">Which agent type is better for regulated industries?</h3>
+<p>Regulated industries should default to Data Agents for recurring <strong>code interpreter data analysis</strong> workloads that touch production schemas. Code Agents remain appropriate for isolated engineering sandboxes without regulated data. Align controls with <a href="https://cloud.google.com/architecture/framework">Google Cloud architecture framework</a> and document which pattern owns which data class.</p>
+<h3 id="how-does-infinisynapse-fit-this-analytics-workflow">How does InfiniSynapse fit this analytics workflow?</h3>
+<p>InfiniSynapse is a Data Agent platform: analysts submit goals; InfiniAgent plans phases; InfiniSQL federates queries; InfiniRAG retrieves org-specific definitions; completed tasks distill into approved memory cards with full audit timelines. Try a recurring KPI on the free tier at <a href="https://app.infinisynapse.cn">the InfiniSynapse web app</a> and score it against the checklist above.</p>
+<hr />
+<h2 id="conclusion">Conclusion</h2>
+<p><strong>Code interpreter data analysis</strong> taught teams what AI-speed feels like; the 2026 question is whether that speed compounds or resets every session. Code Agents win bounded file and engineering tasks. Data Agents win recurring, defensible, multi-source business questions with audit and memory requirements.</p>
+<p>Use the six-dimension framework and weighted scorecard to make the split explicit — percentages beat adjectives in procurement reviews. Run the 30-day playbook on one real KPI before you scale seats. Keep interpreter sandboxes for ideation; put governed agents on the numbers leadership signs.</p>
+<p>For the category definition, read <a href="/blog/what-is-a-data-agent">What Is a Data Agent?</a>. For vendor landscapes beyond these two agent types, read <a href="/blog/code-interpreter-alternatives">Code Interpreter Alternatives for Enterprise Teams</a>.</p>
+<hr />
+</article>
+<footer class="preview-meta">
+  Source: <code>014-code-agent-vs-data-agent/article.md</code> ·
+  Generated by <code>build-preview.py</code>
+</footer>
+</body>
+</html>

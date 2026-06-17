@@ -1,0 +1,117 @@
+{
+  "pillar": "pillar5-nl2sql-text-to-sql",
+  "generated": "2026-06-09",
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 5",
+  "articles": [
+    {
+      "id": "059",
+      "folder": "059-natural-language-to-sql",
+      "theme": "natural language to sql",
+      "slug": "natural-language-to-sql",
+      "keyword": "integrate natural language data analysis with sql and python",
+      "volume": 10,
+      "kd": null,
+      "type": "guide",
+      "kicker": "NL2SQL"
+    },
+    {
+      "id": "060",
+      "folder": "060-text-to-sql-llm",
+      "theme": "text to sql llm",
+      "slug": "text-to-sql-llm",
+      "keyword": "text to sql agent for data visualization",
+      "volume": 0,
+      "kd": null,
+      "type": "guide",
+      "kicker": "Text-to-SQL"
+    },
+    {
+      "id": "061",
+      "folder": "061-nl2sql-benchmark-spider-bird",
+      "theme": "nl2sql benchmark spider bird",
+      "slug": "nl2sql-benchmark-spider-bird",
+      "keyword": "databricks genie natural language to sql",
+      "volume": 0,
+      "kd": null,
+      "type": "guide",
+      "kicker": "NL2SQL · Benchmark"
+    },
+    {
+      "id": "062",
+      "folder": "062-ai-sql-generator",
+      "theme": "ai sql generator",
+      "slug": "ai-sql-generator",
+      "keyword": "ai-assisted query generation sql python social science data analysis",
+      "volume": 50,
+      "kd": 22,
+      "type": "comparison",
+      "kicker": "AI SQL"
+    },
+    {
+      "id": "063",
+      "folder": "063-llm-sql-generation-architecture",
+      "theme": "llm sql generation architecture",
+      "slug": "llm-sql-generation-architecture",
+      "keyword": "ai-assisted query generation sql python social science data analysis",
+      "volume": 50,
+      "kd": 22,
+      "type": "guide",
+      "kicker": "Architecture"
+    },
+    {
+      "id": "064",
+      "folder": "064-sql-rag-vs-semantic-layer",
+      "theme": "sql rag vs semantic layer",
+      "slug": "sql-rag-vs-semantic-layer",
+      "keyword": "ai-powered semantic layers for enterprise data strategy",
+      "volume": 20,
+      "kd": null,
+      "type": "guide",
+      "kicker": "RAG vs Semantic"
+    },
+    {
+      "id": "065",
+      "folder": "065-text-to-sql-fine-tuning",
+      "theme": "text to sql fine tuning",
+      "slug": "text-to-sql-fine-tuning",
+      "keyword": "generative ai data services for fine tuning",
+      "volume": 10,
+      "kd": null,
+      "type": "guide",
+      "kicker": "Fine-tuning"
+    },
+    {
+      "id": "066",
+      "folder": "066-sql-agent-vs-text-to-sql",
+      "theme": "sql agent vs text to sql",
+      "slug": "sql-agent-vs-text-to-sql",
+      "keyword": "text to sql agent for data visualization",
+      "volume": 0,
+      "kd": null,
+      "type": "versus",
+      "kicker": "SQL Agent"
+    },
+    {
+      "id": "067",
+      "folder": "067-nl2sql-production-failure-modes",
+      "theme": "nl2sql in production failure modes",
+      "slug": "nl2sql-production-failure-modes",
+      "keyword": "databricks genie natural language to sql",
+      "volume": 0,
+      "kd": null,
+      "type": "guide",
+      "kicker": "Production"
+    },
+    {
+      "id": "068",
+      "folder": "068-dialect-aware-sql-generation",
+      "theme": "dialect aware sql generation",
+      "slug": "dialect-aware-sql-generation",
+      "keyword": "ai-assisted query generation sql python social science data analysis",
+      "volume": 50,
+      "kd": 22,
+      "type": "guide",
+      "kicker": "SQL Dialects"
+    }
+  ]
+}

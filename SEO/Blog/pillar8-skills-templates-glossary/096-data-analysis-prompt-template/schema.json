@@ -1,0 +1,107 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Data Analysis Template (2026): Reusable Frameworks for Teams",
+    "description": "Data Analysis Template: Build a reusable data analysis prompt template framework with 12 production patterns, governance rules, and rollout checklists.",
+    "image": [
+      "https://infinisynapse.cn/blog/assets/pillar8/data-analysis-prompt-template/hero.png"
+    ],
+    "datePublished": "2026-06-09T10:00:00+08:00",
+    "dateModified": "2026-06-09T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/data-analysis-prompt-template"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Data analysis template"
+      },
+      {
+        "@type": "Thing",
+        "name": "Prompt framework"
+      },
+      {
+        "@type": "Thing",
+        "name": "Reusable analytics systems"
+      }
+    ],
+    "keywords": "data analysis template, prompt framework, reusable analysis prompts"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the ideal length for a data analysis prompt template?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aim for one screen of core instructions plus optional appendices. Too short means missing controls; too long hurts adoption."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can one template work across multiple departments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, if you separate universal blocks (objective, validation, output) from department-specific variables (metrics, source tables, thresholds)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should a analytics be reviewed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At least quarterly, or after schema changes, source migrations, or major policy updates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does a template connect to data agents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Templates define the contract—goal, sources, checks, and output format—while data agents handle orchestration, making execution traceable and reusable.\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.cn/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.cn/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Data Analysis Prompt Template: Reusable Frameworks for Teams (2026)",
+        "item": "https://infinisynapse.cn/blog/data-analysis-prompt-template"
+      }
+    ]
+  }
+]

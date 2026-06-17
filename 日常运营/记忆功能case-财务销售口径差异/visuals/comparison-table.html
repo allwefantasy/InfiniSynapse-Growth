@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body {
+      width: 1080px;
+      margin: 0;
+      padding: 56px;
+      font-family: 'Inter', -apple-system, "PingFang SC", sans-serif;
+      background: #f7f7f5;
+      color: #0f172a;
+    }
+    .mono { font-family: 'JetBrains Mono', Menlo, monospace; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="mb-8">
+    <div class="text-[11px] mono uppercase tracking-[0.22em] text-slate-500 mb-2">A/B SUMMARY · 4 dimensions</div>
+    <div class="text-[36px] font-extrabold leading-[1.15] tracking-tight text-slate-900">四项硬指标，一眼看完</div>
+    <div class="text-[15px] text-slate-500 mt-2">用时 · 工具步骤 · 用户纠正 · 最终输出</div>
+  </div>
+
+  <!-- Table card -->
+  <div class="rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden">
+
+    <!-- Column header row -->
+    <div class="grid grid-cols-12 bg-slate-50 border-b border-slate-200">
+      <div class="col-span-3 px-7 py-5 text-[11px] mono uppercase tracking-[0.22em] text-slate-400">dimension / 维度</div>
+      <div class="col-span-4 px-7 py-5 border-l border-slate-200">
+        <div class="text-[10px] mono uppercase tracking-widest text-slate-400 mb-1">memory · off</div>
+        <div class="text-[15px] font-semibold text-slate-500">沉淀前（任务 A）</div>
+      </div>
+      <div class="col-span-5 px-7 py-5 border-l border-slate-200">
+        <div class="text-[10px] mono uppercase tracking-widest text-emerald-600 mb-1">memory · on</div>
+        <div class="text-[15px] font-semibold text-emerald-700">沉淀后（任务 B）</div>
+      </div>
+    </div>
+
+    <!-- Row 1: 用时 -->
+    <div class="grid grid-cols-12 border-b border-slate-100">
+      <div class="col-span-3 px-7 py-7 flex items-center">
+        <div>
+          <div class="text-[11px] mono uppercase tracking-widest text-slate-400 mb-1">time</div>
+          <div class="text-[16px] font-semibold text-slate-900">用时</div>
+        </div>
+      </div>
+      <div class="col-span-4 px-7 py-7 border-l border-slate-100 flex items-center">
+        <div class="text-[36px] mono font-bold text-slate-400 leading-none">08:23</div>
+      </div>
+      <div class="col-span-5 px-7 py-7 border-l border-slate-100 flex items-center gap-4">
+        <div class="text-[36px] mono font-bold text-emerald-600 leading-none">02:48</div>
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[11px] mono font-medium">−66%</span>
+      </div>
+    </div>
+
+    <!-- Row 2: 工具步骤 -->
+    <div class="grid grid-cols-12 border-b border-slate-100">
+      <div class="col-span-3 px-7 py-7 flex items-center">
+        <div>
+          <div class="text-[11px] mono uppercase tracking-widest text-slate-400 mb-1">steps</div>
+          <div class="text-[16px] font-semibold text-slate-900">工具步骤</div>
+        </div>
+      </div>
+      <div class="col-span-4 px-7 py-7 border-l border-slate-100">
+        <div class="flex items-baseline gap-2">
+          <div class="text-[36px] mono font-bold text-slate-400 leading-none">12</div>
+          <div class="text-[14px] text-slate-400">步</div>
+        </div>
+        <div class="text-[12px] text-slate-500 mt-2">前 6 步在摸底 schema</div>
+      </div>
+      <div class="col-span-5 px-7 py-7 border-l border-slate-100">
+        <div class="flex items-baseline gap-2">
+          <div class="text-[36px] mono font-bold text-slate-900 leading-none">15</div>
+          <div class="text-[14px] text-slate-500">步</div>
+        </div>
+        <div class="text-[12px] text-emerald-700 mt-2">多出来的 3 步全是主动交叉校验</div>
+      </div>
+    </div>
+
+    <!-- Row 3: 用户纠正 -->
+    <div class="grid grid-cols-12 border-b border-slate-100">
+      <div class="col-span-3 px-7 py-7 flex items-center">
+        <div>
+          <div class="text-[11px] mono uppercase tracking-widest text-slate-400 mb-1">corrections</div>
+          <div class="text-[16px] font-semibold text-slate-900">用户纠正</div>
+        </div>
+      </div>
+      <div class="col-span-4 px-7 py-7 border-l border-slate-100">
+        <div class="flex items-baseline gap-2">
+          <div class="text-[36px] mono font-bold text-slate-400 leading-none">1</div>
+          <div class="text-[14px] text-slate-400">次</div>
+        </div>
+        <div class="text-[12px] text-slate-500 mt-2">必须手动纠口径</div>
+      </div>
+      <div class="col-span-5 px-7 py-7 border-l border-slate-100">
+        <div class="flex items-baseline gap-2">
+          <div class="text-[36px] mono font-bold text-emerald-600 leading-none">0</div>
+          <div class="text-[14px] text-slate-500">次</div>
+        </div>
+        <div class="text-[12px] text-emerald-700 mt-2">完全零干预</div>
+      </div>
+    </div>
+
+    <!-- Row 4: 最终输出 -->
+    <div class="grid grid-cols-12">
+      <div class="col-span-3 px-7 py-7 flex items-center">
+        <div>
+          <div class="text-[11px] mono uppercase tracking-widest text-slate-400 mb-1">outputs</div>
+          <div class="text-[16px] font-semibold text-slate-900">最终输出</div>
+        </div>
+      </div>
+      <div class="col-span-4 px-7 py-7 border-l border-slate-100">
+        <div class="text-[18px] font-semibold text-slate-500">1 个数字</div>
+        <div class="text-[12px] text-slate-500 mt-2">仅销售口径 4.1M</div>
+      </div>
+      <div class="col-span-5 px-7 py-7 border-l border-slate-100">
+        <div class="text-[18px] font-semibold text-emerald-700">4 个维度</div>
+        <div class="text-[12px] text-emerald-700 mt-2">双口径并列 · 回款率 48.78% · 跨季归因</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="mt-7 flex items-center justify-between">
+    <div class="mono text-[12px] text-slate-500">
+      <span class="text-emerald-600">●</span> MEMORY · 2 rules persisted
+      <span class="ml-4 text-slate-400">// scope: data source · auto-loaded across all sessions</span>
+    </div>
+    <div class="mono text-[12px] text-slate-400">app.infinisynapse.com</div>
+  </div>
+</body>
+</html>

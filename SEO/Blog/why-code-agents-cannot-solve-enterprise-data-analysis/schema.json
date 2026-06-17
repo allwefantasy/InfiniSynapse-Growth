@@ -1,0 +1,126 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why Code Agents Cannot Solve Enterprise Data Analysis",
+    "description": "Code Agents can write SQL and analyze Excel, but they break on three enterprise challenges — asset discovery, source of truth, and the missing oracle. Why Data Agents are a separate system.",
+    "image": [
+      "https://infinisynapse.cn/blog/2026-05-19-why-code-agents-cannot-solve-enterprise-data-analysis/code-agent-data-agent-cover.png"
+    ],
+    "datePublished": "2026-05-19T10:00:00+08:00",
+    "dateModified": "2026-05-19T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Team",
+      "url": "https://infinisynapse.cn/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.cn/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.cn/blog/why-code-agents-cannot-solve-enterprise-data-analysis"
+    },
+    "about": [
+      { "@type": "Thing", "name": "Code Agent" },
+      { "@type": "Thing", "name": "Data Agent" },
+      { "@type": "Thing", "name": "Enterprise data analysis" },
+      { "@type": "Thing", "name": "Source of truth" },
+      { "@type": "Thing", "name": "Auditable AI workflow" }
+    ],
+    "mentions": [
+      { "@type": "SoftwareApplication", "name": "Claude Code", "applicationCategory": "DeveloperApplication" },
+      { "@type": "SoftwareApplication", "name": "Codex", "applicationCategory": "DeveloperApplication" },
+      { "@type": "SoftwareApplication", "name": "Cursor", "applicationCategory": "DeveloperApplication" },
+      { "@type": "SoftwareApplication", "name": "Databricks Genie", "applicationCategory": "BusinessApplication" },
+      { "@type": "SoftwareApplication", "name": "InfiniSynapse", "applicationCategory": "BusinessApplication", "url": "https://app.infinisynapse.cn" },
+      { "@type": "Thing", "name": "InfiniAgent" },
+      { "@type": "Thing", "name": "InfiniSQL" },
+      { "@type": "Thing", "name": "InfiniRAG" }
+    ],
+    "citation": [
+      {
+        "@type": "CreativeWork",
+        "name": "Pushing the Frontier for Data Agents with Genie",
+        "author": { "@type": "Organization", "name": "Databricks" },
+        "datePublished": "2026-05-08",
+        "url": "https://www.databricks.com/blog/pushing-frontier-data-agents-genie"
+      },
+      {
+        "@type": "Report",
+        "name": "2026 AI Index Report — Public Opinion",
+        "author": { "@type": "Organization", "name": "Stanford HAI" },
+        "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/public-opinion"
+      }
+    ],
+    "keywords": "code agent vs data agent, enterprise data analysis, data agent, Databricks Genie, InfiniSynapse, InfiniSQL, InfiniRAG, AI source of truth, auditable AI workflow"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can a Code Agent like Claude Code or Cursor handle a one-off Excel analysis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — and it does that very well. The split shows up when the workflow turns into multi-turn analysis over multiple sources with audit and definition requirements. There, the 'keep editing one Python script' pattern becomes the bottleneck, and a Data Agent's named intermediate tables, RAG binding, and audit trace become the deliverable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Isn't a Data Agent just a Code Agent that knows SQL?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The objective function is different. A Code Agent ships running code; a Data Agent ships defensible answers. That changes what the agent must do at every layer — search must find authoritative assets (not just 'relevant' ones), execution must materialize named intermediates, knowledge must judge source of truth, and the run must leave an audit trail."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Databricks' Genie 32% to 90%+ result actually prove?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is Databricks' internal benchmark, not a universal industry metric. Treat it as a directional signal: adding specialized knowledge search, parallel thinking, and Multi-LLM design to an enterprise data agent yields step-function gains that single-turn coding-agent prompts cannot reach. The architectural lesson is more important than the specific number."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does RAG fit into enterprise data analysis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stuffing retrieved chunks into the prompt is not enough. InfiniRAG binds business knowledge — metric definitions, historical analyses, user preferences, rules — to specific data sources, so the agent consults knowledge before writing SQL and separates database facts from business interpretation in the final report."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is InfiniSynapse different from Databricks Genie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Databricks Genie is excellent inside the Databricks Lakehouse. InfiniSynapse is purpose-built for the heterogeneous enterprise — MySQL, PostgreSQL, ClickHouse, MongoDB, Snowflake, SQL Server, Doris, Excel, files, APIs — and treats every data source as an object that carries schema, sample, permission, associated RAG, and execution strategy together. It also ships a Command Tool surface so Code Agents (Cursor, Claude Code, Codex, WinClaw) can call Data Agent capabilities from their own workflows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should I not use a Data Agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For ad-hoc CSV work on a single laptop, throwaway charts, prototype scripts, or any task where the audit cost exceeds the analytical value. Code Agents handle those better and faster."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://infinisynapse.cn/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://infinisynapse.cn/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Why Code Agents Cannot Solve Enterprise Data Analysis", "item": "https://infinisynapse.cn/blog/why-code-agents-cannot-solve-enterprise-data-analysis" }
+    ]
+  }
+]

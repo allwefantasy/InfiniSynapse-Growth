@@ -1,0 +1,21 @@
+# ClawHub packaging exclusions
+# See: https://github.com/openclaw/clawhub/blob/main/docs/skill-format.md
+
+# Git metadata
+.git/
+.github/
+
+# Editor & OS files
+.DS_Store
+._*
+Thumbs.db
+.vscode/
+.idea/
+
+# Internal planning (not part of skill bundles)
+docs/plans/
+
+# Node tooling (not needed in skill bundles)
+node_modules/
+package-lock.json
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 680px;
+      margin: 0;
+      padding: 32px;
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+      color: #333;
+    }
+    .card {
+      border: 1px solid #e6eaf2;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(30, 111, 255, 0.08);
+    }
+    .title {
+      background: linear-gradient(135deg, #1e6fff, #4a8aff);
+      color: #fff;
+      padding: 18px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .subtitle {
+      padding: 12px 24px 0;
+      font-size: 13px;
+      color: #64748b;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    th, td {
+      padding: 16px 24px;
+      font-size: 15px;
+      line-height: 1.65;
+      border-bottom: 1px solid #f0f3f8;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      background: #f5f8ff;
+      color: #1e6fff;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+    tr:last-child td { border-bottom: none; }
+    td:first-child {
+      width: 42%;
+      font-weight: 600;
+      color: #1e293b;
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 13px;
+    }
+    td:last-child { color: #475569; }
+    .footnote {
+      padding: 14px 24px 18px;
+      background: #fafbff;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">主要数据源</div>
+    <div class="subtitle">生成报告时优先调用，并结合官方来源交叉核验</div>
+    <table>
+      <thead>
+        <tr>
+          <th>数据源</th>
+          <th>用途</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gaokao_Enrollment_Admission_Data</td>
+          <td>省份、科类、批次、分数/位次对应的录取线与投档数据</td>
+        </tr>
+        <tr>
+          <td>infinisynapse_gaokao_dataset</td>
+          <td>院校、专业组、选科要求与选专业相关核对</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="footnote">缺少年份或专业组信息时，报告会标注「待核验」</div>
+  </div>
+</body>
+</html>

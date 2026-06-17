@@ -7,3 +7,4 @@ alwaysApply: true
 
 - 可使用的工具目录在 `~/.auto-coder/.autocodertools` 目录下。
 - 如果需要操作浏览器，请使用 `agent-browser`。
+- 如果有看板类需求（任务、Issue、工单、待办等），使用 `acchat`，并操作 InfiniSynapse 组织（`--org 55748e05-cf49-40b5-b959-74ec2252bedf`）下的看板。

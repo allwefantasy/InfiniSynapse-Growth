@@ -1,0 +1,161 @@
+{
+  "pillar": "pillar7-use-cases-role-industry",
+  "generated": "2026-06-09",
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 7",
+  "articles": [
+    {
+      "id": "081",
+      "folder": "081-ai-tools-for-data-analysts",
+      "theme": "ai tools for data analysts",
+      "slug": "ai-tools-for-data-analysts",
+      "keyword": "ai tools for data analysts",
+      "volume": 90,
+      "kd": 43,
+      "type": "listicle",
+      "kicker": "Role · Analyst"
+    },
+    {
+      "id": "082",
+      "folder": "082-ai-data-analysis-product-managers",
+      "theme": "ai data analysis for product managers",
+      "slug": "ai-data-analysis-product-managers",
+      "keyword": "data science for product managers",
+      "volume": 70,
+      "kd": 16,
+      "type": "use-case",
+      "kicker": "Role · PM"
+    },
+    {
+      "id": "083",
+      "folder": "083-ai-data-analysis-finance-teams",
+      "theme": "ai data analysis for finance teams",
+      "slug": "ai-data-analysis-finance-teams",
+      "keyword": "best data integration platforms for finance teams 2025 2026",
+      "volume": 10,
+      "kd": null,
+      "type": "use-case",
+      "kicker": "Role · Finance"
+    },
+    {
+      "id": "084",
+      "folder": "084-ai-data-analysis-marketing",
+      "theme": "ai data analysis for marketing",
+      "slug": "ai-data-analysis-marketing",
+      "keyword": "marketing data analysis",
+      "volume": 390,
+      "kd": 44,
+      "type": "use-case",
+      "kicker": "Marketing"
+    },
+    {
+      "id": "085",
+      "folder": "085-ai-data-analysis-operations",
+      "theme": "ai data analysis for operations",
+      "slug": "ai-data-analysis-operations",
+      "keyword": "ai in data center operations",
+      "volume": 110,
+      "kd": 49,
+      "type": "use-case",
+      "kicker": "Operations"
+    },
+    {
+      "id": "086",
+      "folder": "086-ai-for-data-engineers",
+      "theme": "ai for data engineers",
+      "slug": "ai-for-data-engineers",
+      "keyword": "ai for data engineers",
+      "volume": 90,
+      "kd": 35,
+      "type": "guide",
+      "kicker": "Role · Engineer"
+    },
+    {
+      "id": "087",
+      "folder": "087-ai-data-strategy-cto",
+      "theme": "ai data strategy for cto",
+      "slug": "ai-data-strategy-cto",
+      "keyword": "ai-powered semantic layers for enterprise data strategy",
+      "volume": 20,
+      "kd": null,
+      "type": "guide",
+      "kicker": "Role · CTO"
+    },
+    {
+      "id": "088",
+      "folder": "088-ai-data-analysis-founders",
+      "theme": "ai data analysis for founders",
+      "slug": "ai-data-analysis-founders",
+      "keyword": "best ai tools for data analysis",
+      "volume": 170,
+      "kd": 62,
+      "type": "use-case",
+      "kicker": "Role · Founder"
+    },
+    {
+      "id": "089",
+      "folder": "089-ai-data-analysis-ecommerce",
+      "theme": "ai data analysis for ecommerce",
+      "slug": "ai-data-analysis-ecommerce",
+      "keyword": "ecommerce data analysis",
+      "volume": 170,
+      "kd": 31,
+      "type": "use-case",
+      "kicker": "Ecommerce"
+    },
+    {
+      "id": "090",
+      "folder": "090-ai-data-analysis-saas",
+      "theme": "ai data analysis for saas",
+      "slug": "ai-data-analysis-saas",
+      "keyword": "saas data platform",
+      "volume": 140,
+      "kd": 34,
+      "type": "use-case",
+      "kicker": "SaaS"
+    },
+    {
+      "id": "091",
+      "folder": "091-ai-data-analysis-financial-services",
+      "theme": "ai data analysis for financial services",
+      "slug": "ai-data-analysis-financial-services",
+      "keyword": "financial services data analysis",
+      "volume": 50,
+      "kd": null,
+      "type": "use-case",
+      "kicker": "Financial Services"
+    },
+    {
+      "id": "092",
+      "folder": "092-ai-data-analysis-supply-chain",
+      "theme": "ai data analysis for supply chain",
+      "slug": "ai-data-analysis-supply-chain",
+      "keyword": "data science in supply chain",
+      "volume": 170,
+      "kd": 16,
+      "type": "use-case",
+      "kicker": "Supply Chain"
+    },
+    {
+      "id": "093",
+      "folder": "093-ai-data-analysis-healthcare",
+      "theme": "ai data analysis healthcare",
+      "slug": "ai-data-analysis-healthcare",
+      "keyword": "ai data analysis healthcare",
+      "volume": 0,
+      "kd": 30,
+      "type": "use-case",
+      "kicker": "Healthcare"
+    },
+    {
+      "id": "094",
+      "folder": "094-ai-data-analysis-logistics",
+      "theme": "ai data analysis logistics",
+      "slug": "ai-data-analysis-logistics",
+      "keyword": "data analysis in logistics",
+      "volume": 90,
+      "kd": 11,
+      "type": "use-case",
+      "kicker": "Logistics"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "episode": "EP01",
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "total_duration": 66.336,
+  "shots": [
+    {
+      "id": "01",
+      "text": "人类已经进入了一个新文明。我说的是文明，不只是又一轮技术周期。",
+      "broll": "EP01-01.png",
+      "audio": "shot-01.mp3",
+      "start": 0.0,
+      "duration": 6.12,
+      "end": 6.12
+    },
+    {
+      "id": "02",
+      "text": "现在很多人都怕落后，所以不断研究 LLM 怎么用、边界在哪里。",
+      "broll": "EP01-02.png",
+      "audio": "shot-02.mp3",
+      "start": 6.12,
+      "duration": 5.904,
+      "end": 12.024
+    },
+    {
+      "id": "03",
+      "text": "但真正重要的问题，是这件事的延续性：Code Agent 落地之后，下一步是什么？",
+      "broll": "EP01-03.png",
+      "audio": "shot-03.mp3",
+      "start": 12.024,
+      "duration": 6.648,
+      "end": 18.672
+    },
+    {
+      "id": "04",
+      "text": "我的看法是，Code Agent 并没有直接创造财富，甚至消耗了更多财富。",
+      "broll": "EP01-04.png",
+      "audio": "shot-04.mp3",
+      "start": 18.672,
+      "duration": 6.192,
+      "end": 24.864
+    },
+    {
+      "id": "05",
+      "text": "它真正的意义，是构建新文明下新工具的基础。",
+      "broll": "EP01-05.png",
+      "audio": "shot-05.mp3",
+      "start": 24.864,
+      "duration": 4.344,
+      "end": 29.208
+    },
+    {
+      "id": "06",
+      "text": "如果把它放进星际文明的比喻里，Code Agent 像飞船的构建技术。",
+      "broll": "EP01-06.png",
+      "audio": "shot-06.mp3",
+      "start": 29.208,
+      "duration": 5.712,
+      "end": 34.92
+    },
+    {
+      "id": "07",
+      "text": "而我们要建造的第一艘飞船，就是 Data Agent。",
+      "broll": "EP01-07.png",
+      "audio": "shot-07.mp3",
+      "start": 34.92,
+      "duration": 4.368,
+      "end": 39.288
+    },
+    {
+      "id": "08",
+      "text": "Data Agent 一旦建好，会极大推进数据驱动和数据自动化决策。",
+      "broll": "EP01-08.png",
+      "audio": "shot-08.mp3",
+      "start": 39.288,
+      "duration": 6.144,
+      "end": 45.432
+    },
+    {
+      "id": "09",
+      "text": "因为 AI 也不能像人一样拍脑袋做决策。未来的 AI 决策，也必须源于数据。",
+      "broll": "EP01-09.png",
+      "audio": "shot-09.mp3",
+      "start": 45.432,
+      "duration": 7.272,
+      "end": 52.704
+    },
+    {
+      "id": "10",
+      "text": "第一步，是给人类提供快速决策依据；第二步，是给 AI 自己提供决策依据。",
+      "broll": "EP01-10.png",
+      "audio": "shot-10.mp3",
+      "start": 52.704,
+      "duration": 7.2,
+      "end": 59.904
+    },
+    {
+      "id": "11",
+      "text": "所以我说，Data Agent 不是一个功能，而是新文明真正开始运转的那一刻。",
+      "broll": "EP01-11.png",
+      "audio": "shot-11.mp3",
+      "start": 59.904,
+      "duration": 6.432,
+      "end": 66.336
+    }
+  ]
+}

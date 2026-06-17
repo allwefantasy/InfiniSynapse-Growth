@@ -1,0 +1,5 @@
+{
+  "id": "aaron-seo-geo",
+  "format": "claude-plugin",
+  "hostTargets": ["claude-code"]
+}

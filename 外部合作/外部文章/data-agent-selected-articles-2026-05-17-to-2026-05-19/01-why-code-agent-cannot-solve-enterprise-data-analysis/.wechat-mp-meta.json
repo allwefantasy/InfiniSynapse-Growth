@@ -1,0 +1,27 @@
+{
+  "status": "draft_saved",
+  "appmsgid": "100002552",
+  "title": "为什么 Code Agent 无法解决企业数据分析问题",
+  "author": "祝威廉",
+  "theme": "newspaper",
+  "source_md": "article-v2.md",
+  "themed_html": "article-v2-nytimes.html",
+  "themed_b64": "article-v2-nytimes.html.b64",
+  "themed_cdn_html": "article-v2-nytimes-cdn.html",
+  "themed_cdn_b64": "article-v2-nytimes-cdn.html.b64",
+  "cdn_urls": {
+    "images/code-agent-data-agent-cover.png": "https://mmbiz.qpic.cn/mmbiz_png/G0iaFtEibWU95XeVo3CRn4ic4HVY5lTr4aEGdQRcl6b2liavHofdrJaD71TkJVzKpZSibwPrlWSO3Yalmr43wFKxfMl2vCEdqQWNGbjCUWPwnODo/0?wx_fmt=png&from=appmsg"
+  },
+  "cover_image_url": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/G0iaFtEibWU96c09OzpoJJCYYL2LpJh3JnEAom31F2K6735RZzelmdqc2oske0f2ydlz9RU7wWMicnlX6TlLFj07hCfRyQJibMlDTLIjGnDTVfY/0?wx_fmt=jpeg",
+  "summary": "很多人以为 Code Agent 会写 SQL、能分析 Excel，就能替代 Data Agent。但企业数据分析真正难的，是在复杂数据资产中找到可信来源、理解业务口径，形成可复核、可追溯、敢于承认不确定的可信答案。",
+  "original": true,
+  "reward": true,
+  "source_url": "https://www.databricks.com/blog/pushing-frontier-data-agents-genie",
+  "creation_source": "内容由AI生成",
+  "platform_recommend": true,
+  "comment_mode": "留言由作者精选公开",
+  "last_saved": "2026-05-17 09:51:12 +0800",
+  "edit_url": "https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit&action=edit&reprint_confirm=0&timestamp=1778981850923&type=77&appmsgid=100002552&token=1318571735&lang=zh_CN",
+  "screenshot": "wechat-draft-saved-20260517.png",
+  "note": "Saved as a new WeChat MP draft only because the previous appmsgid=100002542 was no longer editable and appeared as deleted in the WeChat backend. Title, author, article body, article image cover, 108-character summary, original declaration, reward account, source URL, creation source, comments, and platform recommendation settings were verified. Paid content is disabled by WeChat because quick reprint is enabled for this original article. Collection selection was opened, but the backend showed no available collection and the create-new-collection control did not open a usable creation form, so no collection was added."
+}

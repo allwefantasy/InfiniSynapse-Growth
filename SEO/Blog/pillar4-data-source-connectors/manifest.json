@@ -1,0 +1,128 @@
+{
+  "pillar": "pillar4-data-source-connectors",
+  "pillar_name": "Data Source Connectors / How-to Integration",
+  "article_count": 15,
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 4",
+  "articles": [
+    {
+      "id": "044",
+      "folder": "044-connect-supabase-to-ai-data-analyst",
+      "slug": "connect-supabase-to-ai-data-analyst",
+      "keyword": "sql for data analysis",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/connect-supabase-to-ai-data-analyst"
+    },
+    {
+      "id": "045",
+      "folder": "045-connect-postgres-to-ai-data-analyst",
+      "slug": "connect-postgres-to-ai-data-analyst",
+      "keyword": "sql for data analysis",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/connect-postgres-to-ai-data-analyst"
+    },
+    {
+      "id": "046",
+      "folder": "046-connect-mysql-to-ai-data-analyst",
+      "slug": "connect-mysql-to-ai-data-analyst",
+      "keyword": "mysql data analysis tools",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/connect-mysql-to-ai-data-analyst"
+    },
+    {
+      "id": "047",
+      "folder": "047-connect-snowflake-to-ai-analyst",
+      "slug": "connect-snowflake-to-ai-analyst",
+      "keyword": "connect snowflake to no-code bi platform without data engineer",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/connect-snowflake-to-ai-analyst"
+    },
+    {
+      "id": "048",
+      "folder": "048-connect-bigquery-to-ai-data-analyst",
+      "slug": "connect-bigquery-to-ai-data-analyst",
+      "keyword": "google analytics bigquery data analysis capabilities",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/connect-bigquery-to-ai-data-analyst"
+    },
+    {
+      "id": "049",
+      "folder": "049-connect-databricks-to-ai-analyst",
+      "slug": "connect-databricks-to-ai-analyst",
+      "keyword": "databricks data analytics platform",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/connect-databricks-to-ai-analyst"
+    },
+    {
+      "id": "050",
+      "folder": "050-connect-mongodb-to-ai-data-analyst",
+      "slug": "connect-mongodb-to-ai-data-analyst",
+      "keyword": "ai database agent for data visualization",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/connect-mongodb-to-ai-data-analyst"
+    },
+    {
+      "id": "051",
+      "folder": "051-ai-data-analysis-google-sheets",
+      "slug": "ai-data-analysis-google-sheets",
+      "keyword": "data analysis in google sheets",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-google-sheets"
+    },
+    {
+      "id": "052",
+      "folder": "052-ai-data-analysis-csv-files",
+      "slug": "ai-data-analysis-csv-files",
+      "keyword": "csv files for data analysis",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-csv-files"
+    },
+    {
+      "id": "053",
+      "folder": "053-ai-data-analysis-airtable",
+      "slug": "ai-data-analysis-airtable",
+      "keyword": "airtable data analysis",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/ai-data-analysis-airtable"
+    },
+    {
+      "id": "054",
+      "folder": "054-ai-analysis-notion-database",
+      "slug": "ai-analysis-notion-database",
+      "keyword": "ai database agent for data visualization",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/ai-analysis-notion-database"
+    },
+    {
+      "id": "055",
+      "folder": "055-connect-clickhouse-to-ai-analyst",
+      "slug": "connect-clickhouse-to-ai-analyst",
+      "keyword": "sql for data analysis",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/connect-clickhouse-to-ai-analyst"
+    },
+    {
+      "id": "056",
+      "folder": "056-connect-redshift-to-ai-data-analyst",
+      "slug": "connect-redshift-to-ai-data-analyst",
+      "keyword": "data integration platforms supporting snowflake bigquery redshift",
+      "type": "how-to",
+      "url": "https://infinisynapse.cn/blog/connect-redshift-to-ai-data-analyst"
+    },
+    {
+      "id": "057",
+      "folder": "057-analyze-stripe-data-with-ai",
+      "slug": "analyze-stripe-data-with-ai",
+      "keyword": "financial services data analysis",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/analyze-stripe-data-with-ai"
+    },
+    {
+      "id": "058",
+      "folder": "058-analyze-shopify-data-with-ai",
+      "slug": "analyze-shopify-data-with-ai",
+      "keyword": "ecommerce data analysis",
+      "type": "use-case",
+      "url": "https://infinisynapse.cn/blog/analyze-shopify-data-with-ai"
+    }
+  ]
+}

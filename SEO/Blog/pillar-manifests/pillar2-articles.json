@@ -1,0 +1,125 @@
+{
+  "generated": "2026-06-12",
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 2 (014–023)",
+  "pillars": [
+    {
+      "id": "pillar2",
+      "folder": "pillar2-data-agent-vs-alternatives",
+      "name": "Data Agent vs Code Agent vs BI vs Copilot",
+      "pillar_num": 2,
+      "sort_priority_base": 90,
+      "articles": [
+        {
+          "id": "014",
+          "folder": "014-code-agent-vs-data-agent",
+          "theme": "code agent vs data agent",
+          "slug": "code-agent-vs-data-agent",
+          "keyword": "code interpreter data analysis",
+          "volume": 20,
+          "kd": null,
+          "type": "versus",
+          "kicker": "Code Agent · Data Agent"
+        },
+        {
+          "id": "015",
+          "folder": "015-data-agent-architecture",
+          "theme": "data agent architecture",
+          "slug": "data-agent-architecture",
+          "keyword": "data agent llm",
+          "volume": 20,
+          "kd": null,
+          "type": "guide",
+          "kicker": "Architecture · LLM"
+        },
+        {
+          "id": "016",
+          "folder": "016-ai-data-analyst-vs-bi-tools",
+          "theme": "ai data analyst vs bi tools",
+          "slug": "ai-data-analyst-vs-bi-tools",
+          "keyword": "ai tools for data analysts",
+          "volume": 90,
+          "kd": 43,
+          "type": "versus",
+          "kicker": "Analyst · BI"
+        },
+        {
+          "id": "017",
+          "folder": "017-data-agent-vs-llm-chatbot",
+          "theme": "data agent vs llm chatbot",
+          "slug": "data-agent-vs-llm-chatbot",
+          "keyword": "data agent llm",
+          "volume": 20,
+          "kd": null,
+          "type": "versus",
+          "kicker": "Chatbot · Agent"
+        },
+        {
+          "id": "018",
+          "folder": "018-chatgpt-data-analysis-limitations",
+          "theme": "chatgpt for data analysis limitations",
+          "slug": "chatgpt-data-analysis-limitations",
+          "keyword": "chatgpt data analysis limit",
+          "volume": 140,
+          "kd": 44,
+          "type": "guide",
+          "kicker": "ChatGPT · Limits"
+        },
+        {
+          "id": "019",
+          "folder": "019-code-interpreter-vs-data-agent",
+          "theme": "code interpreter vs data agent",
+          "slug": "code-interpreter-vs-data-agent",
+          "keyword": "code interpreter data analysis",
+          "volume": 20,
+          "kd": null,
+          "type": "versus",
+          "kicker": "Interpreter · Agent"
+        },
+        {
+          "id": "020",
+          "folder": "020-databricks-genie-vs-data-agent",
+          "theme": "databricks genie vs data agent",
+          "slug": "databricks-genie-vs-data-agent",
+          "keyword": "databricks assistant vs genie",
+          "volume": 40,
+          "kd": null,
+          "type": "versus",
+          "kicker": "Genie · Agent"
+        },
+        {
+          "id": "021",
+          "folder": "021-ai-data-analyst-vs-human-analyst",
+          "theme": "ai data analyst vs human analyst",
+          "slug": "ai-data-analyst-vs-human-analyst",
+          "keyword": "ai data analyst",
+          "volume": 390,
+          "kd": 59,
+          "type": "guide",
+          "kicker": "AI · Human"
+        },
+        {
+          "id": "022",
+          "folder": "022-governance-for-ai-data-analysis",
+          "theme": "governance for ai data analysis",
+          "slug": "governance-for-ai-data-analysis",
+          "keyword": "ai data governance",
+          "volume": 880,
+          "kd": 39,
+          "type": "guide",
+          "kicker": "Governance"
+        },
+        {
+          "id": "023",
+          "folder": "023-ai-data-analyst-vs-traditional-bi-analyst",
+          "theme": "ai data analyst vs traditional bi analyst",
+          "slug": "ai-data-analyst-vs-traditional-bi-analyst",
+          "keyword": "business intelligence vs data science",
+          "volume": 140,
+          "kd": 19,
+          "type": "versus",
+          "kicker": "BI · Data Science"
+        }
+      ]
+    }
+  ]
+}

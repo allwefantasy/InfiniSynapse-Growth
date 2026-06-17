@@ -1,0 +1,11 @@
+# SEO Blog · High-DR Citations
+
+When editing files under `SEO/Blog/pillar*/**/article.md`:
+
+1. Read and follow [`SEO/Blog/SKILL.md`](../../SEO/Blog/SKILL.md) — **≥5 high-DR external citations** and **cluster internal links** woven into narrative prose.
+2. Never use `this workflow` / `this connector workflow` as a substitute for the article `**Target keyword**` in Operating model, FAQ, or Conclusion sections.
+3. Never add `## Related Reading`, `For related workflow depth, see` bullets, `Within this topic cluster, explore [A], [B]…` list paragraphs, or standalone `## Sources` blocks. Embed **one internal link per sentence** in contextually relevant body paragraphs.
+4. **Pillar Page** → link all other Pillar Pages in the cluster (single-hub clusters also link every Cluster Page). **Cluster Page** → link hub + ≥2 sibling Cluster Pages.
+5. After substantive edits, run `audit-keyword-placeholder.py`, `audit-internal-links.py`, and `audit-high-dr-links.py` on the affected pillar folder.
+
+Registries: `SEO/Blog/high-dr-authority-sources.py`, `SEO/Blog/cluster-link-registry.py`.

@@ -1,0 +1,7 @@
+{
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "text": "但真正重要的问题，是这件事的延续性：Code Agent 落地之后，下一步是什么？"
+}

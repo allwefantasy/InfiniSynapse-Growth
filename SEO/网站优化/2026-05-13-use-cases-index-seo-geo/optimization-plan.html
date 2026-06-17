@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>optimization-plan</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+  html, body { background: #fff; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1a1a1a; line-height: 1.6; font-size: 11pt;
+    max-width: 760px; margin: 0 auto; padding: 16px;
+  }
+  h1 { font-size: 20pt; border-bottom: 3px solid #5B7FFF; padding-bottom: 8px;
+       margin-top: 0; color: #0A0E1A; }
+  h2 { font-size: 15pt; margin-top: 24px; color: #1f2a44;
+       border-left: 4px solid #5B7FFF; padding-left: 10px; }
+  h3 { font-size: 12.5pt; margin-top: 18px; color: #2a3556; }
+  h4 { font-size: 11.5pt; color: #2a3556; }
+  p, li { font-size: 11pt; }
+  code { font-family: "SF Mono", Menlo, Consolas, monospace;
+         background: #f3f4f8; padding: 1px 5px; border-radius: 4px;
+         font-size: 9.5pt; color: #c0392b; }
+  pre { background: #0f1322; color: #e6e9f5; padding: 12px 14px;
+        border-radius: 6px; overflow-x: auto; font-size: 9pt;
+        page-break-inside: avoid; }
+  pre code { background: transparent; color: inherit; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0;
+          page-break-inside: avoid; font-size: 10pt; }
+  th, td { border: 1px solid #d8dbe6; padding: 6px 9px; text-align: left;
+           vertical-align: top; }
+  th { background: #eef1fb; font-weight: 600; color: #1f2a44; }
+  tr:nth-child(even) td { background: #fafbfe; }
+  blockquote { border-left: 4px solid #B5C6FF; background: #f4f6ff;
+               margin: 10px 0; padding: 8px 14px; color: #2a3556;
+               border-radius: 0 4px 4px 0; }
+  a { color: #3D5FE0; text-decoration: none; }
+  hr { border: none; border-top: 1px dashed #c8cde0; margin: 20px 0; }
+  strong { color: #0A0E1A; }
+  ul, ol { padding-left: 22px; }
+  h2, h3, table, pre { page-break-inside: avoid; }
+</style>
+</head>
+<body>
+<h1 id="infinisynapsecomuse-cases-seo-geo"><code>infinisynapse.com/use-cases/</code> SEO &amp; GEO 优化执行手册</h1>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>审计目标 URL</td>
+<td>https://infinisynapse.com/use-cases/index.html</td>
+</tr>
+<tr>
+<td>审计日期</td>
+<td>2026-05-13</td>
+</tr>
+<tr>
+<td>审计框架</td>
+<td>CORE-EEAT 80 项 + CITE 40 项（seo-geo-claude-skills v9.9.5）</td>
+</tr>
+<tr>
+<td>使用 Skill</td>
+<td><code>on-page-seo-auditor</code> / <code>meta-tags-optimizer</code> / <code>schema-markup-generator</code> / <code>geo-content-optimizer</code> / <code>technical-seo-checker</code></td>
+</tr>
+<tr>
+<td>当前综合分</td>
+<td><strong>5.0 / 10（C 级）</strong></td>
+</tr>
+<tr>
+<td>目标综合分</td>
+<td><strong>≥ 8.0 / 10（B+ 级）</strong></td>
+</tr>
+<tr>
+<td>预计总工时</td>
+<td><strong>3.5 ~ 5 小时</strong>（不含文章页内链补全）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="0-baseline">0. 修复前状态快照（Baseline）</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>现状</th>
+<th>分数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td>74 字符（&gt;60），未含主词 <code>data analysis</code></td>
+<td>6/10</td>
+</tr>
+<tr>
+<td>Meta Description</td>
+<td>139 字符，无 CTA，无年份</td>
+<td>6.5/10</td>
+</tr>
+<tr>
+<td>H1</td>
+<td><code>InfiniSynapse Resources</code>，零关键词</td>
+<td>4/10</td>
+</tr>
+<tr>
+<td>H2 × 5</td>
+<td><strong>全部是 slug</strong> （<code>sql-data-analysis-with-ai</code> 等）</td>
+<td>2/10</td>
+</tr>
+<tr>
+<td>卡片摘要</td>
+<td>5 张全部以 <code>...</code> 截断</td>
+<td>3/10</td>
+</tr>
+<tr>
+<td>结构化数据</td>
+<td><strong>无任何 JSON-LD</strong></td>
+<td>0/10</td>
+</tr>
+<tr>
+<td>OG / Twitter Card</td>
+<td><strong>完全缺失</strong></td>
+<td>0/10</td>
+</tr>
+<tr>
+<td>Canonical / Favicon / robots</td>
+<td>全部缺失</td>
+<td>2/10</td>
+</tr>
+<tr>
+<td>数据自洽性</td>
+<td>"5 Guides / 5 Topics" 不一致 → 触发 R10 veto</td>
+<td>Warn</td>
+</tr>
+<tr>
+<td>内链</td>
+<td>仅 hub→article 单向，无面包屑、无回链</td>
+<td>4/10</td>
+</tr>
+<tr>
+<td>E-E-A-T 信号</td>
+<td>无作者、无更新日期、无 About</td>
+<td>3/10</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1">1. 执行总览</h2>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>Skill</th>
+<th>工时</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step 1</td>
+<td><code>meta-tags-optimizer</code> — 改 title/description/OG/Twitter</td>
+<td>30 min</td>
+<td><strong>P0</strong></td>
+</tr>
+<tr>
+<td>Step 2</td>
+<td><code>on-page-seo-auditor</code> — 重写 H1 / 合并 H2 / 修数据</td>
+<td>60 min</td>
+<td><strong>P0</strong></td>
+</tr>
+<tr>
+<td>Step 3</td>
+<td><code>schema-markup-generator</code> — 加 3 段 JSON-LD</td>
+<td>30 min</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Step 4</td>
+<td><code>geo-content-optimizer</code> — Hero 定义段 + 簇导语 + FAQ</td>
+<td>90 min</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Step 5</td>
+<td><code>technical-seo-checker</code> — canonical / robots / preconnect / 301</td>
+<td>30 min</td>
+<td><strong>P1</strong></td>
+</tr>
+<tr>
+<td>Step 6</td>
+<td><code>internal-linking-optimizer</code> — 文章互链 + 面包屑</td>
+<td>60 min</td>
+<td><strong>P2</strong></td>
+</tr>
+<tr>
+<td>Step 7</td>
+<td>验收 &amp; 提交</td>
+<td>30 min</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-step-1-meta-headp030-min">2. Step 1 — Meta &amp; Head（P0｜30 min）</h2>
+<h3 id="21-title">2.1 修改 <code>&lt;title&gt;</code></h3>
+<p><strong>改前</strong></p>
+<pre><code class="language-html">&lt;title&gt;InfiniSynapse Resources — AI Data Analyst Guides for Enterprise Teams&lt;/title&gt;
+</code></pre>
+<p><strong>改后（任选其一，均 ≤66 字符）</strong></p>
+<pre><code class="language-html">&lt;title&gt;Data Analysis Guides for 2026 — SQL, Excel, AI Tools | InfiniSynapse&lt;/title&gt;
+</code></pre>
+<blockquote>
+<p>备选：<code>AI Data Analyst Guides: SQL, Excel &amp; BI Tutorials | InfiniSynapse</code></p>
+</blockquote>
+<p>验收：长度 ≤ 60 ~ 65 字符，包含主词 <code>data analysis</code> + 年份 <code>2026</code> + 品牌 <code>InfiniSynapse</code>。</p>
+<h3 id="22-meta-namedescription">2.2 修改 <code>&lt;meta name="description"&gt;</code></h3>
+<p><strong>改后</strong></p>
+<pre><code class="language-html">&lt;meta name=&quot;description&quot; content=&quot;Practitioner guides on SQL, NL2SQL, Excel, BI software, and AI data analysts for enterprise teams — updated for 2026. By InfiniSynapse.&quot;&gt;
+</code></pre>
+<p>验收：≤ 160 字符 / 含 CTA / 含年份。</p>
+<h3 id="23-og-twitter-card-canonical-robots-favicon">2.3 新增 OG + Twitter Card + canonical + robots + favicon</h3>
+<p>在 <code>&lt;head&gt;</code> 中追加：</p>
+<pre><code class="language-html">&lt;link rel=&quot;canonical&quot; href=&quot;https://infinisynapse.com/use-cases/&quot;&gt;
+&lt;link rel=&quot;icon&quot; href=&quot;/favicon.svg&quot; type=&quot;image/svg+xml&quot;&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index,follow,max-image-preview:large,max-snippet:-1&quot;&gt;
+&lt;meta name=&quot;author&quot; content=&quot;InfiniSynapse&quot;&gt;
+
+&lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt;
+&lt;meta property=&quot;og:site_name&quot; content=&quot;InfiniSynapse&quot;&gt;
+&lt;meta property=&quot;og:title&quot; content=&quot;Data Analysis Guides for 2026 — InfiniSynapse Resources&quot;&gt;
+&lt;meta property=&quot;og:description&quot; content=&quot;SQL, Excel, and AI tools for enterprise data analysis. Updated 2026.&quot;&gt;
+&lt;meta property=&quot;og:url&quot; content=&quot;https://infinisynapse.com/use-cases/&quot;&gt;
+&lt;meta property=&quot;og:image&quot; content=&quot;https://infinisynapse.com/og/use-cases.png&quot;&gt;
+
+&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;
+&lt;meta name=&quot;twitter:title&quot; content=&quot;Data Analysis Guides for 2026&quot;&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;SQL, Excel, and AI tools for enterprise data analysis.&quot;&gt;
+&lt;meta name=&quot;twitter:image&quot; content=&quot;https://infinisynapse.com/og/use-cases.png&quot;&gt;
+
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;en&quot; href=&quot;https://infinisynapse.com/use-cases/&quot;&gt;
+&lt;link rel=&quot;alternate&quot; hreflang=&quot;x-default&quot; href=&quot;https://infinisynapse.com/use-cases/&quot;&gt;
+</code></pre>
+<p>附属任务：设计一张 <code>1200×630</code> 的 OG 图，命名 <code>og/use-cases.png</code>。</p>
+<hr />
+<h2 id="3-step-2-p060-min">3. Step 2 — 结构与文案（P0｜60 min）</h2>
+<h3 id="31-h1">3.1 改 H1（加主关键词）</h3>
+<p><strong>改前</strong></p>
+<pre><code class="language-html">&lt;h1&gt;InfiniSynapse &lt;em&gt;Resources&lt;/em&gt;&lt;/h1&gt;
+</code></pre>
+<p><strong>改后</strong></p>
+<pre><code class="language-html">&lt;h1&gt;Data Analysis Guides &lt;em&gt;for Enterprise Teams&lt;/em&gt;&lt;/h1&gt;
+&lt;p class=&quot;subtitle&quot;&gt;InfiniSynapse Resources · Updated May 2026&lt;/p&gt;
+</code></pre>
+<h3 id="32-5-slug-h2-3">3.2 把 5 个 slug-H2 合并为 3 个话题簇</h3>
+<p><strong>改前</strong>：5 个 H2 全是 slug，每簇只有 1 篇文章。</p>
+<p><strong>改后</strong>：3 个有 SEO 含义的话题簇</p>
+<table>
+<thead>
+<tr>
+<th>新 H2</th>
+<th>包含文章</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SQL &amp; Natural Language Data Analysis</strong></td>
+<td><code>sql-data-analysis-with-ai</code></td>
+</tr>
+<tr>
+<td><strong>Spreadsheet &amp; Methodology</strong></td>
+<td><code>how-to-add-data-analysis-in-excel</code> · <code>data-analysis-techniques</code></td>
+</tr>
+<tr>
+<td><strong>Tools &amp; Software Buyer Guides (2026)</strong></td>
+<td><code>best-data-analysis-software</code> · <code>best-ai-tools-for-data-analysis</code></td>
+</tr>
+</tbody>
+</table>
+<p>每个簇下加 1 句导语（30~50 词），举例：</p>
+<pre><code class="language-html">&lt;section class=&quot;idx-section&quot;&gt;
+  &lt;h2&gt;SQL &amp;amp; Natural Language Data Analysis&lt;/h2&gt;
+  &lt;p class=&quot;cluster-lede&quot;&gt;
+    How modern NL2SQL agents translate plain-English questions into validated
+    SQL across warehouses — covering schema linking, query review, and audit
+    trails for enterprise analytics teams.
+  &lt;/p&gt;
+  &lt;div class=&quot;card-grid&quot;&gt; ... &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+<h3 id="33-5-guides-5-topicscore-eeat-r10-veto">3.3 修复"5 Guides / 5 Topics"数据不一致（CORE-EEAT R10 veto）</h3>
+<p><strong>改前</strong></p>
+<pre><code class="language-html">&lt;div&gt;&lt;div class=&quot;stat-num&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;stat-label&quot;&gt;Topics&lt;/div&gt;&lt;/div&gt;
+</code></pre>
+<p><strong>改后</strong></p>
+<pre><code class="language-html">&lt;div&gt;&lt;div class=&quot;stat-num&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;stat-label&quot;&gt;Guides&lt;/div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;div class=&quot;stat-num&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;stat-label&quot;&gt;Topics&lt;/div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;div class=&quot;stat-num&quot;&gt;40+&lt;/div&gt;&lt;div class=&quot;stat-label&quot;&gt;Connectors&lt;/div&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="34-2550">3.4 卡片摘要不再用 <code>...</code>，写完整 25–50 词</h3>
+<p><strong>改前</strong></p>
+<pre><code class="language-html">&lt;div class=&quot;page-card-meta&quot;&gt;A practical guide to modern data analysis using SQL, the AI agents that now generate, validate, and run queries on your ...&lt;/div&gt;
+</code></pre>
+<p><strong>改后（5 张卡片全部重写为可被 AI 引用的"独立句"）</strong></p>
+<table>
+<thead>
+<tr>
+<th>文章</th>
+<th>新卡片描述（≤ 50 词）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL Data Analysis with AI</td>
+<td>"Explains how NL2SQL agents translate plain-English questions into validated SQL across warehouses, run them safely, and return chart-ready answers in under 10 seconds — with schema linking, query review, and audit logs."</td>
+</tr>
+<tr>
+<td>How to Add Data Analysis in Excel</td>
+<td>"Step-by-step tutorial on enabling the Analysis ToolPak in Excel 2026, plus an honest comparison of when to graduate from Excel to a multi-source AI data analyst."</td>
+</tr>
+<tr>
+<td>Data Analysis Techniques</td>
+<td>"A complete reference of descriptive, diagnostic, predictive, and prescriptive methods — with worked examples and the modern AI-assisted workflow that replaces each."</td>
+</tr>
+<tr>
+<td>Best Data Analysis Software</td>
+<td>"Eight leading platforms ranked across data analysis and reporting, AI features, multi-source connectivity, governance, and scale — refreshed for 2026 enterprise buyers."</td>
+</tr>
+<tr>
+<td>Best AI Tools for Data Analysis</td>
+<td>"Practitioner's guide to AI agents, NL2SQL utilities, and full AI data analysts — with a decision framework matched to your data stack, team size, and security needs."</td>
+</tr>
+</tbody>
+</table>
+<h3 id="35-slug-page-card-cat">3.5 删除卡片里的 slug 文字 <code>page-card-cat</code></h3>
+<p><code>&lt;div class="page-card-cat"&gt;sql-data-analysis-with-ai&lt;/div&gt;</code> → 删除整行。slug 重复展示对 SEO 与 UX 都是噪声。</p>
+<h3 id="36-h2-1-badge">3.6 删除 H2 旁边的 <code>1</code> 计数 badge</h3>
+<p><code>&lt;span class="cat-count"&gt;1&lt;/span&gt;</code> 在簇合并后会改为 1/2/2，要么显示真实值，要么直接删除。建议直接删除（信息量低）。</p>
+<hr />
+<h2 id="4-step-3-json-ld-p130-min">4. Step 3 — JSON-LD 结构化数据（P1｜30 min）</h2>
+<p>在 <code>&lt;/body&gt;</code> 前追加 3 段 JSON-LD：</p>
+<h3 id="41-collectionpage-haspart">4.1 CollectionPage + hasPart</h3>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;CollectionPage&quot;,
+  &quot;name&quot;: &quot;InfiniSynapse Resources&quot;,
+  &quot;url&quot;: &quot;https://infinisynapse.com/use-cases/&quot;,
+  &quot;description&quot;: &quot;Practitioner guides on SQL, Excel, BI software, and AI data analysts for enterprise teams.&quot;,
+  &quot;isPartOf&quot;: { &quot;@type&quot;: &quot;WebSite&quot;, &quot;name&quot;: &quot;InfiniSynapse&quot;, &quot;url&quot;: &quot;https://infinisynapse.com&quot; },
+  &quot;about&quot;: [&quot;data analysis&quot;,&quot;AI data analyst&quot;,&quot;NL2SQL&quot;,&quot;business intelligence&quot;,&quot;enterprise AI&quot;],
+  &quot;dateModified&quot;: &quot;2026-05-13&quot;,
+  &quot;hasPart&quot;: [
+    {&quot;@type&quot;:&quot;Article&quot;,&quot;headline&quot;:&quot;SQL Data Analysis with AI&quot;,&quot;url&quot;:&quot;https://infinisynapse.com/use-cases/sql-data-analysis-with-ai/&quot;},
+    {&quot;@type&quot;:&quot;Article&quot;,&quot;headline&quot;:&quot;How to Add Data Analysis in Excel&quot;,&quot;url&quot;:&quot;https://infinisynapse.com/use-cases/how-to-add-data-analysis-in-excel/&quot;},
+    {&quot;@type&quot;:&quot;Article&quot;,&quot;headline&quot;:&quot;Data Analysis Techniques&quot;,&quot;url&quot;:&quot;https://infinisynapse.com/use-cases/data-analysis-techniques/&quot;},
+    {&quot;@type&quot;:&quot;Article&quot;,&quot;headline&quot;:&quot;Best Data Analysis Software 2026&quot;,&quot;url&quot;:&quot;https://infinisynapse.com/use-cases/best-data-analysis-software/&quot;},
+    {&quot;@type&quot;:&quot;Article&quot;,&quot;headline&quot;:&quot;Best AI Tools for Data Analysis 2026&quot;,&quot;url&quot;:&quot;https://infinisynapse.com/use-cases/best-ai-tools-for-data-analysis/&quot;}
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<h3 id="42-breadcrumblist">4.2 BreadcrumbList</h3>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;:&quot;https://schema.org&quot;,
+  &quot;@type&quot;:&quot;BreadcrumbList&quot;,
+  &quot;itemListElement&quot;:[
+    {&quot;@type&quot;:&quot;ListItem&quot;,&quot;position&quot;:1,&quot;name&quot;:&quot;Home&quot;,&quot;item&quot;:&quot;https://infinisynapse.com/&quot;},
+    {&quot;@type&quot;:&quot;ListItem&quot;,&quot;position&quot;:2,&quot;name&quot;:&quot;Resources&quot;,&quot;item&quot;:&quot;https://infinisynapse.com/use-cases/&quot;}
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<h3 id="43-organization">4.3 Organization</h3>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;:&quot;https://schema.org&quot;,
+  &quot;@type&quot;:&quot;Organization&quot;,
+  &quot;name&quot;:&quot;InfiniSynapse&quot;,
+  &quot;url&quot;:&quot;https://infinisynapse.com&quot;,
+  &quot;logo&quot;:&quot;https://infinisynapse.com/logo.png&quot;,
+  &quot;sameAs&quot;:[
+    &quot;https://x.com/infinisynapse&quot;,
+    &quot;https://www.linkedin.com/company/infinisynapse&quot;
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<p><strong>验收</strong>：把改后页面贴进 https://search.google.com/test/rich-results 三段全部解析通过。</p>
+<hr />
+<h2 id="5-step-4-geo-p190-min">5. Step 4 — GEO 内容优化（P1｜90 min）</h2>
+<blockquote>
+<p>目标：让 ChatGPT / Perplexity / Google AI Overview 拿到「可整段引用」的句子。</p>
+</blockquote>
+<h3 id="51-hero-2550-self-contained">5.1 Hero 下方新增"独立定义段"（25~50 词，self-contained）</h3>
+<pre><code class="language-html">&lt;p class=&quot;lede&quot;&gt;
+  &lt;strong&gt;InfiniSynapse Resources&lt;/strong&gt; is a curated library of guides on
+  natural-language data analysis, NL2SQL, multi-source federation, and AI data
+  analyst deployment — written for analytics, data, and BI teams at enterprises
+  evaluating AI-native data tools in 2026.
+&lt;/p&gt;
+</code></pre>
+<p>CORE-EEAT 命中项：C02（清晰定义）、O03（可引用句）、O05（结构清晰）、E01（实体一致）。</p>
+<h3 id="52-faq-section-faqpage-schema">5.2 页面底部新增 FAQ Section（同步 FAQPage schema）</h3>
+<pre><code class="language-html">&lt;section class=&quot;faq&quot;&gt;
+  &lt;h2&gt;FAQ&lt;/h2&gt;
+  &lt;details&gt;
+    &lt;summary&gt;What is an AI data analyst?&lt;/summary&gt;
+    &lt;p&gt;An AI data analyst is an agent that connects to your databases, files, and BI tools, then translates natural-language questions into validated SQL or Python — running them, returning chart-ready answers, and citing the source rows used.&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details&gt;
+    &lt;summary&gt;Is NL2SQL accurate enough for production analytics?&lt;/summary&gt;
+    &lt;p&gt;Modern NL2SQL with schema linking and query review reaches 90%+ executable accuracy on enterprise schemas. Production-grade systems add row-level permissions, audit logs, and human-in-the-loop validation for high-risk queries.&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details&gt;
+    &lt;summary&gt;Can InfiniSynapse run on-prem?&lt;/summary&gt;
+    &lt;p&gt;Yes. InfiniSynapse supports on-prem and VPC deployment with 40+ data connectors, so data never leaves the customer environment.&lt;/p&gt;
+  &lt;/details&gt;
+&lt;/section&gt;
+</code></pre>
+<pre><code class="language-html">&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;:&quot;https://schema.org&quot;,
+  &quot;@type&quot;:&quot;FAQPage&quot;,
+  &quot;mainEntity&quot;:[
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;What is an AI data analyst?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;An AI data analyst is an agent that connects to databases, files, and BI tools, then translates natural-language questions into validated SQL or Python.&quot;}},
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;Is NL2SQL accurate enough for production analytics?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;Modern NL2SQL with schema linking and query review reaches 90%+ executable accuracy on enterprise schemas.&quot;}},
+    {&quot;@type&quot;:&quot;Question&quot;,&quot;name&quot;:&quot;Can InfiniSynapse run on-prem?&quot;,&quot;acceptedAnswer&quot;:{&quot;@type&quot;:&quot;Answer&quot;,&quot;text&quot;:&quot;Yes. InfiniSynapse supports on-prem and VPC deployment with 40+ data connectors.&quot;}}
+  ]
+}
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p><strong>重要</strong>：FAQPage schema 内容必须与 DOM 中文字 <strong>逐字一致</strong>（CORE-EEAT R10）。</p>
+</blockquote>
+<h3 id="53-footer-about-e-e-a-t">5.3 Footer 增加 About + 更新日期（E-E-A-T）</h3>
+<pre><code class="language-html">&lt;footer&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;p class=&quot;about&quot;&gt;&lt;strong&gt;About InfiniSynapse:&lt;/strong&gt; InfiniSynapse builds the AI data analyst platform for enterprise teams — natural-language querying across 40+ data sources, with on-prem and multi-modal support.&lt;/p&gt;
+    &lt;p&gt;Last updated: &lt;time datetime=&quot;2026-05-13&quot;&gt;May 13, 2026&lt;/time&gt;&lt;/p&gt;
+    &lt;p&gt;&amp;copy; 2026 &lt;a href=&quot;https://infinisynapse.com&quot;&gt;InfiniSynapse&lt;/a&gt;. All rights reserved.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<hr />
+<h2 id="6-step-5-seop130-min">6. Step 5 — 技术 SEO（P1｜30 min）</h2>
+<h3 id="61-url">6.1 URL 规范化</h3>
+<p>服务端配置：<code>/use-cases/index.html</code> → 301 → <code>/use-cases/</code>
+（或确保 canonical 已经指向无 <code>index.html</code> 版本，见 Step 1）</p>
+<h3 id="62-dom">6.2 面包屑（DOM）</h3>
+<p><code>&lt;nav&gt;</code> 下方追加：</p>
+<pre><code class="language-html">&lt;nav aria-label=&quot;Breadcrumb&quot; class=&quot;crumb&quot;&gt;
+  &lt;a href=&quot;https://infinisynapse.com/&quot;&gt;Home&lt;/a&gt;
+  &lt;span aria-hidden=&quot;true&quot;&gt;›&lt;/span&gt;
+  &lt;span aria-current=&quot;page&quot;&gt;Resources&lt;/span&gt;
+&lt;/nav&gt;
+</code></pre>
+<h3 id="63">6.3 性能</h3>
+<ul>
+<li>字体改 <code>font-display: swap</code>；或自托管 Inter 子集，去掉 Google Fonts 外链。</li>
+<li>已加 <code>preconnect</code>（Step 1）。</li>
+<li>验证 Lighthouse Performance ≥ 90。</li>
+</ul>
+<h3 id="64-sitemap-robots">6.4 sitemap &amp; robots</h3>
+<ul>
+<li><code>/sitemap.xml</code> 必须包含 <code>/use-cases/</code> 及全部 5 篇子文章。</li>
+<li><code>/robots.txt</code> 引用 sitemap：<code>Sitemap: https://infinisynapse.com/sitemap.xml</code></li>
+</ul>
+<hr />
+<h2 id="7-step-6-p260-min">7. Step 6 — 内链与互引（P2｜60 min）</h2>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>位置</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文章面包屑</td>
+<td>每篇文章顶部</td>
+<td><code>Home › Resources › &lt;文章标题&gt;</code></td>
+</tr>
+<tr>
+<td>同簇互链</td>
+<td>每篇文章底部</td>
+<td>"Related guides in this cluster" 列出同簇其余 1–2 篇</td>
+</tr>
+<tr>
+<td>跨簇关联</td>
+<td>文章正文</td>
+<td>每篇至少 2 条出站到 Hub 内其他文章</td>
+</tr>
+<tr>
+<td>Hub → 产品页</td>
+<td>Hero CTA</td>
+<td><code>Get Started</code> 已存在，建议再加一条 <code>See pricing</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-step-730-min">8. 验收清单（Step 7｜30 min）</h2>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>工具</th>
+<th>通过标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title 长度</td>
+<td>view-source 手测</td>
+<td>≤ 65 字符</td>
+</tr>
+<tr>
+<td>Meta description</td>
+<td>view-source</td>
+<td>≤ 160 字符，含 CTA</td>
+</tr>
+<tr>
+<td>H1 含主词</td>
+<td>view-source</td>
+<td>含 <code>data analysis</code></td>
+</tr>
+<tr>
+<td>H2 全部为话题（非 slug）</td>
+<td>view-source</td>
+<td>0 个 slug-H2</td>
+</tr>
+<tr>
+<td>JSON-LD 全部通过</td>
+<td>https://search.google.com/test/rich-results</td>
+<td>3 段全绿</td>
+</tr>
+<tr>
+<td>OG 预览</td>
+<td>https://www.opengraph.xyz/</td>
+<td>标题/描述/图像正常</td>
+</tr>
+<tr>
+<td>canonical 正确</td>
+<td>view-source</td>
+<td>指向 <code>/use-cases/</code> 无 <code>index.html</code></td>
+</tr>
+<tr>
+<td>移动端可用</td>
+<td>Chrome DevTools</td>
+<td>无横向滚动，CLS &lt; 0.1</td>
+</tr>
+<tr>
+<td>Lighthouse</td>
+<td>DevTools</td>
+<td>Performance ≥ 90, SEO = 100</td>
+</tr>
+<tr>
+<td>FAQ schema vs DOM 一致</td>
+<td>手测</td>
+<td>逐字一致</td>
+</tr>
+<tr>
+<td>数据自洽</td>
+<td>手测</td>
+<td>Guides 数字 = 实际卡片数</td>
+</tr>
+<tr>
+<td>AI 引用测试</td>
+<td>ChatGPT / Perplexity 提问 "What is InfiniSynapse?"</td>
+<td>7 天后 ≥ 1 次被引用</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9">9. 修复后预期分数</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>现状</th>
+<th>修后</th>
+<th>提升</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td>6/10</td>
+<td>9/10</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>Meta</td>
+<td>6.5/10</td>
+<td>9/10</td>
+<td>+2.5</td>
+</tr>
+<tr>
+<td>H1/H2</td>
+<td>4/10</td>
+<td>9/10</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>Content</td>
+<td>4/10</td>
+<td>8/10</td>
+<td>+4</td>
+</tr>
+<tr>
+<td>Keywords</td>
+<td>5/10</td>
+<td>8/10</td>
+<td>+3</td>
+</tr>
+<tr>
+<td>Internal Links</td>
+<td>5/10</td>
+<td>7/10</td>
+<td>+2</td>
+</tr>
+<tr>
+<td>Technical</td>
+<td>4/10</td>
+<td>9/10</td>
+<td>+5</td>
+</tr>
+<tr>
+<td><strong>总分</strong></td>
+<td><strong>5.0</strong></td>
+<td><strong>≈ 8.4</strong></td>
+<td><strong>+3.4</strong></td>
+</tr>
+</tbody>
+</table>
+<p>GEO 引用条件：Step 1 + 3 + 4 完成后，页面首次具备被 ChatGPT / Perplexity / Google AIO 引用的全部结构条件（定义段、FAQ、JSON-LD、E-E-A-T 信号、可解析 H 结构）。</p>
+<hr />
+<h2 id="10">10. 责任分工建议（最小化协作开销）</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>负责人角色</th>
+<th>输入物</th>
+<th>产出物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Step 1–2</td>
+<td>前端 / 内容运营</td>
+<td>本文档</td>
+<td>改后 <code>index.html</code> 草案</td>
+</tr>
+<tr>
+<td>Step 3</td>
+<td>前端</td>
+<td>产品事实清单（slogan/连接器数）</td>
+<td>3 段 JSON-LD</td>
+</tr>
+<tr>
+<td>Step 4</td>
+<td>内容运营</td>
+<td>产品 FAQ / About 段</td>
+<td>Lede 段 + FAQ 段</td>
+</tr>
+<tr>
+<td>Step 5</td>
+<td>运维 / DevOps</td>
+<td>域名管理后台</td>
+<td>301 规则 + sitemap.xml</td>
+</tr>
+<tr>
+<td>Step 6</td>
+<td>内容运营</td>
+<td>5 篇文章原稿</td>
+<td>每篇底部互链区</td>
+</tr>
+<tr>
+<td>Step 7</td>
+<td>项目负责人</td>
+<td>上述全部</td>
+<td>验收清单 ✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p>文档版本 v1.0 · 基于 seo-geo-claude-skills v9.9.5 · 审计人：Cursor Agent</p>
+</blockquote>
+</body>
+</html>

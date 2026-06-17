@@ -1,0 +1,87 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "If memory/hot-cache.md exists, read it silently as project context. If memory/open-loops.md has items older than 7 days, briefly remind: 'You have open items from [date] — want to review them?' Do not block; proceed with request."
+          },
+          {
+            "type": "prompt",
+            "prompt": "Check memory/audits/ for YYYY-MM-DD-dated files. If any audit is >30 days old, note: 'Audit for [topic] is [X] days old — consider re-running.' Show at most 3. Do not block."
+          },
+          {
+            "type": "prompt",
+            "prompt": "If memory/wiki/ exists: load memory/wiki/<project>/index.md (if hot-cache declares a project) or memory/wiki/index.md. Read silently as navigation aid. If Quick Status has non-empty next_action items, show: 'Based on your previous work: [summary]. Suggested next step: [action]. Want to continue?' Use 'your project records' not wiki/index/WARM/ingest/frontmatter. Skip silently if all items DONE or wiki/ absent."
+          },
+          {
+            "type": "prompt",
+            "prompt": "If memory/wiki/ absent but 3+ non-stub files with YAML frontmatter exist in memory/ (stubs = scaffolding with only HTML comments and empty headings) and no .wiki-dismissed marker exists, mention once: 'You have several project records saved. I can build a summary index — say \"refresh wiki index\" to get started.' Say 'summary index' not wiki. If user declines, create empty memory/.wiki-dismissed. Show once per session."
+          },
+          {
+            "type": "prompt",
+            "prompt": "Auditor calibration reminder. If 30+ real multi-veto auditor records exist in memory/audits/ and no maintainer calibration record exists, mention once: 'Auditor cap calibration evidence may be ready. Run /seo:run-evals on the relevant auditor cases and complete maintainer review before proposing any cap change. Tied to ADR-001.' Do not repeat if dismissed."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "If hot-cache loaded, keep its priorities/hero keywords/veto items in mind. If request uses ~~SEO tool or ~~analytics without connected MCP server, silently note Tier 1 (manual data) mode — do not mention unless relevant. Wiki query rules: (1) For cross-skill questions, consult memory/wiki/index.md first if loaded. (2) For different project name, check memory/wiki/<project>/index.md. (3) For audit scores/health/progress, use structured table: page/item, score, health label (良好/需改进/紧急), next action."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Artifact Gate (v7.1.0+). ONLY applies when written file has `class: auditor-output` frontmatter. Do NOT infer auditor status from `memory/audits/**` path alone, because optimize-layer audit summaries also live there and must not emit cap fields. Do NOT match on prose mentions of cap_applied/raw_overall_score/final_overall_score in body text (common in docs/references/examples). If the frontmatter marker is absent, produce NO output — complete silence. When an auditor artifact IS detected, re-validate against 7-item Artifact Gate (auditor-runbook.md §4): (1) valid status enum, (2) key_findings array with title+severity+evidence, (3) cap_applied set, (4) raw_overall_score present, (5) final_overall_score present unless BLOCKED, (6) evidence_summary non-empty, (7) recommended_next_skill present. Clean-context check — do not trust self-check. On failure: report 'Artifact Gate failure: [check]', recommend re-run. Do not silently fix."
+          },
+          {
+            "type": "prompt",
+            "prompt": "If you just produced user-facing CONTENT (article, blog, landing page, product description, meta tags) via seo-content-writer/geo-content-optimizer/content-refresher/meta-tags-optimizer, offer: 'I can run a quick quality check before you publish — want me to?' Note target keyword if present. Do not auto-run. Session debounce: suppress if already offered, unless 5+ distinct content files edited since last offer — then offer bulk audit once. If user declined, do not re-offer for 20 min. If write was NOT user-facing content (memory/, CLAUDE.md, hooks, config, schema, JSON, SKILL.md, audit handoffs, references/), produce NO output."
+          },
+          {
+            "type": "prompt",
+            "prompt": "If file NOT inside memory/, produce NO output — silence. If file IS inside memory/ AND memory/wiki/ exists, silently refresh memory/wiki/index.md (and project-specific index if hot-cache declares project). Scan memory/ files with YAML frontmatter, extract score/status/next_action/mtime, generate summaries (max 15 chars), write index. No confirmation needed. If memory/wiki/ absent, skip silently. If refresh >3s, skip silently."
+          },
+          {
+            "type": "prompt",
+            "prompt": "Phase 2 wiki: If file NOT inside memory/, produce NO output. If inside memory/ AND memory/wiki/ has compiled pages, compare WARM file content hash against compiled page frontmatter source hash. If hashes differ, ask: 'Wiki page for [entity/keyword] may need updating. Update it?' Wait for confirmation. If memory/wiki/ absent, skip silently."
+          }
+        ]
+      }
+    ],
+    "FileChanged": [
+      {
+        "matcher": "hot-cache.md",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "hot-cache.md modified. Count lines. If >80, warn: 'Hot cache at [N] lines (limit: 80). Consider running memory-management to archive older entries.' If >25KB, also warn about byte limit."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Stop guard. Hook input: $ARGUMENTS. Respond only with JSON: {\"ok\": true}. Always allow stop, including when stop_hook_active is true. Stop hook never initiates memory writes. Never ask the user to save optional session findings, never request wiki changelogs or auditor archives, and never instruct Claude to perform follow-up writes from this hook. Optional or required memory writes must happen during the active turn via explicit user request, auditor save confirmation, or memory-management invocation, not from Stop."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "pillar": "pillar4-data-source-connectors",
+  "generated": "2026-06-09",
+  "source_plan": "100页主题集群规划-v1-替换后主关键词版.md · Pillar 4",
+  "articles": [
+    {
+      "id": "044",
+      "folder": "044-connect-supabase-to-ai-data-analyst",
+      "theme": "connect supabase to ai data analyst",
+      "slug": "connect-supabase-to-ai-data-analyst",
+      "keyword": "sql for data analysis",
+      "volume": 2900,
+      "kd": 40,
+      "type": "how-to",
+      "kicker": "Connector · SQL"
+    },
+    {
+      "id": "045",
+      "folder": "045-connect-postgres-to-ai-data-analyst",
+      "theme": "connect postgres to ai data analyst",
+      "slug": "connect-postgres-to-ai-data-analyst",
+      "keyword": "sql for data analysis",
+      "volume": 2900,
+      "kd": 40,
+      "type": "how-to",
+      "kicker": "Connector · Postgres"
+    },
+    {
+      "id": "046",
+      "folder": "046-connect-mysql-to-ai-data-analyst",
+      "theme": "connect mysql to ai data analyst",
+      "slug": "connect-mysql-to-ai-data-analyst",
+      "keyword": "mysql data analysis tools",
+      "volume": 30,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "Connector · MySQL"
+    },
+    {
+      "id": "047",
+      "folder": "047-connect-snowflake-to-ai-analyst",
+      "theme": "connect snowflake to ai analyst",
+      "slug": "connect-snowflake-to-ai-analyst",
+      "keyword": "connect snowflake to no-code bi platform without data engineer",
+      "volume": 10,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "Connector · Snowflake"
+    },
+    {
+      "id": "048",
+      "folder": "048-connect-bigquery-to-ai-data-analyst",
+      "theme": "connect bigquery to ai data analyst",
+      "slug": "connect-bigquery-to-ai-data-analyst",
+      "keyword": "google analytics bigquery data analysis capabilities",
+      "volume": 30,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "Connector · BigQuery"
+    },
+    {
+      "id": "049",
+      "folder": "049-connect-databricks-to-ai-analyst",
+      "theme": "connect databricks to ai analyst",
+      "slug": "connect-databricks-to-ai-analyst",
+      "keyword": "databricks data analytics platform",
+      "volume": 30,
+      "kd": 30,
+      "type": "how-to",
+      "kicker": "Connector · Databricks"
+    },
+    {
+      "id": "050",
+      "folder": "050-connect-mongodb-to-ai-data-analyst",
+      "theme": "connect mongodb to ai data analyst",
+      "slug": "connect-mongodb-to-ai-data-analyst",
+      "keyword": "ai database agent for data visualization",
+      "volume": 70,
+      "kd": 20,
+      "type": "how-to",
+      "kicker": "Connector · MongoDB"
+    },
+    {
+      "id": "051",
+      "folder": "051-ai-data-analysis-google-sheets",
+      "theme": "ai data analysis for google sheets",
+      "slug": "ai-data-analysis-google-sheets",
+      "keyword": "data analysis in google sheets",
+      "volume": 110,
+      "kd": 26,
+      "type": "how-to",
+      "kicker": "Sheets · AI"
+    },
+    {
+      "id": "052",
+      "folder": "052-ai-data-analysis-csv-files",
+      "theme": "ai data analysis for csv files",
+      "slug": "ai-data-analysis-csv-files",
+      "keyword": "csv files for data analysis",
+      "volume": 20,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "CSV · AI"
+    },
+    {
+      "id": "053",
+      "folder": "053-ai-data-analysis-airtable",
+      "theme": "ai data analysis for airtable",
+      "slug": "ai-data-analysis-airtable",
+      "keyword": "airtable data analysis",
+      "volume": 30,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "Airtable · AI"
+    },
+    {
+      "id": "054",
+      "folder": "054-ai-analysis-notion-database",
+      "theme": "ai analysis for notion database",
+      "slug": "ai-analysis-notion-database",
+      "keyword": "ai database agent for data visualization",
+      "volume": 70,
+      "kd": 20,
+      "type": "how-to",
+      "kicker": "Notion · AI"
+    },
+    {
+      "id": "055",
+      "folder": "055-connect-clickhouse-to-ai-analyst",
+      "theme": "connect clickhouse to ai analyst",
+      "slug": "connect-clickhouse-to-ai-analyst",
+      "keyword": "sql for data analysis",
+      "volume": 2900,
+      "kd": 40,
+      "type": "how-to",
+      "kicker": "Connector · ClickHouse"
+    },
+    {
+      "id": "056",
+      "folder": "056-connect-redshift-to-ai-data-analyst",
+      "theme": "connect redshift to ai data analyst",
+      "slug": "connect-redshift-to-ai-data-analyst",
+      "keyword": "data integration platforms supporting snowflake bigquery redshift",
+      "volume": 110,
+      "kd": null,
+      "type": "how-to",
+      "kicker": "Connector · Redshift"
+    },
+    {
+      "id": "057",
+      "folder": "057-analyze-stripe-data-with-ai",
+      "theme": "analyze stripe data with ai",
+      "slug": "analyze-stripe-data-with-ai",
+      "keyword": "financial services data analysis",
+      "volume": 50,
+      "kd": null,
+      "type": "use-case",
+      "kicker": "Stripe · AI"
+    },
+    {
+      "id": "058",
+      "folder": "058-analyze-shopify-data-with-ai",
+      "theme": "analyze shopify data with ai",
+      "slug": "analyze-shopify-data-with-ai",
+      "keyword": "ecommerce data analysis",
+      "volume": 170,
+      "kd": 31,
+      "type": "use-case",
+      "kicker": "Shopify · AI"
+    }
+  ]
+}

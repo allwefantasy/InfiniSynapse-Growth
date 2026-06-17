@@ -1,0 +1,7 @@
+{
+  "tts_provider": "edge",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "model": "edge-tts",
+  "speed": 1.06,
+  "text": "我的看法是，Code Agent 并没有直接创造财富，甚至消耗了更多财富。"
+}

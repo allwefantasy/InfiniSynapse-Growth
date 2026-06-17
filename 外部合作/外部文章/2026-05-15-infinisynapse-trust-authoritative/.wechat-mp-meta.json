@@ -1,0 +1,26 @@
+{
+  "appmsgid": "100001933",
+  "title": "AI 让信息变得过剩，信任反而变得稀缺——这次 InfiniSynapse 接住了一个真实的医疗谣言",
+  "author": "InfiniSynapse",
+  "source_md": "article-official.md",
+  "cdn_urls": {
+    "images/00-stanford-hai-trust.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXVfpL29Oibl1gv8rYAnHPhFVNru0OtHKXCnspGiaohiaB1GhFO7bxMccSicQEHg6VaMnShEcXyrEFIe0biadRXjfAqNOb7OqM8icQBvE/0?wx_fmt=png&from=appmsg",
+    "images/00b-pew-experts-public-gap.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXURl7fFmQibDjqVj9a7hIFcZXibKyRsdSym0A4ibJwmSnBM84wcHschIU9xRHpibBgYlkFicBRmjFuusxKdkZyQ6fARldHJG5NiaibrvQ/0?wx_fmt=png&from=appmsg",
+    "images/00c-altman-openai-podcast.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWf3FoRfSAZK5ymhKSTlp701VYz3SBToUhicwVE0dqGFYa5heaibIosSfTmjjtjDZfF4libvw6xhZVYZWTACAfArbh8btdwtDzgdY/0?wx_fmt=png&from=appmsg",
+    "images/01-web-browser-toggles.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXUNjt3jWS6d8aqrjvrmlvfiaPTPGW3WQdrfIlVQ6OAfjkrjhX33lI6Pqb5VIZoBAJYxHhWiaJ8icaSrFTh1rlnQfOLzny7HqPDBS4/0?wx_fmt=png&from=appmsg",
+    "images/07-phases-progress.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXsjeKKyzmouArySLc07mAsxju3mkAn3QUKicvvdXiay6egiaztWyQBib6kFQUomianp8M7ZAGOiaHiaMOp6w9FrtsGOY2OdH5AicXbsYQ/0?wx_fmt=png&from=appmsg",
+    "images/03-phase1-parallel-search.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXV5iaicyDHbuQxrmdaf1DbqibLjRzNFRjhgUq5GkIkxGUgR76KbnNdyriaN1Shq0FhA3NiaFc3mcjBZq9ickZYC5rgAHoSZibhoJrwVNk/0?wx_fmt=png&from=appmsg",
+    "images/04-fda-search-results.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXrht8qeTCad696kmAnQmEPTMFt29Tn3fVnlg9roia6sicMWCpHtZ7WOCZtWIJsmGNfsWiccg4vMuTicUG0YeVIPTFI6JGjxfuLAYI/0?wx_fmt=png&from=appmsg",
+    "images/05-pubmed-search.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWFE3XEFXqUjQ1ZUGk3lfdhsRggMghppicsNjwzS6ejDdm5bJiaDSJDmLvHaDZYaG7m9HW8YwfibVOzaBHt90Y3nxRhyicfzNRzgTg/0?wx_fmt=png&from=appmsg",
+    "images/06-guidelines-table.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUZ6DvohAT1byLvnbGG9UFsRgZkF5zRkTgiaEMNxpj7dIzc4icpGuA7sj0bDVULjaCWMamqJibwZTSuc1kyFPdwUsgDbb800aIZXc/0?wx_fmt=png&from=appmsg",
+    "images/08-traffic-light-credibility.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXVkalPCicKzN5smP0RfBNpynGYdzNYLPXKEqM6FWeuAnhC1wrNiaC8VoK4XhvnbDj9ia0AWmUMrkW6vaVbxyYIm6KvFzYlwViaNSv8/0?wx_fmt=png&from=appmsg",
+    "images/09-task-completed.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXWg4hTjEy0aQX3GtfnGw8RrqIW7FzF7tpdibqfjlgc7MtEPxsBH2EBju4N88GNTBvVXDnCTReoasK5XTyrrn2ibFwnYzKU7V2OibQ/0?wx_fmt=png&from=appmsg",
+    "images/10-checkin-poster.png": "https://mmbiz.qpic.cn/mmbiz_jpg/7ibiaibCib1GWXUBa7MFib6bMVgzGg5mkLAE32Tt49LK1JoN4Wepsyicn0ibRBucFO6Z4ZyrI8lbcnq70TutGiay9w41DBVoxxjz8iaJcUbXOK27tEAA/0?wx_fmt=jpeg&from=appmsg",
+    "images/11-table-phases.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXVWmqna1yiagA0qfGokfic0uLXnmbFe3MLaDYYetEyCiaBbgKm3Qygdq0vIzQfEbicoUpNibC8aDtGvGE42fTiaFYYia4mG3XESN7iauCc/0?wx_fmt=png&from=appmsg",
+    "images/12-table-guidelines.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXUpYA3omNH4kUQC42CxEYSskdicPxMJib5adjnR8sTBkm1MzYr6U2MNia7o9icQpBOicEVU2GRZARoQcPGwh36hYJJBzaJA8qAQNDicQ/0?wx_fmt=png&from=appmsg",
+    "images/13-table-comparison.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXVnjP86bgPjy6efags2SuejyAeNiaXlx9CGcdsgjjvwr70Y1xNjN5m4X25Q5lPAPC2m5JQGRzuc8rM4Fb1oUI95f4agiaqHRWABo/0?wx_fmt=png&from=appmsg"
+  },
+  "last_saved": "2026-05-15 15:40 (restored from 15:20 auto-save)",
+  "warning": "公众号编辑器内容已偏离本地 article-official.md (用户在编辑器里直接改的, 字数 4079)。下次改稿务必先把编辑器内容拉回本地 md, 再走流程 B 覆盖更新——否则会重复 15:24 那次覆盖事故。",
+  "edit_url": "https://mp.weixin.qq.com/cgi-bin/appmsg?t=media/appmsg_edit&action=edit&reprint_confirm=0&type=77&appmsgid=100001933&token=<TOKEN>&lang=zh_CN"
+}
