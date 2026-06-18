@@ -1,5 +1,3 @@
-# Data Agent: Why Distillation Beats Chat History
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We build the AI-native data analysis platform discussed in this article; the memory patterns below come from 18+ months of production agent deployments.*
 
 ![Diagram contrasting chat history archival on the left with structured memory distillation on the right — locked metric definitions, schema references, and recall-by-name on the next run](images/hero-distillation-vs-chat-history.png)

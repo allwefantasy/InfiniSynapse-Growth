@@ -1,5 +1,3 @@
-# AI Data Analyst Skills: Competency Map for 2026 Hiring and Upskilling
-
 > **Byline:** InfiniSynapse Data Team  
 > **Last updated:** 2026-06-09  
 > *We build InfiniSynapse, an AI-native analytics platform. This competency map comes from hands-on hiring loops, enablement programs, and real delivery reviews across analyst teams.*

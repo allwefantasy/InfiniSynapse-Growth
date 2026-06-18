@@ -1,5 +1,3 @@
-# Amazon Redshift (2026): Data Integration Platforms Supporting Snowflake Bigquery Redshift
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for connect-redshift-to-ai-data-analyst](images/hero-connect-redshift-to-ai-data-analyst.png)

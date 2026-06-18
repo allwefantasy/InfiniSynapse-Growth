@@ -1,5 +1,3 @@
-# Databricks Assistant vs Genie vs Data Agent: A 2026 Buyer Guide
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-12** · *We evaluate Databricks-native AI surfaces and cross-platform Data Agents on recurring lakehouse and multi-source KPI workflows.*
 
 ![Databricks Assistant vs Genie vs Data Agent comparison matrix for lakehouse analytics buyers in 2026](./images/hero-databricks-genie-vs-data-agent.png)

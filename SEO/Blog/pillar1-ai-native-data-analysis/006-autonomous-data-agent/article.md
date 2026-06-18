@@ -1,5 +1,3 @@
-# What Is an Autonomous Data Agent?
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We build autonomous Data Agents at InfiniSynapse; this primer is grounded in 18+ months shipping goal-driven analytics on production customer data.*
 
 ![Diagram of an autonomous data agent lifecycle: one goal in, phased plan, multi-source execution, self-correction loop on failure, audit trail out, memory card saved](images/hero-autonomous-data-agent-lifecycle.png)

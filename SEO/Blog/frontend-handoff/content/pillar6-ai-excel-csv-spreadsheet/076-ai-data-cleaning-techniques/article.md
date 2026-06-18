@@ -1,5 +1,3 @@
-# AI Data Cleaning Techniques: The Operating Manual for Spreadsheet Teams
-
 Teams standardizing governance across sources often keep [AI to Clean Excel Data (2026)](/blog/clean-excel-data-with-ai) beside this runbook for Excel handoffs.
 
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build and evaluate production data workflows for teams that start in spreadsheets and later scale to recurring AI-native analytics.*

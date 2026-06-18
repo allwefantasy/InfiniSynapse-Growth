@@ -1,5 +1,3 @@
-# AI Data Analysis Prompts: 30+ Templates for Analysts (2026)
-
 If Prompt is in scope for your team, reuse the same memory-and-trace checklist in [Data Analysis Prompt Template](/blog/data-analysis-prompt-template).
 
 > **Byline:** InfiniSynapse Data Team  

@@ -1,5 +1,3 @@
-# ChatGPT for Data Analysis Limitations: What Breaks at Enterprise Scale (2026)
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-12** · *We build and evaluate InfiniSynapse alongside ChatGPT in customer pilots; the failure modes and migration signals below come from production rollouts, not sandbox demos.*
 
 ![ChatGPT for data analysis limitations at enterprise scale: file caps, memory gaps, governance, and connector boundaries](./images/hero-chatgpt-data-analysis-limitations.png)

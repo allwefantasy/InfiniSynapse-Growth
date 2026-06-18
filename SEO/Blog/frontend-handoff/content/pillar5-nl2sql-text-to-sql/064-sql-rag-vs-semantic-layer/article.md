@@ -1,5 +1,3 @@
-# Ai-Powered Semantic Layers for Enterprise Data Strategy: Strategy Guide
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build InfiniSynapse, a production-grade SQL agent platform with audit trail and reusable workflow memory.*
 
 ![RAG vs Semantic Layer for SQL Agents: Strategy Guide hero](images/hero-sql-rag-vs-semantic-layer.png)

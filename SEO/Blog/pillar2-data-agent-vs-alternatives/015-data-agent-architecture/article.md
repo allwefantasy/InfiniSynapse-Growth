@@ -1,5 +1,3 @@
-# Data Agent Architecture: Layers, Memory, and Production Design (2026)
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-12** · *We build InfiniSynapse, a Data Agent platform. This architecture guide reflects how we compose LLM layers for governed enterprise analytics in production.*
 
 ![Data agent LLM architecture: orchestration, federated query, knowledge retrieval, audit timeline, and memory distillation layers](images/hero-data-agent-architecture.png)

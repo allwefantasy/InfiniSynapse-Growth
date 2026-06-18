@@ -1,5 +1,3 @@
-# AI Data Analysis for Google Sheets: Connector Setup (2026)
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for ai-data-analysis-google-sheets](images/hero-ai-data-analysis-google-sheets.png)

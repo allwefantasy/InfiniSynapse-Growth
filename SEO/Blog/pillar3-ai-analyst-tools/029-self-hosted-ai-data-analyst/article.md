@@ -1,5 +1,3 @@
-# Agentic Data Plane Hosted vs Self-Hosted Comparison (2026): Deployment Guide
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We build deployment options for enterprise Data Agents, and this guide summarizes architecture trade-offs from real customer rollout patterns.*
 
 ![Hosted vs self-hosted deployment paths for an agentic data plane, including control plane location, data boundary, and operations responsibilities](./images/hero-self-hosted-vs-hosted.png)

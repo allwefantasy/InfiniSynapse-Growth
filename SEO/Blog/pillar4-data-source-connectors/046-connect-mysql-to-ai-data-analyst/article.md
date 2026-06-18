@@ -1,5 +1,3 @@
-# Connect MySQL to AI Data Analyst: Setup Guide (2026)
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for connect-mysql-to-ai-data-analyst](images/hero-connect-mysql-to-ai-data-analyst.png)

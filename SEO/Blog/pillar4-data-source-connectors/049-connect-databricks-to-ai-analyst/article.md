@@ -1,5 +1,3 @@
-# Databricks Data Analytics Platform: Connect to an AI Data Analyst (2026)
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for connect-databricks-to-ai-analyst](images/hero-connect-databricks-to-ai-analyst.png)

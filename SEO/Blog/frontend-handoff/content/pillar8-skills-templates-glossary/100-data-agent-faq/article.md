@@ -1,5 +1,3 @@
-# What Is a Data Agent: 12+ Deep Answers on Architecture, Memory, and Buyer Fit
-
 > **Byline:** InfiniSynapse Data Team  
 > **Last updated:** 2026-06-09  
 > *We build InfiniSynapse, an AI-native analytics platform. This FAQ is based on hands-on implementation, buyer evaluations, and operating reviews with real analytics teams.*

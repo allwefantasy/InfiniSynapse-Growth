@@ -1,5 +1,3 @@
-# Analyze Shopify Data with AI in 2026: Ecommerce Data Analysis Workflows
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for analyze-shopify-data-with-ai](images/hero-analyze-shopify-data-with-ai.png)

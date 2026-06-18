@@ -1,5 +1,3 @@
-# What Is a Data Agent? Definition, Architecture, and Examples
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We build InfiniSynapse, a Data Agent platform. This definitional guide reflects our production architecture and 18+ months of enterprise deployments.*
 
 ![What is a Data Agent: architecture diagram showing goal input, asset discovery, InfiniSQL execution, InfiniRAG knowledge layer, and auditable output](./images/hero-what-is-a-data-agent.png)

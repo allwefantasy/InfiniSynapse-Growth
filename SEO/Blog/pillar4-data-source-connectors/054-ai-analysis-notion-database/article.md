@@ -1,5 +1,3 @@
-# AI Database Agent for Data Visualization: Notion Database Guide (2026)
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for ai-analysis-notion-database](images/hero-ai-analysis-notion-database.png)

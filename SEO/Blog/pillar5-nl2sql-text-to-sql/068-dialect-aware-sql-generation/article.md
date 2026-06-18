@@ -1,5 +1,3 @@
-# AI-Assisted Query Generation SQL Python Social Science Data Analysis (2026)
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build InfiniSynapse, a production-grade SQL agent platform with audit trail and reusable workflow memory.*
 
 ![Dialect-Aware SQL Generation: Cross-Warehouse Engineering Guide hero](images/hero-dialect-aware-sql-generation.png)

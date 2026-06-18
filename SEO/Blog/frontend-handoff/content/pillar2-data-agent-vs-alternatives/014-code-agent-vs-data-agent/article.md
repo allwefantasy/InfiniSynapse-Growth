@@ -1,5 +1,3 @@
-# Code Interpreter Data Analysis: Code Agent vs Data Agent (2026)
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-12** · *We build InfiniSynapse, a Data Agent platform. This comparison reflects production deployments where teams moved from Code Interpreter-style sandboxes to governed agent stacks.*
 
 ![Code Agent vs Data Agent comparison for code interpreter data analysis: autonomy, audit, memory, and enterprise fit](images/hero-code-agent-vs-data-agent.png)

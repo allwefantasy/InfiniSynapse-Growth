@@ -1,5 +1,3 @@
-# AI Data Governance: Framework, Scorecard, and Checklist for Analytics Teams
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-12** · *We build InfiniSynapse, a Data Agent platform. This governance guide reflects eighteen months of enterprise rollouts where audit, security, and analytics teams negotiated the same controls.*
 
 ![AI data governance framework: five layers from access control through memory retention, mapped to NIST AI RMF functions](./images/hero-governance-for-ai-data-analysis.png)

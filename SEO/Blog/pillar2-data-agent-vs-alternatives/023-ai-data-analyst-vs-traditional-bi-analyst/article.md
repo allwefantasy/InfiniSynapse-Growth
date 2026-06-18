@@ -1,5 +1,3 @@
-# Business Intelligence vs Data Science: AI Analyst vs Traditional BI Analyst
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-12** · *We build InfiniSynapse, a Data Agent platform. This comparison reflects role interviews, customer org designs, and production deployments across retail, finance, and logistics analytics teams.*
 
 ![Business intelligence vs data science spectrum: traditional BI analyst, data science analyst, and AI data analyst roles mapped by question type and autonomy](./images/hero-ai-data-analyst-vs-traditional-bi-analyst.png)

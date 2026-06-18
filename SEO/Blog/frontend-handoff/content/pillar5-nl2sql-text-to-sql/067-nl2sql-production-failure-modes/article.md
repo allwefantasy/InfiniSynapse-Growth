@@ -1,5 +1,3 @@
-# Databricks Genie Natural Language to SQL: Failure Modes and Mitigation Playbook
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build InfiniSynapse, a production-grade SQL agent platform with audit trail and reusable workflow memory.*
 
 ![NL2SQL in Production: Failure Modes and Mitigation Playbook hero](images/hero-nl2sql-production-failure-modes.png)

@@ -1,5 +1,3 @@
-# ThoughtSpot vs Databricks Genie: Neutral AI Analytics Comparison (2026)
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We evaluated these tools in production analyst workflows. *This is a neutral product comparison based on analytics workflow fit, not vendor affiliation.*
 
 ![ThoughtSpot vs Databricks Genie neutral comparison matrix](images/hero-thoughtspot-vs-databricks-genie.png)

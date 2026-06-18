@@ -1,5 +1,3 @@
-# Generative AI Data Services for Fine Tuning: Practical Guide for High-Value Domains
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build InfiniSynapse, a production-grade SQL agent platform with audit trail and reusable workflow memory.*
 
 ![Text-to-SQL Fine-Tuning: Practical Guide for High-Value Domains hero](images/hero-text-to-sql-fine-tuning.png)

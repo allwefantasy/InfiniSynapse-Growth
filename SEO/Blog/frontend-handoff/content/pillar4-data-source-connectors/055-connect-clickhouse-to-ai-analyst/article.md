@@ -1,5 +1,3 @@
-# SQL for Data Analysis with ClickHouse: Connect to an AI Data Analyst (2026)
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for connect-clickhouse-to-ai-analyst](images/hero-connect-clickhouse-to-ai-analyst.png)

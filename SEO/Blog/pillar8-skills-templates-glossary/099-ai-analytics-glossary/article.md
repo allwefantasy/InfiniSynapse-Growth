@@ -1,5 +1,3 @@
-# Data Analysis Glossary (2026): 40+ Terms Every Data Team Should Know
-
 > **Byline:** InfiniSynapse Data Team  
 > **Last updated:** 2026-06-09  
 > *We build InfiniSynapse, an AI-native analytics platform. This data analysis glossary is maintained from hands-on implementation work with analyst teams, platform owners, and procurement stakeholders.*

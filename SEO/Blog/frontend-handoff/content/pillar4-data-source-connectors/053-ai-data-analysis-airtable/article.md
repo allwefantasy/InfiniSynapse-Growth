@@ -1,5 +1,3 @@
-# Airtable Data Analysis: Practical Workflow Guide (2026)
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for ai-data-analysis-airtable](images/hero-ai-data-analysis-airtable.png)

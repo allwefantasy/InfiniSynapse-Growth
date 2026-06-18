@@ -1,5 +1,3 @@
-# Text to SQL LLM: Reliable Design Patterns for Visualization (2026)
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build InfiniSynapse, a production-grade SQL agent platform with audit trail and reusable workflow memory.*
 
 ![Text-to-SQL LLM Systems: Reliable Design Patterns in 2026 hero](images/hero-text-to-sql-llm.png)

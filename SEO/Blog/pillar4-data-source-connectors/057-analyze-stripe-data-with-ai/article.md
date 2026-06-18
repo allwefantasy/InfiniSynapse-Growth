@@ -1,5 +1,3 @@
-# Analyze Stripe Data with AI in 2026: Financial Services Data Analysis Workflows
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for analyze-stripe-data-with-ai](images/hero-analyze-stripe-data-with-ai.png)

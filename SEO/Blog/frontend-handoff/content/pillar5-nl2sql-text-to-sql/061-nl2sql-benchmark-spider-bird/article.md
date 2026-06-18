@@ -1,5 +1,3 @@
-# NL2SQL Benchmark Spider BIRD: What Matters in Production (2026)
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build InfiniSynapse, a production-grade SQL agent platform with audit trail and reusable workflow memory.*
 
 ![Spider and BIRD Benchmarks for NL2SQL: What Matters in Production hero](images/hero-nl2sql-benchmark-spider-bird.png)

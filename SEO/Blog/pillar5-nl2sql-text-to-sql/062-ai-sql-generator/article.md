@@ -1,5 +1,3 @@
-# AI SQL Generator: Categories, Scorecard, and Buyer Guide (2026)
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build InfiniSynapse, a production-grade SQL agent platform with audit trail and reusable workflow memory.*
 
 ![AI SQL Generator Comparison: Copilot, BI Assistant, and SQL Agent hero](images/hero-ai-sql-generator.png)

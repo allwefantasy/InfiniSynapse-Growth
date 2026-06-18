@@ -1,5 +1,3 @@
-# Text to SQL Agent for Data Visualization: Which Model Wins in Production?
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build InfiniSynapse, a production-grade SQL agent platform with audit trail and reusable workflow memory.*
 
 ![SQL Agent vs Text-to-SQL: Which Model Wins in Production? hero](images/hero-sql-agent-vs-text-to-sql.png)

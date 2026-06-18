@@ -1,5 +1,3 @@
-# AI Excel Formula Generator: Reliable Templates and Workflows (2026)
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-09** · *We build and evaluate production data workflows for teams that start in spreadsheets and later scale to recurring AI-native analytics.*
 
 ![Hero image for ai excel formula generator workflow](images/hero-ai-excel-formula-generator.png)

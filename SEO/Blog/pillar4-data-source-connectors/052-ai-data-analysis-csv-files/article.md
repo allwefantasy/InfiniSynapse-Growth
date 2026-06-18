@@ -1,5 +1,3 @@
-# AI Data Analysis for CSV Files: Connector Playbook (2026)
-
 > **InfiniSynapse Data Team · Last updated: 2026-06-09 · We build InfiniSynapse connectors**
 
 ![Hero image for ai-data-analysis-csv-files](images/hero-ai-data-analysis-csv-files.png)

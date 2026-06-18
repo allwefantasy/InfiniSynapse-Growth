@@ -1,5 +1,3 @@
-# What Is a Data Agent: 15 Terms Every Analytics Team Should Know
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We maintain this glossary alongside the InfiniSynapse AI-native data platform; definitions align with production agent behavior, not generic AI marketing.*
 
 ![Glossary hub visual: 15 terms arranged around a central "data agent" node with links to autonomy, memory, transparency, InfiniSQL, and InfiniRAG](images/hero-data-agent-glossary.png)
