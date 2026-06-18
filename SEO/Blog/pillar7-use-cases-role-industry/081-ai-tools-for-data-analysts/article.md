@@ -4,7 +4,7 @@
 
 ![AI Tools for Data Analysts: Stack Guide and Evaluation Framework (2026)](images/hero-ai-tools-for-data-analysts.png)
 
-**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ai tools for data analysts in 2026.
+**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ai tools for data analysts in 2026. Includes worked examples and a FAQ.
 
 **Slug**: `/blog/ai-tools-for-data-analysts`
 

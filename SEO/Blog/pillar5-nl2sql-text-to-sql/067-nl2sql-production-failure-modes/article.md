@@ -4,7 +4,7 @@
 
 ![NL2SQL in Production: Failure Modes and Mitigation Playbook hero](images/hero-nl2sql-production-failure-modes.png)
 
-**Meta Description**: The four NL2SQL failure families — grounding, generation, execution, and audit — and how to mitigate each, with notes for a databricks genie natural language to sql rollout.
+**Meta Description**: Failure Modes and Mitigation Playbook. Practical guidance on databricks genie natural language to sql for data teams in 2026. Includes examples and a FAQ.
 
 **Slug**: `/blog/nl2sql-production-failure-modes`
 

@@ -4,7 +4,7 @@
 
 ![Hero image for ai alternative to pivot table workflow](images/hero-ai-alternative-to-pivot-table.png)
 
-**Meta Description**: An ai alternative to pivot table workflows in 2026: a practical playbook with governance controls, worked examples, and a monthly review cadence.
+**Meta Description**: An ai alternative to pivot table workflows in 2026: a practical playbook with governance controls, worked examples, and a monthly review cadence. See the FAQ.
 
 **Slug**: `/blog/ai-alternative-to-pivot-table`
 

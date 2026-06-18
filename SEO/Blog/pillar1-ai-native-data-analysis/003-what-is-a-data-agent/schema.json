@@ -3,7 +3,7 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "What Is a Data Agent? Definition, Architecture, and Examples",
-    "description": "What is a Data Agent? A citable definition, architecture layers, 5 pillars, real examples, and how it differs from copilots and Code Agents.",
+    "description": "What is a Data Agent? A citable definition, architecture layers, 5 pillars, real examples, and how it differs from copilots and Code Agents. See the FAQ.",
     "image": [
       "https://infinisynapse.cn/blog/pillar1-ai-native-data-analysis/003-what-is-a-data-agent/hero-what-is-a-data-agent.png"
     ],

@@ -4,7 +4,7 @@
 
 ![AI for Data Engineers: Pipelines, Quality, and Agentic Analytics (2026)](images/hero-ai-for-data-engineers.png)
 
-**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ai for data engineers in 2026.
+**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ai for data engineers in 2026. Includes worked examples and a FAQ.
 
 **Slug**: `/blog/ai-for-data-engineers`
 

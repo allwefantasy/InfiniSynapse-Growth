@@ -4,7 +4,7 @@
 
 ![Hero image for connect-snowflake-to-ai-analyst](images/hero-connect-snowflake-to-ai-analyst.png)
 
-**Meta Description**: Connect Snowflake to AI analyst workflows in 2026: setup checklist, role design, security controls, validation SQL, and an FAQ for analyst teams.
+**Meta Description**: Connect Snowflake to AI analyst workflows in 2026: setup checklist, role design, security controls, validation SQL, and an FAQ for analyst teams. Learn more.
 
 **Slug**: `/blog/connect-snowflake-to-ai-analyst`
 

@@ -4,7 +4,7 @@
 
 ![Hero image for excel monthly report automation with ai workflow](images/hero-excel-monthly-report-automation-ai.png)
 
-**Meta Description**: End-to-End Team Playbook — a practical 2026 playbook for data analysis report template excel with governance controls and worked examples.
+**Meta Description**: End-to-End Team Playbook — a practical 2026 playbook for data analysis report template excel with governance controls and worked examples. Includes a quick FAQ.
 
 **Slug**: `/blog/excel-monthly-report-automation-ai`
 

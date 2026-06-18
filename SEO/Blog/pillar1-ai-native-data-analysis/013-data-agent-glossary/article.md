@@ -4,7 +4,7 @@
 
 ![Glossary hub visual: 15 terms arranged around a central "data agent" node with links to autonomy, memory, transparency, InfiniSQL, and InfiniRAG](images/hero-data-agent-glossary.png)
 
-**Meta Description**: Practical reference on what is a data agent with workflow patterns and governance notes for 2026 teams.
+**Meta Description**: What is a data agent? A clear 15-term glossary for analytics teams in 2026, covering autonomy, memory distillation, transparency, InfiniSQL, and InfiniRAG.
 
 **Slug**: `/blog/data-agent-glossary`
 

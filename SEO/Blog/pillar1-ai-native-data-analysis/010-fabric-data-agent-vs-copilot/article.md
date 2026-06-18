@@ -4,7 +4,7 @@
 
 ![Side-by-side decision matrix: Microsoft Fabric Data Agent vs AI Copilot across autonomy, memory, audit, and stack lock-in dimensions](images/hero-fabric-data-agent-vs-copilot.png)
 
-**Meta Description**: Data agent vs ai copilot, compared inside Microsoft Fabric: autonomy, memory, governance, and a decision matrix for your stack. (150 chars)
+**Meta Description**: Data agent vs ai copilot, compared inside Microsoft Fabric: autonomy, memory, governance, and a decision matrix for your stack. Includes examples and a FAQ.
 
 **Slug**: `/blog/fabric-data-agent-vs-copilot`
 

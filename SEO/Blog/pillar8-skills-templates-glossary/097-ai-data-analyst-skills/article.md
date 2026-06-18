@@ -8,7 +8,7 @@ Last updated: 2026-06-09
 
 ![AI Data Analyst Skills: Competency Map for 2026 Hiring and Upskilling hero](images/hero-ai-data-analyst-skills.png)
 
-**Meta Description**: AI Data Analyst Skills in 2026: practical workflow patterns, governance controls, and FAQ for data teams.
+**Meta Description**: AI Data Analyst Skills in 2026: practical workflow patterns, governance controls, and FAQ for data teams. Includes worked examples, criteria, and steps.
 
 **Slug**: `/blog/ai-data-analyst-skills`
 

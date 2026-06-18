@@ -4,7 +4,7 @@
 
 ![AI Data Analysis for Marketing Teams: Campaign and Funnel Analytics (2026)](images/hero-ai-data-analysis-marketing.png)
 
-**Meta Description**: AI data analysis for marketing in 2026: pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for marketing teams.
+**Meta Description**: AI data analysis for marketing in 2026: pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for marketing teams. See the FAQ.
 
 **Slug**: `/blog/ai-data-analysis-marketing`
 

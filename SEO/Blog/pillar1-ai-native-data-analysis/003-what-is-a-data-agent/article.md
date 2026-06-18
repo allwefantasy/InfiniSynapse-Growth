@@ -4,7 +4,7 @@
 
 ![What is a Data Agent: architecture diagram showing goal input, asset discovery, InfiniSQL execution, InfiniRAG knowledge layer, and auditable output](./images/hero-what-is-a-data-agent.png)
 
-**Meta Description**: What is a Data Agent? A citable definition, architecture layers, 5 pillars, real examples, and how it differs from copilots and Code Agents. (148 chars)
+**Meta Description**: What is a Data Agent? A citable definition, architecture layers, 5 pillars, real examples, and how it differs from copilots and Code Agents. See the FAQ.
 
 **Slug**: `/blog/what-is-a-data-agent`
 

@@ -4,7 +4,7 @@
 
 ![Hero image for connect-mysql-to-ai-data-analyst](images/hero-connect-mysql-to-ai-data-analyst.png)
 
-**Meta Description**: Connect MySQL to AI data analyst workflows in 2026: setup checklist, security controls, validation SQL, memory cards, and an FAQ for analyst teams.
+**Meta Description**: Connect MySQL to AI data analyst workflows in 2026: setup checklist, security controls, validation SQL, memory cards, and an FAQ for analyst teams. Learn more.
 
 **Slug**: `/blog/connect-mysql-to-ai-data-analyst`
 

@@ -3,7 +3,7 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Data Agent Architecture: Layers, Memory, and Production Design (2026)",
-    "description": "Data agent architecture for production: four layers, model routing, memory design, security controls, a scorecard, and a 30-day validation playbook.",
+    "description": "Data agent architecture for production: four layers, model routing, memory design, security controls, a scorecard, and a 30-day validation playbook. Learn more.",
     "image": [
       "https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/015-data-agent-architecture/images/hero-data-agent-architecture.png"
     ],

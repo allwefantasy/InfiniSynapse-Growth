@@ -4,7 +4,7 @@
 
 ![Hero image for connect-databricks-to-ai-analyst](images/hero-connect-databricks-to-ai-analyst.png)
 
-**Meta Description**: Learn databricks data analytics platform by connecting Databricks to an AI data analyst — setup checklist, security controls, validation SQL, and FAQ for 2026 teams.
+**Meta Description**: Learn databricks data analytics platform by connecting Databricks to an AI data analyst — setup checklist, security controls, validation SQL, and FAQ for 2026.
 
 **Slug**: `/blog/connect-databricks-to-ai-analyst`
 

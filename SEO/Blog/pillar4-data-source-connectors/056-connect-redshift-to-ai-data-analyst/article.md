@@ -4,7 +4,7 @@
 
 ![Hero image for connect-redshift-to-ai-data-analyst](images/hero-connect-redshift-to-ai-data-analyst.png)
 
-**Meta Description**: Connect Amazon Redshift to an AI data analyst in 2026. Covers data integration platforms supporting snowflake bigquery redshift with IAM setup, validation SQL, and FAQ.
+**Meta Description**: Connect Amazon Redshift to an AI data analyst in 2026. Covers data integration platforms supporting snowflake bigquery redshift with IAM setup, validation SQL.
 
 **Slug**: `/blog/connect-redshift-to-ai-data-analyst`
 

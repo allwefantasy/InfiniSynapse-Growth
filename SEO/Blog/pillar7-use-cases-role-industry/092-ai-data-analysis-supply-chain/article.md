@@ -4,7 +4,7 @@
 
 ![AI Data Analysis for Supply Chain: Inventory, Lead Time, and Risk KPIs](images/hero-ai-data-analysis-supply-chain.png)
 
-**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for data science in supply chain in 2026.
+**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for data science in supply chain in 2026. Includes examples and a FAQ.
 
 **Slug**: `/blog/ai-data-analysis-supply-chain`
 

@@ -4,7 +4,7 @@
 
 ![Hero image for ai excel chart generator workflow](images/hero-ai-excel-chart-generator.png)
 
-**Meta Description**: Produce Decision-Ready Visuals Without Rework — a practical 2026 playbook for ai data chart generator with governance controls and worked examples.
+**Meta Description**: Produce Decision-Ready Visuals Without Rework — a practical 2026 playbook for ai data chart generator with governance controls and worked examples. See the FAQ.
 
 **Slug**: `/blog/ai-excel-chart-generator`
 

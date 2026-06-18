@@ -4,7 +4,7 @@
 
 ![Hero image for ai data wrangling tools workflow](images/hero-ai-data-wrangling-tools.png)
 
-**Meta Description**: Data Wrangling Platform in 2026: practical workflow patterns, governance controls, and FAQ for data teams.
+**Meta Description**: Data Wrangling Platform in 2026: practical workflow patterns, governance controls, and FAQ for data teams. Includes worked examples, criteria, and steps.
 
 **Slug**: `/blog/ai-data-wrangling-tools`
 

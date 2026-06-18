@@ -4,7 +4,7 @@
 
 ![Comparison table visual: Gartner augmented analytics umbrella on the left, AI-native five pillars highlighted as a strict subset on the right](images/hero-ai-native-vs-augmented.png)
 
-**Meta Description**: AI-native vs augmented analytics explained: how an ai-native data platform differs from Gartner's augmented analytics frame, with a 5-pillar comparison and 3-question 2026 stack test.
+**Meta Description**: AI-native vs augmented analytics explained: how an ai-native data platform differs from Gartner's augmented analytics frame, with a 5-pillar comparison.
 
 **Slug**: `/blog/ai-native-vs-augmented-analytics`
 

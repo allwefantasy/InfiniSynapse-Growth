@@ -4,7 +4,7 @@
 
 ![Hero image for ai-analysis-notion-database](images/hero-ai-analysis-notion-database.png)
 
-**Meta Description**: Learn ai database agent for data visualization on Notion databases with InfiniSynapse — connector setup, governance controls, validation SQL, and FAQ for 2026 teams.
+**Meta Description**: Learn ai database agent for data visualization on Notion databases with InfiniSynapse — connector setup, governance controls, validation SQL, and FAQ for 2026.
 
 **Slug**: `/blog/ai-analysis-notion-database`
 

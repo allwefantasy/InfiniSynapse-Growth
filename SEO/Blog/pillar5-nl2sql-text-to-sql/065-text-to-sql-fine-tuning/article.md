@@ -4,7 +4,7 @@
 
 ![Text-to-SQL Fine-Tuning: Practical Guide for High-Value Domains hero](images/hero-text-to-sql-fine-tuning.png)
 
-**Meta Description**: When generative ai data services for fine tuning actually help text-to-SQL — versus grounding and RAG — plus how to operate and validate a fine-tuned SQL model in production.
+**Meta Description**: Practical Guide for High-Value Domains. Practical guidance on generative ai data services for fine tuning for data teams in 2026. Includes examples and a FAQ.
 
 **Slug**: `/blog/text-to-sql-fine-tuning`
 

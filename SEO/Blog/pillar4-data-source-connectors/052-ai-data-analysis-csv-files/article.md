@@ -4,7 +4,7 @@
 
 ![Hero image for ai-data-analysis-csv-files](images/hero-ai-data-analysis-csv-files.png)
 
-**Meta Description**: AI data analysis for CSV files in 2026: connector setup, governance controls, validation SQL, memory cards, and an FAQ for analyst teams.
+**Meta Description**: AI data analysis for CSV files in 2026: connector setup, governance controls, validation SQL, memory cards, and an FAQ for analyst teams. See real examples.
 
 **Slug**: `/blog/ai-data-analysis-csv-files`
 

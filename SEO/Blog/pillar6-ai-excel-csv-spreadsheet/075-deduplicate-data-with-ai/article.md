@@ -4,7 +4,7 @@
 
 ![Hero image for deduplicate data with ai workflow](images/hero-deduplicate-data-with-ai.png)
 
-**Meta Description**: CRM-grade deduplication workflow for ai-powered crm data cleaning deduplication platforms with quality controls that scale in 2026.
+**Meta Description**: CRM-grade deduplication workflow for ai-powered crm data cleaning deduplication platforms with quality controls that scale in 2026. Includes examples and a FAQ.
 
 **Slug**: `/blog/deduplicate-data-with-ai`
 

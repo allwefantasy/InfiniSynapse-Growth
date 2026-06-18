@@ -4,7 +4,7 @@
 
 ![Code Agent vs Data Agent comparison for code interpreter data analysis: autonomy, audit, memory, and enterprise fit](images/hero-code-agent-vs-data-agent.png)
 
-**Meta Description**: Code interpreter data analysis in 2026: compare Code Agent vs Data Agent on governance, repeatability, audit trails, and production rollout fit for analyst teams.
+**Meta Description**: Code interpreter data analysis in 2026: compare Code Agent vs Data Agent on governance, repeatability, audit trails, and production rollout fit for analyst.
 
 **Slug**: `/blog/code-agent-vs-data-agent`
 

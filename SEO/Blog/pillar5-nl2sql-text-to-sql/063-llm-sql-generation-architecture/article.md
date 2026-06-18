@@ -4,7 +4,7 @@
 
 ![LLM SQL Generation Architecture: Planner, Retriever, Executor, Auditor hero](images/hero-llm-sql-generation-architecture.png)
 
-**Meta Description**: Planner, retriever, executor, and auditor layers for ai-assisted query generation sql python social science data analysis in production SQL agents.
+**Meta Description**: Planner, retriever, executor, and auditor layers for ai-assisted query generation sql python social science data analysis in production SQL agents. See the FAQ.
 
 **Slug**: `/blog/llm-sql-generation-architecture`
 

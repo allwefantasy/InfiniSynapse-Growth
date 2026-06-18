@@ -4,7 +4,7 @@
 
 ![Databricks Assistant vs Genie vs Data Agent comparison matrix for lakehouse analytics buyers in 2026](./images/hero-databricks-genie-vs-data-agent.png)
 
-**Meta Description**: Lakehouse buyer guide for databricks assistant vs genie: compare Assistant, Genie, and Data Agents on governance, memory, and rollout fit in 2026.
+**Meta Description**: Lakehouse buyer guide for databricks assistant vs genie: compare Assistant, Genie, and Data Agents on governance, memory, and rollout fit in 2026. See the FAQ.
 
 **Slug**: `/blog/databricks-genie-vs-data-agent`
 

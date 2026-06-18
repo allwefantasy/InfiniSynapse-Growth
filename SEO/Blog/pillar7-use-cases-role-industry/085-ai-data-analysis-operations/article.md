@@ -4,7 +4,7 @@
 
 ![AI Data Analysis for Operations Teams: KPIs, Alerts, and Execution (2026)](images/hero-ai-data-analysis-operations.png)
 
-**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ai in data center operations in 2026.
+**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ai in data center operations in 2026. Includes examples and a FAQ.
 
 **Slug**: `/blog/ai-data-analysis-operations`
 

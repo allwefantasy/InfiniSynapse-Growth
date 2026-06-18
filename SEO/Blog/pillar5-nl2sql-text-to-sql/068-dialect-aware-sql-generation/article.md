@@ -4,7 +4,7 @@
 
 ![Dialect-Aware SQL Generation: Cross-Warehouse Engineering Guide hero](images/hero-dialect-aware-sql-generation.png)
 
-**Meta Description**: Cross-warehouse SQL generation patterns for ai-assisted query generation sql python social science data analysis with dialect-aware validation.
+**Meta Description**: Cross-warehouse SQL generation patterns for ai-assisted query generation sql python social science data analysis with dialect-aware validation. See the FAQ.
 
 **Slug**: `/blog/dialect-aware-sql-generation`
 

@@ -4,7 +4,7 @@
 
 ![Hero image for ai vlookup replacement workflow](images/hero-ai-vlookup-replacement.png)
 
-**Meta Description**: An ai vlookup replacement for 2026: modern join and lookup workflows with governance controls, worked examples, and a monthly review cadence.
+**Meta Description**: An ai vlookup replacement for 2026: modern join and lookup workflows with governance controls, worked examples, and a monthly review cadence. See the FAQ.
 
 **Slug**: `/blog/ai-vlookup-replacement`
 
