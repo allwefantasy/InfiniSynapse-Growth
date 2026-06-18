@@ -70,9 +70,10 @@ def main() -> None:
         if 'rel="canonical"' not in html:
             issues["canonical"].append(aid)
 
-        # 2. H1
+        # 2. H1 — body must have 0 (page H1 is rendered by template from the title);
+        #    any H1 in body would create a duplicate alongside the template H1.
         h1n = count_h1(md)
-        if h1n != 1:
+        if h1n != 0:
             issues["multi_h1"].append(f"{aid}({h1n})")
 
         # 3. meta desc length (use html meta description as source of truth)
@@ -92,7 +93,7 @@ def main() -> None:
     print(f"1. Missing canonical:        {len(issues['canonical'])}")
     if issues["canonical"]:
         print(f"   {', '.join(issues['canonical'])}")
-    print(f"2. H1 count != 1 (in body):  {len(issues['multi_h1'])}")
+    print(f"2. H1 in body (must be 0):   {len(issues['multi_h1'])}")
     if issues["multi_h1"]:
         print(f"   {', '.join(issues['multi_h1'])}")
     print(f"3. Meta desc NOT 150-160:    {len(issues['desc_len'])}")

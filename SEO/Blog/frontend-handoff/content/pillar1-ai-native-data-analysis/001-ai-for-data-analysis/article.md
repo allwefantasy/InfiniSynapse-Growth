@@ -1,5 +1,3 @@
-# AI for Data Analysis: The Complete 2026 Guide
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We build InfiniSynapse, the AI-native Data Agent platform referenced throughout this guide; the methods and case numbers below come from our own production workloads, not third-party benchmarks.*
 
 ![AI for data analysis in 2026: a workflow map from question to insight, split between AI-enabled copilots and AI-native agents](./images/hero-ai-for-data-analysis.png)

@@ -12,7 +12,7 @@ BLOG = Path(__file__).parent
 OUT = BLOG / "frontend-handoff"
 CONTENT = OUT / "content"
 
-DEPLOY_FILES = ("article.md", "meta-tags.html", "schema.json")
+DEPLOY_FILES = ("article.md", "meta-tags.html", "schema.json", "head.html")
 PREVIEW_FILE = "preview.html"
 IMAGE_GLOBS = ("*.png", "*.jpg", "*.jpeg", "*.webp", "*.gif", "*.svg")
 
@@ -205,7 +205,12 @@ def main() -> None:
     # Docs & index data
     shutil.copy2(BLOG / "FRONTEND-DEPLOY-GUIDE.md", OUT / "FRONTEND-DEPLOY-GUIDE.md")
     shutil.copy2(BLOG / "blog-cms-import-100.csv", OUT / "blog-cms-import-100.csv")
-    for extra in ("QUICKCREATOR-SEO-FIX.md", "quickcreator-seo-fields.csv"):
+    for extra in (
+        "PROGRAMMER-SEO-DEPLOY.md",
+        "seo-meta.json",
+        "QUICKCREATOR-SEO-FIX.md",
+        "quickcreator-seo-fields.csv",
+    ):
         src = BLOG / extra
         if src.is_file():
             shutil.copy2(src, OUT / extra)

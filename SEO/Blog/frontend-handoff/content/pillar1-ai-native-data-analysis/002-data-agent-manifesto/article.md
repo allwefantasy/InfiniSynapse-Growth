@@ -1,5 +1,3 @@
-# The Data Agent Manifesto: Why the First Ship Launches Here
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We build InfiniSynapse, the Data Agent platform described in this manifesto. The architectural claims below are grounded in 18+ months of production deployments — not a vendor whitepaper.*
 
 ![The Data Agent Manifesto: Code Agent is shipyard technology; Data Agent is the first ship that launches](images/hero-data-agent-manifesto.png)
