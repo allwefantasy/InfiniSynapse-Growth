@@ -1,5 +1,3 @@
-# Ai-Native Data Platform: What's the Real Difference?
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We build an AI-native data platform; this article maps Gartner's augmented-analytics frame to the five-pillar AI-native definition we ship in production.*
 
 ![Comparison table visual: Gartner augmented analytics umbrella on the left, AI-native five pillars highlighted as a strict subset on the right](images/hero-ai-native-vs-augmented.png)

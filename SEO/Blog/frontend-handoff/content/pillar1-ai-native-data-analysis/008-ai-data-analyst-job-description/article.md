@@ -1,5 +1,3 @@
-# AI Data Analyst Job Description: 2026 Template + Skills Matrix
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We work with data teams hiring for agentic analytics workflows; this template reflects JD language that screened well in 2025–2026 pilots.*
 
 ![Job description template layout: responsibilities column, required skills matrix, and human-vs-agent division of labor for AI data analyst hiring](images/hero-ai-data-analyst-jd-template.png)

@@ -1,5 +1,3 @@
-# AI Data Analyst: Role, Tools, and Workflow in 2026
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-08** · *We build Data Agent tooling that AI data analysts use daily; this guide reflects how our customer teams reorganized workflows in 2025–2026.*
 
 ![Split workflow diagram: human AI data analyst owns goals, validation, and stakeholder communication on the left; autonomous Data Agent owns execution, SQL, and memory on the right](images/hero-ai-data-analyst-workflow.png)
