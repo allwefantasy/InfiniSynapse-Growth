@@ -4,7 +4,7 @@
 
 ![AI Data Analysis for Finance Teams: Integration and Controls (2026)](images/hero-ai-data-analysis-finance-teams.png)
 
-**Meta Description**: AI data analysis for finance teams in 2026: pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for finance teams.
+**Meta Description**: AI data analysis for finance teams in 2026: pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for finance teams. See the FAQ.
 
 **Slug**: `/blog/ai-data-analysis-finance-teams`
 

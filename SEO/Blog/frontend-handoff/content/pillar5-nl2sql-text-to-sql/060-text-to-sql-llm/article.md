@@ -4,7 +4,7 @@
 
 ![Text-to-SQL LLM Systems: Reliable Design Patterns in 2026 hero](images/hero-text-to-sql-llm.png)
 
-**Meta Description**: Text to SQL LLM design patterns for 2026: grounding, guarded execution, audit trails, a production scorecard, and a 90-day rollout for analyst teams.
+**Meta Description**: Text to SQL LLM design patterns for 2026: grounding, guarded execution, audit trails, a production scorecard, and a 90-day rollout for analyst teams. Read on.
 
 **Slug**: `/blog/text-to-sql-llm`
 

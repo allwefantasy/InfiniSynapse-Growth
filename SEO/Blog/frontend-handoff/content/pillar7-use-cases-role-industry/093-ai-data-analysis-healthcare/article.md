@@ -4,7 +4,7 @@
 
 ![AI Data Analysis in Healthcare: Use Cases, Governance, and Workflow Fit](images/hero-ai-data-analysis-healthcare.png)
 
-**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ai data analysis healthcare in 2026.
+**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ai data analysis healthcare in 2026. Includes worked examples and a FAQ.
 
 **Slug**: `/blog/ai-data-analysis-healthcare`
 

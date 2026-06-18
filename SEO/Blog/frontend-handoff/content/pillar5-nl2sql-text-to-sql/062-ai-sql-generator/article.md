@@ -4,7 +4,7 @@
 
 ![AI SQL Generator Comparison: Copilot, BI Assistant, and SQL Agent hero](images/hero-ai-sql-generator.png)
 
-**Meta Description**: Compare ai sql generator categories with a scorecard for autonomy, correctness, and governance — a buyer guide for analyst and data teams in 2026.
+**Meta Description**: Compare ai sql generator categories with a scorecard for autonomy, correctness, and governance — a buyer guide for analyst and data teams in 2026. See the FAQ.
 
 **Slug**: `/blog/ai-sql-generator`
 

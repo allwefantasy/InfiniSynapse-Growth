@@ -4,7 +4,7 @@
 
 ![Data agent LLM architecture: orchestration, federated query, knowledge retrieval, audit timeline, and memory distillation layers](images/hero-data-agent-architecture.png)
 
-**Meta Description**: Data agent architecture for production: four layers, model routing, memory design, security controls, a scorecard, and a 30-day validation playbook.
+**Meta Description**: Data agent architecture for production: four layers, model routing, memory design, security controls, a scorecard, and a 30-day validation playbook. Learn more.
 
 **Slug**: `/blog/data-agent-architecture`
 

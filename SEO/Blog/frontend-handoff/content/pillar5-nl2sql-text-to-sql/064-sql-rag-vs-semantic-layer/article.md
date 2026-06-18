@@ -4,7 +4,7 @@
 
 ![RAG vs Semantic Layer for SQL Agents: Strategy Guide hero](images/hero-sql-rag-vs-semantic-layer.png)
 
-**Meta Description**: When to use SQL RAG vs a semantic layer — and why mature ai-powered semantic layers for enterprise data strategy combine governed definitions with retrieval for reliable AI SQL.
+**Meta Description**: Strategy Guide. Practical guidance on ai-powered semantic layers for enterprise data strategy for data teams in 2026. Includes worked examples and a FAQ.
 
 **Slug**: `/blog/sql-rag-vs-semantic-layer`
 

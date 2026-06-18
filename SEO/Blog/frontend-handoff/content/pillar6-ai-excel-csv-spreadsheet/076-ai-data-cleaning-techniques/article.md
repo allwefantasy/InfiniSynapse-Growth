@@ -6,7 +6,7 @@ Teams standardizing governance across sources often keep [AI to Clean Excel Data
 
 ![Hero image for ai data cleaning techniques workflow](images/hero-ai-data-cleaning-techniques.png)
 
-**Meta Description**: AI Data Cleaning Techniques in 2026: practical workflow patterns, governance controls, and FAQ for data teams.
+**Meta Description**: AI Data Cleaning Techniques in 2026: practical workflow patterns, governance controls, and FAQ for data teams. Includes worked examples, criteria, and steps.
 
 **Slug**: `/blog/ai-data-cleaning-techniques`
 

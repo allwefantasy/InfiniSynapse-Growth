@@ -8,7 +8,7 @@ Last updated: 2026-06-09
 
 ![AI Analytics Glossary: 40+ Terms Every Data Team Should Know (2026) hero](images/hero-ai-analytics-glossary.png)
 
-**Meta Description**: Data Analysis Glossary in 2026: practical workflow patterns, governance controls, and FAQ for data teams.
+**Meta Description**: Data Analysis Glossary in 2026: practical workflow patterns, governance controls, and FAQ for data teams. Includes worked examples, criteria, and steps.
 
 **Slug**: `/blog/ai-analytics-glossary`
 

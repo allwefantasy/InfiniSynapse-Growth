@@ -4,7 +4,7 @@
 
 ![Split workflow diagram: human AI data analyst owns goals, validation, and stakeholder communication on the left; autonomous Data Agent owns execution, SQL, and memory on the right](images/hero-ai-data-analyst-workflow.png)
 
-**Meta Description**: AI data analyst role in 2026: evolved responsibilities, essential tools, human+AI division of labor, and a weekly workflow template for data teams.
+**Meta Description**: AI data analyst role in 2026: evolved responsibilities, essential tools, human+AI division of labor, and a weekly workflow template for data teams. See the FAQ.
 
 **Slug**: `/blog/ai-data-analyst`
 

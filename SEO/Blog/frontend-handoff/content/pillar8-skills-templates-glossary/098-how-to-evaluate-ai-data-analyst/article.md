@@ -8,7 +8,7 @@ Last updated: 2026-06-09
 
 ![How to Evaluate an AI Data Analyst Tool: Buyer Scorecard for 2026 hero](images/hero-how-to-evaluate-ai-data-analyst.png)
 
-**Meta Description**: How to evaluate AI data analyst tools in 2026: a 100-point buyer scorecard, pilot protocol, and governance due-diligence checklist for teams.
+**Meta Description**: How to evaluate AI data analyst tools in 2026: a 100-point buyer scorecard, pilot protocol, and governance due-diligence checklist for teams. See the FAQ.
 
 **Slug**: `/blog/how-to-evaluate-ai-data-analyst`
 

@@ -4,7 +4,7 @@
 
 ![Workflow diagram: five stages of AI data analysis from question framing through distillation and governance](images/hero-ai-data-analysis-workflow.png)
 
-**Meta Description**: AI data analysis in 2026: methods, tools, workflow stages, and best practices. From descriptive stats to AI-native agents — a practitioner's guide. (157 chars) Analy
+**Meta Description**: AI data analysis in 2026: methods, tools, workflow stages, and best practices. From descriptive stats to AI-native agents — a practitioner's guide. (157 chars).
 
 Analysts wiring Native into production reviews can follow the parallel walkthrough in [What Is an AI-Native Data Platform? (2026 Buyer's…](/blog/ai-native-data-platform).
 

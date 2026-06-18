@@ -4,7 +4,7 @@
 
 ![ThoughtSpot vs Databricks Genie neutral comparison matrix](images/hero-thoughtspot-vs-databricks-genie.png)
 
-**Meta Description**: ThoughtSpot vs Databricks Genie compared for 2026 analytics teams: semantic search UX, lakehouse fit, governance, and rollout tradeoffs. (149 chars)
+**Meta Description**: ThoughtSpot vs Databricks Genie compared for 2026 analytics teams: semantic search UX, lakehouse fit, governance, and rollout tradeoffs. Includes a quick FAQ.
 
 **Slug**: `/blog/thoughtspot-vs-databricks-genie`
 

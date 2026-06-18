@@ -205,6 +205,10 @@ def main() -> None:
     # Docs & index data
     shutil.copy2(BLOG / "FRONTEND-DEPLOY-GUIDE.md", OUT / "FRONTEND-DEPLOY-GUIDE.md")
     shutil.copy2(BLOG / "blog-cms-import-100.csv", OUT / "blog-cms-import-100.csv")
+    for extra in ("QUICKCREATOR-SEO-FIX.md", "quickcreator-seo-fields.csv"):
+        src = BLOG / extra
+        if src.is_file():
+            shutil.copy2(src, OUT / extra)
 
     # Load master index and rewrite paths
     master_src = json.loads((BLOG / "blog-index-import-master.json").read_text(encoding="utf-8"))

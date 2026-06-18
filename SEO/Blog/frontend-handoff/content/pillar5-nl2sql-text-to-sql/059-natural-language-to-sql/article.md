@@ -4,7 +4,7 @@
 
 ![Natural Language to SQL Guide: Production Playbook for 2026 hero](images/hero-natural-language-to-sql.png)
 
-**Meta Description**: Production Playbook. Practical guidance on integrate natural language data analysis with sql and python for data teams in 2026.
+**Meta Description**: Production Playbook. Practical guidance on integrate natural language data analysis with sql and python for data teams in 2026. Includes examples and a FAQ.
 
 **Slug**: `/blog/natural-language-to-sql`
 

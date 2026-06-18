@@ -4,7 +4,7 @@
 
 ![AI Data Analysis for Ecommerce: Revenue, Cohort, and Merchandising KPIs](images/hero-ai-data-analysis-ecommerce.png)
 
-**Meta Description**: AI data analysis for ecommerce in 2026: pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ecommerce teams.
+**Meta Description**: AI data analysis for ecommerce in 2026: pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for ecommerce teams. See the FAQ.
 
 **Slug**: `/blog/ai-data-analysis-ecommerce`
 

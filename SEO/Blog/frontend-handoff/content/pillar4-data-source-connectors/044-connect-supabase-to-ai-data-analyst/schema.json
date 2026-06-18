@@ -3,7 +3,7 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "SQL for Data Analysis: Supabase to an AI Data Analyst in 2026",
-    "description": "Sql for Data Analysis guide with setup checklist, security controls, example SQL, and FAQ for 2026 teams.",
+    "description": "Sql for Data Analysis guide with setup checklist, security controls, example SQL, and FAQ for 2026 teams. Includes worked examples, criteria, and steps.",
     "image": [
       "https://infinisynapse.cn/blog/assets/pillar4/connect-supabase-to-ai-data-analyst/hero.png"
     ],

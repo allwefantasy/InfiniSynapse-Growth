@@ -4,7 +4,7 @@
 
 ![The Data Agent Manifesto: Code Agent is shipyard technology; Data Agent is the first ship that launches](images/hero-data-agent-manifesto.png)
 
-**Meta Description**: This data agent manifesto argues the AI era's first ship is an auditable Data Agent — defensible decisions, not just running code. Grounded in InfiniSynapse.
+**Meta Description**: This data agent manifesto argues the AI era's first ship is an auditable Data Agent — defensible decisions, not just running code. Includes examples and a FAQ.
 
 **Slug**: `/blog/data-agent-manifesto`
 

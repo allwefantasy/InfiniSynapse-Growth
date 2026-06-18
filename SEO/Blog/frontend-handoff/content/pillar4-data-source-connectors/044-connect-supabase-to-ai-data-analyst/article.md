@@ -4,7 +4,7 @@
 
 ![Hero image for connect-supabase-to-ai-data-analyst](images/hero-connect-supabase-to-ai-data-analyst.png)
 
-**Meta Description**: Sql for Data Analysis guide with setup checklist, security controls, example SQL, and FAQ for 2026 teams.
+**Meta Description**: Sql for Data Analysis guide with setup checklist, security controls, example SQL, and FAQ for 2026 teams. Includes worked examples, criteria, and steps.
 
 **Slug**: `/blog/connect-supabase-to-ai-data-analyst`
 

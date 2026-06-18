@@ -4,7 +4,7 @@
 
 ![Job description template layout: responsibilities column, required skills matrix, and human-vs-agent division of labor for AI data analyst hiring](images/hero-ai-data-analyst-jd-template.png)
 
-**Meta Description**: Copy-ready AI data analyst job description for 2026: responsibilities, skills matrix, qualifications, and sample JD for HR and hiring managers. (148 chars)
+**Meta Description**: Copy-ready AI data analyst job description for 2026: responsibilities, skills matrix, qualifications, and sample JD for HR and hiring managers. See the FAQ.
 
 **Slug**: `/blog/ai-data-analyst-job-description`
 

@@ -4,7 +4,7 @@
 
 ![Hero image for ai-data-analysis-google-sheets](images/hero-ai-data-analysis-google-sheets.png)
 
-**Meta Description**: AI data analysis for Google Sheets in 2026: connector setup, governance controls, validation SQL, memory cards, and an FAQ for analyst teams.
+**Meta Description**: AI data analysis for Google Sheets in 2026: connector setup, governance controls, validation SQL, memory cards, and an FAQ for analyst teams. See real examples.
 
 **Slug**: `/blog/ai-data-analysis-google-sheets`
 

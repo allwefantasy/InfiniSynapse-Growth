@@ -19,11 +19,14 @@
     "faq-hub": 1
   },
   "filter_category_counts": {
-    "tools_reviews": 9,
+    "tools_reviews": 8,
     "deep_dive": 3,
-    "comparisons": 23,
-    "knowledge": 45,
-    "tutorials": 20
+    "comparisons": 21,
+    "knowledge": 17,
+    "connectors": 15,
+    "nl2sql": 10,
+    "excel_csv": 12,
+    "use_cases": 14
   },
   "articles": [
     {

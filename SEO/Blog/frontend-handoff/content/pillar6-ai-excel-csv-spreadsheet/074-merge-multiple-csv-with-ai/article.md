@@ -4,7 +4,7 @@
 
 ![Hero image for merge multiple csv files with ai workflow](images/hero-merge-multiple-csv-with-ai.png)
 
-**Meta Description**: Repeatable Pipeline for Monthly Report — a practical 2026 playbook for csv files for data analysis with governance controls and worked examples.
+**Meta Description**: Repeatable Pipeline for Monthly Report — a practical 2026 playbook for csv files for data analysis with governance controls and worked examples. See the FAQ.
 
 **Slug**: `/blog/merge-multiple-csv-with-ai`
 

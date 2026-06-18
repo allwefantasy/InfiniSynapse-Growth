@@ -4,7 +4,7 @@
 
 ![Hero image for connect-mongodb-to-ai-data-analyst](images/hero-connect-mongodb-to-ai-data-analyst.png)
 
-**Meta Description**: Learn ai database agent for data visualization by connecting MongoDB to an AI data analyst — setup checklist, security controls, validation SQL, and FAQ for 2026.
+**Meta Description**: Learn ai database agent for data visualization by connecting MongoDB to an AI data analyst — setup checklist, security controls, validation SQL, and FAQ.
 
 **Slug**: `/blog/connect-mongodb-to-ai-data-analyst`
 

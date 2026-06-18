@@ -4,7 +4,7 @@
 
 ![Hero image for analyze-shopify-data-with-ai](images/hero-analyze-shopify-data-with-ai.png)
 
-**Meta Description**: Run ecommerce data analysis workflows with Shopify using InfiniSynapse connectors, memory, and SQL trace for defensible decisions in 2026.
+**Meta Description**: Run ecommerce data analysis workflows with Shopify using InfiniSynapse connectors, memory, and SQL trace for defensible decisions in 2026. Includes a quick FAQ.
 
 **Slug**: `/blog/analyze-shopify-data-with-ai`
 

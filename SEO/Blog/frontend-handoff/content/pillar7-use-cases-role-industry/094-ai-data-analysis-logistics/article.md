@@ -4,7 +4,7 @@
 
 ![AI Data Analysis in Logistics: Route, Cost, and SLA Decision Support](images/hero-ai-data-analysis-logistics.png)
 
-**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for data analysis in logistics in 2026.
+**Meta Description**: Pain points, KPI scorecard, workflow playbook, tool fit, and a 30-day rollout guide for data analysis in logistics in 2026. Includes worked examples and a FAQ.
 
 **Slug**: `/blog/ai-data-analysis-logistics`
 

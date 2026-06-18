@@ -10,7 +10,7 @@ Last updated: 2026-06-09
 
 ![AI Data Analysis Prompts: 30+ Templates for Analysts (2026) hero](images/hero-ai-data-analysis-prompts.png)
 
-**Meta Description**: 30+ reusable ai data analysis prompts organized by analysis task, with governance notes and a 30-day rollout for analyst teams in 2026.
+**Meta Description**: 30+ reusable ai data analysis prompts organized by analysis task, with governance notes and a 30-day rollout for analyst teams in 2026. Includes a quick FAQ.
 
 **Slug**: `/blog/ai-data-analysis-prompts`
 

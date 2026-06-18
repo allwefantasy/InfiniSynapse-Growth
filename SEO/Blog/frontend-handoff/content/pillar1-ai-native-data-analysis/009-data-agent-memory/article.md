@@ -4,7 +4,7 @@
 
 ![Diagram contrasting chat history archival on the left with structured memory distillation on the right — locked metric definitions, schema references, and recall-by-name on the next run](images/hero-distillation-vs-chat-history.png)
 
-**Meta Description**: Data agent memory explained: why distillation beats chat history for analytics. April baseline case study, 12-month compounding math, and a 5-point evaluation checkl
+**Meta Description**: Data agent memory explained: why distillation beats chat history for analytics. April baseline case study, 12-month compounding math, and a 5-point evaluation.
 
 **Slug**: `/blog/data-agent-memory`
 
