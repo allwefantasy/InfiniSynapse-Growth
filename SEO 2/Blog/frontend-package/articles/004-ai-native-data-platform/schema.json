@@ -1,0 +1,123 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is an AI-Native Data Platform? (2026 Buyer's Guide)",
+    "description": "What is an AI-native data platform? 2026 buyer's guide: 5 pillars, architecture layers, evaluation checklist, and InfiniSynapse as reference implementation.",
+    "image": [
+      "https://infinisynapse.com/en/blog/pillar1-ai-native-data-analysis/004-ai-native-data-platform/hero-ai-native-data-platform.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.com/en/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.com/en/blog/ai-native-data-platform"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "AI-native data platform"
+      },
+      {
+        "@type": "Thing",
+        "name": "AI-native data analysis"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data Agent platform"
+      }
+    ],
+    "keywords": "ai-native data platform, ai-native data analysis, data agent platform, agentic analytics, buyer's guide"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an analytics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An **ai-native data platform** is software designed from the ground up for autonomous Data Agents — connecting to enterprise sources, running goal-driven multi-step analysis with audit trails, distilling reusable memory, and exposing agents through multiple entry points. It is not a traditional BI tool with an AI chatbot added."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is it different from an AI-enabled BI tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI-enabled BI adds copilots to dashboard workflows — the user still drives each step and the primary artifact is a chart. An **ai-native data platform** treats the agent as the workflow: goal in, audited analysis + memory out."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I still need a data warehouse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Often yes. An **ai-native data platform** connects to your warehouse, databases, and files — it does not replace storage. It replaces the manual loop of discovery → query → chart → forget → repeat."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What connectors should I require in an RFP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Minimum: one relational DB, one file type (XLSX/CSV), and one knowledge source (docs or dictionary). Ideal: MySQL/Postgres + MongoDB + warehouse + file upload + RAG on business definitions. InfiniSynapse ships this set at launch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I evaluate AI-native claims in vendor demos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Run the same recurring question twice on any candidate **ai-native data platform**. First session: full analysis. Second session: ask to rerun with new data and same definitions. If the vendor re-explains schema from scratch, it is not AI-native."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is InfiniSynapse an analytics or just a Data Agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both. InfiniSynapse is an **ai-native data platform** hosting Data Agents (InfiniAgent + InfiniSQL + InfiniRAG + audit + memory). \"Data Agent\" names the actor; \"AI-native platform\" names the system it runs in. When this topic joins a multi-source stack, align connector scope and review gates using [AI Data Analyst: Role, Tools, and Workflow in 2026](/blog/ai-data-analyst).\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "What Is an AI-Native Data Platform?",
+        "item": "https://infinisynapse.com/en/blog/ai-native-data-platform"
+      }
+    ]
+  }
+]
