@@ -1,5 +1,3 @@
-# AI Data Analyst vs Human Analyst: Roles, ROI, and Handoff in 2026
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-12** · *We measure human+agent division of labor across 35 production analytics teams adopting Data Agents in 2025–2026.*
 
 ![AI data analyst versus human analyst division of labor matrix showing judgment, governance, and agent execution lanes](./images/hero-ai-data-analyst-vs-human-analyst.png)
@@ -43,10 +41,10 @@
 - ROI formula with example hours reclaimed
 - Six-step handoff from business question to signed deliverable
 
-**Scope note**: For day-to-day workflow after roles are defined, see [AI Data Analyst: Role, Tools, and Workflow](/blog/ai-data-analyst).
-For agent architecture, see [What Is a Data Agent?](/blog/what-is-a-data-agent).
-For the Code Agent comparison hub in this cluster, see [Code Agent vs Data Agent](/blog/code-agent-vs-data-agent).
-For how this role differs from traditional BI analysts, see [AI Data Analyst vs Traditional BI Analyst](/blog/ai-data-analyst-vs-traditional-bi-analyst).
+**Scope note**: For day-to-day workflow after roles are defined, see [AI Data Analyst: Role, Tools, and Workflow](/en/blog/ai-data-analyst).
+For agent architecture, see [What Is a Data Agent?](/en/blog/what-is-a-data-agent).
+For the Code Agent comparison hub in this cluster, see [Code Agent vs Data Agent](/en/blog/code-agent-vs-data-agent).
+For how this role differs from traditional BI analysts, see [AI Data Analyst vs Traditional BI Analyst](/en/blog/ai-data-analyst-vs-traditional-bi-analyst).
 
 ---
 
@@ -76,7 +74,7 @@ Enterprise AI adoption guidance in [Wikipedia data warehouse overview](https://e
 | **Data Agent** | Software executing multi-step analysis | InfiniSynapse, Databricks Genie (partial) |
 | **Copilot** | Software suggesting one artifact per prompt | SQL autocomplete, chat assistants |
 
-Job boards often mix the **ai data analyst** title (human role) with product marketing (automation). This guide uses the term for the **human role augmented by agents** — consistent with [AI Data Analyst: Role, Tools, and Workflow](/blog/ai-data-analyst).
+Job boards often mix the **ai data analyst** title (human role) with product marketing (automation). This guide uses the term for the **human role augmented by agents** — consistent with [AI Data Analyst: Role, Tools, and Workflow](/en/blog/ai-data-analyst).
 
 ---
 
@@ -168,7 +166,7 @@ Consumer and data-use policies should align with [Wikipedia natural language pro
 | Analyst satisfaction (internal survey) | +22 NPS points |
 | Headcount reduction | 0 teams (reallocation only) |
 
-Teams comparing interpreter-style tools before agents should read [Enterprise Alternatives to ChatGPT Code Interpreter](/blog/code-interpreter-alternatives). Lakehouse-native paths: [InfiniSynapse vs Databricks Genie](/blog/infinisynapse-vs-databricks-genie).
+Teams comparing interpreter-style tools before agents should read [Enterprise Alternatives to ChatGPT Code Interpreter](/en/blog/code-interpreter-alternatives). Lakehouse-native paths: [InfiniSynapse vs Databricks Genie](/en/blog/infinisynapse-vs-databricks-genie).
 
 Leaderboard scores on the [IBM augmented analytics overview](https://www.ibm.com/topics/augmented-analytics) are a useful sanity check but rarely predict whether a hybrid analyst can trust unattended execution on messy production schemas.
 
@@ -188,7 +186,7 @@ Use **ai data analyst** titles when the role includes agent orchestration, not j
 | Central analytics platform + federated analysts | Strong governance, shared memory |
 | Human analyst + dedicated agent admin | Large estates, many connectors |
 
-Org designers should pair this role map with [AI Data Analyst vs Traditional BI Analyst](/blog/ai-data-analyst-vs-traditional-bi-analyst) when legacy BI teams resist agent handoffs. The BI-versus-data-science tension often reappears as "dashboard copilot versus autonomous agent" — clarify that the hybrid analyst still owns narrative and sign-off in both cases.
+Org designers should pair this role map with [AI Data Analyst vs Traditional BI Analyst](/en/blog/ai-data-analyst-vs-traditional-bi-analyst) when legacy BI teams resist agent handoffs. The BI-versus-data-science tension often reappears as "dashboard copilot versus autonomous agent" — clarify that the hybrid analyst still owns narrative and sign-off in both cases.
 
 ---
 
@@ -201,7 +199,7 @@ Org designers should pair this role map with [AI Data Analyst vs Traditional BI 
 | Title without training | Hybrid hire avoids agent tools | 30-day onboarding on goal framing and memory |
 | Agent without connectors | Upload culture persists | One approved warehouse connector first |
 
-LLM-backed analytics should account for prompt-injection and data-exfiltration risks in the [PostgreSQL documentation](https://www.postgresql.org/docs/), especially when hybrid workflows expose production schemas. Teams comparing code-execution shortcuts should read [Code Agent vs Data Agent](/blog/code-agent-vs-data-agent) before blaming agents for governance gaps that sandboxes never solved.
+LLM-backed analytics should account for prompt-injection and data-exfiltration risks in the [PostgreSQL documentation](https://www.postgresql.org/docs/), especially when hybrid workflows expose production schemas. Teams comparing code-execution shortcuts should read [Code Agent vs Data Agent](/en/blog/code-agent-vs-data-agent) before blaming agents for governance gaps that sandboxes never solved.
 
 ---
 
@@ -214,10 +212,10 @@ LLM-backed analytics should account for prompt-injection and data-exfiltration r
 | Knowledge | Business definitions | InfiniRAG |
 | Trust | Audit timeline + memory | Auditable workflow |
 
-Category primer: [What Is a Data Agent?](/blog/what-is-a-data-agent).
-Architecture layers: [Data Agent Architecture](/blog/data-agent-architecture).
-Role workflow: [AI Data Analyst](/blog/ai-data-analyst).
-Governance context: [Governance for AI Data Analysis](/blog/governance-for-ai-data-analysis).
+Category primer: [What Is a Data Agent?](/en/blog/what-is-a-data-agent).
+Architecture layers: [Data Agent Architecture](/en/blog/data-agent-architecture).
+Role workflow: [AI Data Analyst](/en/blog/ai-data-analyst).
+Governance context: [Governance for AI Data Analysis](/en/blog/governance-for-ai-data-analysis).
 
 OLTP connector hygiene should follow [Shopify ecommerce analytics](https://www.shopify.com/enterprise/blog/ecommerce-analytics) for least-privilege access when hybrid teams wire operational databases.
 
@@ -235,7 +233,7 @@ A human data professional who frames goals for autonomous agents, governs metric
 
 ### How does this role differ from a Data Agent?
 
-The hybrid analyst is a person; the Data Agent is software. People remain accountable; agents execute repeatable phases. See [What Is a Data Agent?](/blog/what-is-a-data-agent) for the software definition.
+The hybrid analyst is a person; the Data Agent is software. People remain accountable; agents execute repeatable phases. See [What Is a Data Agent?](/en/blog/what-is-a-data-agent) for the software definition.
 
 ### What skills matter most for hybrid analyst hires in 2026?
 
@@ -255,8 +253,8 @@ Track time-to-answer on recurring KPIs, definition drift rate, audit pass rate o
 
 The **ai data analyst vs human analyst** question is a false choice. Production analytics in 2026 pairs **human accountability** with **agent throughput**. Define handoff at goals, audit, and delivery; measure ROI in reclaimed hours and reduced drift, not headcount elimination. Teams that document that handoff in a 30-day scorecard see fewer definition disputes by the second reporting cycle.
 
-For workflow detail, read [AI Data Analyst: Role, Tools, and Workflow](/blog/ai-data-analyst).
-For software architecture, read [What Is a Data Agent?](/blog/what-is-a-data-agent).
-For interpreter-to-agent migration context, read [Enterprise Alternatives to ChatGPT Code Interpreter](/blog/code-interpreter-alternatives).
+For workflow detail, read [AI Data Analyst: Role, Tools, and Workflow](/en/blog/ai-data-analyst).
+For software architecture, read [What Is a Data Agent?](/en/blog/what-is-a-data-agent).
+For interpreter-to-agent migration context, read [Enterprise Alternatives to ChatGPT Code Interpreter](/en/blog/code-interpreter-alternatives).
 
 ---

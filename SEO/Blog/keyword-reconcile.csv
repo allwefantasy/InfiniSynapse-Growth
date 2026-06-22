@@ -1,0 +1,101 @@
+﻿编号,原始主题,规划关键词(替换后),规划搜索量,实际Target关键词,是否一致,差异类型,建议,slug
+001,ai-native data analysis,ai for data analysis,3600,ai for data analysis,是,一致,无需处理,ai-for-data-analysis
+002,data agent manifesto,data agent,210,data agent manifesto,否,部分重叠（需复核）,人工复核：是否改回规划词,data-agent-manifesto
+003,what is a data agent,what is a data agent,20,what is a data agent,是,一致,无需处理,what-is-a-data-agent
+004,ai-native data platform,ai-native data platform,10,ai-native data platform,是,一致,无需处理,ai-native-data-platform
+005,agentic analytics,best agentic analytics for data-driven insights,110,agentic analytics,否,部分重叠（需复核）,人工复核：是否改回规划词,best-agentic-analytics
+006,autonomous data agent,autonomous data agent,10,autonomous data agent,是,一致,无需处理,autonomous-data-agent
+007,ai data analyst,ai data analyst,390,ai data analyst,是,一致,无需处理,ai-data-analyst
+008,ai data analyst job description,ai data analyst job description,20,ai data analyst job description,是,一致,无需处理,ai-data-analyst-job-description
+009,ai agent memory for data,data agent,210,data agent,是,一致,无需处理,data-agent-memory
+010,data agent vs ai copilot,fabric data agent vs copilot,10,data agent vs ai copilot,否,部分重叠（需复核）,人工复核：是否改回规划词,fabric-data-agent-vs-copilot
+011,ai-native vs augmented analytics,ai-native data platform,10,ai-native data platform,是,一致,无需处理,ai-native-vs-augmented-analytics
+012,explainable ai data analysis,ai data analysis,2900,ai data analysis,是,一致,无需处理,ai-data-analysis
+013,data agent glossary,what is a data agent,20,what is a data agent,是,一致,无需处理,data-agent-glossary
+014,code agent vs data agent,code interpreter data analysis,20,code interpreter data analysis,是,一致,无需处理,code-agent-vs-data-agent
+015,data agent architecture,data agent llm,20,data agent architecture,否,部分重叠（需复核）,人工复核：是否改回规划词,data-agent-architecture
+016,ai data analyst vs bi tools,ai tools for data analysts,90,ai data analyst vs bi tools,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analyst-vs-bi-tools
+017,data agent vs llm chatbot,data agent llm,20,data agent vs llm chatbot,否,部分重叠（需复核）,人工复核：是否改回规划词,data-agent-vs-llm-chatbot
+018,chatgpt for data analysis limitations,chatgpt data analysis limit,140,chatgpt for data analysis limitations,否,部分重叠（需复核）,人工复核：是否改回规划词,chatgpt-data-analysis-limitations
+019,code interpreter vs data agent,code interpreter data analysis,20,code interpreter data analysis,是,一致,无需处理,code-interpreter-vs-data-agent
+020,databricks genie vs data agent,databricks assistant vs genie,40,databricks assistant vs genie,是,一致,无需处理,databricks-genie-vs-data-agent
+021,ai data analyst vs human analyst,ai data analyst,390,ai data analyst vs human analyst,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analyst-vs-human-analyst
+022,governance for ai data analysis,ai data governance,880,ai data governance,是,一致,无需处理,governance-for-ai-data-analysis
+023,ai data analyst vs traditional bi analyst,business intelligence vs data science,140,business intelligence vs data science,是,一致,无需处理,ai-data-analyst-vs-traditional-bi-analyst
+024,best ai tools for data analysis,best ai tools for data analysis,170,best ai tools for data analysis,是,一致,无需处理,best-ai-tools-for-data-analysis
+025,best ai data analyst tools 2026,ai data analysis tools,260,best ai data analyst tools 2026,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analysis-tools
+026,best ai tools for sql data analysis,sql data analysis tools,210,best ai tools for sql data analysis,否,部分重叠（需复核）,人工复核：是否改回规划词,sql-data-analysis-tools
+027,best ai tools for excel data analysis,best ai tools for excel data analysis,20,best ai tools for excel data analysis,是,一致,无需处理,ai-excel-data-analysis-tools
+028,best ai data visualization tools,best ai data visualization tools,110,best ai data visualization tools,是,一致,无需处理,ai-data-visualization-tools
+029,self-hosted ai data analyst,agentic data plane hosted vs self-hosted comparison,10,agentic data plane hosted vs self-hosted comparison,是,一致,无需处理,self-hosted-ai-data-analyst
+030,chatgpt for data analysis alternatives,alternatives to chatgpt for data analysis,30,chatgpt for data analysis alternatives,否,部分重叠（需复核）,人工复核：是否改回规划词,chatgpt-data-analysis-alternatives
+031,julius ai alternatives,julius ai data analysis,140,julius ai alternatives,否,部分重叠（需复核）,人工复核：是否改回规划词,julius-ai-alternatives
+032,thoughtspot alternatives,best ai data visualization tools,110,best ai data visualization tools,是,一致,无需处理,thoughtspot-alternatives
+033,databricks genie alternatives,databricks assistant vs genie,40,databricks assistant vs genie,是,一致,无需处理,databricks-genie-alternatives
+034,tableau pulse alternatives,best ai data visualization tools,110,best ai data visualization tools,是,一致,无需处理,tableau-pulse-alternatives
+035,perplexity for data analysis alternatives,alternatives to chatgpt for data analysis,30,alternatives to chatgpt for data analysis,是,一致,无需处理,perplexity-data-analysis-alternatives
+036,code interpreter alternatives enterprise,code interpreter data analysis,20,code interpreter data analysis,是,一致,无需处理,code-interpreter-alternatives
+037,infinisynapse vs julius ai,julius ai data analysis,140,infinisynapse vs julius ai,否,部分重叠（需复核）,人工复核：是否改回规划词,infinisynapse-vs-julius-ai
+038,infinisynapse vs chatgpt data analysis,chatgpt for data analysis,140,infinisynapse vs chatgpt data analysis,否,部分重叠（需复核）,人工复核：是否改回规划词,infinisynapse-vs-chatgpt
+039,infinisynapse vs databricks genie,databricks genie,1600,databricks genie,是,一致,无需处理,infinisynapse-vs-databricks-genie
+040,julius ai vs chatgpt,julius ai data analysis,140,julius ai data analysis,是,一致,无需处理,julius-ai-vs-chatgpt
+041,thoughtspot vs databricks genie,databricks genie,1600,databricks genie,是,一致,无需处理,thoughtspot-vs-databricks-genie
+042,infinisynapse vs tableau ai,tableau vs power bi for data analysis,—,tableau vs power bi for data analysis,是,一致,无需处理,infinisynapse-vs-tableau
+043,infinisynapse review,best ai tools for data analysis,170,infinisynapse review,否,完全不同（疑退回原始主题）,建议改回规划词（实际词可能不在SEMrush）,infinisynapse-review
+044,connect supabase to ai data analyst,sql for data analysis,2900,sql for data analysis,是,一致,无需处理,connect-supabase-to-ai-data-analyst
+045,connect postgres to ai data analyst,sql for data analysis,2900,connect postgres to ai data analyst,否,部分重叠（需复核）,人工复核：是否改回规划词,connect-postgres-to-ai-data-analyst
+046,connect mysql to ai data analyst,mysql data analysis tools,30,connect mysql to ai data analyst,否,部分重叠（需复核）,人工复核：是否改回规划词,connect-mysql-to-ai-data-analyst
+047,connect snowflake to ai analyst,connect snowflake to no-code bi platform without data engineer,10,connect snowflake to ai analyst,否,部分重叠（需复核）,人工复核：是否改回规划词,connect-snowflake-to-ai-analyst
+048,connect bigquery to ai data analyst,google analytics bigquery data analysis capabilities,30,connect bigquery to ai data analyst,否,部分重叠（需复核）,人工复核：是否改回规划词,connect-bigquery-to-ai-data-analyst
+049,connect databricks to ai analyst,databricks data analytics platform,30,databricks data analytics platform,是,一致,无需处理,connect-databricks-to-ai-analyst
+050,connect mongodb to ai data analyst,ai database agent for data visualization,70,ai database agent for data visualization,是,一致,无需处理,connect-mongodb-to-ai-data-analyst
+051,ai data analysis for google sheets,data analysis in google sheets,110,ai data analysis for google sheets,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analysis-google-sheets
+052,ai data analysis for csv files,csv files for data analysis,20,ai data analysis for csv files,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analysis-csv-files
+053,ai data analysis for airtable,airtable data analysis,30,airtable data analysis,是,一致,无需处理,ai-data-analysis-airtable
+054,ai analysis for notion database,ai database agent for data visualization,70,ai database agent for data visualization,是,一致,无需处理,ai-analysis-notion-database
+055,connect clickhouse to ai analyst,sql for data analysis,2900,sql for data analysis,是,一致,无需处理,connect-clickhouse-to-ai-analyst
+056,connect redshift to ai data analyst,data integration platforms supporting snowflake bigquery redshift,110,data integration platforms supporting snowflake bigquery redshift,是,一致,无需处理,connect-redshift-to-ai-data-analyst
+057,analyze stripe data with ai,financial services data analysis,50,financial services data analysis,是,一致,无需处理,analyze-stripe-data-with-ai
+058,analyze shopify data with ai,ecommerce data analysis,170,ecommerce data analysis,是,一致,无需处理,analyze-shopify-data-with-ai
+059,natural language to sql,integrate natural language data analysis with sql and python,10,integrate natural language data analysis with sql and python,是,一致,无需处理,natural-language-to-sql
+060,text to sql llm,text to sql agent for data visualization,0,text to sql llm,否,部分重叠（需复核）,人工复核：是否改回规划词,text-to-sql-llm
+061,nl2sql benchmark spider bird,databricks genie natural language to sql,0,nl2sql benchmark spider bird,否,完全不同（疑退回原始主题）,建议改回规划词（实际词可能不在SEMrush）,nl2sql-benchmark-spider-bird
+062,ai sql generator,ai-assisted query generation sql python social science data analysis,50,ai sql generator,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-sql-generator
+063,llm sql generation architecture,ai-assisted query generation sql python social science data analysis,50,ai-assisted query generation sql python social science data analysis,是,一致,无需处理,llm-sql-generation-architecture
+064,sql rag vs semantic layer,ai-powered semantic layers for enterprise data strategy,20,ai-powered semantic layers for enterprise data strategy,是,一致,无需处理,sql-rag-vs-semantic-layer
+065,text to sql fine tuning,generative ai data services for fine tuning,10,generative ai data services for fine tuning,是,一致,无需处理,text-to-sql-fine-tuning
+066,sql agent vs text to sql,text to sql agent for data visualization,0,text to sql agent for data visualization,是,一致,无需处理,sql-agent-vs-text-to-sql
+067,nl2sql in production failure modes,databricks genie natural language to sql,0,databricks genie natural language to sql,是,一致,无需处理,nl2sql-production-failure-modes
+068,dialect aware sql generation,ai-assisted query generation sql python social science data analysis,50,ai-assisted query generation sql python social science data analysis,是,一致,无需处理,dialect-aware-sql-generation
+069,clean excel data with ai,ai to clean excel data,30,ai to clean excel data,是,一致,无需处理,clean-excel-data-with-ai
+070,ai alternative to pivot table,pivot table data analysis,20,ai alternative to pivot table,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-alternative-to-pivot-table
+071,ai vlookup replacement,vlookup for data analysis,20,ai vlookup replacement,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-vlookup-replacement
+072,ai excel formula generator,data analysis excel template free download with formula,20,ai excel formula generator,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-excel-formula-generator
+073,analyze csv with ai,csv files for data analysis,20,analyze csv with ai,否,部分重叠（需复核）,人工复核：是否改回规划词,analyze-csv-with-ai
+074,merge multiple csv files with ai,csv files for data analysis,20,csv files for data analysis,是,一致,无需处理,merge-multiple-csv-with-ai
+075,deduplicate data with ai,ai-powered crm data cleaning deduplication platforms,30,ai-powered crm data cleaning deduplication platforms,是,一致,无需处理,deduplicate-data-with-ai
+076,ai data cleaning techniques,ai data cleaning techniques,0,ai data cleaning techniques,是,一致,无需处理,ai-data-cleaning-techniques
+077,ai excel chart generator,ai data chart generator,20,ai data chart generator,是,一致,无需处理,ai-excel-chart-generator
+078,ai financial modeling in excel,microsoft excel data analysis and business modeling,30,microsoft excel data analysis and business modeling,是,一致,无需处理,ai-financial-modeling-excel
+079,excel monthly report automation with ai,data analysis report template excel,20,data analysis report template excel,是,一致,无需处理,excel-monthly-report-automation-ai
+080,ai data wrangling tools,data wrangling platform,30,data wrangling platform,是,一致,无需处理,ai-data-wrangling-tools
+081,ai tools for data analysts,ai tools for data analysts,90,ai tools for data analysts,是,一致,无需处理,ai-tools-for-data-analysts
+082,ai data analysis for product managers,data science for product managers,70,ai data analysis for product managers,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analysis-product-managers
+083,ai data analysis for finance teams,best data integration platforms for finance teams 2025 2026,10,ai data analysis for finance teams,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analysis-finance-teams
+084,ai data analysis for marketing,marketing data analysis,390,ai data analysis for marketing,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analysis-marketing
+085,ai data analysis for operations,ai in data center operations,110,ai in data center operations,是,一致,无需处理,ai-data-analysis-operations
+086,ai for data engineers,ai for data engineers,90,ai for data engineers,是,一致,无需处理,ai-for-data-engineers
+087,ai data strategy for cto,ai-powered semantic layers for enterprise data strategy,20,ai-powered semantic layers for enterprise data strategy,是,一致,无需处理,ai-data-strategy-cto
+088,ai data analysis for founders,best ai tools for data analysis,170,best ai tools for data analysis,是,一致,无需处理,ai-data-analysis-founders
+089,ai data analysis for ecommerce,ecommerce data analysis,170,ai data analysis for ecommerce,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analysis-ecommerce
+090,ai data analysis for saas,saas data platform,140,ai data analysis for saas,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analysis-saas
+091,ai data analysis for financial services,financial services data analysis,50,financial services data analysis,是,一致,无需处理,ai-data-analysis-financial-services
+092,ai data analysis for supply chain,data science in supply chain,170,data science in supply chain,是,一致,无需处理,ai-data-analysis-supply-chain
+093,ai data analysis healthcare,ai data analysis healthcare,0,ai data analysis healthcare,是,一致,无需处理,ai-data-analysis-healthcare
+094,ai data analysis logistics,data analysis in logistics,90,data analysis in logistics,是,一致,无需处理,ai-data-analysis-logistics
+095,ai data analysis prompts,ai prompts for data analysis,30,ai data analysis prompts,否,部分重叠（需复核）,人工复核：是否改回规划词,ai-data-analysis-prompts
+096,data analysis prompt template,data analysis template,30,data analysis template,是,一致,无需处理,data-analysis-prompt-template
+097,ai data analyst skills,ai data analyst skills,0,ai data analyst skills,是,一致,无需处理,ai-data-analyst-skills
+098,how to evaluate ai data analyst,ai data analyst skills requirements,10,how to evaluate ai data analyst,否,部分重叠（需复核）,人工复核：是否改回规划词,how-to-evaluate-ai-data-analyst
+099,ai analytics glossary,data analysis glossary,40,data analysis glossary,是,一致,无需处理,ai-analytics-glossary
+100,data agent faq,what is a data agent,20,what is a data agent,是,一致,无需处理,data-agent-faq

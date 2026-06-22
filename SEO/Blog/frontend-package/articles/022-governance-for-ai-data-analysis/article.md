@@ -1,5 +1,3 @@
-# AI Data Governance: Framework, Scorecard, and Checklist for Analytics Teams
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-12** · *We build InfiniSynapse, a Data Agent platform. This governance guide reflects eighteen months of enterprise rollouts where audit, security, and analytics teams negotiated the same controls.*
 
 ![AI data governance framework: five layers from access control through memory retention, mapped to NIST AI RMF functions](./images/hero-governance-for-ai-data-analysis.png)
@@ -34,7 +32,7 @@
 
 > **AI data governance** is the set of policies, controls, and review gates that ensure autonomous or semi-autonomous analytics systems access only approved data, use locked metric definitions, produce inspectable evidence chains, and retain outputs under rules your security and compliance teams can audit.
 
-**Who this is for**: heads of data, analytics leads, and security reviewers who must approve NL2SQL copilots, warehouse assistants, or full [Data Agents](/blog/what-is-a-data-agent) before they touch production schemas.
+**Who this is for**: heads of data, analytics leads, and security reviewers who must approve NL2SQL copilots, warehouse assistants, or full [Data Agents](/en/blog/what-is-a-data-agent) before they touch production schemas.
 
 **What you'll learn**:
 
@@ -44,7 +42,7 @@
 - A five-layer framework with pass/fail scorecard
 - A phased checklist from pilot to scale
 
-**Scope note**: This guide covers analytics execution governance — access, definitions, audit, memory. For platform buying criteria, see [AI-Native vs Augmented Analytics](/blog/ai-native-vs-augmented-analytics). For analyst-tool comparisons, see [AI Data Analyst vs BI Tools](/blog/ai-data-analyst-vs-bi-tools).
+**Scope note**: This guide covers analytics execution governance — access, definitions, audit, memory. For platform buying criteria, see [AI-Native vs Augmented Analytics](/en/blog/ai-native-vs-augmented-analytics). For analyst-tool comparisons, see [AI Data Analyst vs BI Tools](/en/blog/ai-data-analyst-vs-bi-tools).
 
 ---
 
@@ -144,7 +142,7 @@ When agents accept natural-language goals, attackers can embed instructions in c
 
 An agent that "helpfully" joins PII tables for a revenue question violates governance even if the SQL executes. Enforce row-level security at the database — not prompt instructions — classify outputs before export, and require a human review gate for first runs on any new domain.
 
-If Databricks is in scope for your team, reuse the same memory-and-trace checklist in [Databricks Assistant vs Genie vs Data Agent](/blog/databricks-genie-vs-data-agent).
+If Databricks is in scope for your team, reuse the same memory-and-trace checklist in [Databricks Assistant vs Genie vs Data Agent](/en/blog/databricks-genie-vs-data-agent).
 
 Secure AI rollouts should reference the [Google Sheets documentation](https://support.google.com/docs/topic/9054603) when connectors expose production data across cloud boundaries.
 
@@ -161,8 +159,8 @@ Secure AI rollouts should reference the [Google Sheets documentation](https://su
 | **5 — Memory and Retention** | Data platform + legal | DRAFT → approved cards; retention schedule | Perpetual chat with unredacted PII |
 
 Foundational warehouse concepts — grain, dimensions, and conformed metrics — remain essential; [BIRD NL2SQL benchmark](https://bird-bench.github.io/) on document schemas is a useful contrast when reviewers validate relational SQL from agents.
-Layer 3 is where [what is a Data Agent](/blog/what-is-a-data-agent) architecture meets governance — orchestration without audit is a liability.
-Layer 2 handoffs often reference [AI-Native vs Augmented Analytics](/blog/ai-native-vs-augmented-analytics); Layer 5 comparisons belong beside [AI Data Analyst vs BI Tools](/blog/ai-data-analyst-vs-bi-tools).
+Layer 3 is where [what is a Data Agent](/en/blog/what-is-a-data-agent) architecture meets governance — orchestration without audit is a liability.
+Layer 2 handoffs often reference [AI-Native vs Augmented Analytics](/en/blog/ai-native-vs-augmented-analytics); Layer 5 comparisons belong beside [AI Data Analyst vs BI Tools](/en/blog/ai-data-analyst-vs-bi-tools).
 
 ---
 
@@ -187,7 +185,7 @@ Use this scorecard in architecture reviews and vendor demos. Score **1** (fail),
 
 **Phase 1 — Pilot (weeks 1–4)**: Select one low-sensitivity domain; create connector role with table allowlist; draft metric contract; enable plan-preview without memory; run ten golden questions with logged SQL; map controls to NIST **Govern** and **Map**.
 
-**Phase 2 — Production (weeks 5–12)**: Expand only after scorecard ≥ 35; enable DRAFT → approved memory cards; integrate review sampling; add OWASP LLM tests to security drills; publish internal runbook; align autonomy boundaries with [Code Agent vs Data Agent](/blog/code-agent-vs-data-agent) and [Code Interpreter vs Data Agent](/blog/code-interpreter-vs-data-agent) so sandbox execution never bypasses review gates.
+**Phase 2 — Production (weeks 5–12)**: Expand only after scorecard ≥ 35; enable DRAFT → approved memory cards; integrate review sampling; add OWASP LLM tests to security drills; publish internal runbook; align autonomy boundaries with [Code Agent vs Data Agent](/en/blog/code-agent-vs-data-agent) and [Code Interpreter vs Data Agent](/en/blog/code-interpreter-vs-data-agent) so sandbox execution never bypasses review gates.
 
 **Phase 3 — Scale (quarter 2+)**: Federate connectors with unified audit; automate access recertification; track governance KPIs (review rate, rerun consistency, exception count); refresh scorecard semi-annually.
 
@@ -205,7 +203,7 @@ Operational maturity for analytics agents aligns with the [ISO/IEC 42001 AI mana
 
 Adoption benchmarks in the [Kubernetes documentation](https://kubernetes.io/docs/) track the same shift from pilot demos to governed analytics loops we see in customer rollouts — with the caveat that operational metrics still under-weight enterprise schema drift. The teams that succeed treat **ai data governance** as an operating system — scorecard, checklist, and named owners — not a one-time security questionnaire.
 
-When evaluating whether an AI analyst product fits your framework, cross-check autonomy and audit pillars against [Business Intelligence vs Data Science: AI Analyst vs Traditional BI Analyst](/blog/ai-data-analyst-vs-traditional-bi-analyst) and [AI Data Analyst vs Human Analyst](/blog/ai-data-analyst-vs-human-analyst) so role boundaries stay explicit.
+When evaluating whether an AI analyst product fits your framework, cross-check autonomy and audit pillars against [Business Intelligence vs Data Science: AI Analyst vs Traditional BI Analyst](/en/blog/ai-data-analyst-vs-traditional-bi-analyst) and [AI Data Analyst vs Human Analyst](/en/blog/ai-data-analyst-vs-human-analyst) so role boundaries stay explicit.
 
 ---
 
@@ -227,7 +225,7 @@ Pilot in one low-risk domain with plan-preview and no memory — yes. Production
 
 ### How does InfiniSynapse implement these controls?
 
-InfiniSynapse binds connectors to scoped credentials, surfaces multi-phase plans before execution, logs every SQL in an inspectable timeline, and requires human approval before memory cards join project knowledge. Teams map these features to the five-layer framework above during rollout at [the InfiniSynapse web app](https://app.infinisynapse.cn).
+InfiniSynapse binds connectors to scoped credentials, surfaces multi-phase plans before execution, logs every SQL in an inspectable timeline, and requires human approval before memory cards join project knowledge. Teams map these features to the five-layer framework above during rollout at [the InfiniSynapse web app](https://app.infinisynapse.com).
 
 ---
 
@@ -235,8 +233,8 @@ InfiniSynapse binds connectors to scoped credentials, surfaces multi-phase plans
 
 **AI data governance** is how analytics teams earn the right to automate — not a blocker to innovation. Map controls to NIST **Govern–Map–Measure–Manage**, anchor access and retention to ISO baselines, harden execution with OWASP LLM and API guidance, and use the five-layer framework plus scorecard to separate pilot demos from production systems. Review that scorecard quarterly as connector scope expands and stakeholder expectations mature.
 
-Leave with three artifacts: the 52-word definition for policies and RFPs, the scorecard for vendor reviews, and the phased checklist for your first domain rollout. When autonomy depth increases, revisit [what is a Data Agent](/blog/what-is-a-data-agent) and tighten Layer 3 and Layer 5 before expanding connectors.
+Leave with three artifacts: the 52-word definition for policies and RFPs, the scorecard for vendor reviews, and the phased checklist for your first domain rollout. When autonomy depth increases, revisit [what is a Data Agent](/en/blog/what-is-a-data-agent) and tighten Layer 3 and Layer 5 before expanding connectors.
 
-For analyst-tool comparisons under the same controls, read [AI Data Analyst vs BI Tools](/blog/ai-data-analyst-vs-bi-tools). For the native-vs-augmented platform frame, read [AI-Native vs Augmented Analytics](/blog/ai-native-vs-augmented-analytics).
+For analyst-tool comparisons under the same controls, read [AI Data Analyst vs BI Tools](/en/blog/ai-data-analyst-vs-bi-tools). For the native-vs-augmented platform frame, read [AI-Native vs Augmented Analytics](/en/blog/ai-native-vs-augmented-analytics).
 
 ---

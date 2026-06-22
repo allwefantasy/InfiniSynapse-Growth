@@ -5,26 +5,26 @@
     "headline": "AI Data Governance: Framework, Scorecard, and Checklist for Analytics Teams",
     "description": "AI data governance for analytics teams: NIST AI RMF mapping, ISO baselines, OWASP LLM controls, a five-layer framework, scorecard, and production checklist.",
     "image": [
-      "https://infinisynapse.cn/blog/pillar2-data-agent-vs-alternatives/022-governance-for-ai-data-analysis/images/hero-governance-for-ai-data-analysis.png"
+      "https://infinisynapse.com/en/blog/pillar2-data-agent-vs-alternatives/022-governance-for-ai-data-analysis/images/hero-governance-for-ai-data-analysis.png"
     ],
     "datePublished": "2026-06-12T10:00:00+08:00",
     "dateModified": "2026-06-12T10:00:00+08:00",
     "author": {
       "@type": "Organization",
       "name": "InfiniSynapse Data Team",
-      "url": "https://infinisynapse.cn/about"
+      "url": "https://infinisynapse.com/en/about"
     },
     "publisher": {
       "@type": "Organization",
       "name": "InfiniSynapse",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://infinisynapse.cn/logo.png"
+        "url": "https://infinisynapse.com/logo.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://infinisynapse.cn/blog/governance-for-ai-data-analysis"
+      "@id": "https://infinisynapse.com/en/blog/governance-for-ai-data-analysis"
     },
     "about": [
       {
@@ -51,7 +51,7 @@
         "@type": "DefinedTerm",
         "name": "AI data governance",
         "description": "The policy and control layer that governs how AI-enabled analytics systems discover data, apply metric definitions, execute queries, expose evidence for human review, and retain outputs — ensuring every automated analysis path is authorized, inspectable, and aligned with organizational data-quality and security standards.",
-        "inDefinedTermSet": "https://infinisynapse.cn/blog/governance-for-ai-data-analysis#definition-what-is-ai-data-governance"
+        "inDefinedTermSet": "https://infinisynapse.com/en/blog/governance-for-ai-data-analysis#definition-what-is-ai-data-governance"
       }
     ]
   },
@@ -109,19 +109,19 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://infinisynapse.cn/"
+        "item": "https://infinisynapse.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://infinisynapse.cn/blog"
+        "item": "https://infinisynapse.com/blog"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "AI Data Governance",
-        "item": "https://infinisynapse.cn/blog/governance-for-ai-data-analysis"
+        "item": "https://infinisynapse.com/en/blog/governance-for-ai-data-analysis"
       }
     ]
   }

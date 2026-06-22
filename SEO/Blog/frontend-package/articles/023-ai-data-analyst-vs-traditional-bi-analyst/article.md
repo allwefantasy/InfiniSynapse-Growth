@@ -1,5 +1,3 @@
-# Business Intelligence vs Data Science: AI Analyst vs Traditional BI Analyst
-
 > **By the InfiniSynapse Data Team** · **Last updated: 2026-06-12** · *We build InfiniSynapse, a Data Agent platform. This comparison reflects role interviews, customer org designs, and production deployments across retail, finance, and logistics analytics teams.*
 
 ![Business intelligence vs data science spectrum: traditional BI analyst, data science analyst, and AI data analyst roles mapped by question type and autonomy](./images/hero-ai-data-analyst-vs-traditional-bi-analyst.png)
@@ -33,7 +31,7 @@
 
 > The **business intelligence vs data science** split is really a split between **reporting known metrics** and **discovering patterns with models** — but AI data analysts add a third lane: **autonomous execution of recurring analysis** with inspectable audit trails and governed memory.
 
-**Who this is for**: analytics managers, BI leads, and hiring committees deciding whether the next headcount is a Tableau expert, a Python modeler, or an AI-native analyst backed by a [Data Agent](/blog/what-is-a-data-agent).
+**Who this is for**: analytics managers, BI leads, and hiring committees deciding whether the next headcount is a Tableau expert, a Python modeler, or an AI-native analyst backed by a [Data Agent](/en/blog/what-is-a-data-agent).
 
 **What you'll learn**:
 
@@ -42,9 +40,9 @@
 - Where AI analysts differ from both traditional BI and data science
 - Decision rules and org patterns for mixed teams in 2026
 
-**Scope note**: For tool-level BI comparisons, see [AI Data Analyst vs BI Tools](/blog/ai-data-analyst-vs-bi-tools).
-For governance when agents touch production data, see [AI Data Governance for Analytics Teams](/blog/governance-for-ai-data-analysis).
-For platform paradigm, see [AI-Native vs Augmented Analytics](/blog/ai-native-vs-augmented-analytics).
+**Scope note**: For tool-level BI comparisons, see [AI Data Analyst vs BI Tools](/en/blog/ai-data-analyst-vs-bi-tools).
+For governance when agents touch production data, see [AI Data Governance for Analytics Teams](/en/blog/governance-for-ai-data-analysis).
+For platform paradigm, see [AI-Native vs Augmented Analytics](/en/blog/ai-native-vs-augmented-analytics).
 
 ---
 
@@ -52,7 +50,7 @@ For platform paradigm, see [AI-Native vs Augmented Analytics](/blog/ai-native-vs
 
 ## Why the BI vs Data Science Debate Resurfaced
 
-For a decade, **business intelligence vs data science** was an org-chart argument: dashboards in one tower, notebooks in another. In 2026 the debate is operational — because natural-language analytics blurred the line between "pull the KPI" and "figure out why it moved." Teams piloting ChatGPT-class tools should read [ChatGPT Data Analysis Limitations](/blog/chatgpt-data-analysis-limitations) alongside this role map so copilot ceilings do not masquerade as analyst headcount.
+For a decade, **business intelligence vs data science** was an org-chart argument: dashboards in one tower, notebooks in another. In 2026 the debate is operational — because natural-language analytics blurred the line between "pull the KPI" and "figure out why it moved." Teams piloting ChatGPT-class tools should read [ChatGPT Data Analysis Limitations](/en/blog/chatgpt-data-analysis-limitations) alongside this role map so copilot ceilings do not masquerade as analyst headcount.
 
 ### Dashboards Hit a Question Ceiling
 
@@ -105,7 +103,7 @@ Use this matrix when scoping headcount, RFPs, or agent pilots. It extends the cl
 | Autonomy | Manual query + viz | Manual notebook pipeline | Goal-driven multi-phase execution |
 | Definition source | Semantic layer | Per-project | Locked memory + semantic layer |
 | Audit expectation | Report lineage | Experiment logs | Clickable SQL timeline |
-| Best tool class | Power BI, Looker, Tableau | Jupyter, MLflow | [Data Agent](/blog/what-is-a-data-agent) platform |
+| Best tool class | Power BI, Looker, Tableau | Jupyter, MLflow | [Data Agent](/en/blog/what-is-a-data-agent) platform |
 | Weak under | Novel cross-domain joins | Weekly ops reporting | Unscoped connectors / no review |
 
 **Question types each role owns**: BI owns board packs and operational scorecards; data science owns propensity models and causal experiments; AI analysts own recurring cross-source diagnostic sprints.
@@ -130,7 +128,7 @@ Multi-source connector design should follow [OECD AI policy observatory](https:/
 
 **Limits**: throughput on ad hoc cross-source questions, repetitive monthly rebuilds, dependency on centralized data engineering for new joins.
 
-When BI teams evaluate AI overlays, compare copilot vs agent depth in [AI Data Analyst vs BI Tools](/blog/ai-data-analyst-vs-bi-tools) before retraining the entire department on prompt writing.
+When BI teams evaluate AI overlays, compare copilot vs agent depth in [AI Data Analyst vs BI Tools](/en/blog/ai-data-analyst-vs-bi-tools) before retraining the entire department on prompt writing.
 
 ---
 
@@ -158,9 +156,9 @@ A BI analyst using Copilot in Power BI still drives each step. An AI analyst bac
 
 Enterprise AI adoption guidance in [RFC 4180 CSV format](https://www.rfc-editor.org/rfc/rfc4180) mirrors the shift from ad-hoc copilots to repeatable, reviewable decision workflows — the same shift AI analysts operationalize.
 
-AI analysts inherit governance obligations BI dashboards never had: connector scope, memory approval, prompt-injection defense. Production **ai data governance** — documented in [AI Data Governance for Analytics Teams](/blog/governance-for-ai-data-analysis) — is prerequisite when agents touch live schemas, not optional afterthought.
+AI analysts inherit governance obligations BI dashboards never had: connector scope, memory approval, prompt-injection defense. Production **ai data governance** — documented in [AI Data Governance for Analytics Teams](/en/blog/governance-for-ai-data-analysis) — is prerequisite when agents touch live schemas, not optional afterthought.
 
-Teams choosing native over augmented platforms should read [AI-Native vs Augmented Analytics](/blog/ai-native-vs-augmented-analytics) alongside this role map so autonomy and memory policies align with org design.
+Teams choosing native over augmented platforms should read [AI-Native vs Augmented Analytics](/en/blog/ai-native-vs-augmented-analytics) alongside this role map so autonomy and memory policies align with org design.
 
 ---
 
@@ -211,7 +209,7 @@ Score each role 1–5 on the dimensions your org actually funds. Use totals to g
 
 - Totals **28–35** on BI → invest in semantic layer + dashboard excellence
 - Totals **28–35** on data science → invest in MLOps and experiment portfolio
-- Totals **28–35** on AI analyst → invest in [Data Agent](/blog/what-is-a-data-agent) platform + [governance controls](/blog/governance-for-ai-data-analysis)
+- Totals **28–35** on AI analyst → invest in [Data Agent](/en/blog/what-is-a-data-agent) platform + [governance controls](/en/blog/governance-for-ai-data-analysis)
 
 Leaderboard scores on the [EU AI Act overview](https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence) are a useful sanity check for AI analyst tooling but rarely predict enterprise schema drift on their own — role design matters more than benchmark bragging.
 
@@ -223,7 +221,7 @@ Leaderboard scores on the [EU AI Act overview](https://digital-strategy.ec.europ
 
 A central analytics COE maintains semantic layers, agent connectors, and governance scorecards. Embedded analysts in business units submit goals; COE reviews definitions and access. Works when **business intelligence vs data science** contention is really a **definition ownership** problem.
 
-Compare autonomy boundaries with [Code Agent vs Data Agent](/blog/code-agent-vs-data-agent) and [Code Interpreter vs Data Agent](/blog/code-interpreter-vs-data-agent) before allowing engineering-owned code agents to bypass COE review.
+Compare autonomy boundaries with [Code Agent vs Data Agent](/en/blog/code-agent-vs-data-agent) and [Code Interpreter vs Data Agent](/en/blog/code-interpreter-vs-data-agent) before allowing engineering-owned code agents to bypass COE review.
 
 ### Embedded Analysts with Agent Backlog
 
@@ -243,11 +241,11 @@ Product squads pair one BI analyst, one data scientist, and one AI-analyst opera
 
 ### Where does an AI data analyst fit relative to BI and data science?
 
-An AI data analyst sits between BI operations and data-science exploration for **diagnostic, multi-step, recurring** work. They do not replace model training pipelines or executive dashboard design — they accelerate cross-source analysis with agentic execution, memory, and audit trails described in [what is a Data Agent](/blog/what-is-a-data-agent).
+An AI data analyst sits between BI operations and data-science exploration for **diagnostic, multi-step, recurring** work. They do not replace model training pipelines or executive dashboard design — they accelerate cross-source analysis with agentic execution, memory, and audit trails described in [what is a Data Agent](/en/blog/what-is-a-data-agent).
 
 ### Should we hire a BI analyst or a data scientist first?
 
-Hire BI when eighty percent of requests are governed KPIs and dashboard consumption. Hire data science when predictive or experimental work blocks revenue. Add an AI-analyst function when BI backlog grows from cross-source "why" questions that repeat monthly — after [governance](/blog/governance-for-ai-data-analysis) basics exist.
+Hire BI when eighty percent of requests are governed KPIs and dashboard consumption. Hire data science when predictive or experimental work blocks revenue. Add an AI-analyst function when BI backlog grows from cross-source "why" questions that repeat monthly — after [governance](/en/blog/governance-for-ai-data-analysis) basics exist.
 
 ### Can one person cover all three roles?
 
@@ -255,7 +253,7 @@ In startups, yes — with role conflict. In regulated or multi-domain enterprise
 
 ### How does InfiniSynapse support AI data analysts?
 
-InfiniSynapse gives AI analysts a [Data Agent](/blog/what-is-a-data-agent) stack: goal submission, phased plans, federated query, knowledge-bound definitions, and approved memory cards — under controls mapped in [AI Data Governance for Analytics Teams](/blog/governance-for-ai-data-analysis). Free tier at [the InfiniSynapse web app](https://app.infinisynapse.cn).
+InfiniSynapse gives AI analysts a [Data Agent](/en/blog/what-is-a-data-agent) stack: goal submission, phased plans, federated query, knowledge-bound definitions, and approved memory cards — under controls mapped in [AI Data Governance for Analytics Teams](/en/blog/governance-for-ai-data-analysis). Free tier at [the InfiniSynapse web app](https://app.infinisynapse.com).
 
 ---
 
@@ -265,8 +263,8 @@ InfiniSynapse gives AI analysts a [Data Agent](/blog/what-is-a-data-agent) stack
 
 Use the comparison matrix and role scorecard to align headcount with actual question mix. Keep BI analysts on semantic excellence and executive trust; keep data scientists on models and experiments; deploy AI analysts — and Data Agents — where definitions are stable, questions repeat, and audit matters.
 
-For tool-level depth, read [AI Data Analyst vs BI Tools](/blog/ai-data-analyst-vs-bi-tools).
-For governance before scaling agents, read [AI Data Governance for Analytics Teams](/blog/governance-for-ai-data-analysis).
-For platform paradigm, read [AI-Native vs Augmented Analytics](/blog/ai-native-vs-augmented-analytics).
+For tool-level depth, read [AI Data Analyst vs BI Tools](/en/blog/ai-data-analyst-vs-bi-tools).
+For governance before scaling agents, read [AI Data Governance for Analytics Teams](/en/blog/governance-for-ai-data-analysis).
+For platform paradigm, read [AI-Native vs Augmented Analytics](/en/blog/ai-native-vs-augmented-analytics).
 
 ---
