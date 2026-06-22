@@ -1,0 +1,127 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "ThoughtSpot vs Databricks Genie: Neutral AI Analytics Comparison (2026)",
+    "description": "ThoughtSpot vs Databricks Genie compared for 2026 analytics teams: semantic search UX, lakehouse fit, governance, and rollout tradeoffs. Includes a quick FAQ.",
+    "image": [
+      "https://infinisynapse.com/blog/assets/pillar3/thoughtspot-vs-databricks-genie/hero.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.com/en/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.com/en/blog/thoughtspot-vs-databricks-genie"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "ThoughtSpot"
+      },
+      {
+        "@type": "Thing",
+        "name": "Databricks Genie"
+      },
+      {
+        "@type": "Thing",
+        "name": "Analytics platform comparison"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "ThoughtSpot",
+        "applicationCategory": "BusinessApplication"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Databricks Genie",
+        "applicationCategory": "BusinessApplication"
+      }
+    ],
+    "keywords": "thoughtspot vs databricks genie, databricks genie, thoughtspot ai analytics, lakehouse semantic search"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is ThoughtSpot the same as Genie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": ""
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is better for business users?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ThoughtSpot is usually better for business-user self-service search and dashboard exploration on curated datasets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is better for lakehouse-native engineering teams?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": ""
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do we need all data in Databricks for Genie to work well?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Genie works best when critical analytics assets are governed in Databricks with stable schemas and Unity Catalog policies."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can ThoughtSpot and Databricks be used together?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Many organizations use Databricks as the governed data platform and ThoughtSpot as the business-facing analytics layer."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "ThoughtSpot vs Databricks Genie",
+        "item": "https://infinisynapse.com/en/blog/thoughtspot-vs-databricks-genie"
+      }
+    ]
+  }
+]
