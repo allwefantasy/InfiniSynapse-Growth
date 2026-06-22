@@ -1,0 +1,123 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI Data Analyst Job Description: 2026 Template + Skills Matrix",
+    "description": "Copy-ready AI data analyst job description for 2026: responsibilities, skills matrix, qualifications, and sample JD for HR and hiring managers. See the FAQ.",
+    "image": [
+      "https://infinisynapse.com/en/blog/2026-06-08-ai-data-analyst-job-description/hero.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.com/en/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.com/en/blog/ai-data-analyst-job-description"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "AI data analyst job description"
+      },
+      {
+        "@type": "Thing",
+        "name": "AI data analyst"
+      },
+      {
+        "@type": "Thing",
+        "name": "Hiring"
+      }
+    ],
+    "keywords": "ai data analyst job description, ai data analyst, hiring data analyst, data agent"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What should an analytics include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Include goal-framing responsibilities, agent supervision and audit validation, metric governance, stakeholder communication, and explicit mention of agentic tooling."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is this different from a traditional data analyst JD?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Traditional JDs emphasize manual SQL and dashboard building. AI data analyst JDs emphasize orchestration, validation, and governance with agents handling execution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What title should I use — AI Data Analyst or Data Analyst?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use AI Data Analyst if the role explicitly involves autonomous agents. Use Data Analyst with an AI tooling paragraph if evolving an existing role without title change."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a computer science degree required?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Judgment, domain context, SQL review ability, and communication matter more than degree field."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should the JD mention specific tools like InfiniSynapse?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mention your actual stack. Naming specific agentic platforms signals serious intent and filters candidates better than generic AI tools language."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this template for intern or senior levels?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Adjust years of experience and autonomy scope. Interns use supervised agents; seniors own governance playbooks and mentor goal engineering.\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI Data Analyst Job Description (2026)",
+        "item": "https://infinisynapse.com/en/blog/ai-data-analyst-job-description"
+      }
+    ]
+  }
+]
