@@ -1,0 +1,139 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is an Autonomous Data Agent?",
+    "description": "What is an autonomous data agent? Definition, 5 autonomy behaviors, self-correction patterns, and how it differs from copilots and code agents in 2026.",
+    "image": [
+      "https://infinisynapse.com/en/blog/2026-06-08-autonomous-data-agent/hero.png",
+      "https://infinisynapse.com/en/blog/2026-06-08-autonomous-data-agent/self-correction-tree.png"
+    ],
+    "datePublished": "2026-06-08T10:00:00+08:00",
+    "dateModified": "2026-06-08T10:00:00+08:00",
+    "author": {
+      "@type": "Organization",
+      "name": "InfiniSynapse Data Team",
+      "url": "https://infinisynapse.com/en/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "InfiniSynapse",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://infinisynapse.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://infinisynapse.com/en/blog/autonomous-data-agent"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Autonomous data agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "Data agent"
+      },
+      {
+        "@type": "Thing",
+        "name": "Self-correction"
+      }
+    ],
+    "mentions": [
+      {
+        "@type": "Thing",
+        "name": "InfiniSQL"
+      },
+      {
+        "@type": "Thing",
+        "name": "InfiniRAG"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "InfiniSynapse",
+        "url": "https://app.infinisynapse.com"
+      }
+    ],
+    "keywords": "autonomous data agent, data agent, agentic analytics, self-correction, AI-native data analysis"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an analytics?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An autonomous data agent is an AI system that accepts a single analytics goal, plans and executes multi-step analysis across data sources, self-corrects around failures, and delivers an inspectable result without the user driving each step."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is it different from a standard data agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every autonomous data agent is a data agent, but not every data agent is autonomous. Autonomy requires goal-to-plan translation, unattended multi-step execution, and self-correction — not just text-to-SQL in a chat window."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can it run without human oversight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It can run unattended for execution, but humans remain accountable for goals, assumptions, and conclusions. Autonomy removes babysitting each SQL step; it does not remove review before numbers go to executives or regulators."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is self-correction in a data agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Self-correction means the agent diagnoses failures and tries alternative paths — cached data, remapped schema, narrower filters — without returning the error to the user. The workaround is logged in the task timeline."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need InfiniSQL or a special query language?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily, but named intermediate tables improve auditability. InfiniSQL extends standard SQL with named intermediates and cross-source load/connect syntax — patterns any production autonomous agent needs under the hood."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I evaluate autonomy in a vendor demo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Submit one goal with a real schema, leave for 15 minutes, then check: Did it finish? Is there a phased timeline? Did it recover from failure without you? Can you trace every number to a query?\n\n---"
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://infinisynapse.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://infinisynapse.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "What Is an Autonomous Data Agent?",
+        "item": "https://infinisynapse.com/en/blog/autonomous-data-agent"
+      }
+    ]
+  }
+]
