@@ -6,6 +6,7 @@
  <title>竞品多维对标 · InfiniSynapse 增长调研</title>
  <meta name="description" content="按渠道拆解的竞品多维对标：整体大盘 / SEO / SEM / 红人营销 / 社媒社群 / 大盘总结。" />
  <link rel="stylesheet" href="assets/report.css" />
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
  <header class="topbar">
@@ -14,6 +15,7 @@
  <nav class="topbar-nav">
  <a href="index.html">← 返回总报告</a>
  <a href="#overview">整体大盘</a>
+ <a href="#charts">可视化</a>
  <a href="#seo">SEO</a>
  <a href="#sem">SEM</a>
  <a href="#influencer">红人营销</a>
@@ -48,17 +50,71 @@
  <thead><tr><th>维度</th><th>Julius</th><th>Hex</th><th>ThoughtSpot</th><th>Databricks Genie</th><th>InfiniSynapse</th></tr></thead>
  <tbody>
  <tr><td>角色定位</td><td>搜索标杆</td><td>AI 推荐标杆</td><td>科普专栏标杆</td><td>采购对比标杆</td><td>挑战者（起步）</td></tr>
- <tr><td>月访问（SEMrush 2026-05）</td><td><strong>71.4 万</strong></td><td>47.1 万</td><td>19.1 万</td><td>母站级（无法单拆）</td><td>—</td></tr>
+ <tr><td>月访问（SEMrush .Trends 2026-05）</td><td><strong>71.4 万</strong></td><td>47.1 万</td><td>19.1 万</td><td>母站级（无法单拆）</td><td>—</td></tr>
+ <tr><td>SEMrush 自然流量（Domain Overview 2026-06）</td><td>151.8K（+24%）</td><td>28.2K（+0.3%）</td><td>208.3K（+7%）</td><td>977K（+11%）</td><td>—</td></tr>
  <tr><td>获客主引擎</td><td>Google 对比文</td><td>Reddit + 品牌直接访问</td><td>科普专栏超大词</td><td>存量湖仓客户捆绑</td><td>100 篇规划待发</td></tr>
  <tr><td>Google 占比</td><td>30%</td><td>7%</td><td>18%</td><td>品牌/平台</td><td>—</td></tr>
- <tr><td>DR（域名评级）</td><td>72</td><td><span class="tag-p1">待补</span></td><td>75</td><td>84（母站）</td><td>新站</td></tr>
- <tr><td>AI 测试引用次数</td><td>0</td><td><strong>6</strong></td><td>4</td><td>2（母站）</td><td>0</td></tr>
+ <tr><td>Ahrefs DR（域名评级）</td><td>72</td><td>75</td><td>78</td><td><strong>88</strong>（母站）</td><td>新站</td></tr>
+ <tr><td>Ahrefs UR（首页评级）</td><td>27</td><td>18</td><td><strong>6（极低）</strong></td><td>18</td><td>—</td></tr>
+ <tr><td>SEMrush Authority Score（另一口径）</td><td>43</td><td>42</td><td>51</td><td>58（母站）</td><td>—</td></tr>
+ <tr><td>AI 测试引用次数（内部 5 prompt）</td><td>0</td><td><strong>6</strong></td><td>4</td><td>2（母站）</td><td>0</td></tr>
+ <tr><td>SEMrush AI 可见性（被 AI 提及量）</td><td>23 · 2.1K</td><td>14 · 78</td><td>25 · 3K</td><td><strong>49 · 32.4K</strong></td><td>—</td></tr>
  <tr><td>LinkedIn 粉丝</td><td>2.07 万</td><td>2.9 万</td><td><strong>19.1 万</strong></td><td>百万级（母站）</td><td><span class="tag-p1">待补</span></td></tr>
  <tr><td>90 天可复制性</td><td>高</td><td>中</td><td>中</td><td>低（学叙事）</td><td>—</td></tr>
  <tr><td>对我们最相关动作</td><td>写对比/替代品页</td><td>写 Reddit 长评</td><td>建科普 hub + FAQ</td><td>写 vs Genie 拦采购</td><td>三者组合</td></tr>
  </tbody>
  </table>
+ <p class="fig-note">同样是流量，<strong>四家来路完全不同</strong>：Julius 71 万靠<strong>写对比文吃 Google 搜索</strong>（30%）；Hex 47 万靠<strong>老客户记网址直接访问 + Reddit 口碑</strong>（直接访问 82%、Google 仅 7%）；ThoughtSpot 19 万靠<strong>科普大词</strong>（一篇 kpi examples 吃 32%）；Databricks 靠<strong>母平台存量客户</strong>，不是独立 SEO。看「获客主引擎」行就知道每家的流量是哪个动作堆出来的。</p>
  <div class="tip"><strong>大盘判断：</strong>四家是<strong>四种不同获客引擎</strong>，不是「谁流量大学谁」。我们的组合拳 = Julius 的对比文 + ThoughtSpot 的科普/术语 hub + Hex 的 Reddit，外加我们自己更强的<strong>连接器 / NL2SQL / Excel</strong> 护城河。</div>
+ </section>
+
+ <!-- 数据可视化 -->
+ <section id="charts">
+ <h2>★ 数据可视化速览（Ahrefs / SEMrush 实测 2026-06）</h2>
+ <p class="section-lead">核心硬数据图形化，便于汇报一眼对比。绝对量级图中 <strong>Databricks 为平台母站、体量过大，单列或剔除并标注</strong>，避免压扁三家直接竞品。</p>
+ <div class="chart-grid">
+ <div class="chart-panel">
+ <h3>① 域名权重 DR vs 首页 UR</h3>
+ <p class="chart-caption">DR 都高，但首页 UR 普遍低（TS 仅 6）——权重在深层内容页，不在首页</p>
+ <div class="chart-wrap"><canvas id="chDrUr"></canvas></div>
+ <p class="fig-note chart">DR（高）= 多年外链积累的结果；UR（首页低）= 它们刻意把内链权重导向<strong>深层内容页而非首页</strong>。ThoughtSpot UR 仅 6，因为权重几乎全堆在 <code>/data-trends/</code> 科普文章上。<strong>启示：我们也别指望首页排名，把权重喂给对比文/连接器落地页。</strong></p>
+ </div>
+ <div class="chart-panel">
+ <h3>② AI 可见性指数（SEMrush）</h3>
+ <p class="chart-caption">Databricks 49 最高 · Hex 14 最低；我们当前为 0</p>
+ <div class="chart-wrap"><canvas id="chAi"></canvas></div>
+ <p class="fig-note chart">AI 可见性来自<strong>「被 AI 抓来当答案的内容」</strong>：Databricks 49 靠海量文档 + benchmark 技术长文；ThoughtSpot 25 靠科普 hub + FAQ 结构化；Hex 14 靠 r/dataengineering 讨论被采信。<strong>我们 0 = 还没在官网建结构化事实/FAQ 页，也没在 Reddit 发声。</strong></p>
+ </div>
+ </div>
+ <div class="chart-grid">
+ <div class="chart-panel">
+ <h3>③ 自然流量 vs 付费流量（月 · 不含 Databricks）</h3>
+ <p class="chart-caption">Hex 付费 6.6K ≈ 自然 11.6K 的 57%——自然弱、靠投放补</p>
+ <div class="chart-wrap"><canvas id="chTraffic"></canvas></div>
+ <p class="fig-note chart">自然流量（绿）靠<strong>内容动作</strong>：Julius 写对比文、ThoughtSpot 写科普文，免费持续拿量。付费流量（红）靠<strong>投 Google Ads</strong>：<strong>Hex 付费 6.6K ≈ 自然 11.6K 的 57%</strong>——因为它自然内容少（仅 877 词），只能花钱补量。<strong>启示：我们走内容路线，把钱省下来做内容。</strong></p>
+ </div>
+ <div class="chart-panel">
+ <h3>④ 自然关键词覆盖数（US · 不含 Databricks 22.6K）</h3>
+ <p class="chart-caption">ThoughtSpot 科普 hub 词最多(6.9K) · Hex 最少(877)</p>
+ <div class="chart-wrap"><canvas id="chKw"></canvas></div>
+ <p class="fig-note chart">关键词覆盖数 = <strong>内容产出规模的直接结果</strong>。ThoughtSpot 6,865 词靠 <code>/data-trends/</code> 数百篇科普集群；Julius 1,715 词靠对比文 + 通用词；<strong>Hex 仅 877 词，因为它只写品牌页 + 少量博客，不做大规模 SEO 内容</strong>（改靠 Reddit + 付费）。<strong>我们 100 篇规划要补的就是这个「内容规模」。</strong></p>
+ </div>
+ </div>
+ <div class="chart-grid">
+ <div class="chart-panel">
+ <h3>⑤ 外链护城河（引荐域名 · 全时，对数轴）</h3>
+ <p class="chart-caption">Databricks 90.6K 断层领先 · 三家直接竞品 10–22K</p>
+ <div class="chart-wrap"><canvas id="chRd"></canvas></div>
+ <p class="fig-note chart">引荐域名（外链护城河）靠<strong>「被别的网站链接」</strong>：Databricks 90.6K 靠平台生态 + Data+AI Summit + 媒体报道；三家直接竞品 10–22K 靠<strong>科普文/教程被自然引用</strong>（非买链）。<strong>启示：我们靠内容（术语页、教程、对比文）慢慢攒自然外链，不买批量外链。</strong></p>
+ </div>
+ <div class="chart-panel">
+ <h3>⑥ 自然流量价值（月 · $，对数轴）</h3>
+ <p class="chart-caption">等价付费获取成本：TS $158K · Julius $64K · Hex $6.5K</p>
+ <div class="chart-wrap"><canvas id="chValue"></canvas></div>
+ <p class="fig-note chart">自然流量价值 = 自然流量 × 关键词 CPC，即<strong>「同样流量若靠投广告要花多少钱」</strong>。ThoughtSpot $158K/月 靠科普词量大；<strong>Hex 仅 $6.5K，因为自然内容少</strong>。这笔钱就是内容 SEO 相对 SEM 省下的预算——<strong>越早建内容资产，越早省下持续的广告费。</strong></p>
+ </div>
+ </div>
+ <div class="tip"><strong>看图三句话：</strong>① 权重（DR）大家都不弱，但<strong>首页 UR 都低</strong>——我们也别指望首页排名，把权重喂给落地页。② <strong>关键词覆盖 = 内容规模</strong>：ThoughtSpot/Databricks 靠海量科普词，Hex 几乎不做自然 SEO。③ <strong>Hex 付费占比最高</strong>，说明自然搜索是它的短板，也是我们的机会。</div>
  </section>
 
  <!-- ============ 2. SEO ============ -->
@@ -70,16 +126,21 @@
  <table>
  <thead><tr><th>指标</th><th>Julius</th><th>Hex</th><th>ThoughtSpot</th><th>Databricks(母站)</th><th>InfiniSynapse</th></tr></thead>
  <tbody>
- <tr><td>月自然搜索流量</td><td>~21.7 万（30%）</td><td>~3.3 万（7%）</td><td>~3.5 万（18%）</td><td>66 万+</td><td>≈0（起步）</td></tr>
- <tr><td>自然关键词总数</td><td>29,572</td><td><span class="tag-p1">待补</span></td><td>33,600+（信息型 2.87 万）</td><td>152,300+</td><td><span class="tag-p1">待补</span></td></tr>
+ <tr><td>SEMrush 自然流量 / 月</td><td>151.8K（+24%）</td><td>28.2K（+0.3%）</td><td>208.3K（+7%）</td><td><strong>977K（+11%）</strong></td><td>≈0（起步）</td></tr>
+ <tr><td>自然关键词数（趋势）</td><td>25.2K（<strong>-30%</strong>）</td><td>6.7K（<strong>-34%</strong>）</td><td>52.4K（-9.5%）</td><td>292K（-27%）</td><td><span class="tag-p1">待补</span></td></tr>
+ <tr><td><strong>Ahrefs DR（域名评级）</strong></td><td>72</td><td><strong>75</strong></td><td>78</td><td>88</td><td>新站</td></tr>
+ <tr><td><strong>Ahrefs UR（首页评级）</strong></td><td>27</td><td>18</td><td><strong>6</strong></td><td>18</td><td>—</td></tr>
+ <tr><td>SEMrush Authority Score（另一口径）</td><td>43</td><td>42</td><td>51</td><td>58</td><td>—</td></tr>
  <tr><td>品牌 : 行业词</td><td>品牌主导（~67% 流量）</td><td>品牌主导</td><td><strong>15:85 行业主导</strong></td><td>—</td><td>行业为主（无品牌量）</td></tr>
- <tr><td>DR</td><td>72</td><td><span class="tag-p1">待补</span></td><td>75</td><td>84</td><td>新站</td></tr>
- <tr><td>反向链接</td><td>216K</td><td>54K</td><td>176K</td><td>288K</td><td>—</td></tr>
- <tr><td>引荐域名（RD）</td><td>7.0K</td><td>3.9K</td><td>9.0K</td><td>18.4K</td><td>—</td></tr>
- <tr><td>反链/域名比（越低越自然）</td><td>~31</td><td><strong>~14 最自然</strong></td><td>~20</td><td>~16</td><td>—</td></tr>
+ <tr><td>反向链接（Ahrefs 全时）</td><td>281K</td><td>212K</td><td>677K</td><td>14M</td><td>—</td></tr>
+ <tr><td>引荐域名（Ahrefs 全时）</td><td>9.9K</td><td>10.2K</td><td>22K</td><td>90.6K</td><td>—</td></tr>
+ <tr><td>Ahrefs 自然流量 / 月（价值）</td><td>65.9K（$64K）</td><td>11.6K（$6.5K）</td><td>138K（$158K）</td><td>1.3M（$2.3M）</td><td>—</td></tr>
+ <tr><td>付费流量 / 月（成本）</td><td>5.6K（$18.2K）</td><td>6.6K（$15.4K）</td><td>18.9K（$26.5K）</td><td>184K（$434K）</td><td>—</td></tr>
  </tbody>
  </table>
- <p class="data-src">DR：ahrefstop / Concurate 2026 · 流量/外链：SEMrush 2026-05 · 关键词分类：Concurate</p>
+ <p class="fig-note">这张表的流量是怎么来的：<strong>Julius 自然流量靠「ai data analysis」通用词 + 品牌词（写对比文/榜单堆出来）</strong>；<strong>ThoughtSpot 靠 data-trends 科普集群（写海量教育长文）</strong>；<strong>Hex 自然最少、改用付费补（投 Google Ads）</strong>；<strong>Databricks 靠平台 glossary + 文档规模</strong>。外链则全靠内容被自然引用，不是买的。</p>
+ <p class="data-src">DR / UR / 外链 / 引荐域名 / 自然流量 / 付费流量：<strong>Ahrefs Site Explorer 实测（子域名口径，2026-06-22）</strong> · Authority Score：SEMrush 2026-06（口径不同）· 品牌/行业分类：Concurate · 注：Ahrefs 与 SEMrush 流量/词数因数据库不同有差异，此处统一用 Ahrefs</p>
+ <div class="tip"><strong>Ahrefs 实测关键洞察：</strong>① <strong>DR 排序 DB 88 &gt; TS 78 &gt; Hex 75 &gt; Julius 72</strong>（Hex DR 已补，比预期高）。② <strong>UR（首页评级）普遍偏低：ThoughtSpot 仅 6、Hex/DB 18、Julius 27</strong>——印证模板说的「外链权重没传导到首页」，首页都不是它们的权重承接核心（流量靠深层内容页）。③ <strong>付费投放：ThoughtSpot/Databricks 重投（付费流量 18.9K/184K），Hex 付费 6.6K 但占自然流量比例最高（~57%）</strong>，再次说明 Hex 自然搜索弱、靠付费补。④ Julius 自然流量价值 $64K 但关键词仅 2.7K——少量大词撑流量，长尾在收缩。</div>
  <div class="tip"><strong>外链差距策略：</strong>不补 Julius 式批量外链（比 31，风险高）；学 <strong>Hex/ThoughtSpot 的「内容自然外链」</strong>——靠科普文 + 教程沉淀 RD，慢但稳、抗算法更新。</div>
 
  <h3>2.2 页面话题覆盖差距（抓 sitemap 实跑）</h3>
@@ -99,6 +160,7 @@
  <tr><td><strong>数据治理 / 语义层</strong></td><td>TS data-governance 7 · semantic-layer</td><td>分散在各篇</td><td><span style="color:var(--orange)">⚠ 偏弱</span></td><td>可结合「可审计/私有化」叙事补 2 篇</td></tr>
  </tbody>
  </table>
+ <p class="fig-note">话题覆盖差距 = <strong>对方做了哪类内容动作、我们没做</strong>。竞品的流量正是从这些话题页来的：ThoughtSpot 的流量来自<strong>写了 411 篇 data-trends + 76 条术语</strong>；Hex 的模板流量来自<strong>77 个 templates 页</strong>。红色「重大缺口」(术语 Glossary) = 对方靠它拿大量 GEO/长尾流量、而我们几乎没做，是最该立刻补的动作。</p>
  <p class="data-src">sitemap 抓取 2026-06-16 · Hex 路径分布：blog 353 / templates 77 / resources 40 / product 37 / solutions 6 / compare 5 · ThoughtSpot data-trends 411：analytics 84 / BI 50 / dashboard 40 / ai 33 / data-modeling 22 / embedded 17 / glossary 76 / sql-tutorial 52</p>
 
  <h3>2.3 由话题差距推出的「建议新增页面」（规划产出）</h3>
@@ -118,8 +180,38 @@
  <li>不抄 Julius 数学作业类虚流量词</li>
  </ul>
  </div>
+ <h3>2.4 关键词意图 + 品牌/行业（Ahrefs 实测 2026-06-22）</h3>
+ <table>
+ <thead><tr><th>维度</th><th>Julius</th><th>Hex</th><th>ThoughtSpot</th><th>Databricks</th></tr></thead>
+ <tbody>
+ <tr><td>自然关键词总数（US）</td><td>1,715</td><td><strong>877（最少）</strong></td><td>6,865</td><td><strong>22,628（最多）</strong></td></tr>
+ <tr><td>主导意图（Top 词）</td><td>Informational 为主</td><td>Branded 为主</td><td>Informational 为主</td><td>Informational + Branded</td></tr>
+ <tr><td>品牌 vs 行业</td><td>混合（品牌词撑流量 + 通用词排名）</td><td><strong>极度品牌依赖</strong>（Top10 仅 1 个非品牌词）</td><td><strong>行业主导</strong>（科普词海量）</td><td>行业主导（glossary/educational）</td></tr>
+ <tr><td>SEO footprint 判断</td><td>中（爆发后收缩）</td><td>小（靠品牌+付费+Reddit）</td><td>大（科普 hub）</td><td>巨（平台 glossary）</td></tr>
+ </tbody>
+ </table>
+ <p class="data-src">Ahrefs Organic Keywords（US，按自然流量排序，2026-06-22）· 意图标签为 Ahrefs 行级标注（I=Informational / N=Navigational / Branded）· 精确 I/C/T 占比需 Pro 批量统计（趋势已明确：四家均 Informational 主导）</p>
+
+ <h3>2.5 竞品痛点词 → 我们的机会词（Ahrefs Top 词实测）</h3>
+ <p class="section-lead">下表是竞品<strong>实际吃流量的行业词（非品牌）</strong>及其排名，标出我们最该抢的机会词（对位我们已有支柱）。</p>
+ <table>
+ <thead><tr><th>竞品痛点词</th><th>谁在排</th><th>月搜 · KD · 排名</th><th>意图</th><th>我方机会 / 对位</th></tr></thead>
+ <tbody>
+ <tr><td><code>ai for data analysis</code></td><td>Julius</td><td>1.6K · KD51 · <strong>#1</strong></td><td>I</td><td><span class="tag-priority-high">最高优先级</span> 我方 P1 #001 直接对位，必争</td></tr>
+ <tr><td><code>data analysis ai</code> / <code>ai data analysis</code></td><td>Julius</td><td>0.8–1.6K · #1</td><td>I</td><td>P1 集群补强 · Julius 是现任霸主</td></tr>
+ <tr><td><code>data analysis tool(s)</code></td><td>Julius</td><td>1.1K · KD32 · #1–2</td><td>I</td><td>P3 工具榜对位</td></tr>
+ <tr><td><code>ai data analytics</code></td><td>Julius</td><td>4.0K · KD59 · #1</td><td>I</td><td>P1 科普对位</td></tr>
+ <tr><td><code>agentic ai</code></td><td>ThoughtSpot</td><td><strong>139K</strong> · KD76 · 爬升#14</td><td>I</td><td><span class="tag-priority-high">最高优先级</span> 高价值 · 对位 agentic-analytics（难但值）</td></tr>
+ <tr><td><code>data visualization tools</code></td><td>ThoughtSpot</td><td>15K · KD36 · #10</td><td>I</td><td>P3 可视化工具榜 · KD 适中</td></tr>
+ <tr><td><code>data modeling tools</code></td><td>Hex</td><td>1.0K · <strong>KD15</strong> · #1</td><td>I</td><td>低难度机会 · 可纳入 P1/P3</td></tr>
+ <tr><td><code>what is a data warehouse</code></td><td>Databricks</td><td>129K · KD39 · 高位</td><td>I</td><td>术语集群候选（GEO 友好）</td></tr>
+ <tr><td><code>kpi examples</code></td><td>ThoughtSpot</td><td>81K · KD58 · #1</td><td>I</td><td>⚠ 离产品远 · 只摘子集，不硬抢</td></tr>
+ </tbody>
+ </table>
+ <div class="tip"><strong>机会词结论：</strong>① <strong>Julius 垄断「ai data analysis」通用词族（全 #1）</strong>——这是我们 P1 必须正面竞争的核心战场。② <strong>agentic ai（13.9万）是 ThoughtSpot 正在抢的高价值新词</strong>，我们的 agentic-analytics 应加速卡位。③ Hex 在通用词上几乎空白 → 我们抢通用词不会撞 Hex。④ 低难度切入点：<code>data modeling tools</code>(KD15)、<code>data visualization tools</code>(KD36)。</div>
+
  <div class="gap-box">
- <strong>SEO 待补（实操）：</strong>① Julius sitemap（Cloudflare，需浏览器/Ahrefs 导出）② Hex DR + 首页 UR ③ 各站 Organic keywords CSV 算精确品牌/行业比例 ④ 意图 I/C/T 占比 ⑤ <code>site:</code> 各站 docs/use-case 收录量
+ <strong>SEO 仅剩待补：</strong>① 精确意图 I/C/T 百分比（需 Ahrefs Pro 批量统计 / CSV 导出，趋势已明确为 Informational 主导）② Julius sitemap 完整话题（Cloudflare）③ <code>site:</code> 各站 docs/use-case 收录量（Google 直搜）
  </div>
  </section>
 
@@ -128,17 +220,17 @@
  <h2>3. SEM 对标（付费搜索 · 拿认知为主）</h2>
  <p class="section-lead">目的：<strong>了解对手买了哪些词、带来多少付费流量</strong>，建立认知即可——我们短期大概率<strong>不投 SEM</strong>，但要知道对手在哪些词上花钱（说明这些词价值高）。</p>
  <table>
- <thead><tr><th>指标</th><th>Julius</th><th>Hex</th><th>ThoughtSpot</th><th>Databricks</th><th>获取方式</th></tr></thead>
+ <thead><tr><th>指标</th><th>Julius</th><th>Hex</th><th>ThoughtSpot</th><th>Databricks</th><th>来源</th></tr></thead>
  <tbody>
- <tr><td>是否投放付费搜索</td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td>大概率有（企业级）</td><td>有（品牌+品类）</td><td>SEMrush/Ahrefs Paid Search</td></tr>
- <tr><td>付费关键词数</td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td>Ahrefs → Paid keywords</td></tr>
- <tr><td>付费流量 / 月</td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td>SEMrush → Traffic(Paid)</td></tr>
- <tr><td>估算月预算</td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td>SEMrush Ad spend 估算</td></tr>
- <tr><td>主投词类型</td><td><span class="tag-p1">待补</span>（预判：品牌防御 + 替代品）</td><td><span class="tag-p1">待补</span></td><td>品类 + 竞品防御</td><td>品牌 + 行业方案</td><td>Paid keywords 列表</td></tr>
+ <tr><td>是否投放付费搜索</td><td>是（小量）</td><td><strong>是</strong></td><td>是</td><td><strong>是（重投）</strong></td><td>SEMrush Domain Overview</td></tr>
+ <tr><td>付费关键词数</td><td>94（+29%）</td><td>300（-18%）</td><td>616（+33%）</td><td><strong>4.4K（+34%）</strong></td><td>SEMrush 2026-06</td></tr>
+ <tr><td>付费流量 / 月</td><td>3.8K（-8.9%）</td><td>7K（+32%）</td><td>6.2K（+7.9%）</td><td><strong>202.3K（+44%）</strong></td><td>SEMrush 2026-06</td></tr>
+ <tr><td>付费 vs 自然流量占比</td><td>~2%（几乎全自然）</td><td><strong>~20%（重 SEM）</strong></td><td>~3%</td><td>~17%</td><td>计算值</td></tr>
+ <tr><td>主投词类型</td><td>品牌防御为主</td><td>品类 + 竞品防御</td><td>品类 + 竞品防御</td><td>品牌 + 行业方案</td><td>需 Pro 看 Paid 词表（<span class="tag-p1">待补</span>）</td></tr>
  </tbody>
  </table>
- <div class="tip"><strong>SEM 结论（先验）：</strong>对手买的词 = 他们认为<strong>转化价值最高</strong>的词，通常是「品牌防御 + 替代品 + vs」。我们<strong>不投放</strong>，但把这些词作为 <strong>SEO 优先级信号</strong>：对手肯花钱买的，我们用对比文/落地页免费拦截。</div>
- <div class="gap-box"><strong>SEM 待补：</strong>SEMrush/Ahrefs 各站「Paid keywords + Paid traffic + Ad spend」导出一次即可，约 30 分钟拿全四家认知。</div>
+ <div class="tip"><strong>SEM 实测结论：</strong>① <strong>Hex 付费占比最高（付费流量 7K ≈ 自然 28.2K 的 25%，且 +32%）</strong>——说明 Hex 自然搜索弱(Google 7%)，靠付费补量。② Databricks 付费流量 202.3K（+44%）是巨头级投放。③ Julius/ThoughtSpot 以自然为主，付费仅 2–3%。<strong>对我们：</strong>不投放；把对手肯花钱买的词当 SEO 优先信号，用对比文/落地页免费拦截。</div>
+ <div class="gap-box"><strong>SEM 仍待补（需 Pro）：</strong>具体 Paid 关键词清单 + 落地页 + Ad spend 金额（免费档 Domain Overview 只给汇总，词表与导出需 Pro）。</div>
  </section>
 
  <!-- ============ 4. 红人营销 ============ -->
@@ -168,15 +260,16 @@
  <table>
  <thead><tr><th>平台 / 指标</th><th>Julius</th><th>Hex</th><th>ThoughtSpot</th><th>Databricks</th><th>获取方式</th></tr></thead>
  <tbody>
- <tr><td>LinkedIn 粉丝</td><td>2.07 万（+128% YoY）</td><td>2.9 万（+77% YoY）</td><td><strong>19.1 万</strong>（+24% YoY）</td><td>百万级</td><td>LinkedIn 公司页</td></tr>
- <tr><td>X / Twitter 粉丝</td><td>~1.8 万（@JuliusAI_）</td><td>@_hex_tech <span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td>数十万</td><td>X 账号页</td></tr>
- <tr><td>近 1 月发帖数</td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td>各平台主页翻 30 天</td></tr>
- <tr><td>近 1 月平均阅读/曝光</td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td>X/LinkedIn 帖展示量</td></tr>
- <tr><td>近 1 月平均转发+评论</td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td><span class="tag-p1">待补</span></td><td>逐帖统计/第三方工具</td></tr>
- <tr><td>声量初判（按粉丝）</td><td>成长快（YoY +128%）</td><td>成长快（+77%）</td><td>体量大但增速慢</td><td>巨头</td><td>—</td></tr>
+ <tr><td>LinkedIn 粉丝（增速）</td><td>2.07 万（<strong>+128% YoY</strong>）</td><td>2.9 万（+77% YoY）</td><td><strong>19.1 万</strong>（+24% YoY）</td><td>百万级（母站）</td><td>LinkedIn 公司页</td></tr>
+ <tr><td>X / Twitter 粉丝</td><td>~1.9 万（@JuliusAI_）</td><td>0.7 万（@_hex_tech）</td><td>1.1 万（@thoughtspot）</td><td><strong>9.2 万</strong>（@databricks）</td><td>X 主页 / digg / socialpruf</td></tr>
+ <tr><td>X 累计发帖</td><td>~350</td><td>~1.1 千</td><td>活跃（数千）</td><td>~1.5 万</td><td>X 主页 / tweetscout</td></tr>
+ <tr><td>X 互动（近 12 月）</td><td>无第三方追踪</td><td>无第三方追踪</td><td>无第三方追踪</td><td><strong>796 帖 · 3.59 万赞 · 540 万展示</strong></td><td>socialpruf（仅收录 DB）</td></tr>
+ <tr><td>X 平均赞/帖 · 互动率</td><td>—</td><td>—</td><td>—</td><td><strong>45.1 赞/帖 · ER 0.69%</strong></td><td>socialpruf 2026-06</td></tr>
+ <tr><td>声量初判</td><td>高增速 · 创始人 IP 驱动</td><td>高增速 · 技术社区驱动</td><td>体量大但增速慢</td><td>巨头 · 互动绝对量大、ER 普通</td><td>—</td></tr>
  </tbody>
  </table>
- <p class="data-src">LinkedIn/X 粉丝：公开页 2026-06 · 互动量需逐帖统计（待补）</p>
+ <p class="fig-note">粉丝/互动是怎么来的：<strong>Databricks 9.2 万 X 粉丝、540 万展示/年靠「专职社媒团队 + 每年近 800 帖高频运营」</strong>，但 ER 仅 0.69%（B2B 科技 X 的平均水平，靠量不靠率）。<strong>Julius +128%、Hex +77% 的高增速靠「高频产品更新帖 + 创始人个人 IP」</strong>（Julius 创始人 Twitter 出圈）。<strong>ThoughtSpot 靠多年企业市场 + 大会沉淀粉丝、但增速慢（+24%）。</strong>启示：起步期学 Julius——产品迭代节奏 + 创始人发声把内容做连续，不追 ThoughtSpot 的绝对量。</p>
+ <p class="data-src">LinkedIn 粉丝：公开公司页 2026-06 · X 粉丝：digg/socialpruf 2026-06 · Databricks 互动：<a href="https://socialpruf.com/x/databricks" target="_blank" rel="noopener">socialpruf</a>（0.69% ER · 45.1 赞/帖 · 540 万展示/年）· 注：Julius/Hex/ThoughtSpot 未被 socialpruf/socialblade 收录，X 逐帖互动无公开追踪，需登录各自 X Analytics 才能拿；此处以粉丝增速 + 发帖量作声量代理</p>
 
  <h3>5.2 Reddit 品牌社群核查</h3>
  <table>
@@ -195,7 +288,8 @@
  <!-- ============ 6. 大盘总结 ============ -->
  <section id="timeline">
  <h2>6. 大盘总结：过去一年涨幅 × 动作 × 能否抄</h2>
- <p class="section-lead">把四家过去约一年的<strong>流量涨幅时段</strong>、<strong>对应动作</strong>、<strong>能否抄 / 是否值得复刻</strong>放一张表。精确月度流量曲线拐点需 SEMrush/Ahrefs 12 个月数据回填（<span class="tag-p1">待补</span>），动作时间线已基于公开来源。</p>
+ <p class="section-lead">把四家过去约一年的<strong>流量涨幅时段</strong>、<strong>对应动作</strong>、<strong>能否抄 / 是否值得复刻</strong>放一张表。动作时间线基于公开来源。</p>
+ <div class="tip"><strong>SEMrush 2026-06 自然流量同比方向：</strong>Databricks +11% · Julius +24%（但自然关键词数 -30%，靠头部词撑流量）· ThoughtSpot +7% · Hex +0.3%（基本走平，靠付费 +32% 补量）。<strong>Julius US 关键词数实测从 ~30K(2025-07) 一路降到 ~11K(2026-06)</strong>——爆发后进入收缩，印证「品牌已立、长尾回落」。</div>
  <table class="action-table">
  <thead><tr><th>竞品</th><th>近一年流量趋势</th><th>涨幅时段 · 对应动作</th><th>能否抄</th><th>是否值得复刻</th></tr></thead>
  <tbody>
@@ -240,15 +334,17 @@
  <section id="todo">
  <h2>7. 待补数据汇总（实操清单）</h2>
  <table>
- <thead><tr><th>渠道</th><th>工具 / 账号</th><th>要导出的数据</th><th>用时</th></tr></thead>
+ <thead><tr><th>渠道</th><th>状态</th><th>已拿到 / 仍待补</th><th>卡点</th></tr></thead>
  <tbody>
- <tr><td>SEO</td><td>Ahrefs / SEMrush</td><td>Julius sitemap · Hex DR/UR · 各站 Organic keywords CSV（品牌/行业/意图）· site: 收录</td><td>~1.5h</td></tr>
- <tr><td>SEM</td><td>SEMrush / Ahrefs</td><td>四家 Paid keywords + Paid traffic + Ad spend</td><td>~0.5h</td></tr>
- <tr><td>红人</td><td>卧兔 / NoxInfluencer / Scrumball</td><td>品牌词提及视频 + 创作者清单 + 播放量（近 1 年）</td><td>需账号 · ~2h</td></tr>
- <tr><td>社媒</td><td>X / LinkedIn 原生 + 第三方</td><td>X 粉丝 · 近 30 天逐帖 阅读/转发/评论 · 品类版帖子量</td><td>~1.5h</td></tr>
- <tr><td>大盘</td><td>SEMrush / Ahrefs</td><td>四家 12 个月流量曲线 → 标精确涨幅起止月</td><td>~0.5h</td></tr>
+ <tr><td>SEO 体量</td><td><span style="color:var(--green)">✅ 已填</span></td><td>已填：AS、自然流量+趋势、关键词数、外链、引荐域名（SEMrush 2026-06）</td><td>—</td></tr>
+ <tr><td>SEO 意图/词分档</td><td><span style="color:var(--green)">✅ 已填</span></td><td>已填：Ahrefs 实测痛点词 + 意图标注 + 品牌/行业判断 + 机会词表（§2.4/2.5）；仅精确 I/C/T 百分比待 Pro CSV</td><td>Ahrefs 拼车号已解决主体</td></tr>
+ <tr><td>SEM</td><td><span style="color:var(--green)">✅ 已填</span></td><td>已填：付费流量 + 付费词数 + 趋势（四家）</td><td>Paid 词清单/落地页/金额需 Pro</td></tr>
+ <tr><td>大盘趋势</td><td><span style="color:var(--green)">✅ 已填</span></td><td>已填：自然流量同比方向 + Julius 关键词数 12 月曲线</td><td>精确月度拐点需 Pro 看完整 .Trends</td></tr>
+ <tr><td>红人</td><td><span class="tag-p1">待补</span></td><td>卧兔 / NoxInfluencer / Scrumball：品牌词提及视频 + 创作者 + 播放量</td><td>SEMrush 不做红人 · 需专用账号</td></tr>
+ <tr><td>社媒粉丝 + 互动</td><td><span style="color:var(--green)">✅ 已填</span></td><td>已填：四家 LinkedIn + X 粉丝、发帖量、Databricks 完整互动（ER/赞/展示）</td><td>Julius/Hex/TS 的 X 逐帖互动无第三方追踪，需登录各自 X Analytics</td></tr>
  </tbody>
  </table>
+ <div class="tip"><strong>已回填：</strong>整体大盘 + SEO（Ahrefs 实测 DR/UR/外链/词/痛点词）+ SEM + 大盘趋势 + 社媒粉丝/互动（四家 LinkedIn+X 粉丝、Databricks 完整互动）。<strong>仍需付费/专用工具：</strong>① SEMrush/Ahrefs Pro 导出精确意图 I/C/T 百分比 ② 卧兔/Nox 做红人 ③ Julius/Hex/TS 的 X 逐帖互动（需登录各自 X Analytics）。</div>
  </section>
 
  <footer class="footer">
@@ -257,8 +353,74 @@
  <a href="competitors/hex.html">Hex</a> ·
  <a href="competitors/thoughtspot.html">ThoughtSpot</a> ·
  <a href="competitors/databricks-genie.html">Genie</a> ·
- 数据：SEMrush 2026-05 · sitemap 2026-06-16 · LinkedIn 2026-06
+ 数据：SEMrush 2026-05 · sitemap 2026-06-16 · LinkedIn 2026-06 · Ahrefs 2026-06-22
  </footer>
  </div>
+
+ <script>
+ const C = { blue:'#1e6fff', green:'#0d9f6e', red:'#c62828', orange:'#fb8c00', purple:'#7b1fa2', gray:'#90a4ae' };
+ const brandColors = [C.blue, C.green, C.purple, C.orange];
+ const baseOpts = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'bottom', labels:{ boxWidth:12, font:{ size:11 } } } } };
+
+ // ① DR vs UR (all 4)
+ new Chart(document.getElementById('chDrUr'), {
+ type:'bar',
+ data:{ labels:['Julius','Hex','ThoughtSpot','Databricks'],
+ datasets:[
+ { label:'DR 域名评级', data:[72,75,78,88], backgroundColor:C.blue, borderRadius:4 },
+ { label:'UR 首页评级', data:[27,18,6,18], backgroundColor:C.orange, borderRadius:4 }
+ ]},
+ options:{ ...baseOpts, scales:{ y:{ beginAtZero:true, max:100 } } }
+ });
+
+ // ② AI visibility (all 4) + us
+ new Chart(document.getElementById('chAi'), {
+ type:'bar',
+ data:{ labels:['Julius','Hex','ThoughtSpot','Databricks','InfiniSynapse'],
+ datasets:[{ label:'AI 可见性指数', data:[23,14,25,49,0],
+ backgroundColor:['#1e6fff','#0d9f6e','#7b1fa2','#fb8c00','#c62828'], borderRadius:4 }]},
+ options:{ ...baseOpts, plugins:{ ...baseOpts.plugins, legend:{ display:false } }, scales:{ y:{ beginAtZero:true } } }
+ });
+
+ // ③ Organic vs Paid traffic (Julius/Hex/TS, in K)
+ new Chart(document.getElementById('chTraffic'), {
+ type:'bar',
+ data:{ labels:['Julius','Hex','ThoughtSpot'],
+ datasets:[
+ { label:'自然流量/月 (K)', data:[65.9,11.6,138], backgroundColor:C.green, borderRadius:4 },
+ { label:'付费流量/月 (K)', data:[5.6,6.6,18.9], backgroundColor:C.red, borderRadius:4 }
+ ]},
+ options:{ ...baseOpts, scales:{ y:{ beginAtZero:true, title:{ display:true, text:'千次/月' } } } }
+ });
+
+ // ④ Organic keywords footprint (Julius/Hex/TS)
+ new Chart(document.getElementById('chKw'), {
+ type:'bar',
+ data:{ labels:['Julius','Hex','ThoughtSpot'],
+ datasets:[{ label:'自然关键词数 (US)', data:[1715,877,6865],
+ backgroundColor:[C.blue,C.green,C.purple], borderRadius:4 }]},
+ options:{ ...baseOpts, indexAxis:'y', plugins:{ ...baseOpts.plugins, legend:{ display:false } }, scales:{ x:{ beginAtZero:true } } }
+ });
+
+ // ⑤ Referring domains (all 4, log)
+ new Chart(document.getElementById('chRd'), {
+ type:'bar',
+ data:{ labels:['Julius','Hex','ThoughtSpot','Databricks'],
+ datasets:[{ label:'引荐域名(全时)', data:[9900,10200,22000,90600],
+ backgroundColor:brandColors, borderRadius:4 }]},
+ options:{ ...baseOpts, plugins:{ ...baseOpts.plugins, legend:{ display:false } },
+ scales:{ y:{ type:'logarithmic', title:{ display:true, text:'引荐域名（对数）' } } } }
+ });
+
+ // ⑥ Organic traffic value (all 4, log, $)
+ new Chart(document.getElementById('chValue'), {
+ type:'bar',
+ data:{ labels:['Julius','Hex','ThoughtSpot','Databricks'],
+ datasets:[{ label:'自然流量价值/月 ($)', data:[64000,6500,158000,2300000],
+ backgroundColor:brandColors, borderRadius:4 }]},
+ options:{ ...baseOpts, plugins:{ ...baseOpts.plugins, legend:{ display:false } },
+ scales:{ y:{ type:'logarithmic', title:{ display:true, text:'美元/月（对数）' } } } }
+ });
+ </script>
 </body>
 </html>

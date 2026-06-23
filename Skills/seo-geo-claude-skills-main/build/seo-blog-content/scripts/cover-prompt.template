@@ -1,0 +1,42 @@
+# 把本文件复制到 <bundle>/prompts/cover.prompt 后编辑（顶部 `# ` 注释块会被自动剥离）。
+# 然后跑：bash Skills/seo-geo-claude-skills-main/build/seo-blog-content/scripts/generate-cover-image-ai.sh <bundle-slug>
+#
+# 完整 Hero 规范（标题必须用 HTML 渲染，非 AI 文字）：
+#   Skills/seo-geo-claude-skills-main/build/seo-content-writer/references/blog-hero-cover-spec.md
+#
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║  强制规则（脚本会做 lint，违规直接拒跑）                                  ║
+# ║                                                                           ║
+# ║  ① 剥离注释后的 prompt 正文必须是【英文】。                                ║
+# ║     不允许 CJK 字符 / 中文标点 / 全角符号。                                ║
+# ║     中文经验、说明、TODO 全部写在 `# ` 注释行里，会被自动剥离。            ║
+# ║                                                                           ║
+# ║  ② 必须在正文里明确写 "no text, no lettering, no logos, no watermarks"。  ║
+# ║     原因：图像模型在 cover/hero 上写的英文也常拼错，更别说中文。           ║
+# ║     文字叠加全部走 HTML 模板（render-html-to-png.sh），AI 只产纯视觉。     ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+#
+# 写 prompt 的几条经验（imagen-4 / nano-banana-pro 通用）：
+#   1. 先描述构图（dark editorial cover, 16:9, ...）
+#   2. 给具体颜色码（#0c1117 / #00bfa6 这种），AI 比 "墨绿色" 准
+#   3. 用整段【strict no-text rule】把所有可能被画成文字的东西明确列出，
+#      包括 letters / numbers / glyphs / symbols / Chinese / scribbles 等
+#   4. 描述"数据"时只用纯几何（dots / nodes / lines / hexagonal grid），
+#      绝不用 "rows / table / spreadsheet / characters / text" 这类词，
+#      否则模型会画一堆假字符（实测 imagen-4 v1 翻车过一次）
+#   5. 写实风用 "cinematic, photorealistic, 35mm"；插画用 "editorial illustration, vector"
+#   6. 16:9 已经在 --aspect-ratio 控制了，prompt 里不一定要再写
+#
+# ─── 正文从这里开始（必须英文）────────────────────────────────────────────
+
+A cinematic dark editorial cover image for a tech blog about Data Agents.
+
+Subject: an abstract minimalist visualization of structured data — represented purely as glowing dots, nodes, hexagonal grid points, and thin connecting lines. No people. No clip art.
+
+Strict no-text rule: there must be ABSOLUTELY no text, no letters, no numbers, no glyphs, no symbols, no characters, no logos, no watermarks, no signatures, no UI labels, no captions, no faux-handwriting, no scribbles, no fake calligraphy, no rows of character-like marks, no row-of-typography artifacts, no Chinese characters, no Japanese characters, no Korean characters, no Arabic, no Cyrillic. The data field must read as abstract dots and lines only — never as a page of text or a spreadsheet of words.
+
+Composition: 16:9, left-weighted negative space for headline overlay, focal element on the right third.
+
+Color palette: deep navy background (#0c1117), teal-cyan accent (#00bfa6), subtle warm highlight (#f0c674), neutral text-grey (#e8edf3) only on small UI-style chips.
+
+Style: editorial, technical, minimalist, sharp lines, soft glow, slight film grain. Avoid stock-photo cliches, avoid any text-like noise of any kind.

@@ -209,6 +209,15 @@ tr:nth-child(even) td { background: #fafbfd; }
 .chart-panel.full { grid-column: 1 / -1; }
 .chart-panel h3 { font-size: 14px; margin: 0 0 4px; }
 .chart-caption { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+
+/* 图注：解释数字背后的动作 */
+.fig-note {
+  font-size: 12px; line-height: 1.6; color: var(--text);
+  background: var(--blue-light); border-left: 3px solid var(--blue);
+  padding: 8px 12px; border-radius: 0 6px 6px 0; margin: 10px 0 4px;
+}
+.fig-note::before { content: "📌 动作解读："; font-weight: 700; color: var(--blue-dark); }
+.fig-note.chart { margin-top: 12px; }
 .chart-wrap { position: relative; height: 260px; }
 .chart-wrap.tall { height: 320px; }
 .chart-wrap.short { height: 220px; }

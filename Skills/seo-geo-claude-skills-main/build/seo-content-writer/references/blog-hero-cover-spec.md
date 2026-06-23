@@ -144,7 +144,7 @@ python3 SEO/Blog/pillar1-ai-native-data-analysis/build-preview.py
 
 **Preview HTML**: [blog-preview-html-spec.md](blog-preview-html-spec.md) — `preview.html` per article + `INDEX-preview.html` for local review.
 
-When creating a **new** blog bundle, copy the pattern from `SEO/Blog/scripts/cover-prompt.template` and `build-visuals.py` (`hero_cover()`, `COVER_CSS`, `SVG_VARIANTS`).
+When creating a **new** blog bundle, copy the pattern from `Skills/seo-geo-claude-skills-main/build/seo-blog-content/scripts/cover-prompt.template` and `build-visuals.py` (`hero_cover()`, `COVER_CSS`, `SVG_VARIANTS`).
 
 ---
 

@@ -101,7 +101,6 @@
 | [`gsc-submit-order-100.csv`](./gsc-submit-order-100.csv) | 100 篇 GSC 提交顺序台账 |
 | [`frontend-package/gsc-submit-order-100.csv`](./frontend-package/gsc-submit-order-100.csv) | 同上（交付包内） |
 | [`blog-content-catalog.csv`](./frontend-package/blog-content-catalog.csv) | 部署路径对照 |
-| [`SEO-90天可执行操作手册.md`](../日常运营/2026-InfiniSynapse增长方案-渠道与竞品分析/SEO-90天可执行操作手册.md) | 整体 SEO 节奏 |
 
 ---
 
