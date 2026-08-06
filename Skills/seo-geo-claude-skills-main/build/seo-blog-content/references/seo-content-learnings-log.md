@@ -49,6 +49,14 @@
 
 ## 记录
 
+### 2026-08-06 · [eeat] blog/excel-for-data-analysis 引用72/改进82/经验78/权威70
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/excel-for-data-analysis；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；缺 Breadcrumb/HowTo/Person；Stanford/IBM 仅定性；无 desk 定量/信息图；缺技术附录与 COI；主词 stuffing ~5.25%
+- **根因**：工具决策文早期模板堆主词；schema 仅 BlogPosting+FAQ；引用潜力缺可摘 % / n=
+- **修复**：William+About/COI；Stanford 78%/88% + desk n=12 −88%；HowTo 四步+Breadcrumb+Person；Power Query vs pandas 附录；迁移案例；3×figure；dens ~1.174%；包 `SEO/Blog/excel-for-data-analysis-eeat-20260806/`
+- **防复发**：4 词主词 dens=`hits*4/words*100`；引用潜力要「权威 % + desk 表 + Key finding」；审计要技术深度时用同任务双栈代码附录
+- **状态**：deploying（marker `DESK-EFA-20260806A`；site `864f90ff`）
+
 ### 2026-08-06 · [eeat] blog/data-analyst-jobs 权威72/可信78/改进计划88
 - **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-analyst-jobs；密度 1.1–1.2%；内外链完整并上线
 - **症状**：作者仅 Data Team；缺 Breadcrumb/HowTo/Person；BLS/HAI 仅定性；无 figure/figcaption（仅 2 图）；主词 stuffing ~4.4%；商业 CTA 未独立标注
