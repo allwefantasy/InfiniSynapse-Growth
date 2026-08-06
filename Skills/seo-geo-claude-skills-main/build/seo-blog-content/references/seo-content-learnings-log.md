@@ -55,7 +55,7 @@
 - **根因**：工具决策文早期模板堆主词；schema 仅 BlogPosting+FAQ；引用潜力缺可摘 % / n=
 - **修复**：William+About/COI；Stanford 78%/88% + desk n=12 −88%；HowTo 四步+Breadcrumb+Person；Power Query vs pandas 附录；迁移案例；3×figure；dens ~1.174%；包 `SEO/Blog/excel-for-data-analysis-eeat-20260806/`
 - **防复发**：4 词主词 dens=`hits*4/words*100`；引用潜力要「权威 % + desk 表 + Key finding」；审计要技术深度时用同任务双栈代码附录
-- **状态**：deploying（marker `DESK-EFA-20260806A`；site `864f90ff`）
+- **状态**：deployed（site `962fe191`；marker `DESK-EFA-20260806B`；线上 dens **1.195%**；A 曾 **1.454%** 超带）。HowTo/Breadcrumb/Person/desk −88%/Stanford 78%–88%/附录已验
 
 ### 2026-08-06 · [eeat] blog/data-analyst-jobs 权威72/可信78/改进计划88
 - **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-analyst-jobs；密度 1.1–1.2%；内外链完整并上线

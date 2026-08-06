@@ -2,8 +2,9 @@
 
 **Live URL:** https://infinisynapse.com/en/blog/excel-for-data-analysis  
 **Site source:** `blog/pillar23-data-analysis-tools-software/excel-for-data-analysis/`  
-**Build marker:** `DESK-EFA-20260806A`  
-**Site commit:** `864f90ff`  
+**Build marker:** `DESK-EFA-20260806B`  
+**Site commits:** `864f90ff` (EEAT A) · `962fe191` (dens B)  
+**Live dens:** **1.195%** (A measured 1.454% → destuff)  
 **Target keyword:** `excel for data analysis` (4-word, dens = hits×4/words×100)
 
 ## Gaps addressed
