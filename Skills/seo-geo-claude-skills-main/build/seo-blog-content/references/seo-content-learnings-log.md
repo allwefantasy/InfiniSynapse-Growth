@@ -49,6 +49,14 @@
 
 ## 记录
 
+### 2026-08-06 · [eeat] blog/data-analyst-bootcamp 经验78/权威73/可信78/改进83
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-analyst-bootcamp；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；缺 Breadcrumb/Person；就业率无方法说明；FAQ 不可摘；商业未分离；主词 stuffing ~5.1%
+- **根因**：职业培训对比文堆主词；placement % 未标明 provider-reported；无 desk 透明度编码
+- **修复**：William+About/COI；desk n=8（3/8 可审计方法）；毕业生 desk 引语；tuition/salary/placement 锚点；FAQ One-sentence；Breadcrumb+Person+HowTo；dens 源估 ~1.04%；包 `SEO/Blog/data-analyst-bootcamp-eeat-20260806/`
+- **防复发**：就业率必须标「provider-reported」+ 方法四问；`bootcamps` 复数会误匹配主词子串——H2 勿用复数堆叠；3 词 dens=`hits*3/words*100`
+- **状态**：deploying（marker `DESK-DAB-20260806A`；site `2b569003`）
+
 ### 2026-08-06 · [eeat] blog/excel-for-data-analysis 引用72/改进82/经验78/权威70
 - **场景**：用户要求优化 https://infinisynapse.com/en/blog/excel-for-data-analysis；密度 1.1–1.2%；内外链完整并上线
 - **症状**：作者仅 Data Team；缺 Breadcrumb/HowTo/Person；Stanford/IBM 仅定性；无 desk 定量/信息图；缺技术附录与 COI；主词 stuffing ~5.25%
