@@ -55,7 +55,7 @@
 - **根因**：职业市场文早期模板堆主词；schema 仅 BlogPosting+FAQ；“data analyst” 非单一 BLS SOC 导致难以写定量句
 - **修复**：William+About+YMYL；商业模块 `Product recommendation (commercial)`；HowTo 四步+Breadcrumb+Person；BLS 相邻 OOH 定量（DS/OR/MRA）；第三图 search-strategy SVG；dens ~1.13%；包 `SEO/Blog/data-analyst-jobs-eeat-20260806/`
 - **防复发**：3 词主词 dens=`hits*3/words*100`；BLS 无单一 SOC 时用相邻 OOH 三角测量并写明；审计要 3 图时用 HowTo SVG 补第三 `<figure>`；链接锚文本去主词仍保留 URL
-- **状态**：deploying（marker `DESK-DAJ-20260806A`）
+- **状态**：deployed A 后线上 dens **1.281%** 超带 → 减 1 hit 发 B（`444efb51` / `DESK-DAJ-20260806B`）；A 验过 HowTo/Breadcrumb/Person/figure×3/William；.dockerignore 需 `!blog/**/*.md` 否则 public 更新而正文不更新
 
 ### 2026-08-06 · [eeat] blog/data-analyst-vs-data-scientist 权威75/改进计划86
 - **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-analyst-vs-data-scientist；密度 1.1–1.2%；内外链完整并上线

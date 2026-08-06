@@ -2,7 +2,8 @@
 
 **Live URL:** https://infinisynapse.com/en/blog/data-analyst-jobs  
 **Site source:** `blog/pillar24-data-analyst-career-jobs/data-analyst-jobs/`  
-**Build marker:** `DESK-DAJ-20260806A`  
+**Build marker:** `DESK-DAJ-20260806B` (dens retune after A measured 1.281%)  
+**Site commits:** `153846d1` (EEAT) · `51b949ae` (dockerignore/rebuild) · `444efb51` (dens B)  
 **Target keyword:** `data analyst jobs` (3-word, dens = hits×3/words×100)
 
 ## Gaps addressed
