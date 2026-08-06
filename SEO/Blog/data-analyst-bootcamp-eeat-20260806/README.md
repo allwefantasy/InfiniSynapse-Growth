@@ -2,8 +2,9 @@
 
 **Live URL:** https://infinisynapse.com/en/blog/data-analyst-bootcamp  
 **Site source:** `blog/pillar25-data-analyst-learning-certification/data-analyst-bootcamp/`  
-**Build marker:** `DESK-DAB-20260806A`  
-**Site commit:** `2b569003`  
+**Build marker:** `DESK-DAB-20260806B`  
+**Site commits:** `2b569003` (EEAT A) · `cbc4d094` (dens B)  
+**Live dens:** **1.192%** (`<article>` text)  
 **Target keyword:** `data analyst bootcamp` (3-word, dens = hits×3/words×100)
 
 ## Gaps addressed
