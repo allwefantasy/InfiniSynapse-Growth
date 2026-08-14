@@ -2272,3 +2272,18 @@
 - **防复发**：审计要 VideoObject 时用 HowTo SVG + Speakable，正文勿出现 `VideoObject` 字面；权威源必须在关键结论句内链，不能只放 `#sources` 列表
 - **状态**：pushed（cachebust `20260814-SQLQ2`）；Coolify Rebuild 后核 marker `DESK-SQLQ-20260814A`
 
+## 2026-08-14 — tool/port-5432 authority 78 / improvement 88
+
+- **URL**：`/en/tool/port-5432`
+- **主词**：`port 5432`（2 token；dens=hits/tokens）
+- **症状**：权威 78 要作者 PostgreSQL 社区贡献/认证；改进 88 缺 Speakable/摘要标记、glossary sameAs、desk 样本可引用标注
+- **根因**：schema 已有 speakable 与 4 个 DefinedTerm，但无可见 glossary、无 abstract、术语缺 sameAs；作者无 EDB/PG 证书可核实；desk 无 How to cite
+- **修复**：
+  - **不编造 PostgreSQL/EDB 证书/个人 LinkedIn/VideoObject**。领域出版物：IANA、官方 pg_hba/libpq SSL、[CIS PostgreSQL Benchmark](https://www.cisecurity.org/benchmark/postgresql)、NIST SP 800-53 SC-7、Wikipedia PostgreSQL；公司 LinkedIn 挂 Organization
+  - 可见 `#summary` + Article.`abstract` + Speakable（`.answer` / `#quick-answer` / `#summary` / `#page-abstract` / `#glossary` / `#faq`）
+  - 可见 `#glossary` + DefinedTermSet×6 均带 sameAs
+  - Collection method：n=14 保持不扩票；计数 **5 / 3 / 2 / 2 / 2**；How to cite + CC BY 4.0；CSV SUMMARY/METHOD/HOW_TO_CITE
+  - marker `DESK-P5432-20260814A`；dens **27/2325 = 1.161%**
+- **防复发**：审计要作者认证时用 CIS/NIST/IANA/百科 + 明确 “no invented certification”；n 只扩方法与引用格式，不虚构票数
+- **状态**：pushed（cachebust `20260814-P5432B`）；Coolify Rebuild 后核 marker `DESK-P5432-20260814A`
+
