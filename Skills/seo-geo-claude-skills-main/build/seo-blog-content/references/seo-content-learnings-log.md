@@ -2314,3 +2314,12 @@
 - **防复发**：自有 CreativeWork/ImageObject/Dataset 默认写 CC BY 4.0；勿把 license 写到别人的 citation 上
 - **状态**：pushed（cachebust `20260814-LIC1`）
 
+## 2026-08-14 — blog/data-analysis-definition isPartOf 对象类型无效
+
+- **URL**：`/en/blog/data-analysis-definition`
+- **症状**：GSC「字段 isPartOf 的对象类型无效」（2026-08-14）
+- **根因**：`Dataset.isPartOf` 只写了 `@id` 指向 Article。Google Dataset 校验期望 isPartOf 为 Dataset/DataCatalog，不是 BlogPosting
+- **修复**：删除 Dataset.`isPartOf`；在 Article 上用 `hasPart: { @type: Dataset, @id: #dataset-desk-n16 }`。正文未改
+- **防复发**：Dataset.isPartOf 只指向更大 Dataset/DataCatalog；文章与数据包用 Article.hasPart
+- **状态**：pushed（cachebust `20260814-PART1`）
+
