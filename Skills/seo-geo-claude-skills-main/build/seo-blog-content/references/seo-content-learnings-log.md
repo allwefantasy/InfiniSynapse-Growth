@@ -2341,3 +2341,12 @@
 - **防复发**：编辑 FAQ 不要输出 FAQPage 或 QAPage。只有论坛式「一页一问、用户作答」才用 QAPage，且 `mainEntity` 必须是单个 Question + `answerCount`
 - **状态**：pushed（cachebust `20260814-ANS2`）
 
+## 2026-08-15 — blog/data-analysis-definition isPartOf 仍无效（hasPart 反推）
+
+- **URL**：`/en/blog/data-analysis-definition`
+- **症状**：GSC「字段 isPartOf 的对象类型无效」（非严重）。线上已无 `isPartOf`，但仍报
+- **根因**：PART1 删了 `Dataset.isPartOf` Article，改成 `Article.hasPart` Dataset。Google 反推 `Dataset.isPartOf=Article`，Dataset 校验仍要求 isPartOf 为 Dataset/DataCatalog
+- **修复**：去掉 Article.`hasPart`。Dataset 保持顶层独立节点（license/creator/distribution 仍在）。正文未改
+- **防复发**：Article 与 Dataset 不要互链 hasPart/isPartOf；Google 会反推。Dataset.isPartOf 只指向更大 Dataset/DataCatalog
+- **状态**：pushed（cachebust `20260815-PART2`）
+
