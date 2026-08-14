@@ -2350,3 +2350,12 @@
 - **防复发**：Article 与 Dataset 不要互链 hasPart/isPartOf；Google 会反推。Dataset.isPartOf 只指向更大 Dataset/DataCatalog
 - **状态**：pushed（cachebust `20260815-PART2`）
 
+## 2026-08-15 — blog/data-analysis-definition 仍缺 license
+
+- **URL**：`/en/blog/data-analysis-definition`（`/zh/` 共用 schema）
+- **症状**：GSC「未填写字段 license」（非严重）
+- **根因**：Article/Image/顶层 Dataset 已有 CC BY 4.0；线上 `Article.hasPart` 内嵌 Dataset 无 license；`WebPage` 无 license；citation 标成 `CreativeWork` 也会被要 license（第三方不能写 CC BY）
+- **修复**：WebPage 补 CC BY 4.0；citation 去掉 `@type: CreativeWork`（只留 name/url）。hasPart 残片已在 PART2 删除。正文未改
+- **防复发**：自有 Article/WebPage/ImageObject/Dataset 写 CC BY 4.0；第三方 citation 不要标 CreativeWork，更不要写我们的 license
+- **状态**：pushed（cachebust `20260815-LIC2`）
+
