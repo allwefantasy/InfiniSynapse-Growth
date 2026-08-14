@@ -2305,3 +2305,12 @@
 - **防复发**：编辑 FAQ 只用 FAQPage；只有论坛式单问多答才用 QAPage，且必须写 answerCount
 - **状态**：pushed（cachebust `20260814-ANS1`）
 
+## 2026-08-14 — blog/data-analysis-definition 未填写字段 license
+
+- **URL**：`/en/blog/data-analysis-definition`（`/zh/` 共用 schema）
+- **症状**：GSC「未填写字段 license」（非严重，2026-08-14）
+- **根因**：Dataset 已有 CC BY 4.0，但 Article/BlogPosting 与 ImageObject 无 `license`
+- **修复**：Article + 全部 ImageObject + Dataset/DataDownload 补 `https://creativecommons.org/licenses/by/4.0/`；第三方 citation 不加 license。正文未改
+- **防复发**：自有 CreativeWork/ImageObject/Dataset 默认写 CC BY 4.0；勿把 license 写到别人的 citation 上
+- **状态**：pushed（cachebust `20260814-LIC1`）
+
