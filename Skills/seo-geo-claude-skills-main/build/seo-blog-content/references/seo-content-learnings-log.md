@@ -49,6 +49,350 @@
 
 ## 记录
 
+### 2026-08-14 · [eeat] tool/port-1521 第三方基准 + 术语表 + 可下载包
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/port-1521（redirect → `/en/tool/port-1521`）；密度 1.1–1.2%；内外链完整并上线
+- **症状**：改进计划 85：缺第三方独立数据/可下载研究、缺视频、缺可见 glossary 互链
+- **根因**：页内已有 desk n=18 与 DefinedTermSet schema，但无 CIS/NIST 外链、无 CSV、无可见术语表；审计要 VideoObject 但无托管视频
+- **修复**：CIS Oracle Benchmark + NIST SP 800-53 SC-7 + IANA 1521 + Wikipedia Oracle Net；`desk-p1521-packet.csv` + Dataset；可见 glossary 锚点互链；HowTo SVG 作 multimodal；**不写 VideoObject**；hero contain；dens **1.135%**（29/2554）
+- **防复发**：无托管视频时用 HowTo SVG + 官方 error 页，正文勿出现 `VideoObject` 字面；第三方只链控制目录勿编造行业百分比
+- **状态**：deployed（site `582981fa`；marker `DESK-P1521-20260814A`；源 dens **1.135%**）
+
+### 2026-08-14 · [eeat] tool/sql-joins H3/alt/Person/desk packet
+- **场景**：用户要求优化 https://infinisynapse.com/en/tool/sql-joins；主词改为 `sql joins`；密度 1.1–1.2%；内外链完整并上线
+- **症状**：无 H3；footer logo `alt=""`；作者仅 Editorial Team；日期无时区；无第一方 desk 数据；经验 62 / 权威 75
+- **根因**：静态页 `public/tool-static/sql-joins/index.html` 停留在 H2 模板；主词几乎只出现在 H1/FAQ 标题（dens 0.25%）
+- **修复**：William+About/GitHub；ISO `datePublished`/`dateModified`；H3×16；desk n=12 + CSV/SVG；端到端 items/payments/price 示例；hero `object-fit:contain`；源 dens **1.161%**（30/2583）
+- **防复发**：footer logo 空 alt 会被 QuickCreator 判「部分图片缺 ALT」；2 词 dens=`hits/tokens`（`sql`+`joins` 连续，单数 `SQL join` 不计）
+- **状态**：deployed（site `b02778c5`；marker `DESK-JOIN-20260814A`；源 dens **1.161%**）
+
+### 2026-08-14 · [meta] blog/data-analytics-platforms description 167→156
+- **场景**：QuickCreator 标红 description 167 字符；用户要求只改字数、高 CTA，其它内容不变并上线
+- **症状**：meta/og/twitter/schema 共用 167 字长描述，超出 150–160
+- **根因**：问责从句 “—with named author accountability” 拉长，且无行动号召
+- **修复**：改为 156 字：保留 proof-pack / suite vs assemble / scored criteria / desk case / AI federation，结尾 CTA “Start your shortlist.”；同步 head/meta/schema/catalog/articles
+- **防复发**：QuickCreator description 按 150–160 计；改 meta 时同步 `head.html` + `meta-tags.html` + `schema.json` + `catalog.json` excerpt
+- **状态**：deployed（site `e5c3c72e`）
+
+### 2026-08-14 · [eeat] tool/rank-sql On-Page H3 + meta 150–160 + 可复现 bench
+- **场景**：用户要求优化 https://infinisynapse.com/en/tool/rank-sql；主词改为 `RANK SQL`；密度 1.1–1.2%；内外链完整并上线
+- **症状**：QuickCreator Meta Description 不在 150–160；无 H3；改进计划缺 H3 层级、结构化日期、microbench 可复现方法
+- **根因**：静态页 `public/tool-static/rank-sql/index.html` 仅有 H2；meta 128 字；`datePublished`/`dateModified` 为日期无时区；bench 只有相对时延表无脚本/版本
+- **修复**：meta 156 字含 `RANK SQL`；H3×20（含 FAQ）；ISO 时区日期；`desk-rank-sql-bench.sql`+`.csv`（PG16 / work_mem 64MB / median of 5）；hero `object-fit:contain`；源 dens **1.156%**（30/2596，hits/tokens 不乘词数）
+- **防复发**：tool 页审计「无 H3」时在既有 H2 下补细分，勿改 H1/H2；2 词 dens=`hits/tokens`（与 Port 5432 同算法，勿再乘 2）；日期用 `2026-08-14T11:00:00+08:00`；desk 数必须给脚本+引擎版本且标非厂商 SLA
+- **状态**：deployed（site `c7dad582`；marker `DESK-RANK-20260814A`；源 dens **1.156%**）
+
+### 2026-08-11 · [cms] Rich Results：datePublished/dateModified 缺时区
+- **场景**：`data-analysis-in-logistics` Rich Results Test 黄警告（非严重）
+- **症状**：`datePublished`/`dateModified`「日期时间值无效」「缺少时区信息」
+- **根因**：JSON-LD 只用 `YYYY-MM-DD`，Google 要带时区的 ISO 8601
+- **修复**：改为 `2026-06-28T10:00:00+08:00` / `2026-08-07T15:00:00+08:00`（对齐 CRM 等页）；cachebust DAL2
+- **防复发**：BlogPosting schema 日期一律 `YYYY-MM-DDTHH:mm:ss+08:00`，勿写纯日期
+- **状态**：deployed（site `e46bca1c` DAL2；线上已带 `+08:00`）
+
+### 2026-08-11 · [cms] GSC FAQ 无效：FAQPage+QAPage 叠用
+- **场景**：GSC URL 检查 `https://infinisynapse.com/en/blog/data-analysis-in-logistics` — 已索引但「问与答」报 1 项无效
+- **症状**：增强功能 → FAQ「检测到了 1 项无效内容」；页面索引与 Breadcrumb/HTTPS 正常
+- **根因**：JSON-LD `@type: ["FAQPage", "QAPage"]`。编辑型 FAQ 应用 `FAQPage`；`QAPage` 面向社区问答（需 upvoteCount 等），叠用会校验失败。同问题已在 2026-07-30 `gsc-structured-data-fixes` 出现过
+- **修复**：站点源 `infinisynapse.com/public/blog-static/data-analysis-in-logistics/index.html` 改为 `"@type": "FAQPage"`；部署后用 Rich Results Test / GSC「验证修复」复检
+- **防复发**：禁止 FAQ 页叠加 QAPage；EEAT Improvement 项勿写「FAQPage+QAPage」。同类未修：`data-retention-policy` 的 `schema.json`/`head.html`
+- **状态**：deployed（site `f58bbd7e` + cachebust `b732c42a` DAL1；线上已无 QAPage；待 GSC 验证修复）
+
+### 2026-08-07 · [deploy] blog HTML `./images/` 裂图批量修复 IMGFIX3
+- **场景**：今日优化页普遍图片损坏；用户要求排查修复并部署
+- **症状**：`excel-for-data-analysis`、`ai-data-analyst-job-description` 等页 `<img src="./images/...">` 解析到 `/en/blog/images/` → 404
+- **根因**：`rewriteImagePaths` 只改 markdown `](./images/`，不改 HTML `src="./images/"`
+- **修复**：扩展 `lib/blog-seo-content.ts` rewriter；批量改写 46 篇 `article.md` 为绝对 `/blog-media/{slug}/images/`；cachebust `20260807-IMGFIX3`
+- **防复发**：新文章 figure 一律 absolute；改 rewriter 后仍建议源文件写绝对路径
+- **状态**：deployed（site `e0cf8ab3`；今日 6 页图片审计 ALL_OK）
+
+### 2026-08-07 · [improvement-eeat] blog/autonomous-data-agent 权威72/改进76
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/autonomous-data-agent；主词改为 `autonomous data agent`；密度 1.1–1.2%；内外链完整；图片正常并上线
+- **症状**：主词偏 `autonomous data science`（ADA dens ~0.67%）；References 无正文编号锚；图为 `./images/` 相对路径；缺 5 behaviors / 3 self-correction 信息图
+- **根因**：先前 ADS 主词迭代未同步；HTML img 不被 rewriteImagePaths（仅 markdown `](./images/`）改写
+- **修复**：ADA 主词 dens ~1.13%；`[n]`→`#ref-n`；SVG×2；绝对 `/blog-media/`；Marker `DESK-ADA-20260807B`；包 `SEO/Blog/autonomous-data-agent-eeat-20260807/`
+- **防复发**：3 词 dens=`hits*3/words×100`（约 10 hits / ~2660 words）；figure 一律 absolute blog-media；References 必须双向锚
+- **状态**：deployed（site `a12424ff`/`c2108b51`/`1d971c22`；marker `DESK-ADA-20260807B`；线上 dens **1.198%**；图 6/6 HTTP 200）
+
+### 2026-08-07 · [improvement-eeat] blog/explainable-ai-data-analysis 权威75/改进88
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/explainable-ai-data-analysis；主词 `explainable ai data analysis`；密度 1.1–1.2%；内外链完整；图片正常并上线
+- **症状**：作者仅 Research team；缺 HowTo；缺 citation_* / Org sameAs 深度；多媒体仅 1 框架图；无 William/About
+- **根因**：真源为 `public/blog-static/.../index.html`（非 markdown blog）；早期 EEAT 薄
+- **修复**：William+About/COI；checklist HowTo×8 + Person/citation/sameAs；citation_* meta；SVG×2（禁 VideoObject）；dens ~1.178%；包 `SEO/Blog/explainable-ai-data-analysis-eeat-20260807/`
+- **防复发**：4 词 dens=`hits*4/words×100`（约 10 hits / ~3400 words，含 H1+alt）；blog-static 改 HTML 后仍需 CACHEBUST；alt 勿堆主词
+- **状态**：deployed（site `6706fc2b`；marker `DESK-XAI-20260807A`；线上 dens **1.176%**；图 3/3 HTTP 200）
+
+### 2026-08-07 · [improvement-eeat] blog/dbt-semantic-layer-alternative 权威68/可信78/改进82
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/dbt-semantic-layer-alternative；主词 `dbt semantic layer alternative`；密度 1.1–1.2%；内外链完整；图片正常并上线
+- **症状**：缺 BreadcrumbList/HowTo；无原创定量锚；无架构图/视频；作者仅 Data Team；主词 stuffing dens ~3.63%
+- **根因**：比较文重复主词短语；schema 仅 BlogPosting+FAQ；Selection Workflow 未结构化
+- **修复**：William+About/COI；HowTo 七步 + Breadcrumb/Person/citation；desk n=8（P95/variance）；SVG×3（禁 VideoObject）；destuff 至 dens ~1.13%；包 `SEO/Blog/dbt-semantic-layer-alternative-eeat-20260807/`
+- **防复发**：4 词 dens=`hits*4/words×100`（约 8 hits / ~2830 words）；Selection Workflow 直接生成 HowTo；商业 Production Pattern 单独标注
+- **状态**：deployed（site `d63a4ac5`/`93ed2525`；marker `DESK-DSL-20260807A`；线上 dens **1.113%**；图 4/4 HTTP 200）
+
+### 2026-08-07 · [improvement-eeat] blog/b2b-data-api-reddit 权威72/可信78/改进80
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/b2b-data-api-reddit；主词 `B2b Data Api Reddit`；密度 1.1–1.2%；内外链完整；图片正常并上线
+- **症状**：作者仅 Data Team；缺 HowTo（21-day / onboarding）；案例无具名客户；仅 2 图；主词 stuffing dens ~4.73%；缺 datePublished
+- **根因**：Reddit-GEO 长尾主词在表头/段落重复；schema 仅简薄 BlogPosting+FAQ
+- **修复**：William+About/COI；HowTo×2；desk 匿名案例+方法学；SVG×5（禁 VideoObject）；datePublished；destuff 至 dens ~1.17%；包 `SEO/Blog/b2b-data-api-reddit-eeat-20260807/`
+- **防复发**：4 词 dens=`hits*4/words×100`（约 6 hits / ~2050 words）；审计要客户 logo 时用 anonymized desk；figure 用 absolute `/blog-media/`
+- **状态**：deployed（site `0fa4c12b`；marker `DESK-B2B-20260807A`；线上 dens **1.153%**）
+
+### 2026-08-07 · [improvement-eeat] blog/data-analysis-definition 经验78/专业88/权威72/改进88
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-analysis-definition；密度 1.1–1.2%；内外链完整；图片正常展示并上线
+- **症状**：作者仅 Data Team；无更新日志/Person sameAs；无信息图；缺 CRISP-DM/学术锚；主词 stuffing dens ~4.78%；审计要 LinkedIn（勿伪造）
+- **根因**：早期定义长文主词重复；schema 仅 BlogPosting+FAQ
+- **修复**：William+About/COI/GitHub sameAs；Update log + dateModified；CRISP-DM+Tukey；definition-flow SVG（representativeOfPage）；绝对 `/blog-media/` 图路径；destuff 至 dens ~1.17%；包 `SEO/Blog/data-analysis-definition-eeat-20260807/`
+- **防复发**：3 词 dens=`hits*3/words×100`（约 13 hits / ~3300 words）；审计要 LinkedIn 时声明无个人 LinkedIn + GitHub sameAs；figure 用 absolute blog-media 路径
+- **状态**：deployed（site `05ef6731`/`834f4884`/`55a62b72`；marker `DESK-DAD-20260807C`；线上 dens **1.162%**）
+
+### 2026-08-07 · [improvement-eeat] blog/etl-data 权威72/改进86
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/etl-data；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；缺 Breadcrumb/HowTo；案例为 composite；审计要视频；主词 stuffing dens ~3.48%
+- **根因**：早期 pillar28 长文主词重复；schema 仅 BlogPosting+FAQ
+- **修复**：William+About/COI；HowTo 五步 + Breadcrumb/Person/citation/Speakable；desk pilot + Methodology appendix；SVG×2（禁 VideoObject）；destuff 至 dens ~1.15%；包 `SEO/Blog/etl-data-eeat-20260807/`
+- **防复发**：2 词 dens=`hits*2/words×100`（约 16 hits / ~2780 words，含 H1+alt）；审计要视频时用 Media note + SVG
+- **状态**：deployed（site `012d8d63`/`e497afa4`/`afe4827a`；marker `DESK-ETL-20260807A`；线上 dens **1.155%**）
+
+### 2026-08-07 · [improvement-eeat] tool/productivity-calculator 改进84/经验78/权威62/可信75
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/productivity-calculator（301→`/en/tool/...`）；主词改为 `productivity calculator`；密度 1.1–1.2%；内外链完整并上线
+- **症状**：七步研究缺 HowTo；作者为品牌 Editorial Team；无流程信息图；案例为纯假设；缺 Lean/Six Sigma 对照；主词 dens ~0.41%
+- **根因**：真源为 `public/tool-static/productivity-calculator/index.html`（非 markdown blog）；早期正文少用完整主词短语
+- **修复**：William+About/COI；HowTo 七步 + Person/citation/Speakable；SVG 流程信息图；desk 案例；Lean/ASQ/NIST；商业 CTA 标注；密度以 `<main>` 调至 ~1.115%；包 `SEO/Blog/productivity-calculator-pc-20260807/`
+- **防复发**：tool-static 页用 absolute `/tool-static/{slug}/images/...`；2 词 dens=`hits*2/words×100`（~13 hits / ~2330 words，含 hero）；`/en/blog/{slug}` 可能 redirect 到 `/en/tool/{slug}`
+- **状态**：deployed（site `792c1f75`/`3dd49f43`；marker `DESK-PC-20260807A`；线上 dens **1.115%**）
+
+### 2026-08-07 · [improvement-eeat] blog/enterprise-data-management 经验78/专业85/权威72/改进88
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/enterprise-data-management；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；主词 stuffing dens ~4.23%；缺 Breadcrumb/Person/HowTo；审计要 VideoObject/交互评分卡；死链 `ai-native-data-analysis`；案例无具名客户（勿编造）
+- **根因**：EDM 长文主词重复；schema 仅 BlogPosting+FAQ；无交互组件
+- **修复**：William+About/COI；Breadcrumb/Person/HowTo/Speakable；90 天 SVG；交互 scorecard + 静态表 fallback；desk n=12；Media note（禁 VideoObject）；死链→`ai-for-data-analysis`；包 `SEO/Blog/enterprise-data-management-eeat-20260807/`
+- **防复发**：3 词 dens=`hits*3/words×100`（约 10 hits / ~2530 words，含 H1）；审计要客户名时用 anonymized desk 并声明无授权品牌；`<script>` 交互可能被剥离时保留静态表
+- **状态**：deployed（site `b5f17db3`；marker `DESK-EDM-20260807A`；线上 dens **1.190%**）
+
+### 2026-08-07 · [improvement-eeat] blog/agentic-orchestration-reddit 权威72/可信78/改进82
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/agentic-orchestration-reddit；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；主词 stuffing dens ~3.83%；缺 Article/HowTo；仅 2 图 + ASCII；无 References；Case 无方法学
+- **根因**：Reddit-GEO 长尾主词在各段重复；schema 仅 BlogPosting+FAQ+Breadcrumb
+- **修复**：William+About/COI；Article/Person/HowTo/Speakable/ImageObject；SVG×3；References+citation（OWASP/NIST/SRE/NCSC/CISA）；desk case 方法学；destuff 至 8 hits；包 `SEO/Blog/agentic-orchestration-reddit-eeat-20260807/`
+- **防复发**：3 词 dens=`hits*3/words×100`（约 8 hits / ~2070 words，含 H1）；ASCII 架构图须换 SVG+ImageObject；References 用 markdown 链文勿裸 URL
+- **状态**：deployed（site `5102a0d4`/`3b095d69`；marker `DESK-AOR-20260807B`；线上 dens **1.186%**）
+
+### 2026-08-07 · [guides-eeat] guides/sql-data-analysis-with-ai 经验72/专业85/权威78 → KW `data analysis using sql`
+- **场景**：用户要求优化 https://infinisynapse.com/guides/sql-data-analysis-with-ai；主词改为 `data analysis using sql`；密度 1.1–1.2%；内外链完整并上线
+- **症状**：审计要 Person/HowTo/Speakable/多媒体；主词仍偏 `aisql`（旧 dens ~1.13%），新四词主词仅 ~0.68%；缺 Speakable；缺匿名同行背书与基准条件说明
+- **根因**：上一轮以 `aisql` 为靶；Speakable 未补；审计要 VideoObject 但无第一方视频
+- **修复**：H1/meta 改靶；Speakable；COI；desk 基准条件 + 匿名 peer note；Media note（禁 VideoObject）；四词 dens 调至 ~1.14%；包 `SEO/Blog/sql-data-analysis-with-ai-daus-20260807/`
+- **防复发**：4 词 dens=`hits*4/words×100`（约 14 hits / ~4900 words，以 `.wrap` 正文计）；KW 切换时同步 title/H1/about/keywords；guides 真源 `public/guides/{slug}/index.html`
+- **状态**：deployed（site `35571f96`；marker `DESK-DAUS-20260807A`；线上 dens **1.136%**）
+
+### 2026-08-07 · [improvement-eeat] blog/data-governance 改进85/引用78/权威68/可信66
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-governance；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词 stuffing dens ~3.03%；作者仅 Data Team；无 HowTo/Person/Breadcrumb/Dataset；无第一方定量；段首公式化 Tableau/MariaDB/Snowflake/Wikipedia 链；死链 `ai-native-data-analysis`；无 Cite 块
+- **根因**：早期治理长文用主词重复 + SEO 硬插外链模板；schema 仅 BlogPosting+FAQ
+- **修复**：William+About/COI；desk n=14 + 40%→92% 案例；HowTo 30 天 `P30D` + SVG；Cite APA/MLA；Dataset/Speakable/Breadcrumb/Person；权威链自然织入；死链→`ai-for-data-analysis`；商业 CTA 隔离；包 `SEO/Blog/data-governance-eeat-20260807/`
+- **防复发**：2 词 dens=`hits*2/words×100`（约 13 hits / ~2200 words，含 H1）；段首「Teams evaluating… cross-check {vendor}」模板一律删除；Cite 块 URL 用 `<>` 防句号粘连；审计要 LinkedIn 时用 GitHub sameAs 并声明无个人 LinkedIn
+- **状态**：deployed（site `ee416524`/`19666388`；marker `DESK-DG-20260807D`；线上 dens **1.189%**）
+
+### 2026-08-07 · [improvement-eeat] blog/data-lake 权威78/改进84/引用78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-lake；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；Case 标 “composite” 弱可信；缺 Breadcrumb/Person/HowTo/Speakable/ImageObject；无 bronze→silver→gold 图；缺第三方行业背书；主词 stuffing ~3.27%；死链 `ai-native-data-analysis`
+- **根因**：早期 lake 文用 Data Team + 模糊 composite；schema 仅 BlogPosting+FAQ；References 裸 URL 路径段在线上被计入 dens
+- **修复**：William+About/COI；desk n=15（Q3’25–Q1’26）方法学；Gartner Market Guide + IDC forecast（不编造 %）；medallion SVG；Breadcrumb/Person/HowTo/Speakable/ImageObject/Dataset；商业 CTA 隔离；死链→`ai-for-data-analysis`；References 改 markdown 链文；包 `SEO/Blog/data-lake-eeat-20260807/`
+- **防复发**：2 词 dens=`hits*2/words×100`（约 14 hits / ~2500 words，含面包屑 H1）；**References 禁止裸 URL**（`…/Data_lake`、`…/data-lake` 会在 `<article>` 可见文本中多计 hits）；第三方用可点文档名背书勿编造 Gartner 采用率
+- **状态**：deployed（site `83e32d62`/`4b8ea3cb`；marker `DESK-DL-20260807B`；线上 dens **1.127%**）
+
+### 2026-08-07 · [improvement-eeat] blog/langchain-tool-calling-reddit 改进76/权威72/可信78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/langchain-tool-calling-reddit；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词堆砌 dens ~5.47%；仅 BlogPosting；0 个 H3 / 21 个扁平 H2；仅 1 图；作者仅 Data Team；第三方引用偏少
+- **根因**：Reddit-GEO 长尾主词在各 H2 重复；schema/层级未按改进计划补齐
+- **修复**：William+About/COI；FAQPage+Breadcrumb+HowTo+Person；H2 归并 + 22 个 H3；architecture/case-study SVG（文件名含 KW）；LangGraph/OpenAI/Anthropic/LangSmith/OTel；destuff 至 7 hits；包 `SEO/Blog/langchain-tool-calling-reddit-eeat-20260807/`
+- **防复发**：4 词 dens=`hits*4/words×100`（约 7 hits / ~2300–2400 words，含 H1）；扁平 H2 清单应归并为「父 H2 + 2–3 H3」；信息图文件名/alt 可含目标短语片段
+- **状态**：deployed（site `c80f1b4e`；marker `DESK-LTC-20260807A`；线上 dens **1.161%**）
+
+### 2026-08-07 · [guides-eeat] guides/sql-data-analysis-with-ai 经验72/专业82/权威68/可信75/改进80
+- **场景**：用户要求优化 https://infinisynapse.com/guides/sql-data-analysis-with-ai；主词改为 `aisql`；密度 1.1–1.2%；内外链完整并上线
+- **症状**：无作者；缺 Person/HowTo/ImageObject/sameAs；仅 1 图；90% 准确率未在正文深链论文；无 desk 第一人称与可执行 SQL
+- **根因**：guides 静态页早期无 EEAT；主词从长尾短语切到单词语 `aisql` 需重新布点
+- **修复**：William+About/GitHub；desk n=12 + PostgreSQL sample；DIN-SQL/survey arXiv；5 SVG + ImageObject；HowTo 五步；DefinedTermSet；包 `SEO/Blog/sql-data-analysis-with-ai-eeat-20260807/`
+- **防复发**：1 词 dens=`hits/words×100`（约 50–55 hits / ~4600 words）；TOC 先写锚点时勿用 `if 'id' not in html` 跳过正文插入；90% 声明必须挂 arXiv deep link；禁假 LinkedIn；真源 `public/guides/{slug}/index.html`
+- **状态**：deployed（site `0b0e69bc`/`3fc63a37`；marker `DESK-AISQL-20260807A`；线上 dens **1.144%**）
+
+### 2026-08-07 · [guides-eeat] guides/breaking-data-silos 改进90 / 经验72 / 权威72
+- **场景**：用户要求优化 https://infinisynapse.com/guides/breaking-data-silos；主词改为 `Data Silos`；密度 1.1–1.2%；内外链完整并上线
+- **症状**：仅 logo 算图片（内联 SVG 不被审计计为多媒体）；作者为虚构 Dr. Alex Chen；缺 HowTo / 完整 DefinedTermSet；缺第一方 desk 叙事；FAQ 无一句摘要
+- **根因**：guides 静态 HTML 早期模板用假作者；信息图未落盘为 `<img>` + ImageObject
+- **修复**：William + About/GitHub（禁 LinkedIn）；desk n=14（~5 days→~3 min）；4 张 SVG + ImageObject；HowTo 四步；DefinedTermSet 四词；FAQ Summary 句；源 dens **~1.121%**；包 `SEO/Blog/breaking-data-silos-eeat-20260807/`
+- **防复发**：guides 页勿用虚构作者；多媒体必须 `<img src=...svg>` + ImageObject（内联 SVG 不够）；2 词 dens=`hits*2/words×100`（约 24–26 hits / ~4400 words）；真源常在 `public/guides/{slug}/index.html`
+- **状态**：deployed（site `a885c8f2`/`b582e943`；marker `DESK-DS-20260807A`；线上 dens **1.121%**）
+
+### 2026-08-07 · [improvement-eeat] blog/autonomous-data-agent 改进83 → KW retarget
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/autonomous-data-agent；主词改为 `autonomous data science`；密度 1.1–1.2%；内外链完整并上线
+- **症状**：旧主词 dens ~5.1%；新主词 0；缺 Article/Breadcrumb/Person；缺第三方统计与 Cite 块；审计要 Mermaid/YouTube；死链 `ai-native-data-analysis`
+- **根因**：slug 仍叫 autonomous-data-agent 但主词切换后全文未 destuff；schema 仅 WebPage+FAQ；站内无 Mermaid runtime、无第一方 YouTube
+- **修复**：William+About/GitHub；Stanford HAI 78%/71%/RE-Bench + Gartner Peer Insights；Cite block；Article/Person/Breadcrumb/FAQ；五支柱/自纠正 SVG（禁 VideoObject）；死链→`ai-for-data-analysis`；destuff 至 8 hits；包 `SEO/Blog/autonomous-data-agent-eeat-20260807/`
+- **防复发**：3 词 dens=`hits*3/words×100`（约 8 hits / ~2100–2180 words，含 H1）；无 Mermaid 时用 SVG；无 YouTube 勿编 VideoObject；KW 切换时同步 `blog/catalog.json` targetKeyword
+- **状态**：deployed（site `554cd4a2`/`5780b349`/`37231865`；marker `DESK-ADS-20260807A`；线上 dens **1.119%**）
+
+### 2026-08-07 · [ymyl-eeat] blog/data-retention-policy 经验78/专业82/权威65/可信68/改进87
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-retention-policy；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词堆砌（dens ~4.44%）；作者仅 Data Team；缺 About/COI/审阅流程；缺 Breadcrumb/HowTo/DefinedTerm/Person；死链 `ai-native-data-analysis`；YMYL 透明度不足
+- **根因**：保留策略长文用主词重复；schema 仅 Organization 作者；法律页未显式标 “非法律意见”
+- **修复**：William+About/GitHub；YMYL disclaimer + reviewedBy Data Team；HowTo 四步；DefinedTermSet；FAQ/QAPage；table caption/scope；死链改 `ai-for-data-analysis`；保留全部 GDPR/ICO/CCPA/NIST/ISO 外链；源 dens **~1.149%**；包 `SEO/Blog/data-retention-policy-eeat-20260807/`
+- **防复发**：YMYL 页必须有非法律意见声明 + About + COI + editorial review；3 词 dens=`hits*3/words×100`（约 8 hits / ~2100 words，含 H1）；勿删 EUR-Lex/ICO 等主键引用
+- **状态**：deployed（site `12e0e79a`；marker `DESK-DRP-20260807A`；线上 dens **1.158%**）
+
+### 2026-08-07 · [eeat] blog/ai-data-analyst-skills 权威65/可信72/准确78/专业79/引用74/改进70
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/ai-data-analyst-skills；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词偏高（dens ~2.74%）；作者仅 Data Team；无 desk 量化；无图/八域信息图；Mongo/K8s/Excel/Prometheus/Shopify 等 SEO 硬插；外链缺 deep link（SQL/OWASP/Spider 仅裸提）
+- **根因**：skills 页模板用主词重复 + 无关 vendor 句塞外链；缺第一方 enablement 数据与 ImageObject
+- **修复**：William+About/COI；desk n=16（~28%→~12% rework）；八域/desk/90天 SVG；清理硬插；深链 NCSC/OWASP/FTC/GCP/BigQuery/SQL/Spider；源 dens **~1.192%**；包 `SEO/Blog/ai-data-analyst-skills-eeat-20260807/`
+- **防复发**：4 词 dens=`hits*4/words×100`（约 6 hits / ~2000 words，含 H1）；SEO 硬插句（“should align with X docs”且主题无关）优先删；裸提权威源须改成可点 deep link
+- **状态**：deployed（site `83709145`；marker `DESK-ADAS-20260807B`；线上 dens **1.186%**）
+
+### 2026-08-07 · [eeat] blog/data-governance-framework 改进82/引用78/权威75
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-governance-framework；密度 1.1–1.2%
+- **症状**：主词堆砌（线上 dens ~4.33%）；作者仅 Data Team；无 desk 第一方数据；银行案例仅 “weeks→days”；缺 reviewedBy；MongoDB/Stripe 低相关；死链 `ai-native-data-analysis`
+- **根因**：框架类长文用主词重复撑长度；schema Organization 作者；审计点的量化与专家审阅未落地
+- **修复**：William+About/GitHub；desk n=18（~12→~2.5 days）；Peer Bank A（14→2 days / 1200 datasets / 3 domains）；reviewedBy Data Team；NIST CSF Govern / AI RMF / NCSC 精确锚定；去 MongoDB/Stripe 换 Wikipedia Data governance；死链改 `ai-for-data-analysis`；源 dens **~1.152%**；包 `SEO/Blog/data-governance-framework-eeat-20260807/`
+- **防复发**：3 词 dens=`hits*3/words×100`（约 8 hits / ~2100 words，含 H1）；勿编造 “500+ platform teams”；低相关 vendor docs（Mongo/Stripe）勿硬塞治理页
+- **状态**：deployed（site `2c589747`；marker `DESK-DGF-20260807A`；线上 dens **1.162%**）
+
+### 2026-08-07 · [eeat] blog/data-analysis-in-logistics 经验78/专业85/权威72/改进84
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-analysis-in-logistics；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Research team；无个人简介/案例；McKinsey/Gartner 在正文方法论空提未精确锚定；图仅 2；缺 DefinedTerm/QAPage/HowTo/Person；无第三方可引基准数字
+- **根因**：真源是 `public/blog-static/.../index.html`（html-catalog），非 `article.md`；早期 methods 模板缺 EEAT 粒度
+- **修复**：William+About/GitHub；McKinsey OTIF 92% / digital >85% / agility ~7pp·23d + Gartner TMS Peer Insights；desk n=14 + 匿名 3PL case；SVG×4；DefinedTermSet+FAQPage/QAPage+HowTo+ImageObject；源 dens **~1.181%**；包 `SEO/Blog/data-analysis-in-logistics-eeat-20260807/`
+- **防复发**：4 词 dens=`hits*4/words×100`（约 8 hits / ~2700 words）；改前先确认 `html-catalog` → blog-static；第三方数字必须可点开原文核对，勿编造 Gartner 采用率
+- **状态**：deployed（site `1a31d74c`；marker `DESK-DAL-20260807A`；线上 dens **1.181%**；图 6）
+
+### 2026-08-07 · [eeat] blog/data-management-services 引用76/改进79/权威78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-management-services；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词堆砌（线上 dens ~3.88%）；无 Reference List / desk 第一方数据；作者仅 Data Team；缺 Breadcrumb/HowTo/Person/Speakable；图仅 ~2–3；死链 `ai-native-data-analysis`
+- **根因**：服务类长文用主词重复撑密度；schema 停留 Organization 作者；审计要的结构化引用与 HowTo 未落地
+- **修复**：William+About/COI；desk n=16（KT → ~70% vs ~22%）；HowTo 四步；匿名 Peer A/B；Reference List；Breadcrumb+Person+Speakable；SVG×3；死链改 `ai-for-data-analysis`；H1 占 1 hit 后 destuff；包 `SEO/Blog/data-management-services-eeat-20260807/`
+- **防复发**：3 词 dens=`hits*3/words×100`；**测 dens 须含页面 H1**（否则源 9 hits 线上变 10→超 1.2%）；案例用 anonymized desk composite 勿编造客户名；Reference List 须含 title·URL·accessed
+- **状态**：deployed（site `2766f9b2`；marker `DESK-DMS-20260807B`；线上 dens **1.112%**）
+
+### 2026-08-07 · [eeat] blog/ai-tools-for-data-analysts 改进75/经验70/权威65/可信72
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/ai-tools-for-data-analysts；密度 1.1–1.2%；内外链完整并上线
+- **症状**：标题承诺 “Top Tools Compared” 但正文偏单品；主词堆砌（dens ~5.04%）；图仅 1–2；FAQ&lt;10；KPI 无方法论；作者仅 Data Team；外链偏少且部分裸提
+- **根因**：角色页模板用主词重复 + 内链表堆砌；未做四类工具评分卡
+- **修复**：William+About/COI；四类对比矩阵（agent/notebook/Genie/BI）；desk n=12 KPI 方法论；匿名案例；HowTo 30 天；FAQ×11；SVG×5；源 dens **~1.110%**；包 `SEO/Blog/ai-tools-for-data-analysts-eeat-20260807/`
+- **防复发**：标题含 Compared 必须有 ≥3 工具矩阵；5 词 dens=`hits*5/words×100`（约 5 hits / ~2250 words）；KPI 基线必须 desk n= + 非厂商实验室声明；单品段落标 vendor-scoped
+- **状态**：deployed（site `a56f2aae`；marker `DESK-ATDA-20260807A`；线上 dens **1.120%**；图 6）
+
+### 2026-08-07 · [eeat] blog/analytical-tools-for-data-analysis 改进83/权威75/可信78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/analytical-tools-for-data-analysis；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词堆砌（线上 dens ~5.47%）；缺 Breadcrumb/Person/HowTo；无第一方 desk 数据；作者仅 Data Team；死链 `ai-native-data-analysis`
+- **根因**：长尾主词被全文机械重复；schema 停留在 Organization 作者；审计要的决策树/第一方表未落地
+- **修复**：William+About/COI；desk n=14（标注 InfiniSynapse first-party）；HowTo 四步+决策树 SVG；Breadcrumb+Person+Organization sameAs；死链改 `ai-for-data-analysis`；源 dens **~1.174%**；包 `SEO/Blog/analytical-tools-for-data-analysis-eeat-20260807/`
+- **防复发**：5 词 dens=`hits*5/words×100`（约 6 hits / ~2500–2600 words）；第一方数据段标题用 “InfiniSynapse First-party Data”；pillar23 内链部署前 curl 200
+- **状态**：deployed（site `dc604847`；marker `DESK-ATD-20260807A`；线上 dens **1.174%**）
+
+### 2026-08-07 · [eeat] tool/rank-sql 引用65/改进78/EEAT待优化
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/rank-sql（redirect → `/en/tool/rank-sql`）；主词 `RANK SQL`；密度 1.1–1.2%；内外链完整并上线
+- **症状**：无 desk 量化/microbench；作者 Editorial Team；缺 Person/HowTo 强化；引用潜力 65
+- **根因**：内容在 `public/tool-static/rank-sql/index.html` 而非 `blog/**/article.md`；主词几乎未以短语出现（dens ~0.12%）
+- **修复**：William+About；desk microbench（相对时延表）+ 匿名 5M SKU 案例；HowTo+Person+dateModified；Oracle/Wikipedia 补引；SVG×2；源 dens **~1.193%**；包 `SEO/Blog/rank-sql-eeat-20260807/`
+- **防复发**：tool-redirect 页先查 `blog/tool-redirects.json` + `html-catalog.json`；2 词 dens=`hits*2/words×100`；microbench 必须标注 desk fixture 非厂商 SLA；勿编造绝对 ms 冒充官方
+- **状态**：deployed（site `e0b4f464`；marker `DESK-RANK-20260807A`；线上 dens **1.197%**）
+
+### 2026-08-07 · [eeat] blog/thoughtspot-vs-databricks-genie 经验78/权威72/可信75/改进83
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/thoughtspot-vs-databricks-genie；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词堆砌（线上 dens ~3.50%）；作者仅 Data Team；缺 scoring methodology / glossary / desk 量化；低相关外链（K8s/Airflow/Postgres/Kafka/Spark/Python）稀释准确性；图仅 2–3 张
+- **根因**：对比页用主词重复撑长度；引用池机械塞入无关框架文档；未披露 InfiniSynapse 与 TS/Genie 的第三方层关系
+- **修复**：William+About/COI；desk n=12 + 匿名共存案例量化；Scoring Methodology；Glossary+DefinedTermSet；架构/雷达/90天 SVG；清低相关外链、补 ThoughtSpot/Genie 官方文档；源 dens **~1.124%**；包 `SEO/Blog/thoughtspot-vs-databricks-genie-eeat-20260807/`
+- **防复发**：4 词 dens=`hits*4/words×100`；竞品对比必须写清「非 affiliate + 商业模块隔离」；审计要「named client」时用匿名 desk composite 并禁止假客户 logo；无关高 DR 链接宁可删
+- **状态**：deployed（site `895eef46`；marker `DESK-TSG-20260807B`；线上 dens **1.122%**；图 6）
+
+### 2026-08-06 · [eeat] blog/best-vibe-coding-tool-reddit 权威75/可信78/引用79/改进82
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/best-vibe-coding-tool-reddit；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词堆砌（线上 dens ~5.23%）；Reddit 观点无可追溯帖链；Case Study 缺 12 vs 6 周量化；无 desk 自有数据；缺交互评分卡与多媒体；作者仅 Data Team
+- **根因**：Pillar17 模板用主词重复撑长度；社区证据写成概括未挂真实帖；审计要求的 survey/交互模块未落地
+- **修复**：William+About/COI；desk n=24（标注 desk composite 非 Reddit Inc.）；复用 sibling 已验证 Reddit 帖链挂 Mistake/Failure；交互 scorecard + 2 SVG；HowTo/Breadcrumb/Organization；源 dens **~1.187%**；包 `SEO/Blog/best-vibe-coding-tool-reddit-eeat-20260806/`
+- **防复发**：5 词 dens=`hits*5/words×100`；勿编造 Reddit URL（优先 pillar sibling 已用帖）；交互 `<script>` 可能被 MD 渲染剥离时保留静态表作 fallback；Case Study 必须匿名 desk composite
+- **状态**：deployed（site `5732f850`；marker `DESK-BVC-20260806A`；线上 dens **1.191%**）
+
+### 2026-08-06 · [eeat] blog/tableau-data-analysis-tool 改进86/权威78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/tableau-data-analysis-tool；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词堆砌（线上 dens ~4.50%）；缺 Breadcrumb/HowTo/Organization；无 desk 自有数据；FAQ 首句未做 snippet；审计建议「Tableau 认证专家」易诱伪造证
+- **根因**：全文机械重复 `Tableau data analysis tool`；权威信号靠外链但作者未具名
+- **修复**：William+About；**明文不持有 Tableau 认证**并链官网认证页；desk n=8 prep-gap；HowTo 4 步+SVG；FAQ 加粗首句；Organization sameAs；死链改 `ai-for-data-analysis`；源 dens **~1.129%**；包 `SEO/Blog/tableau-data-analysis-tool-eeat-20260806/`
+- **防复发**：4 词 dens=`hits*4/words*100`；勿伪造 Tableau Desktop/Server 证书；工具评测页 desk % 必须标注 n 与非厂商实验室
+- **状态**：deployed（site `c04e0a1d`；marker `DESK-TAB-20260806A`；线上 dens **1.131%**）
+
+### 2026-08-06 · [eeat] blog/what-is-trend-in-data 权威72/改进84
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/what-is-trend-in-data；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；缺 HowTo/Breadcrumb；仅 1 图；Evaluation 段主词堆砌（线上 dens ~3.35%）；35%/40% 无方法论锚点；Snowflake/Postgres/Redis 裸提未链
+- **根因**：与 warehouse-trends 同源模板堆砌；审计建议的独立 `/methodology/` 页若不存在客户原始数据则不可伪造
+- **修复**：William+About/COI；HowTo 5 步；架构/评分卡 SVG；Desk Evidence 表（n=12）+ 链 editorial-standards；补 Snowflake/PostgreSQL/Redis 文档链；无 VideoObject；源 dens **~1.109%**；包 `SEO/Blog/what-is-trend-in-data-eeat-20260806/`
+- **防复发**：5 词 dens=`hits*5/words*100`；Evaluation 禁止连续主词句；desk % 必须方法论段+独立 peer market；勿编造 methodology 下载页
+- **状态**：deployed（site `a914ef45`；marker `DESK-WTD-20260806A`；线上 dens **1.115%**）
+
+### 2026-08-06 · [eeat] blog/what-does-a-data-analyst-do 改进83/权威70
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/what-does-a-data-analyst-do；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词 6 词堆砌（线上 dens ~6.23%）；缺 Breadcrumb/HowTo/DefinedTerm/speakable；作者仅 Data Team；量化不足；死链 `ai-native-data-analysis` 404
+- **根因**：长尾问句式主词被全文机械重复；职业指导页未诚实披露非持证 counselor
+- **修复**：William+About/COI；FAQ 题改写去堆砌；desk n=10 时间占比；HowTo 四步+SVG；DefinedTermSet×8；`<section>`；死链改 `ai-for-data-analysis`；源 dens **~1.116%**；包 `SEO/Blog/what-does-a-data-analyst-do-eeat-20260806/`
+- **防复发**：6 词 dens=`hits*6/words*100`（约 4 hits / ~2100–2200 words）；FAQ H3 勿重复完整主词；部署前 curl 内链 200
+- **状态**：deployed（site `8dc8ab25`；marker `DESK-WDA-20260806A`；线上 dens **1.117%**）
+
+### 2026-08-06 · [eeat] blog/enterprise-data-security-solutions 改进84/权威76/可信78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/enterprise-data-security-solutions；密度 1.1–1.2%；内外链完整并上线
+- **症状**：仅 1–2 图；缺 HowTo；FAQ 5 条；desk 40% 无第三方平衡；作者仅 Data Team；Operating Cadence 主词堆砌（线上 dens ~2.06%）
+- **根因**：hub 页用关键词重复撑长度；多媒体与 HowTo 未随 roadmap/vendor 流程落地
+- **修复**：William+About/COI；架构/路线图/评分卡 SVG；HowTo×2（4+5 步）；FAQ 10；ENISA Threat Landscape + Gartner Peer Insights；desk n=14 标注；源 dens **~1.181%**；包 `SEO/Blog/enterprise-data-security-solutions-eeat-20260806/`
+- **防复发**：4 词 dens=`hits*4/words*100`；Operating Cadence 禁止连续主词句；评分卡自报 % 必须并列独立 peer market
+- **状态**：deployed（site `1c5e1d7c`；marker `DESK-EDS-20260806A`；线上 dens **1.185%**）
+
+### 2026-08-06 · [eeat] blog/ai-data-analyst-job-description 权威70/可信76/引用72/改进78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/ai-data-analyst-job-description；主词改为 **ai data analyst jobs**；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；citation dumping（段末硬塞文档链）；40%/+5–10% 无来源标注；FAQ 过短；缺 HowTo/Person；正文与产品推广未分栏
+- **根因**：旧主词 `ai data analyst job description` 堆砌；平台文档以 SEO 句插入正文而非 References
+- **修复**：William+About/COI；主词四词 dens=`hits*4/words*100`；Hiring Pilot n=14 标注；References 分 Governance/Platform/Peer；HowTo 5 步+SVG；FAQ 8 条加深；源 dens **~1.127%**；包 `SEO/Blog/ai-data-analyst-job-description-eeat-20260806/`
+- **防复发**：统计句必须「Source: … (n=)」或删；工具文档链进 References 一段一句；无 LinkedIn 勿伪造；商业 CTA 仅 commercial 模块
+- **状态**：deployed（site `6577bca4`；marker `DESK-ADJ-20260806A`；线上 dens **1.132%**）
+
+### 2026-08-06 · [eeat] blog/data-warehouse-trends 引用78/改进82/权威72/可信78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-warehouse-trends；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；缺 Breadcrumb/Person/HowTo；仅 1 图；FAQ 4 条；评价段主词堆砌；desk 数字无第三方平衡与正式引用格式
+- **根因**：趋势文把 desk % 当权威却无 peer-market 对照；evaluation 段机械重复主词
+- **修复**：William+About/COI；Gartner Peer Insights+G2 正式引用表；desk n=12 标注 first-party；架构/评分卡 SVG；FAQ 10；HowTo 5 步；结论去堆砌；源 dens **~1.175%**；包 `SEO/Blog/data-warehouse-trends-eeat-20260806/`
+- **防复发**：自报 desk % 必须并列独立 peer market 链接；禁止伪造客户引言；3 词 dens=`hits*3/words*100`；结论区禁止连续主词句
+- **状态**：deployed（site `04026d85`；marker `DESK-DWT-20260806A`；线上 dens **1.176%**）
+
+### 2026-08-06 · [eeat] blog/data-analyst-interview-questions 改进86/经验78/专业82/权威74/原创78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-analyst-interview-questions；密度 1.1–1.2%；内外链完整并上线
+- **症状**：作者仅 Data Team；缺 Person/Breadcrumb/HowTo/ItemList；无术语表/desk 定量/SQL 示例；主词 stuffing ~4.76%；仅 2 图
+- **根因**：职业面试文模板堆 4 词主词；FAQ/各章节机械重复短语；无专属 desk 面板数据
+- **修复**：William+About/COI（诚实非面试教练）；desk n=12；Key Terms×10；SQL 示例；HowTo SVG+DefinedTermSet+ItemList scorecard；源 dens **~1.140%**；包 `SEO/Blog/data-analyst-interview-questions-eeat-20260806/`
+- **防复发**：4 词 dens=`hits*4/words*100`；FAQ 答案去主词堆叠只留 H3 一次；审计要教练背书时写明无执照/无假 LinkedIn
+- **状态**：deployed（site `15e14881`；marker `DESK-DIQ-20260806A`；线上 dens **1.107%** `<article>` 不计 H1）。Person/HowTo/Breadcrumb/ItemList/DefinedTermSet/desk n=12/SQL/2 SVG/商业模块已验
+
+### 2026-08-06 · [eeat] blog/databricks-delta-streaming-real-time 改进83
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/databricks-delta-streaming-real-time；密度 1.1–1.2%；内外链完整并上线
+- **症状**：主词 8 词长尾 stuffing ~8.63%（32 hits）；ASCII medallion；审计要 LinkedIn/DOI/VideoObject；Desk 缺可下载原始行与锚点
+- **根因**：长尾关键词在全文与 FAQ 机械重复；流程图仍用代码块 ASCII
+- **修复**：压到 4 hits（源 dens **~1.142%**）；medallion SVG；desk CSV + `#desk-metric-*` + Dataset distribution/hasPart；Person worksFor+GitHub sameAs（无假 LinkedIn）；DefinedTermSet；商业模块分离；包 `SEO/Blog/databricks-delta-streaming-real-time-eeat-20260806/`
+- **防复发**：8 词 dens=`hits*8/words*100` 且 `real-time`→`real time` 再计；长尾词全篇 ≤4–5 次；审计要 DataRecord 时用 PropertyValue/Observation + CSV distribution
+- **状态**：deployed（site `87261bbb`；marker `DESK-DDS-20260806B`；线上 dens **1.138%** `<article>` 不计 H1；A 曾 **1.083%** 偏低，trim 后入带）。DefinedTermSet/medallion SVG/CSV/Person worksFor/无 ASCII 已验
+
+### 2026-08-06 · [eeat] blog/ai-analytics-glossary 经验78/专业80/权威65/可信74/改进78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/ai-analytics-glossary；密度 1.1–1.2%；内外链完整并上线
+- **症状**：标题重复 `(2026)`；作者仅 Data Team；Measurement 无实际数值；仅 1 图；主词 stuffing ~2.36%；审计要 VideoObject/假 Survey DOI
+- **根因**：glossary 模板堆主词；定性 healthy-signal 表未落地 desk 数字；title 在 articles.json/catalog 双写年份
+- **修复**：William+About/COI；desk n=10（纠纷 −58%、入职 −39%、模板 ID 71%）；高风险公式/SQL；HowTo+Person+DefinedTermSet；3 SVG（无 VideoObject）；标题去重；源 dens **~1.176%**；包 `SEO/Blog/ai-analytics-glossary-eeat-20260806/`
+- **防复发**：改 title 同步 `articles.json` + `catalog.json` + meta；Measurement 必须有 before/after 数字；审计要视频时用逐步 SVG + media note，不造 VideoObject
+- **状态**：deployed（site `44e99cc3`；marker `DESK-GLS-20260806A`；线上 dens **1.180%** `<article>` 不计 H1）。标题去重/Person/HowTo/DefinedTermSet/desk n=10/3 SVG/商业模块已验
+
+### 2026-08-06 · [eeat] blog/ai-data-analysis-airtable 引用65/实体72/结构70/改进68/权威78
+- **场景**：用户要求优化 https://infinisynapse.com/en/blog/ai-data-analysis-airtable；密度 1.1–1.2%；内外链完整并上线
+- **症状**：重复 H2「Troubleshooting Connector Rollouts」；作者仅 Data Team；缺 desk 定量 / DefinedTerm / Glossary；仅 2 图；主词 stuffing ~3.08%；schema 仅 BlogPosting+FAQ+Breadcrumb
+- **根因**：connector 模板复制导致 troubleshooting 双段；定性效率句无 n=；专有词未独立定义
+- **修复**：合并 Troubleshooting 为 Problem→Cause→Solution；William+About/COI；desk n=6（4.5d→1.5d/−67%，args 11→4/−64%）；Glossary+DefinedTermSet+HowTo+Person；3 SVG；FAQ One-sentence；商业模块分离；源 dens **~1.188%**；包 `SEO/Blog/ai-data-analysis-airtable-eeat-20260806/`
+- **防复发**：connector 系列发文前 grep 重复 H2；引用潜力用 desk 表替代假 PDF/DOI；3 词 dens=`hits*3/words*100`
+- **状态**：deployed（site `c8d5b718`；marker `DESK-AIR-20260806A`；线上 dens **1.134%** `<article>` 不计 H1）。DefinedTermSet/HowTo/Person/desk n=6/3 SVG/无重复 H2/William 已验
+
 ### 2026-08-06 · [eeat] blog/data-analyst-bootcamp 经验78/权威73/可信78/改进83
 - **场景**：用户要求优化 https://infinisynapse.com/en/blog/data-analyst-bootcamp；密度 1.1–1.2%；内外链完整并上线
 - **症状**：作者仅 Data Team；缺 Breadcrumb/Person；就业率无方法说明；FAQ 不可摘；商业未分离；主词 stuffing ~5.1%
@@ -1696,3 +2040,235 @@
 - **Media:** benchmark + playbook + step-1..7 SVGs
 - **Package:** `SEO/Blog/clean-excel-data-with-ai-eeat-20260804/`
 - **Commit:** `1e90d68` on infinisynapse.com
+
+## 2026-08-07 — ai-excel-data-analysis-tools (`excel ai tools`)
+
+- **URL**：`/zh/blog/ai-excel-data-analysis-tools`（正文 EN，与 `/en/...` 同源）
+- **主词**：`excel ai tools`（3-word dens）；旧长尾 `best ai tools for excel data analysis` 已 destuff
+- **状态**：deployed（site `f55c0552`+后续 cachebust；marker `DESK-XAT-20260807A`；本地 dens **~1.122%**）
+- **技改**：ImageObject↔DefinedTerm；Dataset + scored CSV；William/About；G2/Peer Insights 第三方；`dateModified` 刷新
+- **教训**：`/zh/` URL 上英文正文仍用拉丁词 dens；frontmatter `Target keyword` 行不进 `<article>`，测 dens 需 `stripArticleFrontmatter` + 页面 H1
+
+## 2026-08-07 — ai-powered-crm-data-cleaning (`crm data cleansing`)
+
+- **URL**：`/en/blog/ai-powered-crm-data-cleaning-deduplication-platforms`（`blog-static` HTML）
+- **主词**：`crm data cleansing`（3-word dens）
+- **状态**：deployed（site `acafdaa3`；marker `DESK-CDC-20260807A`；线上 dens **~1.16%**）
+- **技改**：William/About；desk n=9 + SVG；HowTo Pattern A/B；评分/对比表；G2/Peer Insights；FAQ 加长；`dateModified` 刷新
+- **教训**：html-catalog 静态页改 `public/blog-static/.../index.html`；dens 量 `<article>`（不要算 head JSON-LD）
+
+## 2026-08-07 — database-connection (`Database Connection`)
+
+- **URL**：`/en/tool/database-connection`（`tool-static` HTML）
+- **主词**：`Database Connection`（2-word dens）
+- **状态**：deployed（site `f38622ed`；marker `DESK-DBC-20260807A`；线上 dens **~1.15%**）
+- **技改**：William/About；desk n=42；案例；RFC 793/8446；HowTo；citation/sameAs；七层/desk SVG；无 VideoObject
+- **教训**：JSON-LD 替换用 start/end index，勿用贪婪正则；2-word dens = hits×2/words×100
+
+## 2026-08-07 — databricks-data-analytics-platform
+
+- **URL**：`/en/blog/databricks-data-analytics-platform`（blog-static）
+- **主词**：`databricks data analytics platform`（4-word dens）
+- **状态**：deployed（site `eb916a39`；marker `DESK-DAP-20260807A`；线上 dens **~1.15%**）
+- **技改**：citation/Speakable/MobileOptimized；William/About；desk n=11；Photon 深度；G2；外链 noreferrer+cite
+- **教训**：4-word dens = hits×4/words×100；H1 已含主词时勿再叠 TL;DR+snippet
+
+## 2026-08-07 — data-management-trends (`data management trends`)
+
+- **URL**：`/en/blog/data-management-trends`（markdown blog）
+- **主词**：`data management trends`（3-word dens）
+- **状态**：deployed（site `c59a4c60`；marker `DESK-DMT-20260807A`；线上 dens **~1.166%**）
+- **技改**：William/About；HowTo 5-step + BreadcrumbList + Person；4 张 SVG；NIST Privacy entry（站内无 Privacy Policy 页）；Airflow/Postgres/Redshift 补链；G2/Peer Insights；`dateModified` 刷新
+- **教训**：Evaluation Workflow 段落曾堆 6× 主词 → dens ~2.3%；HTML `<img src="./images/...">` 不会被 `rewriteImagePaths` 改写，需用 `/blog-media/{slug}/images/...` 绝对路径；测 dens 时先抽出 `alt`/`aria-label` 再剥标签，否则会少计主词
+
+## 2026-08-07 — mcp-for-data-analysis (`mcp for data analysis`)
+
+- **URL**：`/en/blog/mcp-for-data-analysis`
+- **主词**：`mcp for data analysis`（3-word dens）
+- **状态**：deployed（site `ca5a4eac`/`660407b0`；marker `DESK-MCP-20260807A`；线上 dens **~1.195%**）
+- **技改**：William/About（multi-year，不编造具体年数）；Protocol/Patterns/Quant SVG；NL2SQL+Semantic Layer 页内定义；MCP 官方+Anthropic+G2；Person/HowTo/BreadcrumbList；dens 从 ~2.45% destuff
+- **教训**：审计要「X years」但 About 页无数字 → 写 multi-year + desk 范围，勿编造；H2「Why MCP for Data Analysis…」会计入主词 hits
+
+## 2026-08-07 — agent-workflow-memory-reddit (`agent workflow memory reddit`)
+
+- **URL**：`/en/blog/agent-workflow-memory-reddit`
+- **主词**：`agent workflow memory reddit`（4-word dens）
+- **状态**：deployed（site `526e5e44`；marker `DESK-AWM-20260807A`；线上 dens **~1.186%**）
+- **技改**：William/About；BreadcrumbList/Person/HowTo/speakable/citation；Dataset+QuantitativeValue；3 SVG；Reddit 实体链；dens 从 ~4.8% destuff
+- **教训**：4-word dens = hits×4/words×100；主词堆砌常见于 Reddit GEO 页，目标仅 6–8 hits；schema.org 无官方 `Statistic` 类型 → 用 `PropertyValue`+`QuantitativeValue` 嵌在 Dataset
+
+## 2026-08-07 — programs-for-data-analysis (`programs for data analysis`)
+
+- **URL**：`/en/blog/programs-for-data-analysis`
+- **主词**：`programs for data analysis`（4-word dens）
+- **状态**：deployed（site `fc8e22fa`；marker `DESK-PDA-20260807B`；线上 dens 已核）
+- **技改**：William/About/COI；HowTo starter path；BreadcrumbList；SoftwareApplication×3；FAQ 首句加粗；desk n=12 计时表；pandas 样例；外链补年份；dens 从 ~4.2% destuff
+- **教训**：4-word dens = hits×4/words×100；FAQ 题干含主词会占 hits，答案首句用短句且避免再堆主词
+
+## 2026-08-07 — META1 title/description length compliance (batch)
+
+- **Trigger:** Audit all pages for title/description over QC limits (title ≤60, description ≤160); shorten only meta fields; redeploy.
+- **Scope:** Blog `meta-tags.html` / `head.html` / `schema.json` + `blog/catalog.json` + two `blog-static` pages. Article body/H1 unchanged.
+- **Over before fix:** ~10 titles, ~6 descriptions (blog) + 1 title + 1 desc (blog-static).
+- **Ship:** `infinisynapse.com` commit `9492d96a`, `CACHEBUST_SKILLS=20260807-META1`.
+- **Live verify:** Sample of previously over pages all OK (T≤60, D≤160), including `api-integration-testing-reddit`, `b2b-data-api-reddit`, `dbt-semantic-layer-alternative`, `data-governance`, `sql-data-analysis-tools`, `merge-multiple-csv-with-ai`, static CRM/AI-database-agent pages.
+- **Rule:** When shortening, keep primary keyword front-loaded; sync title/description across meta-tags, head, schema headline/description, and catalog; do not touch article.md body.
+
+## 2026-08-14 — data-catalog-platforms ZH audit 88 (Speakable / ImageObject / sameAs / citations)
+
+- **URL**：`/zh/blog/data-catalog-platforms`（与 `/en/` 共用英文 `article.md`）
+- **主词**：`data catalog platforms`（3 token；dens = hits/tokens，**不**乘词长）
+- **症状**：Improvement Plan 88；缺第三方独立数据背书、缺 Speakable/ImageObject、实体 `sameAs` 未闭环
+- **根因**：JSON-LD `@id`/`url` 全是 `/en/`，ZH 审计器不认 EN 作用域节点；`speakable.cssSelector` 用了 `#tl-dr`，但 `rehype-slug`/`github-slugger` 把 `## TL;DR` 编成 `#tldr`；`ImageObject` 只嵌在 Article.image；topic `sameAs` 只有 Wikipedia DCAT + W3C，无 Wikidata
+- **修复**（site repo，勿从 Growth 部署）：
+  - 正文补 Gartner IT Glossary / Wikidata Q16892890 / DCMI Terms，并写进 Evidence 表；TOC 改为 `#tldr`；marker `DESK-DCP-20260814A`
+  - schema 增加顶层 `SpeakableSpecification` + 3×`ImageObject`（`contentUrl`）+ EN/ZH `WebPage`；topic `sameAs` 加 Wikidata/DBpedia/Gartner glossary/DCMI；Alation `Q107639776`、AWS Glue `Q104861519`（仅已核实 Q-id）
+  - **不要**把 Wikipedia `Data catalog` 链到 `Database catalog`（Q5227399，RDBMS 系统目录，语义错误）
+  - 源 dens **38/3344 = 1.136%**；图保持 `object-fit:contain`
+- **防复发**：ZH URL 审计必须带 ZH `WebPage` + 嵌套 `speakable`（cssSelector + xpath）；Speakable 选择器先用 `github-slugger` 对一下标题；`sameAs` 只用核实过的 Wikidata；禁止编造 Gartner MQ/% 或 VideoObject
+- **状态**：pushed（cachebust `20260814-DCP1`）；线上需 Coolify Rebuild 后核 marker `DESK-DCP-20260814A`
+
+## 2026-08-14 — cost-benefit-analysis-formula tool audit 84 / authority 78
+
+- **URL**：`/en/tool/cost-benefit-analysis-formula`（`public/tool-static/.../index.html`）
+- **主词**：`cost benefit analysis formula`（4 token；dens = hits/tokens）
+- **症状**：Improvement Plan 84 要补 Article `dateModified`/`wordCount`/`image`/`author.sameAs`(GitHub)；缺底层数据外链与多媒体；FAQ/HowTo 要与正文 1:1；权威性 78 要独立财务专家或第三方方法背书
+- **根因**：schema 已有 dateModified/image/GitHub，但缺 `wordCount` 与 `contentUrl`；FAQ 大小写/弯引号与 JSON-LD 不一致；HowTo 正文 `</strong>` 后缺空格；权威性不能伪造具名 CPA；`.hero-image` 默认 `object-fit:cover` 会裁切
+- **修复**：
+  - 补 `wordCount`、ImageObject `contentUrl`、顶层图节点、Dataset+CSV；author.sameAs 保持 GitHub
+  - FAQ/HowTo 从 DOM 回写 schema，逐步文本完全一致
+  - 第三方方法背书：Green Book / OMB A-94 / OECD / EU Better Regulation Toolbox / Wikipedia（**不**编造外部 CPA 签名）
+  - 交互情景图 + `cba-scenario-bars.svg` + `data/cba-desk-example.csv`；**无 VideoObject**
+  - hero CSS 改为 `object-fit:contain`；marker `DESK-CBA-20260814A`；dens **40/3517 = 1.137%**
+- **防复发**：tool-static 审计看得到的 FAQ/HowTo 必须从可见 DOM 生成；权威性用已发布公共财政方法，不编专家姓名；缺视频就用交互图+CSV，不要写 VideoObject
+- **状态**：pushed（cachebust `20260814-CBA5`）；Coolify Rebuild 后核 marker `DESK-CBA-20260814A`
+
+## 2026-08-14 — databricks-delta-streaming-real-time audit 88 (DefinedTerm / FAQ 量化 / Desk 方法)
+
+- **URL**：`/en/blog/databricks-delta-streaming-real-time`
+- **主词**：`databricks delta streaming for real-time data processing`（剥连字符后 8 token；dens=hits/tokens）
+- **症状**：DefinedTermSet 高频词覆盖不足；部分 FAQ 缺数字；Desk Metrics 缺采集方法与第三方对照锚
+- **根因**：术语表只有 5 词；FAQ one-sentence 无 desk 数字；desk 已有 CSV 但未写 n=1 采集步骤，也未标明「第三方是方法锚不是本包 SLA」
+- **修复**：术语表+DefinedTermSet 扩到 12（Watermark/Micro-batch/Medallion/Auto Loader/AvailableNow/Compaction/DBU + sameAs 官方文档）；Person 补 givenName/familyName/identifier/affiliation/memberOf/knowsAbout；FAQ 写入 12k events/s、p50/p95/p99、DBU 100→31；desk 写 Collection method + Spark/Databricks/VLDB/SIGMOD/Gartner 方法锚（不编造官方 events/s SLA）；marker `DESK-DDS-20260814A`；dens **40/3586 = 1.115%**
+- **防复发**：扩 DefinedTermSet 必须同步可见 glossary；FAQ schema 从正文回写；第三方锚用于方法/论文，desk 数字保持 first-party 并链 CSV
+- **状态**：pushed（cachebust `20260814-DDS2`）；Coolify Rebuild 后核 marker `DESK-DDS-20260814A`
+
+## 2026-08-14 — chatgpt-data-analysis-alternatives audit 84 / authority 73
+
+- **URL**：`/en/blog/chatgpt-data-analysis-alternatives`
+- **主词**：`alternatives to ChatGPT for data analysis`（6 token；dens=hits/tokens，不乘词长）
+- **症状**：Authority 73 第一方利益冲突；改进计划 84 要第三方评测/背书、视频、术语定义块、HowTo/FAQ 精修、一句推荐结论
+- **根因**：desk /12 是第一方；无独立评测数字；无托管视频；术语只在正文隐含；HowTo/FAQ schema 与可见正文不完全一致
+- **修复**：
+  - 第三方锚：OpenAI help + Improvements 页、Wikipedia ChatGPT、G2 reviews homepage、Gartner Peer Insights、NIST/Stanford HAI/OWASP/CISA（**不**编造 G2 星级、客户名、DOI）
+  - 可见 `#glossary` + DefinedTermSet×7（ADA/Copilot/Data Agent/semantic layer/week-2 drift/Task-1/composite /12）
+  - 工具实体 `SoftwareApplication` 统一 `applicationCategory`/`url`/`sameAs`
+  - HowTo/FAQ 从可见正文回写；结论首句 One-sentence recommendation
+  - `term-lanes.svg` 作多媒体；**不写 VideoObject**（无托管视频）
+  - marker `DESK-CDA-20260814A`；dens **41/3635 = 1.128%**（含 H1 **42/3644 = 1.153%**）
+- **防复发**：权威性用已发布评测市场/百科/厂商产品页，不编独立实验室分数；无视频就用 lane SVG + CSV，正文勿出现 `VideoObject` 字面
+- **状态**：pushed（cachebust `20260814-CDA2`）；Coolify Rebuild 后核 marker `DESK-CDA-20260814A`
+
+## 2026-08-14 — master-data-management-software audit 88 / EEAT 72·88·76
+
+- **URL**：`/en/blog/master-data-management-software`
+- **主词**：`master data management software`（4 token；dens=hits/tokens）
+- **症状**：经验 72 要具名客户案例；专业 88 要匹配算法/幸存规则细节；权威 76 要作者 MDM 资质/演讲/论文；改进 88 要案例、FAQ/TL;DR 短摘要、信息图
+- **根因**：desk 已标明匿名；作者无 CDMP/演讲可核实；匹配只写能力名未写算法；FAQ/TL;DR 缺 <40 字摘要
+- **修复**：
+  - **不编造客户名/CDMP/演讲**。具名可核实来源：Gartner Peer Insights、DAMA-DMBOK2、ISO 8000、[Fellegi–Sunter 1969 DOI](https://doi.org/10.1080/01621459.1969.10501049)、Wikipedia Record linkage
+  - 作者权威用领域出版物 + GitHub InfiniSQL，写明是 golden-record *consumer*
+  - H3：deterministic / probabilistic match + survivorship（trusted/recent/complete/steward）
+  - TL;DR / FAQ 各一条 <40 字摘要；结论 One-sentence recommendation
+  - `match-survivorship.svg`；**不写 VideoObject**
+  - marker `DESK-MDM-20260814A`；dens **29/2516 = 1.153%**
+- **防复发**：审计要「具名客户」时用已发布评测/论文/百科，desk 保持匿名并写明不发明客户名
+- **状态**：pushed（cachebust `20260814-MDM2`）；Coolify Rebuild 后核 marker `DESK-MDM-20260814A`
+
+## 2026-08-14 — google-search-console-seo-audit improvement 86
+
+- **URL**：`/en/blog/google-search-console-seo-audit`（`public/blog-static/.../index.html`，双语单页）
+- **主词**：`Google Search Console SEO`（4 token；dens=hits/tokens）
+- **症状**：改进 86：作者缺社交 sameAs（点名 LinkedIn）；desk 缺独立交叉核验；双语缺明确语言声明；FAQ/HowTo 与正文不一致
+- **根因**：Person 只有 GitHub；hreflang 写了 `zh` 未写 `zh-CN`；HowTo/FAQ schema 比可见步骤/问答短且多了一条不可见 FAQ
+- **修复**：
+  - **不写个人 LinkedIn**。Organization `sameAs` 加已有公司页 `linkedin.com/company/infinisynapse` + GitHub + X；Person 保持 GitHub
+  - Desk 写 Collection method（n=1 Domain、412 条、完整等价日、5xx 对发布日志）+ Google 官方报告定义 + Wikipedia GSC 交叉核验（不编造第三方分数）
+  - `hreflang` en / zh / **zh-CN** / x-default；`og:locale` + EN/ZH `WebPage` `inLanguage`
+  - FAQ/HowTo 从可见 DOM 回写（4 FAQ，含 live-test 题）
+  - marker `DESK-GSC-20260814A`；dens **29/2528 = 1.147%**
+- **防复发**：双语静态页审计要 `zh-CN` 不只 `zh`；作者 LinkedIn 用公司页不是伪造个人档；FAQ schema 不得多出正文没有的问
+- **状态**：pushed（cachebust `20260814-GSC2`）；Coolify Rebuild 后核 marker `DESK-GSC-20260814A`
+
+## 2026-08-14 — tool/port-1433 authority 76 / improvement 88
+
+- **URL**：`/en/tool/port-1433`（`public/tool-static/port-1433/index.html`）
+- **主词**：`port 1433`（2 token；dens=hits/tokens）
+- **症状**：权威 76 要作者证书/行业资质/第三方引用；改进 88 要视频/Speakable、DefinedTerm、扩大样本与方法
+- **根因**：schema 已有 4 个 DefinedTerm 与 speakable，但无可见 glossary；desk 只报 % 无 6/4/4/2 计数与采集规则；作者无 MCSE 可核实
+- **修复**：
+  - **不编造 Microsoft 证书/个人 LinkedIn/VideoObject**。领域出版物：IANA、[CIS SQL Server Benchmark](https://www.cisecurity.org/benchmark/microsoft_sql_server)、NIST SP 800-53 SC-7、Wikipedia SQL Server / TDS；公司 LinkedIn 挂 Organization
+  - 可见 `#glossary` + DefinedTermSet×7（含 UDP 1434 / AG listener / sameAs）
+  - Collection method：n=16、双评分、first-failure 一层；计数 6/4/4/2；CSV 补行；**不编造更大 n**
+  - `port-1433-decision.svg` 作 multimodal；FAQ/HowTo 从可见正文回写
+  - marker `DESK-P1433-20260814A`；dens **31/2662 = 1.165%**
+- **防复发**：审计要证书时用 CIS/NIST/IANA/百科，不写假 MCSE；n 只扩方法与绝对计数，不虚构票数
+- **状态**：pushed（cachebust `20260814-P1433B`）；Coolify Rebuild 后核 marker `DESK-P1433-20260814A`
+
+## 2026-08-14 — blog/data-analyst-jobs authority 74 / improvement 88
+
+- **URL**：`/en/blog/data-analyst-jobs`（`blog/pillar24-data-analyst-career-jobs/data-analyst-jobs/`）
+- **主词**：`data analyst jobs`（3 token；dens=hits/tokens；线上 `<article>` = H1 + 全文含 byline）
+- **症状**：权威 74 要持证职业咨询师共同署名或更多第三方背书；改进 88 要 VideoObject、desk 方法透明、薪资子题独立问答与结构化数据
+- **根因**：YMYL 已诚实写「非持牌顾问」；desk 只报案例无独立 Collection method；薪资只在 TL;DR 内链，无 H2/FAQ/表；无托管视频
+- **修复**：
+  - **不编造 NCDA CCC / LPC 共同作者 / 个人 LinkedIn / VideoObject**。第三方背书：BLS OOH + [OEWS](https://www.bls.gov/news.release/ocwage.t01.htm)、O*NET 15-2051/15-2031/13-1161、Wikipedia / Wikidata Q192976、NCDA finder、CareerOneStop、HBR、Gartner/G2；公司 LinkedIn 挂 Organization
+  - 可见 `#glossary` + DefinedTermSet×7；`#desk-method` 写 n=12、first-screen 一层、计数 **9 / 3 / 1 / 0**；**不编造更大 n**
+  - 独立 `#pay-bands-salary`：OOH May 2024 中位数 $76,950 / $91,290 / $112,590 + FAQ「What do data analyst jobs typically pay?」+ Table schema；`salary-proxy-bands.svg`
+  - marker `DESK-DAJ-20260814A`；dens **45/3894 = 1.156%**
+- **防复发**：职业 YMYL 用 BLS/O*NET/NCDA 转介补权威，不伪造持证顾问；薪资子题必须有独立 H2+FAQ+与 desk 分层的美元来源；无视频就用 SVG，正文勿写 VideoObject
+- **状态**：pushed（cachebust `20260814-DAJ2`）；Coolify Rebuild 后核 marker `DESK-DAJ-20260814A`
+
+## 2026-08-14 — blog/fabric-data-agent-vs-copilot improvement 84
+
+- **URL**：`/en/blog/fabric-data-agent-vs-copilot`
+- **主词**：`Microsoft Fabric`（catalog `targetKeyword`；2 token；dens=hits/tokens）
+- **症状**：改进 84 缺独立 HowTo / ImageObject / aggregateRating；定量结论缺可复现原始证据；无视频
+- **根因**：Article.image 已有嵌套 ImageObject，审计器常不认；无 HowTo 节点；desk 11/45 分钟与 7/9 无 CSV；无托管视频
+- **修复**：
+  - 可见 4 步 HowTo + 独立 HowTo JSON-LD；图级 **ImageObject×5**（含 `howto-fabric-layers.svg`）
+  - **不写 VideoObject / aggregateRating**（无托管视频、不编造 G2 星级）
+  - Collection method：两例 desk（9 表 / 4 阶段 / 11 vs 45 分钟 / 7 of 9）；[desk-fab-packet.csv](https://infinisynapse.com/blog-media/fabric-data-agent-vs-copilot/downloads/desk-fab-packet.csv)；Learn + Wikipedia 作方法锚
+  - marker `DESK-FAB-20260814A`；dens **35/2951 = 1.186%**
+- **防复发**：嵌套在 Article.image 里的 ImageObject 不够，要顶层 `@type: ImageObject`；定量必须链 CSV 行号；无评测星级就链 G2/Gartner 市场页
+- **状态**：pushed（cachebust `20260814-FAB2`）；Coolify Rebuild 后核 marker `DESK-FAB-20260814A`
+
+## 2026-08-14 — blog/databricks-genie-vs-data-agent authority 77 / improvement 84
+
+- **URL**：`/en/blog/databricks-genie-vs-data-agent`
+- **主词**：`databricks assistant vs genie`（4 token；dens=hits/tokens）
+- **症状**：权威 77 要点名作者 LinkedIn / 第三方背书；改进 84 缺 HowTo / Dataset、次实体定义与同义词、desk CSV 嵌入与视频
+- **根因**：作者无个人 LinkedIn；schema 无 HowTo/Dataset/DefinedTermSet；CSV 已有但方法行与可见 glossary 不足；无托管视频
+- **修复**：
+  - **不写个人 LinkedIn / VideoObject**。领域出版物：Databricks docs / Genie Code / Genie、[Wikipedia: Databricks](https://en.wikipedia.org/wiki/Databricks)、ReAct arXiv、G2/Gartner；公司 LinkedIn 挂 Organization
+  - 可见 `#glossary` + DefinedTermSet×7（Assistant=Genie Code、Genie=Genie One/Agents、Unity Catalog、gold table、Data Agent、distilled memory、cross-source）
+  - HowTo 四步 + Dataset；CSV 补 SUMMARY/METHOD；计数保持 **6/8 · 7/8 · 0/3 · 3/3**；`howto-assistant-genie.svg`
+  - marker `DESK-DAG-20260814A`；dens **31/2734 = 1.134%**
+- **防复发**：审计要作者 LinkedIn 时用公司页 + GitHub，不伪造个人档；次实体必须可见一行定义+alternateName；CSV 要在正文重复嵌入不只 References
+- **状态**：pushed（cachebust `20260814-DAG2`）；Coolify Rebuild 后核 marker `DESK-DAG-20260814A`
+
+## 2026-08-14 — blog/sql-query improvement 85 rich media / entities / in-text anchors
+
+- **URL**：`/en/blog/sql-query`
+- **主词**：`SQL query`（2 token；dens=hits/tokens）
+- **症状**：改进计划 85：缺富媒体与对应结构化数据；概念实体关系未结构化；参考文献缺正文锚点
+- **根因**：静态页已有 Article/HowTo/Dataset/FAQ，但无 HowTo 流程图、无 Speakable/DefinedTermSet、权威链接只在文末列表；无托管视频
+- **修复**：
+  - **不写 VideoObject**。HowTo 流程图 `howto-sql-query-review.svg` + Speakable（`.answer` / `#quick-answer` / `#glossary` / `#review-checklist` / `#faq`）
+  - 可见 `#glossary` + DefinedTermSet×6（SQL query / logical processing / join cardinality / prepared statement / EXPLAIN / result contract）互链 Wikipedia、PostgreSQL SELECT/EXPLAIN、OWASP、`/en/tool/sql-joins`
+  - 结论处正文锚：Wikipedia SQL、PostgreSQL SELECT/EXPLAIN/window、MySQL EXPLAIN、BigQuery syntax、SQLite planner、OWASP；内链 `#joins` `#parameters` `#explain` `#aggregation` 与 sibling tools
+  - Collection method n=12（grain 5 / concat 3 / plan-skew 1 / null 1 / ok 3）；CSV SUMMARY/METHOD；marker `DESK-SQLQ-20260814A`
+  - dens **47/4081 = 1.152%**
+- **防复发**：审计要 VideoObject 时用 HowTo SVG + Speakable，正文勿出现 `VideoObject` 字面；权威源必须在关键结论句内链，不能只放 `#sources` 列表
+- **状态**：pushed（cachebust `20260814-SQLQ2`）；Coolify Rebuild 后核 marker `DESK-SQLQ-20260814A`
+
