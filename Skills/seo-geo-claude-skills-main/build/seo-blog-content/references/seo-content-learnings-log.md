@@ -2296,3 +2296,12 @@
 - **防复发**：Dataset/Article 的 `hasPart` 只能放 Dataset/Article/WebPageElement 等 CreativeWork；分数单元格用顶层 Observation/PropertyValue + `isPartOf`
 - **状态**：pushed（cachebust `20260814-XAT3`）
 
+## 2026-08-14 — GSC answerCount missing in mainEntity
+
+- **URL**：`/guides/breaking-data-silos`、`/en/blog/data-retention-policy`
+- **症状**：GSC「未填写字段 answerCount（在 mainEntity 中）」；无效、无法出富结果（2026-08-13）
+- **根因**：`@type: ["FAQPage","QAPage"]`。QAPage 按 [Q&A 结构化数据](https://developers.google.com/search/docs/appearance/structured-data/qapage) 要求每个 Question 有 `answerCount`；编辑 FAQ 不该用 QAPage
+- **修复**：改为纯 `FAQPage`；每个 Question 补 `answerCount: 1`（各有一条 acceptedAnswer）。正文未改
+- **防复发**：编辑 FAQ 只用 FAQPage；只有论坛式单问多答才用 QAPage，且必须写 answerCount
+- **状态**：pushed（cachebust `20260814-ANS1`）
+
