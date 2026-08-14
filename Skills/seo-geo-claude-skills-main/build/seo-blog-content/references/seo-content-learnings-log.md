@@ -2323,3 +2323,12 @@
 - **防复发**：Dataset.isPartOf 只指向更大 Dataset/DataCatalog；文章与数据包用 Article.hasPart
 - **状态**：pushed（cachebust `20260814-PART1`）
 
+## 2026-08-14 — blog/ai-excel-data-analysis-tools hasPart 仍无效（isPartOf 反推）
+
+- **URL**：`/en/blog/ai-excel-data-analysis-tools`、`/zh/` 共用 schema
+- **症状**：GSC 仍报「字段 hasPart 的对象类型无效」
+- **根因**：上次已删 Dataset.hasPart，但 42 个 Observation/PropertyValue 仍 `isPartOf` Dataset。Google 反推 Dataset.hasPart=Observation，类型仍非法
+- **修复**：去掉所有分数节点上的 `isPartOf`。节点保留为顶层 JSON-LD。正文未改
+- **防复发**：Dataset/Article 不要用 hasPart 挂 Observation；也不要用 Observation.isPartOf Dataset
+- **状态**：pushed（cachebust `20260814-HP2`）
+
