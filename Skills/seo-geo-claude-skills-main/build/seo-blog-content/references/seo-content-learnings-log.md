@@ -2332,3 +2332,12 @@
 - **防复发**：Dataset/Article 不要用 hasPart 挂 Observation；也不要用 Observation.isPartOf Dataset
 - **状态**：pushed（cachebust `20260814-HP2`）
 
+## 2026-08-14 — GSC answerCount 仍报（FAQPage 被当成 QAPage）
+
+- **URL**：`/guides/breaking-data-silos`、`/en/blog/data-retention-policy`
+- **症状**：GSC「未填写字段 answerCount（在 mainEntity 中）」；ANS1 已上线（纯 FAQPage + 每题 answerCount:1）后报告仍在
+- **根因**：编辑 FAQ 的 `FAQPage.mainEntity` 是 Question **数组**。Google「问与答」按 [QAPage](https://developers.google.com/search/docs/appearance/structured-data/qapage) 校验时，要求 `mainEntity` 为**单个** Question 且带 `answerCount`。数组本身没有该字段，仍判无效。FAQ 富结果已于 2026-05 退役，不值得再叠 QAPage
+- **修复**：删除两页的 FAQPage/QAPage JSON-LD；可见 FAQ 正文保留。sitemap `lastmod=2026-08-14`
+- **防复发**：编辑 FAQ 不要输出 FAQPage 或 QAPage。只有论坛式「一页一问、用户作答」才用 QAPage，且 `mainEntity` 必须是单个 Question + `answerCount`
+- **状态**：pushed（cachebust `20260814-ANS2`）
+
