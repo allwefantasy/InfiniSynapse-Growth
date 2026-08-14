@@ -2287,3 +2287,12 @@
 - **防复发**：审计要作者认证时用 CIS/NIST/IANA/百科 + 明确 “no invented certification”；n 只扩方法与引用格式，不虚构票数
 - **状态**：pushed（cachebust `20260814-P5432B`）；Coolify Rebuild 后核 marker `DESK-P5432-20260814A`
 
+## 2026-08-14 — blog/ai-excel-data-analysis-tools GSC hasPart 对象类型无效
+
+- **URL**：`/zh/blog/ai-excel-data-analysis-tools`（与 `/en/` 共用 `schema.json`）
+- **症状**：GSC「字段 hasPart 的对象类型无效」（2026-08-13 首次检出）
+- **根因**：`Dataset.hasPart` 嵌了 42 个 `@type: [PropertyValue, Observation, Statistic]`。`hasPart` 继承自 CreativeWork，只接受 CreativeWork，不接受 PropertyValue/Observation/Statistic
+- **修复**：删除 Dataset.`hasPart`；42 个分数节点提升为顶层 JSON-LD，仍用 `isPartOf` 指回 `#scorecard-dataset`。同步 `schema.json` + `head.html`。正文未改
+- **防复发**：Dataset/Article 的 `hasPart` 只能放 Dataset/Article/WebPageElement 等 CreativeWork；分数单元格用顶层 Observation/PropertyValue + `isPartOf`
+- **状态**：pushed（cachebust `20260814-XAT3`）
+
