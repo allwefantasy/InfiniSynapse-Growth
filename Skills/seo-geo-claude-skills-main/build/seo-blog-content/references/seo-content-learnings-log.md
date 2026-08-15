@@ -2359,3 +2359,12 @@
 - **防复发**：自有 Article/WebPage/ImageObject/Dataset 写 CC BY 4.0；第三方 citation 不要标 CreativeWork，更不要写我们的 license
 - **状态**：pushed（cachebust `20260815-LIC2`）
 
+## 2026-08-16 — blog/data-analyst-salary 未填写字段 creator
+
+- **URL**：`/en/blog/data-analyst-salary`
+- **症状**：GSC「未填写字段 creator」（非严重）
+- **根因**：把 BLS OEWS 第三方工资表标成 `citation.@type: Dataset`。Google Dataset 校验要 `creator`；不能把 BLS 写成 InfiniSynapse 创建的 Dataset
+- **修复**：citation 全部改为 name/url，去掉 Dataset/CreativeWork。正文与 BLS 外链保留
+- **防复发**：第三方统计禁止标 Dataset；只有自有 desk CSV 才用 Dataset，且必须带 creator + license
+- **状态**：pushed（cachebust `20260816-CRE1`）
+
