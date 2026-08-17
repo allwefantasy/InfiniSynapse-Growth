@@ -49,6 +49,15 @@
 
 ## 记录
 
+### 2026-08-16 · [audit] SEO Health pillar-sh* 57 篇专用门禁
+
+- **场景**：`SEO/Blog/pillar-sh1`–`pillar-sh7`（aimeetup.center）；库存脚本 `audit-*.py` 的 `pillar[0-9]*-*` glob **扫不到** `pillar-sh*`
+- **症状**：首轮 16 篇 Fail：正文从 `## TL;DR` 计字后若干篇 <1900 或密度偏出 1.20–1.25%；部分 `**Meta Description**` 行尾 `(155 chars)` 把字符数计爆
+- **根因**：旧审计默认 InfiniSynapse `pillar1–20`；字数/密度必须用 TL;DR 起的 body；标注字符数不能算进 meta 长度
+- **修复**：`SEO/SEO-Health/audit-sh57.py`；剥掉 `(N chars)`；扩写/抽词 502/503/504/505/509/590/595/596；590 html desc 扩到 151；产物 `generate-deploy-meta.py` → 每篇 `head.html` + `SEO/SEO-Health/seo-meta.json` + `sitemap-seo-health.xml`
+- **防复发**：新柱用 `pillar-sh*` 时先跑 `audit-sh57.py`，不要只跑 Skills 里的 `pillar[0-9]*` 审计
+- **状态**：`open`
+
 ### 2026-08-14 · [eeat] tool/port-1521 第三方基准 + 术语表 + 可下载包
 - **场景**：用户要求优化 https://infinisynapse.com/en/blog/port-1521（redirect → `/en/tool/port-1521`）；密度 1.1–1.2%；内外链完整并上线
 - **症状**：改进计划 85：缺第三方独立数据/可下载研究、缺视频、缺可见 glossary 互链
@@ -748,6 +757,7 @@
 | keyword | 1 | 密度计词 |
 | script | 1 | 脚本位置 |
 | p21-25 | 1 | P21–25 脚本迁 Skills |
+| audit | +1 | 2026-08-16 SEO Health pillar-sh* 57 篇专用门禁 |
 
 *Agent 追加新条目后更新此表。*
 
@@ -2367,4 +2377,13 @@
 - **修复**：citation 全部改为 name/url，去掉 Dataset/CreativeWork。正文与 BLS 外链保留
 - **防复发**：第三方统计禁止标 Dataset；只有自有 desk CSV 才用 Dataset，且必须带 creator + license
 - **状态**：pushed（cachebust `20260816-CRE1`）
+
+## 2026-08-17 — GSC「网页会自动重定向」56 URL
+
+- **场景**：Coverage drilldown 2026-08-17，问题名「网页会自动重定向」
+- **症状**：56 个 URL 被排除。抽检全部是 308，不是 404
+- **根因**：工具页从 `/en/blog/` 迁到 `/en/tool/`；`index.html` / 尾斜杠收到规范无斜杠 URL；`/zh/blog/*` 收到英文；`/en/` 先去斜杠再到 `/`，两跳
+- **修复**：middleware + redirects 让 `/en` `/en/` `/zh` `/zh/` 一次 308 到 `/`。其余 308 保留（不要改回 200）
+- **防复发**：sitemap 只放规范 URL；旧路径保持单跳 308。此桶数字不会清零，属正常排除
+- **状态**：pushed（cachebust `20260817-GSC308`）
 
