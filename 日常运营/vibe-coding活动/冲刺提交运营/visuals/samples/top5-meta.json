@@ -1,0 +1,47 @@
+[
+  {
+    "rank": 1,
+    "file": "top5-01-lifeflow.png",
+    "title": "LifeFlow Agent",
+    "subtitle": "本地生活数据决策分析管家",
+    "votes": 34,
+    "desc": "整合餐厅排队、天气、交通与个人偏好，提供个人管家、多管家协商和未来时间预演三种体验。",
+    "tag": "人气 No.1"
+  },
+  {
+    "rank": 2,
+    "file": "top5-02-billlens.png",
+    "title": "智析账本 BillLens",
+    "subtitle": "个人财务数据智能分析",
+    "votes": 31,
+    "desc": "上传账单 Excel / CSV，自动做消费结构分析、异常预警与节省建议，并生成可追问的报告。",
+    "tag": "人气 No.2"
+  },
+  {
+    "rank": 3,
+    "file": "top5-03-forgex.png",
+    "title": "FORGE·X 智造洞察",
+    "subtitle": "3D 打印工厂生产数据分析",
+    "votes": 25,
+    "desc": "用自然语言问故障率、材料失败与成本去向，返回结论、图表和可执行建议。",
+    "tag": "人气 No.3"
+  },
+  {
+    "rank": 4,
+    "file": "top5-04-offer.png",
+    "title": "Offer 雷达",
+    "subtitle": "入职前公司尽调助手",
+    "votes": 22,
+    "desc": "从经营、司法、舆情与岗位匹配多维核验，生成接受 Offer 前的风险报告与行动清单。",
+    "tag": "人气 No.4"
+  },
+  {
+    "rank": 5,
+    "file": "top5-05-zhipai.png",
+    "title": "职牌",
+    "subtitle": "市场数据反向诊断职业身份",
+    "votes": 14,
+    "desc": "上传简历，输出深度行动报告和去隐私的职业身份诊断卡，帮你看清市场位置。",
+    "tag": "人气 No.5"
+  }
+]
