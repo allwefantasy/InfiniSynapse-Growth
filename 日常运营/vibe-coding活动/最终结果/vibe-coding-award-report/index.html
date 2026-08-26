@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vibe Coding 获奖作品报告</title>
+  <style>
+    :root { --bg:#f6f4ef; --ink:#1c1b18; --muted:#5c594f; --line:#d9d3c5; --paper:#fffdf8; --accent:#8a3d1b; --gold:#9a7a2f; --lock:#6b5a2e; --new:#2f5d4a; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 "Songti SC","Source Han Serif SC","Noto Serif SC",Georgia,serif; }
+    header { padding:56px 8vw 28px; border-bottom:1px solid var(--line); }
+    header p.kicker { letter-spacing:.16em; font-size:12px; color:var(--accent); margin:0 0 10px; }
+    h1 { font-size:36px; line-height:1.25; margin:0 0 16px; font-weight:600; }
+    .lead { max-width:760px; color:var(--muted); margin:0; }
+    .summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; padding:24px 8vw 8px; }
+    .stat { background:var(--paper); border:1px solid var(--line); padding:16px 18px; }
+    .stat b { display:block; font-size:28px; }
+    .stat span { color:var(--muted); font-size:13px; }
+    nav { padding:8px 8vw 32px; color:var(--muted); font-size:14px; }
+    nav a { color:var(--accent); margin-right:16px; }
+    section { padding:12px 8vw 36px; }
+    .sec-head h2 { margin:0 0 6px; font-size:26px; }
+    .sec-head p { margin:0 0 18px; color:var(--muted); }
+    .grid-feature { display:grid; gap:20px; }
+    .grid-compact { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .card { display:grid; grid-template-columns:320px 1fr; gap:20px; background:var(--paper); border:1px solid var(--line); padding:16px; }
+    .card.compact { grid-template-columns:180px 1fr; padding:12px; }
+    .shot { background:#ece7db; min-height:180px; overflow:hidden; }
+    .card.compact .shot { min-height:120px; }
+    .shot img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; min-height:180px; }
+    .card.compact .shot img { min-height:120px; }
+    .ph { min-height:180px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:14px; }
+    h3 { margin:8px 0 4px; font-size:22px; line-height:1.3; }
+    .card.compact h3 { font-size:18px; }
+    .row { display:flex; gap:8px; align-items:center; }
+    .badge,.src { font-size:12px; padding:2px 8px; border:1px solid var(--line); }
+    .src.locked { color:var(--lock); }
+    .src.new { color:var(--new); }
+    .cat { margin:0 0 8px; color:var(--gold); font-size:13px; }
+    .grade { margin:0 0 6px; font-size:13px; }
+    .why { margin:0 0 10px; color:var(--muted); font-size:13px; }
+    .intro { margin:0 0 12px; color:var(--muted); }
+    .links a { color:var(--accent); margin-right:14px; }
+    .links a.ghost { color:var(--muted); }
+    footer { padding:28px 8vw 48px; color:var(--muted); border-top:1px solid var(--line); font-size:13px; }
+    @media (max-width:900px) {
+      .summary,.grid-compact,.card,.card.compact { grid-template-columns:1fr; }
+      header,.summary,nav,section,footer { padding-left:20px; padding-right:20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="kicker">InfiniSynapse × CSDN · Vibe Coding</p>
+    <h1>获奖作品报告</h1>
+    <p class="lead">62 件获奖作品均已核验体验链接可打开。优秀奖 50 席。一二三等奖品类互不重复。</p>
+  </header>
+  <div class="summary">
+    <div class="stat"><b>2</b><span>一等奖</span></div>
+    <div class="stat"><b>4</b><span>二等奖</span></div>
+    <div class="stat"><b>6</b><span>三等奖</span></div>
+    <div class="stat"><b>50</b><span>优秀奖</span></div>
+  </div>
+  <nav>
+    <a href="#一等奖">一等奖</a>
+    <a href="#二等奖">二等奖</a>
+    <a href="#三等奖">三等奖</a>
+    <a href="#优秀奖">优秀奖</a>
+    <a href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">比赛作品长廊</a>
+  </nav>
+<section id="一等奖"><div class="sec-head"><h2>一等奖</h2><p>2 席，沿用原表已定奖项；均调用 InfiniSynapse API 且可打开 · 共 2 件</p></div><div class="grid-feature">
+    <article class="card featured">
+      <div class="shot"><img src="images/01.png" alt="SEO Health Checker 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">一等奖 1</span>
+          <span class="src locked">已定</span>
+        </div>
+        <h3>SEO Health Checker</h3>
+        <p class="grade"><b>评级 A · 7.85</b>　场景 7.5 / 完成度 8.5 / 创新 7.5</p>
+        <p class="why">工具形态完整，AI 可见性是本届少有的增长侧新切口。<br>场景价值：发文前体检、站点巡检、AI 搜索可见性对创作者和 SEO 是明确工作流，插件降低使用摩擦。<br>技术完成度：网页+浏览器插件双形态，基础技术 SEO + E-E-A-T + AI 可见性，SSO 后走用户积分，即开即用。<br>创新性：把「AI 搜索/问答是否愿意引用该页」产品化，比传统 SEO 检测多一层时代增量。</p>
+        <p class="cat">品类 · 内容增长</p>
+        <p class="intro">SEO Health Checker 是一款&quot;即开即用&quot;的 AI SEO 健康检测工具，提供在线网页检测与浏览器插件双形态。用户粘贴任意页面 URL（或在浏览页面时点开安装好的插件），10-30 秒内即可获得标题、描述、规范链接、robots/sitemap、标题结构、图片 alt 等基础 SEO 体检报告。在此基础上，应用深度集成 I…</p>
+        <p class="links">
+          <a href="https://aimeetup.center/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card featured">
+      <div class="shot"><img src="images/02.png" alt="AI智能售卖机商品推荐 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">一等奖 2</span>
+          <span class="src locked">已定</span>
+        </div>
+        <h3>AI智能售卖机商品推荐</h3>
+        <p class="grade"><b>评级 C · 5.85</b>　场景 6.5 / 完成度 5.0 / 创新 6.0</p>
+        <p class="why">切口不俗，信息披露不足，产品完成度只能按可见材料保守给分。<br>场景价值：无人零售补货与动销分析有明确运营商用户，但材料几乎未展开决策深度。<br>技术完成度：仅一句话介绍，公开信息无法判断分析闭环、数据接入与报告质量。<br>创新性：售卖机补货相对垂直少见，有场景独特性，但机制未见。</p>
+        <p class="cat">品类 · 零售补货</p>
+        <p class="intro">在无人零售领域，为运营商推荐商品补货策略以及销售分析</p>
+        <p class="links">
+          <a href="https://productselect-production.up.railway.app/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+</div></section><section id="二等奖"><div class="sec-head"><h2>二等奖</h2><p>4 席，已定/新定；均调用 InfiniSynapse API，品类不重复 · 共 4 件</p></div><div class="grid-feature">
+    <article class="card featured">
+      <div class="shot"><img src="images/03.png" alt="仲裁小助手 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">二等奖 1</span>
+          <span class="src locked">已定</span>
+        </div>
+        <h3>仲裁小助手</h3>
+        <p class="grade"><b>评级 A · 7.60</b>　场景 8.5 / 完成度 7.0 / 创新 7.0</p>
+        <p class="why">场景极强、交付物具体；作为产品还偏工具单页，扩展空间大。<br>场景价值：劳动仲裁赔偿、申请书、证据清单是高利害、强时效的真实法律需求。<br>技术完成度：输入少、产出文书与法条依据，轻量但可执行；产品模块少于尽调/核数类重型应用。<br>创新性：用再就业周期判断「赔偿金能否覆盖空窗期」，把法律计算接到生活决策，有洞察。</p>
+        <p class="cat">品类 · 法律权益</p>
+        <p class="intro">输入入职日期、月工资、城市，AI 自动生成赔偿计算单、仲裁申请书、证据清单、法条依据，并结合再就业周期数据判断赔偿金能否覆盖空窗期。</p>
+        <p class="links">
+          <a href="https://la.tracemuse.top/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card featured">
+      <div class="shot"><img src="images/04.png" alt="鼹鼠 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">二等奖 2</span>
+          <span class="src locked">已定</span>
+        </div>
+        <h3>鼹鼠</h3>
+        <p class="grade"><b>评级 S · 9.30</b>　场景 9.0 / 完成度 9.5 / 创新 9.5</p>
+        <p class="why">人气与产品实力错位最大的作品：把「可信数字」做成引擎，而不是又一个分析聊天窗。<br>场景价值：审计/投行/咨询/经营分析岗每天核数，交报告和收报告两端都有强付费理由。<br>技术完成度：主张抽取、联邦重算、三档结论、口径复利、纠错重验、已核实版、即焚、公开工程指标，几乎是生产级。<br>创新性：模型无权判❌、数字与叙事责任分离、口径裁决沉淀，是本届最强的方法论创新。</p>
+        <p class="cat">品类 · 可信数据</p>
+        <p class="intro">【应用定位】 鼹鼠（谐音&quot;验数&quot;）是一个数字核查与可信生成引擎：把周报 / PPT / 底稿里的每个数字，对着你的真数（数据库、Excel 底稿）重新算一遍，给出带出处的三档结论；口径裁决一次、终身沉淀；核完可一键生成&quot;已核实版&quot;报告。一句话：要交的数，核完再交；收到的数，核 完再信。口号：数字对不对，挖一挖就知道。 【解决的问题】 职…</p>
+        <p class="links">
+          <a href="https://yanshu.octoooo.com" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card featured">
+      <div class="shot"><img src="images/05.png" alt="司南 SINAN · 多智能体证据研判引擎 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">二等奖 3</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>司南 SINAN · 多智能体证据研判引擎</h3>
+        <p class="grade"><b>评级 S · 9.38</b>　场景 9.5 / 完成度 9.5 / 创新 9.0</p>
+        <p class="why">本届产品完成度与决策价值的标杆之一，证据链方法论可直接产品化。<br>场景价值：覆盖买房择时、入职尽调、投资避坑、识别骗局等高利害决策，用户愿为「少踩一次坑」付费，场景刚需且结果可改变行动。<br>技术完成度：多智能体取证、结论绑定证据与置信度、实体关联、可视化报告、taskId 可核验、分享与批注均齐，产品主路径完整。<br>创新性：「无证据不立论」把研判做成可核验产品，隐藏关联/团伙特征发现超出普通问答包装。</p>
+        <p class="cat">品类 · 高风险决策</p>
+        <p class="intro">司南 SINAN 是一个基于 InfiniSynapse 的&quot;多智能体证据研判引擎&quot;。你问一个要做判断的问题（如&quot;房价还会跌多久&quot;&quot;这家公司值不值得入职&quot;&quot;这个稳赚项目是不是骗局&quot;），司南派出一支专家评审团联网多源取证，坚持&quot;无证据不立论&quot;——每条结论绑定证据与置信度，并抽取实体、发现隐藏关联（如反诈中揪出马甲账号话术一致的团伙特征），…</p>
+        <p class="links">
+          <a href="http://47.119.112.225/sinan/app/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card featured">
+      <div class="shot"><img src="images/06.png" alt="SafeX 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">二等奖 4</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>SafeX</h3>
+        <p class="grade"><b>评级 S · 8.78</b>　场景 9.5 / 完成度 8.5 / 创新 8.0</p>
+        <p class="why">本届社会价值最高的作品之一，产品模块扎实，值得单独看待。<br>场景价值：骚扰、跟踪、家暴场景下，定性、取证、求助路径是生命安全级需求，社会价值极高。<br>技术完成度：2300+ 事件洞察、AI 报告引法条、SOS 守护、工具箱与内容库，API 失败降级到本地模板，公益产品完成度高。<br>创新性：数据洞察、即时求助和法律自助打通，不是单点紧急按钮或单点聊天。</p>
+        <p class="cat">品类 · 公共安全</p>
+        <p class="intro">SafeX Insight is a data-analytics-driven public-welfare app (mobile H5) that helps women facing harassment, stalking, domestic violence and other safety threats understa…</p>
+        <p class="links">
+          <a href="http://47.94.57.145" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+</div></section><section id="三等奖"><div class="sec-head"><h2>三等奖</h2><p>6 席，新定；均调用 InfiniSynapse API，品类不重复 · 共 6 件</p></div><div class="grid-feature">
+    <article class="card featured">
+      <div class="shot"><img src="images/07.png" alt="LifeFlow Agent——本地生活数据决策分析管家 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">三等奖 1</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>LifeFlow Agent——本地生活数据决策分析管家</h3>
+        <p class="grade"><b>评级 S · 8.68</b>　场景 8.5 / 完成度 9.0 / 创新 8.5</p>
+        <p class="why">生活决策里产品化最深的作品：隐私协商 + 可对比方案，而不只是聊天推荐。<br>场景价值：餐厅/天气/交通/票务的多人出行决策是高频真实痛点，产出方案、对比看板与报告，决策闭环清楚。<br>技术完成度：个人管家、多管家协商、未来预演三套体验独立可用；SSE、任务持久化、重试降级、密钥仅服务端，工程完整。<br>创新性：Context Broker 只交换脱敏约束的多人协商，以及未来时间预演，是少见的产品机制创新。</p>
+        <p class="cat">品类 · 生活决策</p>
+        <p class="intro">应用介绍： LifeFlow Agent 是一款整合本地生活信息与个人偏好、帮助用户提前做出选择的数据决策管家，提供个人管家、多管家协商和未来时间预演三种独立体验。系统综合餐厅排队、天气变化、交通状况、价格、余票及用户偏好，从时间、成本、风险和匹配度等维度生成推荐方案、对比看板与可下载报告。其中，多管家协商为每位用户配置独立管家，各自维…</p>
+        <p class="links">
+          <a href="https://qiyucai.cn/InfiniSynapse/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card featured">
+      <div class="shot"><img src="images/08.png" alt="Offer 雷达｜入职前公司尽调助手 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">三等奖 2</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>Offer 雷达｜入职前公司尽调助手</h3>
+        <p class="grade"><b>评级 S · 8.62</b>　场景 9.0 / 完成度 9.0 / 创新 7.5</p>
+        <p class="why">求职决策类里最接近可上线 SaaS 的作品，证据与行动清单都落到签约前。<br>场景价值：校招/跳槽/签 Offer 前核验主体、舆情、劳动风险，决策利害高、付费意愿明确。<br>技术完成度：Partner SSO、多源交叉核验、事实与判断分离、多格式导出、任务恢复与备份重试，部署与安全说明完整。<br>创新性：尽调维度设计专业，但「公司尽调报告」形态在求职工具里已较常见。</p>
+        <p class="cat">品类 · 求职职业</p>
+        <p class="intro">应用简介与使用场景： Offer 雷达是一款面向学生、应届生和准备跳槽求职者的入职前公司尽调 Web 应用，帮助用户在投递、面试、签约或接受 Offer 前，对目标公司与岗位进行可追溯的信息核验和风险判断。 用户登录自己的 InfiniSynapse 账号后，输入公司名称、目标岗位、求职阶段、所在城市、官网或招聘页面，以及最关心的问题。…</p>
+        <p class="links">
+          <a href="https://offerradar.cn" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card featured">
+      <div class="shot"><img src="images/09.png" alt="医数智析 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">三等奖 3</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>医数智析</h3>
+        <p class="grade"><b>评级 A · 8.45</b>　场景 9.0 / 完成度 8.5 / 创新 7.5</p>
+        <p class="why">医疗场景价值很高，产品结构完整；创新更多在工作流设计而非新品类。<br>场景价值：患者「看不懂、存不全」与医生跨时间整理资料是刚需，健康档案能改变就医和随访行为。<br>技术完成度：患者端+医生工作台、10 组演示病例、多 Agent 质检/趋势/用药安全、Partner SSO 用户级归因，可完整体验。<br>创新性：双端纵向档案 + 医生审核后发布，比单次问诊机器人完整，但 AI 辅助诊疗赛道本身并不新。</p>
+        <p class="cat">品类 · 医疗健康</p>
+        <p class="intro">医数智析是一个基于 InfiniSynapse 构建的通用医疗健康数据分析应用，采用“患者健康档案＋医生专业工作台”双端架构。普通患者长期面临医疗数据“看不懂、存不全、用不上”的困境，医生也需要耗费大量时间整理分散资料，难以及时识别跨时间的健康趋势。医数智析希望让患者获得连续、清晰的健康管理，让医生更高效地作出专业判断，以 AI 辅助诊…</p>
+        <p class="links">
+          <a href="https://129.204.17.83/agentmedicine/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card featured">
+      <div class="shot"><img src="images/10.png" alt="DataForNGO Lab — Insight Engine 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">三等奖 4</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>DataForNGO Lab — Insight Engine</h3>
+        <p class="grade"><b>评级 A · 8.43</b>　场景 8.0 / 完成度 8.5 / 创新 9.0</p>
+        <p class="why">公益数据产品的正确姿势：先算清、先合规，再让 AI 说话。<br>场景价值：NGO 缺合规、可审计的「为何差、该怎么做」工具，被主流产品忽略的真场景。<br>技术完成度：本地 WASM 做严谨计算，PDPA k-匿名/目的限制/PII 闸门后再调用云端叙述，职责分离正确。<br>创新性：嵌套推理图 + 合规闸门 + 跨租户学习手册，是本届少有的治理型创新。</p>
+        <p class="cat">品类 · 公益合规</p>
+        <p class="intro">【解决的问题】NGO（公益组织）项目官员往往缺乏数据科学能力，难以诊断受助项目「为何」表现不佳，也缺乏一套合规、可审计的决策工具来判断「该怎么做」。 【目标用户】NGO / 公益组织项目官员、东南亚（SEA）社会项目运营者，以及任何需要以合规方式做泛数据分析的非技术团队。 【核心功能】 1. 嵌套推理图洞察卡：将自然语言问题转化为「诊断…</p>
+        <p class="links">
+          <a href="https://dataforngo-lab.swmengappdev.workers.dev" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card featured">
+      <div class="shot"><img src="images/11.jpg" alt="FORGE·X 智造洞察 —— 面向 3D 打印（增材制造）工厂的生产数据分析应用 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">三等奖 5</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>FORGE·X 智造洞察 —— 面向 3D 打印（增材制造）工厂的生产数据分析应用</h3>
+        <p class="grade"><b>评级 A · 8.18</b>　场景 8.0 / 完成度 8.5 / 创新 8.0</p>
+        <p class="why">垂直工业场景里完成度和对象化最好的作品，不是泛分析换皮。<br>场景价值：车间故障率、材料失败、成本归属是工厂管理真实问题，目标用户（主管/工艺/质量）清晰。<br>技术完成度：自然语言提问、SSE+SQL 聚合、示例/CSV/仿真采集、问题机台 3D 视口高亮、taskId 可核对，垂直闭环完整。<br>创新性：增材制造 + 3D 定位问题机台，把分析结论接回产线对象，赛道独特。</p>
+        <p class="cat">品类 · 工业制造</p>
+        <p class="intro">FORGE·X 智造洞察是一款面向 3D 打印工厂的生产数据分析应用：车间主管与工艺、质量工程师用自然语言提问“哪台机故障率最高、PLA 与 PETG 谁更易失败、成本花在哪”，后端经 InfiniSynapse Server API 订阅 SSE 事件流并发起分析任务，云端多步 SQL 聚合后返回含结论、图表与可执行建议的结构化报告，…</p>
+        <p class="links">
+          <a href="https://ivancodes.cn/projects/forgex" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card featured">
+      <div class="shot"><img src="images/12.png" alt="提前退休研究所 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">三等奖 6</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>提前退休研究所</h3>
+        <p class="grade"><b>评级 A · 8.18</b>　场景 8.0 / 完成度 8.5 / 创新 8.0</p>
+        <p class="why">把公共数据做成可核验的人生账本，产品完成度和叙事都强。<br>场景价值：延迟退休与养老金是社会级议题，个人也能算清法定年龄和城市 FIRE 起步价。<br>技术完成度：12 个权威数据集入库可查、六章可溯源叙事、退休年龄计算器，研究产品化完整。<br>创新性：研究所体例+多源交叉+方法论边界声明，比普通计算器更像公共知识产品。</p>
+        <p class="cat">品类 · 公共决策</p>
+        <p class="intro">提前退休研究所 是一个用真实数据回答&quot;这届年轻人到底几岁能退休&quot;的多源深度研判应用。 延迟退休落地、养老金精算报告刷屏、FIRE 成为年轻人的集体白日梦——但网上的讨论大多是情绪。本研究所做的事：把散落在国家统计局、人社部、全国人大决定、社科院、WHO、OECD、世界银行等机构的 12 个权威公开数据集建成研究所知识库（逐个经 Infi…</p>
+        <p class="links">
+          <a href="https://fire.lgbisha.cn" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+</div></section><section id="优秀奖"><div class="sec-head"><h2>优秀奖</h2><p>50 席，必须能证明接入 InfiniSynapse API 且体验链接可打开 · 共 50 件</p></div><div class="grid-compact">
+    <article class="card compact">
+      <div class="shot"><img src="images/13.png" alt="退货雷达 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 1</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>退货雷达</h3>
+        <p class="grade"><b>评级 A · 8.12</b>　场景 8.5 / 完成度 8.5 / 创新 7.0</p>
+        <p class="why">经营分析类里最会问对问题的作品之一，行动方案可落地。<br>场景价值：退款直接吃利润，中小电商「损失在哪、为何发生、先做什么」是真经营问题。<br>技术完成度：字段识别、核心指标、高退 SKU/渠道/地区/原因、诊断报告与 7 天止损方案、可追问，闭环完整。<br>创新性：问题定义比同类清晰，但退货分析本身不是新品类。</p>
+        <p class="cat">品类 · 经营电商</p>
+        <p class="intro">退货雷达是一款专为中小电商运营团队打造的 AI 售后损失诊断平台，帮助商家从复杂的订单与退款数据中，快速找到真正拖累利润的问题。无需掌握 SQL，也不需要搭建复杂的数据分析系统，只需上传订单和售后 CSV 文件，系统便会自动完成数据清洗、字段识别与经营指标计算，直观呈现成交金额、退款金额、退款率、退款后收入等核心数据，让每一笔售后损失都…</p>
+        <p class="links">
+          <a href="https://returnradar.zzyscut.top/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/14.png" alt="装明白｜装修报价与合同风险联审 AI 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 2</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>装明白｜装修报价与合同风险联审 AI</h3>
+        <p class="grade"><b>评级 A · 8.07</b>　场景 8.5 / 完成度 8.0 / 创新 7.5</p>
+        <p class="why">装修决策类完成度最高：把钱和条款放到同一张谈判桌上。<br>场景价值：业主同时面对多家报价、合同和口头承诺，联审比单看报价单更接近真实签约决策。<br>技术完成度：多文件对齐项目/单位/范围，漏项增项异常单价，三情景成本，证据链与谈价清单，临时 Key 安全。<br>创新性：报价+合同+承诺联审、签约/常规/风险上限三情景，比单审计员完整。</p>
+        <p class="cat">品类 · 生活决策</p>
+        <p class="intro">装明白是一款面向装修业主的报价与合同风险联审 AI。用户上传多家公司报价单、装修合同和沟通承诺后，系统通过 InfiniSynapse Server API 发起多文件分析，统一项目名称、单位与施工范围，识别漏项、潜在增项、异常单价和合同风险，并生成签约价、常规预计价、风险上限三情景成本、原文证据链及可执行谈价清单。Web 端提供脱敏示…</p>
+        <p class="links">
+          <a href="https://zhuangmingbai.hudejing.art" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/15.png" alt="数鉴交易市场 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 3</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>数鉴交易市场</h3>
+        <p class="grade"><b>评级 A · 8.07</b>　场景 8.0 / 完成度 7.5 / 创新 9.0</p>
+        <p class="why">想法非常产品：验货室而不是货架。若交易闭环再实，可进头部。<br>场景价值：数据买卖缺的是成交前信任，买方提问、卖方侧计算，对准数据要素市场真问题。<br>技术完成度：批准问题、域内计算、质量证书，机制清楚；交易撮合、合规与规模化细节未充分展开。<br>创新性：先成交「哪些问题可以被回答」，数据不出域，是本届最强的交易机制创新之一。</p>
+        <p class="cat">品类 · 可信数据</p>
+        <p class="intro">数据市场缺的不是货架，是成交前的信任。我们做的是「数据验货室」：买方只能提出经卖方批准的问题，InfiniSynapse 在卖方侧算，输出变成双方签署的质量证书。数据不出域，结论可核验——成交前，先成交「哪些问题可以被回答」。</p>
+        <p class="links">
+          <a href="https://dataescrow.suzhouye.cn/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/16.png" alt="跨境智选 SuperSignal｜基于供需信号的跨境优选决策平台 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 4</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>跨境智选 SuperSignal｜基于供需信号的跨境优选决策平台</h3>
+        <p class="grade"><b>评级 A · 8.00</b>　场景 8.0 / 完成度 8.0 / 创新 8.0</p>
+        <p class="why">决策产品意识强：先判断值不值得验证，而不是假装能算爆款概率。<br>场景价值：跨境选品缺的是「值不值得继续验证」，不是再做一张表，卖家决策价值高。<br>技术完成度：需求检索、供给匹配、证据/未知项/下一步动作可回看，明确不在缺数据时编利润。<br>创新性：保留反对证据与数据边界，把选品做成判断路径而非爆款预测，方法论成熟。</p>
+        <p class="cat">品类 · 跨境电商</p>
+        <p class="intro">SuperSignal 是一款面向跨境电商卖家、选品人员和产品创业者的机会判断工具，解决传统选品需要手动搜集数据、整理表格，却仍然难以形成明确决策的问题。用户只需输入一个产品想法和目标市场，系统就会自动寻找海外搜索需求、匹配国内供给候选，并将原始证据、关键未知项和下一步验证动作整理为一条可回看的判断路径。InfiniSynapse AP…</p>
+        <p class="links">
+          <a href="https://supersignal.kangkona.workers.dev/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/17.png" alt="Evidence Desk 专家发现台 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 5</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>Evidence Desk 专家发现台</h3>
+        <p class="grade"><b>评级 A · 8.00</b>　场景 8.0 / 完成度 8.0 / 创新 8.0</p>
+        <p class="why">B 端研究工具里少见的克制：先给证据，再给下一步调查。<br>场景价值：科研管理、技术尽调、人才寻访需要「谁有证据证明能做这个问题」，不是再做一个专家黄页。<br>技术完成度：OpenReview 实时检索、论文证据、多源核验入口，第二阶段做匹配、同名风险与核验清单。<br>创新性：证据型专家发现、暴露缺口而不是给信任分，方法专业。</p>
+        <p class="cat">品类 · 科研学术</p>
+        <p class="intro">面向科研管理、技术尽调、人才寻访与跨学科合作团队的证据型专家发现工具。用户输入中英文研究问题，应用实时调用 OpenReview 公开 API，按标题、摘要、关键词、年份与作者位置聚合候选专家，展示可追溯论文证据，并提供 Google Scholar、OpenReview、AMiner、LinkedIn 定向核验入口。第二阶段通过服务端…</p>
+        <p class="links">
+          <a href="https://experts.threeradius.com" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/18.png" alt="mynx 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 6</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>mynx</h3>
+        <p class="grade"><b>评级 A · 8.00</b>　场景 8.0 / 完成度 8.0 / 创新 8.0</p>
+        <p class="why">垂直科研生产力工具，专业闭环和本地优先都到位。<br>场景价值：生物医学 qPCR 出图和 TIFF 归档是实验室刚需，能直接减少 Excel 宏错误。<br>技术完成度：浏览器内算相对表达量、误差棒图表、TIFF 批处理水印、IndexedDB 暂存，再交给 Agent 解读。<br>创新性：专业计算留在本地、AI 只做解读，科研工具形态少见且正确。</p>
+        <p class="cat">品类 · 科研工具</p>
+        <p class="intro">Mynx Web 浏览器里完成 qPCR 分析、TIFF 批处理与 AI 生物学解读，从原始数据到可解读报告一个页面搞定。 解决的问题：科研人员处理 qPCR 与 TIFF 依赖 Excel 宏或手动操作，效率低、易出错、跨平台不稳定。 目标用户：生物医学、分子生物学、药物研发领域的研究人员。 核心功能 qPCR 分析：Ct 值自动转换…</p>
+        <p class="links">
+          <a href="https://mynx-web.vercel.app/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/19.png" alt="城市值得去工作吗（city_worth） 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 7</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>城市值得去工作吗（city_worth）</h3>
+        <p class="grade"><b>评级 A · 7.95</b>　场景 8.5 / 完成度 8.0 / 创新 7.0</p>
+        <p class="why">求职城市决策里最完整的 C 端产品之一。<br>场景价值：Offer×城市（房价、落户、通勤、工时）是应届和跨城跳槽的核心纠结。<br>技术完成度：个人画像、14 城知识库、本地规则分、流式 AI 报告、PDF/MD、SSO，产品完整。<br>创新性：把碎片信息收成一站式评估，整合力强；星座五行略稀释专业感。</p>
+        <p class="cat">品类 · 求职职业</p>
+        <p class="intro">把 Offer 与城市房价、落户、通勤、工时收成一站式评估，帮应届生和跨城跳槽者算清性价比。</p>
+        <p class="links">
+          <a href="https://iscityworth.asia/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/20.png" alt="面试模拟器 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 8</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>面试模拟器</h3>
+        <p class="grade"><b>评级 A · 7.80</b>　场景 8.0 / 完成度 8.5 / 创新 6.5</p>
+        <p class="why">求职陪练里工程完成度最高的一档，创新空间被赛道同质化压住。<br>场景价值：真人陪练稀缺，简历+JD 个性化面试对求职工程师是刚需，评分与复盘可改进下次表现。<br>技术完成度：四种面试官人设、SSE 流式、中断恢复、历史对比、PDF、Partner SSO，密钥不进前端，工程扎实。<br>创新性：面试模拟是本届拥挤赛道，差异主要在人设与工程，而非新品类。</p>
+        <p class="cat">品类 · 求职职业</p>
+        <p class="intro">求职准备中，真人陪练稀缺、刷题无法训练追问应对。面试模拟器基于真实简历与目标 JD 生成高度拟真的 AI 面试官，提供 4 种人设（严厉压力面、STAR 引导、技术深挖、HR 行为面），面试结束后输出维度化评分、改进建议与参考回答。目标用户是正在求职的工程师。核心功能：简历加 JD 驱动的个性化出题、SSE 流式实时对话、中断恢复与随时…</p>
+        <p class="links">
+          <a href="http://150.158.148.112" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/21.jpg" alt="住哪儿｜租房通勤决策器 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 9</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>住哪儿｜租房通勤决策器</h3>
+        <p class="grade"><b>评级 A · 7.78</b>　场景 8.5 / 完成度 7.5 / 创新 7.0</p>
+        <p class="why">场景切入准，产品叙事强；若数据源与复核能力再实，会更接近头部。<br>场景价值：租房只看月租、漏算通勤与商水商电，是一线城市高频高额决策，签合同前算清很有价值。<br>技术完成度：把通勤、真实月成本、配套、风险压成可复核决策表，主路径清楚；公开材料对工程细节披露少于头部作品。<br>创新性：隐性成本折现与「便宜房其实最贵」的量化框架有产品洞察，但形态仍是决策计算器。</p>
+        <p class="cat">品类 · 生活决策</p>
+        <p class="intro">把租房选择，压缩成一张可复核的决策表——不只看房租，而是把通勤、真实月成本、生活配套和居住风险统一量化打分。 90% 的人租房时只看月租，却算漏了通勤时间折现、商用水电差价、周边配套缺失等隐性成本。搬进去才发现：通勤从 40 分钟变成 1 小时 40 分钟、商水商电夏天电费 600+、方圆 2 公里没有超市——&quot;便宜&quot;的房子，反而是最贵…</p>
+        <p class="links">
+          <a href="https://guangforent-zhunaer-d3glw67kxb5de30db.webapps.tcloudbase.com" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/22.png" alt="AI 装修报价审计员 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 10</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>AI 装修报价审计员</h3>
+        <p class="grade"><b>评级 A · 7.78</b>　场景 8.5 / 完成度 7.5 / 创新 7.0</p>
+        <p class="why">C 端省钱工具打点准，单报价审计已经可用。<br>场景价值：装修报价陷阱让业主损失数万很常见，逐项比价和谈判清单可直接省钱。<br>技术完成度：上传报价、联网市价、6 类陷阱、谈判与漏项、Agent 全流程自动审批出报告，主路径完整。<br>创新性：审计员定位清楚，但与「装明白」同赛道，联审深度略逊。</p>
+        <p class="cat">品类 · 生活决策</p>
+        <p class="intro">作品描述： 上传装修报价单（Excel/CSV），AI 联网核查本地市场价，逐项比价、识别 6 类报价陷阱、生成谈判清单和漏项检查，30 秒出具专业审计报告。 InfiniSynapse 集成说明： 使用 Agent API（POST /api/ai/message）提交多步审计任务 启用联网搜索（enableWebSearch: tr…</p>
+        <p class="links">
+          <a href="https://reno-audit.vercel.app" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/23.png" alt="语感工坊 YuGan 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 11</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>语感工坊 YuGan</h3>
+        <p class="grade"><b>评级 A · 7.78</b>　场景 7.0 / 完成度 8.5 / 创新 8.0</p>
+        <p class="why">小众但机制完整：把学习行为变成可问的数据产品，创新高于场景广度。<br>场景价值：写作训练者需要把语料变成可复习资产，受众窄但使用闭环（积累—诊断—训练）清楚。<br>技术完成度：六表学习库注册为数据源、NL 问数、雷达诊断、BYOK、真实 Key 可查验，数据基础设施用得深。<br>创新性：不做文案生成器，而把语感当结构化资产来分析，产品定义少见。</p>
+        <p class="cat">品类 · 教育学习</p>
+        <p class="intro">语感工坊（YuGan）是一款面向写作与表达训练人群的个人语感资产平台。用户在日常使用中沉淀「段落库 / 金句库 / 词语库」语料资产与学习行为日志，后端将全库数据注册为 InfiniSynapse 数据源，让 AI 不仅生成内容，更直接分析结构化的学习数据。 核心功能 1. 三大语料库：段落库（50–120 字沉浸式背诵）、金句库、词语…</p>
+        <p class="links">
+          <a href="https://305758.xyz" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/24.png" alt="琢玉轩 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 12</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>琢玉轩</h3>
+        <p class="grade"><b>评级 A · 7.75</b>　场景 8.0 / 完成度 8.0 / 创新 7.0</p>
+        <p class="why">教师工作台完成度高；创新在流程整合与出品形态，不是方法论突破。<br>场景价值：中小学教师备课、出题、微课出品是高频刚需，能省大量重复劳动。<br>技术完成度：采璞到凝璋五模块覆盖备课出品，SSE 驱动四项长任务，微课用 TTS+FFmpeg 真合成。<br>创新性：古风工作流包装完整，微课视频把备课做到「能上课」，比纯教案生成进一步。</p>
+        <p class="cat">品类 · 教育学习</p>
+        <p class="intro">琢玉轩是一款面向中小学教师的AI备课工作台，围绕“采璞（教案生成）、琢琳（教案优化）、试璧（智能出题）、叩环（提问链）、凝璋（微课视频）”五大核心模块，覆盖从备课到出品的完整教学流程。应用后端通过Flask代理接入InfiniSynapse Server API，采用SSE流式通信驱动教案生成、优化、出题和提问链四大AI模块的异步长任务…</p>
+        <p class="links">
+          <a href="https://zhuoyuxuan-production.up.railway.app/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/25.png" alt="Real Raise：涨薪真实购买力计算器 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 13</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>Real Raise：涨薪真实购买力计算器</h3>
+        <p class="grade"><b>评级 A · 7.70</b>　场景 8.0 / 完成度 7.5 / 创新 7.5</p>
+        <p class="why">小而准的财务决策工具，洞察清晰，体量轻但打点准。<br>场景价值：名义涨薪 vs 到手与城市购买力，是跳槽/谈薪时人人会踩的认知坑。<br>技术完成度：到手模式/两期工资条、个税社保、CPI、SSE 解读与任务回放，计算+解释闭环清楚。<br>创新性：把「涨了多少」改写成「能买到什么」，问题定义本身就是产品创新。</p>
+        <p class="cat">品类 · 个人财务</p>
+        <p class="intro">Real Raise 面向正在评估涨薪、跳槽或生活成本变化的职场人，将税前工资、个税、社保公积金、住房和日常支出拆开计算，展示名义涨薪最终转化为多少到手收入与真实购买力。用户可使用到手收入模式或录入两期工资条，结合公开 CPI 基准查看扣缴去向、月/年结余变化及城市消费价格影响。应用通过 InfiniSynapse API 创建任务并建…</p>
+        <p class="links">
+          <a href="https://plain-wind-ae46.yefuyou2333.workers.dev/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/26.png" alt="先鉴 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 14</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>先鉴</h3>
+        <p class="grade"><b>评级 A · 7.67</b>　场景 7.5 / 完成度 8.0 / 创新 7.5</p>
+        <p class="why">学习效率工具里机制清楚：先筛选再路线，完成度也配得上。<br>场景价值：长视频信息密度不均、重点难定位，对自学开发者和研究者是高频效率问题。<br>技术完成度：含金量/技能树匹配/时间码路线、书架笔记、任务恢复不丢状态，长任务产品化到位。<br>创新性：先判断值不值得看，再给可跳转观看路线，比「视频总结」多了决策层。</p>
+        <p class="cat">品类 · 教育学习</p>
+        <p class="intro">这是一款面向学生、开发者、研究人员和自主学习者的 AI 视频学习助手，解决长视频信息密度不一、观看成本高、重点难定位的问题。用户分享公开视频后，系统会给出内容含金量、与个人技能树的匹配度、精华摘要及可直接跳转的时间码观看路线；用户可将有价值的视频纳入书架，自动生成笔记并更新技能树，还可按兴趣关键词发现候选视频。应用通过 InfiniSy…</p>
+        <p class="links">
+          <a href="https://peek.antiquelixcheng5413.workers.dev/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/27.png" alt="OPC Gate｜一人公司政策与落地路线诊断 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 15</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>OPC Gate｜一人公司政策与落地路线诊断</h3>
+        <p class="grade"><b>评级 A · 7.67</b>　场景 7.5 / 完成度 8.0 / 创新 7.5</p>
+        <p class="why">创业基础设施型产品，可解释性和工程核验都到位。<br>场景价值：一人公司面对分散政策、园区和算力资源，落地决策真实且信息获取成本高。<br>技术完成度：规则引擎先给可追溯匹配，再 SSE 生成城市/证据/风险/七日计划，真实 Task ID 可核验。<br>创新性：政策命中原因+风险边界+官方来源，再接到行动计划，不是政策问答。</p>
+        <p class="cat">品类 · 创业政策</p>
+        <p class="intro">OPC Gate 面向一人公司创业者，将分散的政策、园区/社区与算力资源转化为可解释、可追溯的落地决策。用户填写城市、团队规模、行业和项目阶段后，规则引擎先给出政策匹配、命中原因、风险边界及官方来源；服务端通过 InfiniSynapse Server API 先建立 SSE，再创建 newTask，实时生成推荐城市、机会证据、风险提示…</p>
+        <p class="links">
+          <a href="https://opcgate.com" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/28.png" alt="拾余 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 16</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>拾余</h3>
+        <p class="grade"><b>评级 A · 7.67</b>　场景 7.5 / 完成度 8.0 / 创新 7.5</p>
+        <p class="why">个人财务里体验和机制都完整，人气与实力明显不符。<br>场景价值：月光族要的不是又一个记账本，而是浪费点、优化方法和省下钱的去向。<br>技术完成度：账单双报告、欲望冷却、续费管家、闲置回血、拾余罐、八种图表、SSO，消费级闭环完整。<br>创新性：省钱闭环（发现—冷却—执行—可视化）比单纯消费分析更像产品。</p>
+        <p class="cat">品类 · 个人财务</p>
+        <p class="intro">拾余是一款帮助个人用户理性消费、精准省钱的智能财务工具（登陆页面点击闪电符号可进入演示模式，不消耗积分）。它的核心洞察很简单：记账软件只能告诉你钱花去哪了，拾余告诉你哪里浪费了、怎么优化、省下来的钱去了哪。 拾余主要面向月光族和有消费精细化管理需求的用户——管不住冲动消费、想存钱但缺乏反馈和成就感的人。它的功能围绕「省钱闭环」展开：上传…</p>
+        <p class="links">
+          <a href="http://47.238.242.89:3001" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/29.png" alt="合同明镜 · AI 合同风险助手 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 17</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>合同明镜 · AI 合同风险助手</h3>
+        <p class="grade"><b>评级 A · 7.53</b>　场景 8.5 / 完成度 7.5 / 创新 6.0</p>
+        <p class="why">场景价值高、能用；要靠垂直合同类型或证据标准才能拉开差距。<br>场景价值：租房、劳动合同、消费合同是普通人高频高风险签署场景。<br>技术完成度：文本/Word/PDF/图片多格式、风险解释、改条款建议与沟通话术，C 端闭环完整。<br>创新性：合同审查是拥挤赛道，话术生成是体验加分，机制不新。</p>
+        <p class="cat">品类 · 法律权益</p>
+        <p class="intro">一、应用简介 合同明镜是一款基于 InfiniSynapse API 的智能合同风险分析助手，面向缺乏合同分析经验的普通用户，帮助用户在签署合同前快速发现潜在风险，降低因信息不对称导致的权益损失。 用户可上传或输入合同内容，包括：粘贴合同文本、上传 Word/PDF文档、上传合同图片。系统通过 AI 自动完成合同理解与风险分析，识别合同…</p>
+        <p class="links">
+          <a href="https://ai-contract-risk-assistant.onrender.com" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/30.png" alt="掌柜参谋 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 18</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>掌柜参谋</h3>
+        <p class="grade"><b>评级 A · 7.50</b>　场景 8.0 / 完成度 8.0 / 创新 6.0</p>
+        <p class="why">小商家经营分析的扎实样本，差异化不够拉开与同类的距离。<br>场景价值：不会 SQL 的老板要「查数—归因—决策」，经营日报和今日行动对小商家有直接价值。<br>技术完成度：订单库存入模、异常哨兵带证据链、服务端 SSE 深度分析，主路径完整。<br>创新性：经营分析助手本届多发，证据链是加分项，品类创新一般。</p>
+        <p class="cat">品类 · 经营电商</p>
+        <p class="intro">掌柜参谋 ShopMind 是一款基于 InfiniSynapse 的泛数据分析 Web 应用。用户加载订单、库存等经营数据后，系统自动生成经营日报与异常哨兵；每条洞察附带数据证据链，并给出今日可执行行动。自然语言追问由服务端调用 InfiniSynapse Server API（SSE 事件流 + newTask + 任务文件上传）完…</p>
+        <p class="links">
+          <a href="http://82.156.104.3:8399/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/31.png" alt="北京摆摊点位分析 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 19</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>北京摆摊点位分析</h3>
+        <p class="grade"><b>评级 A · 7.50</b>　场景 7.5 / 完成度 7.5 / 创新 7.5</p>
+        <p class="why">超垂直但可用：推荐能对照线下验证，是好的本地生活数据产品。<br>场景价值：新手摊主不知道北京哪里适合自己的品类和资金，决策具体、可下场验证。<br>技术完成度：6 项条件匹配 1200+ 真实 POI、经营策略卡、7 日计划和 PDF，主路径完整。<br>创新性：城市级摊位点位库+约束匹配，比泛「选址报告」更落地。</p>
+        <p class="cat">品类 · 本地创业</p>
+        <p class="intro">目标用户：想在北京摆摊的个体创业者，尤其是预算有限、需要快速验证首场摊位的新手。 解决痛点：北京可摆摊场景信息分散（市集/大集/便民生活圈/夜市/商圈周边等），新手不知道哪些区域真正适合自己，资金品类时间怎么匹配。 核心功能： 1. 用户填写所在区、找点方式、启动资金、经营品类、场景偏好、出摊时间等 6 项必填 2. 基于真实北京 PO…</p>
+        <p class="links">
+          <a href="https://baitan-d7gzhdal4e568e34b-1442581960.tcloudbaseapp.com" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/xhs-ad.png" alt="小红书种草甄别 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 20</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>小红书种草甄别</h3>
+        <p class="grade"><b>评级 B · 7.38</b>　场景 7.5 / 完成度 7.5 / 创新 7.0</p>
+        <p class="why">日常决策工具打点准，可解释性是产品关键。<br>场景价值：判断笔记是不是软广，是每天都在发生的消费信任问题。<br>技术完成度：7 维评分、话术证据、RAG 知识库、SSE+轮询兜底，小工具闭环完整。<br>创新性：把广告法与软广话术库做成可解释浓度，而不是一句「感觉像广告」。</p>
+        <p class="cat">品类 · 消费决策</p>
+        <p class="intro">1.一句话介绍：粘贴小红书笔记正文，AI 帮您识别疑似营销话术浓度，输出软广风险分析报告，辅助判断内容是否&quot;种草翻车&quot;。 使用场景介绍：一款面向普通消费者的&quot;小红书笔记软广识别&quot;工具。 2.痛点：小红书上大量笔记披着&quot;好物分享&quot;&quot;日常记录&quot;的外衣做隐性营销，普通用户难以分辨哪些是真实体验、哪些是品牌软植。 3.解…</p>
+        <p class="links">
+          <a href="https://xhs-ad-detect.onrender.com" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/33.png" alt="客满满 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 21</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>客满满</h3>
+        <p class="grade"><b>评级 B · 7.45</b>　场景 8.0 / 完成度 7.5 / 创新 6.5</p>
+        <p class="why">把短视频数据接到可执行经营动作，实用；解决方案形态较常见。<br>场景价值：小微商家「有播放没咨询、不会拍、投流不准」是当前本地经营真痛点。<br>技术完成度：先算转化/获客成本/ROI，再出诊断、脚本、选题、投流实验和 30 天计划，公式+AI 分层合理。<br>创新性：短视频经营工具不少，可执行脚本与实验方案是加分，品类不新。</p>
+        <p class="cat">品类 · 经营电商</p>
+        <p class="intro">客满满是一款面向小微实体商户的短视频经营增长分析平台，适用于餐饮、美业、建材、汽修、本地服务、市集摊主等多种行业。 用户可在首页输入经营问题，并填写店铺行业、客单价、视频播放量、有效咨询、订单、投流费用、成交额等经营信息，也可上传短视频数据 CSV。系统先通过固定公式计算播放到咨询转化率、咨询到订单转化率、获客成本和经营 ROI，再通过…</p>
+        <p class="links">
+          <a href="https://kemanman1.vercel.app/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/34.png" alt="Token体检 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 22</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>Token体检</h3>
+        <p class="grade"><b>评级 B · 7.43</b>　场景 7.0 / 完成度 7.5 / 创新 8.0</p>
+        <p class="why">吃自己的狗粮：用数据分析改 AI 协作方式，创新明确。<br>场景价值：高频 AI 用户浪费上下文是真成本，对本届选手和团队培训都有用。<br>技术完成度：粘贴/上传对话，浪费账单、证据、优化对比、新会话启动包、SSO+SSE，交付具体。<br>创新性：诊断 Token 浪费并给出 16 型协作人格，是少见的元工具。</p>
+        <p class="cat">品类 · 开发者工具</p>
+        <p class="intro">Token体检是一款面向 Vibe Coding 开发者和高频 AI 用户的对话使用诊断工具，帮助用户找出无效上下文、重复描述、需求模糊和无验收标准等 Token 浪费问题。 用户可以直接粘贴一段 AI 对话，或上传 TXT、Markdown 格式的历史对话。登录 InfiniSynapse 后，系统调用 Partner SSO 与 S…</p>
+        <p class="links">
+          <a href="http://43.132.209.68" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/35.png" alt="逆向罗盘（Return Compass） 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 23</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>逆向罗盘（Return Compass）</h3>
+        <p class="grade"><b>评级 B · 7.33</b>　场景 8.0 / 完成度 7.5 / 创新 6.0</p>
+        <p class="why">平台覆盖是卖点，产品叙事略逊于退货雷达。<br>场景价值：多平台电商退货损耗（含逆向物流与库存）是跨境/多店团队真成本。<br>技术完成度：11 个平台+通用表格统一口径，规则+AI 给原因、优先级和建议，覆盖面宽。<br>创新性：与退货雷达同题，优势在多平台接入，问题框架创新较少。</p>
+        <p class="cat">品类 · 经营电商</p>
+        <p class="intro">逆向罗盘（Return Compass）是一款面向多平台电商团队的退货损耗诊断工具。它支持导入 Shopify、淘宝/天猫、Amazon、WooCommerce、Shopee、Lazada、eBay、TikTok Shop、拼多多、京东及通用 CSV/Excel 数据，统一分析退货率、退款损失、逆向物流成本、库存损失和总回损。 系统可以…</p>
+        <p class="links">
+          <a href="https://multi-platform-return-loss-diagnosis.onrender.com/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/36.png" alt="赛场扫描仪 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 24</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>赛场扫描仪</h3>
+        <p class="grade"><b>评级 B · 7.22</b>　场景 6.5 / 完成度 7.5 / 创新 8.0</p>
+        <p class="why">自指巧妙、完成度好，场景天花板受「参赛工具」限制。<br>场景价值：帮选手看赛道拥挤度、打磨选题，对本届参赛者有用，对外界用户面窄。<br>技术完成度：本地确定性统计+Agent 深研分工清楚，看板、选题台、报告归档完整。<br>创新性：用比赛作品集反打比赛策略，元产品意识强，本地可解释统计也加分。</p>
+        <p class="cat">品类 · 竞赛工具</p>
+        <p class="intro">参赛时最怕「赛道已经扎堆还浑然不知」：作品集信息散、方向挤不挤看不清，选题只能凭感觉。赛场扫描仪面向正在参加 InfiniSynapse Vibe Coding 等各类赛事的个人/小团队选手，把公开作品集装进一个赛场，用本地确定性统计先看清各赛道拥挤度、关键词、更新节奏与机会指数；再在选题台写草稿，用「模拟评委」「选题对话」打磨差异化角…</p>
+        <p class="links">
+          <a href="http://101.37.80.155:5173/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/37.png" alt="凤栖梧 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 25</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>凤栖梧</h3>
+        <p class="grade"><b>评级 B · 7.07</b>　场景 7.5 / 完成度 7.0 / 创新 6.5</p>
+        <p class="why">情绪入口有辨识度，产品容易做成功能集合而不是一条主任务。<br>场景价值：大学生求职同时缺情绪支持和技能训练，陪伴向产品有真实用户。<br>技术完成度：六大功能覆盖情绪、模拟面、简历、成长图谱，Flask+SSE；模块多为并列能力，深度不均。<br>创新性：「先接住情绪再解决问题」有差异，但整体仍是求职套件。</p>
+        <p class="cat">品类 · 求职职业</p>
+        <p class="intro">凤栖梧是一款面向大学生的AI求职陪伴平台。它以拟人化的AI角色“七七”为核心，融合“先接住情绪，再解决问题”的理念，提供情绪安抚、面试复盘、模拟面试、简历诊断、求职锦囊和成长图谱六大功能。应用后端通过Flask代理接入InfiniSynapse Server API的SSE流式接口，实现异步长任务对话与实时响应。覆盖求职全周期的情绪与技…</p>
+        <p class="links">
+          <a href="https://fengqiwu-production.up.railway.app" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/38.png" alt="Retro/Radar · 项目复盘雷达 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 26</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>Retro/Radar · 项目复盘雷达</h3>
+        <p class="grade"><b>评级 B · 7.07</b>　场景 7.5 / 完成度 7.0 / 创新 6.5</p>
+        <p class="why">管理工具切入准；深度取决于真实项目数据接入，目前偏演示。<br>场景价值：延期原因难追溯、复盘难变成行动，是产研团队真实管理问题。<br>技术完成度：健康度、延期预测、因果链、优先行动与可挽回时间，演示数据即开即用。<br>创新性：把复盘做成可核验因果链，比「写一篇复盘总结」更产品。</p>
+        <p class="cat">品类 · 项目管理</p>
+        <p class="intro">Retro/Radar 是一款面向产品经理、项目经理和研发团队的 AI 项目复盘应用，解决传统复盘依赖主观判断、延期原因难以追溯、结论难以转化为行动的问题。 应用将项目进度、预算、里程碑和阻塞记录转化为项目健康度、延期预测、风险节点及可核验的延期因果链，并自动生成按优先级排序的行动清单和预计可挽回时间。适用于项目周报、版本延期分析、跨团…</p>
+        <p class="links">
+          <a href="https://retro-radar-2026.vercel.app" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/39.png" alt="电商经营分析助手 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 27</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>电商经营分析助手</h3>
+        <p class="grade"><b>评级 B · 7.05</b>　场景 7.5 / 完成度 8.0 / 创新 5.0</p>
+        <p class="why">集成和诚实出数做得好，产品创新不足。<br>场景价值：中小电商不会 SQL 也能看经营数据，需求真实。<br>技术完成度：上传真实订单、探查后写 SQL 不编数、过程可见、多轮追问、SSO，集成规范。<br>创新性：典型 NL2SQL 经营分析，与多件作品同质。</p>
+        <p class="cat">品类 · 经营电商</p>
+        <p class="intro">「电商经营分析助手」是一款面向电商卖家 / 运营 / 数据分析师的自然语言数据分析应用。 解决的问题：不会写 SQL、没有 BI，也能读懂经营数据。用户只需一句话提问（如&quot;销售额最高的 Top5商品及占比&quot;），即可得到带可视化图表和经营建议的完整分析报告。 目标用户：中小电商卖家、店铺运营、数据分析师。 核心功能： ① 上传自己的 Ex…</p>
+        <p class="links">
+          <a href="http://120.53.8.28:8666/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/40.png" alt="帅治星球-职场情绪分析平台 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 28</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>帅治星球-职场情绪分析平台</h3>
+        <p class="grade"><b>评级 B · 7.05</b>　场景 7.0 / 完成度 7.5 / 创新 6.5</p>
+        <p class="why">HR 向完整，体验强；需非常小心数据伦理，产品创新中等。<br>场景价值：HR 需要定位高压力员工并给出可落地关怀，需求真实，但员工心理数据敏感。<br>技术完成度：多格式清洗、星球筛选、公司/部门/个人三类报告、企业档案留存，链路完整。<br>创新性：可视化有记忆点，分析框架仍是压力测评+报告，机制创新有限。</p>
+        <p class="cat">品类 · 组织人力</p>
+        <p class="intro">帅治摸鱼星球面向企业 HR、部门管理者打造职场情绪分析平台，解决传统员工心理测评痛点：原始表格杂乱难整理、数据仅罗列分数缺少压力根源分析，通用关怀方案和企业作息、预算、排班脱节无法落地，HR 难以精准定位高危员工、向上汇报缺少量化依据。产品依托奶油皮克斯星球可视化交互，适配全行业企业人事管理需求。 核心分为三大模块：多格式 Excel…</p>
+        <p class="links">
+          <a href="https://shuaizhi.jinxilab.com" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/42.jpg" alt="智能掌柜 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 29</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>智能掌柜</h3>
+        <p class="grade"><b>评级 B · 7.00</b>　场景 7.5 / 完成度 7.5 / 创新 5.5</p>
+        <p class="why">垂直本地生活商家没错，但本届同类供给过多，辨识度不足。<br>场景价值：美甲/美容/餐饮小微商家看团购与收银、算活动 ROI，场景真实。<br>技术完成度：批量上传流水/团购/活动 PDF，跨源融合与自研前端，主路径可用。<br>创新性：与掌柜参谋、电商分析助手高度同质，缺少独特经营对象或机制。</p>
+        <p class="cat">品类 · 经营电商</p>
+        <p class="intro">本产品面向美甲、美容、餐饮等小微本地生活实体商家，依托 InfiniSynapse Data Agent Server API 搭建完整自研 Web 应用。商家可批量上传收银流水、抖音 / 美团团购报表、营销活动 PDF 文档，通过自然语言发起经营分析请求。 系统实现结构化表格数据与非结构化业务文档跨源融合分析，自动完成多表合并、营收渠…</p>
+        <p class="links">
+          <a href="https://app-d8bq72qab4zl.appmiaoda.com" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/43.png" alt="学情罗盘 EduCompass 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 30</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>学情罗盘 EduCompass</h3>
+        <p class="grade"><b>评级 B · 6.97</b>　场景 8.0 / 完成度 6.5 / 创新 6.0</p>
+        <p class="why">场景正确，产品完成度中等，创新一般。<br>场景价值：成绩考勤作业分散、风险学生难以及时发现，是学校刚需。<br>技术完成度：画像、趋势、预警、周报、干预建议模块齐全，公开材料对数据治理与效果闭环较简。<br>创新性：学情预警是教育信息化常见能力。</p>
+        <p class="cat">品类 · 教育学习</p>
+        <p class="intro">学情罗盘是一款智能学情分析应用，用于解决成绩、考勤、作业和干预记录分散，数据分析耗时、风险学生难以及时识别等问题。应用通过 InfiniSynapse API 调用智能体，结合学情数据源，生成班级与学生画像、成绩趋势分析、考勤异常识别、风险预警、教学周报及个性化干预建议。</p>
+        <p class="links">
+          <a href="http://43.108.11.142:5678/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/44.png" alt="资析智策 （资产分析与智能决策 Asset Intelligence &amp; Decision Analytics System） 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 31</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>资析智策 （资产分析与智能决策 Asset Intelligence &amp; Decision Analytics System）</h3>
+        <p class="cat">品类 · 企业经营</p>
+        <p class="intro">Operate smarter. Decide faster.—— 资析智策，让每一笔资产都可洞察、可决策。 资析智策是一款面向企业资产管理人员的泛数据分析 Web 应用。系统将资产台账、合同期限、使用状态和价值等经营数据转化为健康评分、风险发现与行动建议，帮助管理者识别闲置低效资产、合同临期风险和资产结构问题，并形成可追踪的处置清单。…</p>
+        <p class="links">
+          <a href="https://asset.312404.xyz/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/45.png" alt="职牌 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 32</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>职牌</h3>
+        <p class="grade"><b>评级 B · 6.95</b>　场景 7.0 / 完成度 6.5 / 创新 7.5</p>
+        <p class="why">传播物设计出色，作为求职决策工具深度还不够。<br>场景价值：用市场数据反向诊断职业身份，对迷茫求职者有启发，但行动落地弱于尽调/面试训练。<br>技术完成度：简历上传到深度报告+去隐私诊断卡，主路径短而完整；模块深度有限。<br>创新性：8 种职牌卡片化、可传播，把诊断做成身份物件，比纯报告更有产品感。</p>
+        <p class="cat">品类 · 求职职业</p>
+        <p class="intro">职牌是一款基于市场数据反向诊断职业身份的 AI 工具。用户上传简历后，AI Agent 从实时岗位市场数据、薪资水平、技能需求等多维度进行分析，输出一份深度行动报告和一张去隐私的职业身份诊断卡（8 种「职牌」之一）。</p>
+        <p class="links">
+          <a href="http://43.161.226.67/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/46.png" alt="RepoPulse｜开源项目运营体检 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 33</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>RepoPulse｜开源项目运营体检</h3>
+        <p class="grade"><b>评级 B · 6.93</b>　场景 7.0 / 完成度 7.5 / 创新 6.0</p>
+        <p class="why">开发者工具扎实，创新中等。<br>场景价值：开源作者需要看提交/Issue/PR 健康度并得到行动建议，受众明确。<br>技术完成度：采集 90 天仓库快照、五维评分、7/30/90 天建议、SSE 归因，主路径完整。<br>创新性：GitHub 健康分工具较多，证据+行动周期是加分。</p>
+        <p class="cat">品类 · 研发生态</p>
+        <p class="intro">RepoPulse 面向开源作者、独立开发者和小型研发团队。用户粘贴公开 GitHub 仓库地址，应用自动采集近 90 天提交、Issue、PR、Release 与贡献者数据，生成五维健康评分、风险证据和 7/30/90 天行动建议。后端先建立 InfiniSynapse Server API SSE 连接，再使用同一 connId/t…</p>
+        <p class="links">
+          <a href="https://repopulse-2026.regeditthao.chatgpt.site" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/47.png" alt="智管进销存 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 34</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>智管进销存</h3>
+        <p class="grade"><b>评级 B · 6.90</b>　场景 8.0 / 完成度 7.0 / 创新 5.0</p>
+        <p class="why">场景分高，创新分被品类成熟度压住。<br>场景价值：小店不会算毛利、库存乱，进销存是生存级工具。<br>技术完成度：看板、NL 查数、单据、盘点、滞销预警、权限与报表，像完整进销存；AI 增量主要在分析层。<br>创新性：传统进销存 + 对话查数，品类非常成熟。</p>
+        <p class="cat">品类 · 经营电商</p>
+        <p class="intro">本应用为中小实体店打造AI进销存经营分析工具，解决商家依靠Excel手工记账、不会数据分析、无法精准核算毛利、库存管理混乱、不懂筛选统计数据的痛点，同时传统BI工具操作复杂、收费高昂，普通从业者难以使用。目标用户涵盖便利店、餐饮、服饰、五金等个体店主及门店店员，兼顾管理者查经营数据、基层员工录入单据的差异化需求。 核心功能包含经营可视化…</p>
+        <p class="links">
+          <a href="https://zhiguan-jxc-production.up.railway.app" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/49.jpg" alt="智析账本 BillLens 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 35</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>智析账本 BillLens</h3>
+        <p class="grade"><b>评级 B · 6.82</b>　场景 7.5 / 完成度 7.0 / 创新 5.5</p>
+        <p class="why">能用，但产品定义过宽，更像能力展示册而不是一个打透的财务产品。<br>场景价值：账单/流水分析、预算与风险预警是真实需求，个人与轻企业都用得上。<br>技术完成度：上传分析、可视化报告、PDF、多轮追问与分享具备，但功能清单把个人账本和企业财务分析堆在一起，主路径不够收敛。<br>创新性：典型「上传表格出报告」，缺少独特分析框架或差异化交付物。</p>
+        <p class="cat">品类 · 个人财务</p>
+        <p class="intro">智析账本是一款基于 InfiniSynapse 的财务数据 AI 智能分析 Web 应用。用户上传账单/流水/财务数据 Excel 或 CSV，AI 自动完成消费结构分析、异常预警、节省建议、财务健康报告、储蓄目标规划、负债管理、消费习惯画像、预算编制控制、流水反欺诈、现金流规划、投资风险评估、税务优化合规、重大事件规划、三大报表勾稽、…</p>
+        <p class="links">
+          <a href="http://120.48.158.101:8080" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/50.png" alt="家居供应链协同平台 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 36</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>家居供应链协同平台</h3>
+        <p class="grade"><b>评级 B · 6.78</b>　场景 7.5 / 完成度 6.5 / 创新 6.0</p>
+        <p class="why">行业场景成立，演示数据限制了可信完成度。<br>场景价值：质量异常、延期、库存覆盖、供应商表现是家居品牌供应链真问题。<br>技术完成度：异常追踪、分派、复验、促销预警、PDF 报告齐全，但明确为模拟数据。<br>创新性：风险协同工作台思路正确，AI 层是快照分析，机制不新。</p>
+        <p class="cat">品类 · 供应链</p>
+        <p class="intro">面向家居品牌供应链运营人员的风险协同工作台，聚合质量异常、交付延期、库存覆盖不足和供应商表现，支持异常追踪、责任分派、整改复验、促销期交付预警与可视化 PDF 报告。后端通过 InfiniSynapse Server API 将当前模块的最小化模拟数据快照与分析目标发送至 AI 分析任务，订阅任务事件并返回结构化风险结论和行动建议；AP…</p>
+        <p class="links">
+          <a href="https://supply-chain.520resume-doctor.online" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/51.png" alt="财格-AI犀利点评你的理财性格 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 37</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>财格-AI犀利点评你的理财性格</h3>
+        <p class="grade"><b>评级 B · 6.65</b>　场景 6.0 / 完成度 7.5 / 创新 6.5</p>
+        <p class="why">增长型小工具做得圆，不是深度财务产品。<br>场景价值：用轻测试叫醒月光族有传播价值，理财决策深度有限。<br>技术完成度：三字段出报告、隐私模式、分享卡、降级模板、防刷，消费级体验完整。<br>创新性：毒舌人设和分享卡有增长设计，分析本身浅。</p>
+        <p class="cat">品类 · 个人财务</p>
+        <p class="intro">一、应用解决的问题 -------------------------------------------------------------------------------- 年轻人普遍存在&quot;花钱无感&quot;的现象——月薪到账不知不觉就花完了，但很少有人 愿意认真审视自己的消费习惯。传统的理财测评工具过于严肃、门槛高、说教味 重，年轻人…</p>
+        <p class="links">
+          <a href="https://service.bckf.cn/caige/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/53.png" alt="应用名称 统计分析系统（Statistical Analysis System） 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 38</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>应用名称 统计分析系统（Statistical Analysis System）</h3>
+        <p class="grade"><b>评级 B · 6.60</b>　场景 6.5 / 完成度 7.5 / 创新 5.5</p>
+        <p class="why">数据工程扎实，产品创新和大众场景价值中等。<br>场景价值：宏观指标解读对研究/政策/教学有用，普通用户决策距离较远。<br>技术完成度：Flask 看板+CLI、SQLite 宽表、口径知识库、世界银行采集、SSE 解读，工程面完整。<br>创新性：宏观统计看板是经典形态，AI 解读是常规增量。</p>
+        <p class="cat">品类 · 公共数据</p>
+        <p class="intro">应用简介 基于 InfiniSynapse Server API 构建的全国口径统计分析应用。提供 Flask Web 看板与 CLI，覆盖 GDP、工业、消费、外贸、投资、人口等主要宏观经济专业；内置本地 SQLite 指标宽表 + 统计口径知识库（RAG 轻量版），支持从世界银行 Open Data 等公开开放数据源全网采集宏观指标…</p>
+        <p class="links">
+          <a href="https://qu-stat-system.vercel.app/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/54.png" alt="泡泡看市|小白的股市翻译官 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 39</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>泡泡看市|小白的股市翻译官</h3>
+        <p class="grade"><b>评级 B · 6.60</b>　场景 6.5 / 完成度 7.5 / 创新 5.5</p>
+        <p class="why">体验完整的入门看盘，产品创新一般。<br>场景价值：A 股小白看懂当日热点有需求，投资决策价值受「仅供参考」强约束。<br>技术完成度：大盘故事、热力图、Agent 问答，超时兜底与交易时段控制，工程意识好。<br>创新性：AI 看盘/热点翻译是常见形态。</p>
+        <p class="cat">品类 · 投资理财</p>
+        <p class="intro">🎯 解决的问题 A 股散户投资者面临三个核心痛点： 1. 信息过载看不懂：每天面对几十个板块涨跌、上千只个股，不知道哪些真正值得关注、背后的驱动逻辑是什么 2. 缺乏专业分析能力：没有工具解读主力资金流向、产业链上下游关系、技术面支撑位/压力位，容易追涨杀跌 3. 投研门槛高：专业研报术语晦涩，普通投资者难以消化 泡泡看市用 Infin…</p>
+        <p class="links">
+          <a href="https://paopaoaii.a273894731.workers.dev/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/55.png" alt="智行路线 RouteWise 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 40</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>智行路线 RouteWise</h3>
+        <p class="grade"><b>评级 B · 6.60</b>　场景 6.5 / 完成度 7.5 / 创新 5.5</p>
+        <p class="why">完成度明显好于多数旅游作品，创新不足。<br>场景价值：自由行比方案、顾预算和动线有需求，但旅行规划极度红海。<br>技术完成度：三套路线、多维评分、风险与待核验项、任务取消限流恢复，工程完整。<br>创新性：效率/体验/预算三方案对比是常见旅行 AI 结构。</p>
+        <p class="cat">品类 · 旅行规划</p>
+        <p class="intro">智行路线（RouteWise）是一款面向自由行、周末短途旅行及多人出行用户的 AI 智能旅行规划 Web 应用，主要解决旅行方案难比较、路线动线不合理、预算与兴趣难兼顾等问题。用户输入目的地、日期、预算、兴趣、交通方式和旅行节奏后，系统会生成效率优先、体验优先、预算优先三套可执行路线。 应用后端通过 Server API 调用 Infi…</p>
+        <p class="links">
+          <a href="http://47.120.26.69:7890/routewise/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/56.png" alt="SEO数据分析 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 41</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>SEO数据分析</h3>
+        <p class="grade"><b>评级 D · 4.22</b>　场景 5.0 / 完成度 3.5 / 创新 4.0</p>
+        <p class="why">信息披露不足，产品评价只能保守处理。<br>场景价值：SEO 数据分析有用户，但未说明解决哪类决策、对谁、交付什么。<br>技术完成度：作者未填介绍，只能确认可在线打开，无法评估主路径与集成质量。<br>创新性：赛道拥挤且信息缺失，看不到独特角度。</p>
+        <p class="cat">品类 · 内容增长</p>
+        <p class="intro">SEO 数据分析面向搜索与内容增长场景，把 Search Console 一类流量数据接到可浏览的分析页。长廊未填产品介绍，可见完成度只能按线上页面保守判断；赛道拥挤，信息披露不足。按指定替换 ReelSpark 进入优秀奖，体验链接可打开。</p>
+        <p class="links">
+          <a href="https://gsc-data-analysis.vercel.app/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/57.png" alt="ProjectValueLab 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 42</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>ProjectValueLab</h3>
+        <p class="grade"><b>评级 C · 6.45</b>　场景 7.0 / 完成度 6.5 / 创新 5.5</p>
+        <p class="why">可用的立项助手，产品形态常规。<br>场景价值：早期项目验证、立项和投资初筛有需求，用户面（创始人/PM/投资人）清楚。<br>技术完成度：输入官网/文档/仓库，输出结构化价值报告，标准 Agent 报告流，深度一般。<br>创新性：商业尽调清单式分析，缺少独特评估框架或证据约束。</p>
+        <p class="cat">品类 · 产品研究</p>
+        <p class="intro">ProjectValueLab 是一个面向创业者、投资人、产品经理和创新团队的项目价值分析工具。用户输入项目名称、官网、文档或代码仓库后，系统会调用 InfiniSynapse API 驱动 AI Agent，对项目进行资料梳理、市场与竞品调研、用户需求分析、技术可行性判断、商业模式评估和风险识别，并生成结构化分析报告。 它适用于早期项…</p>
+        <p class="links">
+          <a href="https://pvl.octoooo.com/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/58.png" alt="选题雷达 Topic Radar 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 43</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>选题雷达 Topic Radar</h3>
+        <p class="grade"><b>评级 C · 6.45</b>　场景 7.0 / 完成度 6.5 / 创新 5.5</p>
+        <p class="why">能用的创作者工具，差异化不足。<br>场景价值：创作者要找高热低竞争选题，需求真实。<br>技术完成度：平台+领域调研，热度/竞争/机会三维度与标题建议，主路径成立但较标准。<br>创新性：选题雷达是内容工具常见形态。</p>
+        <p class="cat">品类 · 内容增长</p>
+        <p class="intro">面向内容创作者的选题分析工具。选择平台和内容领域后，基于 InfiniSynapse 的数据分析能力全网调研近期内容趋势，通过热度、竞争度、机会指数三维度评估，输出&quot;高热度、低竞争&quot;的机会选题、切入角度和爆款标题建议，并以可视化图表呈现</p>
+        <p class="links">
+          <a href="http://120.53.8.28:3000" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/59.png" alt="学习计划助手 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 44</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>学习计划助手</h3>
+        <p class="grade"><b>评级 C · 6.30</b>　场景 6.5 / 完成度 7.0 / 创新 5.0</p>
+        <p class="why">干净可用的计划生成器，缺乏诊断—练习闭环或独特数据。<br>场景价值：把教材/教程拆成可执行学习计划有用，但替代方案极多。<br>技术完成度：领域+PDF/文本入，阶段路线与 Markdown/PDF 出，SSO/BYOK 规范。<br>创新性：学习路径生成是最常见的 AI 教育形态之一。</p>
+        <p class="cat">品类 · 教育学习</p>
+        <p class="intro">学习计划助手是一个把&quot;想学的东西&quot;变成&quot;能照着做的计划&quot;的 AI 工具：你只要填上想学的领域、再上传一份教材 PDF 或粘贴教程文字，它就会自动把零散知识拆成清晰的阶段化路线——每阶段学什么、重点是什么、投入多少时间都标得明明白白，最后以 Markdown 交付，可复制、可下载成 .md 或 PDF；登录走你自己的 InfiniSyna…</p>
+        <p class="links">
+          <a href="https://infinisynapse-new.pages.dev/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/60.png" alt="CET-4 Vocab Lab 四级单词学习舱 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 45</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>CET-4 Vocab Lab 四级单词学习舱</h3>
+        <p class="grade"><b>评级 C · 6.30</b>　场景 6.5 / 完成度 7.0 / 创新 5.0</p>
+        <p class="why">可用的备考工具，缺少独特学习数据或机制。<br>场景价值：四级词汇冲刺有稳定用户，但背单词市场极度红海。<br>技术完成度：词库、自测、薄弱词、语境例句、7 天路径，服务端 Key，主路径完整。<br>创新性：诊断+路径是常规背词产品能力。</p>
+        <p class="cat">品类 · 教育学习</p>
+        <p class="intro">CET-4 Vocab Lab 是一款面向大学英语四级备考学生的 AI 单词学习应用，解决传统背词工具缺少诊断、复习路径不清晰、例句脱离真实考试语境的问题。用户可以在应用中浏览四级核心词库，完成单词自测，系统会根据答题正确率和熟悉度自动识别薄弱词，并生成今日推荐词。应用后端集成 InfiniSynapse Server API，用于生成…</p>
+        <p class="links">
+          <a href="https://infinisynapse-cet4-vocab.vercel.app/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/61.png" alt="竞品对标分析器 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 46</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>竞品对标分析器</h3>
+        <p class="grade"><b>评级 C · 6.28</b>　场景 7.0 / 完成度 6.0 / 创新 5.5</p>
+        <p class="why">场景没错，材料不足以支撑高完成度评价。<br>场景价值：硬件/快消研发与市场团队确实需要竞品对标，场景成立。<br>技术完成度：公开介绍过短，只能确认 Next.js + Server API，对标维度、证据与交付物不清晰。<br>创新性：竞品分析是常见 AI 报告形态，未见独特框架。</p>
+        <p class="cat">品类 · 产品研究</p>
+        <p class="intro">面向智能硬件、消费电子、快消品等实体产品研发与市场团队的 AI 竞品对标 Web 应用。前端基于 Next.js，数据分析与 AI 推理通过 InfiniSynapse Server API 完成。</p>
+        <p class="links">
+          <a href="http://compbench.zhuangyb.top" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/62.png" alt="产品经理数据汇报工作台 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 47</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>产品经理数据汇报工作台</h3>
+        <p class="grade"><b>评级 C · 6.15</b>　场景 7.0 / 完成度 6.0 / 创新 5.0</p>
+        <p class="why">对上了岗位场景，产品完成度与差异化都偏中下。<br>场景价值：仪表盘、周报、汇报 PPT、行研是 PM 真实工作，场景清楚。<br>技术完成度：介绍停留在四大模块列举，分析深度、数据接入与交付质量缺少可验证细节。<br>创新性：把常见 PM 交付物拼成工作台，创新有限。</p>
+        <p class="cat">品类 · 通用分析</p>
+        <p class="intro">将产品经理日常所需要进行的数据分析几大工作集成到了一个工作台中。按照科学的步骤完成数据分析的所有工作，并直接交付让领导满意的工作结果，可以在该工作台中进行。一、数据仪表盘建立；二、周报数据可视化报表；三、数据报告的 PPT ；四、深度的行研报告。</p>
+        <p class="links">
+          <a href="http://8.141.101.70/data-workbench/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="card compact">
+      <div class="shot"><img src="images/boyan.png" alt="簿言 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 48</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>簿言</h3>
+        <p class="grade"><b>评级 C · 5.80</b>　场景 6.0 / 完成度 6.5 / 创新 4.5</p>
+        <p class="why">能用的轻办公组合，产品焦点不够，难以形成记忆点。<br>场景价值：Excel 检查与记账有需求，但记事本+附件+记账+分析拼在一起，场景发散。<br>技术完成度：登录上传、结构识别、可视化大屏、记账图表更新，基础功能在；缺一条打透的决策主线。<br>创新性：通用办公套件，创新点不明显。</p>
+        <p class="cat">品类 · 通用分析</p>
+        <p class="intro">簿言 Bóyán 是一款面向学生、职场人士及中小团队的智能办公工具，旨在解决 Excel 表格数据复杂、人工检查耗时、分析结果不直观等问题。用户注册登录后，可上传 Excel 文件，由 InfiniSynapse API 自动识别表格结构、分析数据与异常，并生成清晰的分析结论和动态可视化大屏。此外，应用还提供记事…</p>
+        <p class="links">
+          <a href="https://vibe-coding-boyan.vercel.app/login" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+
+    <article class="card compact">
+      <div class="shot"><img src="images/tomorrow-football.png" alt="明日足球 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 49</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>明日足球</h3>
+        <p class="grade"><b>评级 C · 6.05</b>　场景 6.0 / 完成度 6.5 / 创新 5.5</p>
+        <p class="why">完整体验向体育应用，场景价值与创新都中等。<br>场景价值：球迷看懂战术有趣，决策/付费强度低于工作与生活刚需。<br>技术完成度：接比赛数据、阵容事件，再生成战术复盘，主路径成立，模块深度中等。<br>创新性：比赛 AI 复盘常见，战术翻译是增量不是新品类。</p>
+        <p class="cat">品类 · 体育娱乐</p>
+        <p class="intro">明日足球是一款面向全球球迷、足球内容创作者和业余教练的世界杯战术分析工具。用户可选择比赛，查看比分、阵容、关键事件和战术回放，并一键生成 AI 战术复盘。  应用会从现有足球数据接口获取比赛、首发阵容和战术片段，整理为结构化数据后，通过 InfiniSynapse Server API 生成分析报告，包括比赛走势…</p>
+        <p class="links">
+          <a href="https://www.yomujp.top/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="card compact">
+      <div class="shot"><img src="images/life-sim.png" alt="人生模拟器 界面" loading="lazy"></div>
+      <div class="meta">
+        <div class="row">
+          <span class="badge">优秀奖 50</span>
+          <span class="src new">新定</span>
+        </div>
+        <h3>人生模拟器</h3>
+        <p class="grade"><b>评级 D · 4.40</b>　场景 3.5 / 完成度 5.0 / 创新 5.0</p>
+        <p class="why">娱乐 demo，产品层面贡献有限。<br>场景价值：自评解决「闲着没事干什么」，几乎没有决策或效率价值。<br>技术完成度：后台批量生成个性化事件，产品结构简单。<br>创新性：人生模拟游戏常见，未见新规则。</p>
+        <p class="cat">品类 · 娱乐实验</p>
+        <p class="intro">解决了人闲的没事能干什么的问题。应用通过 InfiniSynapse API 在后台批量生成个性化事件。</p>
+        <p class="links">
+          <a href="https://life-simulator-omega-snowy.vercel.app/" target="_blank" rel="noopener">体验作品</a> <a class="ghost" href="https://infinisynapse.cn/contest/vibe-coding/gallery" target="_blank" rel="noopener">长廊页</a>
+        </p>
+      </div>
+    </article>
+</div></section>
+  <footer>优秀奖 50 席。已剔除智观天象、脑洞实验室、现金流人生。空缺由簿言、明日足球、人生模拟器递补。wisp science 已换出。</footer>
+</body>
+</html>
