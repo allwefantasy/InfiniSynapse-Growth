@@ -1,0 +1,27 @@
+{
+  "source_md": "article-enhanced.md",
+  "styled_html": "article.html (wechat-format-skill / github 主题)",
+  "appmsgid": "100002503",
+  "title": "还不知道做什么？10 个一周末能做完的选题，照着改就能交",
+  "author": "InfiniSynapse",
+  "token": "1047002424",
+  "last_saved": "2026-07-20 17:52",
+  "note": "2026-07-20 新建草稿：选题灵感文，10 选题 + 成熟/官方样板（含 Offer雷达/析数/GSC周度/FinPDF 参赛作品）。15 张图。开头强调剩余时间+奖项好拿+真实用户调用加分。本地 md 与草稿一致。",
+  "cdn_urls": {
+    "images/00-tech-skeleton.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXXfxXjxc4MP2D6T9NdRBqlQjhIiaNcACR8aFGrC7rkujibystCYhIlq82gYuj1HWMyPNyVIt87TiaSLhpc8icyLHTQpGcCOQdTGao4/0?wx_fmt=png&from=appmsg",
+    "images/01-find-that-thing.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXWQUib6srgV2B31wbGEV2rnYMTtRJkCbEoRSIhbtl7cG2icmbcBKWRWh3AOBcPtnZmYd6IYLInFdFkpCWo73OtQiat0CWkSJtvTLM/0?wx_fmt=png&from=appmsg",
+    "images/02-shopping.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXsCvjDGncbkTnKNos6OP3mdzKtsDTGMavsFb3NjkX86oaUeUVaYVGl5zyIaFTZw3HHbEJqRvFFgdjhMM0kO0PuVqJMdUYibtic8/0?wx_fmt=png&from=appmsg",
+    "images/03-caige.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXUwibhdRdC70vvnKmet9TBUu9ib3YuV3GUVD4G2aiaVr3Ce8uIsDSlsgK41LrKAyCoMRy3bcyTzyYI93ppibDMm5SZPiaILnDMVS3y8/0?wx_fmt=png&from=appmsg",
+    "images/04b-offer-radar.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXUIDciar6M0ZuQWeh35I58njGlxTwKd4R96JM7XvNLPQSAUko4twywtV9rxlRPWhXC3XAGyxdnAnxjd3wHJ2OGWsrVBI6NFAyD0/0?wx_fmt=jpeg&from=appmsg",
+    "images/04-due-diligence.png": "https://mmbiz.qpic.cn/mmbiz_jpg/7ibiaibCib1GWXUrDPM0iawFe82YfzlZ9UKB6WEicnubFen8GlHOo3tjKYqclOksQSibiaWrCx7yCZ1ZFUibSJPvXeqhtgoVXVaG98d1gWSmQFFLdLl0/0?wx_fmt=jpeg&from=appmsg",
+    "images/05-gaokao.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUGIsY1BYoreibJVTHicNukB6D9qDmK79l9yibG6O4LMu3iaE0bRu9EamjFOI6JIoTz75YBpMXichzQEtQtiafeRFefe9F8MpwDPHDCA/0?wx_fmt=png&from=appmsg",
+    "images/06b-gsc-weekly.png": "https://mmbiz.qpic.cn/mmbiz_jpg/7ibiaibCib1GWXVnibsXVqNvKibSUcEB9Eq2ZibGAeKPrB2N1nVZibnhefLurtx3sAgg9kqGEbYUflMVNnvMhBsUojiaHNxgh5tjAf4zKLOcpu7vAicfs/0?wx_fmt=jpeg&from=appmsg",
+    "images/06c-finpdf.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXVhrDHlbFLL0oOvOXMcPVv8fDuPTjdGeeCvoJsibeRzozd8HQibvs7zMVicA6F81c5MPGzbB6d4iag54azUHk3KDhTJDkP9HaRPbRA/0?wx_fmt=jpeg&from=appmsg",
+    "images/06-report-writer.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUrNse0ABmaMkWSOp8CUlsBwPkOiatMyia7GoYFfPhToRVOv5miasTmr0SQJ32ML7CnKLA3FUdB7O2xyJuRstFib9DjNxN4ict3iaGEU/0?wx_fmt=png&from=appmsg",
+    "images/07-pvl.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXUwYUbvm88wSBURcUyuSAkN3mlxc4DBXGHPOsZOxLrMffaDiaLpTNvhPcnRxdfc9OMeZAgowqLicicWW9eqhl68MFyRkpVLSe6cyg/0?wx_fmt=jpeg&from=appmsg",
+    "images/08b-xishu.png": "https://mmbiz.qpic.cn/mmbiz_jpg/7ibiaibCib1GWXXEHNbe1O15iaXwIaMThlVjm8xmpFibP9QIserT3fuzia6271xMYuEzHxvhNkTjnbbEWjeNU1InTffNQG0umVL5NTN6sKTQIe2Kmo/0?wx_fmt=jpeg&from=appmsg",
+    "images/08-personal-analytics.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXX1vgWl7JJ3ucj6kWJ0jmZy8iarIfxBpuEwQ6mHZpdpesJJFhHkKuGN9CcqUZPW3rGkKpZwhPMlBUElEBzYmLxGHNTtNGicS8mGc/0?wx_fmt=png&from=appmsg",
+    "images/10-contest-flow.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXW51xBeIdE4ncVDF0HdrXCbo3QmKe82L9LsuEQPZyVWia9h3auygP8WfNYic1Toxa5apLOW4lNsDpFeGEstYdwPKjGK0y0QsicygU/0?wx_fmt=jpeg&from=appmsg",
+    "images/09-wechat-groups-qr.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXVHribx24ysWJQ1XXibx2C20Wrmy2nAt9mmvy7JzIib6iaH4b2BbBzsBJJYZ5BN6g35OLqpfQwgMGWA7icic2djkZd5jr1pT4o7dSJyA/0?wx_fmt=png&from=appmsg"
+  }
+}
