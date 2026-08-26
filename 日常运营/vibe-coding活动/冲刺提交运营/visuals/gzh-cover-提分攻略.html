@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:1175px; height:500px; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+
+  .cover{
+    position:relative; width:1175px; height:500px; overflow:hidden; color:#eaf2ff;
+    background:
+      radial-gradient(760px 520px at 82% 6%, rgba(0,225,255,0.20), transparent 62%),
+      radial-gradient(680px 520px at 12% 108%, rgba(80,120,255,0.28), transparent 60%),
+      linear-gradient(150deg,#04060f 0%,#071230 42%,#0a1b47 100%);
+  }
+  /* perspective grid floor */
+  .grid{
+    position:absolute; left:-20%; right:-20%; bottom:-40%; height:90%;
+    background-image:
+      linear-gradient(rgba(0,200,255,0.16) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,200,255,0.16) 1px,transparent 1px);
+    background-size:54px 54px;
+    transform:perspective(520px) rotateX(64deg);
+    transform-origin:bottom center;
+    mask-image:linear-gradient(to top, #000 0%, transparent 78%);
+    -webkit-mask-image:linear-gradient(to top, #000 0%, transparent 78%);
+    opacity:0.85;
+  }
+  /* neural network svg */
+  .net{ position:absolute; inset:0; z-index:1; opacity:0.9; }
+  .scan{ position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 4px); opacity:0.5; }
+  .glow{ position:absolute; width:420px; height:420px; border-radius:50%; filter:blur(90px);
+    background:radial-gradient(circle,rgba(0,220,255,0.55),transparent 70%); top:-140px; right:60px; z-index:0; }
+
+  .wrap{ position:relative; z-index:3; height:100%; padding:46px 58px; display:flex; flex-direction:column; }
+  .top{ display:flex; align-items:center; gap:14px; }
+  .logo{ display:flex; align-items:center; gap:11px; }
+  .logo .mark{ width:30px; height:30px; border-radius:8px;
+    background:conic-gradient(from 140deg,#00e1ff,#4a8aff,#8a5bff,#00e1ff);
+    box-shadow:0 0 18px rgba(0,225,255,0.6); position:relative; }
+  .logo .mark::after{ content:""; position:absolute; inset:7px; border-radius:4px; background:#04060f; }
+  .brand{ font-size:19px; font-weight:700; letter-spacing:0.4px; }
+  .brand .sub{ font-weight:500; color:#9fc2ff; }
+  .brand .dot{ color:#00e1ff; margin:0 8px; }
+  .deadline{ margin-left:auto; display:flex; align-items:center; gap:9px;
+    background:rgba(0,225,255,0.10); border:1px solid rgba(0,225,255,0.45);
+    padding:8px 16px; border-radius:8px; font-size:14px; font-weight:600; color:#d6f6ff;
+    box-shadow:0 0 20px rgba(0,225,255,0.20) inset; font-family:"SF Mono",Menlo,monospace; }
+  .deadline b{ color:#00e1ff; }
+
+  .mid{ margin-top:30px; }
+  .kicker{ display:inline-flex; align-items:center; gap:9px; font-size:14px; font-weight:600; letter-spacing:3px;
+    color:#00e1ff; text-transform:uppercase; font-family:"SF Mono",Menlo,monospace; margin-bottom:16px; }
+  .kicker::before{ content:""; width:26px; height:2px; background:#00e1ff; box-shadow:0 0 10px #00e1ff; }
+  .title{ font-size:76px; font-weight:800; line-height:1.1; letter-spacing:1px;
+    text-shadow:0 6px 34px rgba(0,120,255,0.45); }
+  .title .hl{ background:linear-gradient(100deg,#00e1ff,#7cf0ff); -webkit-background-clip:text; background-clip:text;
+    color:transparent; text-shadow:0 0 26px rgba(0,225,255,0.55); }
+  .subtitle{ margin-top:16px; font-size:19px; color:#b9cdf0; font-weight:500; letter-spacing:0.3px; }
+
+  .chips{ margin-top:auto; display:flex; gap:14px; }
+  .chip{ display:flex; align-items:center; gap:11px; font-size:17px; font-weight:600; color:#eaf2ff;
+    background:linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.03));
+    border:1px solid rgba(0,225,255,0.30); padding:12px 20px; border-radius:12px;
+    box-shadow:0 0 24px rgba(0,120,255,0.12); backdrop-filter:blur(4px); }
+  .chip .n{ display:inline-flex; width:24px; height:24px; border-radius:6px; align-items:center; justify-content:center;
+    font-size:13px; font-weight:800; color:#04060f; background:linear-gradient(135deg,#00e1ff,#57a6ff);
+    box-shadow:0 0 12px rgba(0,225,255,0.7); font-family:"SF Mono",Menlo,monospace; }
+</style></head><body>
+<div class="cover">
+  <div class="glow"></div>
+  <div class="grid"></div>
+  <svg class="net" viewBox="0 0 1175 500" preserveAspectRatio="none">
+    <defs>
+      <radialGradient id="node" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#8af6ff"/><stop offset="100%" stop-color="#00c8ff"/>
+      </radialGradient>
+    </defs>
+    <g stroke="#3fd8ff" stroke-width="1" opacity="0.35" fill="none">
+      <path d="M980,70 L1080,150 L1010,250 L1120,300"/>
+      <path d="M980,70 L1010,250"/>
+      <path d="M1080,150 L1120,300"/>
+      <path d="M900,180 L1010,250 L960,360"/>
+      <path d="M900,180 L1080,150"/>
+      <path d="M1010,250 L1120,420"/>
+    </g>
+    <g fill="url(#node)">
+      <circle cx="980" cy="70" r="6"/><circle cx="1080" cy="150" r="5"/>
+      <circle cx="900" cy="180" r="4"/><circle cx="1010" cy="250" r="7"/>
+      <circle cx="1120" cy="300" r="5"/><circle cx="960" cy="360" r="4"/>
+      <circle cx="1120" cy="420" r="4"/>
+    </g>
+  </svg>
+  <div class="scan"></div>
+
+  <div class="wrap">
+    <div class="top">
+      <div class="logo">
+        <div class="mark"></div>
+        <div class="brand">InfiniSynapse <span class="dot">/</span><span class="sub">Vibe Coding 大赛</span></div>
+      </div>
+      <div class="deadline">DEADLINE <b>07·31</b></div>
+    </div>
+
+    <div class="mid">
+      <span class="kicker">冲刺提交 · 作品提分攻略</span>
+      <div class="title">这 3 个<span class="hl">官方助推</span><br>别白放过</div>
+      <div class="subtitle">让作品被更多真人看见、点开、用一用 —— 比闷头加功能更管用</div>
+    </div>
+
+    <div class="chips">
+      <div class="chip"><span class="n">1</span>微博加热 · 蓝 V 白名单</div>
+      <div class="chip"><span class="n">2</span>长廊拉票进评定</div>
+      <div class="chip"><span class="n">3</span>Demo 视频上架</div>
+    </div>
+  </div>
+</div>
+</body></html>

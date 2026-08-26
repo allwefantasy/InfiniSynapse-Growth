@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cyan: #35E0E8; --gold: #F2C14E; --muted: #9aa8c7; }
+  body { background: #fff; }
+  .poster {
+    position: relative; width: 1080px;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff; overflow: visible;
+  }
+  .glow {
+    position: absolute; width: 980px; height: 720px; left: 50%; top: -160px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.26) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.045) 1px, transparent 1px);
+    background-size: 54px 54px; opacity: 0.75; pointer-events: none;
+  }
+  .wrap { position: relative; z-index: 4; padding: 56px 44px 48px; }
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 10px 22px; border-radius: 999px;
+    font-size: 22px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+  .eyebrow {
+    margin-top: 20px; font-size: 22px; font-weight: 700;
+    color: var(--gold); letter-spacing: 3px;
+  }
+  .hero {
+    margin-top: 10px; font-size: 56px; font-weight: 900; line-height: 1.15;
+  }
+  .hero .c { color: var(--cyan); }
+  .sub {
+    margin-top: 14px; font-size: 24px; color: var(--muted); line-height: 1.45;
+  }
+  .stats {
+    margin-top: 24px; display: flex; gap: 12px;
+  }
+  .stat {
+    flex: 1; padding: 16px 12px; border-radius: 16px; text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat .v { font-size: 38px; font-weight: 900; color: var(--cyan); }
+  .stat .l { margin-top: 6px; font-size: 17px; color: var(--muted); font-weight: 600; }
+
+  .cats { margin-top: 36px; display: flex; flex-direction: column; gap: 22px; }
+  .cat {
+    border-radius: 22px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: visible;
+  }
+  .cat-head {
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 18px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .cat-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 900; color: #070b16;
+    background: var(--cyan);
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .cat-title { font-size: 28px; font-weight: 900; }
+  .cat-title .c { color: var(--cyan); }
+  .cat-meta {
+    margin-left: auto; font-size: 17px; color: var(--muted); font-weight: 700;
+    padding: 5px 12px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .cat-meta b { color: var(--gold); }
+
+  .vcards {
+    padding: 14px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
+  }
+  .vcard {
+    border-radius: 16px; overflow: visible;
+    background: rgba(0,0,0,0.28);
+    border: 1px solid rgba(120,160,255,0.16);
+  }
+  .vcard.hot {
+    border-color: rgba(242,193,78,0.5);
+    box-shadow: 0 0 20px rgba(242,193,78,0.12);
+  }
+  .vcard .shot {
+    height: 150px; overflow: visible; background: #111827;
+  }
+  .vcard .shot img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block;
+  }
+  .vcard .meta { padding: 12px 12px 14px; }
+  .vcard .nm {
+    font-size: 18px; font-weight: 800; line-height: 1.3;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: visible;
+  }
+  .vcard .ds {
+    margin-top: 6px; font-size: 14px; color: var(--muted); line-height: 1.35;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: visible;
+  }
+  .vcard .vt {
+    margin-top: 8px; font-size: 16px; color: #c5d0ea; font-weight: 700;
+  }
+  .vcard.hot .vt b { color: var(--gold); }
+  .vcard .vt b { color: var(--cyan); font-size: 20px; }
+
+  .items { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 8px; }
+  .item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 12px; border-radius: 12px;
+    background: rgba(0,0,0,0.22);
+    border: 1px solid rgba(120,160,255,0.14);
+  }
+  .rank {
+    flex: 0 0 auto; width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800; color: #070b16;
+    background: rgba(53,224,232,0.85);
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .thumb {
+    flex: 0 0 auto; width: 72px; height: 48px; border-radius: 8px; overflow: visible;
+    background: #111827; border: 1px solid rgba(255,255,255,0.08);
+  }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .body { min-width: 0; flex: 1; text-align: left; }
+  .name { font-size: 20px; font-weight: 800; line-height: 1.25; }
+  .desc {
+    margin-top: 2px; font-size: 15px; color: var(--muted); line-height: 1.3;
+    white-space: nowrap; overflow: visible; text-overflow: ellipsis;
+  }
+  .votes {
+    flex: 0 0 auto; text-align: right;
+    font-size: 24px; font-weight: 900; color: #fff; line-height: 1;
+  }
+  .votes span { display: block; margin-top: 2px; font-size: 13px; color: var(--muted); font-weight: 600; }
+
+  .foot {
+    margin-top: 32px; text-align: center;
+    padding: 22px 18px; border-radius: 18px;
+    background: rgba(46,107,255,0.16);
+    border: 1px solid rgba(120,160,255,0.35);
+  }
+  .foot .big { font-size: 28px; font-weight: 800; line-height: 1.4; }
+  .foot .big em {
+    font-style: normal; color: #1b1206;
+    background: var(--gold); padding: 2px 10px; border-radius: 8px;
+  }
+  .foot .link {
+    margin-top: 10px; font-size: 20px; color: var(--cyan); font-weight: 700;
+    word-break: break-all;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="grid"></div>
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="eyebrow">作品长廊 · 按行业赛道速览</div>
+      <div class="hero">72 件真实作品<br><span class="c">6 大赛道分好了</span></div>
+      <div class="sub">来自比赛作品长廊 · 可体验 · 可投票 · 截止 7 月 31 日</div>
+
+      <div class="stats">
+        <div class="stat"><div class="v">72</div><div class="l">作品总数</div></div>
+        <div class="stat"><div class="v">6</div><div class="l">行业赛道</div></div>
+        <div class="stat"><div class="v">7·31</div><div class="l">提交截止</div></div>
+      </div>
+
+      <div class="cats">
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">01</div>
+            <div class="cat-title">职场<span class="c">求职</span></div>
+            <div class="cat-meta"><b>11</b> 件 · 最高 253 票</div>
+          </div>
+          <div class="vcards">
+            <div class="vcard hot">
+              <div class="shot"><img src="https://infinisynapse.cn/contest/gallery/offer-radar.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">Offer 雷达</div>
+                <div class="ds">面向求职者的入职前公司尽调助手，基于 InfiniSynapse 从经营、司法、舆…</div>
+                <div class="vt"><b>253</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/2d2e7711-e262-46d9-a3d0-66a7407cf585.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">面试模拟器</div>
+                <div class="ds">求职准备中，真人陪练稀缺、刷题无法训练追问应对。面试模拟器基于真实简历与目标 JD…</div>
+                <div class="vt"><b>187</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/a53820ec-c04e-4b45-9fc0-2f38affa5c95.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">仲裁小助手</div>
+                <div class="ds">输入入职日期、月工资、城市，AI 自动生成赔偿计算单、仲裁申请书、证据清单、法条依…</div>
+                <div class="vt"><b>112</b> 票</div>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/f7f2c2bb-462e-4772-b3a9-f2cae838b691.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">职牌</div><div class="desc">职牌是一款基于市场数据反向诊断职业身份的 AI 工具。用户上传简历后，AI Agent 从实时…</div></div>
+              <div class="votes">29<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/09375599-f85a-41c9-ae6a-4fe5f0f37856.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">Real Raise：涨薪真实购买力计算器</div><div class="desc">Real Raise 面向正在评估涨薪、跳槽或生活成本变化的职场人，将税前工资、个税、社保公积…</div></div>
+              <div class="votes">21<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/2c11801f-a3c1-4d5e-a698-9e23bb2c9a82.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">凤栖梧</div><div class="desc">凤栖梧是一款面向大学生的AI求职陪伴平台。它以拟人化的AI角色“七七”为核心，融合“先接住情绪…</div></div>
+              <div class="votes">15<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">7</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/employment-weather.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">就业气象局</div><div class="desc">融合 14 个就业、教育、城市、职业与生活数据源，通过综合研判、就业周期、城市选择等七个视图，…</div></div>
+              <div class="votes">14<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">8</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/53d0d44d-de9b-4760-afb1-f71c1228613e.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">择途 Zhitu</div><div class="desc">择途 Zhitu 不是简单的面试题库，而是一套从职业定位到面试提升的 AI 实战系统。基于In…</div></div>
+              <div class="votes">11<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">9</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/d80779cc-61d8-4fc0-8928-f78a4eb5ec8e.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">JobHunter Pro — 智能求职聚合平台</div><div class="desc">一、应用简洁 本产品是全网招聘聚合+AI智能求职工具。一键汇总全网岗位，可视化展示各地招聘热度…</div></div>
+              <div class="votes">7<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">10</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/d3a6d9c6-920a-45ae-94e2-466418030fb7.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">OPC Gate｜一人公司政策与落地路线诊断</div><div class="desc">OPC Gate 面向一人公司创业者，将分散的政策、园区/社区与算力资源转化为可解释、可追溯的…</div></div>
+              <div class="votes">5<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">11</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/814891d6-d7a8-484e-81fb-09ae98d902bf.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">上岸参谋</div><div class="desc">上岸参谋是一款面向考公/事业编考生的智能择岗分析工具。 解决的问题：面对数万条国考/省考职位，…</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div></div>
+        </section>
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">02</div>
+            <div class="cat-title">财务<span class="c">理财</span></div>
+            <div class="cat-meta"><b>8</b> 件 · 最高 307 票</div>
+          </div>
+          <div class="vcards">
+            <div class="vcard hot">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/bd3cbc1d-11ba-479d-8c70-acb537bc995e.jpg" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">智析账本 BillLens</div>
+                <div class="ds">智析账本是一款基于 InfiniSynapse 的个人财务数据 AI 智能分析 W…</div>
+                <div class="vt"><b>307</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/b6b16750-59e1-4bea-a12c-7853b4af633c.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">簿言</div>
+                <div class="ds">簿言 Bóyán 是一款面向学生、职场人士及中小团队的智能办公工具，旨在解决 Ex…</div>
+                <div class="vt"><b>40</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/3e48a2a2-6fe8-49ba-a949-81be8da3b02b.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">一眼看懂这只股票</div>
+                <div class="ds">上传财报、财务数据或研究资料，把复杂数字翻译成公司靠什么赚钱、经营是否健康、当前价…</div>
+                <div class="vt"><b>15</b> 票</div>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/43654896-051c-4c63-af5d-14d30e2fb1e7.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">提前退休研究所</div><div class="desc">提前退休研究所 是一个用真实数据回答&quot;这届年轻人到底几岁能退休&quot;的多源深度研判应用。 延迟退休…</div></div>
+              <div class="votes">7<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/e74a04a0-045d-4ede-9be5-9053f5bd93f2.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">股票查询系统</div><div class="desc">面向庞大股民用户提供查询</div></div>
+              <div class="votes">7<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/caige.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">财格-AI犀利点评你的理财性格</div><div class="desc">一、应用解决的问题 -------------------------------------…</div></div>
+              <div class="votes">4<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">7</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/finpdf-extract.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">FinPDF Extract</div><div class="desc">上传金融类PDF文件，提取文件里的Excel表格，支持在线预览、编辑、双屏核对和导出等功能</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">8</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/4be61b91-648b-416c-80ba-401eb88c0100.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">Token体检</div><div class="desc">Token体检是一款面向 Vibe Coding 开发者和高频 AI 用户的对话使用诊断工具，…</div></div>
+              <div class="votes">1<span>票</span></div>
+            </div></div>
+        </section>
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">03</div>
+            <div class="cat-title">生活<span class="c">决策</span></div>
+            <div class="cat-meta"><b>19</b> 件 · 最高 302 票</div>
+          </div>
+          <div class="vcards">
+            <div class="vcard hot">
+              <div class="shot"><img src="samples/work-lifeflow.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">LifeFlow Agent——本地生活数据决策分析管家</div>
+                <div class="ds">应用介绍： LifeFlow Agent 是一款整合本地生活信息与个人偏好、帮助用…</div>
+                <div class="vt"><b>302</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/1e952645-d8f6-4966-beb8-3d8012e9387c.jpg" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">住哪儿｜租房通勤决策器</div>
+                <div class="ds">把租房选择，压缩成一张可复核的决策表——不只看房租，而是把通勤、真实月成本、生活配…</div>
+                <div class="vt"><b>88</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/ce75c32d-28ad-497b-b803-bfcd2da83275.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">食刻｜新手做饭食谱平台</div>
+                <div class="ds">食刻是一款面向烹饪新手的智能食谱与家庭饮食管理平台，提供食谱搜索、冰箱食材匹配、饮…</div>
+                <div class="vt"><b>29</b> 票</div>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/bc9255bd-97ea-4cb6-b5b9-7161e880a4f0.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">北京摆摊点位分析</div><div class="desc">目标用户：想在北京摆摊的个体创业者，尤其是预算有限、需要快速验证首场摊位的新手。 解决痛点：北…</div></div>
+              <div class="votes">23<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/7cf5922e-dbc7-4ce5-9ad7-9aab2b656e7c.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">脑洞实验室</div><div class="desc">Thought Experiment Lab（脑洞实验室） 是一个基于 InfiniSynap…</div></div>
+              <div class="votes">11<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/0a6eafc8-1668-417d-89eb-0ee488ae28c9.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">明日足球</div><div class="desc">明日足球是一款面向全球球迷、足球内容创作者和业余教练的世界杯战术分析工具。用户可选择比赛，查看…</div></div>
+              <div class="votes">8<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">7</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/f0876176-5dda-4fae-b0ba-8163d185a450.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">个人仅供参考</div><div class="desc">「本人仅供参考」是一款基于AI的多视角自我认知工具——你填一份16题的行为问卷，写三段最近的真…</div></div>
+              <div class="votes">7<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">8</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/bd8594e0-f9ae-4523-ae54-5fe2e9d936eb.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">人生模拟器</div><div class="desc">解决了人闲的没事能干什么的问题。应用通过 InfiniSynapse API 在后台批量生成个…</div></div>
+              <div class="votes">6<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">9</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/aebb8909-fcd7-4370-ad40-545081227991.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">屏时</div><div class="desc">抽你的屏幕人格 · 生成可分享的 FIFA 式球星卡 · 纯浏览器本地识别，不打扰、不上传</div></div>
+              <div class="votes">6<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">10</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/b763cfb3-59d8-4791-a1f6-b54616a9d6fa.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">AI 装修报价审计员</div><div class="desc">作品描述： 上传装修报价单（Excel/CSV），AI 联网核查本地市场价，逐项比价、识别 6…</div></div>
+              <div class="votes">5<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">11</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/e5e46063-6b9a-4a9a-a085-3011557bd9b8.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">群聊气象站</div><div class="desc">不猜谁喜欢谁，也不给任何人贴标签。我们只观察真实的互动节奏、话题温度和群体参与，让沉默、升温与…</div></div>
+              <div class="votes">5<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">12</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/0f3c1b00-cf84-4002-9e55-6d494fc37c2a.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">装明白｜装修报价与合同风险联审 AI</div><div class="desc">装明白是一款面向装修业主的报价与合同风险联审 AI。用户上传多家公司报价单、装修合同和沟通承诺…</div></div>
+              <div class="votes">4<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">13</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/ai-travel-assistant.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">AI旅游助手</div><div class="desc">还在熬夜翻几十篇游记做旅游攻略？还在到当地才踩天价餐厅、冷门景点大坑？这款 AI 旅游助手彻底…</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">14</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/travel-budget-planner.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">travel-budget-planner</div><div class="desc">规划你的出行一切</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">15</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/smart-travel.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">智能旅游</div><div class="desc">当用户注册后在输入框填写想去的地方 智能体自动生成方案 用户相互之间也可以添加好友 也可以在广…</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">16</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/d73c767c-0786-4669-8259-aa646adcaa0a.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">智观天象</div><div class="desc">一、应用简介与使用场景 智观天象 SkyGazer · 智能天气决策系统 SkyGazer 致…</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">17</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/0b12396b-38a0-4e8b-902d-f3813279390b.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">逆向罗盘（Return Compass）</div><div class="desc">逆向罗盘（Return Compass）是一款面向多平台电商团队的退货损耗诊断工具。它支持导入…</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">18</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/162f1a1b-237c-40f9-b156-8c0a15beaa41.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">ReelSpark：基于短剧剧情的即时互动激发平台</div><div class="desc">ReelSpark 面向短剧平台运营方与内容创作者，解决传统播放中&quot;剧情推进与互动反馈断点&quot;的…</div></div>
+              <div class="votes">0<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">19</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/find-that-thing.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">帮我找到那个东西</div><div class="desc">InfiniSynapse 官方商品侦探：即使不知道商品名，也能按用途描述需求，并借助用户自己…</div></div>
+              <div class="votes">官方<span>示例</span></div>
+            </div></div>
+        </section>
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">04</div>
+            <div class="cat-title">产业<span class="c">商业</span></div>
+            <div class="cat-meta"><b>12</b> 件 · 最高 90 票</div>
+          </div>
+          <div class="vcards">
+            <div class="vcard hot">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/3422c9a2-d51c-48da-805a-9f025fca47e5.jpg" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">FORGE·X 智造洞察 —— 面向 3D 打印（增材…</div>
+                <div class="ds">FORGE·X 智造洞察是一款面向 3D 打印工厂的生产数据分析应用：车间主管与工…</div>
+                <div class="vt"><b>90</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/faf4f181-845a-4066-ba72-60519460f696.jpg" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">智能掌柜</div>
+                <div class="ds">本产品面向美甲、美容、餐饮等小微本地生活实体商家，依托 InfiniSynapse…</div>
+                <div class="vt"><b>80</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/06ae490b-f3b8-49dc-9172-54ac428f3369.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">掌柜参谋</div>
+                <div class="ds">掌柜参谋 ShopMind 是一款基于 InfiniSynapse 的泛数据分析 …</div>
+                <div class="vt"><b>34</b> 票</div>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/0a7fbc25-fe44-492f-9bf1-b8040a38bb85.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">竞品对标分析器</div><div class="desc">面向智能硬件、消费电子、快消品等实体产品研发与市场团队的 AI 竞品对标 Web 应用。前端基…</div></div>
+              <div class="votes">27<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/7e3eb93e-410f-4dd8-ac7e-a75942b47196.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">AI智能售卖机商品推荐</div><div class="desc">在无人零售领域，为运营商推荐商品补货策略以及销售分析</div></div>
+              <div class="votes">25<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/a89d6434-ff56-4bc7-891c-e817f8475e99.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">跨境智选 SuperSignal｜基于供需信号的跨境优选决策平台</div><div class="desc">SuperSignal 是一款面向跨境电商卖家、选品人员和产品创业者的机会判断工具，解决传统选…</div></div>
+              <div class="votes">17<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">7</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/1a774243-ac61-4fca-acbe-ecc7e3b8fc8d.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">退货雷达</div><div class="desc">退货雷达是一款专为中小电商运营团队打造的 AI 售后损失诊断平台，帮助商家从复杂的订单与退款数…</div></div>
+              <div class="votes">16<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">8</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/project-value-lab.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">ProjectValueLab</div><div class="desc">ProjectValueLab 是一个面向创业者、投资人、产品经理和创新团队的项目价值分析工具…</div></div>
+              <div class="votes">7<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">9</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/5faeebbd-2398-4b46-a1df-b28b6bfb437b.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">应用名称 统计分析系统（Statistical Analysi…</div><div class="desc">应用简介 基于 InfiniSynapse Server API 构建的全国口径统计分析应用。…</div></div>
+              <div class="votes">6<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">10</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/514fc4eb-9f0f-43ef-bcd8-3e508dea7424.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">数鉴交易市场</div><div class="desc">数据市场缺的不是货架，是成交前的信任。我们做的是「数据验货室」：买方只能提出经卖方批准的问题，…</div></div>
+              <div class="votes">6<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">11</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/09227965-6e06-4146-8ccb-cc6480a2f0e8.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">外贸实时获客系统</div><div class="desc">帮我外贸群体精准实时获取客源，数据源：b2b：阿里国际站、中国制造网、Global Sourc…</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">12</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/784b1724-dd3e-47f1-bd40-63df2e55c9fd.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">家居供应链协同平台</div><div class="desc">面向家居品牌供应链运营人员的风险协同工作台，聚合质量异常、交付延期、库存覆盖不足和供应商表现，…</div></div>
+              <div class="votes">0<span>票</span></div>
+            </div></div>
+        </section>
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">05</div>
+            <div class="cat-title">数据<span class="c">工具</span></div>
+            <div class="cat-meta"><b>13</b> 件 · 最高 809 票</div>
+          </div>
+          <div class="vcards">
+            <div class="vcard hot">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/02a80eee-ef2e-4db1-81a1-05544b6b9020.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">司南 SINAN · 多智能体证据研判引擎</div>
+                <div class="ds">司南 SINAN 是一个基于 InfiniSynapse 的&quot;多智能体证据研判引擎…</div>
+                <div class="vt"><b>809</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/2c74121d-f0e4-4133-aa85-23d909df6c90.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">SEO Health Checker</div>
+                <div class="ds">SEO Health Checker 是一款&quot;即开即用&quot;的 AI SEO 健康检测…</div>
+                <div class="vt"><b>155</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/7225bf64-1ac1-4304-a60a-51c9adce5fc5.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">SEO数据分析</div>
+                <div class="ds">作者暂未填写作品介绍，欢迎直接打开体验。</div>
+                <div class="vt"><b>18</b> 票</div>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/91f72a66-7f62-486d-8481-87b4e8597056.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">产品经理数据汇报工作台</div><div class="desc">将产品经理日常所需要进行的数据分析几大工作集成到了一个工作台中。按照科学的步骤完成数据分析的所…</div></div>
+              <div class="votes">18<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/a4038d86-7da7-4109-8189-9638452c2530.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">先鉴</div><div class="desc">这是一款面向学生、开发者、研究人员和自主学习者的 AI 视频学习助手，解决长视频信息密度不一、…</div></div>
+              <div class="votes">18<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/0a0a807d-bf91-4ab7-b017-c3a12b0db834.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">鼹鼠</div><div class="desc">【应用定位】 鼹鼠（谐音&quot;验数&quot;）是一个数字核查与可信生成引擎：把周报 / PPT / 底稿里…</div></div>
+              <div class="votes">10<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">7</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/3bd85347-0591-4e17-b597-5c05fe33bfbb.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">赛场扫描仪</div><div class="desc">参赛时最怕「赛道已经扎堆还浑然不知」：作品集信息散、方向挤不挤看不清，选题只能凭感觉。赛场扫描…</div></div>
+              <div class="votes">9<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">8</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/6992bfc9-3895-470c-9d92-f1d65cb189a2.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">Evidence Desk 专家发现台</div><div class="desc">面向科研管理、技术尽调、人才寻访与跨学科合作团队的证据型专家发现工具。用户输入中英文研究问题，…</div></div>
+              <div class="votes">5<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">9</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/f36b8965-5ac9-41bf-8a4b-bcec16ee3270.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">智能数据分析工作台</div><div class="desc">应用简介与使用场景 VibeScope 面向运营人员、内容创作者与中小团队。用户上传 CSV、…</div></div>
+              <div class="votes">5<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">10</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/repopulse.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">RepoPulse｜开源项目运营体检</div><div class="desc">RepoPulse 面向开源作者、独立开发者和小型研发团队。用户粘贴公开 GitHub 仓库地…</div></div>
+              <div class="votes">4<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">11</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/dataforngo-lab.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">DataForNGO Lab — Insight Engine</div><div class="desc">【解决的问题】NGO（公益组织）项目官员往往缺乏数据科学能力，难以诊断受助项目「为何」表现不佳…</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">12</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/analyx.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">析数 · 智能数据分析平台（英文名：Analyx · Inte…</div><div class="desc">上传数据或一句话填写表单，AI 自动生成专业分析报告——支持联网检索公开信息、在线分享与 PD…</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">13</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/report-writer.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">报告快写</div><div class="desc">InfiniSynapse 官方报告工作台：支持资料上传、知识库、结构化长报告、可审计引用、批…</div></div>
+              <div class="votes">官方<span>示例</span></div>
+            </div></div>
+        </section>
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">06</div>
+            <div class="cat-title">医疗 · 科研 · <span class="c">教育</span></div>
+            <div class="cat-meta"><b>9</b> 件 · 最高 239 票</div>
+          </div>
+          <div class="vcards">
+            <div class="vcard hot">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/81e5bfd1-5946-4092-9785-f662427e7ad8.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">医数智析</div>
+                <div class="ds">医数智析是一个基于 InfiniSynapse 构建的通用医疗健康数据分析应用，采…</div>
+                <div class="vt"><b>239</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/cf05fc03-cfa2-4c20-9add-3242b96fdcf8.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">语感工坊 YuGan</div>
+                <div class="ds">语感工坊（YuGan）是一款面向写作与表达训练人群的个人语感资产平台。用户在日常使…</div>
+                <div class="vt"><b>28</b> 票</div>
+              </div>
+            </div>
+            <div class="vcard">
+              <div class="shot"><img src="https://infinisynapse.cn/api/contest/gallery/images/49c633ae-e84c-4d50-9b38-b0ce4527ef5e.png" alt="" loading="eager"></div>
+              <div class="meta">
+                <div class="nm">投刊罗盘</div>
+                <div class="ds">输入题目或摘要，把研究主题、方法和投稿偏好转化为透明的期刊候选清单；同时比较适配度…</div>
+                <div class="vt"><b>11</b> 票</div>
+              </div>
+            </div>
+          </div>
+          <div class="items">
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/58767572-ae6d-48b2-8dd1-bab5871dda76.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">医路通 — 在线问诊与预约挂号系统</div><div class="desc">解决的问题：传统就医流程繁琐，患者需线下排队挂号、候诊时间长。医路通将问诊预约全流程线上化，让…</div></div>
+              <div class="votes">10<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/60c51f30-56ce-4054-a912-2cccfa047ca1.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">学习计划助手</div><div class="desc">学习计划助手是一个把&quot;想学的东西&quot;变成&quot;能照着做的计划&quot;的 AI 工具：你只要填上想学的领域、…</div></div>
+              <div class="votes">6<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/ming-dynasty.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">明朝那些事儿</div><div class="desc">1.应用简介： 这个项目的意义，让我们厘清明朝那些事，包含时间线、历代皇帝、人物志、大事记、文…</div></div>
+              <div class="votes">5<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">7</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/a74f71d5-dd6c-45b6-bb27-dd0c39b5b7f7.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">sageteach高中复盘工具</div><div class="desc">Sage 是面向高中生的学科复盘 App：拍一道错题或聊一下卡点，AI 帮你拆思路、标知识点，…</div></div>
+              <div class="votes">4<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">8</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/api/contest/gallery/images/69a5a4c4-6aa6-406c-ac53-63f9a952e02b.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">学情罗盘 EduCompass</div><div class="desc">学情罗盘是一款智能学情分析应用，用于解决成绩、考勤、作业和干预记录分散，数据分析耗时、风险学生…</div></div>
+              <div class="votes">4<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">9</div>
+              <div class="thumb"><img src="https://infinisynapse.cn/contest/gallery/wisp-science.png" alt="" loading="eager"></div>
+              <div class="body"><div class="name">wisp science</div><div class="desc">一个致力于科研发现的工作台，将会调用InfiniSynapse API 用于科研相关文献的检索</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div></div>
+        </section>
+      </div>
+
+      <div class="foot">
+        <div class="big">挑一个赛道 · <em>照着改</em> · 也能交一版</div>
+        <div class="link">https://infinisynapse.cn/contest/vibe-coding/gallery</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

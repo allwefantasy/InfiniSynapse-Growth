@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+    --muted: #9aa8c7;
+  }
+  body { background: #fff; }
+  .poster {
+    position: relative; width: 1080px;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff; overflow: hidden;
+  }
+  .glow {
+    position: absolute; width: 980px; height: 720px; left: 50%; top: -160px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.26) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .glow2 {
+    position: absolute; width: 720px; height: 520px; right: -100px; top: 40%;
+    background: radial-gradient(ellipse, rgba(53,224,232,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.045) 1px, transparent 1px);
+    background-size: 54px 54px; opacity: 0.75; pointer-events: none;
+  }
+  .wrap { position: relative; z-index: 4; padding: 64px 52px 56px; }
+
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 10px 24px; border-radius: 999px;
+    font-size: 22px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+  .eyebrow {
+    margin-top: 22px; font-size: 22px; font-weight: 700;
+    color: var(--gold); letter-spacing: 4px;
+  }
+  .hero {
+    margin-top: 10px; font-size: 64px; font-weight: 900; line-height: 1.15;
+    letter-spacing: 1px;
+  }
+  .hero .c { color: var(--cyan); }
+  .sub {
+    margin-top: 16px; font-size: 26px; color: var(--muted); line-height: 1.5;
+  }
+  .stats {
+    margin-top: 28px; display: flex; gap: 14px;
+  }
+  .stat {
+    flex: 1; padding: 18px 16px; border-radius: 16px; text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat .v {
+    font-size: 42px; font-weight: 900; color: var(--cyan); line-height: 1;
+  }
+  .stat .l { margin-top: 8px; font-size: 18px; color: var(--muted); font-weight: 600; }
+
+  .cats { margin-top: 40px; display: flex; flex-direction: column; gap: 22px; }
+
+  .cat {
+    border-radius: 22px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+  }
+  .cat-head {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 22px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .cat-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; color: var(--cyan);
+    letter-spacing: 0.5px;
+    background: rgba(53,224,232,0.12);
+    border: 1px solid rgba(53,224,232,0.28);
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .cat-title { font-size: 30px; font-weight: 900; }
+  .cat-title .c { color: var(--cyan); }
+  .cat-meta {
+    margin-left: auto; font-size: 18px; color: var(--muted); font-weight: 700;
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .cat-meta b { color: var(--gold); }
+
+  .items { padding: 14px 18px 18px; display: flex; flex-direction: column; gap: 10px; }
+  .item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px; border-radius: 14px;
+    background: rgba(0,0,0,0.22);
+    border: 1px solid rgba(120,160,255,0.14);
+  }
+  .item.hot {
+    border-color: rgba(242,193,78,0.45);
+    background: rgba(242,193,78,0.08);
+  }
+  .rank {
+    flex: 0 0 auto; width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 800; color: #070b16;
+    background: rgba(53,224,232,0.85);
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .item.hot .rank { background: var(--gold); }
+  .body { min-width: 0; flex: 1; }
+  .name { font-size: 24px; font-weight: 800; line-height: 1.25; }
+  .desc {
+    margin-top: 4px; font-size: 17px; color: var(--muted); line-height: 1.35;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .votes {
+    flex: 0 0 auto; text-align: right;
+    font-size: 28px; font-weight: 900; color: #fff; line-height: 1;
+  }
+  .votes span { display: block; margin-top: 4px; font-size: 15px; color: var(--muted); font-weight: 600; }
+  .item.hot .votes { color: var(--gold); }
+
+  .foot {
+    margin-top: 36px; text-align: center;
+    padding: 22px 20px; border-radius: 18px;
+    background: rgba(46,107,255,0.16);
+    border: 1px solid rgba(120,160,255,0.35);
+  }
+  .foot .big { font-size: 28px; font-weight: 800; line-height: 1.4; }
+  .foot .big em {
+    font-style: normal; color: #1b1206;
+    background: var(--gold); padding: 2px 10px; border-radius: 8px;
+  }
+  .foot .link {
+    margin-top: 10px; font-size: 20px; color: var(--cyan); font-weight: 700;
+    word-break: break-all;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="glow2"></div>
+    <div class="grid"></div>
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="eyebrow">作品长廊 · 按类别速览</div>
+      <div class="hero">39 件真实作品<br><span class="c">按场景分好了</span></div>
+      <div class="sub">来自比赛作品长廊的参赛提交（不含官方示例）· 票数实时统计</div>
+
+      <div class="stats">
+        <div class="stat"><div class="v">39</div><div class="l">参赛作品</div></div>
+        <div class="stat"><div class="v">6</div><div class="l">场景类别</div></div>
+        <div class="stat"><div class="v">7·31</div><div class="l">提交截止</div></div>
+      </div>
+
+      <div class="cats">
+
+        <!-- 1 财务理财 -->
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">01</div>
+            <div class="cat-title">财务<span class="c">理财</span></div>
+            <div class="cat-meta"><b>6</b> 件 · 最高 85 票</div>
+          </div>
+          <div class="items">
+            <div class="item hot">
+              <div class="rank">1</div>
+              <div class="body"><div class="name">智析账本 BillLens</div><div class="desc">上传账单流水 → 消费结构 / 异常预警 / 可执行建议</div></div>
+              <div class="votes">85<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">2</div>
+              <div class="body"><div class="name">一眼看懂这只股票</div><div class="desc">财报与财务数据 → 赚钱逻辑 / 健康度 / 关注点</div></div>
+              <div class="votes">8<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">3</div>
+              <div class="body"><div class="name">提前退休研究所</div><div class="desc">多源公开数据交叉研判「几岁能退休」</div></div>
+              <div class="votes">5<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="body"><div class="name">股票查询系统</div><div class="desc">面向股民的查询与洞察入口</div></div>
+              <div class="votes">3<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="body"><div class="name">财格 · AI 犀利点评理财性格</div><div class="desc">轻量输入 → 趣味人设标签 + 毒舌但不伤人的点评</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="body"><div class="name">FinPDF Extract</div><div class="desc">金融 PDF → 提取表格 / 双屏核对 / 导出</div></div>
+              <div class="votes">1<span>票</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2 生活决策 -->
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">02</div>
+            <div class="cat-title">生活<span class="c">决策</span></div>
+            <div class="cat-meta"><b>8</b> 件 · 最高 71 票</div>
+          </div>
+          <div class="items">
+            <div class="item hot">
+              <div class="rank">1</div>
+              <div class="body"><div class="name">LifeFlow Agent</div><div class="desc">本地生活数据决策管家 · 多管家协商 / 未来预演</div></div>
+              <div class="votes">71<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">2</div>
+              <div class="body"><div class="name">个人仅供参考</div><div class="desc">问卷 + 经历 + 朋友匿名打分 → 三镜自我认知报告</div></div>
+              <div class="votes">5<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">3</div>
+              <div class="body"><div class="name">装明白｜装修报价与合同风险联审</div><div class="desc">多份报价 + 合同 → 漏项 / 增项 / 谈价清单</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="body"><div class="name">travel-budget-planner</div><div class="desc">出行预算规划，把行程花费算清楚</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="body"><div class="name">AI 旅游助手</div><div class="desc">目的地输入 → 智能行程方案，少踩坑</div></div>
+              <div class="votes">1<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="body"><div class="name">智能旅游</div><div class="desc">行程生成 + 好友 / 见闻广场</div></div>
+              <div class="votes">1<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">7</div>
+              <div class="body"><div class="name">屏时</div><div class="desc">抽屏幕人格 · 生成可分享球星卡</div></div>
+              <div class="votes">1<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">8</div>
+              <div class="body"><div class="name">住哪儿｜广佛租房通勤决策器</div><div class="desc">预算 + 通勤权重 → TOP3 推荐与 AI 报告</div></div>
+              <div class="votes">0<span>票</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3 职场求职 -->
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">03</div>
+            <div class="cat-title">职场<span class="c">求职</span></div>
+            <div class="cat-meta"><b>5</b> 件 · 最高 38 票</div>
+          </div>
+          <div class="items">
+            <div class="item hot">
+              <div class="rank">1</div>
+              <div class="body"><div class="name">Offer 雷达</div><div class="desc">入职前公司尽调 · 经营 / 司法 / 舆情 / 岗位匹配</div></div>
+              <div class="votes">38<span>票</span></div>
+            </div>
+            <div class="item hot">
+              <div class="rank">2</div>
+              <div class="body"><div class="name">职牌</div><div class="desc">简历上传 → 市场反向诊断 + 8 种职牌身份卡</div></div>
+              <div class="votes">23<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">3</div>
+              <div class="body"><div class="name">就业气象局</div><div class="desc">14 数据源 · 就业周期 / 城市选择等七视图</div></div>
+              <div class="votes">8<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="body"><div class="name">JobHunter Pro</div><div class="desc">全网招聘聚合 + AI 匹配 / 简历诊断</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="body"><div class="name">仲裁小助手</div><div class="desc">赔偿计算单 / 申请书 / 证据清单一键生成</div></div>
+              <div class="votes">0<span>票</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4 产业商业 -->
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">04</div>
+            <div class="cat-title">产业<span class="c">商业</span></div>
+            <div class="cat-meta"><b>8</b> 件 · 最高 46 票</div>
+          </div>
+          <div class="items">
+            <div class="item hot">
+              <div class="rank">1</div>
+              <div class="body"><div class="name">FORGE·X 智造洞察</div><div class="desc">3D 打印工厂生产数据分析 · 自然语言问机台故障</div></div>
+              <div class="votes">46<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">2</div>
+              <div class="body"><div class="name">AI 智能售卖机商品推荐</div><div class="desc">无人零售补货策略与销售分析</div></div>
+              <div class="votes">13<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">3</div>
+              <div class="body"><div class="name">竞品对标分析器</div><div class="desc">面向智能硬件 / 消费电子 / 快消的竞品对标</div></div>
+              <div class="votes">11<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="body"><div class="name">ProjectValueLab</div><div class="desc">创业项目价值分析 · 市场 / 竞品 / 可行性报告</div></div>
+              <div class="votes">5<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="body"><div class="name">产品经理数据汇报工作台</div><div class="desc">仪表盘 / 周报 / PPT / 行研一站式</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="body"><div class="name">数鉴交易市场</div><div class="desc">数据验货室 · 数据不出域，结论可核验</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">7</div>
+              <div class="body"><div class="name">OPC Gate｜一人公司政策诊断</div><div class="desc">政策匹配 + 七天行动计划</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">8</div>
+              <div class="body"><div class="name">外贸实时获客系统</div><div class="desc">B2B / 社媒 / 进出口记录多源获客</div></div>
+              <div class="votes">0<span>票</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5 数据工具 -->
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">05</div>
+            <div class="cat-title">数据<span class="c">工具</span></div>
+            <div class="cat-meta"><b>5</b> 件 · 最高 10 票</div>
+          </div>
+          <div class="items">
+            <div class="item hot">
+              <div class="rank">1</div>
+              <div class="body"><div class="name">SEO 数据分析</div><div class="desc">GSC 等搜索数据体检与机会诊断</div></div>
+              <div class="votes">10<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">2</div>
+              <div class="body"><div class="name">鼹鼠｜数字核查引擎</div><div class="desc">周报 / PPT 数字对着底稿重算 · 三档结论带出处</div></div>
+              <div class="votes">8<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">3</div>
+              <div class="body"><div class="name">析数 Analyx</div><div class="desc">13 大场景决策分析平台 · 上传 / 表单 / 联网</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="body"><div class="name">RepoPulse｜开源项目运营体检</div><div class="desc">GitHub 仓库五维健康评分与行动建议</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="body"><div class="name">司南 SINAN · 多智能体证据研判</div><div class="desc">高风险决策场景 · 无证据不立论</div></div>
+              <div class="votes">1<span>票</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6 医疗科研教育 -->
+        <section class="cat">
+          <div class="cat-head">
+            <div class="cat-icon">06</div>
+            <div class="cat-title">医疗 · 科研 · <span class="c">教育</span></div>
+            <div class="cat-meta"><b>7</b> 件 · 最高 16 票</div>
+          </div>
+          <div class="items">
+            <div class="item hot">
+              <div class="rank">1</div>
+              <div class="body"><div class="name">医数智析</div><div class="desc">患者档案 + 医生工作台 · 跨时间健康趋势与风险分层</div></div>
+              <div class="votes">16<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">2</div>
+              <div class="body"><div class="name">投刊罗盘</div><div class="desc">题目 / 摘要 → 期刊适配度与投稿风险清单</div></div>
+              <div class="votes">6<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">3</div>
+              <div class="body"><div class="name">wisp science</div><div class="desc">科研发现工作台 · 文献检索与分析</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">4</div>
+              <div class="body"><div class="name">明朝那些事儿</div><div class="desc">时间线 / 帝王 / 人物志 / 大事记梳理</div></div>
+              <div class="votes">2<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">5</div>
+              <div class="body"><div class="name">Evidence Desk 专家发现台</div><div class="desc">研究问题 → OpenReview 专家候选与核验清单</div></div>
+              <div class="votes">1<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">6</div>
+              <div class="body"><div class="name">DataForNGO Lab</div><div class="desc">公益项目洞察引擎 · 合规可审计决策</div></div>
+              <div class="votes">1<span>票</span></div>
+            </div>
+            <div class="item">
+              <div class="rank">7</div>
+              <div class="body"><div class="name">sageteach 高中复盘工具</div><div class="desc">拍错题 → 识考点 → 辅学跟进</div></div>
+              <div class="votes">0<span>票</span></div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="foot">
+        <div class="big">逛长廊 · 给人气作品<em>投一票</em> · 也挑灵感开做</div>
+        <div class="link">https://infinisynapse.cn/contest/vibe-coding/gallery</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

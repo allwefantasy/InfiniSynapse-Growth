@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+    --blue: #6ea8ff;
+    --muted: #9aa8c7;
+    --line: rgba(255,255,255,0.1);
+  }
+  body { background: #fff; }
+
+  .poster {
+    position: relative; width: 1080px;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .glow {
+    position: absolute; width: 980px; height: 720px;
+    left: 50%; top: -160px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.22) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .glow2 {
+    position: absolute; width: 700px; height: 500px;
+    right: -120px; bottom: 280px;
+    background: radial-gradient(ellipse, rgba(53,224,232,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.045) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  .wrap {
+    position: relative; z-index: 4;
+    padding: 72px 64px 64px;
+  }
+
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 12px 26px; border-radius: 999px;
+    font-size: 24px; letter-spacing: 0.5px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+
+  .subtitle {
+    margin-top: 18px; font-size: 28px; color: var(--muted); letter-spacing: 2px;
+  }
+
+  .hero {
+    margin-top: 40px;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 28px;
+  }
+  .hero-left { flex: 1; min-width: 0; }
+  .kicker {
+    font-size: 28px; font-weight: 600;
+    color: var(--gold); letter-spacing: 6px;
+  }
+  .count {
+    margin-top: 4px; display: flex; align-items: baseline; gap: 12px;
+  }
+  .count .num {
+    font-size: 168px; font-weight: 900; line-height: 0.9; color: var(--cyan);
+    text-shadow: 0 0 40px rgba(53,224,232,0.35);
+    font-family: "SF Pro Display", -apple-system, sans-serif;
+  }
+  .count .unit {
+    font-size: 56px; font-weight: 800; color: #8fb2ff;
+  }
+  .deadline {
+    margin-top: 8px; font-size: 30px; color: #d7def0; font-weight: 600;
+  }
+  .deadline b { color: var(--gold); }
+
+  .hero-right {
+    width: 420px;
+    padding: 28px 26px;
+    border-radius: 20px;
+    background: rgba(46,107,255,0.18);
+    border: 1px solid rgba(120,160,255,0.35);
+  }
+  .hero-right .big {
+    font-size: 34px; font-weight: 800; line-height: 1.35;
+  }
+  .hero-right .big em {
+    font-style: normal; color: #1b1206;
+    background: var(--gold); padding: 2px 12px; border-radius: 8px;
+  }
+  .hero-right .sub {
+    margin-top: 12px; font-size: 24px; color: #c5d0ea; line-height: 1.45;
+  }
+
+  .stats {
+    margin-top: 28px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .stat {
+    padding: 22px 16px; border-radius: 16px; text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--line);
+  }
+  .stat .v { font-size: 40px; font-weight: 800; }
+  .stat .v.go { color: var(--gold); }
+  .stat .v.cy { color: var(--cyan); }
+  .stat .l { margin-top: 6px; font-size: 22px; color: var(--muted); }
+
+  .section-title {
+    margin-top: 48px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-title h2 {
+    font-size: 36px; font-weight: 800; letter-spacing: 1px; white-space: nowrap;
+  }
+  .section-title .line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(120,160,255,0.45), transparent);
+  }
+  .section-title .tag {
+    font-size: 22px; color: var(--cyan);
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid rgba(53,224,232,0.35);
+    background: rgba(53,224,232,0.08);
+    white-space: nowrap;
+  }
+
+  .skeleton {
+    margin-top: 20px;
+    padding: 22px 24px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(120,160,255,0.35);
+    font-size: 24px; color: #c5d0ea; line-height: 1.5;
+  }
+  .skeleton b { color: var(--cyan); font-weight: 700; }
+
+  .cats { margin-top: 28px; display: flex; flex-direction: column; gap: 28px; }
+
+  .cat {}
+  .cat-head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .cat-head .bar {
+    width: 6px; height: 28px; border-radius: 3px;
+    background: var(--cyan);
+  }
+  .cat-head h3 {
+    font-size: 28px; font-weight: 700; color: #e8eeff;
+  }
+
+  .topics { display: flex; flex-direction: column; gap: 12px; }
+
+  .topic {
+    display: flex; flex-direction: column; gap: 16px;
+    padding: 22px 22px 22px 18px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid var(--line);
+  }
+  .topic-row {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .topic .num {
+    width: 64px; height: 64px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 900; color: #070b16;
+    background: linear-gradient(135deg, var(--cyan), #6ea8ff);
+  }
+  .topic .body { min-width: 0; padding-top: 2px; }
+  .topic .title {
+    font-size: 30px; font-weight: 800; color: #fff; line-height: 1.3;
+  }
+  .topic .desc {
+    margin-top: 8px; font-size: 23px; color: var(--muted); line-height: 1.45;
+  }
+  .shot {
+    margin-left: 80px;
+    padding: 14px;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.28);
+    border: 1px solid rgba(120,160,255,0.22);
+  }
+  .shot-cap {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px;
+    font-size: 20px; color: #c5d0ea; font-weight: 600;
+  }
+  .shot-cap .pill {
+    font-size: 18px; font-weight: 700; color: #070b16;
+    background: var(--cyan); padding: 2px 10px; border-radius: 999px;
+  }
+  .shot img {
+    display: block; width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .diff {
+    margin-top: 4px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 20px; font-weight: 700;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+  .diff.g {
+    color: #7dffb2;
+    background: rgba(125,255,178,0.08);
+    border-color: rgba(125,255,178,0.28);
+  }
+  .diff.y {
+    color: var(--gold);
+    background: rgba(242,193,78,0.08);
+    border-color: rgba(242,193,78,0.3);
+  }
+  .diff.b {
+    color: #9ec0ff;
+    background: rgba(110,168,255,0.1);
+    border-color: rgba(110,168,255,0.3);
+  }
+
+  .tips {
+    margin-top: 36px;
+    padding: 26px 28px;
+    border-radius: 18px;
+    background: rgba(46,107,255,0.12);
+    border: 1px solid rgba(120,160,255,0.28);
+  }
+  .tips h4 {
+    font-size: 26px; font-weight: 800; color: var(--gold); margin-bottom: 12px;
+  }
+  .tips ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .tips li {
+    font-size: 24px; color: #d7def0; line-height: 1.45;
+    padding-left: 22px; position: relative;
+  }
+  .tips li::before {
+    content: "";
+    position: absolute; left: 0; top: 12px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--cyan);
+  }
+
+  .foot {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .cta {
+    font-size: 34px; font-weight: 800; color: #fff;
+  }
+  .cta .c { color: var(--cyan); }
+  .urls {
+    margin-top: 16px;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 22px; color: rgba(150,200,255,0.55);
+    line-height: 1.7;
+  }
+  .qr-block {
+    margin-top: 28px;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .qr-card {
+    padding: 12px; border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 0 28px rgba(53,224,232,0.15);
+  }
+  .qr-card img {
+    width: 180px; height: 180px; display: block;
+    object-fit: contain;
+  }
+  .qr-label {
+    font-size: 28px; font-weight: 700; color: #fff;
+  }
+  .qr-label .c { color: var(--cyan); }
+  .qr-hint {
+    font-size: 20px; color: #9aa8c7;
+  }
+  .legend {
+    margin-top: 18px;
+    font-size: 20px; color: rgba(154,168,199,0.75);
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="glow2"></div>
+    <div class="grid"></div>
+
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="subtitle">Vibe Coding 泛数据分析应用开发大赛</div>
+
+      <div class="hero">
+        <div class="hero-left">
+          <div class="kicker">距 提 交 截 止</div>
+          <div class="count"><span class="num">10</span><span class="unit">天</span></div>
+          <div class="deadline">提交截止：<b>7 月 31 日</b></div>
+        </div>
+        <div class="hero-right">
+          <div class="big">参与奖 50 名额<em>尚未坐满</em></div>
+          <div class="sub">交一个能跑、有场景、真接 API 的作品，拿奖概率很高</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="v">80+</div><div class="l">已报名</div></div>
+        <div class="stat"><div class="v go">50</div><div class="l">参与奖名额</div></div>
+        <div class="stat"><div class="v cy">10 个</div><div class="l">周末可做选题</div></div>
+      </div>
+
+      <div class="section-title">
+        <h2>不知道做什么？照着改</h2>
+        <div class="line"></div>
+        <div class="tag">完整 10 选题</div>
+      </div>
+
+      <div class="skeleton">
+        共同骨架：<b>输入 / 上传 → 调 InfiniSynapse API → 出表格 / 图表 / 报告</b><br>
+        会这一条，下面 10 个都能套。
+      </div>
+
+      <div class="cats">
+        <!-- 电商 / 消费 -->
+        <div class="cat">
+          <div class="cat-head"><div class="bar"></div><h3>电商 / 消费</h3></div>
+          <div class="topics">
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">01</div>
+                <div class="body">
+                  <div class="title">店铺差评体检助手</div>
+                  <div class="desc">上传评价列表，AI 归类高频吐槽、算负面占比、给改进建议。场景清晰，最适合新手第一个作品。</div>
+                </div>
+                <div class="diff g">一天可完成</div>
+              </div>
+            </div>
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">02</div>
+                <div class="body">
+                  <div class="title">跨平台比价 &amp; 券后到手价</div>
+                  <div class="desc">输入商品名，整理各平台价格、算券后价、读差评避坑，输出比价表。可做美妆 / 数码等垂直细分。</div>
+                </div>
+                <div class="diff y">一个周末</div>
+              </div>
+              <div class="shot">
+                <div class="shot-cap"><span class="pill">样板</span>省钱比价助手 · 可直接点开体验</div>
+                <img src="samples/02-shopping.png" alt="省钱比价助手">
+              </div>
+            </div>
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">03</div>
+                <div class="body">
+                  <div class="title">选品趋势速览</div>
+                  <div class="desc">上传销售 / 搜索数据，找出增长与下滑品类，给下周备货建议。B 端小卖家刚需。</div>
+                </div>
+                <div class="diff y">一个周末</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 职场 / 教育 -->
+        <div class="cat">
+          <div class="cat-head"><div class="bar"></div><h3>职场 / 教育</h3></div>
+          <div class="topics">
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">04</div>
+                <div class="body">
+                  <div class="title">入职前公司尽调助手 · 细分版</div>
+                  <div class="desc">输入公司名，核验主体、融资、口碑、风险信号。可只做某一行业，比通用版更快落地。</div>
+                </div>
+                <div class="diff y">一个周末</div>
+              </div>
+              <div class="shot">
+                <div class="shot-cap"><span class="pill">参赛作品</span>Offer 雷达 · 对着做细分版就行</div>
+                <img src="samples/04b-offer-radar.png" alt="Offer 雷达">
+              </div>
+            </div>
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">05</div>
+                <div class="body">
+                  <div class="title">简历 - JD 匹配诊断</div>
+                  <div class="desc">上传简历 + 目标 JD，打匹配分、指出缺失关键词、给修改建议。学生党高频场景。</div>
+                </div>
+                <div class="diff g">一天可完成</div>
+              </div>
+            </div>
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">06</div>
+                <div class="body">
+                  <div class="title">高考 / 考研志愿分数位次分析</div>
+                  <div class="desc">输入分数、位次、意向，给出冲稳保参考。数据准备成本略高，但话题性强。</div>
+                </div>
+                <div class="diff b">周末 + 打磨</div>
+              </div>
+              <div class="shot">
+                <div class="shot-cap"><span class="pill">样板</span>高考报考选校 AI 助手 · 交互可照着搬</div>
+                <img src="samples/05-gaokao.png" alt="高考报考选校 AI 助手">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 数据 / 运营 -->
+        <div class="cat">
+          <div class="cat-head"><div class="bar"></div><h3>数据 / 运营</h3></div>
+          <div class="topics">
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">07</div>
+                <div class="body">
+                  <div class="title">SEO 数据十维体检</div>
+                  <div class="desc">上传 GSC 导出数据，出核心指标、趋势、快速机会与诊断建议。已有样板，改个皮就是新作品。</div>
+                </div>
+                <div class="diff y">一个周末</div>
+              </div>
+              <div class="shot">
+                <div class="shot-cap"><span class="pill">参赛作品</span>GSC 周度数据对比 · Excel 进、对比图出</div>
+                <img src="samples/06b-gsc-weekly.png" alt="GSC 周度数据对比">
+              </div>
+            </div>
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">08</div>
+                <div class="body">
+                  <div class="title">广告投放周报生成器</div>
+                  <div class="desc">上传投放数据，算 ROI、找异常、生成带图表周报并可导出。中小投手刚需。</div>
+                </div>
+                <div class="diff y">一个周末</div>
+              </div>
+              <div class="shot">
+                <div class="shot-cap"><span class="pill">样板</span>报告快写 · 抄「数据进 → 报告出」闭环</div>
+                <img src="samples/06-report-writer.png" alt="报告快写">
+              </div>
+            </div>
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">09</div>
+                <div class="body">
+                  <div class="title">社媒评论舆情看板</div>
+                  <div class="desc">上传评论 / 私信，做情绪分类、提炼话题、标记需人工跟进的负面内容。</div>
+                </div>
+                <div class="diff b">周末 + 打磨</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 生活 / 决策 -->
+        <div class="cat">
+          <div class="cat-head"><div class="bar"></div><h3>生活 / 决策</h3></div>
+          <div class="topics">
+            <div class="topic">
+              <div class="topic-row">
+                <div class="num">10</div>
+                <div class="body">
+                  <div class="title">租房 / Offer 决策打分器</div>
+                  <div class="desc">输入 2–3 个候选（房源或 offer）关键信息，按你的权重打分给建议。轻量、好演示、易出彩。</div>
+                </div>
+                <div class="diff g">一天可完成</div>
+              </div>
+              <div class="shot">
+                <div class="shot-cap"><span class="pill">参赛作品</span>析数 · 收窄成租房 / Offer 打分更容易交</div>
+                <img src="samples/08b-xishu.png" alt="析数">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tips">
+        <h4>怎么挑最快交卷</h4>
+        <ul>
+          <li>求稳拿参与奖：选「一天可完成」——选题 01 / 05 / 10，小而完整就够</li>
+          <li>想冲名次：选 02 / 07 / 08——场景清楚，UI 再打磨一下</li>
+          <li>有真实用户调用 API，评委权重更高；闷头做完不给别人用，挺亏</li>
+        </ul>
+      </div>
+
+      <div class="foot">
+        <div class="cta">挑一个 · 照着改 · <span class="c">今天就交</span></div>
+        <div class="urls">
+          活动页 https://infinisynapse.cn/contest/vibe-coding<br>
+          作品长廊 https://infinisynapse.cn/contest/vibe-coding/gallery
+        </div>
+        <div class="qr-block">
+          <div class="qr-card">
+            <img src="wechat-group-qr.png" alt="活动群二维码">
+          </div>
+          <div class="qr-label">扫码加入<span class="c">大赛活动群</span></div>
+          <div class="qr-hint">技术答疑 · 进度打卡 · 赛事通知</div>
+        </div>
+        <div class="legend">难度：一天可完成 ｜ 一个周末 ｜ 周末 + 打磨</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

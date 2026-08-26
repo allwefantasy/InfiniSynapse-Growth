@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+  }
+  body { background: #fff; }
+
+  .poster {
+    position: relative; width: 1080px; height: 1350px; overflow: hidden;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  /* soft single glow, no multi-color blobs */
+  .glow {
+    position: absolute; width: 900px; height: 700px;
+    left: 50%; top: -120px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.22) 0%, transparent 68%);
+  }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.05) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: 0.7;
+  }
+
+  .hud { position:absolute; width:36px; height:36px; border:2px solid rgba(120,160,255,0.35); z-index:5; }
+  .hud.tl { top:34px; left:34px; border-right:none; border-bottom:none; }
+  .hud.tr { top:34px; right:34px; border-left:none; border-bottom:none; }
+  .hud.bl { bottom:34px; left:34px; border-right:none; border-top:none; }
+  .hud.br { bottom:34px; right:34px; border-left:none; border-top:none; }
+
+  .wrap {
+    position: relative; z-index: 4; height: 100%;
+    padding: 96px 84px 80px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 12px 26px; border-radius: 999px;
+    font-size: 26px; letter-spacing: 0.5px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+
+  .subtitle {
+    margin-top: 22px; font-size: 30px; color: #9aa8c7; letter-spacing: 2px;
+  }
+
+  .kicker {
+    margin-top: 72px; font-size: 36px; font-weight: 600;
+    color: var(--gold); letter-spacing: 8px;
+  }
+
+  .count {
+    margin-top: 8px; display: flex; align-items: baseline; justify-content: center; gap: 18px;
+  }
+  .count .num {
+    font-size: 360px; font-weight: 900; line-height: 0.92; color: var(--cyan);
+    text-shadow: 0 0 50px rgba(53,224,232,0.4);
+    font-family: "SF Pro Display", -apple-system, sans-serif;
+  }
+  .count .unit {
+    font-size: 96px; font-weight: 800; color: #8fb2ff;
+  }
+  .deadline {
+    margin-top: 8px; font-size: 38px; color: #d7def0; font-weight: 600; letter-spacing: 2px;
+  }
+  .deadline b { color: var(--gold); }
+
+  .banner {
+    margin-top: 56px; width: 100%; padding: 34px 30px; border-radius: 20px;
+    background: rgba(46,107,255,0.18);
+    border: 1px solid rgba(120,160,255,0.35);
+  }
+  .banner .big { font-size: 50px; font-weight: 800; letter-spacing: 1px; }
+  .banner .big em {
+    font-style: normal; color: #1b1206;
+    background: var(--gold); padding: 2px 16px; border-radius: 10px;
+  }
+  .banner .sub { margin-top: 14px; font-size: 30px; color: #c5d0ea; }
+
+  .stats { margin-top: 40px; width: 100%; display: flex; justify-content: space-between; gap: 20px; }
+  .stat {
+    flex: 1; padding: 30px 12px; border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat .v { font-size: 56px; font-weight: 800; color: #fff; }
+  .stat .v.go { color: var(--gold); }
+  .stat .v.cy { color: var(--cyan); }
+  .stat .l { margin-top: 10px; font-size: 26px; color: #9aa8c7; letter-spacing: 1px; }
+
+  .foot { margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .cta { font-size: 34px; font-weight: 700; color: #fff; }
+  .cta .c { color: var(--cyan); }
+  .url {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 24px; color: rgba(150,200,255,0.55);
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="grid"></div>
+    <div class="hud tl"></div><div class="hud tr"></div><div class="hud bl"></div><div class="hud br"></div>
+
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="subtitle">Vibe Coding 泛数据分析应用开发大赛</div>
+
+      <div class="kicker">距 提 交 截 止</div>
+      <!-- 每天改这个数字即可 -->
+      <div class="count"><span class="num">11</span><span class="unit">天</span></div>
+      <div class="deadline">提交截止：<b>7 月 31 日</b></div>
+
+      <div class="banner">
+        <div class="big">参与奖 50 名额<em>尚未坐满</em></div>
+        <div class="sub">现在提交一个达标作品，大概率有奖</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="v">80+</div><div class="l">已报名</div></div>
+        <div class="stat"><div class="v go">50</div><div class="l">参与奖名额</div></div>
+        <div class="stat"><div class="v cy">一个周末</div><div class="l">即可完成</div></div>
+      </div>
+
+      <div class="foot">
+        <div class="cta">扫码进群冲刺 · <span class="c">今天就动手</span></div>
+        <div class="url">&gt; app.infinisynapse.cn/tasks</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

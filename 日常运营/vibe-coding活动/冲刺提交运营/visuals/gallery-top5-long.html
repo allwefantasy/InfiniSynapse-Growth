@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+    --muted: #9aa8c7;
+  }
+  body { background: #fff; }
+
+  .poster {
+    position: relative; width: 1080px;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .glow {
+    position: absolute; width: 980px; height: 720px;
+    left: 50%; top: -160px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.24) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .glow2 {
+    position: absolute; width: 720px; height: 520px;
+    right: -120px; bottom: 180px;
+    background: radial-gradient(ellipse, rgba(53,224,232,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.045) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  .wrap {
+    position: relative; z-index: 4;
+    padding: 72px 56px 64px;
+  }
+
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 12px 26px; border-radius: 999px;
+    font-size: 24px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+
+  .live {
+    margin-top: 20px;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px; border-radius: 999px;
+    font-size: 22px; font-weight: 700; color: #070b16;
+    background: var(--gold);
+  }
+  .live i {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #e11d48; display: inline-block;
+  }
+
+  .subtitle {
+    margin-top: 16px; font-size: 28px; color: var(--muted); letter-spacing: 2px;
+  }
+
+  .hero-title {
+    margin-top: 28px;
+    font-size: 64px; font-weight: 900; line-height: 1.15; letter-spacing: 1px;
+  }
+  .hero-title .c { color: var(--cyan); }
+  .hero-desc {
+    margin-top: 18px;
+    font-size: 28px; color: #c5d0ea; line-height: 1.5;
+  }
+
+  .stats {
+    margin-top: 28px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  .stat {
+    padding: 22px 12px; border-radius: 16px; text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat .v { font-size: 40px; font-weight: 900; color: var(--cyan); }
+  .stat .v.go { color: var(--gold); }
+  .stat .l { margin-top: 8px; font-size: 22px; color: var(--muted); }
+
+  .section {
+    margin-top: 44px;
+  }
+  .section-head {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 20px;
+  }
+  .section-head h2 {
+    font-size: 34px; font-weight: 800; white-space: nowrap;
+  }
+  .section-head .line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(120,160,255,0.45), transparent);
+  }
+  .section-head .tag {
+    font-size: 20px; color: var(--cyan);
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid rgba(53,224,232,0.35);
+    background: rgba(53,224,232,0.08);
+  }
+
+  .works {
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .work {
+    padding: 22px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .work-meta {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 14px; margin-bottom: 10px;
+  }
+  .work-meta .left { text-align: left; min-width: 0; }
+  .work-meta .rank {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 8px;
+  }
+  .work-meta .rank .n {
+    font-size: 18px; font-weight: 800; color: #070b16;
+    background: var(--gold); padding: 4px 12px; border-radius: 999px;
+  }
+  .work-meta .rank .n.alt {
+    background: var(--cyan);
+  }
+  .work-meta .name {
+    font-size: 34px; font-weight: 800; line-height: 1.25;
+  }
+  .work-meta .sub {
+    margin-top: 6px; font-size: 24px; color: var(--muted);
+  }
+  .votes {
+    flex-shrink: 0;
+    padding: 12px 16px; border-radius: 14px; text-align: center;
+    background: rgba(242,193,78,0.12);
+    border: 1px solid rgba(242,193,78,0.35);
+  }
+  .votes .num {
+    font-size: 36px; font-weight: 900; color: var(--gold); line-height: 1;
+  }
+  .votes .lab {
+    margin-top: 6px; font-size: 18px; color: #d7c28a; font-weight: 600;
+  }
+  .work .desc {
+    margin: 12px 0 16px;
+    font-size: 24px; color: #c5d0ea; line-height: 1.5; text-align: left;
+  }
+  .work .frame {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: #0d1424;
+    box-shadow: 0 14px 36px rgba(0,0,0,0.28);
+  }
+  .work .frame img {
+    width: 100%; height: 420px;
+    object-fit: cover; object-position: top center;
+    display: block;
+  }
+
+  .tips {
+    margin-top: 40px;
+    padding: 28px;
+    border-radius: 18px;
+    background: rgba(46,107,255,0.14);
+    border: 1px solid rgba(120,160,255,0.3);
+  }
+  .tips h4 {
+    font-size: 28px; font-weight: 800; color: var(--gold); margin-bottom: 14px;
+  }
+  .tips ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .tips li {
+    font-size: 25px; color: #d7def0; line-height: 1.45;
+    padding-left: 22px; position: relative; text-align: left;
+  }
+  .tips li::before {
+    content: "";
+    position: absolute; left: 0; top: 13px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--cyan);
+  }
+
+  .foot {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .cta { font-size: 36px; font-weight: 800; }
+  .cta .c { color: var(--cyan); }
+  .urls {
+    margin-top: 16px;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 22px; color: rgba(150,200,255,0.55);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="glow2"></div>
+    <div class="grid"></div>
+
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="live"><i></i>作品长廊 · 人气投票进行中</div>
+      <div class="subtitle">Vibe Coding 泛数据分析应用开发大赛</div>
+
+      <div class="hero-title">5 个值得先逛的<br><span class="c">优秀参赛作品</span></div>
+      <div class="hero-desc">按当前人气票数挑选 · 都能在线体验<br>看看别人做成什么样，照着改也能交</div>
+
+      <div class="stats">
+        <div class="stat"><div class="v">31</div><div class="l">精选作品</div></div>
+        <div class="stat"><div class="v go">5</div><div class="l">本期重点介绍</div></div>
+        <div class="stat"><div class="v">7.31</div><div class="l">提交截止</div></div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <h2>人气前列速览</h2>
+          <div class="line"></div>
+          <div class="tag">可体验 · 可投票</div>
+        </div>
+
+        <div class="works">
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n">No.1</span></div>
+                <div class="name">LifeFlow Agent</div>
+                <div class="sub">本地生活数据决策分析管家</div>
+              </div>
+              <div class="votes"><div class="num">34</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">整合餐厅排队、天气、交通与个人偏好，提供个人管家、多管家协商和未来时间预演三种体验。</div>
+            <div class="frame"><img src="samples/top5-01-lifeflow.png" alt="LifeFlow Agent"></div>
+          </div>
+
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n">No.2</span></div>
+                <div class="name">智析账本 BillLens</div>
+                <div class="sub">个人财务数据智能分析</div>
+              </div>
+              <div class="votes"><div class="num">31</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">上传账单 Excel / CSV，自动做消费结构分析、异常预警与节省建议，并生成可追问的报告。</div>
+            <div class="frame"><img src="samples/top5-02-billlens.png" alt="智析账本 BillLens"></div>
+          </div>
+
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n">No.3</span></div>
+                <div class="name">FORGE·X 智造洞察</div>
+                <div class="sub">3D 打印工厂生产数据分析</div>
+              </div>
+              <div class="votes"><div class="num">25</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">用自然语言问故障率、材料失败与成本去向，返回结论、图表和可执行建议。</div>
+            <div class="frame"><img src="samples/top5-03-forgex.png" alt="FORGE·X"></div>
+          </div>
+
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n alt">No.4</span></div>
+                <div class="name">Offer 雷达</div>
+                <div class="sub">入职前公司尽调助手</div>
+              </div>
+              <div class="votes"><div class="num">22</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">从经营、司法、舆情与岗位匹配多维核验，生成接受 Offer 前的风险报告与行动清单。</div>
+            <div class="frame"><img src="samples/top5-04-offer.png" alt="Offer 雷达"></div>
+          </div>
+
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n alt">No.5</span></div>
+                <div class="name">职牌</div>
+                <div class="sub">市场数据反向诊断职业身份</div>
+              </div>
+              <div class="votes"><div class="num">14</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">上传简历，输出深度行动报告和去隐私的职业身份诊断卡，帮你看清市场位置。</div>
+            <div class="frame"><img src="samples/top5-05-zhipai.png" alt="职牌"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tips">
+        <h4>逛完长廊，你可以马上做</h4>
+        <ul>
+          <li>给喜欢的作品投票，也给自己作品拉票</li>
+          <li>挑一个接近的场景，照着改接口与页面，周末就能交</li>
+          <li>有真实用户调用 API，评委权重更高——别闷头做完不给人用</li>
+        </ul>
+      </div>
+
+      <div class="foot">
+        <div class="cta">逛长廊 · 去投票 · <span class="c">今天就交</span></div>
+        <div class="urls">
+          作品长廊 https://infinisynapse.cn/contest/vibe-coding/gallery<br>
+          报名提交 https://infinisynapse.cn/contest/vibe-coding
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
