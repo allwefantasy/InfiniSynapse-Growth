@@ -1,0 +1,16 @@
+{
+  "appmsgid": "100002528",
+  "title": "圆满收官｜243 人报名、100+ 作品，接下来是揭晓时刻",
+  "author": "InfiniSynapse",
+  "token_note": "token 每次登录会刷新，覆盖更新时用最新的 token",
+  "cdn_urls": {
+    "images/01-finale-xibao.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWFKWkNlS18gW1WVPNiaHpxVNCbmz8T9biaoCY9CbHLgmRUVjNA3LtibQIQ82p3qAMhTn58A4r10MzgIpvm47zbBxXyiafaF5t9p6c/0?wx_fmt=png&from=appmsg",
+    "images/02-rules-prizes.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWmEOSASU8dJFhHxQ4QKrgCzWXn6ojd2dwos60VLUQeXANPVaveXiau8Rcd5bp4o5YLS0tgicStemhyI6icrYHRmyFZJ3NCUlPvzU/0?wx_fmt=png&from=appmsg",
+    "images/03-table-score.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWQBPeqEdxz3clfvRJRwia1tmj7j3pbTeGJJOfx0hvv8A8JXj1Q9CiciclkD3juxQHOYreNETAlTK5ySyeKbzoNQKj25CkYQcpwvM/0?wx_fmt=png&from=appmsg",
+    "images/04-table-timeline.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXXbV4sXDhPbSqlugtwaM3XLcObPicudTCBnlcseYrl2BnOCfytRzPviaB68Aiaxicic8G94qq7ORVwFXuMSicG8rPEWP36z78O37w3SQ/0?wx_fmt=png&from=appmsg",
+    "images/05-table-prizes.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXVMuoXPnEG5ibicZY0LgsNWOiakyNicMa4SiaEgPCxnCrOFmA1EHpbX30qp5ooaIYUicYfdypf0xMJUCxODpjIe4xAK3vDNicGiaTJmJ0Q/0?wx_fmt=png&from=appmsg",
+    "images/06-certs.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWU0sstf2r0wVvOThlyXVOsAWBibMx0KRR9ItxaW8vq0tAdLb9dzIS4SLDfJdTmTQiafI9KEvbQg1j3jR8ibjPBJHFKMTicrE87VbY/0?wx_fmt=png&from=appmsg"
+  },
+  "visuals_note": "images/03~06 由 visuals/*.html 渲染而来（1080px 宽，白底 + InfiniSynapse 蓝）；改图请改 HTML 后重新截图，并从 cdn_urls 移除对应条目触发重传",
+  "last_saved": "2026-08-03 18:27"
+}

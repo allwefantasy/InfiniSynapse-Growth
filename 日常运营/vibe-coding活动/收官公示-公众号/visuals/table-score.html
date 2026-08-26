@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px; padding: 40px;
+    background: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  }
+  .card {
+    border: 1px solid #e6eaf2;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(30,111,255,0.08);
+  }
+  .head {
+    background: linear-gradient(135deg, #0a2f7a, #123f9e);
+    color: #fff;
+    padding: 26px 32px;
+    display: flex; align-items: baseline; justify-content: space-between;
+  }
+  .head .t { font-size: 30px; font-weight: 700; letter-spacing: 0.5px; }
+  .head .s { font-size: 18px; opacity: 0.9; }
+  .rows { padding: 8px 0; }
+  .row {
+    display: grid;
+    grid-template-columns: 120px 250px 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 32px;
+    border-bottom: 1px solid #f0f3f8;
+  }
+  .row:last-child { border-bottom: none; }
+  .row.hot { background: #f7faff; }
+  .pct {
+    font-size: 40px; font-weight: 800;
+    color: #1e6fff;
+    font-family: "SF Mono", Menlo, monospace;
+    letter-spacing: -1px;
+  }
+  .row.hot .pct { color: #0b48c8; }
+  .name { font-size: 24px; font-weight: 700; color: #1a2333; }
+  .desc { font-size: 19px; color: #6b7a90; }
+  .bar {
+    margin-top: 10px;
+    height: 8px; border-radius: 99px;
+    background: #eaf0fb;
+    overflow: hidden;
+  }
+  .bar i {
+    display: block; height: 100%;
+    background: linear-gradient(90deg, #1e6fff, #6aa4ff);
+  }
+  .foot {
+    padding: 20px 32px;
+    background: #fafbff;
+    font-size: 17px; color: #8d99ab;
+    border-top: 1px solid #f0f3f8;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <div class="t">评分规则</div>
+      <div class="s">总分 100 分 · 加权计算</div>
+    </div>
+    <div class="rows">
+      <div class="row">
+        <div class="pct">10%</div>
+        <div>
+          <div class="name">人气投票</div>
+          <div class="bar"><i style="width:10%"></i></div>
+        </div>
+        <div class="desc">作品长廊内的真实投票</div>
+      </div>
+      <div class="row">
+        <div class="pct">20%</div>
+        <div>
+          <div class="name">应用注册用户</div>
+          <div class="bar"><i style="width:20%"></i></div>
+        </div>
+        <div class="desc">应用带来的真实注册</div>
+      </div>
+      <div class="row hot">
+        <div class="pct">30%</div>
+        <div>
+          <div class="name">活跃使用量</div>
+          <div class="bar"><i style="width:30%"></i></div>
+        </div>
+        <div class="desc">用户是否真的在用</div>
+      </div>
+      <div class="row hot">
+        <div class="pct">40%</div>
+        <div>
+          <div class="name">专家意见</div>
+          <div class="bar"><i style="width:40%"></i></div>
+        </div>
+        <div class="desc">场景价值 · 技术完成度 · 创新性</div>
+      </div>
+    </div>
+    <div class="foot">用户指标以 InfiniSynapse 平台后台数据为准，可审计、可复核</div>
+  </div>
+</body>
+</html>

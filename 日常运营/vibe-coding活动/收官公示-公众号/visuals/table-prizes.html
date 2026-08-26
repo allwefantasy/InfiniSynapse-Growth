@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px; padding: 40px;
+    background: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  }
+  .card {
+    border: 1px solid #e6eaf2;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(30,111,255,0.08);
+  }
+  .head {
+    background: linear-gradient(135deg, #0a2f7a, #123f9e);
+    color: #fff;
+    padding: 26px 32px;
+    display: flex; align-items: baseline; justify-content: space-between;
+  }
+  .head .t { font-size: 30px; font-weight: 700; letter-spacing: 0.5px; }
+  .head .s { font-size: 18px; opacity: 0.9; }
+
+  .pool {
+    padding: 28px 32px 22px;
+    display: flex; align-items: baseline; gap: 16px;
+    border-bottom: 1px solid #f0f3f8;
+  }
+  .pool .label { font-size: 20px; color: #6b7a90; font-weight: 600; }
+  .pool .amt {
+    font-size: 52px; font-weight: 800; color: #1e6fff;
+    font-family: "SF Mono", Menlo, monospace; letter-spacing: -1px;
+  }
+  .pool .extra { font-size: 19px; color: #8d99ab; }
+
+  .tiers {
+    padding: 26px 32px 20px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  .tier {
+    border: 2px solid #e6ecf7;
+    border-radius: 16px;
+    padding: 24px 20px 20px;
+    text-align: center;
+    background: #f9fbff;
+  }
+  .tier.gold {
+    border-color: #f0c04a;
+    background: linear-gradient(180deg, #fffaef, #fff6e2);
+  }
+  .tier .name { font-size: 22px; font-weight: 700; color: #55627a; }
+  .tier.gold .name { color: #9a6b12; }
+  .tier .money {
+    margin-top: 8px;
+    font-size: 42px; font-weight: 800; color: #1a2333;
+    font-family: "SF Mono", Menlo, monospace; letter-spacing: -1px;
+  }
+  .tier.gold .money { color: #b8860b; }
+  .tier .money span { font-size: 24px; margin-right: 2px; }
+  .tier .meta { margin-top: 8px; font-size: 18px; color: #7d8a9e; }
+
+  .perks {
+    padding: 0 32px 26px;
+    display: grid; gap: 12px;
+  }
+  .perk {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 22px;
+    border-radius: 14px;
+    background: #f2f7ff;
+    border: 1px solid #dfe9fb;
+    font-size: 21px; color: #33415c;
+  }
+  .perk b { color: #1e6fff; font-weight: 700; }
+  .perk .k {
+    flex: 0 0 auto;
+    font-size: 16px; font-weight: 700; color: #fff;
+    background: #1e6fff;
+    border-radius: 8px;
+    padding: 6px 12px;
+  }
+  .foot {
+    padding: 20px 32px;
+    background: #fafbff;
+    font-size: 17px; color: #8d99ab;
+    border-top: 1px solid #f0f3f8;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <div class="t">奖金与权益</div>
+      <div class="s">现金 + 会员 + 证书</div>
+    </div>
+
+    <div class="pool">
+      <span class="label">现金奖金池</span>
+      <span class="amt">¥22,528</span>
+      <span class="extra">另附 Pro 会员权益</span>
+    </div>
+
+    <div class="tiers">
+      <div class="tier gold">
+        <div class="name">一等奖</div>
+        <div class="money"><span>¥</span>4,096</div>
+        <div class="meta">2 名 · 年度 Pro</div>
+      </div>
+      <div class="tier">
+        <div class="name">二等奖</div>
+        <div class="money"><span>¥</span>2,048</div>
+        <div class="meta">4 名 · 季度 Pro</div>
+      </div>
+      <div class="tier">
+        <div class="name">三等奖</div>
+        <div class="money"><span>¥</span>1,024</div>
+        <div class="meta">6 名 · 月度 Pro</div>
+      </div>
+    </div>
+
+    <div class="perks">
+      <div class="perk">
+        <span class="k">优秀奖</span>
+        <span><b>50 名</b> · InfiniSynapse 月度 Pro 会员权益</span>
+      </div>
+      <div class="perk">
+        <span class="k">证书</span>
+        <span>联名获奖证书<b>四档均可验证</b>，写进简历与作品集都站得住</span>
+      </div>
+    </div>
+
+    <div class="foot">奖金发放与权益开通统一在公示后进行</div>
+  </div>
+</body>
+</html>

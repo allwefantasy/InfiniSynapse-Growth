@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; }
+
+  /* 公众号大图封面标准比例 2.35:1，方形缩略图按中心 600×600 裁切 */
+  .cover {
+    position: relative;
+    width: 1410px; height: 600px;
+    overflow: hidden;
+    background: #0c0608;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+  .bg {
+    position: absolute; inset: 0;
+    background: url("samples/finale-trophy-bg.png") center 40% / cover no-repeat;
+    transform: scale(1.06);
+  }
+  .veil {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(10,5,7,0.30) 0%, rgba(10,5,7,0.52) 60%, rgba(10,5,7,0.68) 100%),
+      linear-gradient(180deg, rgba(10,5,7,0.45) 0%, rgba(10,5,7,0.10) 34%, rgba(10,5,7,0.20) 70%, rgba(10,5,7,0.62) 100%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,220,140,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,220,140,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mix-blend-mode: soft-light;
+    opacity: 0.5;
+  }
+
+  .wrap {
+    position: relative; z-index: 3;
+    height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .logos {
+    position: relative;
+    display: flex; align-items: center; justify-content: center; gap: 28px;
+    margin-bottom: 22px;
+    padding: 18px 44px;
+  }
+  .logos-glow {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 820px; height: 168px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center,
+      rgba(255, 249, 238, 0.82) 0%,
+      rgba(255, 238, 206, 0.46) 34%,
+      rgba(255, 222, 166, 0.16) 58%,
+      transparent 76%);
+    filter: blur(1.5px);
+    z-index: -1;
+  }
+  .logos img { height: 78px; width: auto; display: block; }
+  .logos .x { font-size: 34px; font-weight: 800; color: #6e5a3d; }
+
+  .hero-wrap {
+    display: grid; place-items: center;
+  }
+  .hero-back, .hero {
+    grid-area: 1 / 1;
+    font-size: 128px; font-weight: 900; line-height: 1;
+    letter-spacing: 12px;
+    text-indent: 12px;
+  }
+  .hero-back {
+    color: transparent;
+    -webkit-text-stroke: 9px rgba(10,5,7,0.78);
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+  }
+  .hero {
+    background: linear-gradient(180deg, #FFF8DA 0%, #FFE39A 28%, #F2C14E 62%, #E5A519 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 0 rgba(10,5,7,0.35));
+  }
+
+  .stats {
+    margin-top: 20px;
+    display: flex; align-items: center; gap: 16px;
+    font-size: 27px; font-weight: 800;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  }
+  .stats b { color: #35E0E8; font-size: 32px; }
+  .stats .dot { color: rgba(255,235,200,0.55); font-weight: 400; }
+
+  .foot {
+    margin-top: 16px;
+    font-size: 21px; font-weight: 700;
+    letter-spacing: 0.5px;
+    color: rgba(255,240,215,0.9);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.65);
+  }
+  .foot em { font-style: normal; color: #FFE39A; }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="bg"></div>
+    <div class="veil"></div>
+    <div class="grid"></div>
+
+    <div class="wrap">
+      <div class="logos">
+        <div class="logos-glow"></div>
+        <img src="samples/brands/cert-logo-infinisynapse.png" alt="InfiniSynapse">
+        <span class="x">×</span>
+        <img src="samples/brands/cert-logo-csdn.png" alt="CSDN">
+      </div>
+
+      <div class="hero-wrap">
+        <div class="hero-back" aria-hidden="true">圆满收官</div>
+        <div class="hero">圆满收官</div>
+      </div>
+
+      <div class="stats">
+        <span><b>243</b> 报名</span>
+        <span class="dot">·</span>
+        <span><b>100+</b> 作品</span>
+      </div>
+
+      <div class="foot">Vibe Coding 大赛 · <em>评审进行中</em></div>
+    </div>
+  </div>
+</body>
+</html>

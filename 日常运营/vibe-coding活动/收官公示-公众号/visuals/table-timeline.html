@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px; padding: 40px;
+    background: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  }
+  .card {
+    border: 1px solid #e6eaf2;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(30,111,255,0.08);
+  }
+  .head {
+    background: linear-gradient(135deg, #0a2f7a, #123f9e);
+    color: #fff;
+    padding: 26px 32px;
+    display: flex; align-items: baseline; justify-content: space-between;
+  }
+  .head .t { font-size: 30px; font-weight: 700; letter-spacing: 0.5px; }
+  .head .s { font-size: 18px; opacity: 0.9; }
+
+  .flow {
+    padding: 40px 32px 34px;
+    display: grid;
+    grid-template-columns: 1fr 44px 1fr 44px 1fr;
+    align-items: stretch;
+  }
+  .step {
+    border: 2px solid #dfe8fb;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    background: #f9fbff;
+  }
+  .step.now {
+    border-color: #1e6fff;
+    background: #eff5ff;
+    box-shadow: 0 4px 16px rgba(30,111,255,0.12);
+  }
+  .step .idx {
+    font-size: 16px; font-weight: 700;
+    color: #98a7bd;
+    letter-spacing: 2px;
+  }
+  .step.now .idx { color: #1e6fff; }
+  .step .when {
+    margin-top: 8px;
+    font-size: 30px; font-weight: 800;
+    color: #1a2333;
+    font-family: "SF Mono", Menlo, monospace;
+    letter-spacing: -0.5px;
+  }
+  .step .what {
+    margin-top: 12px;
+    font-size: 21px; font-weight: 700; color: #1e6fff;
+    line-height: 1.4;
+  }
+  .step .note {
+    margin-top: 8px;
+    font-size: 17px; color: #7d8a9e; line-height: 1.5;
+  }
+  .arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px; color: #c3d2ea;
+  }
+  .foot {
+    padding: 20px 32px;
+    background: #fafbff;
+    font-size: 17px; color: #8d99ab;
+    border-top: 1px solid #f0f3f8;
+  }
+  .foot b { color: #1e6fff; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <div class="t">公示节奏</div>
+      <div class="s">结果什么时候出</div>
+    </div>
+    <div class="flow">
+      <div class="step now">
+        <div class="idx">STEP 01</div>
+        <div class="when">8.1 – 8.15</div>
+        <div class="what">评审进行中</div>
+        <div class="note">准入审核 · 数据采集<br>专家打分</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="idx">STEP 02</div>
+        <div class="when">8.15 – 8.25</div>
+        <div class="what">奖项公布</div>
+        <div class="note">获奖名单<br>官方渠道同步</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step">
+        <div class="idx">STEP 03</div>
+        <div class="when">8.25 起</div>
+        <div class="what">对外发奖</div>
+        <div class="note">奖金发放<br>证书与权益到位</div>
+      </div>
+    </div>
+    <div class="foot">公示渠道：<b>InfiniSynapse 官方渠道</b></div>
+  </div>
+</body>
+</html>

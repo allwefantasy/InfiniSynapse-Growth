@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px; padding: 40px;
+    background: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  }
+  .card {
+    border: 1px solid #e6eaf2;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(30,111,255,0.08);
+  }
+  .head {
+    background: linear-gradient(135deg, #0a2f7a, #123f9e);
+    color: #fff;
+    padding: 26px 32px;
+    display: flex; align-items: baseline; justify-content: space-between;
+  }
+  .head .t { font-size: 30px; font-weight: 700; letter-spacing: 0.5px; }
+  .head .s { font-size: 18px; opacity: 0.9; }
+
+  .grid {
+    padding: 34px 32px 28px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  .item { text-align: center; }
+  .shot {
+    border: 1px solid #e3e9f4;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(20,30,60,0.10);
+  }
+  .shot img { width: 100%; display: block; }
+  .badge {
+    margin-top: 14px;
+    display: inline-block;
+    font-size: 19px; font-weight: 700;
+    color: #1e6fff;
+    background: #eff5ff;
+    border: 1px solid #dbe7fd;
+    border-radius: 99px;
+    padding: 7px 18px;
+  }
+  .item.gold .badge {
+    color: #9a6b12;
+    background: #fff8e8;
+    border-color: #f2dfae;
+  }
+  .note {
+    padding: 0 32px 28px;
+    font-size: 20px; color: #4a5771; line-height: 1.6;
+  }
+  .note b { color: #1e6fff; }
+  .foot {
+    padding: 20px 32px;
+    background: #fafbff;
+    font-size: 17px; color: #8d99ab;
+    border-top: 1px solid #f0f3f8;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <div class="t">联名获奖证书</div>
+      <div class="s">InfiniSynapse × CSDN · 四档</div>
+    </div>
+
+    <div class="grid">
+      <div class="item gold">
+        <div class="shot"><img src="samples/cert-1st.png" alt="一等奖证书"></div>
+        <div class="badge">一等奖</div>
+      </div>
+      <div class="item">
+        <div class="shot"><img src="samples/cert-2nd.png" alt="二等奖证书"></div>
+        <div class="badge">二等奖</div>
+      </div>
+      <div class="item">
+        <div class="shot"><img src="samples/cert-3rd.png" alt="三等奖证书"></div>
+        <div class="badge">三等奖</div>
+      </div>
+      <div class="item">
+        <div class="shot"><img src="samples/cert-ex.png" alt="优秀奖证书"></div>
+        <div class="badge">优秀奖</div>
+      </div>
+    </div>
+
+    <div class="note">证书由 <b>InfiniSynapse</b> 与 <b>CSDN</b> 联合颁发，带独立证书编号，可核验、可追溯。</div>
+    <div class="foot">获奖名单公示后统一发放电子证书</div>
+  </div>
+</body>
+</html>
