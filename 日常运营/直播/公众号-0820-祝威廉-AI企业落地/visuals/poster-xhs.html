@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #12151d;
+    --muted: #556068;
+    --teal: #0f958f;
+    --teal-deep: #0b7a75;
+    --line: rgba(15, 149, 143, 0.34);
+  }
+  html, body {
+    width: 1080px;
+    height: 1440px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .poster {
+    position: relative;
+    width: 1080px;
+    height: 1440px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 64% 40% at 88% 28%, rgba(15,149,143,0.10) 0%, transparent 62%),
+      linear-gradient(180deg, #f7fafb 0%, #eef4f4 100%);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Helvetica Neue", sans-serif;
+    color: var(--ink);
+  }
+  .inner {
+    height: 100%;
+    padding: 40px 44px 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar img { height: 40px; width: auto; display: block; }
+  .badge, .hot {
+    display: inline-flex;
+    align-items: center;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 999px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .badge { background: var(--teal); color: #fff; margin-left: auto; }
+  .hot {
+    background: #fff;
+    color: var(--teal-deep);
+    border: 1.5px solid var(--teal);
+  }
+  h1 {
+    margin-top: 28px;
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.16;
+  }
+  h1 .ai { color: var(--teal); }
+  .who {
+    margin-top: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2a3138;
+  }
+  .when {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--teal-deep);
+  }
+  .mid {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 18px;
+    align-items: start;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+  .points { display: flex; flex-direction: column; gap: 12px; }
+  .point {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    padding: 13px 16px;
+  }
+  .n {
+    width: 42px; height: 42px; flex: 0 0 42px;
+    border-radius: 50%;
+    background: #e8f6f5;
+    color: var(--teal-deep);
+    font-size: 16px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .point h3 { font-size: 26px; font-weight: 800; line-height: 1.2; }
+  .point.hot-card {
+    background: #0f958f;
+    border-color: #0f958f;
+    color: #fff;
+    padding: 14px 16px;
+  }
+  .point.hot-card .n { background: rgba(255,255,255,0.18); color: #fff; }
+  .point.hot-card p { margin-top: 3px; font-size: 18px; font-weight: 600; opacity: 0.92; }
+  .photo {
+    position: relative;
+    height: 100%;
+    min-height: 420px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .photo img.will {
+    height: 560px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 18px rgba(18,21,29,0.14));
+  }
+  .cta {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 168px 1fr 168px;
+    gap: 16px;
+    align-items: center;
+  }
+  .qr { text-align: center; }
+  .qr img {
+    width: 148px; height: 148px;
+    display: block;
+    margin: 0 auto 6px;
+    border-radius: 14px;
+    background: #fff;
+    padding: 6px;
+    object-fit: contain;
+    border: 1.5px solid var(--line);
+  }
+  .qr .cap { font-size: 20px; font-weight: 800; }
+  .cta-mid { text-align: center; }
+  .cta-mid b { display: block; font-size: 30px; font-weight: 800; color: var(--teal); line-height: 1.2; }
+  .cta-mid span { display: block; margin-top: 6px; font-size: 20px; font-weight: 600; color: var(--muted); }
+  .foot {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--teal);
+    color: #fff;
+    border-radius: 14px;
+    padding: 14px 20px;
+    font-size: 24px;
+    font-weight: 800;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="inner">
+      <div class="topbar">
+        <img src="logo-light.png" alt="InfiniSynapse">
+        <span class="badge">微信视频号直播</span>
+        <span class="hot">重磅首秀</span>
+      </div>
+      <h1>20年资深数据工程师<br>聊 <span class="ai">AI</span> 企业落地</h1>
+      <div class="who">祝威廉｜InfiniSynapse 联创</div>
+      <div class="when">8/20 周四 · 19:00–20:00</div>
+      <div class="mid">
+        <div class="points">
+          <div class="point"><div class="n">01</div><h3>数据脏怎么办</h3></div>
+          <div class="point"><div class="n">02</div><h3>落地从哪一步开始</h3></div>
+          <div class="point"><div class="n">03</div><h3>怎样才算真正提效</h3></div>
+          <div class="point hot-card">
+            <div class="n">04</div>
+            <div>
+              <h3>企业版首秀</h3>
+              <p>探索和看板，终于合在一块</p>
+            </div>
+          </div>
+        </div>
+        <div class="photo">
+          <img class="will" src="will-portrait.png" alt="">
+        </div>
+      </div>
+      <div class="foot" style="justify-content:space-between;padding:18px 24px">
+        <div>进群领取 InfiniSynapse 月度会员 · 价值 ¥150<br><span style="display:block;margin-top:4px;font-size:18px;font-weight:600;opacity:.92">详情看评论区 · 微信视频号见</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

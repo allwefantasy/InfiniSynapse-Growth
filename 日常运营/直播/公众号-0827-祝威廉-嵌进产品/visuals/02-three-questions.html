@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1080px;
+    height: 780px;
+    margin: 0;
+    background: #fff;
+    overflow: hidden;
+  }
+  body {
+    padding: 56px;
+    font-family: Georgia, "Source Han Serif SC", "Noto Serif CJK SC", "PingFang SC", serif;
+    color: #111;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-top: 2px solid #111;
+    border-bottom: 1px solid #111;
+    padding: 12px 0 10px;
+    margin-bottom: 28px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 0;
+    border: 1px solid #d5cfc5;
+  }
+  .row + .row { border-top: 0; }
+  .cell { padding: 22px 20px; }
+  .h {
+    background: #111;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .q { background: #f7f3ee; font-weight: 700; font-size: 20px; line-height: 1.4; }
+  .miss { font-size: 17px; line-height: 1.55; color: #444; }
+  .ans { font-size: 17px; line-height: 1.55; color: #111; background: #eef4f8; }
+  .ans b { color: #326891; }
+</style>
+</head>
+<body>
+  <h1>嵌进产品最卡的三件事 · 周四现场给答案</h1>
+  <div class="row">
+    <div class="cell h">卡点</div>
+    <div class="cell h">常见误区</div>
+    <div class="cell h">今晚答案</div>
+  </div>
+  <div class="row">
+    <div class="cell q">嵌在哪一步</div>
+    <div class="cell miss">先自建一整套 Agent 平台，再谈产品</div>
+    <div class="cell ans"><b>嵌在问数 / 出报告 / 跑长任务那一步。</b>壳是你的，Data Infra 不用重写</div>
+  </div>
+  <div class="row">
+    <div class="cell q">Key 放哪</div>
+    <div class="cell miss">写进前端、公开仓库、客户端配置</div>
+    <div class="cell ans"><b>只放服务端。</b>前端只打你自己的接口，InfiniSynapse 域名和密钥用户碰不到</div>
+  </div>
+  <div class="row">
+    <div class="cell q">怎样才算嵌完</div>
+    <div class="cell miss">能聊天、出过一段文字，就算接上了</div>
+    <div class="cell ans"><b>SSE 看进度、Task ID 可追、报告回写进产品。</b>用户刷新也不丢</div>
+  </div>
+</body>
+</html>

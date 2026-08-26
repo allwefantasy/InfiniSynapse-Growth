@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px;
+    margin: 0;
+    padding: 56px;
+    font-family: Georgia, "Source Han Serif SC", "Noto Serif CJK SC", "PingFang SC", serif;
+    background: #fff;
+    color: #111;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    border-top: 2px solid #111;
+    border-bottom: 1px solid #111;
+    padding: 12px 0 10px;
+    margin-bottom: 28px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 0;
+    border: 1px solid #d5cfc5;
+  }
+  .row + .row { border-top: 0; }
+  .cell { padding: 22px 20px; }
+  .h {
+    background: #111;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .q { background: #f7f3ee; font-weight: 700; font-size: 20px; line-height: 1.4; }
+  .miss { font-size: 17px; line-height: 1.55; color: #444; }
+  .ans { font-size: 17px; line-height: 1.55; color: #111; background: #eef4f8; }
+  .ans b { color: #326891; }
+</style>
+</head>
+<body>
+  <h1>企业最卡的三件事 · 周四现场给答案</h1>
+  <div class="row">
+    <div class="cell h">卡点</div>
+    <div class="cell h">常见误区</div>
+    <div class="cell h">今晚答案</div>
+  </div>
+  <div class="row">
+    <div class="cell q">数据脏怎么办</div>
+    <div class="cell miss">先停业务、先洗半年数，再谈 AI</div>
+    <div class="cell ans"><b>可以先直连、先提问。</b>双库未治理也能问「最畅销商品」，每步 SQL 和血缘摊开给你核</div>
+  </div>
+  <div class="row">
+    <div class="cell q">落地从哪一步开始</div>
+    <div class="cell miss">先建数仓、先招算法团队、先上大而全平台</div>
+    <div class="cell ans"><b>从 1 个业务问题 + 1～2 个已有库开始。</b>不用先自建仓，多源能一起算</div>
+  </div>
+  <div class="row">
+    <div class="cell q">怎样才算真正提效</div>
+    <div class="cell miss">会聊天、出过一张图、Demo 好看</div>
+    <div class="cell ans"><b>口径对齐一次、后面能复用。</b>结果可核验、少返工；算错能改对，并沉淀进组织知识</div>
+  </div>
+</body>
+</html>

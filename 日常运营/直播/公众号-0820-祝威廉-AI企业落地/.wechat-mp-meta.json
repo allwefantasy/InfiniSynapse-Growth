@@ -1,0 +1,16 @@
+{
+  "appmsgid": "100002659",
+  "title": "直播预告｜20年数据工程师告诉你 AI 在企业怎么落地？",
+  "author": "InfiniSynapse",
+  "token_note": "token 每次登录会刷新，覆盖更新时用最新的 token",
+  "cdn_urls": {
+    "images/01-poster.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXWkLhoAXIHhOia2lHdA1jYvGrBMD5DCpicbSzsrUsUZzqKMSWNxYUTn8H73OTic2DIUODJuBq7tTcS9bEhkvsgNr1dQ4n8Uym6z6A/0?wx_fmt=png&from=appmsg",
+    "images/slot-demo.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXVVWQoRvv4iac6lrhoucg9GR2RxYEnBVPavicQiafDykNbKb13NthkKzOyuB39SaCju30OcHGMwmARMiaUNTxQrnEeiakFfXv47S4E0/0?wx_fmt=png&from=appmsg",
+    "images/02-three-questions.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXWKKcMaZPkKBgl0lPVGMBOv97mcicZFkyOOpicr9uNkOFVQwzSMGlUVbRiaaB5FbFgH7JmG1NVl73nZAoxZiaYHl77KmnEbXewXyss/0?wx_fmt=png&from=appmsg",
+    "images/slot-metric.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXW7TYticT4QKKNQWNVysbuwtSFJbTbYpGhicjVYvqaC5muXcTuEpTMLJ9hlibD34bEAfzwdickuuuoHfhv569p6CQoqqibJ15V2EKxs/0?wx_fmt=png&from=appmsg",
+    "images/03-cta-qr.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWAnd7icA0WYRVk0JJgkrpXvT3noRfFiavB6HibJkq7AZj847ic7trxSvAIxfLCvvbHG5h95DPzjnCm979Yb8MDsU8AmJzNNd6t7NM/0?wx_fmt=png&from=appmsg",
+    "images/04-enterprise-dashboard.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXWJBuSSI4XropCFpia17VoJxhtIZianmWsRib42ic9kVoibXrkp1Ed64lIebwCe5Vibv0bZgHGL8kQXSGq0LXMNrFNwicYTt5hM91ggbU/0?wx_fmt=jpeg&from=appmsg"
+  },
+  "visuals_note": "slot-demo.png / slot-metric.png 是视频占位图，请在公众号编辑器里换成真实切片视频",
+  "last_saved": "2026-08-14 18:44"
+}

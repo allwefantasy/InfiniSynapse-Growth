@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #12151d;
+    --muted: #556068;
+    --teal: #0f958f;
+    --teal-deep: #0b7a75;
+    --line: rgba(15, 149, 143, 0.32);
+    --card: #ffffff;
+  }
+  html, body { width: 1080px; height: 1700px; background: #ddd; overflow: hidden; }
+  .poster {
+    width: 1080px;
+    height: 1700px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 70% 36% at 90% 22%, rgba(15,149,143,0.10) 0%, transparent 64%),
+      linear-gradient(180deg, #f6f9fa 0%, #eef4f4 100%);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Helvetica Neue", sans-serif;
+    color: var(--ink);
+  }
+  .inner {
+    height: 100%;
+    padding: 40px 44px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar img { height: 40px; width: auto; display: block; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: var(--teal);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: 0.4px;
+  }
+  .title .ai { color: var(--teal); }
+  .sub {
+    margin-top: 10px;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .mid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 16px;
+    align-items: center;
+  }
+  .points { display: flex; flex-direction: column; gap: 14px; }
+  .point {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 16px;
+  }
+  .ico {
+    width: 48px; height: 48px; flex: 0 0 48px;
+    border-radius: 50%;
+    background: #e8f6f5;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ico svg { width: 24px; height: 24px; }
+  .point h3 { font-size: 26px; font-weight: 800; line-height: 1.2; }
+  .point p { margin-top: 2px; font-size: 18px; color: var(--muted); font-weight: 500; line-height: 1.3; }
+  .portrait-wrap { position: relative; height: 430px; }
+  .portrait-wrap img {
+    position: absolute;
+    right: -8px; bottom: 0;
+    width: 360px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 12px 20px rgba(18,21,29,0.16));
+  }
+  .name-pill {
+    position: absolute;
+    left: 0; bottom: 8px;
+    background: rgba(15,149,143,0.95);
+    color: #fff;
+    border-radius: 12px;
+    padding: 8px 12px 9px;
+  }
+  .name-pill b { display: block; font-size: 22px; font-weight: 800; }
+  .name-pill span { display: block; margin-top: 1px; font-size: 14px; opacity: 0.92; }
+  .panel {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 20px 18px;
+  }
+  .panel .ph {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--teal-deep);
+    margin-bottom: 8px;
+  }
+  .combo {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 12px;
+  }
+  .time-item .v { font-size: 28px; font-weight: 800; letter-spacing: 0.3px; }
+  .time-item .v.sm { font-size: 26px; }
+  .hits {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+  .hit .t { font-size: 22px; font-weight: 800; margin-bottom: 3px; }
+  .hit .d { font-size: 17px; line-height: 1.35; color: var(--muted); font-weight: 500; }
+  .cta {
+    display: grid;
+    grid-template-columns: 168px 1fr 168px;
+    gap: 16px;
+    align-items: center;
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 16px 14px;
+    margin-top: auto;
+  }
+  .qr { text-align: center; }
+  .qr img {
+    width: 148px; height: 148px;
+    display: block; margin: 0 auto 6px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+  .prize-card {
+    width: 148px; height: 148px;
+    margin: 0 auto 6px;
+    border-radius: 16px;
+    background: #f5c84c;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .prize-card b { font-size: 26px; font-weight: 800; line-height: 1.2; }
+  .prize-card span { margin-top: 6px; font-size: 16px; font-weight: 700; }
+  .qr .cap { font-size: 18px; font-weight: 800; }
+  .cta-copy { text-align: center; }
+  .cta-copy .scan {
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--teal);
+    line-height: 1.15;
+  }
+  .cta-copy .when { margin-top: 4px; font-size: 22px; font-weight: 700; }
+  .cta-copy .gift { margin-top: 6px; font-size: 18px; color: var(--muted); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="inner">
+    <div class="topbar">
+      <img src="logo.png" alt="InfiniSynapse">
+      <div class="badge">直播预告</div>
+    </div>
+
+    <div>
+      <div class="title">如何把 <span class="ai">InfiniSynapse</span><br>嵌进你的产品</div>
+      <div class="sub">创始人讲解 + 10年全栈程序员实操。嵌在哪、Key 放哪，当场接到你的产品里。</div>
+    </div>
+
+    <div class="mid">
+      <div class="points">
+        <div class="point">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0f958f" stroke-width="1.8">
+              <path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/>
+              <circle cx="12" cy="10" r="2.2"/>
+            </svg>
+          </div>
+          <div>
+            <h3>嵌在哪一步</h3>
+            <p>问数 / 出报告 / 跑长任务，不用重写平台。</p>
+          </div>
+        </div>
+        <div class="point">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0f958f" stroke-width="1.8">
+              <rect x="5" y="11" width="14" height="10" rx="2"/>
+              <path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Key 只放服务端</h3>
+            <p>前端只打你自己的接口，密钥碰不到。</p>
+          </div>
+        </div>
+        <div class="point">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0f958f" stroke-width="1.8">
+              <path d="M4 19V5M4 19h16"/>
+              <rect x="7" y="11" width="3.2" height="8" rx="0.6" fill="#0f958f" stroke="none"/>
+              <rect x="12" y="8" width="3.2" height="11" rx="0.6" fill="#0f958f" stroke="none"/>
+            </svg>
+          </div>
+          <div>
+            <h3>怎样才算嵌完</h3>
+            <p>SSE 看进度，Task ID 可追，报告回写产品。</p>
+          </div>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <img src="will-portrait-bust.png" alt="祝威廉">
+        <div class="name-pill">
+          <b>祝威廉</b>
+          <span>InfiniSynapse联创</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="combo">
+      <div class="panel">
+        <div class="ph">直播时间</div>
+        <div class="time-item"><div class="v">8/27 周四</div></div>
+        <div class="time-item" style="margin-top:4px"><div class="v">20:00–21:00</div></div>
+        <div class="time-item" style="margin-top:4px"><div class="v sm">微信视频号</div></div>
+      </div>
+      <div class="panel">
+        <div class="ph">本场看点</div>
+        <div class="hits">
+          <div class="hit">
+            <div class="t">现场接入</div>
+            <div class="d">后端薄代理，把任务嵌进你的产品</div>
+          </div>
+          <div class="hit">
+            <div class="t">进度可见</div>
+            <div class="d">先 SSE 再发任务，刷新也不丢</div>
+          </div>
+          <div class="hit">
+            <div class="t">报告回写</div>
+            <div class="d">Task ID 拉工作区，结果落回页面</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="qr">
+        <img src="qr-reserve.png" alt="预约直播">
+        <div class="cap">预约直播</div>
+      </div>
+      <div class="cta-copy">
+        <div class="scan">微信扫码预约</div>
+        <div class="when">8月27日 周四 20:00 · 我们直播见</div>
+        <div class="gift">直播间抽月度会员 · 价值 ¥150</div>
+      </div>
+      <div class="qr group">
+        <div class="prize-card">
+          <b>直播间抽会员</b>
+          <span>到播参与</span>
+        </div>
+        <div class="cap">价值 ¥150</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

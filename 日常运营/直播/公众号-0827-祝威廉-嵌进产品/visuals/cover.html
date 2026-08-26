@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #12151d;
+    --teal: #0f958f;
+    --teal-deep: #0b7a75;
+  }
+  html, body {
+    width: 1410px;
+    height: 600px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .cover {
+    position: relative;
+    width: 1410px;
+    height: 600px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 70% 90% at 78% 50%, rgba(15,149,143,0.14) 0%, transparent 64%),
+      linear-gradient(105deg, #f7fafb 0%, #eef4f4 58%, #dcecea 100%);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Helvetica Neue", sans-serif;
+    color: var(--ink);
+  }
+  .accent {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 10px;
+    background: var(--teal);
+  }
+  .copy {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    padding: 56px 80px 56px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .top img { height: 48px; width: auto; display: block; object-fit: contain; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: var(--teal);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+  }
+  h1 {
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: 0.4px;
+  }
+  h1 .ai { color: var(--teal); }
+  .who {
+    margin-top: 18px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #2a3138;
+  }
+  .when {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--teal-deep);
+  }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="accent"></div>
+    <div class="copy">
+      <div class="top">
+        <img src="logo-light.png" alt="InfiniSynapse">
+        <span class="badge">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <circle cx="7" cy="7" r="7" fill="#fff"/>
+            <path d="M6 4.6 9.4 7 6 9.4V4.6Z" fill="#0f958f"/>
+          </svg>
+          微信视频号直播
+        </span>
+      </div>
+      <h1>如何把 <span class="ai">InfiniSynapse</span><br>嵌进你的产品</h1>
+      <div class="who">祝威廉｜InfiniSynapse 联创</div>
+      <div class="when">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="2.5" y="4" width="17" height="15" rx="3" stroke="#0b7a75" stroke-width="1.8"/>
+          <path d="M2.5 9h17" stroke="#0b7a75" stroke-width="1.8"/>
+          <path d="M7 2.5v3.2M15 2.5v3.2" stroke="#0b7a75" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        8/27 周四 · 20:00–21:00
+      </div>
+    </div>
+  </div>
+</body>
+</html>

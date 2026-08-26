@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #111318;
+    --teal: #0f958f;
+    --gold: #f5c84c;
+  }
+  html, body {
+    width: 1080px;
+    height: 1620px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .cover {
+    position: relative;
+    width: 1080px;
+    height: 1620px;
+    overflow: hidden;
+    background: #f4f6f8;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Helvetica Neue", sans-serif;
+    color: var(--ink);
+  }
+
+  .logo {
+    position: absolute;
+    left: 56px;
+    top: 44px;
+    height: 40px;
+    width: auto;
+    z-index: 6;
+  }
+
+  .copy {
+    position: absolute;
+    left: 56px;
+    right: 56px;
+    top: 108px;
+    z-index: 6;
+  }
+  .q {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 0.3px;
+  }
+  .hook-row {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hook {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--teal);
+    letter-spacing: 0.3px;
+  }
+  .badge {
+    flex: 0 0 auto;
+    background: var(--gold);
+    color: #111;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 7px 14px 8px;
+    transform: rotate(-5deg);
+    box-shadow: 3px 4px 0 rgba(17,19,24,0.12);
+  }
+  .chips {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+  }
+  .chip {
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 800;
+    background: #fff;
+    border: 1.5px solid rgba(15,149,143,0.28);
+    color: var(--teal);
+  }
+  .chip b { color: var(--ink); }
+  .chip.solid {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+  }
+  .chip.solid b { color: #fff; }
+  .when {
+    margin-top: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #3a4248;
+  }
+
+  .stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 400px;
+    height: 980px;
+    z-index: 4;
+  }
+  .icons {
+    position: absolute;
+    inset: 0;
+    opacity: 0.12;
+    z-index: 1;
+  }
+  .icons svg { position: absolute; }
+  .portrait {
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    transform: translateX(-50%);
+    width: 560px;
+    height: auto;
+    z-index: 3;
+    filter: drop-shadow(0 14px 22px rgba(17,19,24,0.14));
+  }
+  .who {
+    position: absolute;
+    right: 56px;
+    top: 36px;
+    z-index: 4;
+    text-align: left;
+  }
+  .who .role {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2a3138;
+  }
+  .who .name {
+    margin-top: 4px;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+    border-bottom: 5px solid #111;
+    display: inline-block;
+    padding-bottom: 3px;
+  }
+
+  .waves {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 220px;
+    z-index: 2;
+  }
+  .waves svg { display: block; width: 100%; height: 100%; }
+  .foot-logo {
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+    height: 36px;
+    z-index: 5;
+    filter: brightness(0) invert(1);
+  }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <img class="logo" src="logo.png" alt="InfiniSynapse">
+    <div class="copy">
+      <div class="q">如何把 InfiniSynapse<br>嵌进你的产品</div>
+      <div class="hook-row">
+        <div class="hook">创始人讲解 + 10年全栈实操</div>
+        <div class="badge">8.27 晚八点</div>
+      </div>
+      <div class="chips">
+        <div class="chip"><b>讲解</b> 嵌在哪 · Key 放哪</div>
+        <div class="chip solid"><b>实操</b> 10年全栈当场接</div>
+      </div>
+      <div class="when">周四 20:00 · 微信视频号</div>
+    </div>
+
+    <div class="stage">
+      <div class="icons">
+        <svg style="left:48px;top:80px" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#16324f" stroke-width="1.15">
+          <ellipse cx="12" cy="7" rx="7" ry="3"/><path d="M5 7v6c0 1.7 3.1 3 7 3s7-1.3 7-3V7"/><path d="M5 13v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/>
+        </svg>
+        <svg style="right:48px;top:220px" width="78" height="78" viewBox="0 0 24 24" fill="none" stroke="#16324f" stroke-width="1.15">
+          <path d="M4 19V5M4 19h16"/><rect x="7" y="11" width="3" height="8" fill="#16324f" stroke="none"/><rect x="12" y="8" width="3" height="11" fill="#16324f" stroke="none"/>
+        </svg>
+      </div>
+      <div class="who">
+        <div class="role">InfiniSynapse 联创</div>
+        <div class="name">祝威廉</div>
+      </div>
+      <img class="portrait" src="will-portrait-bust.png" alt="祝威廉">
+    </div>
+
+    <div class="waves">
+      <svg viewBox="0 0 1080 220" preserveAspectRatio="none">
+        <path d="M0 52 C 180 12, 360 96, 540 52 C 720 8, 900 88, 1080 40 L 1080 220 L 0 220 Z" fill="#12a39c"/>
+        <path d="M0 86 C 200 46, 390 128, 580 86 C 770 44, 920 124, 1080 78 L 1080 220 L 0 220 Z" fill="#0f958f"/>
+        <path d="M0 124 C 220 88, 430 164, 660 124 C 850 90, 970 156, 1080 118 L 1080 220 L 0 220 Z" fill="#1b4f6e"/>
+        <path d="M0 158 C 240 128, 470 188, 720 158 C 900 136, 1000 184, 1080 154 L 1080 220 L 0 220 Z" fill="#121820"/>
+        <path d="M0 62 C 180 22, 360 106, 540 62 C 720 18, 900 98, 1080 50" fill="none" stroke="#f5c84c" stroke-width="2.8"/>
+      </svg>
+    </div>
+    <img class="foot-logo" src="logo.png" alt="">
+  </div>
+</body>
+</html>
