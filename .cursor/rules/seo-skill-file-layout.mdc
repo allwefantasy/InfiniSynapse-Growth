@@ -1,0 +1,43 @@
+---
+description: SEO 博客生成时规则文档与脚本必须放在 Skills 对应目录，SEO/Blog 只放内容产物
+globs: SEO/Blog/**/*,Skills/seo-blog-content-skill/**/*,Skills/seo-geo-claude-skills-main/**/*
+alwaysApply: false
+---
+
+# SEO 博客 · 规则与脚本文件布局
+
+
+生成、审计、修复 `SEO/Blog/` 文章时，**规则类文档**和**脚本类文件**不得落在 `SEO/Blog/` 根目录；必须放入两个 Skill 的对应位置。
+
+## 放哪里
+
+| 类型 | 正本路径 |
+|------|----------|
+| 规则文档（门禁、内链、配图、部署等） | `Skills/seo-geo-claude-skills-main/build/seo-blog-content/references/` |
+| 写作 / Hero 配图规范 | `Skills/seo-geo-claude-skills-main/build/seo-content-writer/references/` |
+| 审计 / 修复 / 生成脚本（`.py` `.sh` 模板） | `Skills/seo-geo-claude-skills-main/build/seo-blog-content/scripts/` |
+| Cursor 薄入口 Skill | `Skills/seo-blog-content-skill/SKILL.md`（只放指针，不放脚本正文） |
+| 完整技能契约 | `Skills/seo-geo-claude-skills-main/build/seo-blog-content/SKILL.md` |
+
+## 只允许在 SEO/Blog 的内容产物
+
+- `pillar*/**/article.md`、`meta-tags.html`、`schema.json`、`images/`、`visuals/`（本篇 hero/table HTML）
+- 集群架构规划稿、handoff 交付包
+
+## 禁止
+
+- 在 `SEO/Blog/` 根目录新增 `audit-*.py`、`fix-*.py`、`gen-*.py`、规则类 `*.md`
+- 在 `seo-blog-content-skill/` 下新增脚本或完整规则正文（仅维护 `SKILL.md` 索引）
+
+## 调用方式
+
+```bash
+S="Skills/seo-geo-claude-skills-main/build/seo-blog-content/scripts"
+python3 "$S/audit-content-quality.py"
+```
+
+脚本读写产物仍指向 `SEO/Blog/`；脚本源码只在 Skills。
+
+## 规则正本
+
+[`skill-file-layout.md`](../../Skills/seo-geo-claude-skills-main/build/seo-blog-content/references/skill-file-layout.md)

@@ -4,6 +4,17 @@
 >
 > 所有制作流程沿用团队现有的 **HTML 模板 → Chrome headless 截图 → PNG** 工作流（参考 01 源稿 `visuals/code-agent-data-agent-cover.html`）。
 
+---
+
+## 正文数据图硬规则（全 pillar 通用）
+
+**`images/chart-*.png` 必须 ≥2 个数据维度**（禁止单调 Before/After 两根柱）。
+
+细则：[`body-data-chart-rules.md`](./body-data-chart-rules.md)  
+脚本：`scripts/gen-data-charts-p26-30.py` · Hero 标题叠加：`scripts/overlay-hero-titles-p26-30.py`
+
+---
+
 ## 一键执行（推荐）
 
 ```bash

@@ -63,7 +63,14 @@ def external_links(text: str) -> list[str]:
 
 
 def internal_links(text: str) -> int:
-    return len(set(re.findall(r"(?:\]\(|href=)(/blog/[^)\s\"']+)", text)))
+    """Count unique internal blog links (relative /blog/ paths or absolute infinisynapse.com/.../blog/)."""
+    rel = set(re.findall(r"(?:\]\(|href=)((?:/(?:en|zh)/blog/|/blog/)[^)\s\"']+)", text))
+    abs_urls = set()
+    for url in re.findall(r"\]\((https?://[^)]+)\)", text):
+        host = urlparse(url).netloc.lower()
+        if "infinisynapse.com" in host and "/blog/" in url:
+            abs_urls.add(url.rstrip("/"))
+    return len(rel | abs_urls)
 
 
 def audit_article(path: Path) -> dict:

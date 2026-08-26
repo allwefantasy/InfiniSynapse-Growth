@@ -84,7 +84,7 @@ EXTENDED_HIGH_DR_SOURCES: list[dict] = [
     {
         "id": "mysql-docs",
         "label": "MariaDB documentation",
-        "url": "https://mariadb.com/kb/en/documentation/",
+        "url": "https://mariadb.com/docs/",
         "min_dr": 85,
         "hints": [r"connect", r"sql", r"database"],
         "weave": (

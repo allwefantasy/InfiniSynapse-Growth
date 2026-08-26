@@ -19,9 +19,18 @@
 
 ```
 /blog                          ← 列表页（卡片网格 + 分类筛选）     【1 页】
-/blog/:slug                    ← 文章详情（100 个 URL，同一模板）   【1 模板 × 100 路由】
-/blog/pillar/:pillar-slug      ← 集群 Hub（可选，8 个）            【MVP-2】
+/blog/:slug                    ← 文章详情（202 个 URL，同一模板）   【1 模板 × 202 路由】
 ```
+
+**Pillar 落地页 = Hub 长文**（无单独 `/blog/pillar/*` 路由）：
+
+| Pillar | Hub slug（即落地页 URL） |
+|--------|-------------------------|
+| P1 | `/en/blog/ai-for-data-analysis` |
+| P2 | `/en/blog/code-agent-vs-data-agent` |
+| … | 见 `hub-landing-pages-master.json`（15 个） |
+
+> **禁止**部署 `/en/blog/pillar/{slug}`。若已上线，301 到对应 Hub URL（见 `hub-landing-handoff-pack/redirect-deprecated-pillar-routes.csv`）。
 
 机器可读索引：
 - **[`blog-index-import-master.json`](./blog-index-import-master.json)** — 列表页直接 import（100 posts）

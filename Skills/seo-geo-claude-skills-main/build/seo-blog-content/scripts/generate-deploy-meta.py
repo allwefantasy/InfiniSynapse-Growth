@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate programmer-ready SEO deploy artifacts for all 100 articles.
+"""Generate programmer-ready SEO deploy artifacts for all published blog articles.
 
 Outputs:
 - <article>/head.html      : clean <head> snippet (meta tags, comments stripped) + JSON-LD <script>
@@ -19,7 +19,7 @@ COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
 
 
 def pillar_dirs() -> list[Path]:
-    return sorted(p for p in BLOG.glob("pillar[1-8]-*") if p.is_dir() and " copy" not in p.name)
+    return sorted(p for p in BLOG.glob("pillar[0-9]*-*") if p.is_dir() and " copy" not in p.name)
 
 
 def clean_meta_tags(html: str) -> str:
@@ -104,7 +104,15 @@ def main() -> None:
             if not meta_path.is_file():
                 continue
             h = meta_path.read_text(encoding="utf-8")
-            slug = one(r'<link rel="canonical" href="https://infinisynapse\.cn/blog/([^"]+)"', h)
+            slug = one(
+                r'<link rel="canonical" href="https://infinisynapse\.com/en/blog/([^"]+)"',
+                h,
+            )
+            if not slug:
+                slug = one(
+                    r'<link rel="canonical" href="https://infinisynapse\.cn/blog/([^"]+)"',
+                    h,
+                )
             schema_text = schema_path.read_text(encoding="utf-8") if schema_path.is_file() else "[]"
             try:
                 schema = json.loads(schema_text)
@@ -121,7 +129,7 @@ def main() -> None:
 
     records.sort(key=lambda r: r["id"])
     bundle = {
-        "_comment": "Programmer-ready SEO metadata for 100 blog articles. Inject per slug.",
+        "_comment": "Programmer-ready SEO metadata for all published blog articles. Inject per slug.",
         "_usage": "Use head.html per article folder for raw injection, or this JSON for "
                   "programmatic metadata (Next.js generateMetadata, SSR, CMS API).",
         "_generated_by": "SEO/Blog/generate-deploy-meta.py",

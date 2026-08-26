@@ -1,0 +1,46 @@
+---
+description: SEO 内容写作问题与修复默认写入 Skill 活文档
+globs: SEO/Blog/**/*
+alwaysApply: false
+---
+
+# SEO 内容 · 问题修复默认入库
+
+编辑 `SEO/Blog/` 下文章、meta、脚本或部署产物时，修复任一问题后**默认**写入 Skill 活文档，无需用户再次要求。
+
+## 活文档路径
+
+`Skills/seo-geo-claude-skills-main/build/seo-blog-content/references/seo-content-learnings-log.md`
+
+## 必须记录
+
+- 审计 Fail → 修复（含脚本名、报错摘要）
+- 部署/CMS/sitemap/canonical/301/slug 问题
+- 批量脚本副作用与回滚步骤
+- 用户说「以后也要这样」的流程教训
+
+## 条目格式（追加到「记录」区）
+
+```markdown
+### YYYY-MM-DD · [分类] 标题
+- **场景**：…
+- **症状**：…
+- **根因**：…
+- **修复**：…
+- **防复发**：…
+- **状态**：open | promoted → 文档名
+```
+
+分类：`audit` · `keyword` · `links` · `meta` · `deploy` · `reddit-geo` · `script` · `cms` · `sitemap`
+
+## 提升为硬规则
+
+同一问题 ≥2 次、或影响 90/90 / 97/97 门禁 → 同步更新 `references/` 下对应规则文档，并将 log 条目标为 `promoted`。
+
+## 不写
+
+单次 typo、已在硬规则完整覆盖且无新细节。
+
+## 规则正本
+
+[`SEO/Blog/SKILL.md`](../../SEO/Blog/SKILL.md) · [`seo-blog-content-skill/SKILL.md`](../../Skills/seo-blog-content-skill/SKILL.md)

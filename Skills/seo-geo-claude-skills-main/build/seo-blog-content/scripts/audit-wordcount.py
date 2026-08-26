@@ -4,31 +4,29 @@
 Body = from ## TL;DR through end (excludes frontmatter + TOC).
 Keyword = exact phrase from **Target keyword** in article.md (case-insensitive).
 
-Density gate is keyword-length-aware so that "passing" means "high quality, not
-keyword-stuffed". Long-tail keywords (e.g. a 9-word phrase) cannot reach 1.2%
-density without being repeated 20+ times verbatim — that is stuffing, not SEO.
+Density gate: **minimum 1.2%** preferred for Pillar 26–30 (audit floor remains 1.0%
+for older pillars). Upper bound scales with keyword length to avoid stuffing.
 
   keyword words | acceptable density
   ------------- | ------------------
-  1–3           | 0.8% – 1.8%
-  4–5           | 0.5% – 1.5%
-  6+            | 0.25% – 1.0%
+  1–3           | 1.0% – 1.8%
+  4–5           | 1.0% – 1.5%
+  6+            | 1.0% – 1.5%
 """
 import re
 import sys
 from pathlib import Path
 
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
+from article_keyword_meta import target_keyword as resolve_keyword
+
 BLOG = Path(__file__).resolve().parents[5] / "SEO" / "Blog"
-PILLARS = [
-    BLOG / "pillar1-ai-native-data-analysis",
-    BLOG / "pillar2-data-agent-vs-alternatives",
-    BLOG / "pillar3-ai-analyst-tools",
-    BLOG / "pillar4-data-source-connectors",
-    BLOG / "pillar5-nl2sql-text-to-sql",
-    BLOG / "pillar6-ai-excel-csv-spreadsheet",
-    BLOG / "pillar7-use-cases-role-industry",
-    BLOG / "pillar8-skills-templates-glossary",
-]
+PILLARS = sorted(
+    p for p in BLOG.glob("pillar[0-9]*-*")
+    if p.is_dir() and " copy" not in p.name
+)
 
 
 def extract_body_raw(text: str) -> str:
@@ -59,24 +57,21 @@ def kw_count(raw: str, keyword: str) -> int:
 
 
 def density_bounds(keyword: str) -> tuple[float, float]:
-    # Floors kept low enough that a clearly-present keyword passes without
-    # stuffing; awkward multi-word phrases need only natural placement.
+    # Hard floor: 1.0% — keyword density must exceed sub-1% values (see content-quality-gates.md).
+    # 6+ word phrases share the 1.5% cap with 4–5 word phrases so dens > 1.2% remains achievable.
     n = len(keyword.split())
     if n <= 3:
-        return (0.6, 1.8)
-    if n <= 5:
-        return (0.35, 1.5)
-    return (0.2, 1.0)
+        return (1.0, 1.8)
+    return (1.0, 1.5)
 
 
 def audit_pillar(pillar: Path) -> list[dict]:
     rows = []
     for article in sorted(pillar.glob("[0-9][0-9][0-9]-*/article.md")):
         text = article.read_text(encoding="utf-8")
-        kw_m = re.search(r"\*\*Target keyword\*\*:\s*`([^`]+)`", text)
-        if not kw_m:
+        keyword = resolve_keyword(article, text)
+        if not keyword:
             continue
-        keyword = kw_m.group(1)
         raw = extract_body_raw(text)
         wc = word_count(raw)
         kc = kw_count(raw, keyword)

@@ -7,16 +7,10 @@ import sys
 from pathlib import Path
 
 BLOG = Path(__file__).resolve().parents[5] / "SEO" / "Blog"
-PILLARS = [
-    BLOG / "pillar1-ai-native-data-analysis",
-    BLOG / "pillar2-data-agent-vs-alternatives",
-    BLOG / "pillar3-ai-analyst-tools",
-    BLOG / "pillar4-data-source-connectors",
-    BLOG / "pillar5-nl2sql-text-to-sql",
-    BLOG / "pillar6-ai-excel-csv-spreadsheet",
-    BLOG / "pillar7-use-cases-role-industry",
-    BLOG / "pillar8-skills-templates-glossary",
-]
+PILLARS = sorted(
+    p for p in BLOG.glob("pillar[0-9]*-*")
+    if p.is_dir() and " copy" not in p.name
+)
 
 H2_H3_H4_MIN = 20
 H2_H3_H4_MAX = 30

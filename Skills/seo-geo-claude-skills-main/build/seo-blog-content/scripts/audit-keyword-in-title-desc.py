@@ -6,6 +6,11 @@ import re
 import sys
 from pathlib import Path
 
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
+from article_keyword_meta import target_keyword as resolve_keyword
+
 BLOG = Path(__file__).resolve().parents[5] / "SEO" / "Blog"
 PILLARS = [
     BLOG / "pillar1-ai-native-data-analysis",
@@ -19,7 +24,10 @@ PILLARS = [
 ]
 
 
-def extract_keyword(text: str) -> str:
+def extract_keyword(article_path: Path, text: str) -> str:
+    kw = resolve_keyword(article_path, text)
+    if kw:
+        return kw.lower()
     m = re.search(r"\*\*Target keyword\*\*:\s*`([^`]+)`", text)
     return m.group(1).strip().lower() if m else ""
 
@@ -53,9 +61,9 @@ def meta_fields(meta_path: Path) -> tuple[str, str]:
 
 def audit(article_path: Path) -> list[str]:
     text = article_path.read_text(encoding="utf-8")
-    kw = extract_keyword(text)
+    kw = extract_keyword(article_path, text)
     if not kw:
-        return ["missing **Target keyword**"]
+        return ["missing target keyword (article-meta.json)"]
 
     fails: list[str] = []
     h1 = extract_h1(text)

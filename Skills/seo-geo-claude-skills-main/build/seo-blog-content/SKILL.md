@@ -35,7 +35,7 @@ metadata:
 
 # SEO Blog Content (InfiniSynapse Pillar Cluster)
 
-Production and publish-gate rules for **90 articles** under `SEO/Blog/pillar1` … `pillar8`. Canonical full rules live in the monorepo at [`SEO/Blog/SKILL.md`](../../../../SEO/Blog/SKILL.md); this skill packages the same contract for the SEO/GEO library.
+Production and publish-gate rules for **90 articles** under `SEO/Blog/pillar1` … `pillar8`, plus **97 Vibe articles** (Pillar 16–20). Canonical rules live in [`references/`](references/); `SEO/Blog/SKILL.md` is a pointer only.
 
 ## Quick Start
 
@@ -78,7 +78,10 @@ When the user asks to write, edit, or audit InfiniSynapse pillar blog content:
 6. **Outline** — exactly 1×H1; H2+H3+H4 total 20–30; no skipped heading levels.
 7. **Meta** — keyword once in H1 and Meta Description; no stuffing templates; sync `meta-tags.html` + `schema.json`.
 8. **Run gates** — execute all **11 audits + `audit-eeat.py`** in [references/audit-and-fix-commands.md](references/audit-and-fix-commands.md); fix with matching `fix-*.py` scripts until 90/90. Content quality rules: [references/content-quality-gates.md](references/content-quality-gates.md).
-9. **Regenerate preview** — rerun `build-preview.py` for the affected pillar after body/meta changes.
+9. **Body data charts** — every `chart-*.png` must encode **≥2 data dimensions** (grouped bars, multi-series lines, stacked, etc.). Ban single-metric Before/After two-bar charts. See [references/body-data-chart-rules.md](references/body-data-chart-rules.md).
+10. **Log learnings** — after any non-trivial fix, append to [references/seo-content-learnings-log.md](references/seo-content-learnings-log.md) (symptom, root cause, fix, prevention). Promote recurring items into hard-rule references.
+11. **Regenerate preview** — rerun `build-preview.py` for the affected pillar after body/meta changes.
+12. **File layout** — new rules → `references/`; new scripts → `scripts/`; never add rule/script sources under `SEO/Blog/`. See [references/skill-file-layout.md](references/skill-file-layout.md).
 
 > **Iron rule**: do **not** replace Target keywords with `this workflow` / `this connector workflow` (>1 occurrence fails).
 
@@ -92,16 +95,23 @@ When the user asks to write, edit, or audit InfiniSynapse pillar blog content:
 | Target keyword | Immutable; full phrase in title + desc + body |
 | Outline | 1×H1; 20–30×(H2/H3/H4) |
 | Internal links | Contextual sentences; no cluster list paragraphs |
-| Product CTA | `[InfiniSynapse web app](https://app.infinisynapse.cn)` |
+| Body data charts | ≥2 dimensions per `chart-*.png`; no single-metric Before/After bars |
+| Product CTA | `[InfiniSynapse web app](https://app.infinisynapse.com/)` |
 
 See [references/hard-rules-quick-reference.md](references/hard-rules-quick-reference.md) for the numbered checklist and [references/infinisynapse-blog-full-rules.md](references/infinisynapse-blog-full-rules.md) for the complete rulebook.
 
 ## Reference Materials
 
+- [Skill File Layout](references/skill-file-layout.md) — **where rules, scripts, and content artifacts live** (`references/` + `scripts/` in this skill; `SEO/Blog/` = content only)
 - [Content Quality Gates](references/content-quality-gates.md) — 11-gate publish bar, EEAT, anti-boilerplate, adaptive density
-- [Hard Rules Quick Reference](references/hard-rules-quick-reference.md) — 14-point checklist from `Skills/seo-blog-content-skill`
+- [Reddit GEO · Vibe Series (Pillar 16–20)](references/reddit-geo-vibe-series-rules.md) — Reddit keyword/slug, TL;DR direct answer, tone, 97/97 pipeline, 301 redirects
+- [Vibe Series Handoff](references/vibe-coding-series-handoff.md) — 97/97 deliverables, pillar map, regenerate commands
+- [Vibe Pillar Strategy](references/seo_pillar_strategy_vibe_coding_api.md) — topic plan source (Pillar 16–20)
+- [Hard Rules Quick Reference](references/hard-rules-quick-reference.md) — checklist from `Skills/seo-blog-content-skill`
+- [Body Data Chart Rules](references/body-data-chart-rules.md) — ≥2 dimensions for `chart-*.png`; Hero overlay notes
 - [InfiniSynapse Blog Full Rules](references/infinisynapse-blog-full-rules.md) — mirror of `SEO/Blog/SKILL.md`
-- [Audit and Fix Commands](references/audit-and-fix-commands.md) — all `python3 SEO/Blog/*.py` gates and fixers
+- [Audit and Fix Commands](references/audit-and-fix-commands.md) — all publish-gate `audit-*.py` / `fix-*.py` in `scripts/`
+- [SEO Content Learnings Log](references/seo-content-learnings-log.md) — living problem/fix journal; append after every non-trivial fix
 - [SEO Blog SKILL (live)](../../../../SEO/Blog/SKILL.md) — canonical source in monorepo (update both when rules change)
 - [High-DR source pool](../../../../SEO/Blog/high-dr-authority-sources.py) — URLs + weave templates
 - [Cluster link registry](../../../../SEO/Blog/cluster-link-registry.py) — Pillar/Cluster hub map

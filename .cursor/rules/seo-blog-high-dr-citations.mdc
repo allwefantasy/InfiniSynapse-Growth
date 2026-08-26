@@ -7,5 +7,6 @@ When editing files under `SEO/Blog/pillar*/**/article.md`:
 3. Never add `## Related Reading`, `For related workflow depth, see` bullets, `Within this topic cluster, explore [A], [B]…` list paragraphs, or standalone `## Sources` blocks. Embed **one internal link per sentence** in contextually relevant body paragraphs.
 4. **Pillar Page** → link all other Pillar Pages in the cluster (single-hub clusters also link every Cluster Page). **Cluster Page** → link hub + ≥2 sibling Cluster Pages.
 5. After substantive edits, run `audit-keyword-placeholder.py`, `audit-internal-links.py`, and `audit-high-dr-links.py` on the affected pillar folder.
+6. After fixing any audit/deploy/script issue, append an entry to [`seo-content-learnings-log.md`](../../Skills/seo-geo-claude-skills-main/build/seo-blog-content/references/seo-content-learnings-log.md) (see `.cursor/rules/seo-content-learnings-capture.mdc`).
 
 Registries: `SEO/Blog/high-dr-authority-sources.py`, `SEO/Blog/cluster-link-registry.py`.

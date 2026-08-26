@@ -1,8 +1,8 @@
 # Hard Rules Quick Reference
 
-Canonical live copy: [`SEO/Blog/SKILL.md`](../../../../SEO/Blog/SKILL.md). Update both when rules change.
+Canonical rules: [`infinisynapse-blog-full-rules.md`](./infinisynapse-blog-full-rules.md).
 
-## Checklist (14 items)
+## Checklist (15 items)
 
 1. **External count** — each `article.md` has ≥ **5** unique high-DR external URLs (`high-dr-authority-sources.py`).
 2. **External embed** — descriptive anchor + full English sentence; no `## Sources`, bare URL lists, or bare URL anchors.
@@ -18,5 +18,6 @@ Canonical live copy: [`SEO/Blog/SKILL.md`](../../../../SEO/Blog/SKILL.md). Updat
 12. **Preview** — rerun `build-preview.py` after `article.md` changes.
 13. **Audit gates** — **11 scripts + `audit-eeat.py`** at 90/90; see [audit-and-fix-commands.md](audit-and-fix-commands.md) and [content-quality-gates.md](content-quality-gates.md).
 14. **Fix scripts** — `fix-outline-structure.py`, `fix-keyword-in-title-desc.py`, `fix-keyword-meta-natural.py`, `patch-high-dr-citations.py`, `fix-external-link-overlap.py`, `fix-internal-links.py`, `fix-this-workflow-placeholder.py` (human read-through after batch fixes).
+15. **Body data charts** — every `chart-*.png` encodes **≥2 data dimensions** (e.g. category × Before/After grouped bars, multi-series lines). Ban single-metric two-bar Before/After. See [`body-data-chart-rules.md`](./body-data-chart-rules.md).
 
 Cursor rule: `.cursor/rules/seo-blog-high-dr-citations.mdc`

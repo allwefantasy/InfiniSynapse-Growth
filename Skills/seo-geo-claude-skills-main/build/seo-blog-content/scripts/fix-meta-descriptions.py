@@ -47,13 +47,18 @@ TAILS_NOFAQ = [
 
 
 def pillar_dirs() -> list[Path]:
-    return sorted(p for p in BLOG.glob("pillar[1-8]-*") if p.is_dir() and " copy" not in p.name)
+    return sorted(
+        p for p in BLOG.glob("pillar*")
+        if p.is_dir() and re.match(r"pillar\d+", p.name) and " copy" not in p.name
+    )
 
 
 def load_content_types() -> dict[str, str]:
     out: dict[str, str] = {}
-    csv_path = BLOG / "blog-cms-import-100.csv"
-    if csv_path.is_file():
+    for name in ("blog-cms-import-202.csv", "blog-cms-import-100.csv"):
+        csv_path = BLOG / name
+        if not csv_path.is_file():
+            continue
         with csv_path.open(encoding="utf-8") as f:
             for row in csv.DictReader(f):
                 out[row["folder"]] = row["content_type"]

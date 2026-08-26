@@ -22,16 +22,18 @@ RELATED_PAT = re.compile(
     re.I,
 )
 
+# Internal blog links may carry a locale prefix (/blog/, /en/blog/, /zh/blog/)
 COMMA_BLOG_CHAIN = re.compile(
-    r"\[[^\]]+\]\(/blog/[^)]+\),\s*(?:\[[^\]]+\]\(/blog/[^)]+\),?\s*)+(?:and\s+)?\[[^\]]+\]\(/blog/",
+    r"\[[^\]]+\]\((?:/[a-z]{2})?/blog/[^)]+\),\s*(?:\[[^\]]+\]\((?:/[a-z]{2})?/blog/[^)]+\),?\s*)+(?:and\s+)?\[[^\]]+\]\((?:/[a-z]{2})?/blog/",
     re.I,
 )
 
 
 def slugs_in_prose(text: str) -> set[str]:
     slugs: set[str] = set()
-    for _, slug in re.findall(r"\[([^\]]+)\]\(/blog/([^)]+)\)", text):
-        slugs.add(slug.strip("/"))
+    # accept optional locale prefix (/en, /zh) before /blog/; capture bare slug
+    for _, slug in re.findall(r"\[([^\]]+)\]\((?:/[a-z]{2})?/blog/([^)]+)\)", text):
+        slugs.add(slug.strip("/").split("/")[-1])
     return slugs
 
 
@@ -68,11 +70,9 @@ def audit(path: Path, cluster: dict) -> list[str]:
         hub_slug = cluster["articles"][cluster["primary_hub"]]["slug"]
         if hub_slug not in present:
             fails.append(f"missing primary hub link: /blog/{hub_slug}")
-        cluster_slugs = {
-            cluster["articles"][f]["slug"]
-            for f in cluster["folders"]
-            if f not in cluster["pillar_pages"] and f != folder
-        }
+        cluster_slugs = set(cluster.get("planned_sibling_slugs", set()))
+        cluster_slugs -= {cluster["articles"][folder]["slug"]}
+        cluster_slugs -= {cluster["articles"][pf]["slug"] for pf in cluster["pillar_pages"]}
         linked_cluster = len(present & cluster_slugs)
         if linked_cluster < 2:
             fails.append(f"cluster page needs >=2 sibling links (has {linked_cluster})")

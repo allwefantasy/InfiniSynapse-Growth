@@ -1,0 +1,48 @@
+---
+description: SEO 博客关键词密度下限 ≥1.2%（新集群 21–25 写作目标；audit-wordcount 全局硬门禁 ≥1.0%）
+globs: SEO/Blog/**/*
+alwaysApply: false
+---
+
+# SEO 博客 · 关键词密度下限
+
+编辑或审核 `SEO/Blog/pillar*/**/article.md` 时，正文关键词密度**必须 ≥1.2%**（1.19% 及以下 Fail）。
+
+> **适用范围**：Pillar **21–25** 数据分析新集群及此后所有新文章，写作下限 **≥1.2%**。
+> **兼容说明**：Pillar **16–20** 既有 Vibe 文按历史 **≥1.0%** 兼容；`audit-wordcount.py` 全局硬 Fail 线仍为 1.0%（防旧文回归），但新文须自查达到 1.2%。
+
+## 统计方式
+
+- **范围**：`## TL;DR` 至文末（与 `audit-wordcount.py` 一致）
+- **短语**：`**Target keyword**` 完整短语（大小写不敏感）
+- **Vibe Pillar 16–20**：正文 weave 可用规划表**核心词**（不含 ` reddit`），但 `tune-vibe-audit-gates.py` / `boost-vibe-core-keyword-density.py` 仍须让计密度词达到同一下限
+
+## 可接受区间（按 Target keyword 词数）
+
+| 词数 | 密度（新集群 21–25 下限 1.2%） |
+|------|------|
+| 1–3 | **1.2% – 1.8%** |
+| 4–5 | **1.2% – 1.6%** |
+| 6+ | **1.2% – 1.4%** |
+
+## 字数
+
+**1900–2800** 词（与密度同时 Pass 才过门禁）
+
+## 写法
+
+- TL;DR / Key Definition 至少 1 次完整 Target keyword
+- 自然 **加粗** weave；禁止 FAQ 末尾重复填充句凑密度
+- 超标时用 `reduce-keyword-density.py`；不足时用 `weave-brand-keyword.py` 或 Vibe 系 `boost-vibe-core-keyword-density.py`
+
+## 验证
+
+```bash
+S="Skills/seo-geo-claude-skills-main/build/seo-blog-content/scripts"
+python3 "$S/audit-wordcount.py" SEO/Blog/pillar16-vibe-coding-workflow  # 或目标 pillar
+```
+
+## 规则正本
+
+- [`content-quality-gates.md`](../../Skills/seo-geo-claude-skills-main/build/seo-blog-content/references/content-quality-gates.md) §1.1
+- [`reddit-geo-vibe-series-rules.md`](../../Skills/seo-geo-claude-skills-main/build/seo-blog-content/references/reddit-geo-vibe-series-rules.md)

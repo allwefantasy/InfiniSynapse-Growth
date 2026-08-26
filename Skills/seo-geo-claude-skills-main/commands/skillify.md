@@ -1,3 +1,4 @@
+
 ---
 name: skillify
 description: Audit whether a proposed or changed SEO/GEO skill is complete, routable, eval-covered, and release-ready. Use when maintainers ask to "skillify" a feature, add a skill, check skill completeness, or prepare a skill authoring PR. Proposal-only; does not edit files.

@@ -4,6 +4,11 @@ import re
 import sys
 from pathlib import Path
 
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
+from article_keyword_meta import target_keyword as resolve_keyword
+
 BLOG = Path(__file__).resolve().parents[5] / "SEO" / "Blog"
 PILLARS = [
     BLOG / "pillar1-ai-native-data-analysis",
@@ -39,7 +44,11 @@ def body_from_tldr(text: str) -> str:
     return text[m.start() :] if m else text
 
 
-def extract_keyword(text: str) -> str:
+def extract_keyword(text: str, article_path=None) -> str:
+    if article_path is not None:
+        kw = resolve_keyword(article_path, text)
+        if kw:
+            return kw.lower()
     m = re.search(r"\*\*Target keyword\*\*:\s*`([^`]+)`", text)
     return m.group(1).lower() if m else ""
 
@@ -47,7 +56,7 @@ def extract_keyword(text: str) -> str:
 def audit(path: Path) -> dict:
     text = path.read_text(encoding="utf-8")
     body = body_from_tldr(text)
-    kw = extract_keyword(text)
+    kw = extract_keyword(text, path)
     fails = []
 
     # Trust / Experience / Expertise

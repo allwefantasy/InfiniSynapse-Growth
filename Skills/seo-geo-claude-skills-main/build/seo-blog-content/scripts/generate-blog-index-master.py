@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate blog-index-import-master.json — 100 posts for frontend list page."""
+"""Generate blog-index-import-master.json — all published posts for frontend list page."""
 from __future__ import annotations
 
 import importlib.util
@@ -199,13 +199,13 @@ def main() -> None:
     }
 
     out = {
-        "_comment": "博客列表页卡片数据 · 100 篇全量 · 对齐 infinisynapse.cn/blog 现有 UI",
+        "_comment": "博客列表页卡片数据 · 全量已发布文章 · 对齐 infinisynapse.cn/blog 现有 UI",
         "_usage": (
             "前端 import 此文件 posts 数组作为 blogPosts 数据源；"
             "详情页用 source_path 下 article.md + meta-tags.html + schema.json；"
             "ui_module 决定详情页内容区块变体（见 FRONTEND-DEPLOY-GUIDE.md §5）"
         ),
-        "_generated_by": "SEO/Blog/generate-blog-index-master.py",
+        "_generated_by": "Skills/seo-geo-claude-skills-main/build/seo-blog-content/scripts/generate-blog-index-master.py",
         "locale_ui": "es",
         "locale_content": "en",
         "article_count": len(posts),

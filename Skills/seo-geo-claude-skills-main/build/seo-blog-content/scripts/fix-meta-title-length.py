@@ -52,15 +52,20 @@ DEFAULT_SUBS = ["2026 Guide", "Complete 2026 Guide", "Practical 2026 Guide"]
 
 def load_content_types() -> dict[str, str]:
     out: dict[str, str] = {}
-    p = BLOG / "blog-cms-import-100.csv"
-    if p.is_file():
+    for name in ("blog-cms-import-202.csv", "blog-cms-import-100.csv"):
+        p = BLOG / name
+        if not p.is_file():
+            continue
         for row in csv.DictReader(p.open(encoding="utf-8-sig")):
             out[row["folder"]] = row.get("content_type", "")
     return out
 
 
 def pillar_dirs() -> list[Path]:
-    return sorted(p for p in BLOG.glob("pillar[1-8]-*") if p.is_dir() and " copy" not in p.name)
+    return sorted(
+        p for p in BLOG.glob("pillar*")
+        if p.is_dir() and re.match(r"pillar\d+", p.name) and " copy" not in p.name
+    )
 
 
 def title_case_kw(kw: str) -> str:

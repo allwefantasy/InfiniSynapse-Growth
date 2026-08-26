@@ -176,7 +176,7 @@ python3 SEO/Blog/fix-faq-and-headers.py
 ### 标题/描述织入原则
 
 - **标题**：优先将关键词置于 H1 前部（`{Keyword}: {原意标题}` 或词序重排，如 `Airtable Data Analysis: …`）
-- **描述**：首句或前缀须含完整关键词；总长建议 ≤165 字符，但**不得以截断破坏关键词完整性**
+- **描述**：首句或前缀须含完整关键词；**总长须 150–160 字符**（On-Page 严格区间，见下「On-Page 发布合规」），且**不得以截断破坏关键词完整性**
 - 对比/替代类长关键词（如 `agentic data plane hosted vs self-hosted comparison`）允许较长 H1，**关键词完整性优先于字数**
 
 ### 禁止
@@ -210,7 +210,7 @@ python3 SEO/Blog/fix-faq-and-headers.py
 - **禁止**描述模板：`Practical guide to {keyword} with pain points…`
 - **禁止** H1 与 Meta Description **重复同一冒号前缀**（如 H1 与 desc 均以 `What Is a Data Agent:` 开头）
 - 关键词过长（>48 字符）时：H1 可仅用 `{Keyword} (2026)`，副标题信息写入描述，**不得**在标题末尾硬截断关键词
-- H1 建议 ≤90 字符；Meta Description ≤165 字符，且不得以截断破坏关键词完整短语
+- H1 建议 ≤90 字符；**Meta Description 须 150–160 字符**（见「On-Page 发布合规」），且不得以截断破坏关键词完整短语
 
 ### 自动修复与审计
 
@@ -227,6 +227,113 @@ python3 SEO/Blog/audit-keyword-meta-stuffing.py
 ```
 
 正文变更后须重跑 `build-preview.py`，避免 `preview.html` 残留旧 title/description。
+
+## 硬规则 · On-Page / CMS 发布合规（5 项）
+
+文章经 CMS（如 **QuickCreator**）或 headless 前端发布时，On-Page SEO 检查器对每页有 5 项硬要求。内容本身没问题，关键在「发布层」要把元数据接对、并保证页面**只有 1 个 H1**。
+
+### 两层模型（务必区分，否则会把作者门禁搞挂）
+
+| 层 | 位置 | H1 | 谁负责 |
+|----|------|----|--------|
+| **作者层（源）** | `SEO/Blog/pillar*/article.md` | **有且仅 1 个 H1** | outline / keyword-in-title 门禁依赖它，**不要删** |
+| **发布层（交付）** | `frontend-handoff/content/**/article.md`（body-only）+ `head.html` + `seo-meta.json` | **body 无 H1**，页面 `<h1>` 由标题渲染 | 由 `build-frontend-handoff.py` 复制时自动去 H1 |
+
+### 5 项要求
+
+| # | 要求 | 落点 |
+|---|------|------|
+| 1 | **Canonical** 必有、无尾斜杠 | `https://infinisynapse.com/en/blog/{slug}`（英文）；`https://infinisynapse.com/zh/blog/{slug}`（hreflang zh-CN） |
+| 2 | 页面**有且仅 1 个 H1**；H1 由标题（meta `<title>` / `seo-meta.json` title）渲染，发布 body **无 H1**；**禁止**「平台标题 H1 + 正文 H1」双 H1 | 发布层 `article.md` |
+| 3 | **Meta 描述 150–160 字符**（严格）；扩写须**完整句、不得截断成残句、跨篇不得重复** | `article.md` `**Meta Description**` + `meta-tags.html`(description/og/twitter) + `schema.json` + `head.html` 五处同步 |
+| 4 | **社交标签齐全**：`og:type/url/title/description/image(+width/height/alt)/site_name` + `twitter:card/title/description/image` | `meta-tags.html` / `head.html` / `seo-meta.json` |
+| 5 | **Meta `<title>` 40–60 字符**且含完整关键词 | `fix-meta-title-length.py` 改 `<title>` + `og:title` + `twitter:title`；H1 与 `schema.headline` 保持完整（可较长） |
+
+### 标题长度（第 5 项）细则
+
+- `<title>`（SEO 标题）与 H1（展示标题）**可不同**：`<title>` 40–60，H1 可保留完整关键词与副标题。
+- `<title>` 仍须含**完整关键词**（满足 `audit-keyword-in-title-desc.py`）。
+- **例外**：关键词本身 >58 字符（如 `data integration platforms supporting snowflake bigquery redshift`）时，保留完整关键词、接受 `<title>` >60（QC 为黄色警告，非红色错误；关键词完整性优先）。
+- 修复脚本按 `content_type` 选副标题（versus→Comparison、listicle→Top Tools、how-to→Setup Guide、glossary→Key Terms…），**禁止**在虚词（for/and/the…）处截断。
+
+### ⚠️ 部署注入是合规前提（实测教训）
+
+源文件正确 ≠ 线上合规。实测线上页面**只注入了 `<title>` + `ld+json`**，缺失 `canonical` / `og:*` / `twitter:*`，且 `description` 退回**站点默认**。
+
+- canonical / description / og / twitter 必须由部署代码**逐页注入** `head.html`（或 `seo-meta.json` 字段）。
+- 验证用 `curl` 抓线上原始 HTML（不是渲染文本）确认 `<head>` 是否含这些标签。
+
+### 程序员直接可用的产物
+
+- **`<article>/head.html`**：去注释的 `<head>` 片段 + JSON-LD，直接注入页面 `<head>`
+- **`seo-meta.json`**：按 slug 的全部 SEO 字段，程序化注入（Next.js `generateMetadata` / SSR / CMS API）
+- 装配规则：**页面 `<h1>` 用标题渲染（1 个）→ head.html 注入 `<head>` → body 渲染 article.md（无 H1）**
+
+### 脚本
+
+```bash
+cd SEO/Blog
+# 修复
+python3 fix-production-urls.py           # 域名 .com + /en/blog/ 路径（幂等）
+python3 fix-meta-descriptions.py          # 描述归一化到 150–160（幂等；同步 md/meta/schema）
+python3 generate-deploy-meta.py           # 每篇 head.html + 合并 seo-meta.json
+python3 build-frontend-handoff.py         # 交付包：复制时 body 去 H1 + 带 head.html/seo-meta.json
+python3 strip-leading-h1.py [deploy_dir]  # 只对交付副本去 H1（默认 frontend-handoff/content）
+
+# 审计
+python3 fix-meta-title-length.py          # <title> 改 40–60 含关键词（不动 H1/schema）
+python3 build-sitemap.py                   # 合并老 URL + 100 篇新博客 → sitemap.xml
+
+# 审计
+python3 audit-quickcreator-onpage.py      # 发布层 5 项（默认审计 frontend-handoff/content；H1 须 0）
+python3 audit-outline-structure.py        # 作者层：源 article.md H1 须 1
+```
+
+### 禁止
+
+- **直接对源 `article.md` 删 H1**（会让 `audit-outline-structure.py` / `audit-keyword-in-title-desc.py` 全挂）→ 去 H1 只在发布层做
+- Meta 描述 <150 或 >160；用残句（如 `It adds.` / `a real example,.`）或跨篇重复句凑长度
+- 把 `meta-tags.html` 顶部注释块、`preview.html` 当正文上线
+- 改 `canonical` / `og:url` 的域名或路径
+
+### 验收（抽 5 篇）
+
+- 页面 `document.querySelectorAll('h1').length === 1`
+- `<head>` 有 `canonical`（无尾斜杠）、`description` 150–160、`og:*` + `twitter:*`、`<script type="application/ld+json">`（含 FAQPage）
+- `<title>` 40–60 字符（长关键词例外见上）
+
+## 硬规则 · Sitemap（站点地图）
+
+新增/更新文章后，须重生成完整 `sitemap.xml` 交付程序员，**整体替换**线上 `https://infinisynapse.com/sitemap.xml`（不是只给新博客的子地图）。
+
+### 规则
+
+| 规则 | 说明 |
+|---|---|
+| **URL = canonical** | 博客用 `https://infinisynapse.com/en/blog/{slug}`，与 head `canonical` 完全一致（完整域名、含 `/en/`、无尾斜杠） |
+| **保留存量 URL** | 现有非博客 URL（`use-cases/*`、`guides/*` 等）**原样保留** `lastmod`/`changefreq`/`priority`，禁止丢失或改写 |
+| **lastmod** | 博客取自各文 `schema.json` `dateModified`；老页沿用原值 |
+| **priority** | Hub/Pillar 0.9，普通博客 0.7；老页沿用原值 |
+| **changefreq** | 博客 `weekly`；老页沿用原值 |
+| **仅收录 200 页** | 只放已上线、可 200 访问的 URL（对照 `部署清单-完整URL.csv`）；**`/zh/blog/` 中文页未上线则不收录**，避免 GSC「已提交未找到」 |
+| **robots.txt** | 含 `Sitemap: https://infinisynapse.com/sitemap.xml` |
+| **协议** | sitemaps.org 0.9；生成后 XML 须可解析（脚本自带 `xml.dom.minidom` 校验） |
+
+### 脚本
+
+```bash
+python3 SEO/Blog/build-sitemap.py   # 老 URL(EXISTING 常量) + /en/blog 列表页 + 100 篇博客 → sitemap.xml
+```
+
+- 存量 URL 内嵌在脚本 `EXISTING` 常量；站点新增非博客栏目时同步维护该常量。
+- 数据源 `seo-meta.json`（canonical + schema 日期），保证与 head 一致。
+- 生成后：GSC → Sitemaps → 重新提交 `sitemap.xml`。
+
+### 禁止
+
+- 用相对路径或 `.cn` 旧域名做 `<loc>`（必须完整 `https://infinisynapse.com/...`）
+- 漏掉存量 `use-cases/*`、`guides/*`（会导致老页从地图消失、收录回退）
+- 收录尚未上线/会 404 的 URL（含未发布的中文页）
 
 ## 硬规则 · 大纲结构（Outline / Heading Hierarchy）
 
@@ -275,9 +382,49 @@ python3 SEO/Blog/fix-outline-structure.py
 
 正文结构变更后须重跑 `build-preview.py`（预览页须为 H2/H3 生成与 TOC 一致的 `id`）。
 
+## 硬规则 · 正文数据图 ≥2 维度
+
+`images/chart-*.png`（及同类 matplotlib / 数据插图）**必须编码至少 2 个数据维度**。
+
+- **禁止**：仅 Before/After 两根柱、单指标一维对比；单系列折线无对照。
+- **要求**：分组柱（类别 × 阶段）、多系列折线（时间 × 系列）、堆叠构成、散点 XY 等。
+- **标注**：标题/alt 含 illustrative；alt 写明图表类型与两个维度。
+- **插入**：优先紧跟 `**Practical example:**`；与 scorecard 表格分工，勿用装饰性空表 PNG。
+
+完整细则与 Hero 分层：[`body-data-chart-rules.md`](./body-data-chart-rules.md)。脚本：`scripts/gen-data-charts-p26-30.py`。
+
 ## 硬规则 · 主题集群内链（Pillar / Cluster）
 
 每篇 `article.md` 须先确定**页面性质**（见 [`cluster-link-registry.py`](./cluster-link-registry.py)），再按角色织入内链。内链与外链一样：**写在正文叙事句里**，不得堆在文末。
+
+### 双向索引（图书馆模型 · 必须满足）
+
+把一个主题集群当成图书馆：**Pillar = 总目录，Cluster = 分章节的书，两者之间必须有明确的双向索引。** 缺任一方向都视为集群断链。
+
+> **单一支柱优先（默认规则）**：每个 Pillar **应只有 1 篇支柱文章（单 Hub）**，由它内链该集群全部 Cluster。除非集群极大且主题确需拆分，否则不要设多 Hub——多 Hub 会让"哪篇索引全部 Cluster"含糊、覆盖被摊薄（Pillar 1 曾用 4 Hub，结果无单篇全覆盖，已收敛为单 Hub 001）。`cluster-link-registry.py` 的 `PILLAR_PAGE_FOLDERS` 每个 pillar 只列 1 个文件夹。
+
+> **Hub 即 Pillar 落地页（部署硬规则）**：Pillar 的**落地页 URL = Hub 长文** `https://infinisynapse.com/en/blog/{hub-slug}`（见 `hub-landing-pages-master.json`）。**禁止**另建 `/en/blog/pillar/{slug}` 索引页；若已上线须 **301** 到 Hub（见 `hub-landing-handoff-pack/redirect-deprecated-pillar-routes.csv`）。博客列表/分类「查看全部」须链到 Hub URL，而非 /pillar/*。
+
+> **Hub 正文 = 终极指南（Ultimate Guide）**：每篇 Hub 须是一篇**完整、自成体系、高信息密度**的长文（类比《项目管理终极指南》）——含定义、核心框架、方法论对比（内链→Cluster）、工具/方案 landscape、实施路径、案例、Scorecard、失败模式、FAQ 与 Cluster 索引表。**禁止**仅用 `cluster-articles.json` 卡片网格替代正文。框架见 [`pillar-hub-ultimate-guide-framework.md`](./pillar-hub-ultimate-guide-framework.md)；自检表 `SEO/Blog/pillar-hub-section-checklist.csv`（`generate-pillar-hub-checklist.py`）。
+
+1. **Pillar → 链到所有 Cluster**（向下索引）
+   - 单 Hub 集群（P3–P10）的 Pillar Page **必须**链到该集群**每一篇** Cluster Page。
+   - 在 Pillar 正文里**提到对应细分话题的那一段**，自然地把该话题词作锚文本链到对应 Cluster 文章（不是文末罗列）。
+   - **加入新 Cluster 文章时**：必须回到 Pillar 文章，在相关段落补 1 句指向新文的链接（这是加新文唯一强制要改的老文）。
+
+2. **每篇 Cluster → 链回 Pillar**（向上索引）
+   - 每篇 Cluster Page **必须**在正文合适处（定义段 / 背景段 / 实施段）引导读者回到 Pillar Page 看概览，用描述性锚文本叙事嵌入。
+   - 同时链 **≥2 篇同集群兄弟 Cluster**（横向索引）。
+
+3. **URL 格式**：内链统一用 `/en/blog/{slug}`（与 canonical 一致）。审计 `audit-internal-links.py` 已识别 `/blog/`、`/en/blog/`、`/zh/blog/` 前缀；写链接时用 `/en/blog/`。
+
+4. **Cluster guides 表格与锚文本（禁止部署序号）**
+   - Pillar Hub 上的 `## Cluster guides in this pillar` 表格：**Focus** 列与 **Guide** 列链接锚文本均使用文章标题，**不得**前缀部署序号（`001`、`002` …）。
+   - 正文内链锚文本同理：禁止 `[002 Data Agent Manifesto](/en/blog/...)`；应使用 `blog-index-import-master.json` 中的正式标题或语境合适的短标题，但**不含**三位数字前缀。
+   - 序号仅用于文件夹命名（`002-data-agent-manifesto`）与 CMS 导入排序，**不出现在**读者可见文案、表格或链接锚文本。
+   - 修复脚本：`python3 SEO/Blog/fix-cluster-guide-ids.py`（同步 Hub 表格 + 清除 `[NNN …]` 锚文本）。
+
+> 审计口径见 `audit-internal-links.py`：Pillar Page 校验「链满全部 Cluster + 其它 Pillar Page」；Cluster Page 校验「链回 primary hub + ≥2 兄弟」。两者皆过才算集群闭环。
 
 ### 禁止（负例）
 

@@ -8,8 +8,12 @@ import re
 from pathlib import Path
 
 BLOG = Path(__file__).resolve().parents[5] / "SEO" / "Blog"
-PILLARS = sorted(BLOG.glob("pillar[1-8]-*"))
-PILLARS = [p for p in PILLARS if p.is_dir() and " copy" not in p.name]
+PILLARS = sorted(BLOG.glob("pillar*"))
+PILLARS = [
+    p
+    for p in PILLARS
+    if p.is_dir() and re.match(r"pillar\d+", p.name) and " copy" not in p.name
+]
 
 # Pillar 1 slug → (content_type, card_tag, filter_category, ui_module) overrides
 PILLAR1_MAP = {
@@ -57,12 +61,19 @@ PILLAR8_MAP = {
     "how-to-evaluate-ai-data-analyst": ("guide", "Tools & Reviews", "tools_reviews", "long-form-guide"),
 }
 
-# Pillar 4–7 → blog nav filter (see blog-nav-tags.csv)
+# Pillar 4–7, 9–15 → blog nav filter (see blog-nav-tags.csv)
 PILLAR_CATEGORY: dict[int, tuple[str, str]] = {
     4: ("Connectors", "connectors"),
     5: ("NL2SQL", "nl2sql"),
     6: ("Excel & CSV", "excel_csv"),
     7: ("Use Cases", "use_cases"),
+    9: ("Guides", "knowledge"),
+    10: ("Connectors", "connectors"),
+    11: ("Tools & Reviews", "tools_reviews"),
+    12: ("Guides", "knowledge"),
+    13: ("Deep Dive", "deep_dive"),
+    14: ("Guides", "knowledge"),
+    15: ("Guides", "knowledge"),
 }
 
 TYPE_DEFAULTS: dict[str, tuple[str, str, str]] = {
@@ -112,6 +123,22 @@ def read_keyword(art_dir: Path) -> str:
     text = (art_dir / "article.md").read_text(encoding="utf-8")
     m = re.search(r"\*\*Target keyword\*\*:\s*`([^`]+)`", text)
     return m.group(1) if m else ""
+
+
+def read_meta_title(art_dir: Path) -> str:
+    path = art_dir / "meta-tags.html"
+    if not path.is_file():
+        return ""
+    m = re.search(r"<title>([^<]+)</title>", path.read_text(encoding="utf-8"))
+    return m.group(1).strip() if m else ""
+
+
+def read_meta_description(art_dir: Path) -> str:
+    path = art_dir / "meta-tags.html"
+    if not path.is_file():
+        return ""
+    m = re.search(r'<meta name="description" content="([^"]*)"', path.read_text(encoding="utf-8"))
+    return m.group(1).strip() if m else ""
 
 
 def read_title(art_dir: Path) -> str:
@@ -240,7 +267,9 @@ def main() -> None:
             art_id = folder[:3]
             slug = read_slug(art_dir)
             keyword = read_keyword(art_dir)
-            title = read_title(art_dir)
+            h1_title = read_title(art_dir)
+            seo_title = read_meta_title(art_dir) or h1_title
+            meta_desc = read_meta_description(art_dir)
             ctype = (
                 manifest_types.get(slug)
                 or read_type_from_readme(art_dir)
@@ -256,13 +285,14 @@ def main() -> None:
                     pillar_num,
                     ctype,
                     keyword,
-                    title,
+                    seo_title,
                     import_posts.get(slug),
                 )
             )
+            rows[-1]["display_title"] = h1_title or seo_title
+            rows[-1]["meta_description"] = meta_desc
 
     rows.sort(key=lambda r: r["id"])
-    out_csv = BLOG / "blog-cms-import-100.csv"
     fields = [
         "id",
         "folder",
@@ -276,15 +306,19 @@ def main() -> None:
         "ui_module",
         "target_keyword",
         "title",
+        "display_title",
+        "meta_description",
         "source_path",
         "sort_priority",
     ]
-    with out_csv.open("w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
-        w.writeheader()
-        w.writerows(rows)
-
-    print(f"Wrote {len(rows)} rows → {out_csv}")
+    for out_name in ("blog-cms-import-202.csv", "blog-cms-import-100.csv"):
+        subset = rows if out_name.endswith("202.csv") else [r for r in rows if int(r["id"]) <= 100]
+        out_csv = BLOG / out_name
+        with out_csv.open("w", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=fields)
+            w.writeheader()
+            w.writerows(subset)
+        print(f"Wrote {len(subset)} rows → {out_csv}")
 
     # Summary by ui_module
     from collections import Counter

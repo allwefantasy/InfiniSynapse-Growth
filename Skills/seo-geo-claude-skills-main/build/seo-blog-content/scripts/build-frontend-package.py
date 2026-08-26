@@ -132,6 +132,10 @@ def copy_article(art_dir: Path, dest: Path) -> int:
     return n
 
 
+# 每个 Pillar 的唯一支柱页(Hub)文章编号；其余均为 Cluster 分支页
+HUB_IDS = {"001", "014", "024", "044", "059", "069", "081", "100"}
+
+
 def build_catalog_row(
     deploy_order: int,
     post: dict,
@@ -143,9 +147,11 @@ def build_catalog_row(
 ) -> dict:
     pnum = int(post.get("pillar_num") or 0)
     slug = post["slug"]
+    aid = folder[:3]
+    role = "Hub支柱页" if aid in HUB_IDS else "Cluster分支页"
     return {
         "部署序号": deploy_order,
-        "文章编号": folder[:3],
+        "文章编号": aid,
         "slug": slug,
         "页面URL": post["url"],
         "英文标题": post["title"],
@@ -153,6 +159,7 @@ def build_catalog_row(
         "目标关键词": post.get("target_keyword", ""),
         "支柱编号": pnum,
         "支柱名称": PILLAR_ZH.get(pnum, ""),
+        "页面角色": role,
         "内容类型": post.get("content_type", ""),
         "详情页组件": post.get("ui_module", ""),
         "详情页组件说明": UI_MODULE_ZH.get(post.get("ui_module", ""), ""),
