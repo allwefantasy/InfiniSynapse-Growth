@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfiniSynapse · Data Infra</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <section id="cover" class="dark cover" data-background-color="#10231f">
+      <div class="cover-top">
+        <p class="brand">INFINISYNAPSE</p>
+        <p class="meta">上海衡数无限科技有限公司 · 2026</p>
+      </div>
+      <div class="cover-main">
+        <p class="eyebrow">AI Native Data Agent / Data Infra</p>
+        <h1>InfiniSynapse 介绍</h1>
+        <p class="subtitle">让懂行业 know how 的专家，结合 Vibe Coding，快速构建可高并发、稳定对外服务的数据应用。</p>
+      </div>
+      <div class="cover-bottom" aria-hidden="true"></div>
+    </section>
+
+    <section id="message">
+      <div class="page-header">
+        <p class="ph-num">01</p>
+        <p class="ph-label">INFINISYNAPSE</p>
+      </div>
+      <div class="content">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; height: 420px;">
+          <div class="statement dark-card">
+            <p class="kicker">POINT 01</p>
+            <h3>Data Agent 全栈</h3>
+            <p>自研 Agent、分析语言、分布式执行引擎和知识库四大基础层。</p>
+            <p>支持 SaaS、桌面端和纯私有化。</p>
+          </div>
+          <div class="statement">
+            <p class="kicker">POINT 02</p>
+            <h3>Data Infra + Vibe Coding</h3>
+            <p>InfiniSynapse 提供数字分析师池。</p>
+            <p>行业专家通过 Vibe Coding 调度分析师，把 know how 做成稳定应用。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============ 4. PROBLEM ============ -->
+    <section id="pain">
+      <div class="page-header">
+        <p class="ph-num">04</p>
+        <p class="ph-label">PROBLEM · 现状困局</p>
+      </div>
+      <div class="content">
+        <p class="text-lg" style="margin-bottom: 16px;">企业业务数据散落在业务系统、CRM、财务、运营、产品、文件台账等多个系统。当前主流路径大致分为几类,但都很难同时解决跨库、跨数据类型、复杂分析和安全边界问题。</p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 10px;">
+          <div class="card">
+            <h4 class="text-primary">① 数仓 + BI 路线 —— 太慢</h4>
+            <p>采集 → 清洗 → 建模 → 数仓 → 报表,动辄 3–6 个月,投入数十万至百万。一线想法刚提出,排期已到下季度。且强依赖提前的数据治理、指标建模和报表开发。</p>
+          </div>
+          <div class="card">
+            <h4 class="text-primary">② Text2SQL / ChatBI —— 不准</h4>
+            <p>真实 200+ 表场景准确率断崖式下降。也不支持跨库、跨数据类型的联合计算,仍需要提前完成数据治理和语义建模。</p>
+          </div>
+          <div class="card">
+            <h4 class="text-primary">③ Julius / Python 沙箱 —— 不适合企业级数据分析</h4>
+            <p>Python 更适合离线探索和小范围建模,不适合作为 Data Agent 的长期分析运行时。把数据拉进内存后,百万行级即成瓶颈;跨库、状态管理、并发计算和复杂代码逻辑,都会消耗 AI 的注意力。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============ 6B. NL2SQL ARCHITECTURE ============ -->
+    <section id="arch-nl2sql">
+      <div class="page-header">
+        <p class="ph-num">03B</p>
+        <p class="ph-label">CURRENT · 主流路径一:NL2SQL</p>
+        <h2>翻译一句话,<br/>丢给单库 SQL</h2>
+      </div>
+      <div class="content">
+        <p class="text-muted text-lg" style="margin-bottom: 8px;">代表玩家:Vanna 2.0、Chat2DB、阿里 Quick BI 智能小Q、各类 NL2SQL / Text2SQL 框架。</p>
+        <svg viewBox="0 0 1120 360" role="img" aria-label="传统 NL2SQL 架构" style="width: 100%; height: 360px; display: block;">
+          <defs>
+            <filter id="nl-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e1530" flood-opacity="0.10"/>
+            </filter>
+            <marker id="nl-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c9a96e"/>
+            </marker>
+            <marker id="nl-arrow-red" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#b03028"/>
+            </marker>
+          </defs>
+
+          <!-- step boxes -->
+          <g filter="url(#nl-shadow)">
+            <rect x="20" y="80" width="180" height="100" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="110" y="118" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">用户提问</text>
+            <text x="110" y="146" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">"上季度华东销售额"</text>
+          </g>
+
+          <g filter="url(#nl-shadow)">
+            <rect x="240" y="40" width="240" height="180" rx="10" fill="#0e1530" stroke="#c9a96e"/>
+            <text x="360" y="74" text-anchor="middle" fill="#f1ebd9" font-family="Noto Serif SC, serif" font-size="20" font-weight="700">LLM (Text2SQL)</text>
+            <text x="360" y="100" text-anchor="middle" fill="rgba(241,235,217,.6)" font-family="Noto Sans SC, sans-serif" font-size="13">单次自然语言 → SQL</text>
+            <rect x="262" y="118" width="196" height="78" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(201,169,110,.4)" stroke-dasharray="4 3"/>
+            <text x="360" y="138" text-anchor="middle" fill="#c9a96e" font-family="Noto Sans SC, sans-serif" font-size="12" font-weight="700">RAG 检索</text>
+            <text x="360" y="158" text-anchor="middle" fill="rgba(241,235,217,.55)" font-family="Noto Sans SC, sans-serif" font-size="11">DDL · 文档 · 训练样本</text>
+            <text x="360" y="178" text-anchor="middle" fill="rgba(241,235,217,.55)" font-family="Noto Sans SC, sans-serif" font-size="11">YAML 语义层(必须人工堆)</text>
+          </g>
+
+          <g filter="url(#nl-shadow)">
+            <rect x="520" y="80" width="200" height="100" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="620" y="116" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">一条标准 SQL</text>
+            <text x="620" y="143" text-anchor="middle" fill="#5b5e72" font-family="JetBrains Mono, monospace" font-size="12">SELECT ... FROM ... WHERE ...</text>
+            <text x="620" y="162" text-anchor="middle" fill="#b67c1d" font-family="Noto Sans SC, sans-serif" font-size="11">仅特定方言</text>
+          </g>
+
+          <g filter="url(#nl-shadow)">
+            <rect x="760" y="80" width="170" height="100" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="845" y="118" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">单一数据库</text>
+            <text x="845" y="146" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">只查这一个库</text>
+          </g>
+
+          <g filter="url(#nl-shadow)">
+            <rect x="970" y="80" width="130" height="100" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="1035" y="118" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">一行结果</text>
+            <text x="1035" y="146" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">人工判断对错</text>
+          </g>
+
+          <!-- arrows -->
+          <path d="M200 130 L240 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#nl-arrow)"/>
+          <path d="M480 130 L520 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#nl-arrow)"/>
+          <path d="M720 130 L760 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#nl-arrow)"/>
+          <path d="M930 130 L970 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#nl-arrow)"/>
+
+          <!-- 命门 callouts -->
+          <g>
+            <rect x="20" y="252" width="340" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="38" y="278" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">限制 ① 不支持跨数据源</text>
+            <text x="38" y="300" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">单库内出 SQL,跨库 JOIN 要回到人工导出 + 手工合并。</text>
+          </g>
+          <g>
+            <rect x="378" y="252" width="340" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="396" y="278" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">限制 ② 无状态,无探索</text>
+            <text x="396" y="294" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">
+              <tspan x="396" dy="0">单条翻译,无法解决复杂问题,准确率低,</tspan>
+              <tspan x="396" dy="16">大家体感能感受到。</tspan>
+            </text>
+          </g>
+          <g>
+            <rect x="736" y="252" width="364" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="754" y="278" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">限制 ③ 必须先建语义层</text>
+            <text x="754" y="300" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">YAML / 指标体系 / 训练样本全靠人工堆,新表先治理。</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+<!-- ============ 6C. JULIUS PYTHON SANDBOX ARCHITECTURE ============ -->
+    <section id="arch-julius">
+      <div class="page-header">
+        <p class="ph-num">03C</p>
+        <p class="ph-label">CURRENT · 主流路径二:Python 沙箱</p>
+        <h2>把数据拉进内存,<br/>让 AI 写 Python</h2>
+      </div>
+      <div class="content">
+        <p class="text-muted text-lg" style="margin-bottom: 8px;">代表玩家:Julius AI、Fabi.ai、Hex Notebook Agent、camelAI、Claude Code。</p>
+        <svg viewBox="0 0 1120 360" role="img" aria-label="Julius / Python 沙箱架构" style="width: 100%; height: 360px; display: block;">
+          <defs>
+            <filter id="ju-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e1530" flood-opacity="0.10"/>
+            </filter>
+            <marker id="ju-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c9a96e"/>
+            </marker>
+          </defs>
+
+          <!-- user -->
+          <g filter="url(#ju-shadow)">
+            <rect x="20" y="80" width="170" height="100" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="105" y="118" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">用户提问</text>
+            <text x="105" y="146" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">复杂分析需求</text>
+          </g>
+
+          <!-- LLM -->
+          <g filter="url(#ju-shadow)">
+            <rect x="220" y="80" width="220" height="100" rx="10" fill="#0e1530" stroke="#c9a96e"/>
+            <text x="330" y="118" text-anchor="middle" fill="#f1ebd9" font-family="Noto Serif SC, serif" font-size="20" font-weight="700">LLM 写 Python</text>
+            <text x="330" y="146" text-anchor="middle" fill="rgba(241,235,217,.6)" font-family="Noto Sans SC, sans-serif" font-size="13">pandas / sklearn / matplotlib</text>
+          </g>
+
+          <!-- Sandbox -->
+          <g filter="url(#ju-shadow)">
+            <rect x="470" y="40" width="380" height="180" rx="12" fill="#fff" stroke="#fca5a5" stroke-width="2"/>
+            <text x="660" y="74" text-anchor="middle" fill="#b03028" font-family="Noto Serif SC, serif" font-size="20" font-weight="700">Python Kernel · 沙箱</text>
+            <text x="660" y="98" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">数据全部拉进内存,变成 DataFrame</text>
+
+            <rect x="492" y="120" width="156" height="78" rx="6" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="570" y="146" text-anchor="middle" fill="#3b3898" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">DataFrame</text>
+            <text x="570" y="166" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="11">df_a / df_b / merged_*</text>
+            <text x="570" y="184" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="11">变量空间随对话爆炸</text>
+
+            <rect x="672" y="120" width="156" height="78" rx="6" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="750" y="146" text-anchor="middle" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">RAM 上限</text>
+            <text x="750" y="166" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="11">Free 2GB · Enterprise 64GB</text>
+            <text x="750" y="184" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="11">百万行级即瓶颈</text>
+          </g>
+
+          <!-- Result -->
+          <g filter="url(#ju-shadow)">
+            <rect x="880" y="80" width="220" height="100" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="990" y="118" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">图表 / 报告</text>
+            <text x="990" y="146" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">数据已离开原始位置</text>
+          </g>
+
+          <!-- arrows -->
+          <path d="M190 130 L220 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#ju-arrow)"/>
+          <path d="M440 130 L470 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#ju-arrow)"/>
+          <path d="M850 130 L880 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#ju-arrow)"/>
+
+          <!-- 命门 callouts -->
+          <g>
+            <rect x="20" y="252" width="350" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="38" y="278" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">限制 ① AI 写复杂 Python 困难</text>
+            <text x="38" y="300" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">难以分布式;用户追问多了,代码迅速膨胀,容易出错。</text>
+          </g>
+          <g>
+            <rect x="388" y="252" width="350" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="406" y="278" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">限制 ② 内存即上限,跨源有限</text>
+            <text x="406" y="300" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">百万行 OOM,跨库要 pd.merge 全部拉到内存。</text>
+          </g>
+          <g>
+            <rect x="756" y="252" width="344" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="774" y="278" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">限制 ③ AI 注意力被代码逻辑稀释</text>
+            <text x="774" y="300" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">变量管理、内存释放、并发、异常 —— 都要 LLM 自己想。</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+<!-- ============ 6D. WAREHOUSE-NATIVE AGENT ARCHITECTURE ============ -->
+    <section id="arch-warehouse">
+      <div class="page-header">
+        <p class="ph-num">03D</p>
+        <p class="ph-label">CURRENT · 当前较为先进的实现</p>
+        <h2>已经 Agentic,<br/>但绑死自家数仓</h2>
+      </div>
+      <div class="content">
+        <p class="text-muted text-lg" style="margin-bottom: 8px;">代表玩家:Databricks Genie Agent Mode、Snowflake Cortex Analyst。已经采用 Agentic Loop,但只能在自家生态内跑。</p>
+        <svg viewBox="0 0 1120 360" role="img" aria-label="数仓 + AI 路线架构" style="width: 100%; height: 360px; display: block;">
+          <defs>
+            <filter id="wh-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e1530" flood-opacity="0.10"/>
+            </filter>
+            <marker id="wh-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c9a96e"/>
+            </marker>
+          </defs>
+
+          <!-- user -->
+          <g filter="url(#wh-shadow)">
+            <rect x="20" y="80" width="170" height="100" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="105" y="118" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">用户提问</text>
+            <text x="105" y="146" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">业务问题</text>
+          </g>
+
+          <!-- Agent Mode -->
+          <g filter="url(#wh-shadow)">
+            <rect x="220" y="40" width="280" height="180" rx="10" fill="#0e1530" stroke="#c9a96e"/>
+            <text x="360" y="74" text-anchor="middle" fill="#f1ebd9" font-family="Noto Serif SC, serif" font-size="20" font-weight="700">Agent Mode</text>
+            <text x="360" y="98" text-anchor="middle" fill="rgba(241,235,217,.6)" font-family="Noto Sans SC, sans-serif" font-size="13">规划 · 多步迭代 · 假设验证</text>
+            <rect x="242" y="118" width="236" height="78" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(201,169,110,.4)" stroke-dasharray="4 3"/>
+            <text x="360" y="138" text-anchor="middle" fill="#c9a96e" font-family="Noto Sans SC, sans-serif" font-size="12" font-weight="700">必读 Semantic Model</text>
+            <text x="360" y="158" text-anchor="middle" fill="rgba(241,235,217,.55)" font-family="Noto Sans SC, sans-serif" font-size="11">YAML / Knowledge Store / 表注释</text>
+            <text x="360" y="178" text-anchor="middle" fill="rgba(241,235,217,.55)" font-family="Noto Sans SC, sans-serif" font-size="11">人工预先填写,新表先治理</text>
+          </g>
+
+          <!-- Multi SQL -->
+          <g filter="url(#wh-shadow)">
+            <rect x="540" y="80" width="220" height="100" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="650" y="116" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">多步 SQL 迭代</text>
+            <text x="650" y="143" text-anchor="middle" fill="#5b5e72" font-family="JetBrains Mono, monospace" font-size="12">仅自家方言</text>
+            <text x="650" y="162" text-anchor="middle" fill="#b67c1d" font-family="Noto Sans SC, sans-serif" font-size="11">查询过程透明可审</text>
+          </g>
+
+          <!-- Locked Warehouse -->
+          <g filter="url(#wh-shadow)">
+            <rect x="800" y="40" width="280" height="180" rx="10" fill="#fff" stroke="#fca5a5" stroke-width="2"/>
+            <text x="940" y="74" text-anchor="middle" fill="#b03028" font-family="Noto Serif SC, serif" font-size="20" font-weight="700">特定数仓</text>
+            <text x="940" y="98" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">数据必须在这里面</text>
+            <rect x="822" y="118" width="236" height="78" rx="6" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="940" y="142" text-anchor="middle" fill="#3b3898" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">Unity Catalog · Snowflake</text>
+            <text x="940" y="162" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="11">Excel / Oracle / 老业务库</text>
+            <text x="940" y="180" text-anchor="middle" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="700">必须先 ETL 进来</text>
+          </g>
+
+          <!-- arrows -->
+          <path d="M190 130 L220 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#wh-arrow)"/>
+          <path d="M500 130 L540 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#wh-arrow)"/>
+          <path d="M760 130 L800 130" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#wh-arrow)"/>
+
+          <!-- 命门 callouts -->
+          <g>
+            <rect x="20" y="252" width="350" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="38" y="278" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">限制 ① 数据必须先进自家数仓</text>
+            <text x="38" y="300" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">非 UC / 非 Snowflake 的数据先做 ETL,传统业务库需要整体迁移。</text>
+          </g>
+          <g>
+            <rect x="388" y="252" width="350" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="406" y="278" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">限制 ② 必须维护 Semantic Model</text>
+            <text x="406" y="300" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">YAML / 知识库人工填写,1400 表场景维护成本极高。</text>
+          </g>
+          <g>
+            <rect x="756" y="252" width="344" height="80" rx="8" fill="#fef2f2" stroke="#fca5a5"/>
+            <text x="774" y="278" fill="#b03028" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">限制 ③ 绑死云平台,合规与计费受限</text>
+            <text x="774" y="300" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">数据上云、按计算计费;金融、制造、政企等合规场景采用门槛高。</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+<!-- ============ 3E. CURRENT STATE SUMMARY ============ -->
+    <section id="current-summary" class="dark section-divider" data-background-color="#0e1530">
+      <p class="chapter-num">CURRENT STATE · 现状小结</p>
+      <h1>当前现状:<br><span class="text-gold">效果不好,落地不好</span></h1>
+      <div class="gold-bar"></div>
+      <p class="lead">不是模型不够强,而是底层数据架构没有为 Agent 重新设计。<br>要么翻译一条 SQL,要么把数据拉进 Python,要么绑死数仓生态。</p>
+    </section>
+
+<!-- ============ 6. ARCHITECTURE ============ -->
+    <section id="arch">
+      <div class="page-header">
+        <p class="ph-num">06</p>
+        <p class="ph-label">Data Infra</p>
+        <h2>全球少有自己做数据分析语言和引擎的</h2>
+      </div>
+      <div class="content">
+        <svg viewBox="0 0 1120 450" role="img" aria-label="InfiniSynapse 四层架构图" style="width: 100%; height: 450px; display: block;">
+          <defs>
+            <filter id="arch-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e1530" flood-opacity="0.10"/>
+            </filter>
+            <marker id="arch-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c9a96e"/>
+            </marker>
+          </defs>
+          <g transform="translate(-36 -8) scale(1.065)">
+
+          <!-- connection lines -->
+          <path d="M560 118 C560 155, 330 150, 330 190" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#arch-arrow)"/>
+          <path d="M560 118 C560 155, 790 150, 790 190" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#arch-arrow)"/>
+          <path d="M330 310 C330 360, 560 350, 560 360" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#arch-arrow)"/>
+          <path d="M790 310 C790 360, 560 350, 560 360" fill="none" stroke="#c9a96e" stroke-width="3" marker-end="url(#arch-arrow)"/>
+          <path d="M470 245 C535 220, 585 220, 650 245" fill="none" stroke="#3b3898" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#arch-arrow)"/>
+          <path d="M650 275 C585 300, 535 300, 470 275" fill="none" stroke="#3b3898" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#arch-arrow)"/>
+
+          <!-- top agent layer -->
+          <rect x="320" y="20" width="480" height="104" rx="10" fill="#ffffff" stroke="#e8e1ce" filter="url(#arch-shadow)"/>
+          <rect x="320" y="20" width="8" height="104" rx="4" fill="#c9a96e"/>
+          <text x="354" y="54" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="25" font-weight="700">顶层 · Agent</text>
+          <text x="354" y="84" fill="#1a1d2e" font-family="Noto Sans SC, sans-serif" font-size="18" font-weight="700">自主规划 → 执行 → 检验 → 修复</text>
+          <text x="354" y="108" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="15">子 Agent 并行探索,支持数百步深度分析,全程无需人工介入</text>
+
+          <!-- language layer -->
+          <rect x="95" y="190" width="390" height="126" rx="10" fill="#ffffff" stroke="#e8e1ce" filter="url(#arch-shadow)"/>
+          <rect x="95" y="190" width="8" height="126" rx="4" fill="#c9a96e"/>
+          <text x="128" y="224" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="24" font-weight="700">语言层 · InfiniSQL</text>
+          <text x="128" y="253" fill="#1a1d2e" font-family="Noto Sans SC, sans-serif" font-size="17" font-weight="700">为 AI 而生的新 SQL 语言</text>
+          <text x="128" y="280" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="15">原生跨源 JOIN · 自动类型转换 · 内置机器学习算子</text>
+          <text x="128" y="303" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="15">一切皆表: select / train / predict 串成统一分析管道</text>
+
+          <!-- knowledge layer -->
+          <rect x="635" y="190" width="390" height="126" rx="10" fill="#ffffff" stroke="#e8e1ce" filter="url(#arch-shadow)"/>
+          <rect x="635" y="190" width="8" height="126" rx="4" fill="#c9a96e"/>
+          <text x="668" y="224" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="24" font-weight="700">知识层 · InfiniRAG</text>
+          <text x="668" y="253" fill="#1a1d2e" font-family="Noto Sans SC, sans-serif" font-size="17" font-weight="700">第四代 RAG 引擎</text>
+          <text x="668" y="280" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="15">全球最好的知识库能力 · 首创库表与知识库绑定设计</text>
+          <text x="668" y="303" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="15">规则、记忆库、历史分析沉淀为可复用知识资产</text>
+
+          <!-- center loop label -->
+          <rect x="470" y="232" width="180" height="54" rx="27" fill="#f7f3ea" stroke="#c9a96e" stroke-width="2"/>
+          <text x="560" y="254" text-anchor="middle" fill="#3b3898" font-family="Noto Sans SC, sans-serif" font-size="15" font-weight="700">业务口径</text>
+          <text x="560" y="276" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">交叉验证 / 自我修复</text>
+
+          <!-- data engine layer -->
+          <foreignObject x="170" y="326" width="780" height="92">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="height: 88px; box-sizing: border-box; background: #fff; border: 1px solid #e8e1ce; border-radius: 10px; box-shadow: 0 4px 14px rgba(15,21,48,.08); display: grid; grid-template-columns: 165px 1fr; align-items: center; gap: 14px; padding: 12px 16px 12px 26px; border-left: 8px solid #c9a96e;">
+              <div>
+                <p style="font-family: 'Noto Serif SC', serif; font-size: 21px; font-weight: 700; color: #3b3898; margin: 0 0 4px;">引擎层 · 直连多源</p>
+                <p style="font-family: 'Noto Sans SC', sans-serif; font-size: 13px; color: #5b5e72; margin: 0;">数据不动,计算下推</p>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px 7px; align-items: center;">
+                <span style="display: inline-flex; align-items: center; gap: 5px; height: 25px; padding: 0 9px; border-radius: 999px; background: #f7f3ea; border: 1px solid #e8e1ce; font-family: 'Space Grotesk','Noto Sans SC',sans-serif; font-size: 12px; color: #1a1d2e;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #4479a1; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 8px; font-weight: 700;">M</span>MySQL</span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; height: 25px; padding: 0 9px; border-radius: 999px; background: #f7f3ea; border: 1px solid #e8e1ce; font-family: 'Space Grotesk','Noto Sans SC',sans-serif; font-size: 12px; color: #1a1d2e;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #4169e1; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 8px; font-weight: 700;">P</span>PostgreSQL</span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; height: 25px; padding: 0 9px; border-radius: 999px; background: #f7f3ea; border: 1px solid #e8e1ce; font-family: 'Space Grotesk','Noto Sans SC',sans-serif; font-size: 12px; color: #1a1d2e;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #f80000; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 8px; font-weight: 700;">O</span>Oracle</span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; height: 25px; padding: 0 9px; border-radius: 999px; background: #f7f3ea; border: 1px solid #e8e1ce; font-family: 'Space Grotesk','Noto Sans SC',sans-serif; font-size: 12px; color: #1a1d2e;"><span style="width: 14px; height: 14px; border-radius: 3px; background: #ffcc01; display: inline-flex; align-items: center; justify-content: center; color: #111; font-size: 8px; font-weight: 700;">C</span>ClickHouse</span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; height: 25px; padding: 0 9px; border-radius: 999px; background: #f7f3ea; border: 1px solid #e8e1ce; font-family: 'Space Grotesk','Noto Sans SC',sans-serif; font-size: 12px; color: #1a1d2e;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #47a248; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 8px; font-weight: 700;">M</span>MongoDB</span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; height: 25px; padding: 0 9px; border-radius: 999px; background: #f7f3ea; border: 1px solid #e8e1ce; font-family: 'Space Grotesk','Noto Sans SC',sans-serif; font-size: 12px; color: #1a1d2e;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #3b3898; display: inline-block;"></span>StarRocks</span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; height: 25px; padding: 0 9px; border-radius: 999px; background: #f7f3ea; border: 1px solid #e8e1ce; font-family: 'Space Grotesk','Noto Sans SC',sans-serif; font-size: 12px; color: #1a1d2e;"><span style="width: 14px; height: 14px; border-radius: 50%; background: #fdee21; display: inline-block;"></span>Hive</span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; height: 25px; padding: 0 9px; border-radius: 999px; background: #f7f3ea; border: 1px solid #e8e1ce; font-family: 'Space Grotesk','Noto Sans SC',sans-serif; font-size: 12px; color: #1a1d2e;"><span style="width: 14px; height: 14px; border-radius: 3px; background: #217346; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 8px; font-weight: 700;">X</span>Excel</span>
+                <span style="display: inline-flex; align-items: center; gap: 5px; height: 25px; padding: 0 9px; border-radius: 999px; background: #f7f3ea; border: 1px solid #e8e1ce; font-family: 'Space Grotesk','Noto Sans SC',sans-serif; font-size: 12px; color: #1a1d2e;"><span style="width: 14px; height: 14px; border-radius: 3px; background: #c9a96e; display: inline-block;"></span>OSS</span>
+              </div>
+            </div>
+          </foreignObject>
+          </g>
+        </svg>
+      </div>
+    </section>
+<!-- ============ 9A. AGENTIC FIT ============ -->
+    <section id="agentic-fit">
+      <div class="page-header">
+        <p class="ph-num">09A</p>
+        <p class="ph-label">WHY · 完美契合 Agentic</p>
+        <h2>Agent 和分析语言协作</h2>
+      </div>
+      <div class="content">
+        <svg viewBox="0 0 1120 500" role="img" aria-label="Agentic 调用 InfiniSQL 并不断产生 session 具名表的示例" style="width: 100%; height: 500px; display: block;">
+          <defs>
+            <filter id="fit-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0e1530" flood-opacity="0.12"/>
+            </filter>
+            <marker id="fit-arrow-gold" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c9a96e"/>
+            </marker>
+            <marker id="fit-arrow-purple" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#3b3898"/>
+            </marker>
+          </defs>
+
+          <!-- headers -->
+          <text x="240" y="28" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="23" font-weight="700">Agentic Tool Calls</text>
+          <text x="835" y="28" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="23" font-weight="700">Session 表空间不断长出来</text>
+          <text x="560" y="28" text-anchor="middle" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="12" font-weight="700" letter-spacing="3">CALL → TABLE → NEXT CALL</text>
+
+          <!-- user question -->
+          <g filter="url(#fit-shadow)">
+            <rect x="32" y="48" width="432" height="50" rx="25" fill="#0e1530" stroke="#c9a96e" stroke-width="2"/>
+            <text x="76" y="78" text-anchor="middle" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="14" font-weight="700">USER</text>
+            <text x="278" y="70" text-anchor="middle" fill="#f1ebd9" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">Q1 各地区完成率?</text>
+            <text x="278" y="89" text-anchor="middle" fill="rgba(241,235,217,.72)" font-family="Noto Sans SC, sans-serif" font-size="11">为什么上海最低? 这些客户是什么行业?</text>
+          </g>
+
+          <!-- call cards -->
+          <g filter="url(#fit-shadow)">
+            <rect x="34" y="116" width="430" height="50" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="56" y="147" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="16" font-weight="700">01</text>
+            <rect x="92" y="126" width="102" height="18" rx="9" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="143" y="139" text-anchor="middle" fill="#5b5e72" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="10" font-weight="700">tool_call</text>
+            <text x="206" y="140" fill="#3b3898" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">infinisql.run</text>
+            <text x="96" y="158" fill="#5b5e72" font-family="JetBrains Mono, monospace" font-size="11">args: !show tables</text>
+            <text x="336" y="158" fill="#b67c1d" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="700">result: 未接入</text>
+
+            <rect x="34" y="178" width="430" height="50" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="56" y="209" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="16" font-weight="700">02</text>
+            <rect x="92" y="188" width="102" height="18" rx="9" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="143" y="201" text-anchor="middle" fill="#5b5e72" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="10" font-weight="700">tool_call</text>
+            <text x="206" y="202" fill="#3b3898" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">connect pg; load orders</text>
+            <text x="96" y="220" fill="#5b5e72" font-family="JetBrains Mono, monospace" font-size="11">args: jdbc.`pg.orders`</text>
+            <text x="322" y="220" fill="#2f7d56" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="700">creates table: orders</text>
+
+            <rect x="34" y="240" width="430" height="50" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="56" y="271" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="16" font-weight="700">03</text>
+            <rect x="92" y="250" width="102" height="18" rx="9" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="143" y="263" text-anchor="middle" fill="#5b5e72" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="10" font-weight="700">tool_call</text>
+            <text x="206" y="264" fill="#3b3898" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">load excel.`targets.xlsx`</text>
+            <text x="96" y="282" fill="#5b5e72" font-family="JetBrains Mono, monospace" font-size="11">args: /uploads/targets.xlsx</text>
+            <text x="322" y="282" fill="#2f7d56" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="700">creates table: targets</text>
+
+            <rect x="34" y="302" width="430" height="50" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="56" y="333" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="16" font-weight="700">04</text>
+            <rect x="92" y="312" width="102" height="18" rx="9" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="143" y="325" text-anchor="middle" fill="#5b5e72" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="10" font-weight="700">tool_call</text>
+            <text x="206" y="326" fill="#3b3898" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">JOIN orders × targets</text>
+            <text x="96" y="344" fill="#5b5e72" font-family="JetBrains Mono, monospace" font-size="11">args: group by region</text>
+            <text x="302" y="344" fill="#2f7d56" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="700">creates: q1_completion</text>
+
+            <rect x="34" y="364" width="430" height="50" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="56" y="395" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="16" font-weight="700">05</text>
+            <rect x="92" y="374" width="102" height="18" rx="9" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="143" y="387" text-anchor="middle" fill="#5b5e72" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="10" font-weight="700">tool_call</text>
+            <text x="206" y="388" fill="#3b3898" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">select Shanghai top50</text>
+            <text x="96" y="406" fill="#5b5e72" font-family="JetBrains Mono, monospace" font-size="11">args: from orders</text>
+            <text x="302" y="406" fill="#2f7d56" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="700">creates: shanghai_top50</text>
+
+            <rect x="34" y="426" width="430" height="50" rx="10" fill="#fff" stroke="#e8e1ce"/>
+            <text x="56" y="457" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="16" font-weight="700">06</text>
+            <rect x="92" y="436" width="102" height="18" rx="9" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="143" y="449" text-anchor="middle" fill="#5b5e72" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="10" font-weight="700">tool_call</text>
+            <text x="206" y="450" fill="#3b3898" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700">load customers; JOIN</text>
+            <text x="96" y="468" fill="#5b5e72" font-family="JetBrains Mono, monospace" font-size="11">args: with shanghai_top50</text>
+            <text x="306" y="468" fill="#2f7d56" font-family="Noto Sans SC, sans-serif" font-size="11" font-weight="700">creates: shanghai_industry</text>
+          </g>
+
+          <!-- central rail -->
+          <rect x="510" y="66" width="100" height="392" rx="50" fill="#0e1530" stroke="#c9a96e" stroke-width="2" filter="url(#fit-shadow)"/>
+          <text x="560" y="102" text-anchor="middle" fill="#f1ebd9" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">Infini</text>
+          <text x="560" y="124" text-anchor="middle" fill="#f1ebd9" font-family="Noto Serif SC, serif" font-size="18" font-weight="700">SQL</text>
+          <text x="560" y="148" text-anchor="middle" fill="#c9a96e" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">工具调用</text>
+          <line x1="535" y1="168" x2="585" y2="168" stroke="rgba(201,169,110,.5)"/>
+          <text x="560" y="201" text-anchor="middle" fill="rgba(241,235,217,.76)" font-family="Noto Sans SC, sans-serif" font-size="13">每条语句</text>
+          <text x="560" y="225" text-anchor="middle" fill="rgba(241,235,217,.76)" font-family="Noto Sans SC, sans-serif" font-size="13">都是一次</text>
+          <text x="560" y="249" text-anchor="middle" fill="rgba(241,235,217,.76)" font-family="Noto Sans SC, sans-serif" font-size="13">可审计动作</text>
+          <line x1="535" y1="298" x2="585" y2="298" stroke="rgba(201,169,110,.5)"/>
+          <text x="560" y="334" text-anchor="middle" fill="#c9a96e" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">as 表名</text>
+          <text x="560" y="358" text-anchor="middle" fill="rgba(241,235,217,.76)" font-family="Noto Sans SC, sans-serif" font-size="13">即状态</text>
+          <line x1="535" y1="388" x2="585" y2="388" stroke="rgba(201,169,110,.5)"/>
+          <text x="560" y="422" text-anchor="middle" fill="rgba(241,235,217,.76)" font-family="Noto Sans SC, sans-serif" font-size="13">可继续</text>
+
+          <!-- arrows call to rail -->
+          <path d="M464 141 L510 141" fill="none" stroke="#c9a96e" stroke-width="2.5" marker-end="url(#fit-arrow-gold)"/>
+          <path d="M464 203 L510 203" fill="none" stroke="#c9a96e" stroke-width="2.5" marker-end="url(#fit-arrow-gold)"/>
+          <path d="M464 265 L510 265" fill="none" stroke="#c9a96e" stroke-width="2.5" marker-end="url(#fit-arrow-gold)"/>
+          <path d="M464 327 L510 327" fill="none" stroke="#c9a96e" stroke-width="2.5" marker-end="url(#fit-arrow-gold)"/>
+          <path d="M464 389 L510 389" fill="none" stroke="#c9a96e" stroke-width="2.5" marker-end="url(#fit-arrow-gold)"/>
+          <path d="M464 451 L510 451" fill="none" stroke="#c9a96e" stroke-width="2.5" marker-end="url(#fit-arrow-gold)"/>
+
+          <!-- session workspace -->
+          <g filter="url(#fit-shadow)">
+            <rect x="670" y="56" width="406" height="402" rx="16" fill="#fff" stroke="#e8e1ce"/>
+            <rect x="670" y="56" width="406" height="42" rx="16" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="696" y="83" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="20" font-weight="700">同一个 Session 里的具名表</text>
+            <text x="1010" y="83" text-anchor="end" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="12" font-weight="700">PERSISTENT STATE</text>
+
+            <rect x="704" y="122" width="136" height="48" rx="8" fill="#0e1530" stroke="#c9a96e"/>
+            <text x="772" y="143" text-anchor="middle" fill="#f1ebd9" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">orders</text>
+            <text x="772" y="160" text-anchor="middle" fill="rgba(241,235,217,.6)" font-family="Noto Sans SC, sans-serif" font-size="10">业务库订单</text>
+
+            <rect x="890" y="122" width="136" height="48" rx="8" fill="#0e1530" stroke="#c9a96e"/>
+            <text x="958" y="143" text-anchor="middle" fill="#f1ebd9" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">targets</text>
+            <text x="958" y="160" text-anchor="middle" fill="rgba(241,235,217,.6)" font-family="Noto Sans SC, sans-serif" font-size="10">Excel 目标</text>
+
+            <path d="M840 146 L890 146" stroke="#c9a96e" stroke-width="2" marker-end="url(#fit-arrow-gold)"/>
+            <path d="M772 170 C772 190, 854 193, 854 210" fill="none" stroke="#3b3898" stroke-width="2" marker-end="url(#fit-arrow-purple)"/>
+            <path d="M958 170 C958 190, 854 193, 854 210" fill="none" stroke="#3b3898" stroke-width="2" marker-end="url(#fit-arrow-purple)"/>
+
+            <rect x="760" y="210" width="188" height="50" rx="8" fill="#f7f3ea" stroke="#c9a96e" stroke-width="2"/>
+            <text x="854" y="232" text-anchor="middle" fill="#3b3898" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">q1_completion</text>
+            <text x="854" y="250" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="10">跨源 JOIN 后的完成率</text>
+
+            <path d="M854 260 C854 282, 752 283, 752 304" fill="none" stroke="#c9a96e" stroke-width="2" marker-end="url(#fit-arrow-gold)"/>
+            <rect x="676" y="304" width="152" height="50" rx="8" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="752" y="326" text-anchor="middle" fill="#3b3898" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">shanghai_top50</text>
+            <text x="752" y="344" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="10">基于 orders 继续下钻</text>
+
+            <rect x="856" y="304" width="152" height="50" rx="8" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="932" y="326" text-anchor="middle" fill="#3b3898" font-family="JetBrains Mono, monospace" font-size="14" font-weight="700">shanghai_industry</text>
+            <text x="932" y="344" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="10">动态 load customers 后 JOIN</text>
+
+            <path d="M828 329 L856 329" fill="none" stroke="#3b3898" stroke-width="2" marker-end="url(#fit-arrow-purple)"/>
+
+            <rect x="704" y="386" width="336" height="48" rx="24" fill="#0e1530" stroke="#c9a96e" stroke-width="2"/>
+            <text x="872" y="407" text-anchor="middle" fill="#f1ebd9" font-family="Noto Sans SC, sans-serif" font-size="15" font-weight="700">Agent 动态构建了一个虚拟临时数仓</text>
+            <text x="872" y="426" text-anchor="middle" fill="rgba(241,235,217,.68)" font-family="Noto Sans SC, sans-serif" font-size="11">前面每张具名表,都变成下一轮深入分析的可复用资产</text>
+          </g>
+
+          <!-- rail to workspace arrows -->
+          <path d="M610 203 C638 150, 664 146, 704 146" fill="none" stroke="#c9a96e" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#fit-arrow-gold)"/>
+          <path d="M610 265 C648 218, 700 230, 760 235" fill="none" stroke="#c9a96e" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#fit-arrow-gold)"/>
+          <path d="M610 327 C642 300, 710 250, 760 235" fill="none" stroke="#c9a96e" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#fit-arrow-gold)"/>
+          <path d="M610 389 C636 378, 650 338, 676 329" fill="none" stroke="#3b3898" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#fit-arrow-purple)"/>
+          <path d="M610 451 C675 470, 789 356, 856 329" fill="none" stroke="#3b3898" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#fit-arrow-purple)"/>
+
+        </svg>
+
+      </div>
+    </section>
+
+<!-- ============ 11. COMPARE TABLE ============ -->
+
+<!-- ============ 3F. DATA AGENT CHAPTER ============ -->
+    <section id="data-agent-chapter" class="dark section-divider" data-background-color="#0e1530">
+      <h1>Data Agent 的挑战</h1>
+    </section>
+
+<!-- ============ 3G. DATA AGENT CHALLENGES ============ -->
+    <section id="data-agent-challenges">
+      <div class="page-header">
+        <p class="ph-num">04B</p>
+        <p class="ph-label">CATEGORY · Data Agent 三大挑战</p>
+      </div>
+      <div class="content">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 12px;">
+          <div class="card" style="padding: 22px 24px; min-height: 285px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 3px; margin: 0 0 10px;">01</p>
+            <h3 style="font-size: 23pt; margin: 0 0 10px;">百万级资产搜索失效</h3>
+            <p style="font-size: 13.5pt; line-height: 1.5;">同一个"收入"可能叫 ARR、确认收入、净收入、rev_recognition_fact。第一能力不是生成 SQL,而是找到真正相关的数据资产。</p>
+            <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 7px;">
+              <span style="font-size: 11.5pt; padding: 5px 9px; border-radius: 14px; background: #f7f3ea; border: 1px solid #e8e1ce; color: var(--primary);">tables</span>
+              <span style="font-size: 11.5pt; padding: 5px 9px; border-radius: 14px; background: #f7f3ea; border: 1px solid #e8e1ce; color: var(--primary);">dashboards</span>
+              <span style="font-size: 11.5pt; padding: 5px 9px; border-radius: 14px; background: #f7f3ea; border: 1px solid #e8e1ce; color: var(--primary);">docs</span>
+              <span style="font-size: 11.5pt; padding: 5px 9px; border-radius: 14px; background: #f7f3ea; border: 1px solid #e8e1ce; color: var(--primary);">Excel</span>
+              <span style="font-size: 11.5pt; padding: 5px 9px; border-radius: 14px; background: #f7f3ea; border: 1px solid #e8e1ce; color: var(--primary);">API</span>
+              <span style="font-size: 11.5pt; padding: 5px 9px; border-radius: 14px; background: #f7f3ea; border: 1px solid #e8e1ce; color: var(--primary);">history</span>
+            </div>
+          </div>
+          <div class="card" style="padding: 22px 24px; min-height: 285px; background: #0e1530; border-color: var(--gold);">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 3px; margin: 0 0 10px;">02</p>
+            <h3 style="font-size: 23pt; margin: 0 0 10px; color: #f1ebd9;">Source of Truth 难判断</h3>
+            <p style="font-size: 13.5pt; line-height: 1.5; color: rgba(241,235,217,.72);">旧文档、认证指标、看板、Notebook 可能同时存在。最危险的错误是代码没报错、数字也算出来了,但口径错了。</p>
+            <div style="margin-top: 14px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+              <span style="font-size: 12pt; padding: 7px 10px; border-radius: 6px; background: rgba(255,255,255,.08); color: #f1ebd9;">旧文档</span>
+              <span style="font-size: 12pt; padding: 7px 10px; border-radius: 6px; background: rgba(255,255,255,.08); color: #f1ebd9;">看板 A</span>
+              <span style="font-size: 12pt; padding: 7px 10px; border-radius: 6px; background: rgba(201,169,110,.18); color: var(--gold);">认证口径</span>
+              <span style="font-size: 12pt; padding: 7px 10px; border-radius: 6px; background: rgba(255,255,255,.08); color: #f1ebd9;">Notebook</span>
+            </div>
+          </div>
+          <div class="card" style="padding: 22px 24px; min-height: 285px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 3px; margin: 0 0 10px;">03</p>
+            <h3 style="font-size: 23pt; margin: 0 0 10px;">没有确定性判题器</h3>
+            <p style="font-size: 13.5pt; line-height: 1.5;">Data Agent 没有 unit test 告诉它答案是否正确。可靠性必须来自系统设计:证据链、口径链、中间结果和不可回答边界。</p>
+            <div style="margin-top: 14px; padding: 12px 14px; border-radius: 8px; background: #f7f3ea; border: 1px solid #e8e1ce;">
+              <p style="margin: 0; color: var(--text-primary); font-size: 12pt; line-height: 1.45;">财务季度? 净收入? 华东口径? 数据是否完整? 是否可回答?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============ 3H. DATA AGENT REQUIREMENTS ============ -->
+    <section id="data-agent-requirements">
+      <div class="page-header">
+        <p class="ph-num">04C</p>
+        <p class="ph-label">REQUIREMENT · 完整 Data Agent 必须具备</p>
+        <h2>它的流程和 Code Agent<br/>完全不一样</h2>
+      </div>
+      <div class="content">
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 24px;">
+          <div class="card" style="padding: 20px 14px; min-height: 170px; text-align: center;">
+            <div style="font-size: 28pt; color: var(--gold); margin-bottom: 14px;"><i class="fas fa-compass"></i></div>
+            <h3 style="font-size: 18pt; margin: 0 0 8px;">找资产</h3>
+            <p style="font-size: 12.5pt;">在大表空间和多文档里定位候选资产。</p>
+          </div>
+          <div class="card" style="padding: 20px 14px; min-height: 170px; text-align: center;">
+            <div style="font-size: 28pt; color: var(--gold); margin-bottom: 14px;"><i class="fas fa-certificate"></i></div>
+            <h3 style="font-size: 18pt; margin: 0 0 8px;">判口径</h3>
+            <p style="font-size: 12.5pt;">识别认证指标、业务规则和历史经验。</p>
+          </div>
+          <div class="card" style="padding: 20px 14px; min-height: 170px; text-align: center; background: #0e1530; border-color: var(--gold);">
+            <div style="font-size: 28pt; color: var(--gold); margin-bottom: 14px;"><i class="fas fa-database"></i></div>
+            <h3 style="font-size: 18pt; color: #f1ebd9; margin: 0 0 8px;">跑事实</h3>
+            <p style="font-size: 12.5pt; color: rgba(241,235,217,.72);">跨源执行、计算下推、保留事实表。</p>
+          </div>
+          <div class="card" style="padding: 20px 14px; min-height: 170px; text-align: center;">
+            <div style="font-size: 28pt; color: var(--gold); margin-bottom: 14px;"><i class="fas fa-diagram-project"></i></div>
+            <h3 style="font-size: 18pt; margin: 0 0 8px;">留状态</h3>
+            <p style="font-size: 12.5pt;">每一步变成下一步可复用的中间资产。</p>
+          </div>
+          <div class="card" style="padding: 20px 14px; min-height: 170px; text-align: center;">
+            <div style="font-size: 28pt; color: var(--gold); margin-bottom: 14px;"><i class="fas fa-clipboard-check"></i></div>
+            <h3 style="font-size: 18pt; margin: 0 0 8px;">可复核</h3>
+            <p style="font-size: 12.5pt;">报告、图表、SQL 轨迹和证据链可审计。</p>
+          </div>
+        </div>
+        <p class="text-lg text-muted" style="margin-top: 26px;">这就是为什么 Data Agent 不能靠"LLM + SQL 客户端"完成,而必须重做运行时、语言、知识和执行引擎。</p>
+      </div>
+    </section>
+
+<!-- ============ 3I. SOLUTION MAP ============ -->
+    <section id="solution-overview">
+      <div class="page-header">
+        <p class="ph-num">04D</p>
+        <p class="ph-label">SOLUTION · InfiniSynapse 的解法</p>
+        <h2>三大问题,<br/>用完整 Harness 一次解决</h2>
+      </div>
+      <div class="content">
+        <div style="display: grid; grid-template-columns: .8fr 1.12fr .88fr; gap: 10px; align-items: stretch; margin-top: 4px;">
+          <div style="font-family: var(--serif-en); color: var(--gold); font-size: 14pt; letter-spacing: 3px;">PROBLEM</div>
+          <div style="font-family: var(--serif-en); color: var(--gold); font-size: 14pt; letter-spacing: 3px;">HARNESS ANSWER</div>
+          <div style="font-family: var(--serif-en); color: var(--gold); font-size: 14pt; letter-spacing: 3px;">PROOF</div>
+
+          <div class="card" style="padding: 14px 16px;">
+            <h3 style="font-size: 18pt; margin: 0 0 4px;">01 搜索失效</h3>
+            <p style="font-size: 12.5pt; line-height: 1.45; margin: 0;">大表空间、大文档空间、大历史分析空间里,关键词搜索和单次 RAG 都不够。</p>
+          </div>
+          <div class="card" style="padding: 14px 16px; background: #0e1530; border-color: var(--gold);">
+            <h3 style="font-size: 18pt; color: #f1ebd9; margin: 0 0 4px;">Agent Teams + 数据源知识绑定</h3>
+            <p style="font-size: 12.5pt; line-height: 1.45; color: rgba(241,235,217,.72); margin: 0;">子 Agent 并发探索 schema、样本、关联路径和历史经验,把搜索拆成可并行、可核对的任务。</p>
+          </div>
+          <div class="card" style="padding: 14px 16px;">
+            <h3 style="font-size: 18pt; margin: 0 0 4px;">1400+ 表接入即问</h3>
+            <p style="font-size: 12.5pt; line-height: 1.45; margin: 0;">不先等语义层建完,系统先探索,再在使用中沉淀业务知识。</p>
+          </div>
+
+          <div class="card" style="padding: 14px 16px;">
+            <h3 style="font-size: 18pt; margin: 0 0 4px;">02 口径混乱</h3>
+            <p style="font-size: 12.5pt; line-height: 1.45; margin: 0;">口径、指标、表含义和历史分析经验分散,且会随着业务变化。</p>
+          </div>
+          <div class="card" style="padding: 14px 16px; background: #0e1530; border-color: var(--gold);">
+            <h3 style="font-size: 18pt; color: #f1ebd9; margin: 0 0 4px;">InfiniRAG 语义记忆层</h3>
+            <p style="font-size: 12.5pt; line-height: 1.45; color: rgba(241,235,217,.72); margin: 0;">把库表元信息、业务规则、历史分析、用户偏好绑定成可复用上下文,每次分析继续校验。</p>
+          </div>
+          <div class="card" style="padding: 14px 16px;">
+            <h3 style="font-size: 18pt; margin: 0 0 4px;">知识越用越厚</h3>
+            <p style="font-size: 12.5pt; line-height: 1.45; margin: 0;">不是聊天记忆,而是结构化分析经验和数据资产上下文。</p>
+          </div>
+
+          <div class="card" style="padding: 14px 16px;">
+            <h3 style="font-size: 18pt; margin: 0 0 4px;">03 缺少验证</h3>
+            <p style="font-size: 12.5pt; line-height: 1.45; margin: 0;">没有像测试一样的 oracle,所以过程必须天然可观测、可重放。</p>
+          </div>
+          <div class="card" style="padding: 14px 16px; background: #0e1530; border-color: var(--gold);">
+            <h3 style="font-size: 18pt; color: #f1ebd9; margin: 0 0 4px;">InfiniSQL + Task View</h3>
+            <p style="font-size: 12.5pt; line-height: 1.45; color: rgba(241,235,217,.72); margin: 0;">每条语句是一次工具调用,每个中间结果是一张具名表,报告和图表都能追溯到执行链。</p>
+          </div>
+          <div class="card" style="padding: 14px 16px;">
+            <h3 style="font-size: 18pt; margin: 0 0 4px;">复杂链路可复核</h3>
+            <p style="font-size: 12.5pt; line-height: 1.45; margin: 0;">取数、跨源 JOIN、ML 训练、预测、报告输出在同一条链路里完成。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============ DATA INFRA CHAPTER ============ -->
+    <section id="data-infra-chapter" class="dark section-divider" data-background-color="#0e1530">
+      <h1>企业数据使用方式不同，<br>我们将全套 harness 沉淀为 <span class="text-gold">Data Infra</span></h1>
+    </section>
+
+    <section id="data-infra" class="digital-analysts-slide">
+      <div class="page-header">
+        <p class="ph-num">06</p>
+        <p class="ph-label">DATA INFRA + DIGITAL ANALYSTS</p>
+        <h2>海量数字分析师，交给行业专家调度</h2>
+      </div>
+      <div class="content">
+        <div class="analyst-layout">
+          <div class="expert-panel">
+            <p class="kicker">INDUSTRY EXPERT</p>
+            <h3>行业专家</h3>
+            <p>Know How、快速 Vibe 交互界面和业务逻辑。</p>
+            <div class="expert-tags">
+              <div class="tool-logo-card">
+                <img src="images/product-logos/codex.png" alt="Codex logo">
+                <span>Codex</span>
+              </div>
+              <div class="tool-logo-card">
+                <img src="images/product-logos/cursor.svg" alt="Cursor logo">
+                <span>Cursor</span>
+              </div>
+              <div class="tool-logo-card">
+                <img src="images/product-logos/claude-code.png" alt="Claude Code logo">
+                <span>Claude Code</span>
+              </div>
+            </div>
+          </div>
+          <div class="analyst-center">
+            <div class="analyst-pool-card">
+              <div class="pool-title">
+                <h3>数字分析师池</h3>
+              </div>
+              <div class="analyst-grid">
+                <div><span>01</span><strong>数据接入分析师</strong><p>连接数据库、API、文件和业务系统。</p></div>
+                <div><span>02</span><strong>SQL 分析师</strong><p>生成查询、拆解指标、追溯结果。</p></div>
+                <div><span>03</span><strong>知识研究员</strong><p>检索文档、整理证据、保留引用。</p></div>
+                <div><span>04</span><strong>图表分析师</strong><p>选择图形、解释趋势、输出看板。</p></div>
+                <div><span>05</span><strong>报告撰写分析师</strong><p>组织结构、生成结论、导出文档。</p></div>
+                <div><span>06</span><strong>质检校验分析师</strong><p>校验口径、来源、异常和一致性。</p></div>
+              </div>
+            </div>
+            <div class="infra-strip">
+              <div>
+                <h3>InfiniSynapse Data Infra</h3>
+                <p>支撑数字分析师稳定运行的全套底座</p>
+              </div>
+              <div class="infra-modules">
+                <span>Agent Runtime</span>
+                <span>InfiniSQL</span>
+                <span>分布式执行引擎</span>
+                <span>InfiniRAG</span>
+              </div>
+            </div>
+          </div>
+          <div class="deliver-panel">
+            <p class="kicker">DELIVERABLES</p>
+            <h3>泛数据分析应用</h3>
+            <p>面向客户交付高并发、稳定运行、可追溯的应用能力。</p>
+            <div class="deliver-list">
+              <div class="app-logo-card">
+                <img src="images/app-logos/wechat.svg" alt="WeChat logo">
+                <span>微信小程序</span>
+              </div>
+              <div class="app-logo-card">
+                <img src="images/app-logos/mobile-app.svg" alt="Mobile app icon">
+                <span>手机应用</span>
+              </div>
+              <div class="app-logo-card">
+                <img src="images/app-logos/pc-app.svg" alt="PC app icon">
+                <span>PC 应用</span>
+              </div>
+              <div class="app-logo-card">
+                <img src="images/app-logos/web-app.svg" alt="Web app icon">
+                <span>Web 应用</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="model-analyst-levels">
+      <div class="page-header">
+        <p class="ph-num">06A</p>
+        <p class="ph-label">DEPLOYMENT · 模型对应分析师级别</p>
+        <h2>我们提供不同级别的分析师</h2>
+      </div>
+      <div class="content">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+          <div class="card" style="padding: 15px 16px; min-height: 176px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 2px; margin: 0;">L1</p>
+            <h3 style="font-size: 16pt; margin: 2px 0 8px;">实习生分析师</h3>
+            <p style="font-size: 11pt; line-height: 1.45; margin: 0;"><strong>Qwen3.6-27B / V4 Flash</strong><br/>1 台 8 卡 L40<br/>5–30 人试点</p>
+          </div>
+
+          <div class="card" style="padding: 15px 16px; min-height: 176px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 2px; margin: 0;">L2</p>
+            <h3 style="font-size: 16pt; margin: 2px 0 8px;">初级分析师</h3>
+            <p style="font-size: 11pt; line-height: 1.45; margin: 0;"><strong>DeepSeek V3.1 / V3.2</strong><br/>1 台 8 卡 H100/H200<br/>30–100 人主力</p>
+          </div>
+
+          <div class="card" style="background: #0e1530; border-color: var(--gold); padding: 15px 16px; min-height: 176px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 2px; margin: 0;">L3</p>
+            <h3 style="font-size: 16pt; color: #f1ebd9; margin: 2px 0 8px;">中级分析师</h3>
+            <p style="font-size: 11pt; line-height: 1.45; color: rgba(241,235,217,.74); margin: 0;"><strong style="color: var(--gold);">DeepSeek V4 Pro</strong><br/>8 卡 B200 / H200<br/>100+ 人大型企业</p>
+          </div>
+
+          <div class="card" style="padding: 15px 16px; min-height: 176px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 2px; margin: 0;">L4</p>
+            <h3 style="font-size: 16pt; margin: 2px 0 8px;">高级分析师</h3>
+            <p style="font-size: 11pt; line-height: 1.45; margin: 0;"><strong>GPT-5.5 / Claude Opus 4.7</strong><br/>API 混合云增强<br/>顶级分析需求</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
+          <div class="card" style="background: #0e1530; border-color: var(--gold); padding: 18px 22px; min-height: 116px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 14pt; letter-spacing: 3px; margin: 0 0 5px;">KEY JUDGMENT</p>
+            <h3 style="font-size: 20pt; color: #f1ebd9; margin: 0 0 7px;">主力档建议从 L2 起步</h3>
+            <p style="font-size: 11.5pt; line-height: 1.5; color: rgba(241,235,217,.72); margin: 0;">L1 覆盖日常取数;报告撰写、复杂归因、多步推理、机器学习建模,建议至少上 L2。</p>
+          </div>
+
+          <div class="card" style="padding: 18px 22px; min-height: 116px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 14pt; letter-spacing: 3px; margin: 0 0 5px;">WHY IT WORKS</p>
+            <h3 style="font-size: 20pt; margin: 0 0 7px;">架构把模型下限打高</h3>
+            <p style="font-size: 11.5pt; line-height: 1.5; margin: 0;">InfiniSQL + InfiniRAG + Agent 编排收住复杂度;模型档位决定的是分析深度上限。</p>
+          </div>
+        </div>
+
+        <p class="footnote">来源:《InfiniSynapse 私有部署模型选型建议》;闭源模型仅作为混合云增强档,不纳入纯私有化主力配置。</p>
+      </div>
+    </section>
+
+<!-- ============ SAAS APPS CHAPTER ============ -->
+    <section id="apps-chapter" class="dark section-divider" data-background-color="#0e1530">
+      <h1>基于 InfiniSynapse 的<br><span class="text-gold">SaaS 应用案例</span></h1>
+    </section>
+
+    <section id="apps" class="gaokao-app">
+      <div class="page-header">
+        <p class="ph-num">07</p>
+        <p class="ph-label">APPLICATIONS</p>
+        <h2>一天完成一个支持高并发且稳定的<br>面向千万家庭的高考小程序</h2>
+      </div>
+      <div class="content">
+        <div style="display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 26px; align-items: stretch;">
+          <div class="phone-shot">
+            <img src="images/01-gaokao-mini-app.png" alt="高考报考选校小程序界面">
+          </div>
+          <div class="app-list">
+            <div class="app-item active">
+              <h3>面向真实家庭决策</h3>
+              <p>输入省份、分数、位次和偏好，生成冲稳保志愿方案，直接服务高考报考场景。</p>
+            </div>
+            <div class="app-item">
+              <h3>每个用户都有专属分析师</h3>
+              <p>每个用户将会被一个拥有历史高考数据的实习生 / 初级数据分析师服务。</p>
+            </div>
+            <div class="app-item">
+              <h3>一天完成产品闭环</h3>
+              <p>Vibe Coding 负责小程序交互和业务流程，InfiniSynapse 承接数据、分析和推荐链路。</p>
+            </div>
+            <div class="app-item">
+              <h3>支持高并发稳定服务</h3>
+              <p>底层复用任务调度、查询执行、缓存、恢复和审计能力，面向集中访问高峰稳定运行。</p>
+            </div>
+            <div class="app-item">
+              <h3>可对外交付</h3>
+              <p>可持续迭代、可连接数据源、可承载真实用户请求，具备正式对外服务的应用形态。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="report-writer" class="report-writer-product">
+      <div class="page-header">
+        <p class="ph-num">08</p>
+        <p class="ph-label">REPORT WRITER · PRODUCT</p>
+        <h2>报告快写：专注于写报告的产品</h2>
+      </div>
+      <div class="content">
+        <div class="report-image-grid">
+          <div class="image-frame report-frame">
+            <img src="images/02-report-writer-workbench.png" alt="报告快写工作台">
+            <p>写作工作台：设定主题、材料和目录结构</p>
+          </div>
+          <div class="image-frame report-frame">
+            <img src="images/03-report-writer-sources.png" alt="报告来源面板">
+            <p>来源追溯：材料、引用和证据绑定</p>
+          </div>
+        </div>
+        <div class="bottom-callout">
+          <p>报告快写把资料、数据、引用和行业判断组织成正式研究报告。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="report-word-output" class="report-writer-product">
+      <div class="page-header">
+        <p class="ph-num">09</p>
+        <p class="ph-label">REPORT WRITER · WORD OUTPUT</p>
+        <h2>生成可交付的正式 Word 报告</h2>
+      </div>
+      <div class="content">
+        <div class="report-image-grid">
+          <div class="image-frame report-frame">
+            <img src="images/04-report-writer-word-overview.png" alt="Word 报告总览">
+            <p>Word 报告总览：章节、图表和结论完整呈现</p>
+          </div>
+          <div class="image-frame report-frame">
+            <img src="images/05-report-writer-word-detail.png" alt="Word 报告细节">
+            <p>Word 报告细节：引用、批注、附录和可复核内容</p>
+          </div>
+        </div>
+        <div class="bottom-callout">
+          <p>从资料整理到正文生成、来源绑定和 Word 导出，形成稳定的报告生产链路。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="report-downloads" class="report-downloads">
+      <div class="page-header">
+        <p class="ph-num">10</p>
+        <p class="ph-label">REPORT WRITER · SAMPLE DOCX</p>
+        <h2>两份研究报告样例下载</h2>
+      </div>
+      <div class="content">
+        <div class="download-grid">
+          <div class="download-card">
+            <p class="kicker">CHINA ECONOMY</p>
+            <h3>中国经济研究报告 DOCX</h3>
+            <p>面向宏观经济研究场景，展示资料组织、分析结论和正式 Word 输出。</p>
+            <a href="https://infinisynapse.oss-cn-shanghai.aliyuncs.com/datas/internal/ossbrowser/report-writer-cases/2026-0622/report-writer-china-economy.docx">下载中国经济研究报告 DOCX</a>
+          </div>
+          <div class="download-card">
+            <p class="kicker">CODE AGENT MARKET</p>
+            <h3>Code Agent 研究报告 DOCX</h3>
+            <p>面向技术市场研究场景，展示资料追溯、结构化分析和可交付报告。</p>
+            <a href="https://infinisynapse.oss-cn-shanghai.aliyuncs.com/datas/internal/ossbrowser/report-writer-cases/2026-0622/report-writer-code-agent-market.docx">下载 Code Agent 研究报告 DOCX</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ============ 9B. CASE DIVIDER ============ -->
+    <section id="case-divider" class="dark section-divider" data-background-color="#0e1530">
+      <h1>基于 InfiniSynapse 的<br><span class="text-gold">私有化部署应用案例</span></h1>
+    </section>
+
+<!-- ============ 9C. CASE CSDN ============ -->
+    <section id="case-csdn">
+      <div class="page-header">
+        <p class="ph-num">09C</p>
+        <p class="ph-label">CASE · CSDN</p>
+        <h2>把数据放进高速分析底座,<br/>让运营和业务直接使用</h2>
+      </div>
+      <div class="content">
+        <svg viewBox="0 0 1120 430" role="img" aria-label="CSDN 业务数据接入 InfiniSynapse 架构图" style="width: 100%; height: 430px; display: block;">
+          <defs>
+            <filter id="case-csdn-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e1530" flood-opacity="0.10"/>
+            </filter>
+            <marker id="case-csdn-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c9a96e"/>
+            </marker>
+            <marker id="case-csdn-arrow-purple" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#3b3898"/>
+            </marker>
+          </defs>
+
+          <g filter="url(#case-csdn-shadow)">
+            <rect x="36" y="88" width="220" height="230" rx="14" fill="#fff" stroke="#e8e1ce"/>
+            <rect x="36" y="88" width="8" height="230" rx="4" fill="#c9a96e"/>
+            <text x="70" y="128" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="24" font-weight="700">CSDN 业务数据</text>
+            <text x="70" y="160" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="14">用户 · 内容 · 流量 · 会员</text>
+            <text x="70" y="184" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="14">活动 · 转化 · 商业化</text>
+            <rect x="70" y="224" width="150" height="54" rx="27" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="145" y="247" text-anchor="middle" fill="#3b3898" font-family="Noto Sans SC, sans-serif" font-size="14" font-weight="700">多源业务明细</text>
+            <text x="145" y="267" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="11">持续导入</text>
+          </g>
+
+          <g filter="url(#case-csdn-shadow)">
+            <rect x="330" y="82" width="260" height="242" rx="16" fill="#0e1530" stroke="#c9a96e" stroke-width="2"/>
+            <image href="infinisynapse-bp-v1-assets/images/clickhouse-logo.svg" x="368" y="112" width="32" height="32"/>
+            <text x="492" y="132" text-anchor="middle" fill="#f1ebd9" font-family="Noto Serif SC, serif" font-size="27" font-weight="700">ClickHouse</text>
+            <text x="460" y="164" text-anchor="middle" fill="#c9a96e" font-family="Noto Sans SC, sans-serif" font-size="16" font-weight="700">高配单机</text>
+            <rect x="365" y="190" width="190" height="86" rx="10" fill="rgba(255,255,255,.06)" stroke="rgba(201,169,110,.45)"/>
+            <text x="460" y="216" text-anchor="middle" fill="rgba(241,235,217,.78)" font-family="Noto Sans SC, sans-serif" font-size="13">数据预聚合 / 明细留存</text>
+            <text x="460" y="240" text-anchor="middle" fill="rgba(241,235,217,.78)" font-family="Noto Sans SC, sans-serif" font-size="13">确保查询足够快</text>
+            <text x="460" y="264" text-anchor="middle" fill="rgba(241,235,217,.78)" font-family="Noto Sans SC, sans-serif" font-size="13">面向高频运营分析</text>
+          </g>
+
+          <g filter="url(#case-csdn-shadow)">
+            <rect x="668" y="82" width="250" height="242" rx="16" fill="#fff" stroke="#e8e1ce"/>
+            <rect x="668" y="82" width="8" height="242" rx="4" fill="#c9a96e"/>
+            <text x="702" y="126" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="27" font-weight="700">InfiniSynapse</text>
+            <text x="702" y="158" fill="#1a1d2e" font-family="Noto Sans SC, sans-serif" font-size="16" font-weight="700">直接对接 ClickHouse</text>
+            <text x="702" y="190" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">自然语言问数</text>
+            <text x="702" y="214" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">自动生成分析报告</text>
+            <text x="702" y="238" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">动态报表 / 追问 / 复用</text>
+            <rect x="702" y="266" width="180" height="34" rx="17" fill="#f7f3ea" stroke="#c9a96e"/>
+            <text x="792" y="288" text-anchor="middle" fill="#3b3898" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">数据能力产品化</text>
+          </g>
+
+          <g filter="url(#case-csdn-shadow)">
+            <rect x="978" y="86" width="112" height="86" rx="12" fill="#fff" stroke="#e8e1ce"/>
+            <text x="1034" y="121" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="20" font-weight="700">运营</text>
+            <text x="1034" y="147" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">活动 / 留存</text>
+
+            <rect x="978" y="218" width="112" height="86" rx="12" fill="#fff" stroke="#e8e1ce"/>
+            <text x="1034" y="253" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="20" font-weight="700">业务</text>
+            <text x="1034" y="279" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="12">增长 / 转化</text>
+          </g>
+
+          <path d="M256 203 L330 203" fill="none" stroke="#c9a96e" stroke-width="4" marker-end="url(#case-csdn-arrow)"/>
+          <path d="M590 203 L668 203" fill="none" stroke="#c9a96e" stroke-width="4" marker-end="url(#case-csdn-arrow)"/>
+          <path d="M918 172 C950 150, 956 128, 978 128" fill="none" stroke="#3b3898" stroke-width="3" marker-end="url(#case-csdn-arrow-purple)"/>
+          <path d="M918 234 C950 252, 956 260, 978 260" fill="none" stroke="#3b3898" stroke-width="3" marker-end="url(#case-csdn-arrow-purple)"/>
+
+          <rect x="180" y="360" width="760" height="42" rx="21" fill="rgba(201,169,110,.12)" stroke="rgba(201,169,110,.45)"/>
+          <text x="560" y="386" text-anchor="middle" fill="#1a1d2e" font-family="Noto Sans SC, sans-serif" font-size="17" font-weight="700">
+            结果:运营和业务不再等报表排期,直接用数据驱动业务与运营动作
+          </text>
+        </svg>
+      </div>
+    </section>
+
+<!-- ============ 9D. CASE QIMINGPIAN ============ -->
+    <section id="case-qimingpian">
+      <div class="page-header">
+        <p class="ph-num">09D</p>
+        <p class="ph-label">CASE · 企名片</p>
+        <h2>直接对接分布式 TiDB,<br/>把数据变成 App 能力</h2>
+      </div>
+      <div class="content">
+        <svg viewBox="0 0 1120 430" role="img" aria-label="企名片 TiDB 对接 InfiniSynapse 应用架构图" style="width: 100%; height: 430px; display: block;">
+          <defs>
+            <filter id="case-qmp-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0e1530" flood-opacity="0.10"/>
+            </filter>
+            <marker id="case-qmp-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c9a96e"/>
+            </marker>
+            <marker id="case-qmp-arrow-purple" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#3b3898"/>
+            </marker>
+          </defs>
+
+          <g filter="url(#case-qmp-shadow)">
+            <rect x="44" y="82" width="250" height="246" rx="16" fill="#fff" stroke="#e8e1ce"/>
+            <rect x="44" y="82" width="8" height="246" rx="4" fill="#c9a96e"/>
+            <text x="78" y="126" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="26" font-weight="700">企名片数据底座</text>
+            <image href="infinisynapse-bp-v1-assets/images/tidb-logo.svg" x="78" y="136" width="34" height="34"/>
+            <text x="122" y="160" fill="#1a1d2e" font-family="Noto Sans SC, sans-serif" font-size="16" font-weight="700">分布式 TiDB 数据库</text>
+            <rect x="78" y="192" width="180" height="42" rx="8" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="168" y="218" text-anchor="middle" fill="#3b3898" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">企业主体 / 股权 / 法人</text>
+            <rect x="78" y="250" width="180" height="42" rx="8" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <text x="168" y="276" text-anchor="middle" fill="#3b3898" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">工商变更 / 投融资 / 关系</text>
+          </g>
+
+          <g filter="url(#case-qmp-shadow)">
+            <rect x="370" y="82" width="250" height="246" rx="16" fill="#0e1530" stroke="#c9a96e" stroke-width="2"/>
+            <text x="495" y="126" text-anchor="middle" fill="#f1ebd9" font-family="Noto Serif SC, serif" font-size="27" font-weight="700">InfiniSynapse</text>
+            <image href="infinisynapse-bp-v1-assets/images/tidb-logo.svg" x="431" y="139" width="24" height="24"/>
+            <text x="510" y="156" text-anchor="middle" fill="#c9a96e" font-family="Noto Sans SC, sans-serif" font-size="16" font-weight="700">直连 TiDB</text>
+            <rect x="404" y="190" width="182" height="86" rx="10" fill="rgba(255,255,255,.06)" stroke="rgba(201,169,110,.45)"/>
+            <text x="495" y="216" text-anchor="middle" fill="rgba(241,235,217,.78)" font-family="Noto Sans SC, sans-serif" font-size="13">理解自然语言问题</text>
+            <text x="495" y="240" text-anchor="middle" fill="rgba(241,235,217,.78)" font-family="Noto Sans SC, sans-serif" font-size="13">生成可审计查询</text>
+            <text x="495" y="264" text-anchor="middle" fill="rgba(241,235,217,.78)" font-family="Noto Sans SC, sans-serif" font-size="13">结果回到业务应用</text>
+          </g>
+
+          <g filter="url(#case-qmp-shadow)">
+            <rect x="696" y="62" width="206" height="286" rx="28" fill="#ffffff" stroke="#e8e1ce" stroke-width="2"/>
+            <rect x="718" y="94" width="162" height="222" rx="16" fill="#f7f3ea" stroke="#e8e1ce"/>
+            <circle cx="799" cy="334" r="7" fill="#e8e1ce"/>
+            <text x="799" y="124" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="22" font-weight="700">企名片 App</text>
+            <rect x="736" y="156" width="126" height="52" rx="12" fill="#fff" stroke="#e8e1ce"/>
+            <text x="799" y="178" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="11">用户直接问</text>
+            <text x="799" y="196" text-anchor="middle" fill="#3b3898" font-family="Noto Sans SC, sans-serif" font-size="12" font-weight="700">“XX 企业法人是谁?”</text>
+            <rect x="736" y="236" width="126" height="46" rx="12" fill="#0e1530" stroke="#c9a96e"/>
+            <text x="799" y="257" text-anchor="middle" fill="#f1ebd9" font-family="Noto Sans SC, sans-serif" font-size="12" font-weight="700">直接返回答案</text>
+            <text x="799" y="275" text-anchor="middle" fill="rgba(241,235,217,.64)" font-family="Noto Sans SC, sans-serif" font-size="10">无需跳出产品</text>
+          </g>
+
+          <g filter="url(#case-qmp-shadow)">
+            <rect x="956" y="106" width="128" height="190" rx="16" fill="#fff" stroke="#e8e1ce"/>
+            <text x="1020" y="148" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="22" font-weight="700">用户价值</text>
+            <text x="1020" y="184" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">少搜索</text>
+            <text x="1020" y="211" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">少筛选</text>
+            <text x="1020" y="238" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">少跳转</text>
+            <text x="1020" y="266" text-anchor="middle" fill="#c9a96e" font-family="Noto Sans SC, sans-serif" font-size="13" font-weight="700">直接得到答案</text>
+          </g>
+
+          <path d="M294 205 L370 205" fill="none" stroke="#c9a96e" stroke-width="4" marker-end="url(#case-qmp-arrow)"/>
+          <path d="M620 205 L696 205" fill="none" stroke="#c9a96e" stroke-width="4" marker-end="url(#case-qmp-arrow)"/>
+          <path d="M902 205 L956 205" fill="none" stroke="#3b3898" stroke-width="3" marker-end="url(#case-qmp-arrow-purple)"/>
+
+          <rect x="170" y="366" width="780" height="44" rx="22" fill="rgba(201,169,110,.12)" stroke="rgba(201,169,110,.45)"/>
+          <text x="560" y="393" text-anchor="middle" fill="#1a1d2e" font-family="Noto Sans SC, sans-serif" font-size="18" font-weight="700">
+            结果:数据就是应用,数据就是价值 —— 数据能力直接成为用户可感知的产品能力
+          </text>
+        </svg>
+      </div>
+    </section>
+
+<!-- ============ 9E. CASE CUSTOMS · 1400 TABLES ============ -->
+    <section id="case-customs-1400">
+      <div class="page-header">
+        <p class="ph-num">09E</p>
+        <p class="ph-label">CASE · 海关</p>
+        <h2>1400 张表,<br/>无治理, 接入即问</h2>
+      </div>
+      <div class="content">
+        <svg viewBox="0 0 1120 430" role="img" aria-label="海关 1400 张表无治理接入即问示意图" style="width: 100%; height: 430px; display: block;">
+          <defs>
+            <filter id="case-customs-effect-shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0e1530" flood-opacity="0.12"/>
+            </filter>
+            <marker id="case-customs-effect-arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#c9a96e"/>
+            </marker>
+            <marker id="case-customs-effect-arrow-purple" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L8,3 z" fill="#3b3898"/>
+            </marker>
+          </defs>
+
+          <!-- 1400 tables as matrix -->
+          <g filter="url(#case-customs-effect-shadow)">
+            <rect x="44" y="58" width="294" height="300" rx="18" fill="#fff" stroke="#e8e1ce"/>
+            <rect x="44" y="58" width="8" height="300" rx="4" fill="#c9a96e"/>
+            <text x="190" y="116" text-anchor="middle" fill="#3b3898" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="66" font-weight="700">1400+</text>
+            <text x="190" y="148" text-anchor="middle" fill="#1a1d2e" font-family="Noto Serif SC, serif" font-size="24" font-weight="700">张表</text>
+            <text x="190" y="174" text-anchor="middle" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="14">海关生产业务库 · 未建语义层</text>
+
+            <g opacity=".95">
+              <rect x="92" y="188" width="16" height="12" rx="2" fill="#3b3898"/><rect x="116" y="188" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="140" y="188" width="16" height="12" rx="2" fill="#3b3898"/><rect x="164" y="188" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="188" y="188" width="16" height="12" rx="2" fill="#3b3898"/><rect x="212" y="188" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="236" y="188" width="16" height="12" rx="2" fill="#3b3898"/><rect x="260" y="188" width="16" height="12" rx="2" fill="#c9a96e"/>
+              <rect x="92" y="212" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="116" y="212" width="16" height="12" rx="2" fill="#3b3898"/><rect x="140" y="212" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="164" y="212" width="16" height="12" rx="2" fill="#3b3898"/><rect x="188" y="212" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="212" y="212" width="16" height="12" rx="2" fill="#3b3898"/><rect x="236" y="212" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="260" y="212" width="16" height="12" rx="2" fill="#3b3898"/>
+              <rect x="92" y="236" width="16" height="12" rx="2" fill="#3b3898"/><rect x="116" y="236" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="140" y="236" width="16" height="12" rx="2" fill="#3b3898"/><rect x="164" y="236" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="188" y="236" width="16" height="12" rx="2" fill="#3b3898"/><rect x="212" y="236" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="236" y="236" width="16" height="12" rx="2" fill="#3b3898"/><rect x="260" y="236" width="16" height="12" rx="2" fill="#c9a96e"/>
+              <rect x="92" y="260" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="116" y="260" width="16" height="12" rx="2" fill="#3b3898"/><rect x="140" y="260" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="164" y="260" width="16" height="12" rx="2" fill="#3b3898"/><rect x="188" y="260" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="212" y="260" width="16" height="12" rx="2" fill="#3b3898"/><rect x="236" y="260" width="16" height="12" rx="2" fill="#c9a96e"/><rect x="260" y="260" width="16" height="12" rx="2" fill="#3b3898"/>
+            </g>
+          </g>
+
+          <!-- direct connect arrow -->
+          <path d="M338 208 L452 208" fill="none" stroke="#c9a96e" stroke-width="4" marker-end="url(#case-customs-effect-arrow)"/>
+
+          <!-- InfiniSynapse core -->
+          <g filter="url(#case-customs-effect-shadow)">
+            <circle cx="560" cy="208" r="108" fill="#0e1530" stroke="#c9a96e" stroke-width="3"/>
+            <circle cx="560" cy="208" r="74" fill="rgba(255,255,255,.05)" stroke="rgba(201,169,110,.45)" stroke-width="1.5"/>
+            <text x="560" y="200" text-anchor="middle" fill="#f1ebd9" font-family="Noto Serif SC, serif" font-size="26" font-weight="700">InfiniSynapse</text>
+            <text x="560" y="232" text-anchor="middle" fill="#c9a96e" font-family="Noto Sans SC, sans-serif" font-size="16" font-weight="700">接入即问</text>
+          </g>
+
+          <path d="M668 208 L784 208" fill="none" stroke="#3b3898" stroke-width="4" marker-end="url(#case-customs-effect-arrow-purple)"/>
+
+          <!-- key takeaways -->
+          <g filter="url(#case-customs-effect-shadow)">
+            <rect x="794" y="58" width="282" height="320" rx="18" fill="#fff" stroke="#e8e1ce"/>
+            <rect x="794" y="58" width="8" height="320" rx="4" fill="#c9a96e"/>
+
+            <text x="935" y="100" text-anchor="middle" fill="#3b3898" font-family="Noto Serif SC, serif" font-size="22" font-weight="700">从能用到用好</text>
+
+            <text x="824" y="146" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="20" font-weight="700">01</text>
+            <text x="864" y="146" fill="#1a1d2e" font-family="Noto Sans SC, sans-serif" font-size="16" font-weight="700">无治理先取数</text>
+            <text x="864" y="172" fill="#3b3898" font-family="Noto Sans SC, sans-serif" font-size="15" font-weight="700">直连业务库</text>
+
+            <line x1="824" y1="196" x2="1046" y2="196" stroke="#e8e1ce"/>
+
+            <text x="824" y="234" fill="#c9a96e" font-family="Space Grotesk, Noto Sans SC, sans-serif" font-size="20" font-weight="700">02</text>
+            <text x="864" y="234" fill="#1a1d2e" font-family="Noto Sans SC, sans-serif" font-size="16" font-weight="700">用得好 · 沉淀知识库</text>
+            <text x="864" y="258" fill="#5b5e72" font-family="Noto Sans SC, sans-serif" font-size="13">使用过程把养料一点点喂进知识库</text>
+
+            <g font-family="Noto Sans SC, sans-serif" font-size="11">
+              <rect x="824" y="276" width="92" height="24" rx="12" fill="#f7f3ea" stroke="#e8e1ce"/>
+              <text x="870" y="293" text-anchor="middle" fill="#3b3898">过往分析文档</text>
+
+              <rect x="924" y="276" width="76" height="24" rx="12" fill="#f7f3ea" stroke="#e8e1ce"/>
+              <text x="962" y="293" text-anchor="middle" fill="#3b3898">Schema</text>
+
+              <rect x="1008" y="276" width="56" height="24" rx="12" fill="#f7f3ea" stroke="#e8e1ce"/>
+              <text x="1036" y="293" text-anchor="middle" fill="#3b3898">规则</text>
+
+              <rect x="824" y="308" width="80" height="24" rx="12" fill="#f7f3ea" stroke="#e8e1ce"/>
+              <text x="864" y="325" text-anchor="middle" fill="#3b3898">业务口径</text>
+
+              <rect x="912" y="308" width="80" height="24" rx="12" fill="#f7f3ea" stroke="#e8e1ce"/>
+              <text x="952" y="325" text-anchor="middle" fill="#3b3898">用户偏好</text>
+
+              <rect x="1000" y="308" width="64" height="24" rx="12" fill="#f7f3ea" stroke="#e8e1ce"/>
+              <text x="1032" y="325" text-anchor="middle" fill="#3b3898">…</text>
+            </g>
+          </g>
+        </svg>
+        <div style="margin-top: 14px; padding: 14px 24px; border-radius: 22px; background: rgba(201,169,110,.12); border: 1px solid rgba(201,169,110,.45);">
+          <p style="font-size: 17pt; margin: 0; text-align: center; color: var(--text-primary); font-weight: 700;">直连海关生产库, 1400 张表无治理, 接入即可提问取数</p>
+        </div>
+      </div>
+    </section>
+
+<!-- ============ 9F. CASE CUSTOMS · ML ============ -->
+    <section id="case-customs-ml">
+      <div class="page-header">
+        <p class="ph-num">09F</p>
+        <p class="ph-label">CASE · 海关 · 机器学习</p>
+        <h2>风控特征发现,<br/>Agent 端到端建模</h2>
+      </div>
+      <div class="content customs-ml-layout">
+        <p class="text-muted text-lg" style="margin-bottom: 12px;">海关风控场景正在评估 InfiniSynapse 做特征发现。内部案例暂不便公开展示, 以下用公开 UCI 数据集演示同等机器学习能力 —— Agent 自主完成加载、特征工程、训练与评估。</p>
+        <div class="customs-ml-stats">
+          <div class="big-number">
+            <p><span class="bn-val">92</span><span class="bn-unit">秒</span></p>
+            <p class="bn-label">从提问到出评分卡全流程</p>
+          </div>
+          <div class="big-number">
+            <p><span class="bn-val">0.7712</span></p>
+            <p class="bn-label">AUC —— 超 XGBoost 基线 0.7611</p>
+          </div>
+          <div class="big-number">
+            <p><span class="bn-val">100%</span></p>
+            <p class="bn-label">可解释 —— 评分卡规则可追溯</p>
+          </div>
+        </div>
+        <p class="text-lg" style="margin: 8px 0 10px; color: var(--primary);">可类比海关场景:<strong>风险特征发现、异常行为识别、通关信用评分</strong></p>
+        <pre class="code-demo"><code>-- InfiniSQL ScoreCard SOTA Challenge - UCI Credit Card Default
+-- test AUC = 0.7712 / KS = 0.4288  -- 超越 XGBoost 文献 0.7611
+
+set DATASET_PATH="/data/uci_credit_card_default.csv"
+    options type="defaultParam";
+set MODEL_PATH="/tmp/infinisql/models/fintech/uci_scorecard_sota"
+    options type="defaultParam";
+set PRED_PATH="/tmp/infinisql/predictions/uci_scorecard_sota"
+    options type="defaultParam";
+
+load csv.`${DATASET_PATH}` where header="true" and inferSchema="true"
+as credit_raw_0;
+
+-- credit_typed 来自脚本 Part 1 的 24 个字段显式 cast
+-- 领域特征工程: 6 个月逾期模式 + 利用率 + 还款率 + 余额增长
+select *,
+    greatest(PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6) as pay_max,
+    (case when PAY_0 &gt;= 1 then 1 else 0 end +
+     case when PAY_2 &gt;= 1 then 1 else 0 end +
+     case when PAY_3 &gt;= 1 then 1 else 0 end +
+     case when PAY_4 &gt;= 1 then 1 else 0 end +
+     case when PAY_5 &gt;= 1 then 1 else 0 end +
+     case when PAY_6 &gt;= 1 then 1 else 0 end) as pay_delinq_count,
+    case when LIMIT_BAL &gt; 0 then
+        ((BILL_AMT1 + BILL_AMT2 + BILL_AMT3 + BILL_AMT4 + BILL_AMT5 + BILL_AMT6) / 6.0) / LIMIT_BAL
+    else 0.0 end as util_avg,
+    case when BILL_AMT2 &gt; 0 then PAY_AMT1 / BILL_AMT2 else 1.0 end as repay_ratio_m1,
+    case when BILL_AMT6 &gt; 100 then BILL_AMT1 / BILL_AMT6 else 1.0 end as bill_growth
+from credit_typed
+as credit_feat;
+
+select *, rand(42) as _split_key from credit_feat as credit_keyed;
+select ID, LIMIT_BAL, PAY_0, PAY_2, PAY_3, PAY_4, PAY_AMT1,
+       pay_max, pay_delinq_count, pay_delinq_sum, recent_delinq, pay_max_recent3,
+       util_avg, util_m1, util_max, repay_ratio, repay_ratio_m1, bill_growth, pay_avg,
+       label
+from credit_keyed where _split_key &lt;= 0.70 as sota_train;
+select ID, LIMIT_BAL, PAY_0, PAY_2, PAY_3, PAY_4, PAY_AMT1,
+       pay_max, pay_delinq_count, pay_delinq_sum, recent_delinq, pay_max_recent3,
+       util_avg, util_m1, util_max, repay_ratio, repay_ratio_m1, bill_growth, pay_avg,
+       label
+from credit_keyed where _split_key &gt; 0.85 as sota_test;
+
+run sota_train as Binning.`${MODEL_PATH}` where
+label="label" and method="EF" and numBucket="20" and goodValue="0"
+and selectedFeatures="LIMIT_BAL,PAY_0,PAY_2,PAY_3,PAY_4,PAY_AMT1,pay_max,pay_delinq_count,pay_delinq_sum,recent_delinq,pay_max_recent3,util_avg,util_m1,util_max,repay_ratio,repay_ratio_m1,bill_growth,pay_avg"
+as binningInfoTable;
+
+run sota_train as ScoreCard.`${MODEL_PATH}` where
+binningTable="binningInfoTable"
+and selectedFeatures="LIMIT_BAL,PAY_0,PAY_2,PAY_3,PAY_4,PAY_AMT1,pay_max,pay_delinq_count,pay_delinq_sum,recent_delinq,pay_max_recent3,util_avg,util_m1,util_max,repay_ratio,repay_ratio_m1,bill_growth,pay_avg"
+and scaledValue="600" and odds="50" and pdo="20" and goodValue="0"
+as scorecard_train_scored;
+
+predict sota_test as ScoreCard.`${MODEL_PATH}` where
+binningTable="binningInfoTable"
+and selectedFeatures="LIMIT_BAL,PAY_0,PAY_2,PAY_3,PAY_4,PAY_AMT1,pay_max,pay_delinq_count,pay_delinq_sum,recent_delinq,pay_max_recent3,util_avg,util_m1,util_max,repay_ratio,repay_ratio_m1,bill_growth,pay_avg"
+as scorecard_test_scored;
+
+run scorecard_test_scored as ScoreCard.`${MODEL_PATH}` where
+action="evaluate" and labelCol="label" and scoreCol="predictedScore" and goodValue="0"
+as metrics_test;
+
+select * from metrics_test as output;</code></pre>
+        <p class="footnote">数据集: UCI Default of Credit Card Clients · 学术基线 Yeh &amp; Lien, 2009</p>
+      </div>
+    </section>
+
+
+<!-- ============ 11C. PRODUCT FORM ============ -->
+    <section id="product-form">
+      <div class="page-header">
+        <p class="ph-num">11C</p>
+      </div>
+      <div class="content">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 16px;">
+          <div class="card" style="padding: 22px; min-height: 220px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 3px; margin: 0 0 10px;">01</p>
+            <div style="font-size: 28pt; color: var(--gold); margin-bottom: 14px;"><i class="fas fa-cloud"></i></div>
+            <h3 style="font-size: 21pt; margin: 0 0 10px;">SaaS</h3>
+            <p style="font-size: 13pt; line-height: 1.55;">最快 POC 入口。顾问、创业团队和中小企业直接打开,先把价值链跑通。</p>
+          </div>
+          <div class="card" style="padding: 22px; min-height: 220px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 3px; margin: 0 0 10px;">02</p>
+            <div style="font-size: 28pt; color: var(--gold); margin-bottom: 14px;"><i class="fas fa-laptop"></i></div>
+            <h3 style="font-size: 21pt; margin: 0 0 10px;">桌面端</h3>
+            <p style="font-size: 13pt; line-height: 1.55;">贴近真实办公环境和本地文件边界。Excel、CSV、数据库与文档可以在本机闭环。</p>
+          </div>
+          <div class="card" style="padding: 22px; min-height: 220px; background: #0e1530; border-color: var(--gold);">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 3px; margin: 0 0 10px;">03</p>
+            <div style="font-size: 28pt; color: var(--gold); margin-bottom: 14px;"><i class="fas fa-shield-halved"></i></div>
+            <h3 style="font-size: 21pt; color: #f1ebd9; margin: 0 0 10px;">私有化部署</h3>
+            <p style="font-size: 13pt; line-height: 1.55; color: rgba(241,235,217,.72);">金融、政务、制造和央国企的主战场。数据、模型、推理和报告全部留在企业域内。</p>
+          </div>
+          <div class="card" style="padding: 22px; min-height: 220px;">
+            <p style="font-family: var(--serif-en); color: var(--gold); font-size: 22pt; letter-spacing: 3px; margin: 0 0 10px;">04</p>
+            <div style="font-size: 28pt; color: var(--gold); margin-bottom: 14px;"><i class="fas fa-terminal"></i></div>
+            <h3 style="font-size: 21pt; margin: 0 0 10px;">Command Tools</h3>
+            <p style="font-size: 13pt; line-height: 1.55;">40+ tools 覆盖企业办公Office,音视频，微信飞书，以及其他Agent对接</p>
+          </div>
+        </div>
+        <div style="margin-top: 22px; padding: 18px 24px; border-radius: 8px; background: rgba(201,169,110,.12); border: 1px solid rgba(201,169,110,.45);">
+          <p style="font-size: 19pt; margin: 0; color: var(--text-primary);">底层 Harness 一致:同一套 Agent / InfiniSQL / InfiniRAG / 跨源引擎,覆盖 SaaS 获客、桌面端使用、私有化大单和 Agent 生态分发。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cooperation">
+      <div class="page-header">
+        <p class="ph-num">13</p>
+        <p class="ph-label">CO-BUILD</p>
+        <h2>适合三类客户和伙伴</h2>
+      </div>
+      <div class="content">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+          <div class="card tall">
+            <p class="icon"><i class="fa-solid fa-building"></i></p>
+            <h3>企业和组织</h3>
+            <p>把数据分析放进真实业务流程，而不是只多一个聊天入口。</p>
+          </div>
+          <div class="card tall highlight">
+            <p class="icon"><i class="fa-solid fa-user-tie"></i></p>
+            <h3>行业专家</h3>
+            <p>把投研、咨询、运营、政策、教育或数据服务 know how 做成产品。</p>
+          </div>
+          <div class="card tall">
+            <p class="icon"><i class="fa-solid fa-handshake"></i></p>
+            <h3>合作伙伴</h3>
+            <p>基于 Data Infra 共建垂直应用、行业模板和私有化方案。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="page-header">
+        <p class="ph-num">12A</p>
+        <p class="ph-label">TEAM · 祝海林</p>
+      </div>
+      <div class="content">
+        <div class="profile">
+          <div class="pf-side">
+            <p class="pf-name">祝海林</p>
+            <p class="pf-en">William Zhu</p>
+            <p style="font-size: 13pt; color: var(--text-muted-light); line-height: 1.6;">联合创始人 · 长期深耕 Data Infrastructure 与 AI 的交叉领域。</p>
+          </div>
+          <ul>
+            <li><strong>InfiniSQL</strong> 创造者 —— 原开源版本获得数千 Star</li>
+            <li><strong>byzer-llm</strong> 作者 —— 完整的大模型中间件,支持大模型分布式训练、推理、构建应用</li>
+            <li><strong>第四代 RAG auto-coder.RAG</strong> 作者</li>
+            <li><strong>auto-coder.chat</strong> 作者 —— 全球最早的 CLI 形态 Code Agent 之一</li>
+            <li><strong>WinClaw</strong> 作者 —— WinClaw 上线即过万下载,目前累计下载 20 万+</li>
+            <li><strong>前某数据独角兽技术合伙人</strong> —— Data 与 AI 融合领域</li>
+            <li><strong>前粤港澳大湾区Code Agent研究员与咨询顾问</strong></li>
+            <li><strong>GitCode 2024 年度开源人物</strong> · 2023 上海浦东人工智能创新大赛<strong>一等奖</strong></li>
+            <li>在 大数据 / AI 领域有连续 10 年以上深度积累</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="team-jiangtao">
+      <div class="page-header">
+        <p class="ph-num">12B</p>
+        <p class="ph-label">TEAM · 蒋涛</p>
+      </div>
+      <div class="content">
+        <div class="profile">
+          <div class="pf-side">
+            <p class="pf-name">蒋涛</p>
+            <p class="pf-en">Tao Jiang</p>
+            <p style="font-size: 13pt; color: var(--text-muted-light); line-height: 1.6;">联合创始人 · CSDN 创始人,负责生态战略、渠道资源与商业化放大。</p>
+          </div>
+          <ul>
+            <li><strong>CSDN 创始人 / 董事长</strong> —— 中国最大开发者社区的重要建设者</li>
+            <li>深耕开发者生态 <strong>20+ 年</strong>,持续连接开发者、技术企业、ISV 与产业客户</li>
+            <li>为 InfiniSynapse 带来<strong>开发者流量、企业渠道、OEM 生态</strong>与行业合作入口</li>
+            <li>帮助产品从"可用的数据分析工具"走向<strong>开发者与企业数据入口</strong></li>
+            <li>在 Data Agent 商业化早期,承担<strong>战略定位、分发网络、生态合作</strong>三类关键杠杆</li>
+            <li>技术团队负责把 Harness 做深,蒋涛负责把能力带进更大的开发者与企业市场</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="team-zhaoweinan">
+      <div class="page-header">
+        <p class="ph-num">12C</p>
+        <p class="ph-label">TEAM · 赵伟楠</p>
+      </div>
+      <div class="content">
+        <div class="profile">
+          <div class="pf-side">
+            <p class="pf-name">赵伟楠</p>
+            <p class="pf-en">Weinan Zhao</p>
+            <p style="font-size: 13pt; color: var(--text-muted-light); line-height: 1.6;">联合创始人 · 产品与增长负责人,推动 InfiniSynapse 多形态产品化落地。</p>
+          </div>
+          <ul>
+            <li><strong>前多家 SaaS 产品负责人</strong>,具备从需求、产品、增长到交付的完整经验</li>
+            <li><strong>Infini Agent 核心开发者</strong>,统筹 SaaS / 桌面端 / 企业私有化三端协同</li>
+            <li>6 个月内推动 <strong>SaaS + 桌面 + 私有化 + 国际版</strong>全平台交付</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="closing" class="dark section-divider" data-background-color="#10231f">
+      <p class="chapter-num">INFINISYNAPSE</p>
+      <h1>让数据应用<br><strong>更快长出来</strong></h1>
+      <div class="closing-links">
+        <p><span>国际 SaaS 版</span><a href="http://app.infinisynapse.com/">app.infinisynapse.com</a></p>
+        <p><span>国内 SaaS 版</span><a href="http://app.infinisynapse.cn">app.infinisynapse.cn</a></p>
+        <p><span>示例 Apps 体验</span><a href="https://www.infinisynapse.cn/apps">www.infinisynapse.cn/apps</a></p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    slideNumber: true,
+    hash: true,
+    transition: "slide",
+    backgroundTransition: "fade",
+    center: false,
+    width: 1280,
+    height: 720,
+    margin: 0,
+  });
+</script>
+</body>
+</html>
