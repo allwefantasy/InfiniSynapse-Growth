@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px;
+    margin: 0;
+    padding: 48px 48px 40px;
+    font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+    background: #fff;
+    color: #1f2328;
+  }
+  .title {
+    font-size: 28px; font-weight: 700; margin-bottom: 8px; color: #0d1117;
+  }
+  .sub {
+    font-size: 16px; color: #656d76; margin-bottom: 36px;
+  }
+  .row {
+    display: flex; align-items: stretch; justify-content: space-between; gap: 16px;
+  }
+  .card {
+    flex: 1;
+    border: 1px solid #d0d7de;
+    border-radius: 14px;
+    padding: 28px 22px;
+    background: #f6f8fa;
+    text-align: center;
+  }
+  .card.hl {
+    background: #ddf4ff;
+    border-color: #54aeff;
+  }
+  .num {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #0969da; color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 18px; margin-bottom: 14px;
+  }
+  .card.hl .num { background: #0550ae; }
+  .h { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+  .p { font-size: 15px; color: #57606a; line-height: 1.55; }
+  .arrow {
+    display: flex; align-items: center; color: #8c959f; font-size: 32px; font-weight: 300;
+    padding: 0 2px;
+  }
+  .foot {
+    margin-top: 28px; padding: 18px 22px; border-radius: 12px;
+    background: #fff8c5; border: 1px solid #d4a72c; font-size: 16px; color: #3b2500;
+  }
+  .foot b { color: #0d1117; }
+</style>
+</head>
+<body>
+  <div class="title">通用技术骨架 · 10 个选题都能套</div>
+  <div class="sub">前端输入 → InfiniSynapse Server API → 结构化结果展示</div>
+  <div class="row">
+    <div class="card">
+      <div class="num">1</div>
+      <div class="h">输入 / 上传</div>
+      <div class="p">文本框、文件上传<br>或简单表单</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card hl">
+      <div class="num">2</div>
+      <div class="h">调 Server API</div>
+      <div class="p">POST /v1/query<br>Bearer sk-xxxx</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card">
+      <div class="num">3</div>
+      <div class="h">渲染结果</div>
+      <div class="p">表格 / 图表<br>报告 / 打分卡</div>
+    </div>
+  </div>
+  <div class="foot"><b>提示：</b>会这一条链路，差评体检、尽调、SEO 诊断、决策打分……都可以往上套，不必每个选题从零搭基建。</div>
+</body>
+</html>

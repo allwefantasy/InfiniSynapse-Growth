@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #00F0FF;
+    --blue: #3B82F6;
+    --violet: #7C5CFF;
+    --gold: #F5C542;
+  }
+  body { background: #000; }
+
+  .cover {
+    position: relative;
+    width: 900px;
+    height: 383px;
+    overflow: hidden;
+    background:
+      radial-gradient(900px 500px at 85% 15%, rgba(0,240,255,0.18) 0%, transparent 55%),
+      radial-gradient(700px 420px at 10% 90%, rgba(124,92,255,0.16) 0%, transparent 50%),
+      linear-gradient(135deg, #02040a 0%, #050a16 45%, #02040a 100%);
+    font-family: "SF Pro Display", -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  /* dense tech grid */
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,240,255,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,240,255,0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 90% 80% at 70% 40%, #000 20%, transparent 75%);
+    opacity: 0.9;
+  }
+  .scan {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(0,240,255,0.03) 2px,
+      rgba(0,240,255,0.03) 4px
+    );
+    pointer-events: none;
+  }
+  .beam {
+    position: absolute;
+    width: 2px; height: 100%;
+    right: 38%; top: 0;
+    background: linear-gradient(180deg, transparent, rgba(0,240,255,0.45), transparent);
+    box-shadow: 0 0 24px rgba(0,240,255,0.35);
+    opacity: 0.55;
+  }
+  .orb {
+    position: absolute;
+    width: 340px; height: 340px;
+    right: -40px; top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 40% 40%, rgba(0,240,255,0.35), transparent 45%),
+      radial-gradient(circle at 60% 60%, rgba(124,92,255,0.28), transparent 50%);
+    filter: blur(2px);
+  }
+  .ring {
+    position: absolute;
+    right: 40px; top: 50%;
+    transform: translateY(-50%);
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,240,255,0.35);
+    box-shadow: 0 0 40px rgba(0,240,255,0.15), inset 0 0 40px rgba(0,240,255,0.08);
+  }
+  .ring::before {
+    content: "";
+    position: absolute; inset: 18px;
+    border-radius: 50%;
+    border: 1px dashed rgba(124,92,255,0.45);
+  }
+  .ring::after {
+    content: "";
+    position: absolute; inset: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,240,255,0.2);
+  }
+
+  .hud { position: absolute; width: 28px; height: 28px; border: 2px solid rgba(0,240,255,0.55); z-index: 6; }
+  .hud.tl { top: 16px; left: 16px; border-right: none; border-bottom: none; }
+  .hud.tr { top: 16px; right: 16px; border-left: none; border-bottom: none; }
+  .hud.bl { bottom: 16px; left: 16px; border-right: none; border-top: none; }
+  .hud.br { bottom: 16px; right: 16px; border-left: none; border-top: none; }
+
+  .tech { position: absolute; inset: 0; z-index: 2; }
+
+  .content {
+    position: relative; z-index: 5; height: 100%;
+    padding: 38px 48px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    width: 620px;
+  }
+
+  .toprow {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 6px 14px;
+    border: 1px solid rgba(0,240,255,0.35);
+    border-radius: 4px;
+    font-size: 14px; letter-spacing: 1px; color: #b8f7ff;
+    background: rgba(0,240,255,0.08);
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .brand .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 12px var(--cyan);
+  }
+  .status {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 12px; color: rgba(0,240,255,0.7); letter-spacing: 1px;
+  }
+  .status b { color: var(--cyan); }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 16px; font-weight: 700; color: var(--gold);
+    letter-spacing: 4px; margin-bottom: 14px;
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .kicker .pulse {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 14px var(--cyan);
+  }
+
+  h1 {
+    font-size: 44px; line-height: 1.2; font-weight: 800; letter-spacing: 0.5px;
+  }
+  h1 .big {
+    color: var(--cyan);
+    text-shadow: 0 0 28px rgba(0,240,255,0.55), 0 0 2px rgba(0,240,255,0.9);
+  }
+  h1 .hl {
+    background: linear-gradient(90deg, #fff 0%, #8fdcff 55%, #7C5CFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .footer { display: flex; align-items: center; gap: 10px; }
+  .chip {
+    font-size: 13px; padding: 7px 12px; border-radius: 3px;
+    font-family: "SF Mono", Menlo, monospace; font-weight: 600; letter-spacing: 0.3px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(0,240,255,0.25);
+    color: #d7f7ff;
+  }
+  .chip.cyan {
+    color: #001418; background: var(--cyan); border-color: var(--cyan);
+    box-shadow: 0 0 22px rgba(0,240,255,0.45);
+  }
+  .chip.gold {
+    color: #1a1200; background: var(--gold); border-color: var(--gold);
+    box-shadow: 0 0 18px rgba(245,197,66,0.4);
+  }
+
+  .side-meta {
+    position: absolute; right: 36px; top: 42px; z-index: 5;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 11px; color: rgba(0,240,255,0.55); text-align: right; line-height: 1.7;
+  }
+  .side-meta .c { color: var(--cyan); }
+  .code {
+    position: absolute; right: 36px; bottom: 36px; z-index: 5;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 12px; color: rgba(180,220,255,0.55); text-align: right; line-height: 1.75;
+  }
+  .code .c { color: var(--cyan); }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="grid"></div>
+    <div class="scan"></div>
+    <div class="orb"></div>
+    <div class="ring"></div>
+    <div class="beam"></div>
+
+    <svg class="tech" viewBox="0 0 900 383" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#00F0FF" stop-opacity="0"/>
+          <stop offset="0.5" stop-color="#00F0FF" stop-opacity="0.8"/>
+          <stop offset="1" stop-color="#7C5CFF" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <g stroke="url(#line)" stroke-width="1.2" fill="none">
+        <path d="M520 80 L620 80 L650 130 L780 130"/>
+        <path d="M540 170 L640 170 L670 220 L820 220"/>
+        <path d="M530 280 L630 280 L660 320 L790 320"/>
+        <path d="M650 130 L670 220"/>
+        <path d="M620 80 L640 170"/>
+      </g>
+      <g fill="#00F0FF">
+        <circle cx="520" cy="80" r="2.8"/>
+        <circle cx="780" cy="130" r="3.2"/>
+        <circle cx="820" cy="220" r="3.6"/>
+        <circle cx="790" cy="320" r="3"/>
+        <circle cx="670" cy="220" r="2.6"/>
+      </g>
+      <!-- hex nodes -->
+      <g stroke="rgba(0,240,255,0.45)" stroke-width="1" fill="rgba(0,240,255,0.06)">
+        <polygon points="720,90 736,99 736,117 720,126 704,117 704,99"/>
+        <polygon points="760,250 776,259 776,277 760,286 744,277 744,259"/>
+      </g>
+      <!-- rising bars -->
+      <g opacity="0.95">
+        <rect x="560" y="340" width="10" height="22" rx="1" fill="#1e5cff"/>
+        <rect x="576" y="328" width="10" height="34" rx="1" fill="#3b82f6"/>
+        <rect x="592" y="312" width="10" height="50" rx="1" fill="#00d4e8"/>
+        <rect x="608" y="296" width="10" height="66" rx="1" fill="#00F0FF"/>
+      </g>
+    </svg>
+
+    <div class="hud tl"></div>
+    <div class="hud tr"></div>
+    <div class="hud bl"></div>
+    <div class="hud br"></div>
+
+    <div class="side-meta">
+      SYS // CONTEST.SPRINT<br>
+      T-<span class="c">11</span> DAYS<br>
+      STATUS: <span class="c">OPEN</span>
+    </div>
+
+    <div class="content">
+      <div class="toprow">
+        <div class="brand"><span class="dot"></span>INFINISYNAPSE × CSDN</div>
+        <div class="status">MODE · <b>VIBE CODING</b></div>
+      </div>
+
+      <div class="headline">
+        <div class="kicker"><span class="pulse"></span>COUNTDOWN · 11 DAYS</div>
+        <h1><span class="big">10 个选题</span>照着改就能交<br><span class="hl">一个周末，拿奖概率很高</span></h1>
+      </div>
+
+      <div class="footer">
+        <span class="chip cyan">参与奖 50 名额未满</span>
+        <span class="chip">附可体验样板</span>
+        <span class="chip gold">7/31 截止</span>
+      </div>
+    </div>
+
+    <div class="code">&gt; pick <span class="c">idea</span> · ship weekend<br>&gt; users → <span class="c">score++</span></div>
+  </div>
+</body>
+</html>
