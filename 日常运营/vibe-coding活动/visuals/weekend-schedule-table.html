@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 720px;
+      padding: 32px;
+      background: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+      color: #1a1a1a;
+    }
+    .card {
+      border: 1px solid #d8dee8;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(22, 32, 56, 0.12);
+    }
+    .title {
+      background: linear-gradient(135deg, #1B2A4A, #162038);
+      color: #fff;
+      padding: 18px 24px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .subtitle {
+      padding: 12px 24px 0;
+      font-size: 13px;
+      color: #666;
+      background: #fff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    th {
+      text-align: left;
+      padding: 16px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      background: #1B2A4A;
+      border-bottom: 1px solid #162038;
+    }
+    td {
+      padding: 18px 24px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #333;
+      border-bottom: 1px solid #eef1f6;
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    td:first-child {
+      width: 34%;
+      font-weight: 600;
+      color: #1a1a1a;
+      white-space: nowrap;
+    }
+    tr:nth-child(even) td { background: #f8f9fb; }
+    .footnote {
+      padding: 14px 24px;
+      background: #f8f9fb;
+      font-size: 12px;
+      color: #999;
+      border-top: 1px solid #eef1f6;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">一个周末，做出能写进简历的 AI 应用</div>
+    <div class="subtitle">典型开发节奏 · Vibe Coding + InfiniSynapse Server API</div>
+    <table>
+      <thead>
+        <tr>
+          <th>时间</th>
+          <th>做什么</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>周六上午</td>
+          <td>定场景、画原型、注册 InfiniSynapse、拿 API Key</td>
+        </tr>
+        <tr>
+          <td>周六下午</td>
+          <td>Vibe 出前端界面，跑通「提交 → 分析 → 出结果」最小闭环</td>
+        </tr>
+        <tr>
+          <td>周日</td>
+          <td>接数据源、打磨体验、部署上线、写项目说明</td>
+        </tr>
+        <tr>
+          <td>7 月 31 日前</td>
+          <td>在 CSDN 活动专区提交作品</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="footnote">界面用 Vibe Coding 快速 vibe 出来，数据分析链路交给 InfiniSynapse Server API</div>
+  </div>
+</body>
+</html>

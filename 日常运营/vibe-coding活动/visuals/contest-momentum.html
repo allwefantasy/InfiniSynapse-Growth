@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1080px;
+    margin: 0;
+    padding: 44px 48px 48px;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    background:
+      radial-gradient(900px 520px at 72% 0%, rgba(46,107,255,0.28), transparent 58%),
+      radial-gradient(700px 480px at 8% 100%, rgba(53,224,232,0.12), transparent 55%),
+      #0B1226;
+    color: #fff;
+  }
+  .grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .wrap { position: relative; z-index: 1; }
+  .header { text-align: center; margin-bottom: 36px; }
+  .kicker { font-size: 13px; letter-spacing: 0.28em; color: #35E0E8; text-transform: uppercase; margin-bottom: 10px; }
+  .title { font-size: 36px; font-weight: 800; letter-spacing: 1px; }
+  .sub { font-size: 16px; color: #9fb0d6; margin-top: 10px; }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-bottom: 40px;
+  }
+  .stat {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(150,180,255,0.22);
+    border-radius: 14px; padding: 18px 20px; text-align: center;
+    box-shadow: inset 0 0 30px rgba(46,107,255,0.08);
+  }
+  .stat .num { font-size: 38px; font-weight: 900; color: #8fb2ff; line-height: 1; }
+  .stat .num.gold { color: #F2C14E; }
+  .stat .num.cyan { color: #35E0E8; }
+  .stat .lbl { font-size: 15px; font-weight: 600; margin-top: 8px; color: #e7edff; }
+  .stat .hint { font-size: 12px; color: #7f8db0; margin-top: 4px; }
+
+  .timeline-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(150,180,255,0.2);
+    border-radius: 18px;
+    padding: 36px 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .month-row {
+    display: flex; justify-content: space-between;
+    font-size: 13px; font-weight: 700; color: #7f93c8;
+    letter-spacing: 0.12em; margin-bottom: 18px; padding: 0 8px;
+  }
+  .track-wrap { position: relative; height: 8px; margin: 0 24px 56px; }
+  .track-bg {
+    height: 8px; border-radius: 999px;
+    background: rgba(120,150,220,0.15);
+    overflow: hidden;
+  }
+  .track-fill {
+    height: 100%; width: 28%;
+    background: linear-gradient(90deg, #2E6BFF, #35E0E8);
+    border-radius: 999px;
+    box-shadow: 0 0 16px rgba(53,224,232,0.5);
+  }
+  .nodes { position: absolute; left: 0; right: 0; top: -6px; height: 20px; }
+
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .card {
+    background: rgba(14,23,48,0.85);
+    border: 1px solid rgba(150,180,255,0.18);
+    border-radius: 14px; padding: 16px 14px;
+    min-height: 148px;
+  }
+  .card.active {
+    border-color: rgba(53,224,232,0.55);
+    box-shadow: 0 0 28px rgba(53,224,232,0.22), inset 0 0 24px rgba(46,107,255,0.12);
+  }
+  .card.deadline { border-color: rgba(242,193,78,0.45); }
+  .card .date { font-size: 12px; font-weight: 700; color: #35E0E8; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .card.active .date { color: #35E0E8; }
+  .card.deadline .date { color: #F2C14E; }
+  .card .name { font-size: 18px; font-weight: 800; margin-bottom: 8px; line-height: 1.25; }
+  .card .desc { font-size: 13px; color: #aeb9d6; line-height: 1.55; }
+  .badge {
+    display: inline-block; margin-top: 10px;
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 700;
+  }
+  .badge.now { background: rgba(53,224,232,0.2); color: #35E0E8; border: 1px solid rgba(53,224,232,0.4); }
+  .badge.hot { background: rgba(242,193,78,0.15); color: #F2C14E; border: 1px solid rgba(242,193,78,0.35); }
+
+  .node {
+    position: absolute; transform: translateX(-50%);
+    width: 18px; height: 18px; border-radius: 50%;
+    border: 3px solid #0B1226;
+    top: 0;
+  }
+  .node.launch { left: 6%; background: #4A5F8C; }
+  .node.now {
+    left: 28%; background: #35E0E8;
+    width: 22px; height: 22px; top: -2px;
+    box-shadow: 0 0 20px rgba(53,224,232,0.8);
+  }
+  .node.dev { left: 55%; background: #2E6BFF; }
+  .node.end {
+    left: 78%; background: #F2C14E;
+    width: 22px; height: 22px; top: -2px;
+    box-shadow: 0 0 16px rgba(242,193,78,0.5);
+  }
+  .node.award { left: 94%; background: #22c55e; }
+
+  .footer {
+    margin-top: 22px; text-align: center;
+    font-size: 13px; color: #7f8db0; letter-spacing: 0.04em;
+  }
+  .hud { position: absolute; width: 22px; height: 22px; border: 2px solid rgba(120,160,255,0.35); }
+  .hud.tl { top: 16px; left: 16px; border-right: none; border-bottom: none; }
+  .hud.tr { top: 16px; right: 16px; border-left: none; border-bottom: none; }
+  .hud.bl { bottom: 16px; left: 16px; border-right: none; border-top: none; }
+  .hud.br { bottom: 16px; right: 16px; border-left: none; border-top: none; }
+</style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="hud tl"></div><div class="hud tr"></div><div class="hud bl"></div><div class="hud br"></div>
+
+  <div class="wrap">
+    <div class="header">
+      <div class="kicker">Contest Timeline · Week 1</div>
+      <div class="title">上线 1 周 · 赛事时间线</div>
+      <div class="sub">InfiniSynapse × CSDN · Vibe Coding 应用开发大赛</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num cyan">80+</div>
+        <div class="lbl">选手微信群</div>
+        <div class="hint">技术答疑 · 组队开发</div>
+      </div>
+      <div class="stat">
+        <div class="num gold">1 周</div>
+        <div class="lbl">活动上线满一周</div>
+        <div class="hint">部分作品已陆续上线</div>
+      </div>
+      <div class="stat">
+        <div class="num">7/31</div>
+        <div class="lbl">提交截止</div>
+        <div class="hint">距截止还有半个多月</div>
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="month-row"><span>7 月</span><span>8 月</span></div>
+      <div class="track-wrap">
+        <div class="track-bg"><div class="track-fill"></div></div>
+        <div class="nodes">
+          <div class="node launch"></div>
+          <div class="node now"></div>
+          <div class="node dev"></div>
+          <div class="node end"></div>
+          <div class="node award"></div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <div class="date">7/7 前后</div>
+          <div class="name">活动上线</div>
+          <div class="desc">专题页开放<br>注册送 500 积分<br>创建 API Key</div>
+        </div>
+        <div class="card active">
+          <div class="date">7/14 · 当前</div>
+          <div class="name">上线满 1 周</div>
+          <div class="desc">选手群 80+ 人<br>部分作品已部署<br>持续有新提交</div>
+          <span class="badge now">YOU ARE HERE</span>
+        </div>
+        <div class="card deadline">
+          <div class="date">7/31 23:59</div>
+          <div class="name">提交截止</div>
+          <div class="desc">CSDN 活动专区交稿<br>公网 URL 可访问<br>API 集成说明齐全</div>
+          <span class="badge hot">冲刺期</span>
+        </div>
+        <div class="card">
+          <div class="date">8/1 — 8/11</div>
+          <div class="name">评审公示</div>
+          <div class="desc">准入审核 · 专家打分<br>8/11 公布获奖名单<br>发放奖金与证书</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">开发期进行中 · 现在加入仍来得及完成一个周末 MVP</div>
+  </div>
+</body>
+</html>

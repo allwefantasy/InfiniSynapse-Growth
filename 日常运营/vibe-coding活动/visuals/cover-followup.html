@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B1226;
+    --navy2: #132145;
+    --blue: #2E6BFF;
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+  }
+  body { background: #fff; }
+
+  .cover {
+    position: relative;
+    width: 900px;
+    height: 383px;
+    overflow: hidden;
+    background: radial-gradient(1050px 600px at 80% -12%, rgba(46,107,255,0.30) 0%, #05070d 52%, #000 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(90deg, transparent, #000 22%, #000);
+  }
+  .glow {
+    position: absolute;
+    width: 480px; height: 480px;
+    right: -90px; top: -170px;
+    background: radial-gradient(circle, rgba(46,107,255,0.5), transparent 62%);
+    filter: blur(8px);
+  }
+  .glow2 {
+    position: absolute;
+    width: 260px; height: 260px;
+    right: 120px; bottom: -120px;
+    background: radial-gradient(circle, rgba(53,224,232,0.22), transparent 65%);
+    filter: blur(10px);
+  }
+
+  .tech { position: absolute; inset: 0; }
+
+  .hud { position: absolute; width: 26px; height: 26px; border: 2px solid rgba(120,160,255,0.5); }
+  .hud.tl { top: 18px; left: 18px; border-right: none; border-bottom: none; }
+  .hud.tr { top: 18px; right: 18px; border-left: none; border-bottom: none; }
+  .hud.bl { bottom: 18px; left: 18px; border-right: none; border-top: none; }
+  .hud.br { bottom: 18px; right: 18px; border-left: none; border-top: none; }
+
+  .content {
+    position: relative;
+    height: 100%;
+    padding: 42px 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 3;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    padding: 7px 16px;
+    border: 1px solid rgba(150,180,255,0.35);
+    border-radius: 999px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #cdd9ff;
+    background: rgba(46,107,255,0.12);
+    box-shadow: 0 0 24px rgba(46,107,255,0.25) inset;
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+
+  .headline { margin-top: 0; }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 20px; font-weight: 600;
+    color: var(--gold); letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .kicker::before { content: ""; width: 26px; height: 2px; background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+  .kicker .pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+  h1 {
+    font-size: 50px; line-height: 1.2; font-weight: 800; letter-spacing: 1px;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+  }
+  h1 .hl {
+    color: #8fb2ff;
+    text-shadow: 0 0 22px rgba(80,140,255,0.55);
+  }
+  h1 .big {
+    color: var(--cyan);
+    text-shadow: 0 0 24px rgba(53,224,232,0.55);
+  }
+
+  .footer { display: flex; align-items: center; gap: 12px; }
+  .chip {
+    font-size: 15px; padding: 6px 14px; border-radius: 8px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: #e7edff; font-weight: 600;
+    backdrop-filter: blur(2px);
+  }
+  .chip.cyan { color: #05222b; background: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 18px rgba(53,224,232,0.4); }
+  .chip.gold { color: #1b1206; background: var(--gold); border-color: var(--gold); box-shadow: 0 0 18px rgba(242,193,78,0.4); }
+
+  .code {
+    position: absolute;
+    right: 46px; bottom: 38px;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    color: rgba(150,200,255,0.55);
+    text-align: right; line-height: 1.8;
+    z-index: 3;
+  }
+  .code .c { color: var(--cyan); }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="glow2"></div>
+
+    <svg class="tech" viewBox="0 0 900 383" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#35E0E8" stop-opacity="0.0"/>
+          <stop offset="0.5" stop-color="#5aa0ff" stop-opacity="0.55"/>
+          <stop offset="1" stop-color="#35E0E8" stop-opacity="0.0"/>
+        </linearGradient>
+        <radialGradient id="node" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="#9fdcff"/>
+          <stop offset="1" stop-color="#2E6BFF" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <g stroke="url(#line)" stroke-width="1.4" fill="none" opacity="0.9">
+        <path d="M600 70 L690 70 L720 110 L800 110"/>
+        <path d="M640 150 L710 150 L740 200 L860 200"/>
+        <path d="M600 250 L680 250 L705 300 L820 300"/>
+        <path d="M720 110 L740 200"/>
+        <path d="M690 70 L710 150"/>
+        <path d="M705 300 L740 200"/>
+      </g>
+      <g fill="#8fd0ff">
+        <circle cx="600" cy="70" r="3.2"/>
+        <circle cx="690" cy="70" r="2.6"/>
+        <circle cx="800" cy="110" r="3.2"/>
+        <circle cx="640" cy="150" r="2.6"/>
+        <circle cx="860" cy="200" r="3.6"/>
+        <circle cx="600" cy="250" r="2.6"/>
+        <circle cx="820" cy="300" r="3.2"/>
+        <circle cx="740" cy="200" r="3"/>
+      </g>
+      <circle cx="860" cy="200" r="16" fill="url(#node)"/>
+      <circle cx="800" cy="110" r="13" fill="url(#node)"/>
+      <circle cx="820" cy="300" r="13" fill="url(#node)"/>
+
+      <!-- upward progress bars = momentum -->
+      <g opacity="0.92">
+        <rect x="596" y="340" width="11" height="26" rx="2" fill="#3a6bd6"/>
+        <rect x="613" y="330" width="11" height="36" rx="2" fill="#4f86ff"/>
+        <rect x="630" y="318" width="11" height="48" rx="2" fill="#6f9dff"/>
+        <rect x="647" y="304" width="11" height="62" rx="2" fill="#35E0E8"/>
+      </g>
+    </svg>
+
+    <div class="hud tl"></div>
+    <div class="hud tr"></div>
+    <div class="hud bl"></div>
+    <div class="hud br"></div>
+
+    <div class="content">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b><span>· Vibe Coding 应用开发大赛</span></div>
+
+      <div class="headline">
+        <div class="kicker"><span class="pulse"></span>上线一周</div>
+        <h1><span class="big">81 人</span>已在路上<br><span class="hl">优秀作品展示</span></h1>
+      </div>
+
+      <div class="footer">
+        <span class="chip cyan">选手群 80+</span>
+        <span class="chip">部分作品已上线</span>
+        <span class="chip gold">7/31 提交截止</span>
+      </div>
+    </div>
+
+    <div class="code">&gt; week <span class="c">01</span> · 80+ makers<br>&gt; building → <span class="c">shipping</span></div>
+  </div>
+</body>
+</html>

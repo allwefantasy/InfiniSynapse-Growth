@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1024px; height: 457px; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f2f2f4;
+    overflow: hidden;
+  }
+  .header {
+    height: 66px;
+    background: #1b2340;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+  }
+  .header h1 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .header p {
+    color: #9aa6c8;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px 0;
+  }
+  .card { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .thumb {
+    width: 218px;
+    background: #ffffff;
+    border: 1px solid #e2e2e6;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(27, 35, 64, 0.10);
+    overflow: hidden;
+    display: block;
+  }
+  .thumb img { width: 100%; display: block; }
+  .pill {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 16px;
+    border-radius: 999px;
+    line-height: 1.4;
+  }
+  .gold   { background: #f6e6bd; color: #a06a12; }
+  .silver { background: #e4e6ea; color: #566073; }
+  .bronze { background: #f3d8cf; color: #a5502f; }
+  .blue   { background: #d6e2f7; color: #315b9e; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>InfiniSynapse × CSDN 联名获奖证书</h1>
+    <p>四档奖项 · 比赛经历可验证 · 可写进简历与作品集</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="thumb"><img src="../证书/证书-一等奖.png"></div>
+      <div class="pill gold">一等奖</div>
+    </div>
+    <div class="card">
+      <div class="thumb"><img src="../证书/证书-二等奖.png"></div>
+      <div class="pill silver">二等奖</div>
+    </div>
+    <div class="card">
+      <div class="thumb"><img src="../证书/证书-三等奖.png"></div>
+      <div class="pill bronze">三等奖</div>
+    </div>
+    <div class="card">
+      <div class="thumb"><img src="../证书/证书-优秀奖.png"></div>
+      <div class="pill blue">优秀奖</div>
+    </div>
+  </div>
+</body>
+</html>

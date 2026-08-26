@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { width: 1080px; margin: 0; padding: 48px; font-family: -apple-system, "PingFang SC", sans-serif; background: #fff; }
+  </style>
+</head>
+<body>
+  <div class="text-center mb-8">
+    <div class="text-sm uppercase tracking-widest text-slate-500 mb-2">评审规则</div>
+    <div class="text-3xl font-bold text-slate-900">100 分制 · 用户数据 + 专家评审</div>
+  </div>
+
+  <div class="mb-8 p-6 bg-red-50 border border-red-200 rounded-2xl">
+    <div class="font-bold text-red-900 mb-3 text-lg">准入条件（三项必须同时满足）</div>
+    <div class="grid grid-cols-3 gap-4 text-sm">
+      <div class="bg-white rounded-xl p-4 border border-red-100">
+        <div class="font-semibold text-slate-900 mb-1">① 形态</div>
+        <div class="text-slate-600">Web / 移动 / 小程序 / 桌面应用；不接受纯脚本或 Notebook</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-red-100">
+        <div class="font-semibold text-slate-900 mb-1">② 已部署</div>
+        <div class="text-slate-600">公网 URL 或安装包，评委能实际打开使用</div>
+      </div>
+      <div class="bg-white rounded-xl p-4 border border-red-100">
+        <div class="font-semibold text-slate-900 mb-1">③ 集成 API</div>
+        <div class="text-slate-600">Server API 调用可查；平台后台有调用日志</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-6">
+    <div class="bg-slate-900 text-white rounded-2xl p-8">
+      <div class="text-5xl font-bold mb-2">60<span class="text-2xl">分</span></div>
+      <div class="text-xl font-bold mb-4">用户指标（客观数据）</div>
+      <div class="space-y-3 text-sm opacity-90">
+        <div class="flex justify-between border-b border-slate-700 pb-2">
+          <span>应用注册用户数</span><span class="font-bold">30%</span>
+        </div>
+        <div class="flex justify-between border-b border-slate-700 pb-2">
+          <span>活跃使用量</span><span class="font-bold">30%</span>
+        </div>
+        <div class="text-xs opacity-70 mt-4">以活动截止日 InfiniSynapse 平台埋点为准</div>
+      </div>
+    </div>
+    <div class="bg-blue-600 text-white rounded-2xl p-8">
+      <div class="text-5xl font-bold mb-2">40<span class="text-2xl">分</span></div>
+      <div class="text-xl font-bold mb-4">专家意见（评审团打分）</div>
+      <div class="space-y-3 text-sm opacity-90">
+        <div class="flex items-start gap-2"><span>•</span><span>场景价值：是否解决真实问题</span></div>
+        <div class="flex items-start gap-2"><span>•</span><span>技术完成度：API 集成质量、架构合理性</span></div>
+        <div class="flex items-start gap-2"><span>•</span><span>创新性：新颖的数据应用思路</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6 text-center text-sm text-slate-500">
+    不使用 GitHub 下载量或 Star 数作为评判标准
+  </div>
+</body>
+</html>

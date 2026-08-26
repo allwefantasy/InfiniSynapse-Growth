@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B1226;
+    --navy2: #132145;
+    --blue: #2E6BFF;
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+  }
+  body { background: #fff; }
+  .cover {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    overflow: hidden;
+    background: radial-gradient(720px 560px at 82% -10%, #24408a 0%, var(--navy2) 46%, var(--navy) 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(circle at 72% 18%, #000, transparent 78%);
+  }
+  .glow {
+    position: absolute;
+    width: 340px; height: 340px;
+    right: -110px; top: -140px;
+    background: radial-gradient(circle, rgba(46,107,255,0.5), transparent 62%);
+    filter: blur(8px);
+  }
+  .glow2 {
+    position: absolute;
+    width: 220px; height: 220px;
+    left: -90px; bottom: -90px;
+    background: radial-gradient(circle, rgba(53,224,232,0.18), transparent 65%);
+    filter: blur(10px);
+  }
+  .tech { position: absolute; inset: 0; }
+
+  .hud { position: absolute; width: 22px; height: 22px; border: 2px solid rgba(120,160,255,0.5); }
+  .hud.tl { top: 16px; left: 16px; border-right: none; border-bottom: none; }
+  .hud.tr { top: 16px; right: 16px; border-left: none; border-bottom: none; }
+  .hud.bl { bottom: 16px; left: 16px; border-right: none; border-top: none; }
+  .hud.br { bottom: 16px; right: 16px; border-left: none; border-top: none; }
+
+  .content {
+    position: relative; height: 100%;
+    padding: 38px 40px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    z-index: 3;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 8px;
+    align-self: flex-start; padding: 6px 14px;
+    border: 1px solid rgba(150,180,255,0.35); border-radius: 999px;
+    font-size: 14px; color: #cdd9ff;
+    background: rgba(46,107,255,0.12);
+    box-shadow: 0 0 20px rgba(46,107,255,0.25) inset;
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 9px var(--cyan); }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 20px; font-weight: 600; color: var(--gold);
+    letter-spacing: 4px; margin-bottom: 10px;
+  }
+  .kicker::before { content: ""; width: 22px; height: 2px; background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+  h1 {
+    font-size: 46px; line-height: 1.25; font-weight: 800; letter-spacing: 1px;
+    text-shadow: 0 2px 22px rgba(0,0,0,0.35);
+  }
+  h1 .hl { color: #8fb2ff; text-shadow: 0 0 20px rgba(80,140,255,0.55); }
+
+  .footer { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    font-size: 14px; padding: 6px 12px; border-radius: 8px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: #e7edff; font-weight: 600;
+  }
+  .chip.gold { color: #1b1206; background: var(--gold); border-color: var(--gold); box-shadow: 0 0 16px rgba(242,193,78,0.4); }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="glow2"></div>
+
+    <svg class="tech" viewBox="0 0 420 420" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#35E0E8" stop-opacity="0"/>
+          <stop offset="0.5" stop-color="#5aa0ff" stop-opacity="0.5"/>
+          <stop offset="1" stop-color="#35E0E8" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="node" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="#9fdcff"/>
+          <stop offset="1" stop-color="#2E6BFF" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <g stroke="url(#line)" stroke-width="1.4" fill="none">
+        <path d="M300 46 L352 46 L378 84 L410 84"/>
+        <path d="M322 120 L370 120 L392 160 L420 160"/>
+        <path d="M300 210 L360 210 L384 250 L418 250"/>
+        <path d="M378 84 L392 160"/>
+        <path d="M352 46 L370 120"/>
+      </g>
+      <g fill="#8fd0ff">
+        <circle cx="300" cy="46" r="3"/>
+        <circle cx="352" cy="46" r="2.4"/>
+        <circle cx="378" cy="84" r="3.4"/>
+        <circle cx="322" cy="120" r="2.4"/>
+        <circle cx="392" cy="160" r="3.4"/>
+        <circle cx="300" cy="210" r="2.4"/>
+        <circle cx="384" cy="250" r="3"/>
+      </g>
+      <circle cx="378" cy="84" r="14" fill="url(#node)"/>
+      <circle cx="392" cy="160" r="13" fill="url(#node)"/>
+    </svg>
+
+    <div class="hud tl"></div>
+    <div class="hud tr"></div>
+    <div class="hud bl"></div>
+    <div class="hud br"></div>
+
+    <div class="content">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div>
+        <div class="kicker">一个周末</div>
+        <h1>做出能<span class="hl">写进简历</span>的 AI 数据应用</h1>
+      </div>
+      <div class="footer">
+        <span class="chip gold">现金奖 ¥22,528</span>
+        <span class="chip">联名获奖证书</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #050608;
+    --blue: #2E6BFF;
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+    --ink: #ffffff;
+  }
+  body { background: #fff; }
+
+  .cover {
+    position: relative;
+    width: 1080px;
+    height: 1620px;
+    overflow: hidden;
+    background:
+      radial-gradient(900px 720px at 78% 5%, rgba(46,107,255,0.28), transparent 60%),
+      radial-gradient(820px 660px at 12% 98%, rgba(53,224,232,0.14), transparent 60%),
+      var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: var(--ink);
+  }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.055) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(circle at 68% 26%, #000, transparent 80%);
+  }
+  .tech { position: absolute; inset: 0; }
+
+  .hud { position: absolute; width: 40px; height: 40px; border: 2px solid rgba(120,160,255,0.45); }
+  .hud.tl { top: 40px; left: 40px; border-right: none; border-bottom: none; }
+  .hud.tr { top: 40px; right: 40px; border-left: none; border-bottom: none; }
+  .hud.bl { bottom: 40px; left: 40px; border-right: none; border-top: none; }
+  .hud.br { bottom: 40px; right: 40px; border-left: none; border-top: none; }
+
+  .content {
+    position: relative; z-index: 3;
+    height: 100%;
+    padding: 96px 84px 88px;
+    display: flex; flex-direction: column;
+  }
+
+  .top {
+    display: inline-flex; align-items: center; gap: 12px;
+    align-self: flex-start;
+    padding: 12px 22px; border-radius: 999px;
+    border: 1px solid rgba(150,180,255,0.35);
+    background: rgba(46,107,255,0.12);
+    font-size: 26px; letter-spacing: 1px; color: #cdd9ff;
+    box-shadow: 0 0 30px rgba(46,107,255,0.25) inset;
+  }
+  .top b { color: #fff; font-weight: 700; }
+  .top .x { color: #7f93c8; }
+  .top .dot { width: 11px; height: 11px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 14px var(--cyan); }
+
+  .hook {
+    margin-top: 74px;
+    font-size: 40px; font-weight: 700; line-height: 1.5;
+    color: #aeb9d6;
+  }
+  .hook .strike { color: #6b7590; text-decoration: line-through; text-decoration-color: rgba(242,193,78,0.8); }
+
+  h1 {
+    margin-top: 30px;
+    font-size: 104px; font-weight: 900; line-height: 1.16; letter-spacing: 1px;
+    text-shadow: 0 6px 40px rgba(0,0,0,0.5);
+  }
+  h1 .gold { color: var(--gold); text-shadow: 0 0 34px rgba(242,193,78,0.5); }
+  h1 .hl {
+    color: #8fb2ff; text-shadow: 0 0 40px rgba(80,140,255,0.6);
+    position: relative;
+  }
+  h1 .hl::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 6px; height: 16px;
+    background: linear-gradient(90deg, rgba(46,107,255,0.45), rgba(53,224,232,0.35));
+    z-index: -1; border-radius: 4px;
+  }
+
+  .sub {
+    margin-top: 44px;
+    font-size: 34px; line-height: 1.6; color: #d7def2; font-weight: 500;
+  }
+  .sub .em { color: #fff; font-weight: 700; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 52px; }
+  .tag {
+    font-size: 30px; font-weight: 700; padding: 14px 26px; border-radius: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.16);
+    color: #eef2ff;
+  }
+  .tag.gold { color: #1b1206; background: var(--gold); border-color: var(--gold); box-shadow: 0 0 26px rgba(242,193,78,0.4); }
+  .tag.cyan { color: #04262a; background: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 26px rgba(53,224,232,0.35); }
+
+  .spacer { flex: 1; }
+
+  /* QR call-to-action bar */
+  .cta {
+    display: flex; align-items: center; gap: 30px;
+    padding: 30px 34px; border-radius: 22px;
+    background: linear-gradient(135deg, rgba(46,107,255,0.18), rgba(53,224,232,0.08));
+    border: 1px solid rgba(150,180,255,0.30);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 50px rgba(46,107,255,0.2) inset;
+  }
+  .cta .qr {
+    width: 150px; height: 150px; border-radius: 14px;
+    background: #fff; padding: 10px; flex-shrink: 0;
+    box-shadow: 0 0 30px rgba(53,224,232,0.35);
+  }
+  .cta .qr img { width: 100%; height: 100%; display: block; object-fit: contain; }
+  .cta .txt { flex: 1; }
+  .cta .txt .big {
+    font-size: 46px; font-weight: 900; letter-spacing: 1px; line-height: 1.2;
+  }
+  .cta .txt .big .c { color: var(--cyan); }
+  .cta .txt .small {
+    margin-top: 14px; font-size: 28px; color: #cbd6f0; font-weight: 500; line-height: 1.5;
+  }
+  .cta .arrow {
+    font-size: 60px; color: var(--gold); font-weight: 900; margin-right: 6px;
+  }
+
+  .foot {
+    display: flex; align-items: center; gap: 16px;
+    margin-top: 30px;
+    font-size: 28px; color: #9fb0d6; font-weight: 600; letter-spacing: 1px;
+  }
+  .foot .bar { width: 40px; height: 3px; background: var(--blue); box-shadow: 0 0 10px var(--blue); }
+
+  /* brand logo lockup */
+  .logos {
+    display: flex; align-items: center; gap: 26px;
+    margin-bottom: 30px;
+  }
+  .logos .label {
+    font-size: 24px; color: #7f8db0; font-weight: 600; letter-spacing: 2px;
+  }
+  .logos .lk { display: flex; align-items: center; gap: 16px; }
+  .logos .is { display: flex; align-items: center; gap: 14px; }
+  .logos .is img { height: 42px; filter: brightness(0) invert(1); }
+  .logos .is .wm { font-size: 38px; font-weight: 800; color: #fff; letter-spacing: 0.5px; }
+  .logos .x { font-size: 34px; color: #7f93c8; font-weight: 400; }
+  .logos .csdn { display: flex; align-items: center; }
+  .logos .csdn img { height: 62px; display: block; mix-blend-mode: screen; }
+  .logos .divider { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(150,180,255,0.3), transparent); }
+
+  .cert {
+    position: absolute;
+    right: 60px; top: 470px;
+    width: 322px;
+    z-index: 2;
+    transform: rotate(4deg);
+  }
+  .cert img {
+    display: block; width: 100%; border-radius: 12px;
+    border: 1px solid rgba(150,180,255,0.35);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.6), 0 0 60px rgba(46,107,255,0.35);
+  }
+  .cert .badge {
+    position: absolute; top: -20px; left: -14px;
+    padding: 10px 20px; border-radius: 999px;
+    background: var(--gold); color: #1b1206;
+    font-size: 26px; font-weight: 800; letter-spacing: 1px;
+    box-shadow: 0 0 24px rgba(242,193,78,0.5);
+    transform: rotate(-4deg);
+  }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="grid"></div>
+
+    <svg class="tech" viewBox="0 0 1080 1620" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#35E0E8" stop-opacity="0"/>
+          <stop offset="0.5" stop-color="#5aa0ff" stop-opacity="0.5"/>
+          <stop offset="1" stop-color="#35E0E8" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="node" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="#9fdcff"/>
+          <stop offset="1" stop-color="#2E6BFF" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <g stroke="url(#line)" stroke-width="1.6" fill="none">
+        <path d="M760 150 L900 150 L960 230 L1040 230"/>
+        <path d="M820 300 L940 300 L980 380 L1050 380"/>
+        <path d="M900 150 L940 300"/>
+      </g>
+      <g fill="#8fd0ff">
+        <circle cx="760" cy="150" r="5"/>
+        <circle cx="900" cy="150" r="4"/>
+        <circle cx="1040" cy="230" r="5"/>
+        <circle cx="820" cy="300" r="4"/>
+        <circle cx="1050" cy="380" r="5.5"/>
+        <circle cx="940" cy="300" r="4.5"/>
+      </g>
+      <circle cx="1040" cy="230" r="24" fill="url(#node)"/>
+      <circle cx="940" cy="300" r="20" fill="url(#node)"/>
+
+      <!-- data bars accent -->
+      <g opacity="0.92">
+        <rect x="642" y="410" width="18" height="60" rx="4" fill="#3a6bd6"/>
+        <rect x="670" y="380" width="18" height="90" rx="4" fill="#4f86ff"/>
+        <rect x="698" y="396" width="18" height="74" rx="4" fill="#6f9dff"/>
+        <rect x="726" y="350" width="18" height="120" rx="4" fill="#35E0E8"/>
+      </g>
+    </svg>
+
+    <div class="hud tl"></div>
+    <div class="hud tr"></div>
+    <div class="hud bl"></div>
+    <div class="hud br"></div>
+
+    <div class="cert">
+      <span class="badge">获奖证书</span>
+      <img src="../images/certificate-first-prize.png" alt="InfiniSynapse × CSDN 获奖证书">
+    </div>
+
+    <div class="content">
+      <div class="top"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b><span>Vibe Coding 大赛</span></div>
+
+      <div class="hook">简历「项目经历」还是 <span class="strike">一片空白</span>？</div>
+
+      <h1><span class="gold">一个周末</span><br>做出一个能<br><span class="hl">写进简历</span>的<br>AI 数据应用</h1>
+
+      <div class="sub">界面用 <span class="em">Vibe Coding</span> 快速搭，<br>数据分析交给 <span class="em">InfiniSynapse API</span>。</div>
+
+      <div class="tags">
+        <span class="tag gold">上线应用 &gt; 课设 Demo</span>
+        <span class="tag cyan">联名获奖证书</span>
+        <span class="tag">注册送 500 积分</span>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="logos">
+        <span class="label">主办</span>
+        <div class="lk">
+          <div class="is"><img src="../活动海报/brands/infinisynapse-logo.png" alt="InfiniSynapse"><span class="wm">InfiniSynapse</span></div>
+          <span class="x">×</span>
+          <div class="csdn"><img src="../活动海报/brands/csdn-logo-white.png" alt="CSDN 中国开发者网络"></div>
+        </div>
+        <span class="divider"></span>
+      </div>
+
+      <div class="cta">
+        <div class="qr"><img src="../images/wechat-group-qr.png" alt="活动群二维码"></div>
+        <div class="txt">
+          <div class="big">扫码加入 <span class="c">活动群</span></div>
+          <div class="small">技术答疑 · 校园组队 · 报名开发<br>即日起 — 7 月 31 日</div>
+        </div>
+        <div class="arrow">&#8592;</div>
+      </div>
+
+      <div class="foot">
+        <span class="bar"></span>
+        面向高校师生 · 不设门槛 · 一人也能参赛
+      </div>
+    </div>
+  </div>
+</body>
+</html>
