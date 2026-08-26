@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+  }
+  body { background: #fff; }
+
+  .poster {
+    position: relative; width: 1080px; height: 1440px; overflow: hidden;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  .glow {
+    position: absolute; width: 980px; height: 720px;
+    left: 50%; top: -140px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.26) 0%, transparent 68%);
+  }
+  .glow2 {
+    position: absolute; width: 640px; height: 420px;
+    right: -80px; bottom: 180px;
+    background: radial-gradient(ellipse, rgba(53,224,232,0.1) 0%, transparent 70%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.05) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: 0.72;
+  }
+
+  .hud { position:absolute; width:36px; height:36px; border:2px solid rgba(120,160,255,0.35); z-index:5; }
+  .hud.tl { top:34px; left:34px; border-right:none; border-bottom:none; }
+  .hud.tr { top:34px; right:34px; border-left:none; border-bottom:none; }
+  .hud.bl { bottom:34px; left:34px; border-right:none; border-top:none; }
+  .hud.br { bottom:34px; right:34px; border-left:none; border-top:none; }
+
+  .wrap {
+    position: relative; z-index: 4; height: 100%;
+    padding: 60px 52px 48px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 10px 24px; border-radius: 999px;
+    font-size: 24px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+
+  .live {
+    margin-top: 18px;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px; border-radius: 999px;
+    font-size: 22px; font-weight: 700; color: #070b16;
+    background: var(--gold);
+  }
+  .live .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #e11d48;
+    box-shadow: 0 0 0 0 rgba(225,29,72,0.6);
+    animation: pulse 1.4s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(225,29,72,0.55); }
+    70% { box-shadow: 0 0 0 10px rgba(225,29,72,0); }
+    100% { box-shadow: 0 0 0 0 rgba(225,29,72,0); }
+  }
+
+  .title {
+    margin-top: 16px; text-align: center;
+    font-size: 54px; font-weight: 900; letter-spacing: 1px; line-height: 1.2;
+  }
+  .title .c { color: var(--cyan); }
+
+  .count-row {
+    margin-top: 18px;
+    display: flex; align-items: flex-end; justify-content: center; gap: 28px;
+  }
+  .count-box { text-align: center; }
+  .count-box .kicker {
+    font-size: 22px; color: var(--gold); letter-spacing: 4px; font-weight: 600;
+  }
+  .count-box .num {
+    margin-top: 2px;
+    font-size: 140px; font-weight: 900; line-height: 0.9; color: var(--cyan);
+    text-shadow: 0 0 40px rgba(53,224,232,0.35);
+    font-family: "SF Pro Display", -apple-system, sans-serif;
+  }
+  .count-box .unit {
+    font-size: 42px; font-weight: 800; color: #8fb2ff; margin-left: 6px;
+  }
+  .deadline {
+    margin-top: 4px; font-size: 26px; color: #d7def0; font-weight: 600;
+  }
+  .deadline b { color: var(--gold); }
+
+  .stats {
+    margin-top: 20px; width: 100%;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  .stat {
+    padding: 16px 10px; border-radius: 16px; text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat .v { font-size: 34px; font-weight: 900; color: #fff; }
+  .stat .v.cy { color: var(--cyan); }
+  .stat .v.go { color: var(--gold); }
+  .stat .l { margin-top: 6px; font-size: 20px; color: #9aa8c7; }
+
+  .shot {
+    margin-top: 22px; width: 100%;
+    flex: 1;
+    min-height: 0;
+    display: flex; flex-direction: column;
+  }
+  .shot-label {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px; padding: 0 4px;
+  }
+  .shot-label .left {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 26px; font-weight: 800;
+  }
+  .shot-label .pill {
+    font-size: 18px; font-weight: 800; color: #070b16;
+    background: var(--cyan); padding: 4px 12px; border-radius: 999px;
+  }
+  .shot-label .right {
+    font-size: 20px; color: #9aa8c7;
+  }
+  .shot-frame {
+    flex: 1;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(120,160,255,0.3);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+  .shot-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top center;
+    display: block;
+  }
+
+  .foot {
+    margin-top: 18px; text-align: center;
+  }
+  .foot .main {
+    font-size: 30px; font-weight: 800;
+  }
+  .foot .main .c { color: var(--cyan); }
+  .foot .sub {
+    margin-top: 8px; font-size: 22px; color: #9aa8c7;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="glow2"></div>
+    <div class="grid"></div>
+    <div class="hud tl"></div><div class="hud tr"></div>
+    <div class="hud bl"></div><div class="hud br"></div>
+
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+
+      <div class="live"><span class="dot"></span>人气投票正式开始</div>
+      <div class="title">先逛长廊 · 先投票<br>再动手<span class="c">交作品</span></div>
+
+      <div class="count-row">
+        <div class="count-box">
+          <div class="kicker">距 提 交 截 止</div>
+          <div>
+            <span class="num">9</span><span class="unit">天</span>
+          </div>
+          <div class="deadline">截止 <b>7 月 31 日</b></div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="v cy">27</div><div class="l">件作品在长廊</div></div>
+        <div class="stat"><div class="v go">投票中</div><div class="l">人气赛已开跑</div></div>
+        <div class="stat"><div class="v">可体验</div><div class="l">点开就能玩</div></div>
+      </div>
+
+      <div class="shot">
+        <div class="shot-label">
+          <div class="left"><span class="pill">作品长廊</span>精选 27 件 · 边看边投</div>
+          <div class="right">BillLens / FORGE·X / Offer 雷达…</div>
+        </div>
+        <div class="shot-frame">
+          <img src="samples/gallery-hero-27.png" alt="比赛作品长廊">
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="main">投票已开启 · <span class="c">你的一票很关键</span></div>
+        <div class="sub">参与奖名额尚未坐满 · 现在交作品更香</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cyan: #35E0E8; --gold: #F2C14E; --muted: #9aa8c7; }
+  body { background: #fff; }
+  .poster {
+    position: relative; width: 1080px; height: 1440px; overflow: hidden;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+  .glow {
+    position: absolute; width: 980px; height: 620px; left: 50%; top: -130px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.28) 0%, transparent 68%);
+  }
+  .glow2 {
+    position: absolute; width: 700px; height: 420px; left: -80px; bottom: 80px;
+    background: radial-gradient(ellipse, rgba(242,193,78,0.1) 0%, transparent 70%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.05) 1px, transparent 1px);
+    background-size: 54px 54px; opacity: 0.72;
+  }
+  .hud { position:absolute; width:36px; height:36px; border:2px solid rgba(120,160,255,0.35); z-index:5; }
+  .hud.tl { top:34px; left:34px; border-right:none; border-bottom:none; }
+  .hud.tr { top:34px; right:34px; border-left:none; border-bottom:none; }
+  .hud.bl { bottom:34px; left:34px; border-right:none; border-top:none; }
+  .hud.br { bottom:34px; right:34px; border-left:none; border-top:none; }
+
+  .wrap {
+    position: relative; z-index: 4; height: 100%;
+    padding: 48px 44px 36px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 8px 20px; border-radius: 999px;
+    font-size: 20px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+  .live {
+    margin-top: 16px;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px; border-radius: 999px;
+    font-size: 20px; font-weight: 800; color: #070b16;
+    background: var(--gold);
+  }
+  .title {
+    margin-top: 16px; font-size: 52px; font-weight: 900; line-height: 1.2;
+  }
+  .title .c { color: var(--cyan); }
+  .sub {
+    margin-top: 12px; font-size: 22px; color: var(--muted); line-height: 1.45;
+  }
+
+  .steps {
+    margin-top: 28px; width: 100%;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .step {
+    display: flex; align-items: center; gap: 18px;
+    text-align: left;
+    padding: 20px 20px; border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .step.hot {
+    background: rgba(242,193,78,0.1);
+    border-color: rgba(242,193,78,0.45);
+  }
+  .step .n {
+    flex: 0 0 auto;
+    width: 56px; height: 56px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 900; color: #070b16;
+    background: var(--cyan);
+  }
+  .step.hot .n { background: var(--gold); }
+  .step .body { min-width: 0; }
+  .step .t { font-size: 30px; font-weight: 900; }
+  .step .d { margin-top: 6px; font-size: 20px; color: var(--muted); line-height: 1.35; }
+
+  .tops {
+    margin-top: 22px; width: 100%;
+    padding: 18px 18px 16px; border-radius: 18px;
+    background: rgba(46,107,255,0.14);
+    border: 1px solid rgba(120,160,255,0.32);
+    text-align: left;
+  }
+  .tops .h {
+    font-size: 20px; font-weight: 800; color: var(--cyan); margin-bottom: 12px;
+  }
+  .tops .row {
+    display: flex; flex-wrap: wrap; gap: 10px;
+  }
+  .chip {
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 18px; font-weight: 700;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .banner {
+    margin-top: 20px; width: 100%;
+    padding: 18px; border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .banner .big { font-size: 28px; font-weight: 800; line-height: 1.4; }
+  .banner .big em {
+    font-style: normal; color: #1b1206;
+    background: var(--gold); padding: 2px 10px; border-radius: 8px;
+  }
+  .foot { margin-top: auto; font-size: 24px; font-weight: 800; }
+  .foot .c { color: var(--cyan); }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div><div class="glow2"></div><div class="grid"></div>
+    <div class="hud tl"></div><div class="hud tr"></div>
+    <div class="hud bl"></div><div class="hud br"></div>
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="live">倒计时 5 天 · 长廊可投票</div>
+      <div class="title">三步闭环<br><span class="c">玩 · 投 · 抄 · 交</span></div>
+      <div class="sub">票数进评定参考 · 长廊就是现成的选题灵感库</div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <div class="body">
+            <div class="t">逛长廊 · 抄灵感</div>
+            <div class="d">求职 / 理财 / 生活 / 工厂 / SEO / 医疗，都有样板</div>
+          </div>
+        </div>
+        <div class="step hot">
+          <div class="n">2</div>
+          <div class="body">
+            <div class="t">给喜欢的投一票</div>
+            <div class="d">登录后每账号可投 · 帮好创意多露脸</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <div class="body">
+            <div class="t">照着改 · 自己也交一份</div>
+            <div class="d">能跑 + 有场景 + 接 InfiniSynapse API 就达标</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tops">
+        <div class="h">可先点开这几件感受一下</div>
+        <div class="row">
+          <div class="chip">Offer 雷达</div>
+          <div class="chip">BillLens</div>
+          <div class="chip">LifeFlow</div>
+          <div class="chip">FORGE·X</div>
+          <div class="chip">仲裁小助手</div>
+          <div class="chip">SEO Health Checker</div>
+          <div class="chip">职牌</div>
+        </div>
+      </div>
+
+      <div class="banner">
+        <div class="big">不是围观比赛 · 是<em>挖灵感 + 帮投票</em></div>
+      </div>
+      <div class="foot">长廊入口见笔记正文 · <span class="c">今天就点开</span></div>
+    </div>
+  </div>
+</body>
+</html>

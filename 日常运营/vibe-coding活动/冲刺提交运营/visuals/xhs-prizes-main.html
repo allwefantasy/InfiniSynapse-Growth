@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+  }
+  body { background: #fff; }
+
+  .poster {
+    position: relative; width: 1080px; height: 1440px; overflow: hidden;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  .glow {
+    position: absolute; width: 980px; height: 700px;
+    left: 50%; top: -160px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.26) 0%, transparent 68%);
+  }
+  .glow2 {
+    position: absolute; width: 700px; height: 480px;
+    left: 50%; bottom: -80px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(242,193,78,0.1) 0%, transparent 70%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.05) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: 0.7;
+  }
+
+  .hud { position:absolute; width:36px; height:36px; border:2px solid rgba(120,160,255,0.35); z-index:5; }
+  .hud.tl { top:34px; left:34px; border-right:none; border-bottom:none; }
+  .hud.tr { top:34px; right:34px; border-left:none; border-bottom:none; }
+  .hud.bl { bottom:34px; left:34px; border-right:none; border-top:none; }
+  .hud.br { bottom:34px; right:34px; border-left:none; border-top:none; }
+
+  .wrap {
+    position: relative; z-index: 4; height: 100%;
+    padding: 64px 52px 52px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 10px 24px; border-radius: 999px;
+    font-size: 24px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+
+  .eyebrow {
+    margin-top: 22px;
+    font-size: 26px; color: var(--gold); letter-spacing: 5px; font-weight: 600;
+  }
+  .title {
+    margin-top: 10px; text-align: center;
+    font-size: 58px; font-weight: 900; letter-spacing: 2px; line-height: 1.15;
+  }
+  .title .c { color: var(--cyan); }
+
+  .pool {
+    margin-top: 22px;
+    display: flex; align-items: baseline; justify-content: center; gap: 12px;
+  }
+  .pool .label { font-size: 26px; color: #9aa8c7; font-weight: 600; }
+  .pool .amt {
+    font-size: 64px; font-weight: 900; color: var(--gold);
+    text-shadow: 0 0 24px rgba(242,193,78,0.35);
+  }
+  .pool .extra { font-size: 24px; color: #9aa8c7; }
+
+  .tiers {
+    margin-top: 22px; width: 100%;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  .tier {
+    padding: 20px 12px 18px; border-radius: 16px; text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .tier .name { font-size: 22px; font-weight: 700; color: #c5d0ea; }
+  .tier .money {
+    margin-top: 8px; font-size: 40px; font-weight: 900; color: #fff;
+  }
+  .tier .money span { font-size: 22px; color: var(--gold); }
+  .tier .meta { margin-top: 6px; font-size: 20px; color: #7f93c8; }
+  .tier.gold {
+    background: rgba(242,193,78,0.12);
+    border-color: rgba(242,193,78,0.4);
+  }
+  .tier.gold .name,
+  .tier.gold .money { color: var(--gold); }
+
+  .perks {
+    margin-top: 14px; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .perk {
+    padding: 16px 18px; border-radius: 14px;
+    background: rgba(53,224,232,0.06);
+    border: 1px solid rgba(53,224,232,0.22);
+    font-size: 22px; color: #c5d0ea;
+  }
+  .perk b { color: var(--cyan); font-weight: 800; }
+
+  .cert-section {
+    margin-top: 22px; width: 100%;
+    padding: 20px 18px 16px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .cert-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px; padding: 0 4px;
+  }
+  .cert-head h3 {
+    font-size: 30px; font-weight: 800;
+  }
+  .cert-head h3 .c { color: var(--cyan); }
+  .cert-head .tag {
+    font-size: 20px; color: #9aa8c7;
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  /* left → right by priority; equal peek ~200px each */
+  .certs-stack {
+    position: relative;
+    width: 900px;
+    height: 455px;
+    margin: 0 auto;
+  }
+  .certs-stack .card {
+    position: absolute;
+    top: 12px;
+    width: 300px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.42);
+  }
+  .certs-stack .card img {
+    width: 100%; height: auto; display: block;
+  }
+  .certs-stack .card .badge {
+    position: absolute; top: 10px; left: 10px;
+    font-size: 17px; font-weight: 800;
+    padding: 4px 12px; border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  }
+
+  .certs-stack .c1 {
+    left: 0;
+    top: 0;
+    z-index: 4;
+    border: 2px solid rgba(242,193,78,0.9);
+    box-shadow:
+      0 0 0 1px rgba(242,193,78,0.35),
+      0 18px 44px rgba(0,0,0,0.5),
+      0 0 36px rgba(242,193,78,0.28);
+  }
+  .certs-stack .c1 .badge {
+    color: #1b1206; background: var(--gold);
+  }
+
+  .certs-stack .c2 {
+    left: 200px;
+    z-index: 3;
+  }
+  .certs-stack .c2 .badge {
+    color: #e8eefc; background: rgba(50,60,90,0.92);
+  }
+
+  .certs-stack .c3 {
+    left: 400px;
+    z-index: 2;
+  }
+  .certs-stack .c3 .badge {
+    color: #ffe8d6; background: rgba(100,60,30,0.92);
+  }
+
+  .certs-stack .c4 {
+    left: 600px;
+    z-index: 1;
+  }
+  .certs-stack .c4 .badge {
+    color: #070b16; background: rgba(53,224,232,0.95);
+  }
+
+  .cert-note {
+    margin-top: 10px; text-align: center;
+    font-size: 22px; color: #9aa8c7;
+  }
+  .cert-note b { color: #fff; }
+
+  .foot {
+    margin-top: auto; padding-top: 18px; text-align: center;
+  }
+  .foot .main {
+    font-size: 30px; font-weight: 800;
+  }
+  .foot .main .c { color: var(--cyan); }
+  .foot .sub {
+    margin-top: 8px; font-size: 22px; color: #9aa8c7;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="glow2"></div>
+    <div class="grid"></div>
+    <div class="hud tl"></div><div class="hud tr"></div>
+    <div class="hud bl"></div><div class="hud br"></div>
+
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="eyebrow">VIBE CODING 大赛奖励</div>
+      <div class="title">奖品这么给<br>认真做完就能<span class="c">冲</span></div>
+
+      <div class="pool">
+        <span class="label">现金奖金池</span>
+        <span class="amt">¥22,528</span>
+        <span class="extra">+ 会员权益</span>
+      </div>
+
+      <div class="tiers">
+        <div class="tier gold">
+          <div class="name">一等奖</div>
+          <div class="money"><span>¥</span>4,096</div>
+          <div class="meta">2 名 · 含年度 Pro</div>
+        </div>
+        <div class="tier">
+          <div class="name">二等奖</div>
+          <div class="money"><span>¥</span>2,048</div>
+          <div class="meta">4 名 · 含会员权益</div>
+        </div>
+        <div class="tier">
+          <div class="name">三等奖</div>
+          <div class="money"><span>¥</span>1,024</div>
+          <div class="meta">6 名 · 含会员权益</div>
+        </div>
+      </div>
+
+      <div class="perks">
+        <div class="perk">参与奖 <b>50 名</b> · 月度 Pro ¥150</div>
+        <div class="perk">注册即送 <b>500 积分</b> 开发额度</div>
+      </div>
+
+      <div class="cert-section">
+        <div class="cert-head">
+          <h3>联名<span class="c">获奖证书</span></h3>
+          <div class="tag">四档可验 · 可写进简历</div>
+        </div>
+        <div class="certs-stack">
+          <div class="card c4">
+            <img src="samples/cert-ex.png" alt="优秀奖证书">
+            <div class="badge">优秀奖</div>
+          </div>
+          <div class="card c3">
+            <img src="samples/cert-3rd.png" alt="三等奖证书">
+            <div class="badge">三等奖</div>
+          </div>
+          <div class="card c2">
+            <img src="samples/cert-2nd.png" alt="二等奖证书">
+            <div class="badge">二等奖</div>
+          </div>
+          <div class="card c1">
+            <img src="samples/cert-1st.png" alt="一等奖证书">
+            <div class="badge">一等奖</div>
+          </div>
+        </div>
+        <div class="cert-note">比赛经历可验证 · 写进 <b>简历 / 作品集</b> 都不虚</div>
+      </div>
+
+      <div class="foot">
+        <div class="main">参与奖名额尚未坐满 · <span class="c">现在交更香</span></div>
+        <div class="sub">截止 7 月 31 日 · 一个能跑的小应用就能冲</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

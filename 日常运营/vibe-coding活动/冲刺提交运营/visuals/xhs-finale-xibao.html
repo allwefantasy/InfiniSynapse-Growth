@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+    --gold2: #FFD98A;
+    --red: #FF4D6D;
+    --bg: #0A0612;
+  }
+  body { background: #fff; }
+
+  .poster {
+    position: relative; width: 1080px; height: 1440px; overflow: hidden;
+    background:
+      radial-gradient(ellipse 90% 55% at 50% -8%, rgba(255,77,109,0.28) 0%, transparent 58%),
+      radial-gradient(ellipse 70% 45% at 80% 30%, rgba(242,193,78,0.16) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 15% 70%, rgba(53,224,232,0.14) 0%, transparent 55%),
+      radial-gradient(ellipse 80% 50% at 50% 110%, rgba(242,193,78,0.12) 0%, transparent 60%),
+      linear-gradient(180deg, #14081c 0%, #0A0612 45%, #070b16 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,200,120,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,180,255,0.04) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: 0.85; pointer-events: none;
+  }
+  .ring {
+    position: absolute; left: 50%; top: 38%;
+    width: 720px; height: 720px; margin-left: -360px; margin-top: -360px;
+    border-radius: 50%;
+    border: 1px solid rgba(242,193,78,0.18);
+    box-shadow:
+      0 0 0 28px rgba(242,193,78,0.04),
+      inset 0 0 80px rgba(255,77,109,0.08);
+    pointer-events: none;
+  }
+  .spark {
+    position: absolute; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 16px var(--gold);
+    opacity: 0.85;
+  }
+  .spark.s1 { top: 180px; left: 96px; }
+  .spark.s2 { top: 260px; right: 110px; width: 6px; height: 6px; background: var(--cyan); box-shadow: 0 0 14px var(--cyan); }
+  .spark.s3 { top: 520px; left: 70px; width: 5px; height: 5px; }
+  .spark.s4 { bottom: 280px; right: 88px; background: var(--red); box-shadow: 0 0 14px var(--red); }
+
+  .hud { position:absolute; width:36px; height:36px; border:2px solid rgba(242,193,78,0.4); z-index:5; }
+  .hud.tl { top:34px; left:34px; border-right:none; border-bottom:none; }
+  .hud.tr { top:34px; right:34px; border-left:none; border-bottom:none; }
+  .hud.bl { bottom:34px; left:34px; border-right:none; border-top:none; }
+  .hud.br { bottom:34px; right:34px; border-left:none; border-top:none; }
+
+  .wrap {
+    position: relative; z-index: 4; height: 100%;
+    padding: 48px 48px 40px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+
+  .logos {
+    display: flex; align-items: center; justify-content: center; gap: 22px;
+    padding: 14px 28px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 0 40px rgba(242,193,78,0.08);
+  }
+  .logos .is img { height: 52px; width: auto; display: block; }
+  .logos .csdn img { height: 56px; width: auto; display: block; }
+  .logos .x {
+    font-size: 28px; font-weight: 800; color: var(--gold2);
+    text-shadow: 0 0 18px rgba(242,193,78,0.45);
+  }
+
+  .badge {
+    margin-top: 28px;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 22px; border-radius: 999px;
+    font-size: 22px; font-weight: 800; letter-spacing: 4px;
+    color: #1b1206;
+    background: linear-gradient(90deg, #FFD98A, #F2C14E 45%, #FF8A5C);
+    box-shadow: 0 0 28px rgba(242,193,78,0.35);
+  }
+  .badge i {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--red); box-shadow: 0 0 10px var(--red);
+  }
+
+  .eyebrow {
+    margin-top: 22px; font-size: 24px; font-weight: 700;
+    color: #cdd9ff; letter-spacing: 3px;
+  }
+  .hero {
+    margin-top: 10px;
+    font-size: 96px; font-weight: 900; line-height: 1.08;
+    letter-spacing: 4px;
+    background: linear-gradient(180deg, #FFF6D8 0%, #F2C14E 42%, #FF8A5C 100%);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 28px rgba(242,193,78,0.35));
+  }
+  .hero em {
+    font-style: normal;
+    background: linear-gradient(180deg, #A8F7FF 0%, #35E0E8 55%, #6BA8FF 100%);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
+  .sub {
+    margin-top: 16px; font-size: 28px; color: #d7def0; font-weight: 600;
+    line-height: 1.45;
+  }
+  .sub b { color: var(--gold2); }
+
+  .stats {
+    margin-top: 40px; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+  }
+  .stat {
+    position: relative;
+    padding: 28px 18px 24px;
+    border-radius: 24px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+    border: 1px solid rgba(242,193,78,0.35);
+    box-shadow: 0 0 36px rgba(242,193,78,0.1);
+    overflow: hidden;
+  }
+  .stat.hot {
+    border-color: rgba(53,224,232,0.45);
+    box-shadow: 0 0 36px rgba(53,224,232,0.12);
+  }
+  .stat::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(242,193,78,0.12), transparent 45%);
+    pointer-events: none;
+  }
+  .stat .label {
+    font-size: 24px; font-weight: 700; color: #c5d0ea; letter-spacing: 2px;
+  }
+  .stat .num {
+    margin-top: 8px;
+    font-size: 92px; font-weight: 900; line-height: 1;
+    color: var(--gold2);
+    text-shadow: 0 0 30px rgba(242,193,78,0.35);
+  }
+  .stat.hot .num {
+    color: var(--cyan);
+    text-shadow: 0 0 30px rgba(53,224,232,0.4);
+  }
+  .stat .num span { font-size: 40px; margin-left: 4px; }
+  .stat .note {
+    margin-top: 10px; font-size: 20px; color: #9aa8c7; font-weight: 600;
+  }
+
+  .next {
+    margin-top: 28px; width: 100%;
+    padding: 26px 24px;
+    border-radius: 22px;
+    background: linear-gradient(90deg, rgba(255,77,109,0.18), rgba(242,193,78,0.14) 50%, rgba(53,224,232,0.14));
+    border: 1px solid rgba(255,200,140,0.35);
+  }
+  .next .tag {
+    display: inline-block;
+    font-size: 18px; font-weight: 800; letter-spacing: 2px;
+    color: #1b1206;
+    background: var(--gold);
+    padding: 4px 12px; border-radius: 8px;
+  }
+  .next .big {
+    margin-top: 12px;
+    font-size: 36px; font-weight: 900; line-height: 1.35;
+  }
+  .next .big em {
+    font-style: normal; color: var(--cyan);
+  }
+  .next .small {
+    margin-top: 10px; font-size: 22px; color: #c5d0ea; font-weight: 600;
+  }
+
+  .thanks {
+    margin-top: auto;
+    padding-top: 28px;
+    width: 100%;
+  }
+  .thanks .line {
+    font-size: 28px; font-weight: 800; color: #e8eefc;
+  }
+  .thanks .line .c { color: var(--cyan); }
+  .thanks .line .g { color: var(--gold2); }
+  .thanks .link {
+    margin-top: 12px;
+    font-size: 20px; color: rgba(150,200,255,0.55);
+    font-family: "SF Mono", Menlo, monospace;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="grid"></div>
+    <div class="ring"></div>
+    <div class="spark s1"></div>
+    <div class="spark s2"></div>
+    <div class="spark s3"></div>
+    <div class="spark s4"></div>
+    <div class="hud tl"></div><div class="hud tr"></div>
+    <div class="hud bl"></div><div class="hud br"></div>
+
+    <div class="wrap">
+      <div class="logos">
+        <div class="is"><img src="samples/brands/infinisynapse-logo-white.png" alt="InfiniSynapse"></div>
+        <div class="x">×</div>
+        <div class="csdn"><img src="samples/brands/csdn-logo-trans.png" alt="CSDN"></div>
+      </div>
+
+      <div class="badge"><i></i>喜 报</div>
+      <div class="eyebrow">Vibe Coding 泛数据分析应用开发大赛</div>
+      <div class="hero">圆满<em>收官</em></div>
+      <div class="sub">感谢每一位参赛开发者 · <b>作品已全部就位</b></div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="label">累计报名</div>
+          <div class="num">243</div>
+          <div class="note">开发者报名参与</div>
+        </div>
+        <div class="stat hot">
+          <div class="label">累计提交</div>
+          <div class="num">100<span>+</span></div>
+          <div class="note">真实可体验作品</div>
+        </div>
+      </div>
+
+      <div class="next">
+        <div class="tag">下一步</div>
+        <div class="big"><em>8 月第一周</em> 开始进行分数评审</div>
+        <div class="small">评审结果与获奖名单将另行公布，请持续关注</div>
+      </div>
+
+      <div class="thanks">
+        <div class="line">交卷完成 · <span class="g">评审开启</span> · <span class="c">敬请期待</span></div>
+        <div class="link">https://infinisynapse.cn/contest/vibe-coding/gallery</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

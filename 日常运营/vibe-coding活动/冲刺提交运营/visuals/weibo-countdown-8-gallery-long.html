@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+    --muted: #9aa8c7;
+  }
+  body { background: #fff; }
+
+  .poster {
+    position: relative; width: 1080px;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .glow {
+    position: absolute; width: 980px; height: 720px;
+    left: 50%; top: -160px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.24) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.045) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  .wrap {
+    position: relative; z-index: 4;
+    padding: 72px 56px 64px;
+  }
+
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 12px 26px; border-radius: 999px;
+    font-size: 24px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+
+  .live {
+    margin-top: 20px;
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px; border-radius: 999px;
+    font-size: 22px; font-weight: 700; color: #070b16;
+    background: var(--gold);
+  }
+  .live i {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #e11d48; display: inline-block;
+  }
+
+  .subtitle {
+    margin-top: 16px; font-size: 28px; color: var(--muted); letter-spacing: 2px;
+  }
+
+  .hero {
+    margin-top: 28px;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+  }
+  .kicker {
+    font-size: 28px; font-weight: 600; color: var(--gold); letter-spacing: 6px;
+  }
+  .count {
+    margin-top: 4px; display: flex; align-items: baseline; gap: 12px;
+  }
+  .count .num {
+    font-size: 180px; font-weight: 900; line-height: 0.9; color: var(--cyan);
+    text-shadow: 0 0 40px rgba(53,224,232,0.35);
+  }
+  .count .unit { font-size: 60px; font-weight: 800; color: #8fb2ff; }
+  .deadline {
+    margin-top: 6px; font-size: 30px; color: #d7def0; font-weight: 600;
+  }
+  .deadline b { color: var(--gold); }
+
+  .hook {
+    width: 420px;
+    padding: 26px 24px;
+    border-radius: 18px;
+    background: rgba(46,107,255,0.18);
+    border: 1px solid rgba(120,160,255,0.35);
+  }
+  .hook .big { font-size: 32px; font-weight: 800; line-height: 1.4; }
+  .hook .big em {
+    font-style: normal; color: #1b1206;
+    background: var(--gold); padding: 2px 10px; border-radius: 8px;
+  }
+  .hook .sub { margin-top: 12px; font-size: 24px; color: #c5d0ea; line-height: 1.45; }
+
+  .stats {
+    margin-top: 28px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  }
+  .stat {
+    padding: 22px 12px; border-radius: 16px; text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat .v { font-size: 36px; font-weight: 900; }
+  .stat .v.cy { color: var(--cyan); }
+  .stat .v.go { color: var(--gold); }
+  .stat .l { margin-top: 8px; font-size: 20px; color: var(--muted); }
+
+  .rates {
+    margin-top: 22px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .rate {
+    padding: 26px 22px 24px;
+    border-radius: 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .rate.hot {
+    background: rgba(242,193,78,0.12);
+    border-color: rgba(242,193,78,0.5);
+    box-shadow: 0 0 40px rgba(242,193,78,0.12);
+  }
+  .rate .label {
+    font-size: 24px; font-weight: 700; color: #c5d0ea;
+  }
+  .rate.hot .label { color: var(--gold); }
+  .rate .pct {
+    margin-top: 8px;
+    font-size: 88px; font-weight: 900; line-height: 1;
+    color: #fff;
+  }
+  .rate.hot .pct { color: var(--gold); }
+  .rate .pct span { font-size: 38px; }
+  .rate .note {
+    margin-top: 12px; font-size: 22px; color: var(--muted); line-height: 1.4;
+  }
+
+  .math {
+    margin-top: 16px;
+    padding: 20px 22px;
+    border-radius: 16px;
+    background: rgba(53,224,232,0.06);
+    border: 1px solid rgba(53,224,232,0.22);
+    font-size: 24px; color: #c5d0ea; line-height: 1.55; text-align: left;
+  }
+  .math b { color: var(--cyan); }
+
+  .win-banner {
+    margin-top: 18px;
+    padding: 22px 24px;
+    border-radius: 18px;
+    background: rgba(46,107,255,0.18);
+    border: 1px solid rgba(120,160,255,0.35);
+    text-align: center;
+  }
+  .win-banner .big {
+    font-size: 34px; font-weight: 800; line-height: 1.4;
+  }
+  .win-banner .big em {
+    font-style: normal; color: #1b1206;
+    background: var(--gold); padding: 2px 12px; border-radius: 8px;
+  }
+
+  .section {
+    margin-top: 40px;
+  }
+  .section-head {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 18px;
+  }
+  .section-head h2 {
+    font-size: 34px; font-weight: 800; white-space: nowrap;
+  }
+  .section-head .line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(120,160,255,0.45), transparent);
+  }
+  .section-head .tag {
+    font-size: 20px; color: var(--cyan);
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid rgba(53,224,232,0.35);
+    background: rgba(53,224,232,0.08);
+  }
+
+  .gallery-shot {
+    border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(120,160,255,0.28);
+    background: #0d1424;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+  .gallery-shot img {
+    width: 100%; height: 520px;
+    object-fit: cover; object-position: top center;
+    display: block;
+  }
+
+  .works {
+    margin-top: 18px;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .work {
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .work-meta {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 12px; gap: 12px;
+  }
+  .work-meta .left { min-width: 0; text-align: left; }
+  .work-meta .rank {
+    display: inline-flex; margin-bottom: 8px;
+  }
+  .work-meta .rank .n {
+    font-size: 18px; font-weight: 800; color: #070b16;
+    background: var(--gold); padding: 4px 12px; border-radius: 999px;
+  }
+  .work-meta .rank .n.alt { background: var(--cyan); }
+  .work-meta .name {
+    font-size: 32px; font-weight: 800; line-height: 1.25;
+  }
+  .work-meta .sub {
+    margin-top: 6px; font-size: 22px; color: var(--muted);
+  }
+  .votes {
+    flex-shrink: 0;
+    padding: 10px 14px; border-radius: 14px; text-align: center;
+    background: rgba(242,193,78,0.12);
+    border: 1px solid rgba(242,193,78,0.35);
+  }
+  .votes .num {
+    font-size: 32px; font-weight: 900; color: var(--gold); line-height: 1;
+  }
+  .votes .lab {
+    margin-top: 4px; font-size: 16px; color: #d7c28a; font-weight: 600;
+  }
+  .work .desc {
+    margin-bottom: 14px;
+    font-size: 23px; color: var(--muted); line-height: 1.45; text-align: left;
+  }
+  .work .frame {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: #0d1424;
+  }
+  .work .frame img {
+    width: 100%; height: 360px;
+    object-fit: cover; object-position: top center;
+    display: block;
+  }
+
+  .tips {
+    margin-top: 36px;
+    padding: 26px 28px;
+    border-radius: 18px;
+    background: rgba(46,107,255,0.12);
+    border: 1px solid rgba(120,160,255,0.28);
+  }
+  .tips h4 {
+    font-size: 26px; font-weight: 800; color: var(--gold); margin-bottom: 12px;
+  }
+  .tips ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .tips li {
+    font-size: 24px; color: #d7def0; line-height: 1.45;
+    padding-left: 22px; position: relative; text-align: left;
+  }
+  .tips li::before {
+    content: "";
+    position: absolute; left: 0; top: 12px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--cyan);
+  }
+
+  .foot {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .cta { font-size: 34px; font-weight: 800; }
+  .cta .c { color: var(--cyan); }
+  .urls {
+    margin-top: 16px;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 22px; color: rgba(150,200,255,0.55);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="grid"></div>
+
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="live"><i></i>作品长廊 · 人气投票进行中</div>
+      <div class="subtitle">Vibe Coding 泛数据分析应用开发大赛</div>
+
+      <div class="hero">
+        <div>
+          <div class="kicker">距 提 交 截 止</div>
+          <div class="count"><span class="num">8</span><span class="unit">天</span></div>
+          <div class="deadline">提交截止：<b>7 月 31 日</b></div>
+        </div>
+        <div class="hook">
+          <div class="big">不是人挤人<br>是<em>交了就很有机会</em></div>
+          <div class="sub">已提交仅 31 件 · 奖池还没坐满</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="v cy">31</div><div class="l">已提交作品</div></div>
+        <div class="stat"><div class="v go">50</div><div class="l">参与奖名额</div></div>
+        <div class="stat"><div class="v cy">12</div><div class="l">一二三等奖</div></div>
+        <div class="stat"><div class="v">投票中</div><div class="l">人气赛已开跑</div></div>
+      </div>
+
+      <div class="rates">
+        <div class="rate hot">
+          <div class="label">参与奖 / 优秀奖得奖率</div>
+          <div class="pct">100<span>%</span></div>
+          <div class="note">50 名额 &gt; 31 提交<br>达标几乎稳拿</div>
+        </div>
+        <div class="rate">
+          <div class="label">一二三等奖得奖率</div>
+          <div class="pct">38.7<span>%</span></div>
+          <div class="note">12 个名额 ÷ 31<br>接近四成可冲</div>
+        </div>
+      </div>
+
+      <div class="math">
+        测算口径：一二三等奖共 <b>12</b> 名（2+4+6）÷ 已提交 <b>31</b> ≈ <b>38.7%</b>；
+        参与奖名额 <b>50</b>，按当前量可覆盖全部达标作品。
+      </div>
+
+      <div class="win-banner">
+        <div class="big">现在交，不是拼运气<br>是<em>得奖率还很高</em></div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <h2>作品长廊上线</h2>
+          <div class="line"></div>
+          <div class="tag">边逛边投</div>
+        </div>
+        <div class="gallery-shot">
+          <img src="samples/gallery-hero-31.png" alt="比赛作品长廊">
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <h2>人气前列作品展</h2>
+          <div class="line"></div>
+          <div class="tag">可体验</div>
+        </div>
+
+        <div class="works">
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n">No.1</span></div>
+                <div class="name">LifeFlow Agent</div>
+                <div class="sub">本地生活数据决策分析管家</div>
+              </div>
+              <div class="votes"><div class="num">34</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">整合餐厅排队、天气、交通与个人偏好，提供个人管家、多管家协商和未来时间预演。</div>
+            <div class="frame"><img src="samples/top5-01-lifeflow.png" alt="LifeFlow Agent"></div>
+          </div>
+
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n">No.2</span></div>
+                <div class="name">智析账本 BillLens</div>
+                <div class="sub">个人财务数据智能分析</div>
+              </div>
+              <div class="votes"><div class="num">31</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">上传账单 Excel / CSV，自动做消费结构分析、异常预警与节省建议，生成可追问报告。</div>
+            <div class="frame"><img src="samples/top5-02-billlens.png" alt="智析账本 BillLens"></div>
+          </div>
+
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n">No.3</span></div>
+                <div class="name">FORGE·X 智造洞察</div>
+                <div class="sub">3D 打印工厂生产数据分析</div>
+              </div>
+              <div class="votes"><div class="num">25</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">自然语言问故障率、材料失败与成本去向，返回结论、图表和可执行建议。</div>
+            <div class="frame"><img src="samples/top5-03-forgex.png" alt="FORGE·X"></div>
+          </div>
+
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n alt">No.4</span></div>
+                <div class="name">Offer 雷达</div>
+                <div class="sub">入职前公司尽调助手</div>
+              </div>
+              <div class="votes"><div class="num">22</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">经营、司法、舆情、岗位匹配多维核验，生成接受 Offer 前风险报告与行动清单。</div>
+            <div class="frame"><img src="samples/top5-04-offer.png" alt="Offer 雷达"></div>
+          </div>
+
+          <div class="work">
+            <div class="work-meta">
+              <div class="left">
+                <div class="rank"><span class="n alt">No.5</span></div>
+                <div class="name">职牌</div>
+                <div class="sub">市场数据反向诊断职业身份</div>
+              </div>
+              <div class="votes"><div class="num">14</div><div class="lab">人气票</div></div>
+            </div>
+            <div class="desc">上传简历，输出深度行动报告和去隐私「职牌」诊断卡，帮你看清市场位置。</div>
+            <div class="frame"><img src="samples/top5-05-zhipai.png" alt="职牌"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tips">
+        <h4>得奖率还在窗口期</h4>
+        <ul>
+          <li><b style="color:#F2C14E">参与奖得奖率约 100%</b>：50 名额 &gt; 31 提交，达标作品几乎稳拿</li>
+          <li><b style="color:#35E0E8">一二三等奖得奖率约 38.7%</b>：12 ÷ 31，接近四成可冲前三</li>
+          <li>作品长廊可体验、可投票；有真实用户调用，评委权重更高</li>
+        </ul>
+      </div>
+
+      <div class="foot">
+        <div class="cta">得奖率还高 · 逛长廊 · <span class="c">今天就交</span></div>
+        <div class="urls">
+          作品长廊 https://infinisynapse.cn/contest/vibe-coding/gallery<br>
+          报名提交 https://infinisynapse.cn/contest/vibe-coding
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cyan: #35E0E8; --gold: #F2C14E; --muted: #9aa8c7; }
+  body { background: #fff; }
+  .poster {
+    position: relative; width: 1080px; background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff; overflow: visible;
+  }
+  .glow {
+    position: absolute; width: 980px; height: 720px; left: 50%; top: -160px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.24) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.045) 1px, transparent 1px);
+    background-size: 54px 54px; opacity: 0.75; pointer-events: none;
+  }
+  .wrap { position: relative; z-index: 4; padding: 60px 46px 52px; }
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 10px 22px; border-radius: 999px; font-size: 22px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; } .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+  .live {
+    margin-top: 16px; display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px; border-radius: 999px;
+    font-size: 20px; font-weight: 700; color: #070b16; background: var(--gold);
+  }
+  .live i { width: 10px; height: 10px; border-radius: 50%; background: #e11d48; display: inline-block; }
+  .subtitle { margin-top: 14px; font-size: 24px; color: var(--muted); letter-spacing: 2px; }
+  .hero {
+    margin-top: 22px; display: flex; align-items: flex-end; justify-content: space-between; gap: 22px;
+  }
+  .kicker { font-size: 26px; font-weight: 600; color: var(--gold); letter-spacing: 6px; }
+  .count { margin-top: 4px; display: flex; align-items: baseline; gap: 12px; }
+  .count .num {
+    font-size: 188px; font-weight: 900; line-height: 0.9; color: var(--cyan);
+    text-shadow: 0 0 40px rgba(53,224,232,0.35);
+  }
+  .count .unit { font-size: 56px; font-weight: 800; color: #8fb2ff; }
+  .deadline { margin-top: 6px; font-size: 28px; color: #d7def0; font-weight: 600; }
+  .deadline b { color: var(--gold); }
+  .hook {
+    width: 430px; padding: 24px 22px; border-radius: 18px;
+    background: rgba(46,107,255,0.18); border: 1px solid rgba(120,160,255,0.35);
+  }
+  .hook .big { font-size: 30px; font-weight: 800; line-height: 1.4; }
+  .hook .big em {
+    font-style: normal; color: #1b1206; background: var(--gold);
+    padding: 2px 10px; border-radius: 8px;
+  }
+  .hook .sub { margin-top: 12px; font-size: 22px; color: #c5d0ea; line-height: 1.45; }
+  .stats {
+    margin-top: 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  }
+  .stat {
+    padding: 18px 10px; border-radius: 16px; text-align: center;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat .v { font-size: 34px; font-weight: 900; }
+  .stat .v.cy { color: var(--cyan); } .stat .v.go { color: var(--gold); }
+  .stat .l { margin-top: 8px; font-size: 17px; color: var(--muted); }
+  .section { margin-top: 36px; }
+  .section-head {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 18px;
+  }
+  .section-head h2 { font-size: 32px; font-weight: 800; white-space: nowrap; }
+  .section-head h2 .c { color: var(--cyan); }
+  .section-head .line {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(120,160,255,0.45), transparent);
+  }
+  .section-head .tag {
+    font-size: 18px; color: var(--cyan); padding: 6px 14px; border-radius: 999px;
+    border: 1px solid rgba(53,224,232,0.35); background: rgba(53,224,232,0.08); white-space: nowrap;
+  }
+  .tracks { display: flex; flex-direction: column; gap: 20px; }
+  .track {
+    border-radius: 22px; background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1); overflow: visible;
+  }
+  .track-head {
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 18px 12px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .track-no {
+    width: 40px; height: 40px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 900; color: #070b16; background: var(--cyan);
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .track-title { font-size: 26px; font-weight: 900; }
+  .track-title .c { color: var(--cyan); }
+  .track-meta {
+    margin-left: auto; font-size: 16px; color: var(--muted); font-weight: 700;
+    padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.12);
+  }
+  .cards {
+    padding: 14px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
+  }
+  .card {
+    border-radius: 16px; overflow: visible; background: rgba(0,0,0,0.28);
+    border: 1px solid rgba(120,160,255,0.16);
+  }
+  .card .shot {
+    width: 100%; height: 180px; object-fit: cover; object-position: top center;
+    display: block; background: #111827;
+  }
+  .card .info { padding: 12px 12px 14px; }
+  .card .name {
+    font-size: 18px; font-weight: 800; line-height: 1.3;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: visible;
+  }
+  .card .desc {
+    margin-top: 6px; font-size: 15px; color: var(--muted); line-height: 1.35;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: visible;
+  }
+  .card .votes { margin-top: 8px; font-size: 15px; color: #c5d0ea; font-weight: 700; }
+  .card .votes b { color: var(--cyan); font-size: 20px; }
+  .more {
+    padding: 0 18px 14px; font-size: 16px; color: var(--muted); font-weight: 600;
+  }
+  .more b { color: var(--gold); }
+  .tips {
+    margin-top: 28px; padding: 22px 24px; border-radius: 18px;
+    background: rgba(46,107,255,0.12); border: 1px solid rgba(120,160,255,0.28);
+  }
+  .tips h4 { font-size: 24px; font-weight: 800; color: var(--gold); margin-bottom: 12px; }
+  .tips ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .tips li {
+    font-size: 22px; color: #d7def0; line-height: 1.45;
+    padding-left: 22px; position: relative;
+  }
+  .tips li::before {
+    content: ""; position: absolute; left: 0; top: 11px;
+    width: 8px; height: 8px; border-radius: 50%; background: var(--cyan);
+  }
+  .banner {
+    margin-top: 24px; padding: 20px 18px; border-radius: 18px; text-align: center;
+    background: rgba(46,107,255,0.16); border: 1px solid rgba(120,160,255,0.35);
+  }
+  .banner .big { font-size: 28px; font-weight: 800; line-height: 1.4; }
+  .banner .big em {
+    font-style: normal; color: #1b1206; background: var(--gold);
+    padding: 2px 10px; border-radius: 8px;
+  }
+  .foot {
+    margin-top: 26px; padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.08); text-align: center;
+  }
+  .cta { font-size: 32px; font-weight: 800; }
+  .cta .c { color: var(--cyan); }
+  .urls {
+    margin-top: 14px; font-family: "SF Mono", Menlo, monospace;
+    font-size: 20px; color: rgba(150,200,255,0.55); line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="grid"></div>
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="live"><i></i>倒计时 2 天 · 按赛道抄灵感</div>
+      <div class="subtitle">Vibe Coding 泛数据分析应用开发大赛</div>
+
+      <div class="hero">
+        <div>
+          <div class="kicker">距 提 交 截 止</div>
+          <div class="count"><span class="num">2</span><span class="unit">天</span></div>
+          <div class="deadline">提交截止：<b>7 月 31 日</b></div>
+        </div>
+        <div class="hook">
+          <div class="big">已提交 <em>72</em> 件<br>整体获奖率约 <em>86.1%</em></div>
+          <div class="sub">一二三等奖约 16.7% · 冲现金奖还来得及</div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="v cy">72</div><div class="l">已提交作品</div></div>
+        <div class="stat"><div class="v go">86.1%</div><div class="l">整体获奖率</div></div>
+        <div class="stat"><div class="v cy">16.7%</div><div class="l">一二三等奖</div></div>
+        <div class="stat"><div class="v">6 赛道</div><div class="l">灵感都能抄</div></div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <h2>按行业赛道 · <span class="c">挑一个照着改</span></h2>
+          <div class="line"></div>
+          <div class="tag">长廊实时作品</div>
+        </div>
+        <div class="tracks">
+          <section class="track">
+            <div class="track-head">
+              <div class="track-no">01</div>
+              <div class="track-title">职场<span class="c">求职</span></div>
+              <div class="track-meta">尽调 · 面试 · 仲裁</div>
+            </div>
+            <div class="cards">
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/contest/gallery/offer-radar.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">Offer 雷达</div>
+                  <div class="desc">面向求职者的入职前公司尽调助手，基于 InfiniSynapse 从经营、司法…</div>
+                  <div class="votes"><b>253</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/2d2e7711-e262-46d9-a3d0-66a7407cf585.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">面试模拟器</div>
+                  <div class="desc">求职准备中，真人陪练稀缺、刷题无法训练追问应对。面试模拟器基于真实简历与目标 …</div>
+                  <div class="votes"><b>187</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/a53820ec-c04e-4b45-9fc0-2f38affa5c95.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">仲裁小助手</div>
+                  <div class="desc">输入入职日期、月工资、城市，AI 自动生成赔偿计算单、仲裁申请书、证据清单、法…</div>
+                  <div class="votes"><b>112</b> 票</div>
+                </div>
+              </div>
+            </div>
+            <div class="more">本赛道共 <b>11</b> 件 · 长廊还有 8 件可逛</div>
+          </section>
+          <section class="track">
+            <div class="track-head">
+              <div class="track-no">02</div>
+              <div class="track-title">财务<span class="c">理财</span></div>
+              <div class="track-meta">账单 · 股票 · 省钱</div>
+            </div>
+            <div class="cards">
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/bd3cbc1d-11ba-479d-8c70-acb537bc995e.jpg" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">智析账本 BillLens</div>
+                  <div class="desc">智析账本是一款基于 InfiniSynapse 的个人财务数据 AI 智能分析…</div>
+                  <div class="votes"><b>307</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/b6b16750-59e1-4bea-a12c-7853b4af633c.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">簿言</div>
+                  <div class="desc">簿言 Bóyán 是一款面向学生、职场人士及中小团队的智能办公工具，旨在解决 …</div>
+                  <div class="votes"><b>40</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/3e48a2a2-6fe8-49ba-a949-81be8da3b02b.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">一眼看懂这只股票</div>
+                  <div class="desc">上传财报、财务数据或研究资料，把复杂数字翻译成公司靠什么赚钱、经营是否健康、当…</div>
+                  <div class="votes"><b>15</b> 票</div>
+                </div>
+              </div>
+            </div>
+            <div class="more">本赛道共 <b>8</b> 件 · 长廊还有 5 件可逛</div>
+          </section>
+          <section class="track">
+            <div class="track-head">
+              <div class="track-no">03</div>
+              <div class="track-title">生活<span class="c">决策</span></div>
+              <div class="track-meta">本地生活 · 租房 · 装修</div>
+            </div>
+            <div class="cards">
+              <div class="card">
+                <img class="shot" src="samples/work-lifeflow.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">LifeFlow Agent——本地生活数据决策分…</div>
+                  <div class="desc">应用介绍： LifeFlow Agent 是一款整合本地生活信息与个人偏好、帮…</div>
+                  <div class="votes"><b>302</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/1e952645-d8f6-4966-beb8-3d8012e9387c.jpg" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">住哪儿｜租房通勤决策器</div>
+                  <div class="desc">把租房选择，压缩成一张可复核的决策表——不只看房租，而是把通勤、真实月成本、生…</div>
+                  <div class="votes"><b>88</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/ce75c32d-28ad-497b-b803-bfcd2da83275.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">食刻｜新手做饭食谱平台</div>
+                  <div class="desc">食刻是一款面向烹饪新手的智能食谱与家庭饮食管理平台，提供食谱搜索、冰箱食材匹配…</div>
+                  <div class="votes"><b>29</b> 票</div>
+                </div>
+              </div>
+            </div>
+            <div class="more">本赛道共 <b>19</b> 件 · 长廊还有 16 件可逛</div>
+          </section>
+          <section class="track">
+            <div class="track-head">
+              <div class="track-no">04</div>
+              <div class="track-title">产业<span class="c">商业</span></div>
+              <div class="track-meta">工厂 · 补货 · 竞品</div>
+            </div>
+            <div class="cards">
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/3422c9a2-d51c-48da-805a-9f025fca47e5.jpg" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">FORGE·X 智造洞察 —— 面向 3D 打印（…</div>
+                  <div class="desc">FORGE·X 智造洞察是一款面向 3D 打印工厂的生产数据分析应用：车间主管…</div>
+                  <div class="votes"><b>90</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/faf4f181-845a-4066-ba72-60519460f696.jpg" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">智能掌柜</div>
+                  <div class="desc">本产品面向美甲、美容、餐饮等小微本地生活实体商家，依托 InfiniSynap…</div>
+                  <div class="votes"><b>80</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/06ae490b-f3b8-49dc-9172-54ac428f3369.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">掌柜参谋</div>
+                  <div class="desc">掌柜参谋 ShopMind 是一款基于 InfiniSynapse 的泛数据分…</div>
+                  <div class="votes"><b>34</b> 票</div>
+                </div>
+              </div>
+            </div>
+            <div class="more">本赛道共 <b>12</b> 件 · 长廊还有 9 件可逛</div>
+          </section>
+          <section class="track">
+            <div class="track-head">
+              <div class="track-no">05</div>
+              <div class="track-title">数据<span class="c">工具</span></div>
+              <div class="track-meta">研判 · SEO · 核查</div>
+            </div>
+            <div class="cards">
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/02a80eee-ef2e-4db1-81a1-05544b6b9020.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">司南 SINAN · 多智能体证据研判引擎</div>
+                  <div class="desc">司南 SINAN 是一个基于 InfiniSynapse 的&amp;quot;多智能…</div>
+                  <div class="votes"><b>809</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/2c74121d-f0e4-4133-aa85-23d909df6c90.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">SEO Health Checker</div>
+                  <div class="desc">SEO Health Checker 是一款&amp;quot;即开即用&amp;quot;的…</div>
+                  <div class="votes"><b>155</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/7225bf64-1ac1-4304-a60a-51c9adce5fc5.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">SEO数据分析</div>
+                  <div class="desc">作者暂未填写作品介绍，欢迎直接打开体验。</div>
+                  <div class="votes"><b>18</b> 票</div>
+                </div>
+              </div>
+            </div>
+            <div class="more">本赛道共 <b>13</b> 件 · 长廊还有 10 件可逛</div>
+          </section>
+          <section class="track">
+            <div class="track-head">
+              <div class="track-no">06</div>
+              <div class="track-title">医疗 · 科研 · <span class="c">教育</span></div>
+              <div class="track-meta">健康 · 期刊 · 复盘</div>
+            </div>
+            <div class="cards">
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/81e5bfd1-5946-4092-9785-f662427e7ad8.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">医数智析</div>
+                  <div class="desc">医数智析是一个基于 InfiniSynapse 构建的通用医疗健康数据分析应用…</div>
+                  <div class="votes"><b>239</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/cf05fc03-cfa2-4c20-9add-3242b96fdcf8.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">语感工坊 YuGan</div>
+                  <div class="desc">语感工坊（YuGan）是一款面向写作与表达训练人群的个人语感资产平台。用户在日…</div>
+                  <div class="votes"><b>28</b> 票</div>
+                </div>
+              </div>
+              <div class="card">
+                <img class="shot" src="https://infinisynapse.cn/api/contest/gallery/images/49c633ae-e84c-4d50-9b38-b0ce4527ef5e.png" alt="" loading="eager">
+                <div class="info">
+                  <div class="name">投刊罗盘</div>
+                  <div class="desc">输入题目或摘要，把研究主题、方法和投稿偏好转化为透明的期刊候选清单；同时比较适…</div>
+                  <div class="votes"><b>11</b> 票</div>
+                </div>
+              </div>
+            </div>
+            <div class="more">本赛道共 <b>9</b> 件 · 长廊还有 6 件可逛</div>
+          </section>
+        </div>
+      </div>
+
+      <div class="tips">
+        <h4>还剩 2 天，怎么冲最快</h4>
+        <ul>
+          <li>先挑一个赛道热门作品点开玩，再换更垂直的场景照着改</li>
+          <li>评分看重：投票 10% · 注册 20% · 活跃 30% · 专家 40%</li>
+          <li>别只交 Demo：拉票 + 拉真实用户，这两天交上</li>
+        </ul>
+      </div>
+
+      <div class="banner">
+        <div class="big">还剩 2 天 · 不是只能看 · 是可以直接<em>照着改</em></div>
+      </div>
+
+      <div class="foot">
+        <div class="cta">抄一个赛道 · 去投票 · <span class="c">今天就交</span></div>
+        <div class="urls">
+          作品长廊 https://infinisynapse.cn/contest/vibe-coding/gallery<br>
+          报名提交 https://infinisynapse.cn/contest/vibe-coding
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+  }
+  body { background: #fff; }
+
+  .poster {
+    position: relative; width: 1080px; height: 1440px; overflow: hidden;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  .glow {
+    position: absolute; width: 980px; height: 640px;
+    left: 50%; top: -160px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.28) 0%, transparent 68%);
+  }
+  .glow2 {
+    position: absolute; width: 700px; height: 420px;
+    left: 50%; bottom: -80px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(242,193,78,0.12) 0%, transparent 70%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.05) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: 0.72;
+  }
+
+  .hud { position:absolute; width:36px; height:36px; border:2px solid rgba(120,160,255,0.35); z-index:5; }
+  .hud.tl { top:34px; left:34px; border-right:none; border-bottom:none; }
+  .hud.tr { top:34px; right:34px; border-left:none; border-bottom:none; }
+  .hud.bl { bottom:34px; left:34px; border-right:none; border-top:none; }
+  .hud.br { bottom:34px; right:34px; border-left:none; border-top:none; }
+
+  .wrap {
+    position: relative; z-index: 4; height: 100%;
+    padding: 14px 36px 8px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 6px 18px; border-radius: 999px;
+    font-size: 20px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+
+  .subtitle {
+    margin-top: 6px; font-size: 20px; color: #9aa8c7; letter-spacing: 1px;
+  }
+
+  .count-block {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .kicker {
+    margin-top: 0; font-size: 24px; font-weight: 600;
+    color: var(--gold); letter-spacing: 6px;
+  }
+  .count {
+    margin-top: 2px; margin-bottom: 2px;
+    display: flex; align-items: baseline; justify-content: center; gap: 12px;
+  }
+  .count .num {
+    font-size: 500px; font-weight: 900; line-height: 0.72; color: var(--cyan);
+    text-shadow: 0 0 76px rgba(53,224,232,0.58);
+  }
+  .count .unit { font-size: 118px; font-weight: 800; color: #8fb2ff; }
+  .deadline {
+    margin-top: 2px; font-size: 24px; color: #d7def0; font-weight: 600;
+  }
+  .deadline b { color: var(--gold); }
+
+  .progress {
+    margin-top: 10px;
+    padding: 9px 20px; border-radius: 999px;
+    font-size: 21px; font-weight: 700; color: #c5d0ea;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .progress b { color: var(--cyan); font-size: 25px; }
+
+  .rates {
+    margin-top: 10px; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .rate {
+    padding: 12px 12px 10px;
+    border-radius: 16px;
+    text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .rate.hot {
+    background: rgba(242,193,78,0.12);
+    border-color: rgba(242,193,78,0.45);
+    box-shadow: 0 0 28px rgba(242,193,78,0.12);
+  }
+  .rate .label {
+    font-size: 20px; font-weight: 700; color: #c5d0ea;
+  }
+  .rate.hot .label { color: var(--gold); }
+  .rate .pct {
+    margin-top: 4px;
+    font-size: 58px; font-weight: 900; line-height: 1;
+    color: #fff;
+  }
+  .rate.hot .pct { color: var(--gold); }
+  .rate .pct span { font-size: 26px; }
+  .rate .note {
+    margin-top: 4px; font-size: 18px; color: #9aa8c7; line-height: 1.3;
+  }
+
+  .banner {
+    margin-top: 10px; width: 100%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: rgba(46,107,255,0.18);
+    border: 1px solid rgba(120,160,255,0.35);
+  }
+  .banner .big {
+    font-size: 23px; font-weight: 800; line-height: 1.3;
+  }
+  .banner .big em {
+    font-style: normal; color: #1b1206;
+    background: var(--gold); padding: 2px 10px; border-radius: 8px;
+  }
+
+
+  .score-sec {
+    margin-top: 10px; width: 100%;
+    padding: 10px 12px 10px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .score-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 6px; padding: 0 4px;
+  }
+  .score-head h3 { font-size: 20px; font-weight: 800; }
+  .score-head h3 .c { color: var(--cyan); }
+  .score-head .tag {
+    font-size: 15px; color: var(--gold); font-weight: 700;
+    padding: 4px 10px; border-radius: 999px;
+    border: 1px solid rgba(242,193,78,0.4);
+    background: rgba(242,193,78,0.1);
+  }
+  .score-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+  }
+  .score {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border-radius: 12px;
+    background: rgba(0,0,0,0.22);
+    border: 1px solid rgba(120,160,255,0.18);
+    text-align: left;
+  }
+  .score .pct {
+    flex: 0 0 auto; min-width: 54px;
+    font-size: 26px; font-weight: 900; color: var(--cyan); line-height: 1;
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .score.hot .pct { color: var(--gold); }
+  .score .txt { font-size: 17px; font-weight: 800; color: #e8eefc; line-height: 1.25; }
+  .score .sub { margin-top: 1px; font-size: 12px; color: #9aa8c7; font-weight: 600; }
+
+  .topics-sec {
+    margin-top: 14px;
+    width: 100%;
+    padding: 14px 14px 12px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .topics-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px; padding: 0 2px;
+  }
+  .topics-head h3 {
+    font-size: 24px; font-weight: 800;
+  }
+  .topics-head h3 .c { color: var(--cyan); }
+  .topics-head .tag {
+    font-size: 16px; color: var(--gold); font-weight: 700;
+    padding: 4px 12px; border-radius: 999px;
+    border: 1px solid rgba(242,193,78,0.4);
+    background: rgba(242,193,78,0.1);
+  }
+  .topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .t {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.22);
+    border: 1px solid rgba(120,160,255,0.18);
+    text-align: left;
+    font-size: 20px; font-weight: 700; color: #e8eefc;
+  }
+  .t .n {
+    flex: 0 0 auto;
+    font-size: 15px; font-weight: 800;
+    color: #070b16;
+    background: var(--cyan);
+    padding: 2px 8px; border-radius: 6px;
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .t .easy {
+    margin-left: auto;
+    font-size: 14px; color: #9fe8a8; font-weight: 700;
+  }
+
+  .bottom {
+    margin-top: 10px;
+    width: 100%;
+    padding-bottom: 0;
+    flex-shrink: 0;
+  }
+  .cert-section {
+    width: 100%;
+    padding: 8px 10px 0;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(53,224,232,0.10), rgba(255,255,255,0.03));
+    border: 1px solid rgba(53,224,232,0.35);
+    box-shadow: 0 0 36px rgba(53,224,232,0.10);
+  }
+  .cert-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: -2px;
+    padding: 0 6px;
+  }
+  .cert-head h3 {
+    font-size: 22px; font-weight: 900;
+  }
+  .cert-head h3 .c { color: var(--cyan); }
+  .cert-head .tag {
+    font-size: 17px; color: #d7f8fa; font-weight: 700;
+    padding: 5px 12px; border-radius: 999px;
+    background: rgba(53,224,232,0.16);
+    border: 1px solid rgba(53,224,232,0.45);
+  }
+
+  /* 扑克牌扇形：底部枢轴 + 不规则角度 */
+  .certs-stack {
+    position: relative;
+    width: 940px;
+    height: 268px;
+    margin: -8px auto 0;
+  }
+  .certs-stack .card {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    width: 180px;
+    margin-left: -90px;
+    margin-top: -108px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(255,255,255,0.22);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.5);
+    transform-origin: 50% 135%;
+  }
+  .certs-stack .card img {
+    width: 100%; height: auto; display: block;
+  }
+  .certs-stack .card .badge {
+    position: absolute; top: 8px; left: 8px;
+    font-size: 14px; font-weight: 800;
+    padding: 3px 10px; border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.28);
+  }
+
+  /* 左 → 右扇开：优秀 / 三等 / 二等 / 一等 */
+  .certs-stack .c4 {
+    z-index: 1;
+    transform: translate(-112px, 0) rotate(-24deg);
+  }
+  .certs-stack .c4 .badge { color: #070b16; background: rgba(53,224,232,0.95); }
+
+  .certs-stack .c3 {
+    z-index: 2;
+    transform: translate(-38px, -8px) rotate(-10deg);
+  }
+  .certs-stack .c3 .badge { color: #ffe8d6; background: rgba(100,60,30,0.92); }
+
+  .certs-stack .c2 {
+    z-index: 3;
+    transform: translate(38px, -10px) rotate(9deg);
+  }
+  .certs-stack .c2 .badge { color: #e8eefc; background: rgba(50,60,90,0.92); }
+
+  .certs-stack .c1 {
+    z-index: 4;
+    transform: translate(112px, 0) rotate(23deg);
+    border: 2px solid rgba(242,193,78,0.95);
+    box-shadow:
+      0 0 0 1px rgba(242,193,78,0.4),
+      0 16px 36px rgba(0,0,0,0.55),
+      0 0 28px rgba(242,193,78,0.28);
+  }
+  .certs-stack .c1 .badge { color: #1b1206; background: var(--gold); }
+
+  .foot {
+    margin-top: 2px;
+    margin-bottom: 0;
+    font-size: 22px; font-weight: 800;
+  }
+  .foot .c { color: var(--cyan); }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div>
+    <div class="glow2"></div>
+    <div class="grid"></div>
+    <div class="hud tl"></div><div class="hud tr"></div>
+    <div class="hud bl"></div><div class="hud br"></div>
+
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="subtitle">Vibe Coding 泛数据分析应用开发大赛</div>
+
+      <div class="count-block">
+        <div class="kicker">距 提 交 截 止</div>
+        <div class="count"><span class="num">2</span><span class="unit">天</span></div>
+        <div class="deadline">提交截止：<b>7 月 31 日</b></div>
+      </div>
+
+      <div class="progress">目前已提交 <b>72</b> 件作品</div>
+
+      <div class="rates">
+        <div class="rate hot">
+          <div class="label">整体获奖率</div>
+          <div class="pct">86.1<span>%</span></div>
+          <div class="note">达标作品 · 仍有很大机会</div>
+        </div>
+        <div class="rate">
+          <div class="label">一二三等奖</div>
+          <div class="pct">16.7<span>%</span></div>
+          <div class="note">冲现金奖还来得及</div>
+        </div>
+      </div>
+
+      <div class="banner">
+        <div class="big">别只交 Demo · <em>拉票 + 拉真实用户</em></div>
+      </div>
+
+      <div class="score-sec">
+        <div class="score-head">
+          <h3>评分规则 · <span class="c">总分 100</span></h3>
+          <div class="tag">后台数据为准</div>
+        </div>
+        <div class="score-grid">
+          <div class="score">
+            <div class="pct">10%</div>
+            <div><div class="txt">人气投票</div><div class="sub">去长廊互相投</div></div>
+          </div>
+          <div class="score">
+            <div class="pct">20%</div>
+            <div><div class="txt">应用注册用户</div><div class="sub">让人真来注册</div></div>
+          </div>
+          <div class="score hot">
+            <div class="pct">30%</div>
+            <div><div class="txt">活跃使用量</div><div class="sub">权重最高的用户分</div></div>
+          </div>
+          <div class="score hot">
+            <div class="pct">40%</div>
+            <div><div class="txt">专家意见</div><div class="sub">场景 · 完成度 · 创新</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="cert-section">
+          <div class="cert-head">
+            <h3>联名<span class="c">获奖证书</span></h3>
+            <div class="tag">四档可验 · 可写进简历</div>
+          </div>
+          <div class="certs-stack">
+            <div class="card c4">
+              <img src="samples/cert-ex.png" alt="优秀奖证书">
+              <div class="badge">优秀奖</div>
+            </div>
+            <div class="card c3">
+              <img src="samples/cert-3rd.png" alt="三等奖证书">
+              <div class="badge">三等奖</div>
+            </div>
+            <div class="card c2">
+              <img src="samples/cert-2nd.png" alt="二等奖证书">
+              <div class="badge">二等奖</div>
+            </div>
+            <div class="card c1">
+              <img src="samples/cert-1st.png" alt="一等奖证书">
+              <div class="badge">一等奖</div>
+            </div>
+          </div>
+        </div>
+        <div class="foot">交作品 · 拉票 · <span class="c">拉用户</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

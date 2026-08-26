@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cyan: #35E0E8; --gold: #F2C14E; --muted: #9aa8c7; }
+  body { background: #fff; }
+  .poster {
+    position: relative; width: 1080px; height: 1440px; overflow: hidden;
+    background: #070b16;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+  .glow {
+    position: absolute; width: 980px; height: 640px; left: 50%; top: -140px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(46,107,255,0.28) 0%, transparent 68%);
+  }
+  .glow2 {
+    position: absolute; width: 640px; height: 420px; right: -80px; bottom: 120px;
+    background: radial-gradient(ellipse, rgba(53,224,232,0.12) 0%, transparent 70%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.05) 1px, transparent 1px);
+    background-size: 54px 54px; opacity: 0.72;
+  }
+  .hud { position:absolute; width:36px; height:36px; border:2px solid rgba(120,160,255,0.35); z-index:5; }
+  .hud.tl { top:34px; left:34px; border-right:none; border-bottom:none; }
+  .hud.tr { top:34px; right:34px; border-left:none; border-bottom:none; }
+  .hud.bl { bottom:34px; left:34px; border-right:none; border-top:none; }
+  .hud.br { bottom:34px; right:34px; border-left:none; border-top:none; }
+
+  .wrap {
+    position: relative; z-index: 4; height: 100%;
+    padding: 52px 48px 40px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 8px 22px; border-radius: 999px;
+    font-size: 22px; color: #cdd9ff;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .x { color: #7f93c8; }
+  .brand .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+  }
+  .subtitle { margin-top: 12px; font-size: 22px; color: var(--muted); letter-spacing: 1px; }
+  .kicker {
+    margin-top: 28px; font-size: 24px; font-weight: 600;
+    color: var(--gold); letter-spacing: 6px;
+  }
+  .count {
+    margin-top: 4px; display: flex; align-items: baseline; justify-content: center; gap: 10px;
+  }
+  .count .num {
+    font-size: 200px; font-weight: 900; line-height: 0.88; color: var(--cyan);
+    text-shadow: 0 0 48px rgba(53,224,232,0.4);
+  }
+  .count .unit { font-size: 58px; font-weight: 800; color: #8fb2ff; }
+  .deadline { margin-top: 6px; font-size: 26px; color: #d7def0; font-weight: 600; }
+  .deadline b { color: var(--gold); }
+
+  .progress {
+    margin-top: 22px; padding: 12px 26px; border-radius: 999px;
+    font-size: 24px; font-weight: 700; color: #c5d0ea;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .progress b { color: var(--cyan); font-size: 28px; }
+
+  .hooks {
+    margin-top: 28px; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;
+  }
+  .hook {
+    padding: 22px 12px 18px; border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .hook .n {
+    font-size: 18px; font-weight: 800; color: #070b16;
+    display: inline-block; padding: 3px 10px; border-radius: 999px;
+    background: var(--cyan);
+  }
+  .hook .t { margin-top: 12px; font-size: 28px; font-weight: 900; }
+  .hook .d { margin-top: 8px; font-size: 18px; color: var(--muted); line-height: 1.35; }
+
+  .banner {
+    margin-top: 26px; width: 100%;
+    padding: 20px 18px; border-radius: 18px;
+    background: rgba(46,107,255,0.18);
+    border: 1px solid rgba(120,160,255,0.35);
+  }
+  .banner .big { font-size: 30px; font-weight: 800; line-height: 1.4; }
+  .banner .big em {
+    font-style: normal; color: #1b1206;
+    background: var(--gold); padding: 2px 12px; border-radius: 8px;
+  }
+  .foot { margin-top: auto; font-size: 26px; font-weight: 800; }
+  .foot .c { color: var(--cyan); }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="glow"></div><div class="glow2"></div><div class="grid"></div>
+    <div class="hud tl"></div><div class="hud tr"></div>
+    <div class="hud bl"></div><div class="hud br"></div>
+    <div class="wrap">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="x">×</span><b>CSDN</b></div>
+      <div class="subtitle">Vibe Coding 泛数据分析应用开发大赛</div>
+      <div class="kicker">距 提 交 截 止</div>
+      <div class="count"><span class="num">5</span><span class="unit">天</span></div>
+      <div class="deadline">提交截止：<b>7 月 31 日</b></div>
+      <div class="progress">作品长廊已有 <b>50+</b> 件真实作品 · 可玩可抄可投票</div>
+
+      <div class="hooks">
+        <div class="hook">
+          <div class="n">01</div>
+          <div class="t">抄灵感</div>
+          <div class="d">多赛道选题<br>点开就能照着改</div>
+        </div>
+        <div class="hook">
+          <div class="n">02</div>
+          <div class="t">去投票</div>
+          <div class="d">票数进评定参考<br>帮好创意露脸</div>
+        </div>
+        <div class="hook">
+          <div class="n">03</div>
+          <div class="t">自己交</div>
+          <div class="d">能跑 + 有场景<br>+ 接 API 就达标</div>
+        </div>
+      </div>
+
+      <div class="banner">
+        <div class="big">卡住选题？先逛长廊 · <em>抄灵感 + 投票 + 开做</em></div>
+      </div>
+      <div class="foot">挑一个赛道 · 照着改 · <span class="c">今天就交</span></div>
+    </div>
+  </div>
+</body>
+</html>

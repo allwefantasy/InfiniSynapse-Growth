@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+    --gold2: #FFE39A;
+  }
+  body { background: #fff; }
+
+  .poster {
+    position: relative; width: 1080px; height: 1440px; overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+    background: #12080a;
+  }
+
+  .bg {
+    position: absolute; inset: 0;
+    background: url("samples/finale-trophy-bg.png") center 42% / cover no-repeat;
+    transform: scale(1.04);
+  }
+  .veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      rgba(12,6,8,0.55) 0%,
+      rgba(12,6,8,0.28) 10%,
+      rgba(12,6,8,0.12) 20%,
+      rgba(12,6,8,0.22) 36%,
+      rgba(10,5,6,0.42) 52%,
+      rgba(10,5,6,0.62) 68%,
+      rgba(10,5,6,0.82) 86%,
+      rgba(10,5,6,0.92) 100%);
+    pointer-events: none;
+  }
+  .tech-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,220,140,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,220,140,0.04) 1px, transparent 1px);
+    background-size: 54px 54px;
+    opacity: 0.45; pointer-events: none;
+    mix-blend-mode: soft-light;
+  }
+
+  .wrap {
+    position: relative; z-index: 4; height: 100%;
+    padding: 40px 40px 32px;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+
+  .logos {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    padding: 14px 32px 12px;
+  }
+  .logos-glow {
+    position: absolute; left: 50%; top: 50%;
+    width: 760px; height: 130px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center,
+      rgba(255,248,235,0.68) 0%,
+      rgba(255,236,200,0.32) 36%,
+      transparent 76%);
+    filter: blur(1.5px);
+    z-index: -1; pointer-events: none;
+  }
+  .logos .host {
+    font-size: 20px; font-weight: 800; color: #1a2744; letter-spacing: 1px;
+    margin-right: 4px; white-space: nowrap;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+  }
+  .logos .is img,
+  .logos .csdn img {
+    height: 40px; width: auto; display: block;
+    filter: drop-shadow(0 1px 0 rgba(255,255,255,0.25));
+  }
+  .logos .x {
+    font-size: 22px; font-weight: 800; color: #6e5a3d; padding: 0 2px;
+  }
+
+  .eyebrow {
+    margin-top: 18px;
+    font-size: 30px; font-weight: 700;
+    color: rgba(255,240,210,0.92);
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+  }
+  .title {
+    margin-top: 10px;
+    font-size: 56px; font-weight: 900; line-height: 1.15;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow:
+      0 2px 0 rgba(10,5,6,0.45),
+      0 10px 24px rgba(0,0,0,0.55);
+  }
+  .title em {
+    font-style: normal; color: var(--gold2);
+  }
+  .title .c { color: var(--cyan); }
+
+  .panel {
+    width: 100%;
+    margin-top: 18px;
+    padding: 20px 22px 18px;
+    border-radius: 22px;
+    background: rgba(10,6,8,0.52);
+    border: 1px solid rgba(255,210,120,0.22);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+    backdrop-filter: blur(6px);
+    text-align: left;
+  }
+  .panel.tight { margin-top: 14px; padding: 18px 22px 16px; }
+  .sec-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .sec-head h3 {
+    font-size: 30px; font-weight: 900; letter-spacing: 1px;
+  }
+  .sec-head h3 .c { color: var(--cyan); }
+  .sec-head h3 .g { color: var(--gold2); }
+  .tag {
+    font-size: 18px; font-weight: 700;
+    color: rgba(255,230,180,0.9);
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255,200,80,0.12);
+    border: 1px solid rgba(255,210,120,0.28);
+  }
+
+  .score-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .score {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 14px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .score.hot {
+    background: rgba(53,224,232,0.08);
+    border-color: rgba(53,224,232,0.28);
+  }
+  .score .pct {
+    flex: 0 0 auto;
+    min-width: 70px;
+    font-size: 34px; font-weight: 900;
+    color: var(--gold2);
+    letter-spacing: -1px;
+  }
+  .score.hot .pct { color: var(--cyan); }
+  .score .txt { font-size: 24px; font-weight: 800; color: #fff; }
+  .score .sub { margin-top: 2px; font-size: 16px; color: rgba(255,240,210,0.72); }
+
+  .timeline {
+    display: grid; gap: 8px;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .step .when {
+    font-size: 22px; font-weight: 900;
+    color: var(--gold2);
+    white-space: nowrap;
+  }
+  .step .what {
+    font-size: 22px; font-weight: 700;
+    color: rgba(255,248,235,0.95);
+  }
+  .step .what b { color: var(--cyan); font-weight: 800; }
+  .note {
+    margin-top: 12px;
+    font-size: 18px; font-weight: 600; line-height: 1.45;
+    color: rgba(255,240,210,0.78);
+  }
+  .note b { color: var(--gold2); font-weight: 800; }
+
+  .pool {
+    display: flex; align-items: baseline; justify-content: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .pool .label {
+    font-size: 22px; font-weight: 700; color: rgba(255,230,180,0.85);
+  }
+  .pool .amt {
+    font-size: 48px; font-weight: 900; color: var(--gold2);
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(242,193,78,0.35);
+  }
+  .pool .extra {
+    font-size: 20px; font-weight: 700; color: var(--cyan);
+  }
+
+  .tiers {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+  }
+  .tier {
+    padding: 14px 10px 12px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+  }
+  .tier.gold {
+    background: rgba(242,193,78,0.12);
+    border-color: rgba(242,193,78,0.4);
+  }
+  .tier .name { font-size: 22px; font-weight: 800; color: rgba(255,240,210,0.95); }
+  .tier .money {
+    margin-top: 4px;
+    font-size: 34px; font-weight: 900; color: #fff;
+  }
+  .tier.gold .money { color: var(--gold2); }
+  .tier .money span { font-size: 20px; margin-right: 2px; }
+  .tier .meta {
+    margin-top: 4px;
+    font-size: 16px; font-weight: 600;
+    color: rgba(255,230,180,0.72);
+  }
+
+  .perks {
+    margin-top: 12px;
+    display: grid; gap: 8px;
+  }
+  .perk {
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(53,224,232,0.08);
+    border: 1px solid rgba(53,224,232,0.22);
+    font-size: 22px; font-weight: 700;
+    color: rgba(255,248,235,0.95);
+    text-align: center;
+  }
+  .perk b { color: var(--cyan); }
+
+  .foot {
+    margin-top: 16px;
+    font-size: 24px; font-weight: 800;
+    color: rgba(255,240,210,0.92);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+  }
+  .foot .c { color: var(--cyan); }
+  .foot .g { color: var(--gold2); }
+  .link {
+    margin-top: 8px;
+    font-size: 18px; font-weight: 600;
+    color: rgba(255,230,180,0.65);
+    letter-spacing: 0.3px;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="bg"></div>
+    <div class="tech-grid"></div>
+    <div class="veil"></div>
+
+    <div class="wrap">
+      <div class="logos">
+        <div class="logos-glow"></div>
+        <div class="host">主办方</div>
+        <div class="is"><img src="samples/brands/cert-logo-infinisynapse.png" alt="InfiniSynapse"></div>
+        <div class="x">×</div>
+        <div class="csdn"><img src="samples/brands/cert-logo-csdn.png" alt="CSDN"></div>
+      </div>
+
+      <div class="eyebrow">Vibe Coding 泛数据分析应用开发大赛</div>
+      <div class="title">评分规则 · <em>奖金</em> · <span class="c">公示</span></div>
+
+      <div class="panel">
+        <div class="sec-head">
+          <h3>评分规则 · <span class="c">总分 100</span></h3>
+          <div class="tag">后台数据为准</div>
+        </div>
+        <div class="score-grid">
+          <div class="score">
+            <div class="pct">10%</div>
+            <div>
+              <div class="txt">人气投票</div>
+              <div class="sub">作品长廊投票</div>
+            </div>
+          </div>
+          <div class="score">
+            <div class="pct">20%</div>
+            <div>
+              <div class="txt">应用注册用户</div>
+              <div class="sub">真实注册数据</div>
+            </div>
+          </div>
+          <div class="score hot">
+            <div class="pct">30%</div>
+            <div>
+              <div class="txt">活跃使用量</div>
+              <div class="sub">权重最高的用户分</div>
+            </div>
+          </div>
+          <div class="score hot">
+            <div class="pct">40%</div>
+            <div>
+              <div class="txt">专家意见</div>
+              <div class="sub">场景 · 完成度 · 创新</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel tight">
+        <div class="sec-head">
+          <h3>公示节奏 · <span class="g">结果公布</span></h3>
+          <div class="tag">官方渠道公示</div>
+        </div>
+        <div class="timeline">
+          <div class="step">
+            <div class="when">8.1 – 8.15</div>
+            <div class="what">准入审核 · 数据采集 · <b>专家打分</b></div>
+          </div>
+          <div class="step">
+            <div class="when">8.15 – 8.25</div>
+            <div class="what"><b>奖项公布</b></div>
+          </div>
+          <div class="step">
+            <div class="when">8.25 起</div>
+            <div class="what"><b>对外发奖</b></div>
+          </div>
+        </div>
+        <div class="note">公示渠道：<b>InfiniSynapse 官方渠道</b></div>
+      </div>
+
+      <div class="panel tight">
+        <div class="sec-head">
+          <h3>奖金设置 · <span class="g">现金 + 权益</span></h3>
+          <div class="tag">2ⁿ 程序员奖金</div>
+        </div>
+        <div class="pool">
+          <span class="label">现金奖金池</span>
+          <span class="amt">¥22,528</span>
+          <span class="extra">+ 会员权益</span>
+        </div>
+        <div class="tiers">
+          <div class="tier gold">
+            <div class="name">一等奖</div>
+            <div class="money"><span>¥</span>4,096</div>
+            <div class="meta">2 名 · 年度 Pro</div>
+          </div>
+          <div class="tier">
+            <div class="name">二等奖</div>
+            <div class="money"><span>¥</span>2,048</div>
+            <div class="meta">4 名 · 季度 Pro</div>
+          </div>
+          <div class="tier">
+            <div class="name">三等奖</div>
+            <div class="money"><span>¥</span>1,024</div>
+            <div class="meta">6 名 · 月度 Pro</div>
+          </div>
+        </div>
+        <div class="perks">
+          <div class="perk">优秀奖 <b>50 名</b> · InfiniSynapse 月度 Pro（¥150）</div>
+          <div class="perk">联名获奖证书四档可验 · 可写进简历</div>
+        </div>
+      </div>
+
+      <div class="foot">评审进行中 · <span class="g">名单待揭晓</span> · <span class="c">敬请期待</span></div>
+      <div class="link">https://infinisynapse.cn/contest/vibe-coding/gallery</div>
+    </div>
+  </div>
+</body>
+</html>
