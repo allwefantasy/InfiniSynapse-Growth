@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="_table-base.css">
+  <style>td:first-child { width: 32%; }</style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">退档风险 → 小程序怎么接</div>
+    <div class="subtitle">志愿一问达 · 表单字段与执行逻辑对照</div>
+    <table>
+      <thead>
+        <tr><th>退档 / 滑档风险点</th><th>小程序怎么采集 / 执行</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>位次算错 → 滑档</td>
+          <td>「基本信息」必填分数 + 省排名/位次；报告以位次匹配历年投档线</td>
+        </tr>
+        <tr>
+          <td>全冲无保 → 滑档</td>
+          <td>「风险偏好」+「决策优先级」选冲稳保梯度，强制分出保底档</td>
+        </tr>
+        <tr>
+          <td>选科 / 专业组填错 → 退档</td>
+          <td>必填科类/选科、批次；检索时过滤不符合选科要求的专业组</td>
+        </tr>
+        <tr>
+          <td>调剂到不能接受的专业</td>
+          <td>报告标注调剂风险；冲刺档逐校提示「若调剂至 XX 能否接受」</td>
+        </tr>
+        <tr>
+          <td>章程 / 代码填错</td>
+          <td>输出待核验清单，提醒对照 2026 招生章程确认专业组代码</td>
+        </tr>
+        <tr>
+          <td>普通家庭现实约束</td>
+          <td>「家庭约束」字段——预算、距离、是否接受民办</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

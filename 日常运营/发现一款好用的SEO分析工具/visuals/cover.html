@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue: #2E6BFF;
+    --cyan: #35E0E8;
+    --gold: #F2C14E;
+  }
+  body { background: #fff; }
+
+  .cover {
+    position: relative;
+    width: 900px;
+    height: 383px;
+    overflow: hidden;
+    background: radial-gradient(1050px 600px at 82% -12%, rgba(46,107,255,0.30) 0%, #05070d 52%, #000 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    color: #fff;
+  }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(120,150,220,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,150,220,0.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(90deg, transparent, #000 22%, #000);
+  }
+  .glow  { position: absolute; width: 520px; height: 520px; right: -120px; top: -160px;
+           background: radial-gradient(circle, rgba(46,107,255,0.5), transparent 62%); filter: blur(8px); }
+  .glow2 { position: absolute; width: 300px; height: 300px; right: 60px; bottom: -140px;
+           background: radial-gradient(circle, rgba(53,224,232,0.24), transparent 65%); filter: blur(10px); }
+
+  .hud { position: absolute; width: 26px; height: 26px; border: 2px solid rgba(120,160,255,0.5); z-index: 5; }
+  .hud.tl { top: 18px; left: 18px; border-right: none; border-bottom: none; }
+  .hud.tr { top: 18px; right: 18px; border-left: none; border-bottom: none; }
+  .hud.bl { bottom: 18px; left: 18px; border-right: none; border-top: none; }
+  .hud.br { bottom: 18px; right: 18px; border-left: none; border-top: none; }
+
+  /* ---- product interface cards on the right ---- */
+  .stage { position: absolute; inset: 0; z-index: 2; }
+  .win {
+    position: absolute; border-radius: 11px; overflow: hidden;
+    border: 1px solid rgba(130,170,255,0.4);
+    box-shadow: 0 22px 55px rgba(0,0,0,0.55), 0 0 46px rgba(46,107,255,0.28);
+    background: #0d1424;
+  }
+  .win .bar { height: 24px; background: #141c30; display: flex; align-items: center; gap: 6px; padding: 0 11px; }
+  .win .bar i { width: 8px; height: 8px; border-radius: 50%; display: block; }
+  .win .bar .r { background: #ff5f57; } .win .bar .y { background: #febc2e; } .win .bar .g { background: #28c840; }
+  .win img { display: block; width: 100%; }
+
+  .win.main { width: 452px; right: -34px; top: 60px; transform: rotate(-4deg); z-index: 2; }
+  .win.main .shot { height: 250px; overflow: hidden; }
+  .win.main .shot img { width: 100%; }
+
+  .win.front { width: 268px; right: 226px; bottom: 30px; transform: rotate(4deg); z-index: 3; }
+  .win.front .shot { height: 150px; overflow: hidden; }
+  .win.front .shot img { width: 100%; margin-top: -6px; }
+
+  .content {
+    position: relative; height: 100%; width: 470px;
+    padding: 40px 0 40px 52px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    z-index: 4;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px; align-self: flex-start;
+    padding: 7px 16px; border: 1px solid rgba(150,180,255,0.35); border-radius: 999px;
+    font-size: 15px; letter-spacing: 0.5px; color: #cdd9ff;
+    background: rgba(11,18,38,0.72); box-shadow: 0 0 24px rgba(46,107,255,0.25) inset;
+  }
+  .brand b { color: #fff; font-weight: 700; }
+  .brand .sep { color: #7f93c8; }
+  .brand .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+
+  .kicker {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 19px; font-weight: 600; color: var(--gold); letter-spacing: 3px; margin-bottom: 12px;
+  }
+  .kicker::before { content: ""; width: 26px; height: 2px; background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+  .kicker .pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+
+  h1 {
+    font-size: 43px; line-height: 1.22; font-weight: 800; letter-spacing: 1px;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.55);
+  }
+  h1 .hl  { color: #8fb2ff; text-shadow: 0 0 22px rgba(80,140,255,0.55); }
+  h1 .big { color: var(--cyan); text-shadow: 0 0 24px rgba(53,224,232,0.55); }
+
+  .footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .chip {
+    font-size: 15px; padding: 6px 14px; border-radius: 8px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+    color: #e7edff; font-weight: 600;
+  }
+  .chip.cyan { color: #05222b; background: var(--cyan); border-color: var(--cyan); box-shadow: 0 0 18px rgba(53,224,232,0.4); }
+  .chip.gold { color: #1b1206; background: var(--gold); border-color: var(--gold); box-shadow: 0 0 18px rgba(242,193,78,0.4); }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="glow2"></div>
+
+    <div class="stage">
+      <div class="win main">
+        <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+        <div class="shot"><img src="../images/03-core-metrics.png" alt=""></div>
+      </div>
+      <div class="win front">
+        <div class="bar"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+        <div class="shot"><img src="../images/04-monthly-trend.png" alt=""></div>
+      </div>
+    </div>
+
+    <div class="hud tl"></div>
+    <div class="hud tr"></div>
+    <div class="hud bl"></div>
+    <div class="hud br"></div>
+
+    <div class="content">
+      <div class="brand"><span class="dot"></span><b>InfiniSynapse</b><span class="sep">·</span><span>SEO 数据分析</span></div>
+
+      <div class="headline">
+        <div class="kicker"><span class="pulse"></span>用户反馈</div>
+        <h1>GSC 数据看不懂？<br>AI 直接出份<span class="big">十维报告</span></h1>
+      </div>
+
+      <div class="footer">
+        <span class="chip cyan">上传即分析</span>
+        <span class="chip">10 维度诊断</span>
+        <span class="chip gold">附可执行清单</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

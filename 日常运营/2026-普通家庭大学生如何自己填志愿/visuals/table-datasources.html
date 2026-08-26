@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="_table-base.css">
+  <style>
+    td:first-child {
+      width: 42%;
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">主要数据源</div>
+    <div class="subtitle">生成报告时优先调用，并结合官方来源交叉核验</div>
+    <table>
+      <thead>
+        <tr><th>数据源</th><th>用途</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Gaokao_Enrollment_Admission_Data</td>
+          <td>省份、科类、批次、分数/位次对应的录取线与投档数据</td>
+        </tr>
+        <tr>
+          <td>infinisynapse_gaokao_dataset</td>
+          <td>院校、专业组、选科要求与选专业相关核对</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="footnote">缺少年份或专业组信息时，报告会标注「待核验」</div>
+  </div>
+</body>
+</html>

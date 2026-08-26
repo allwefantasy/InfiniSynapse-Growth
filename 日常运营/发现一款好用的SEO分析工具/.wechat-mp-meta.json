@@ -1,0 +1,28 @@
+{
+  "source_md": "article.md",
+  "appmsgid": "100002480",
+  "title": "用户反馈｜SEO 数据他看不懂，InfiniSynapse 直接帮他出了十维报告",
+  "author": "InfiniSynapse",
+  "token": "1047002424",
+  "last_saved": "2026-07-17 18:17",
+  "note": "2026-07-17 新建草稿：SEO 十维报告用户反馈文，17 张图，含追问优化手册+官方群二维码。本地 md 与草稿一致。",
+  "cdn_urls": {
+    "images/01-gsc-export.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWEicCicFS3qeNekjF62A6GwLuUN6Iq7biaHceThJwRPqviaiaREsbjghMg8ibNicYXvRyia3INU2cxiaGAnz7fYaWiaeRdR9xEgeKib6s2TE/0?wx_fmt=png&from=appmsg",
+    "images/02-upload-web-search.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXWMSZ7Pibo7pAMcdbYI6YPJBSRmzjJvCuXD36WDiaFl1Y9cruOBeno8gDqwtATrnSuqicw8Q5f8QCJYjoxeW6kA7GpUoyIwyprI8w/0?wx_fmt=png&from=appmsg",
+    "images/03-core-metrics.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXVE1Cib2vGRIKQUEyv2yw56Waoia6mMluZD7pAY99Jg1HGhJ0IrNYJXOeQCjx39O9g0fb73sPQzrohECliaibriaNCUOyibHGAjpV4FE/0?wx_fmt=png&from=appmsg",
+    "images/04-monthly-trend.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXUhSkFX4Rck79DeR2lve5h8d2cZBlMYIvm2x9vZ8rl0mY97ZZYBc6qvXS14wnxgOiciboDaYeqOgtoOzos34pfHJRWXVqQiahAzI8/0?wx_fmt=png&from=appmsg",
+    "images/05-brand-nonbrand.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXV80zWO4HuV5G2sOxEwA6NJ9cmI7cJickQeOOacOKGiaoJL4zxgJXiclv1MraTqehu9zusUwn7zCTBUzWa0goicGPNhiaUV3R5QibY4U/0?wx_fmt=png&from=appmsg",
+    "images/06-device.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXVATkuVU91mP57d1S6DtZjnohaEq15eP2Nfo71kJht0loEUSqmJYpic5O2Lqjsz0d55RntibxLuUs0ficeczIHePZMlLeiaU9nt0Cg/0?wx_fmt=png&from=appmsg",
+    "images/07-geo.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUr3dcADEaibkHMpO7qU8VOUerugums2zfLALQcAO7jyibPcQdmZ7H0dT7uuefeknibVXYtsUCqovjK0ibwUCU0NTxInUiaGnkIrwds/0?wx_fmt=png&from=appmsg",
+    "images/08-page-type.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXXUpGM8dgw1FA4KhXXiaJJHROX1icUEXLszlguKXWLkSGzsYehyQqricic8qm1OqzmyhDwB4mIV2lxM3gry1pgzLSEX2icG70PGmz2U/0?wx_fmt=png&from=appmsg",
+    "images/09-rank-ctr.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXUUn4VZiaUC6hXBmxja1ECCoDSZlTDOylaLTnOMMWPHDibdkPObw0j0n7TqIk3kgtKsayEBWvpt4XRg1mFTXMSu5XpTFiblRa5UyE/0?wx_fmt=png&from=appmsg",
+    "images/10-quick-wins.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUEU4gqVCpDS6Ouy0k9CodVzEzvlzZzvBm1zA19ztgW6mO18p6YDADLWUWkf7fItcicKUAhtDicQEHfofSWyMUeCHnrGCIkE3uI8/0?wx_fmt=png&from=appmsg",
+    "images/11-industry-trend.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXXN4aaJ7ldksjdN924W56K5cXQPUQUEq08m1hOQhE7GskaDA79kAfz6yzibMhlYHEdY9hj1v1bWZIicg6Vo7gZyTPpJtHgTmo72s/0?wx_fmt=png&from=appmsg",
+    "images/12-diagnosis.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXW2ianrapIO4fPEG3vYYicuknDqlibVicDicpTMr1ibXDV9T9rJvZaXnRJj8mbQwSNVMryPicKC9qlS1RxjoxGeibDbxzV6BIWAmgEiawR4/0?wx_fmt=png&from=appmsg",
+    "images/13-followup.png": "https://mmbiz.qpic.cn/mmbiz_jpg/7ibiaibCib1GWXXcwXXck2mjAENZusrZgf4GV8mpZ7BH8MoANibXbEeaPhicEP5kupib82dic6yjQaYRJYEmNUhSia1WIvegIzZs6kFCM8GVSp7FJZJ8/0?wx_fmt=jpeg&from=appmsg",
+    "images/14-title-meta.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXVcqMlxcz0ibobWsr7ewV9hOkA8ibSkO6oOibvsu5JC8a3rw8CfAWtnVWGbc6OcWpQjgTic6IT1siaTCibJzps4DwKT8YcoKtZWdfPqs/0?wx_fmt=jpeg&from=appmsg",
+    "images/15-priority.png": "https://mmbiz.qpic.cn/mmbiz_jpg/7ibiaibCib1GWXWibhLZeYsEQPDruwnzWMvw146x073SW5fOD6GzY5Wrup2HxkgwwNh3pbOlhUJXje2hicPvp8av4Tyia4MHmIUA3uyGeDSDavCa0I/0?wx_fmt=jpeg&from=appmsg",
+    "images/16-cursor.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXU0llrlIpmPDom08Msofib7zAia0ibMGPde66cqFSicKCAwJvEpicxhDWNibnY1aRovia06byP98NPslP8FygjWWdWEsd2JKCXUAsbmA8/0?wx_fmt=jpeg&from=appmsg",
+    "images/17-qr.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXWjNQwQGHpYOJzJc6sHVnxp36ibXJT3pcL7wnvhZPWIwL4vnNECa0HWiaFAxaupoIHROg6hLyXe8HMhRtj2ZzktrkHhBqwRsRZUI/0?wx_fmt=png&from=appmsg"
+  }
+}

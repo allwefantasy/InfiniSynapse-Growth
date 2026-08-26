@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { width: 1080px; margin: 0; padding: 48px; font-family: -apple-system, "PingFang SC", sans-serif; background: #fff; }
+  </style>
+</head>
+<body>
+  <div class="text-center mb-8">
+    <div class="text-xs uppercase tracking-widest text-slate-400 mb-2">InfiniSynapse Server API · 最小闭环</div>
+    <div class="text-3xl font-bold text-slate-900">先连 SSE，再发任务，最后读工作区</div>
+  </div>
+  <div class="flex items-stretch justify-between gap-3">
+    <div class="flex-1 bg-slate-900 text-white rounded-2xl p-6 text-center">
+      <div class="text-4xl mb-2">①</div>
+      <div class="font-bold text-lg">建立 SSE</div>
+      <div class="text-sm opacity-80 mt-2 font-mono">GET /api/ai/events<br/>?connId=&lt;uuid&gt;</div>
+    </div>
+    <div class="text-3xl text-slate-300 self-center">→</div>
+    <div class="flex-1 bg-blue-50 border-2 border-blue-400 rounded-2xl p-6 text-center">
+      <div class="text-4xl mb-2">②</div>
+      <div class="font-bold text-lg text-blue-900">发送任务</div>
+      <div class="text-sm text-blue-800 mt-2 font-mono">POST /api/ai/message<br/>type: newTask</div>
+    </div>
+    <div class="text-3xl text-slate-300 self-center">→</div>
+    <div class="flex-1 bg-emerald-50 border-2 border-emerald-400 rounded-2xl p-6 text-center">
+      <div class="text-4xl mb-2">③</div>
+      <div class="font-bold text-lg text-emerald-900">监听进度</div>
+      <div class="text-sm text-emerald-800 mt-2 font-mono">message.partial<br/>completion_result</div>
+    </div>
+    <div class="text-3xl text-slate-300 self-center">→</div>
+    <div class="flex-1 bg-orange-50 border-2 border-orange-400 rounded-2xl p-6 text-center">
+      <div class="text-4xl mb-2">④</div>
+      <div class="font-bold text-lg text-orange-900">交付产物</div>
+      <div class="text-sm text-orange-800 mt-2 font-mono">getTaskWorkspace<br/>downloadTaskFile</div>
+    </div>
+  </div>
+  <div class="mt-8 bg-slate-50 rounded-xl p-5 text-sm text-slate-600 text-center border border-slate-200">
+    API Key 只放服务端 · 前端只连你自己的 <span class="font-mono text-slate-800">/api/infini/*</span> 代理层
+  </div>
+</body>
+</html>
