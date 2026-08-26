@@ -1,0 +1,24 @@
+{
+  "source_md": "article-followup.md",
+  "appmsgid": "100002448",
+  "title": "应用开发大赛上线一周：81 人已在路上，第一批优秀作品展示！",
+  "author": "InfiniSynapse",
+  "token": "483437650",
+  "last_saved": "2026-07-14 18:26",
+  "note": "2026-07-14 多轮改稿后覆盖更新：三点优化（奖金证书/人脉/创意）、尽调图换新、末尾二维码换成双群图。本地 md 与草稿一致。",
+  "cdn_urls": {
+    "images/wechat-group-chat-80.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXW6fFkrZSvsUKQFXZhwlNVyTmMWeQemXtsMicPUKQcLWbh7ljJ0MPr62Ur7AnS3Mic854I34BmictLRACuXD4Ju4UI1VcO4LaI3zw/0?wx_fmt=png&from=appmsg",
+    "images/certificates-banner.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXXffhU0cJQ9xDvUnricaSYw1qiciciaJicRUib5fMhmW1SunUcTL1LMIEIg5EN7meHVqZDDxBKjNxHWluXoMLUhvPDaFSJehAFl3INZA/0?wx_fmt=jpeg&from=appmsg",
+    "images/contest-momentum.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXWXtuhDZSwdk3fvOzDjzYH0a4f0o5z5Ul2QK5wpf6PpSRHEqqJrQ1del6AMleSeric3fkqIHJJN6jqdE9sB8IQt6MbZYTOzm5Jg/0?wx_fmt=png&from=appmsg",
+    "images/submission-find-that-thing.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXVIbv77zVmsZJZKETNhdCd48Zgg1xibIGo49CPMouricJcsYULicW7Lg29ZRYQriabBuVfsfA0W9aLzPOJunBf5CnDsl3Fa9PMRqmw/0?wx_fmt=png&from=appmsg",
+    "images/submission-caige.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXWnAhMsvI8rKXs15QMUqV4xj2WpyZyhibt3JicEnnOyTojMqo0TPzwh17MoIBs1ibk82ZMWa67A2Gia8yPUCeAg4PWT1HkXAuHF1yE/0?wx_fmt=png&from=appmsg",
+    "images/submission-pvl.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXVxbHyo1QiakfIDPVxyuD4r5kB2jsFckQ99yExMC0bBNJAicprJctRcx4RyBQTe6OkWM0WC70viaVlDsjxwItzKa6QVU3eRZ7Yibv8/0?wx_fmt=jpeg&from=appmsg",
+    "images/contest-flow-official.png": "https://mmbiz.qpic.cn/mmbiz_jpg/7ibiaibCib1GWXUXOfibDIeQc5IGANgdloU5KvOcgkLqxMicvlqNsezaCQl60P7qibFrQicfGJZrTyiaOIYZszqALSzvkMSbQfGr1LJJqspc6qfHKx1E/0?wx_fmt=jpeg&from=appmsg",
+    "images/app-personal-analytics.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXWGBVaShibnxibV269cYngxCly02Ot1eCBCJJtiatdtbTiaEotIOa0rRUkIRldFynh17XeRoiaMwicWY6kiblUrj3HH5vNDDlXgxCrwyA/0?wx_fmt=png&from=appmsg",
+    "images/app-gaokao.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXUicfL8oIXekIJGialCSUyJEaFRSJEj46SbgpiaicfG3ibN9my8f1ia9hicErovQcdzBVoIExSXkibgicciaZ9t4oxthv0RSdUaA1TpbLglk/0?wx_fmt=png&from=appmsg",
+    "images/app-report-writer.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXj19XOYbjxDjtzHzZj3YMBtjJtYnIz8UGMRlcr1VNz4vp6tKlGicic9EiaLpJHa4V7zAMOILrHqIAHRpkiaaoCVcXo2np7yY9D4ibo/0?wx_fmt=png&from=appmsg",
+    "images/app-company-due-diligence.png": "https://mmbiz.qpic.cn/sz_mmbiz_jpg/7ibiaibCib1GWXWAX7YCyPicFIIodCBZmjCIsGibrVdowLpYWRSe8m6XoIY4Or0a2hcULZwmwcgFaAJuIpjPdh4DmjQK9UJxj1gGmafic1Npx3Te4Q/0?wx_fmt=jpeg&from=appmsg",
+    "images/app-shopping.png": "https://mmbiz.qpic.cn/sz_mmbiz_png/7ibiaibCib1GWXXW3PPkbRgvh3aISPmGdDP8h4ugAJTq7ujxibpdYBcRBRndJQEELjVkKvkQLWK5ibI4p4OibPeCWj2eexBqP77Z3dICnQDCx7oh7c/0?wx_fmt=png&from=appmsg",
+    "images/wechat-groups-qr.png": "https://mmbiz.qpic.cn/mmbiz_png/7ibiaibCib1GWXXzKx1QvaZa2iaf84iaZo0tJyDS1ibA68iaicNZG18c0FibCibEfHADtRPKgnbwlT7CTd2iaia6D57f4lm925X5iasicK1LEBxjibO1iaJdsH3w/0?wx_fmt=png&from=appmsg"
+  }
+}

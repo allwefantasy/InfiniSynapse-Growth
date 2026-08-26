@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --teal: #0f9b98;
+    --teal-dark: #087a78;
+    --ink: #0c1014;
+  }
+  html, body {
+    width: 1080px;
+    height: 1440px;
+    overflow: hidden;
+    background: #edf3f5;
+  }
+  .poster {
+    position: relative;
+    width: 1080px;
+    height: 1440px;
+    overflow: hidden;
+    color: var(--ink);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", Arial, sans-serif;
+    background:
+      linear-gradient(90deg, transparent 0 67%, rgba(178,198,205,.25) 67.2% 67.8%, transparent 68%),
+      radial-gradient(ellipse at 83% 20%, rgba(255,255,255,.98) 0 25%, rgba(237,244,246,.72) 56%, transparent 74%),
+      linear-gradient(180deg, #f9fbfc 0%, #edf3f5 84%, #e5edef 100%);
+  }
+  .poster::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .55;
+    background:
+      linear-gradient(152deg, transparent 0 65%, rgba(189,205,211,.4) 65.2%, transparent 66%) 0 0 / 100% 220px,
+      linear-gradient(90deg, transparent 0 73%, rgba(159,183,192,.24) 73.2% 73.7%, transparent 74%),
+      linear-gradient(180deg, transparent 0 35%, rgba(194,211,216,.20) 35.2% 35.8%, transparent 36%);
+  }
+  .logo {
+    position: absolute;
+    left: 62px;
+    top: 44px;
+    width: 290px;
+    height: auto;
+    z-index: 7;
+  }
+  .live {
+    position: absolute;
+    left: 62px;
+    top: 128px;
+    height: 58px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #12aaa5, #07928f);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 22px 0 11px;
+    font-size: 27px;
+    font-weight: 750;
+    z-index: 7;
+  }
+  .play {
+    width: 39px;
+    height: 39px;
+    flex: 0 0 39px;
+    border-radius: 50%;
+    background: #fff;
+    display: grid;
+    place-items: center;
+  }
+  h1 {
+    position: absolute;
+    left: 67px;
+    top: 230px;
+    z-index: 7;
+    font-size: 58px;
+    font-weight: 950;
+    line-height: 1.20;
+    letter-spacing: .5px;
+  }
+  h1 span { display: block; white-space: nowrap; }
+  h1 .teal { color: #078b91; font-size: 53px; margin: 4px 0; }
+  .who {
+    position: absolute;
+    left: 68px;
+    top: 548px;
+    z-index: 7;
+    font-size: 28px;
+    font-weight: 650;
+    white-space: nowrap;
+  }
+  .when {
+    position: absolute;
+    left: 66px;
+    top: 626px;
+    z-index: 7;
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+  }
+  .when svg { width: 72px; height: 72px; flex: 0 0 72px; }
+  .when .t {
+    font-size: 35px;
+    line-height: 1.18;
+    font-weight: 750;
+  }
+  .portrait {
+    position: absolute;
+    right: -38px;
+    top: 112px;
+    width: 575px;
+    height: auto;
+    z-index: 4;
+    filter: drop-shadow(0 12px 20px rgba(12,16,20,.14));
+  }
+  .banner {
+    position: absolute;
+    left: 68px;
+    top: 736px;
+    width: 944px;
+    height: 263px;
+    z-index: 9;
+    overflow: hidden;
+    border-radius: 20px;
+    padding: 88px 42px 20px;
+    color: #fff;
+    background:
+      linear-gradient(165deg, transparent 0 74%, rgba(255,255,255,.10) 74.2% 76%, transparent 76.2%),
+      radial-gradient(circle at 92% 12%, rgba(255,255,255,.22), transparent 15%),
+      linear-gradient(105deg, #118f8b 0%, #049b9b 51%, #077977 100%);
+    box-shadow: 0 9px 18px rgba(9,87,86,.20);
+  }
+  .banner::after {
+    content: "✦";
+    position: absolute;
+    right: 6px;
+    top: 58px;
+    color: #ffe7a0;
+    font-size: 31px;
+    text-shadow: 0 0 9px #fff, 0 0 18px #f4c64f;
+  }
+  .ribbon {
+    position: absolute;
+    left: 41px;
+    top: 15px;
+    width: 210px;
+    height: 55px;
+    background: linear-gradient(180deg, #fff1b6, #dfb23d);
+    color: #332400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: 750;
+    box-shadow: 0 4px 9px rgba(72,54,7,.25);
+  }
+  .banner-title {
+    font-size: 48px;
+    line-height: 1.08;
+    font-weight: 950;
+    white-space: nowrap;
+  }
+  .banner-sub {
+    margin-top: 13px;
+    font-size: 27px;
+    line-height: 1.2;
+    font-weight: 650;
+    white-space: nowrap;
+  }
+  .cards {
+    position: absolute;
+    left: 66px;
+    top: 1022px;
+    width: 948px;
+    height: 226px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    z-index: 8;
+  }
+  .card {
+    position: relative;
+    height: 226px;
+    border: 1px solid rgba(15,155,152,.20);
+    border-radius: 17px;
+    background: rgba(255,255,255,.86);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    text-align: center;
+    box-shadow: 0 6px 14px rgba(16,47,58,.04);
+  }
+  .card::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    width: 42px;
+    height: 4px;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    background: var(--teal);
+  }
+  .icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(145deg, #1cc8c3, #078a88);
+    margin-bottom: 12px;
+  }
+  .icon svg { width: 40px; height: 40px; }
+  .card p {
+    font-size: 25px;
+    line-height: 1.28;
+    font-weight: 650;
+  }
+  .footer {
+    position: absolute;
+    left: 48px;
+    top: 1277px;
+    width: 984px;
+    height: 127px;
+    border-radius: 18px;
+    z-index: 8;
+    background: #109a97;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: 550;
+    box-shadow: 0 8px 15px rgba(9,87,86,.16);
+  }
+</style>
+</head>
+<body>
+<main class="poster">
+  <img class="logo" src="logo.png" alt="InfiniSynapse">
+  <div class="live">
+    <span class="play">
+      <svg width="17" height="17" viewBox="0 0 17 17"><path d="M5 2.6 14 8.5 5 14.4Z" fill="#0f9b98"/></svg>
+    </span>
+    微信视频号直播
+  </div>
+
+  <h1>
+    <span>如何把</span>
+    <span class="teal">InfiniSynapse</span>
+    <span>嵌进你的产品</span>
+  </h1>
+  <div class="who">祝威廉 ｜ InfiniSynapse 联创</div>
+  <div class="when">
+    <svg viewBox="0 0 72 72" fill="none">
+      <rect x="8" y="14" width="48" height="44" rx="7" stroke="#0f9b98" stroke-width="5"/>
+      <path d="M8 27h48M20 8v12M43 8v12" stroke="#0f9b98" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="51" cy="50" r="13" fill="#eef6f6" stroke="#0f9b98" stroke-width="4"/>
+      <path d="M51 43v8l5 3" stroke="#0f9b98" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+    <div class="t">8/27 周四<br>20:00–21:00</div>
+  </div>
+
+  <img class="portrait" src="will-portrait-cut.png" alt="祝威廉">
+
+  <section class="banner">
+    <div class="ribbon">讲解 + 实操</div>
+    <div class="banner-title">创始人讲解 + 10年全栈程序员实操</div>
+    <div class="banner-sub">现场接入，亲手把 InfiniSynapse 嵌进产品</div>
+  </section>
+
+  <section class="cards">
+    <article class="card">
+      <div class="icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3">
+          <ellipse cx="20" cy="11" rx="12" ry="5"/>
+          <path d="M8 11v10c0 3 5 5 12 5s12-2 12-5V11M8 21v7c0 3 5 5 12 5s12-2 12-5v-7"/>
+        </svg>
+      </div>
+      <p>嵌在哪一步<br>不用重写平台</p>
+    </article>
+    <article class="card">
+      <div class="icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3">
+          <rect x="8" y="18" width="24" height="17" rx="3"/>
+          <path d="M13 18v-5a7 7 0 0 1 14 0v5M20 24v5"/>
+        </svg>
+      </div>
+      <p>Key 只放服务端<br>前端碰不到密钥</p>
+    </article>
+    <article class="card">
+      <div class="icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="3">
+          <path d="M7 33V8M7 33h27M12 28l7-8 6 4 8-11"/>
+          <path d="m27 13 6 0 0 6"/>
+        </svg>
+      </div>
+      <p>怎样才算嵌完<br>进度可见可回写</p>
+    </article>
+  </section>
+
+  <div class="footer">wx搜索“祝威廉”预约直播 · 可领价值150元会员</div>
+</main>
+</body>
+</html>
