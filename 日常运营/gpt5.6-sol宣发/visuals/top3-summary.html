@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { width: 1080px; margin: 0; padding: 48px; font-family: -apple-system, "PingFang SC", "Noto Sans SC", sans-serif; background: #ffffff; color: #1f2328; }
+</style>
+</head>
+<body>
+  <div class="mb-6">
+    <div class="text-xs font-semibold tracking-widest text-slate-500 uppercase mb-2">TOP 3 SUMMARY · 演示样例</div>
+    <div class="text-3xl font-bold">本周 vs 前 6 周均值 · 经营优先级</div>
+  </div>
+  <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+    <div class="grid grid-cols-7 bg-slate-900 text-white text-sm font-semibold">
+      <div class="p-4 col-span-2">异常</div>
+      <div class="p-4">渠道</div>
+      <div class="p-4">关键指标</div>
+      <div class="p-4">本周</div>
+      <div class="p-4">历史均值</div>
+      <div class="p-4">优先级</div>
+    </div>
+    <div class="grid grid-cols-7 text-sm border-b border-slate-100 items-center">
+      <div class="p-4 col-span-2 font-semibold">退货率飙升<br/><span class="text-rose-600 font-bold">+435.5%</span></div>
+      <div class="p-4">搜索广告</div>
+      <div class="p-4">退货率</div>
+      <div class="p-4 font-bold">21.50%</div>
+      <div class="p-4 text-slate-500">4.02%</div>
+      <div class="p-4"><span class="inline-block px-2 py-1 rounded-full bg-rose-100 text-rose-700 text-xs font-bold">P0 / #1</span></div>
+    </div>
+    <div class="grid grid-cols-7 text-sm border-b border-slate-100 items-center bg-slate-50">
+      <div class="p-4 col-span-2 font-semibold">GMV 断崖<br/><span class="text-rose-600 font-bold">−67.6%</span></div>
+      <div class="p-4">直播</div>
+      <div class="p-4">GMV</div>
+      <div class="p-4 font-bold">¥19.8万</div>
+      <div class="p-4 text-slate-500">¥61.2万</div>
+      <div class="p-4"><span class="inline-block px-2 py-1 rounded-full bg-rose-100 text-rose-700 text-xs font-bold">P0 / #2</span></div>
+    </div>
+    <div class="grid grid-cols-7 text-sm items-center">
+      <div class="p-4 col-span-2 font-semibold">加投但 ROI 变差<br/><span class="text-amber-600 font-bold">−56.1%</span></div>
+      <div class="p-4">信息流</div>
+      <div class="p-4">付费 ROI</div>
+      <div class="p-4 font-bold">2.22</div>
+      <div class="p-4 text-slate-500">5.05</div>
+      <div class="p-4"><span class="inline-block px-2 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">P1 / #3</span></div>
+    </div>
+  </div>
+  <div class="mt-5 text-sm text-slate-500">数据来源：InfiniSynapse 演示任务真实跑数 · 非真实商家经营数据</div>
+</body>
+</html>

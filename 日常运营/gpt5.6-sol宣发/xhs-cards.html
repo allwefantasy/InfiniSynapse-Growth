@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>XHS cards</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans SC", "PingFang SC", sans-serif;
+    background: #111;
+    color: #111;
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .card {
+    width: 1080px;
+    height: 1440px;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    background: #0b1220;
+    color: #f5f7fb;
+  }
+  .card.light {
+    background: linear-gradient(165deg, #f7f4ef 0%, #eef3f8 55%, #e8eef6 100%);
+    color: #12151c;
+  }
+  .pad { padding: 72px 64px; height: 100%; display: flex; flex-direction: column; }
+  .eyebrow {
+    font-size: 28px;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    opacity: 0.7;
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-size: 72px;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+  .sub {
+    margin-top: 28px;
+    font-size: 34px;
+    line-height: 1.5;
+    opacity: 0.78;
+    max-width: 920px;
+  }
+  .brand {
+    margin-top: auto;
+    font-size: 30px;
+    font-weight: 700;
+    opacity: 0.85;
+  }
+  .step {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-bottom: 48px;
+  }
+  .num {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: #111827;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .step h3 { font-size: 40px; font-weight: 800; margin-bottom: 10px; }
+  .step p { font-size: 30px; line-height: 1.45; opacity: 0.75; }
+  .row {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 28px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+  }
+  .light .row {
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(18,21,28,0.08);
+  }
+  .tag {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .p0 { background: #ffe2e0; color: #b42318; }
+  .p1 { background: #fff1d6; color: #b54708; }
+  .row h3 { font-size: 38px; font-weight: 800; margin-bottom: 12px; }
+  .metrics { font-size: 30px; line-height: 1.55; opacity: 0.85; }
+  .metrics strong { color: inherit; font-weight: 800; }
+  .delta { font-weight: 800; }
+  .up { color: #e11d48; }
+  .down { color: #e11d48; }
+  .action-title { font-size: 36px; font-weight: 800; margin-bottom: 10px; }
+  .action-body { font-size: 28px; line-height: 1.5; opacity: 0.8; }
+  .cta-box {
+    margin-top: auto;
+    padding: 36px 40px;
+    border-radius: 28px;
+    background: #111827;
+    color: #fff;
+  }
+  .cta-box .t { font-size: 34px; font-weight: 800; margin-bottom: 12px; }
+  .cta-box .d { font-size: 26px; opacity: 0.75; line-height: 1.45; word-break: break-all; }
+</style>
+</head>
+<body>
+
+<!-- Card 2: steps -->
+<section class="card light" id="card-steps">
+  <div class="pad">
+    <div class="eyebrow">HOW TO DEMO · 2 分钟</div>
+    <h1 style="font-size:64px;margin-bottom:56px;">一张表 + 一句话<br/>让 Sol 当经营参谋</h1>
+    <div class="step">
+      <div class="num">1</div>
+      <div>
+        <h3>上传周度经营 CSV</h3>
+        <p>7 周 × 4 渠道：GMV、订单、退货、花费、UV、新客</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div>
+        <h3>模型选 GPT 5.6 Sol</h3>
+        <p>InfiniSynapse Data Agent 换上更强推理引擎</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div>
+        <h3>丢一句经营问题</h3>
+        <p>对比本周 vs 前 6 周均值，找 Top 3 异常 + 下周动作</p>
+      </div>
+    </div>
+    <div class="brand">InfiniSynapse · Data Agent</div>
+  </div>
+</section>
+
+<!-- Card 3: top3 -->
+<section class="card" id="card-top3">
+  <div class="pad">
+    <div class="eyebrow">RESULT · TOP 3 异常</div>
+    <h1 style="font-size:58px;margin-bottom:48px;">本周最该盯的<br/>三件事</h1>
+
+    <div class="row">
+      <span class="tag p0">P0 · #1</span>
+      <h3>搜索广告 · 退货率飙升</h3>
+      <div class="metrics">
+        本周 <strong>21.50%</strong> vs 历史均值 <strong>4.02%</strong><br/>
+        <span class="delta up">变化 +435.5%（+17.48pp）</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="tag p0">P0 · #2</span>
+      <h3>直播 · GMV 断崖</h3>
+      <div class="metrics">
+        本周 <strong>¥19.8万</strong> vs 历史均值 <strong>¥61.2万</strong><br/>
+        <span class="delta down">变化 −67.6%</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="tag p1">P1 · #3</span>
+      <h3>信息流 · 加投但 ROI 变差</h3>
+      <div class="metrics">
+        ROI 本周 <strong>2.22</strong> vs 历史 <strong>5.05</strong><br/>
+        <span class="delta down">变化 −56.1% · 花费 +86.7%</span>
+      </div>
+    </div>
+
+    <div class="brand">数据来自真实任务跑数 · 非编造</div>
+  </div>
+</section>
+
+<!-- Card 4: actions -->
+<section class="card light" id="card-actions">
+  <div class="pad">
+    <div class="eyebrow">NEXT WEEK · 可执行动作</div>
+    <h1 style="font-size:58px;margin-bottom:48px;">不只找异常<br/>还给出手标准</h1>
+
+    <div class="row" style="margin-bottom:24px;">
+      <div class="action-title">1. 搜索退货止血</div>
+      <div class="action-body">售后 + 商品质量：按 SKU / 退因拆解 860 单退货；成功标准：退货率回到 ≤4.02%</div>
+    </div>
+    <div class="row" style="margin-bottom:24px;">
+      <div class="action-title">2. 直播恢复冲刺</div>
+      <div class="action-body">直播运营：复盘排期 / 主播 / 货盘 / 曝光；成功标准：GMV ≥¥61.2万，ROI ≥14.52</div>
+    </div>
+    <div class="row" style="margin-bottom:24px;">
+      <div class="action-title">3. 信息流预算回撤</div>
+      <div class="action-body">投放负责人：周花费先压回约 ¥9.5万；成功标准：ROI ≥5.05 再加预算</div>
+    </div>
+
+    <div class="cta-box">
+      <div class="t">完整任务可点开复现</div>
+      <div class="d">app.infinisynapse.com 分享任务 · InfiniSynapse × GPT 5.6 Sol</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
